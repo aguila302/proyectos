@@ -1,0 +1,33 @@
+<ion-header >
+    <ion-navbar color="twitter">
+		<ion-title>Selecciona tus opciones</ion-title>
+	</ion-navbar>
+    <ion-grid >
+		<ion-row >
+			<ion-col >
+				<ion-item >
+					<ion-label color="twitter">
+					<strong>Selecciona todos</strong></ion-label>
+					<ion-checkbox  (ionChange)="seleccionAll($event)"></ion-checkbox>
+				</ion-item>
+			</ion-col>
+			<ion-col>
+				<ion-item>
+					<ion-label color="twitter">
+					<strong>Seleccion por default</strong></ion-label>
+					<ion-checkbox  (ionChange)="seleccionDefault($event)"></ion-checkbox>
+				</ion-item>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-header>
+
+<ion-content padding>
+	<ion-list>
+	 	<ion-item *ngFor="let item of items">
+			<ion-label>{{ item.texto }}</ion-label>
+			<ion-checkbox checked="{{ item.checked }}" (ionChange)="seleccionFiltros($event, item.opcion)"></ion-checkbox>
+		</ion-item>
+		<button ion-button block color="botton" (click)="cerrarFiltros()">Aceptar</button>
+	</ion-list>
+</ion-content>

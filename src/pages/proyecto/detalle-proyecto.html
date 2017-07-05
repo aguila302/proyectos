@@ -1,0 +1,94 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Detalle de proyecto</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+	<ion-card>
+		<ion-item text-wrap text-justify>
+			 <ion-icon name="pricetags" item-start large></ion-icon>
+			<h2><strong>Proyecto</strong></h2>
+			<h3>{{ proyecto.nombre_proyecto }}</h3>
+		</ion-item>
+
+		 <ion-card-content>
+			<ion-item text-justify>
+				<ion-grid>
+					<ion-row>
+						<ion-col>
+							<span item-left><strong>Monto:</strong> $ {{ proyecto.monto | number }}</span>
+						</ion-col>
+						<ion-col>
+							<span item-left><strong>Moneda:</strong> {{ proyecto.moneda }}</span>
+						</ion-col>
+						<ion-col>
+							<span item-left><strong>Pais:</strong> {{ proyecto.pais }}</span>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</ion-item>
+		 </ion-card-content>
+	</ion-card>
+	<hr>
+	<ion-card>
+		<ion-item text-wrap>
+			<ion-icon name="information-circle" item-start large></ion-icon>
+			<h2>Descripción</h2>
+			<ion-item>
+				<ion-grid>
+					<ion-row>
+						<ion-col>
+							<span item-left><strong>Gerencia:</strong> {{ proyecto.gerencia }}</span>
+						</ion-col>
+						<ion-col>
+							<span item-left><strong>Unidad de negocio:</strong> {{ proyecto.unidad_negocio }}</span>
+						</ion-col>
+						<ion-col>
+							<span item-left><strong>Numero de contrato:</strong> {{ proyecto.numero_contrato }}</span>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col>
+							<span item-left><strong>Producto:</strong> {{ proyecto.producto }}</span>
+						</ion-col>
+						<ion-col>
+							<span item-left><strong>Año:</strong> {{ proyecto.anio }}</span>
+						</ion-col>
+						<ion-col>
+							<span item-left><strong>Duración:</strong> {{ proyecto.duracion }}</span>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col>
+							<span item-left><strong>Contratante:</strong> {{ proyecto.contratante }}</span>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col>
+							<span item-left><strong>Datos del cliente:</strong> {{ proyecto.datos_cliente }}</span>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col>
+							<span item-left><strong>Fecha de inicio:</strong> {{ proyecto.fecha_inicio }}</span>
+						</ion-col>
+						<ion-col>
+							<span item-left><strong>Fecha de termino:</strong> {{ proyecto.fecha_fin }}</span>
+						</ion-col>
+						<ion-col>
+							<span item-left><strong>Duración:</strong> {{ proyecto.duracion }}</span>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col>
+							<span item-left><strong>Numero de propuesta:</strong> {{ proyecto.numero_propuesta }}</span>
+						</ion-col>
+						<ion-col>
+							<span item-left><strong>Anticipo:</strong> {{ proyecto.anticipo }}</span>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</ion-item>
+	</ion-item>
+	</ion-card>
+</ion-content>

@@ -1,0 +1,14 @@
+page-proyecto {
+	
+	.inline {
+		display: inherit
+	}
+		p {
+			padding-right: 10px;
+		}
+
+	.right {
+		display: flex;
+		justify-content: flex-end;
+	}
+}
