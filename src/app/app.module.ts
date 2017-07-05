@@ -10,19 +10,18 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { ProyectoService } from '../services/proyecto.service';
 import { EstadisticaService } from '../services/estadistica.service';
+import { DbService } from '../services/db.service'
 import { DetalleProyectoPage } from '../pages/proyecto/DetalleProyecto';
 import { FiltrosPage } from '../pages/proyecto/filtros/filtros';
 import { PiePage } from '../pages/estadistica/pie';
 
 //import { ChartsModule } from 'ng2-charts';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
-
-// import * as collect from 'collect.js';
-// import * as collect from 'collect.js'
+import { SQLite } from '@ionic-native/sqlite';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-// import { collectjs } from '../../node_modules/collect-js/col'
+import { AccordionModule } from 'ng2-accordion'
 
 @NgModule({
   declarations: [
@@ -39,6 +38,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     ChartsModule,
+    AccordionModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -59,6 +59,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     },
     ProyectoService,
     EstadisticaService,
+    SQLite,
+    DbService
   ]
 })
 export class AppModule {}

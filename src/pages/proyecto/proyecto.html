@@ -9,41 +9,14 @@
     <button ion-button full color="light" (tap)="muestraFiltros()">Busqueda avanzada</button>
 
     <ion-searchbar (ionInput)="buscaProyectos($event)" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)"></ion-searchbar>
-
     <ion-list [virtualScroll]="proyectos">
         <ion-item *virtualItem="let proyecto">
-            <ion-card>
-                <ion-grid>
-                    <ion-row>
-                        <ion-col  text-wrap text-justify>
-                            <p>Proyecto:</p>
-                            <h4>{{ proyecto.nombre_proyecto }}</h4>
-                        </ion-col>
-                    </ion-row>
-                </ion-grid>
-                <ion-card-content>
-                    <ion-grid>
-                        <ion-row>
-                            <ion-col class="inline">
-                                <p>Monto:</p>
-                                $ {{ proyecto.monto | number }}
-                            </ion-col>
-                            <ion-col class="inline">
-                                <p>Moneda:</p>
-                                {{ proyecto.moneda }}
-                            </ion-col>
-                            <ion-col class="right">
-                                <!-- <button (tap)="detalleProyecto(proyecto)" ion-button>Ver</button> -->
-                                <button ion-button clear item-end (tap)="detalleProyecto(proyecto)">
-                                <strong style="text-transform: capitalize;">Ver mas ...</strong>
-                                </button>
-                            </ion-col>
-                        </ion-row>
-                        <ion-row>
-                        </ion-row>
-                    </ion-grid>
-                </ion-card-content>
-            </ion-card>
+             <accordion>
+                <accordion-group heading="{{ proyecto.name }}">
+                    <p><strong>Monto:</strong></p> $ {{ proyecto.monto | number }}
+                    <p><strong>Moneda:</strong></p>{{ proyecto.moneda }}
+                </accordion-group>
+            </accordion>
         </ion-item>
     </ion-list>
 </ion-content>

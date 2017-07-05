@@ -5,6 +5,8 @@ import { Proyecto } from '../../interfaces/proyecto'
 import { DetalleProyectoPage } from './DetalleProyecto'
 import { ModalController, NavParams } from 'ionic-angular'
 import { FiltrosPage } from './filtros/filtros'
+import { DbService } from '../../services/db.service'
+import * as collect from 'collect.js/dist'
 
 @Component({
 	selector: 'page-proyecto',
@@ -12,7 +14,7 @@ import { FiltrosPage } from './filtros/filtros'
 })
 
 /* Clase de mi componente proyecto.html */
-export class ProyectoPage {
+export class ProyectoPage implements OnInit{
 
 	proyectos = []
 	items = []
@@ -21,21 +23,31 @@ export class ProyectoPage {
 	ngOnInit(): void {
 		this.getProyectos()
 		this.opciones['nombre_proyecto'] = 'nombre_proyecto'
+		// this.creaDB()
 	}
 
 	constructor(
 		public navCtrl: NavController,
 		private proyectoService: ProyectoService,
-		public modalCtrl: ModalController) {
-	
+		public modalCtrl: ModalController,
+		public dbService: DbService) {
+		
 	}
 
-	/* Obtenemos los proyectos del servicio de proyectos. */
+	/* Obtenemos los proyectos del servicio db.service de proyectos. */
 	getProyectos = (): any => {
-		setTimeout (() => {
-			this.proyectoService.getProyectos()
-				.then(proyectos => this.proyectos = proyectos)
-		}, 100)
+		setTimeout(() => {
+			this.dbService.openDatabase()
+			.then(() => this.dbService.getProyectos())
+			.then(response => {
+				this.proyectos = response
+			}).catch(e => console.log(e))
+		}, 0)
+
+		// setTimeout (() => {
+		// 	this.proyectoService.getProyectos()
+		// 		.then(proyectos => this.proyectos = proyectos)
+		// }, 100)
 	}
 
 	/* Funcion para ver el detalle de un proyecto. */
@@ -74,4 +86,14 @@ export class ProyectoPage {
 			this.opciones = data
 		})
 	}
+
+	// creaDB = (): void  => {
+	// 	this.dbService.openDatabase()
+	// 	//.then(() => this.dbService.createTable())
+	// 	//.then(() => this.dbService.insertaDatos())
+	// 	.then(() => this.dbService.getProyectos())
+	// 	.then(response => {
+
+	// 	})
+	// }
 }
