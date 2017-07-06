@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { ViewController, ModalController, NavParams } from 'ionic-angular'
+import { ViewController, NavParams } from 'ionic-angular'
 
 @Component({
 	selector: 'page-filtros',
@@ -144,6 +144,14 @@ export class FiltrosPage {
 	/* Funcion para cerrar la ventana de filtros. */
 	cerrarFiltros() {
 		/* Enviamos nuestras opciones para realizar la busqueda. */
+		this.data_send['nombre_proyecto'] = 'nombre_proyecto'
 		this.viewCtrl.dismiss(this.data_send)
+	}
+
+	/* Funcion para cancelar los filtros. */
+	cancelar() {
+			this.data_send = []
+			this.data_send['nombre_proyecto'] = 'nombre_proyecto'
+			this.viewCtrl.dismiss(this.data_send)
 	}
 }

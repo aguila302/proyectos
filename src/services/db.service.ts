@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core'
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite'
-
-import { Proyecto } from '../interfaces/proyecto'
 import { PROYECTOS } from '../services/mocks/proyectos'
 import * as collect from 'collect.js/dist'
 
@@ -17,9 +15,21 @@ export class DbService {
 	/* Creamos la base de datos. */
 	openDatabase() {
 		return this.sqlite.create({
-			name: 'data.db',
+			name: 'proyectos.db',
 			location: 'default'
 		})
+	}
+	/* Reseteamos la tabla proyectos. */
+	resetTable() {
+		let sql = 'drop table if exists proyectos'
+		this.openDatabase()
+			.then((db: SQLiteObject) => {
+				db.executeSql(sql, {})
+				.then(() => console.log('tabla reseteada'))
+				.catch(e => console.log(e))
+			}
+		)
+		.catch(e => console.log(e))
 	}
 
 	/* Creamos la tabla. */
@@ -27,7 +37,9 @@ export class DbService {
 		let sql = `
 			create table if not exists proyectos(
 				id integer primary key autoincrement,
-				name text,
+				nombre_proyecto text,
+				nombre_corto text,
+				contrato text,
 				monto integer,
 				moneda text,
 				pais text,
@@ -59,20 +71,23 @@ export class DbService {
 		let origen = collect(PROYECTOS)
 		origen.each(item => {
 			//let db = this.db
-			let sql = `insert into proyectos(name,
+			let sql = `insert into proyectos(
+				nombre_proyecto, nombre_corto, contrato,
 				monto, moneda, pais,
 				gerencia, unidad_negocio,
 				numero_contrato, producto,
 				anio, duracion, contratante,
 				datos_cliente, fecha_inicio,
 				fecha_fin, numero_propuesta,
-				anticipo) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+				anticipo) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
 
 			this.openDatabase()
 			.then((db: SQLiteObject) => {
 				setTimeout(() => {
 					db.executeSql(sql, [
 						item.nombre_proyecto,
+						item.nombre_corto,
+						item.contrato,
 						parseInt(item.monto),
 						item.moneda,
 						item.pais,
@@ -103,13 +118,34 @@ export class DbService {
 		.then((db: SQLiteObject) => {
 			db.executeSql(sql, {})
 			.then((response) => {
-				console.log(response)
-				for (let index = 0; index < response.rows.length; index++) {
+				for(let index = 0; index < response.rows.length; index++) {
 					proyectos.push(response.rows.item(index))
 				}
 				Promise.resolve(proyectos)
 			})
 		}).catch(e => console.log(e))
+		return proyectos
+	}
+
+	/* Funcion para buscar los proyectos dado a los filtros seleccionados. */
+	buscaProyecto(val, filtros): any {
+		let proyectos = []
+
+		for(let i in filtros) {
+			let sql = 'select * from proyectos where ' + i + ' like ' + "'%" + val + "%'"
+			console.log(sql)
+			this.openDatabase()
+			.then((db: SQLiteObject) => {
+				db.executeSql(sql, {})
+				.then((ressponse) => {
+					for(let index = 0; index < ressponse.rows.length; index++) {
+						proyectos.push(ressponse.rows.item(index))
+					}
+					Promise.resolve(proyectos)
+				})
+			}).catch(e => console.log(e))
+			//console.log(proyectos)
+		}
 		return proyectos
 	}
 }

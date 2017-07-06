@@ -8,7 +8,6 @@ import { ContactPage } from '../pages/contact/contact';
 import { ProyectoPage } from '../pages/proyecto/proyecto';
 import { TabsPage } from '../pages/tabs/tabs';
 
-import { ProyectoService } from '../services/proyecto.service';
 import { EstadisticaService } from '../services/estadistica.service';
 import { DbService } from '../services/db.service'
 import { DetalleProyectoPage } from '../pages/proyecto/DetalleProyecto';
@@ -57,7 +56,6 @@ import { AccordionModule } from 'ng2-accordion'
       provide: ErrorHandler,
       useClass: IonicErrorHandler
     },
-    ProyectoService,
     EstadisticaService,
     SQLite,
     DbService

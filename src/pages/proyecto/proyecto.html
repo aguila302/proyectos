@@ -6,7 +6,7 @@
 </ion-header>
 
 <ion-content padding>
-    <button ion-button full color="light" (tap)="muestraFiltros()">Busqueda avanzada</button>
+    <button ion-button full color="light" (click)="muestraFiltros()">Busqueda avanzada</button>
 
     <ion-searchbar (ionInput)="buscaProyectos($event)" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)"></ion-searchbar>
 
@@ -17,7 +17,7 @@
                     <ion-row>
                         <ion-col  text-wrap text-justify>
                             <p>Proyecto:</p>
-                            <h4>{{ proyecto.name }}</h4>
+                            <h4>{{ proyecto.nombre_proyecto }}</h4>
                         </ion-col>
                     </ion-row>
                 </ion-grid>

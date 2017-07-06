@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core'
 import { NavController } from 'ionic-angular'
-import { ProyectoService } from '../../services/proyecto.service'
 import { Proyecto } from '../../interfaces/proyecto'
 import { DetalleProyectoPage } from './DetalleProyecto'
 import { ModalController, NavParams } from 'ionic-angular'
@@ -28,10 +27,8 @@ export class ProyectoPage implements OnInit{
 
 	constructor(
 		public navCtrl: NavController,
-		private proyectoService: ProyectoService,
 		public modalCtrl: ModalController,
 		public dbService: DbService) {
-		
 	}
 
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
@@ -43,11 +40,6 @@ export class ProyectoPage implements OnInit{
 				this.proyectos = response
 			}).catch(e => console.log(e))
 		}, 0)
-
-		// setTimeout (() => {
-		// 	this.proyectoService.getProyectos()
-		// 		.then(proyectos => this.proyectos = proyectos)
-		// }, 100)
 	}
 
 	/* Funcion para ver el detalle de un proyecto. */
@@ -65,10 +57,8 @@ export class ProyectoPage implements OnInit{
 		// Si el valor no es vacio filtra los proyectos.
 		val && val.trim() != '' ? (
 			setTimeout(() => {
-				this.proyectos = this.proyectoService.filtrarProyectos(val)
-					.then(items => this.items = items)
-					.then(() => this.proyectos = this.proyectoService.muestraProyecto(this.items, val, filtros))
-			}, 500)
+				this.proyectos = this.dbService.buscaProyecto(val, filtros)
+			}, 0)
 		) : (
 			/* Si no hay ningun valor en el campo muestra el listado de los proyectos. */
 			this.getProyectos()
@@ -89,11 +79,12 @@ export class ProyectoPage implements OnInit{
 
 	// creaDB = (): void  => {
 	// 	this.dbService.openDatabase()
+	// 	.then(() => this.dbService.resetTable())
 	// 	.then(() => this.dbService.createTable())
 	// 	.then(() => this.dbService.insertaDatos())
-	// 	.then(() => this.dbService.getProyectos())
-	// 	.then(response => {
+	// 	// .then(() => this.dbService.getProyectos())
+	// 	// .then(response => {
 
-	// 	})
-	// }
+	// 	// })
+	//}
 }
