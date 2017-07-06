@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite'
 import { PROYECTOS } from '../services/mocks/proyectos'
+import { Proyecto } from '../interfaces/proyecto'
 import * as collect from 'collect.js/dist'
 
 @Injectable()
@@ -146,6 +147,23 @@ export class DbService {
 			}).catch(e => console.log(e))
 			//console.log(proyectos)
 		}
+		return proyectos
+	}
+
+	consultaXPais(): Array<any> {
+		let proyectos = []
+		let sql = 'SELECT pais, count(*) as numero_proyectos, sum(monto) as monto FROM proyectos group by pais order by pais'
+		this.openDatabase()
+		.then((db: SQLiteObject) => {
+			db.executeSql(sql, {})
+			.then((response) => {
+				let arg = [{}]
+				for(let index = 0; index < response.rows.length; index++) {
+					proyectos.push(response.rows.item(index))
+				}
+				Promise.resolve(proyectos)
+			})
+		}).catch(e => console.log(e))
 		return proyectos
 	}
 }

@@ -1332,7 +1332,7 @@ cordova-sqlite-storage-dependencies@1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/cordova-sqlite-storage-dependencies/-/cordova-sqlite-storage-dependencies-1.0.4.tgz#8279afc8d83b0161bfa7dd9c228a827f5dd8145e"
 
-cordova-sqlite-storage@~2.0.4:
+cordova-sqlite-storage@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/cordova-sqlite-storage/-/cordova-sqlite-storage-2.0.4.tgz#8b5ce65c63b46b0415ca7012cc57bf2711b20371"
   dependencies:
@@ -4670,6 +4670,16 @@ vm-browserify@0.0.4:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-0.0.4.tgz#5d7ea45bbef9e4a6ff65f95438e0a87c357d5a73"
   dependencies:
     indexof "0.0.1"
+
+vue-chartjs@^2.7.1:
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/vue-chartjs/-/vue-chartjs-2.7.1.tgz#4e8a01168f10bf747630930c3f9f1130fd00694a"
+  dependencies:
+    lodash "^4.17.4"
+
+vue@^2.3.4:
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.3.4.tgz#5ec3b87a191da8090bbef56b7cfabd4158038171"
 
 walkdir@^0.0.11:
   version "0.0.11"

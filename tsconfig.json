@@ -1,13 +1,12 @@
 {
   "compilerOptions": {
-    // "typeRoots" : ["./collect"]
-    // "types" : ["node", "lodash", "express", "collect.js"],
     "allowSyntheticDefaultImports": true,
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": [
       "dom",
+      "es5",
       "es2015"
     ],
     "module": "es2015",

@@ -57,6 +57,8 @@
         "serve": "^5.2.2",
         "sw-toolbox": "3.6.0",
         "ts-fs-promise": "^1.0.4",
+        "vue": "^2.3.4",
+        "vue-chartjs": "^2.7.1",
         "zone.js": "0.8.11"
     },
     "devDependencies": {

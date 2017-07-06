@@ -20,7 +20,6 @@ import { SQLite } from '@ionic-native/sqlite';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { AccordionModule } from 'ng2-accordion'
 
 @NgModule({
   declarations: [
@@ -37,7 +36,6 @@ import { AccordionModule } from 'ng2-accordion'
     BrowserModule,
     IonicModule.forRoot(MyApp),
     ChartsModule,
-    AccordionModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
