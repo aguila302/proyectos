@@ -29,7 +29,20 @@ export class DbService {
 				id integer primary key autoincrement,
 				name text,
 				monto integer,
-				moneda text)
+				moneda text,
+				pais text,
+				gerencia text,
+				unidad_negocio text,
+				numero_contrato text,
+				producto text,
+				anio integer,
+				duracion text,
+				contratante text,
+				datos_cliente text,
+				fecha_inicio text,
+				fecha_fin text,
+				numero_propuesta text,
+				anticipo text)
 		`;
 		this.openDatabase()
 			.then((db: SQLiteObject) => {
@@ -46,7 +59,15 @@ export class DbService {
 		let origen = collect(PROYECTOS)
 		origen.each(item => {
 			//let db = this.db
-			let sql = 'insert into proyectos(name, monto, moneda) values(?, ?, ?)'
+			let sql = `insert into proyectos(name,
+				monto, moneda, pais,
+				gerencia, unidad_negocio,
+				numero_contrato, producto,
+				anio, duracion, contratante,
+				datos_cliente, fecha_inicio,
+				fecha_fin, numero_propuesta,
+				anticipo) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+
 			this.openDatabase()
 			.then((db: SQLiteObject) => {
 				setTimeout(() => {
@@ -54,6 +75,19 @@ export class DbService {
 						item.nombre_proyecto,
 						parseInt(item.monto),
 						item.moneda,
+						item.pais,
+						item.gerencia,
+						item.unidad_negocio,
+						item.numero_contrato,
+						item.producto,
+						item.anio,
+						item.duracion,
+						item.contratante,
+						item.datos_cliente,
+						item.fecha_inicio,
+						item.fecha_fin,
+						item.numero_propuesta,
+						item.anticipo
 					]).then(() => console.log('regustros insertados'))
 					.catch(e => console.log(e))
 				}, 0)
