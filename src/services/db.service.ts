@@ -143,18 +143,14 @@ export class DbService {
 				Promise.resolve(proyectos)
 			})
 		}).catch(e => console.log(e))
-		console.log(proyectos)
 		return proyectos
 	}
 
 	/* Funcion para buscar los proyectos dado a los filtros seleccionados. */
 	buscaProyecto(val, filtros): any {
-		console.log(filtros)
 		let proyectos = []
-
 		for(let i in filtros) {
 			let sql = 'select * from proyectos where ' + i + ' like ' + "'%" + val + "%'"
-			console.log(sql)
 			this.openDatabase()
 			.then((db: SQLiteObject) => {
 				db.executeSql(sql, {})
@@ -165,25 +161,30 @@ export class DbService {
 					Promise.resolve(proyectos)
 				})
 			}).catch(e => console.log(e))
-			//console.log(proyectos)
 		}
 		return proyectos
 	}
 
-	consultaXPais() {
-		let proyectos: Array<any> = [{}]
+	consultaXPais(){
+		let proyectos = []
 		let sql = 'SELECT pais, count(*) as numero_proyectos, sum(monto) as monto FROM proyectos group by pais order by pais'
 		this.openDatabase()
 		.then((db: SQLiteObject) => {
 			db.executeSql(sql, {})
 			.then(response => {
 				for(let index = 0; index < response.rows.length; index++) {
-					proyectos.push(response.rows.item(index))
+					proyectos.push({
+						'pais': response.rows.item(index).pais,
+						'numero_proyectos': response.rows.item(index).numero_proyectos,
+						'monto': response.rows.item(index).monto,
+					})
 				}
-				return collect(proyectos)
+				console.log(proyectos)
 			})
 		}).catch(e => console.log(e))
-
-		return collect(proyectos)
 	}
+
+	// datosAenviar(arreglo) {
+	// 	console.log(arreglo)
+	// }
 }

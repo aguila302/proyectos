@@ -43,8 +43,8 @@ export class EstadisticaPage {
 		this.getDatosXPais()
 	}
 
-	getDatosXPais = (): any => {
+	getDatosXPais() {
+
 		let data = this.dbService.consultaXPais()
-		console.log(data)
 	}
 }
