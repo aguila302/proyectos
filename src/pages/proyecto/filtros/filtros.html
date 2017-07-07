@@ -18,7 +18,7 @@
 				</ion-item>
 			</ion-col>
 			<ion-col>
-				<ion-item>
+				<ion-item *ngIf="show | true; else false">
 					<ion-label color="twitter">
 					<strong>Seleccion por default</strong></ion-label>
 					<ion-checkbox  (ionChange)="seleccionDefault($event)"></ion-checkbox>

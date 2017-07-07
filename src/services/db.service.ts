@@ -149,6 +149,7 @@ export class DbService {
 
 	/* Funcion para buscar los proyectos dado a los filtros seleccionados. */
 	buscaProyecto(val, filtros): any {
+		console.log(filtros)
 		let proyectos = []
 
 		for(let i in filtros) {

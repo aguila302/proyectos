@@ -22,7 +22,7 @@ export class ProyectoPage implements OnInit{
 	ngOnInit(): void {
 		this.getProyectos()
 		this.opciones['nombre_proyecto'] = 'nombre_proyecto'
-		// this.creaDB()
+		this.creaDB()
 	}
 
 	constructor(
@@ -77,14 +77,14 @@ export class ProyectoPage implements OnInit{
 		})
 	}
 
-	// creaDB = (): void  => {
-	// 	this.dbService.openDatabase()
-	// 	.then(() => this.dbService.resetTable())
-	// 	.then(() => this.dbService.createTable())
-	// 	.then(() => this.dbService.insertaDatos())
-	// 	// .then(() => this.dbService.getProyectos())
-	// 	// .then(response => {
+	creaDB = (): void  => {
+		this.dbService.openDatabase()
+		.then(() => this.dbService.resetTable())
+		.then(() => this.dbService.createTable())
+		.then(() => this.dbService.insertaDatos())
+		// .then(() => this.dbService.getProyectos())
+		// .then(response => {
 
-	// 	// })
-	//}
+		// })
+	}
 }

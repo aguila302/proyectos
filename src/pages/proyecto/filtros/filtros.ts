@@ -9,6 +9,7 @@ import { ViewController, NavParams } from 'ionic-angular'
 export class FiltrosPage {
 
 	data_send = []
+	show: boolean = true
 
 	constructor(public navParams: NavParams, public viewCtrl: ViewController) {
 	}
@@ -21,7 +22,7 @@ export class FiltrosPage {
 		{'opcion': 'numero_propuesta', 'texto': 'Por numero de propuesta', 'checked': false},
 		{'opcion': 'contrato', 'texto': 'Por contrato', 'checked': false},
 		{'opcion': 'anio', 'texto': 'Por año', 'checked': false},
-		{'opcion': 'nombre_proyecto', 'texto': 'Por nombre de proyecto', 'checked': true},
+		{'opcion': 'nombre_proyecto', 'texto': 'Por nombre de proyecto', 'checked': false},
 		{'opcion': 'nombre_corto', 'texto': 'Por nombre corto', 'checked': false},
 		{'opcion': 'contratante', 'texto': 'Por contratante', 'checked': false},
 		{'opcion': 'datos_cliente', 'texto': 'Por datos de cliente', 'checked': false},
@@ -83,20 +84,22 @@ export class FiltrosPage {
 					return(
 						data.opcion = data.opcion,
 						data.checked = false
+
 					)
-				}
-			),
+				},
+				this.data_send = [],
+			)
 
 			/* Dejamos activada la opcion busqueda por nombre de proyecto ya que es la personalizada. */
-			this.items.filter((item) => {
-				return item.opcion == 'nombre_proyecto'
+			// this.items.filter((item) => {
+			// 	return item.opcion == 'nombre_proyecto'
 
-			}).map((map) => {
-				map.checked = true
-			}),
+			// }).map((map) => {
+			// 	map.checked = true
+			// }),
 
-			this.data_send = [],
-			this.data_send['nombre_proyecto'] = 'nombre_proyecto'
+			// this.data_send = [],
+			// this.data_send['nombre_proyecto'] = 'nombre_proyecto'
 		)
 	}
 
@@ -125,33 +128,34 @@ export class FiltrosPage {
 						data.opcion = data.opcion,
 						data.checked = false
 					)
-				}
-			),
+				},
+				this.data_send = []
+			)
 
 			/* Activamos la opcion de nombre de proyecto ya que es la default*/
-			this.items.filter((item) => {
-				return item.opcion == 'nombre_proyecto'
+			// this.items.filter((item) => {
+			// 	return item.opcion == 'nombre_proyecto'
 
-			}).map((map) => {
-				map.checked = true
-			}),
+			// }).map((map) => {
+			// 	map.checked = true
+			// }),
 
-			this.data_send = [],
-			this.data_send['nombre_proyecto'] = 'nombre_proyecto'
+			// this.data_send = [],
+			// this.data_send['nombre_proyecto'] = 'nombre_proyecto'
 		)
 	}
 
 	/* Funcion para cerrar la ventana de filtros. */
 	cerrarFiltros() {
 		/* Enviamos nuestras opciones para realizar la busqueda. */
-		this.data_send['nombre_proyecto'] = 'nombre_proyecto'
+		//this.data_send['nombre_proyecto'] = 'nombre_proyecto'
 		this.viewCtrl.dismiss(this.data_send)
 	}
 
 	/* Funcion para cancelar los filtros. */
 	cancelar() {
-			this.data_send = []
-			this.data_send['nombre_proyecto'] = 'nombre_proyecto'
+			// this.data_send = []
+			// this.data_send['nombre_proyecto'] = 'nombre_proyecto'
 			this.viewCtrl.dismiss(this.data_send)
 	}
 }
