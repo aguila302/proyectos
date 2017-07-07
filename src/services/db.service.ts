@@ -150,20 +150,20 @@ export class DbService {
 		return proyectos
 	}
 
-	consultaXPais(): Array<any> {
-		let proyectos = []
+	consultaXPais() {
+		let proyectos: Array<any> = [{}]
 		let sql = 'SELECT pais, count(*) as numero_proyectos, sum(monto) as monto FROM proyectos group by pais order by pais'
 		this.openDatabase()
 		.then((db: SQLiteObject) => {
 			db.executeSql(sql, {})
-			.then((response) => {
-				let arg = [{}]
+			.then(response => {
 				for(let index = 0; index < response.rows.length; index++) {
 					proyectos.push(response.rows.item(index))
 				}
-				Promise.resolve(proyectos)
+				return collect(proyectos)
 			})
 		}).catch(e => console.log(e))
-		return proyectos
+
+		return collect(proyectos)
 	}
 }
