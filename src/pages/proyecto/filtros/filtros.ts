@@ -9,7 +9,6 @@ import { ViewController, NavParams } from 'ionic-angular'
 export class FiltrosPage {
 
 	data_send = []
-	show: boolean = true
 
 	constructor(public navParams: NavParams, public viewCtrl: ViewController) {
 	}

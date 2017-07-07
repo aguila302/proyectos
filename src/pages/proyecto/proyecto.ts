@@ -21,7 +21,7 @@ export class ProyectoPage implements OnInit{
 
 	ngOnInit(): void {
 		this.getProyectos()
-		this.opciones['nombre_proyecto'] = 'nombre_proyecto'
+		// this.opciones['nombre_proyecto'] = 'nombre_proyecto'
 		this.creaDB()
 	}
 
