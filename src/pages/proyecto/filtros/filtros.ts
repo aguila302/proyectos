@@ -1,14 +1,18 @@
-import { Component } from '@angular/core'
+import { Component, EventEmitter, Output } from '@angular/core'
 import { ViewController, NavParams } from 'ionic-angular'
 
 @Component({
 	selector: 'page-filtros',
-	templateUrl: 'filtros.html'
+	templateUrl: 'filtros.html',
+	
 })
 
 export class FiltrosPage {
 
 	data_send = []
+	visible: boolean = true
+	@Output() open: EventEmitter < any > = new EventEmitter();
+	@Output() close: EventEmitter < any > = new EventEmitter();
 
 	constructor(public navParams: NavParams, public viewCtrl: ViewController) {
 	}
@@ -72,7 +76,6 @@ export class FiltrosPage {
 			this.items.forEach(
 				(arg) => {
 					this.data_send[arg.opcion] = arg.opcion
-
 				}
 			)
 		) : (
@@ -88,17 +91,6 @@ export class FiltrosPage {
 				},
 				this.data_send = [],
 			)
-
-			/* Dejamos activada la opcion busqueda por nombre de proyecto ya que es la personalizada. */
-			// this.items.filter((item) => {
-			// 	return item.opcion == 'nombre_proyecto'
-
-			// }).map((map) => {
-			// 	map.checked = true
-			// }),
-
-			// this.data_send = [],
-			// this.data_send['nombre_proyecto'] = 'nombre_proyecto'
 		)
 	}
 
@@ -130,31 +122,17 @@ export class FiltrosPage {
 				},
 				this.data_send = []
 			)
-
-			/* Activamos la opcion de nombre de proyecto ya que es la default*/
-			// this.items.filter((item) => {
-			// 	return item.opcion == 'nombre_proyecto'
-
-			// }).map((map) => {
-			// 	map.checked = true
-			// }),
-
-			// this.data_send = [],
-			// this.data_send['nombre_proyecto'] = 'nombre_proyecto'
 		)
 	}
 
 	/* Funcion para cerrar la ventana de filtros. */
 	cerrarFiltros() {
 		/* Enviamos nuestras opciones para realizar la busqueda. */
-		//this.data_send['nombre_proyecto'] = 'nombre_proyecto'
 		this.viewCtrl.dismiss(this.data_send)
 	}
 
 	/* Funcion para cancelar los filtros. */
 	cancelar() {
-			// this.data_send = []
-			// this.data_send['nombre_proyecto'] = 'nombre_proyecto'
-			this.viewCtrl.dismiss(this.data_send)
+		this.viewCtrl.dismiss(this.data_send)
 	}
 }
