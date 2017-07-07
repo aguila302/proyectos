@@ -13,28 +13,25 @@
     <ion-list [virtualScroll]="proyectos">
         <ion-item *virtualItem="let proyecto">
             <ion-card>
-                <ion-grid>
-                    <ion-row>
-                        <ion-col  text-wrap text-justify>
-                            <p>Proyecto:</p>
-                            <h4>{{ proyecto.nombre_proyecto }}</h4>
-                        </ion-col>
-                    </ion-row>
-                </ion-grid>
+                <ion-item text-wrap text-justify>
+                     <ion-icon name="pricetags" item-start large></ion-icon>
+                    <h2><strong>Proyecto</strong></h2>
+                    <h3>{{ proyecto.nombre_proyecto }}</h3>
+                </ion-item>
                 <ion-card-content>
                     <ion-grid>
                         <ion-row>
                             <ion-col class="inline">
-                                <p>Monto:</p>
-                                $ {{ proyecto.monto | number }}
+                                <p>Monto: </p>
+                                {{ proyecto.monto }}
                             </ion-col>
                             <ion-col class="inline">
-                                <p>Moneda:</p>
+                                <p>Moneda: </p>
                                 {{ proyecto.moneda }}
                             </ion-col>
                             <ion-col class="right">
                                 <button ion-button clear item-end (click)="detalleProyecto(proyecto)">
-                                    <strong style="text-transform: capitalize;">Ver mas ...</strong>
+                                    <strong style="text-transform: none;">Ver más ...</strong>
                                 </button>
                             </ion-col>
                         </ion-row>

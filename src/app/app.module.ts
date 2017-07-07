@@ -8,7 +8,6 @@ import { ContactPage } from '../pages/contact/contact';
 import { ProyectoPage } from '../pages/proyecto/proyecto';
 import { TabsPage } from '../pages/tabs/tabs';
 
-import { EstadisticaService } from '../services/estadistica.service';
 import { DbService } from '../services/db.service'
 import { DetalleProyectoPage } from '../pages/proyecto/DetalleProyecto';
 import { FiltrosPage } from '../pages/proyecto/filtros/filtros';
@@ -54,7 +53,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
       provide: ErrorHandler,
       useClass: IonicErrorHandler
     },
-    EstadisticaService,
     SQLite,
     DbService
   ]

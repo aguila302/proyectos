@@ -3,6 +3,7 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite'
 import { PROYECTOS } from '../services/mocks/proyectos'
 import { Proyecto } from '../interfaces/proyecto'
 import * as collect from 'collect.js/dist'
+import * as account from 'accounting-js'
 
 @Injectable()
 
@@ -120,11 +121,29 @@ export class DbService {
 			db.executeSql(sql, {})
 			.then((response) => {
 				for(let index = 0; index < response.rows.length; index++) {
-					proyectos.push(response.rows.item(index))
+					proyectos.push({
+						'nombre_proyecto': response.rows.item(index).nombre_proyecto,
+						'monto': account.formatMoney( response.rows.item(index).monto),
+						'moneda': response.rows.item(index).moneda,
+						'pais': response.rows.item(index).pais,
+						'gerencia': response.rows.item(index).gerencia,
+						'unidad_negocio': response.rows.item(index).unidad_negocio,
+						'numero_contrato': response.rows.item(index).numero_contrato,
+						'producto': response.rows.item(index).producto,
+						'anio': response.rows.item(index).anio,
+						'duracion': response.rows.item(index).duracion,
+						'contratante': response.rows.item(index).contratante,
+						'datos_cliente': response.rows.item(index).datos_cliente,
+						'fecha_inicio': response.rows.item(index).fecha_inicio,
+						'fecha_fin': response.rows.item(index).fecha_fin,
+						'numero_propuesta': response.rows.item(index).numero_propuesta,
+						'anticipo': response.rows.item(index).anticipo,
+					})
 				}
 				Promise.resolve(proyectos)
 			})
 		}).catch(e => console.log(e))
+		console.log(proyectos)
 		return proyectos
 	}
 
