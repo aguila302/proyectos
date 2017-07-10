@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { NavParams } from 'ionic-angular'
+import { NavParams, LoadingController } from 'ionic-angular'
 import { DbService } from '../../../services/db.service'
 
 @Component({
@@ -13,18 +13,26 @@ export class ProyectosAgrupadosPage {
 	pais: string = '' 
 
 	constructor(private navParams: NavParams,
-		private dbService: DbService) {
+		private dbService: DbService,
+		public loadingCtrl: LoadingController) {
 		this.pais = navParams.get('pais')
 		this.detallePorPais()
 	}
 
 	/* Funcion para obtener las proyectos de un pais es especial. */
 	detallePorPais = () => {
+		let loading = this.loadingCtrl.create({
+			content: 'Por favor espere',
+		})
+
+		loading.present();
+
 		setTimeout(() => {
 			this.dbService.openDatabase()
 			.then(() => this.dbService.consultaPaisAgrupado(this.pais))
 			.then(proyectos => {
 				this.proyectos = proyectos
+				loading.dismiss();
 			})
 			.catch(e => console.log(e))
 		}, 0)

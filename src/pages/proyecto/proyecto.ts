@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { NavController } from 'ionic-angular'
 import { Proyecto } from '../../interfaces/proyecto'
 import { DetalleProyectoPage } from './DetalleProyecto'
-import { ModalController } from 'ionic-angular'
+import { ModalController, LoadingController } from 'ionic-angular'
 import { FiltrosPage } from './filtros/filtros'
 import { DbService } from '../../services/db.service'
 
@@ -13,32 +13,41 @@ import { DbService } from '../../services/db.service'
 
 /* Clase de mi componente proyecto.html */
 export class ProyectoPage implements OnInit{
-
+	
 	proyectos = []
 	items = []
 	opciones = []
 
 	ngOnInit(): void {
-		this.getProyectos()
-		// this.opciones['nombre_proyecto'] = 'nombre_proyecto'
-		// this.creaDB()
+		
+		// this.getProyectos()
 	}
 
 	constructor(
 		public navCtrl: NavController,
 		public modalCtrl: ModalController,
-		public dbService: DbService) {
+		public dbService: DbService,
+		public loadingCtrl: LoadingController) {
+		this.creaDB()
 	}
 
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
 	getProyectos() {
+		console.log('cargando los proyectos')
+		let loading = this.loadingCtrl.create({
+			content: 'Por favor espere',
+		})
+
+		loading.present();
 		setTimeout(() => {
 			this.dbService.openDatabase()
 			.then(() => this.dbService.getProyectos())
 			.then(proyectos => {
 				this.proyectos = proyectos
+				loading.dismiss()
 			})
 			.catch(e => console.log(e))
+			//this.loading.dismiss()
 		}, 0)
 	}
 
@@ -82,14 +91,14 @@ export class ProyectoPage implements OnInit{
 		})
 	}
 
-	// creaDB = (): void  => {
-	// 	this.dbService.openDatabase()
-	// 	.then(() => this.dbService.resetTable())
-	// 	.then(() => this.dbService.createTable())
-	// 	.then(() => this.dbService.insertaDatos())
-	// 	// .then(() => this.dbService.getProyectos())
-	// 	// .then(response => {
-
-	// 	// })
-	// }
+	/* Funcion para inicializar la base de datos. */
+	creaDB = (): void  => {
+		console.log('inicia base de datos')
+		this.dbService.openDatabase()
+		.then(() => this.dbService.resetTable())
+		.then(() => this.dbService.createTable())
+		.then(() => this.dbService.insertaDatos())
+		//.then(() => this.dbService.getProyectos())
+		.then(() => this.getProyectos())
+	}
 }

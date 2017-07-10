@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { NavController, NavParams } from 'ionic-angular'
+import { NavParams, NavController } from 'ionic-angular'
 import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
 
@@ -13,7 +13,8 @@ export class CircularPaisPage {
 	monto_total: string = ''
 	total_proyectos: number
 
-	constructor(private navParams: NavParams) {
+	constructor(private navParams: NavParams,
+		private navCrtl: NavController) {
 		this.proyectos = navParams.get('datos_circular')
 		this.loadDatos()
 	}
@@ -61,5 +62,10 @@ export class CircularPaisPage {
 			}
 		})
 		this.proyectos = proyectos
+	}
+
+	/* Funcion para cerrar la ventana de la grafica circular. */
+	back() {
+		this.navCrtl.pop();
 	}
 }
