@@ -5,6 +5,7 @@ import { DetalleProyectoPage } from './DetalleProyecto'
 import { ModalController, NavParams } from 'ionic-angular'
 import { FiltrosPage } from './filtros/filtros'
 import { DbService } from '../../services/db.service'
+
 import * as collect from 'collect.js/dist'
 
 @Component({
@@ -32,13 +33,14 @@ export class ProyectoPage implements OnInit{
 	}
 
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
-	getProyectos = (): any => {
+	getProyectos() {
 		setTimeout(() => {
 			this.dbService.openDatabase()
 			.then(() => this.dbService.getProyectos())
-			.then(response => {
-				this.proyectos = response
-			}).catch(e => console.log(e))
+			.then(proyectos => {
+				this.proyectos = proyectos
+			})
+			.catch(e => console.log(e))
 		}, 0)
 	}
 
@@ -57,8 +59,13 @@ export class ProyectoPage implements OnInit{
 		// Si el valor no es vacio filtra los proyectos.
 		val && val.trim() != '' ? (
 			setTimeout(() => {
-				this.proyectos = this.dbService.buscaProyecto(val, filtros)
-			}, 0)
+			this.dbService.openDatabase()
+			.then(() => this.dbService.buscaProyecto(val, filtros))
+			.then(proyectos => {
+				this.proyectos = proyectos
+			})
+			.catch(e => console.log(e))
+		}, 0)
 		) : (
 			/* Si no hay ningun valor en el campo muestra el listado de los proyectos. */
 			this.getProyectos()

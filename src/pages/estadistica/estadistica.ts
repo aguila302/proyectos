@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import { DbService } from '../../services/db.service'
 import * as collect from 'collect.js/dist'
+import * as account from 'accounting-js'
 
 @Component({
 	selector: 'page-estadistica',
@@ -15,36 +16,55 @@ export class EstadisticaPage {
 		scaleShowVerticalLines: false,
 		responsive: true
 	};
-	public barChartLabels: string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+	public barChartLabels: string[] = [];
 	public barChartType: string = 'bar';
 	public barChartLegend: boolean = true;
 
 	public barChartData: any[] = [{
-		data: [65, 59, 80, 81, 56, 55, 40],
-		label: 'Series A'
-	}, {
-		data: [28, 48, 40, 19, 86, 27, 90],
-		label: 'Series B'
-	}];
-
-	// events
-	public chartClicked(e: any): void {
-		console.log(e);
-	}
-
-	public chartHovered(e: any): void {
-		console.log(e);
-	}
+		label: 'ser',
+		data: [],
+		backgroundColor: [
+			'rgba(93, 173, 226)'
+		]
+	}]
 	ionViewDidLoad (): void {
-		console.log('Iniciando estadisticas ')
-	}
-
-	constructor(private dbService: DbService) {
 		this.getDatosXPais()
 	}
 
-	getDatosXPais() {
+	constructor(private dbService: DbService) {
 
-		let data = this.dbService.consultaXPais()
+	}
+
+	getDatosXPais() {
+		this.dbService.openDatabase()
+		.then(() => this.dbService.consultaXPais())
+		.then(response => {
+			this.proyectos = response
+
+			let paises: string[] = []
+			let porcentaje: number[] = []
+
+			response.forEach(item => {
+				paises.push(item.pais)
+				porcentaje.push(item.porcentaje)
+			})
+			this.barChartLabels = paises
+			this.barChartData.forEach(
+				(item) => {
+					item.data = porcentaje
+				}
+			)
+			
+
+			const collection = collect(this.proyectos)
+
+			let total = collection.sum(account.unformat('monto'))
+			//let total = collection.each(function(item) {
+			//	return sum += account.unformat(item.monto)
+				//console.log(sum += account.unformat(item.monto))
+			//})
+			console.log(total)
+			//console.log(collection.sum((account.unformat(item.monto))))
+		})
 	}
 }

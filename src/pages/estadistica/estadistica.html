@@ -13,30 +13,43 @@
       <ion-segment-button value="Anio">
         <strong style="text-transform: capitalize;">Año</strong>
       </ion-segment-button>
-      <!-- <ion-segment-button value="ducklings">
-        Ducklings
-      </ion-segment-button> -->
     </ion-segment>
-
   </ion-toolbar>
-
 </ion-header>
 
 <ion-content padding>
     <div [ngSwitch]="pais">
         <ion-list *ngSwitchCase="'pais'">
             <button ion-button color="light" (tap)="modoPie()">  <ion-icon name="sync"></ion-icon></button>
+
             <div style="display: block">
-                <canvas baseChart
-                        [datasets]="barChartData"
-                        [labels]="barChartLabels"
-                        [options]="barChartOptions"
-                        [legend]="barChartLegend"
-                        [chartType]="barChartType"
-                        (chartHover)="chartHovered($event)"
-                        (chartClick)="chartClicked($event)">
-                </canvas>
+              <canvas baseChart
+                      [datasets]="barChartData"
+                      [labels]="barChartLabels"
+                      [options]="barChartOptions"
+                      [legend]="barChartLegend"
+                      [chartType]="barChartType"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)"></canvas>
             </div>
+            <ion-card *ngFor="let proyecto of proyectos">
+                <ion-grid>
+                    <ion-row>
+                      <ion-col>
+                        <!-- <ion-icon name="square" md="md-square"></ion-icon> -->
+                        <h4>{{ proyecto.pais }}</h4>
+                        <strong>{{ proyecto.porcentaje }} %</strong>
+                      </ion-col>
+                        <ion-col text-wrap text-justify>
+                         <strong>Monto: </strong> $ {{ proyecto.monto }}
+                        </ion-col>
+                        <ion-col text-wrap text-justify>
+                         <strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card>
+            
         </ion-list>
     </div>
 </ion-content>
