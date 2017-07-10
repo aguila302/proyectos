@@ -11,7 +11,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { DbService } from '../services/db.service'
 import { DetalleProyectoPage } from '../pages/proyecto/DetalleProyecto';
 import { FiltrosPage } from '../pages/proyecto/filtros/filtros';
-import { PiePage } from '../pages/estadistica/pie';
+import { CircularPaisPage } from '../pages/estadistica/circular-pais';
+import { ProyectosAgrupadosPage } from '../pages/estadistica/proyectos-agrupados/proyectos-agrupados';
 
 //import { ChartsModule } from 'ng2-charts';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
@@ -29,7 +30,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     DetalleProyectoPage,
     FiltrosPage,
-    PiePage,
+    CircularPaisPage,
+    ProyectosAgrupadosPage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     DetalleProyectoPage,
     FiltrosPage,
-    PiePage
+    CircularPaisPage,
+    ProyectosAgrupadosPage
   ],
   providers: [
     StatusBar,

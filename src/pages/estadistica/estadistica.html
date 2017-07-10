@@ -1,55 +1,73 @@
 <ion-header>
-  <ion-navbar no-border-bottom color="twitter">
-    <ion-title>
-      Estadísticas
-    </ion-title>
-  </ion-navbar>
-
-  <ion-toolbar no-border-top>
-    <ion-segment [(ngModel)]="pais">
-      <ion-segment-button value="pais">
-         <strong style="text-transform: capitalize;">País</strong>
-      </ion-segment-button>
-      <ion-segment-button value="Anio">
-        <strong style="text-transform: capitalize;">Año</strong>
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar>
+    <ion-navbar no-border-bottom color="twitter">
+        <ion-title>
+            Estadísticas
+        </ion-title>
+    </ion-navbar>
+    <ion-toolbar no-border-top>
+        <ion-segment [(ngModel)]="pais">
+            <ion-segment-button value="pais">
+                <strong style="text-transform: capitalize;">País</strong>
+            </ion-segment-button>
+            <ion-segment-button value="Anio">
+                <strong style="text-transform: capitalize;">Año</strong>
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
     <div [ngSwitch]="pais">
         <ion-list *ngSwitchCase="'pais'">
-            <button ion-button color="light" (tap)="modoPie()">  <ion-icon name="sync"></ion-icon></button>
+            <button ion-button outline (click)="modoCircular()">  <ion-icon name="sync"></ion-icon></button>
 
             <div style="display: block">
-              <canvas baseChart
+                <canvas baseChart
                       [datasets]="barChartData"
                       [labels]="barChartLabels"
                       [options]="barChartOptions"
+                      [colors]="barChartColors"
                       [legend]="barChartLegend"
                       [chartType]="barChartType"
                       (chartHover)="chartHovered($event)"
-                      (chartClick)="chartClicked($event)"></canvas>
+                      (chartClick)="chartClicked($event)">
+                </canvas>
             </div>
             <ion-card *ngFor="let proyecto of proyectos">
                 <ion-grid>
                     <ion-row>
-                      <ion-col>
-                        <!-- <ion-icon name="square" md="md-square"></ion-icon> -->
-                        <h4>{{ proyecto.pais }}</h4>
-                        <strong>{{ proyecto.porcentaje }} %</strong>
-                      </ion-col>
-                        <ion-col text-wrap text-justify>
-                         <strong>Monto: </strong> $ {{ proyecto.monto }}
+                        <ion-col>
+                            <h4>{{ proyecto.pais }}</h4>
+                            <strong>{{ proyecto.porcentaje }} %</strong>
                         </ion-col>
                         <ion-col text-wrap text-justify>
-                         <strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}
+                            <strong>Monto: </strong> {{ proyecto.monto }}
+                        </ion-col>
+                        <ion-col text-wrap text-justify>
+                            <strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}
+                        </ion-col>
+                        <ion-col class="right">
+                            <button ion-button clear item-end (click)="verProyectosAgrupados(proyecto.pais)">
+                                <strong style="text-transform: none;">Ver más ...</strong>
+                            </button>
                         </ion-col>
                     </ion-row>
                 </ion-grid>
             </ion-card>
-            
+            <ion-card>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col text-wrap text-justify>
+                            <strong>Monto total: </strong>
+                            <h4>{{ monto_total }}</h4>
+                        </ion-col>
+                        <ion-col text-wrap text-justify>
+                            <strong>Total de proyectos: </strong>
+                            <h4>{{ total_proyectos }}</h4>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card>
         </ion-list>
     </div>
 </ion-content>

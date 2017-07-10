@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar no-border-bottom color="twitter">
+    <ion-title>
+      Estadísticas
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+ <ion-content padding>
+    <div style="display: block">
+        <canvas baseChart
+              [data]="pieChartData"
+              [labels]="pieChartLabels"
+              [chartType]="pieChartType"
+              [options]="pieChartOptions"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)">
+        </canvas>
+    </div>
+    <ion-card *ngFor="let proyecto of proyectos">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <h4>{{ proyecto.pais }}</h4>
+                    <strong>{{ proyecto.porcentaje }} %</strong>
+                </ion-col>
+                <ion-col text-wrap text-justify>
+                    <strong>Monto: </strong> {{ proyecto.monto }}
+                </ion-col>
+                <ion-col text-wrap text-justify>
+                    <strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}
+                    </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+    <ion-card>
+        <ion-grid>
+            <ion-row>
+                <ion-col text-wrap text-justify>
+                    <strong>Monto total: </strong>
+                    <h4>{{ monto_total }}</h4>
+                </ion-col>
+                <ion-col text-wrap text-justify>
+                <strong>Total de proyectos: </strong>
+                    <h4>{{ total_proyectos }}</h4>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+ </ion-content>

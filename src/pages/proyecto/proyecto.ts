@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core'
 import { NavController } from 'ionic-angular'
 import { Proyecto } from '../../interfaces/proyecto'
 import { DetalleProyectoPage } from './DetalleProyecto'
-import { ModalController, NavParams } from 'ionic-angular'
+import { ModalController } from 'ionic-angular'
 import { FiltrosPage } from './filtros/filtros'
 import { DbService } from '../../services/db.service'
-
-import * as collect from 'collect.js/dist'
 
 @Component({
 	selector: 'page-proyecto',

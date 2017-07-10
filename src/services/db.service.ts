@@ -10,31 +10,29 @@ import * as account from 'accounting-js'
 /* Clase para crear la base de datos. */
 export class DbService {
 	db: SQLiteObject = null
-	sqlite : SQLite = null;
+	sqlite: SQLite = null;
 
-	constructor () {
+	constructor() {
 		this.sqlite = new SQLite();
 	}
 
 	/* Creamos la base de datos. */
 	openDatabase() {
 		return this.sqlite.create({
-			name: 'proyectos.db',
-			location: 'default'
-		})
-		.then((db: SQLiteObject) => {
-			this.db = db;
-		})
+				name: 'proyectos.db',
+				location: 'default'
+			})
+			.then((db: SQLiteObject) => {
+				this.db = db;
+			})
 	}
-	/* Reseteamos la tabla proyectos. */
+		/* Reseteamos la tabla proyectos. */
 	resetTable() {
 		let sql = 'drop table if exists proyectos'
 
-			return	this.db.executeSql(sql, {})
-				.then(() => console.log('tabla reseteada'))
-				.catch(e => console.log(e))
-		
-		
+		return this.db.executeSql(sql, {})
+			.then(() => console.log('tabla reseteada'))
+			.catch(e => console.log(e))
 	}
 
 	/* Creamos la tabla. */
@@ -62,17 +60,16 @@ export class DbService {
 				anticipo text)
 		`;
 
-			return	this.db.executeSql(sql, {})
-				.then(() => console.log('tabla creada'))
-				.catch(e => console.log(e))
-			
+		return this.db.executeSql(sql, {})
+			.then(() => console.log('tabla creada'))
+			.catch(e => console.log(e))
+
 	}
 
 	/* Insertamos los datos. */
 	insertaDatos() {
 		let origen = collect(PROYECTOS)
 		origen.each(item => {
-			//let db = this.db
 			let sql = `insert into proyectos(
 				nombre_proyecto, nombre_corto, contrato,
 				monto, moneda, pais,
@@ -82,43 +79,41 @@ export class DbService {
 				datos_cliente, fecha_inicio,
 				fecha_fin, numero_propuesta,
 				anticipo) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
-
-			
-				return	this.db.executeSql(sql, [
-						item.nombre_proyecto,
-						item.nombre_corto,
-						item.contrato,
-						parseInt(item.monto),
-						item.moneda,
-						item.pais,
-						item.gerencia,
-						item.unidad_negocio,
-						item.numero_contrato,
-						item.producto,
-						item.anio,
-						item.duracion,
-						item.contratante,
-						item.datos_cliente,
-						item.fecha_inicio,
-						item.fecha_fin,
-						item.numero_propuesta,
-						item.anticipo
-					]).then(() => console.log('regustros insertados'))
-					.catch(e => console.log(e))
+			return this.db.executeSql(sql, [
+					item.nombre_proyecto,
+					item.nombre_corto,
+					item.contrato,
+					parseInt(item.monto),
+					item.moneda,
+					item.pais,
+					item.gerencia,
+					item.unidad_negocio,
+					item.numero_contrato,
+					item.producto,
+					item.anio,
+					item.duracion,
+					item.contratante,
+					item.datos_cliente,
+					item.fecha_inicio,
+					item.fecha_fin,
+					item.numero_propuesta,
+					item.anticipo
+				]).then(() => console.log('regustros insertados'))
+				.catch(e => console.log(e))
 		})
 	}
 
 	/* Obtenemos las datos de los proyectos. */
-	getProyectos(): Promise<Proyecto[]> {
+	getProyectos(): Promise < Proyecto[] > {
 		let proyectos = []
 		let sql = 'select * from proyectos'
 
-			return this.db.executeSql(sql, {})
+		return this.db.executeSql(sql, {})
 			.then((response) => {
-				for(let index = 0; index < response.rows.length; index++) {
+				for (let index = 0; index < response.rows.length; index++) {
 					proyectos.push({
 						'nombre_proyecto': response.rows.item(index).nombre_proyecto,
-						'monto': account.formatMoney( response.rows.item(index).monto),
+						'monto': account.formatMoney(response.rows.item(index).monto),
 						'moneda': response.rows.item(index).moneda,
 						'pais': response.rows.item(index).pais,
 						'gerencia': response.rows.item(index).gerencia,
@@ -136,55 +131,69 @@ export class DbService {
 					})
 				}
 				return proyectos
-				//return Promise.resolve(proyectos)
 			})
-
-		//return proyectos
 	}
 
 	/* Funcion para buscar los proyectos dado a los filtros seleccionados. */
 	buscaProyecto = (val, filtros): any => {
 		let proyectos = []
-		for(let i in filtros) {
+		for (let i in filtros) {
 			console.log(filtros)
 			let sql = 'select * from proyectos where ' + i + ' like ' + "'%" + val + "%'"
 			console.log(sql)
 			this.db.executeSql(sql, {})
-			.then((response) => {
-				for(let index = 0; index < response.rows.length; index++) {
-					//proyectos.push(ressponse.rows.item(index))
-					proyectos.push({
-						'nombre_proyecto': response.rows.item(index).nombre_proyecto,
-						'moneda': response.rows.item(index).moneda,
-						'monto': account.formatMoney( response.rows.item(index).monto),
-					})
-				}
-				Promise.resolve(proyectos)
-			})
+				.then((response) => {
+					for (let index = 0; index < response.rows.length; index++) {
+						proyectos.push({
+							'nombre_proyecto': response.rows.item(index).nombre_proyecto,
+							'moneda': response.rows.item(index).moneda,
+							'monto': account.formatMoney(response.rows.item(index).monto),
+						})
+					}
+					Promise.resolve(proyectos)
+				})
 		}
 		return proyectos
 	}
 
+	/* Funcion para consultar los proyectos por pais. */
 	consultaXPais = (): any => {
 		let proyectos = []
 		let sql = `select pais, count(*) as numero_proyectos, sum(monto) as monto,
 					(select count(*) from proyectos) as total
 					FROM proyectos
 					group by pais order by pais asc`
-		
+
 		return this.db.executeSql(sql, {})
 			.then(response => {
-				for(let index = 0; index < response.rows.length; index++) {
+				for (let index = 0; index < response.rows.length; index++) {
 					proyectos.push({
 						'pais': response.rows.item(index).pais,
 						'numero_proyectos': response.rows.item(index).numero_proyectos,
-						'monto': account.formatNumber(response.rows.item(index).monto, 2, ''),
+						'monto': parseInt(response.rows.item(index).monto),
 						'total': response.rows.item(index).total,
-						'porcentaje':  account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100 , 2)
+						'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2)
 					})
 				}
 				return Promise.resolve(proyectos)
+			})
+	}
 
+	/* Funcion para traer los proyectos de un pais dado. */
+	consultaPaisAgrupado = (pais: string): any => {
+		let proyectos = []
+		let sql = 'select nombre_proyecto, monto, moneda from proyectos where pais = ' + "'"  + pais + "'"
+
+		return this.db.executeSql(sql, {})
+			.then((response) => {
+				for (let index = 0; index < response.rows.length; index++) {
+					proyectos.push({
+						'nombre_proyecto': response.rows.item(index).nombre_proyecto,
+						'monto': account.formatMoney(response.rows.item(index).monto),
+						'moneda': response.rows.item(index).moneda,
+					})
+				}
+				return Promise.resolve(proyectos)
 			})
 	}
 }
