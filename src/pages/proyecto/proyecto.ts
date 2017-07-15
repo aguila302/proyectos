@@ -12,15 +12,15 @@ import { DbService } from '../../services/db.service'
 })
 
 /* Clase de mi componente proyecto.html */
-export class ProyectoPage implements OnInit{
+export class ProyectoPage {
 	
 	proyectos = []
 	items = []
 	opciones = []
 
-	ngOnInit(): void {
-		
-		// this.getProyectos()
+	ngAfterViewInit(): void {
+		//this.getProyectos()
+		this.creaDB()
 	}
 
 	constructor(
@@ -28,23 +28,17 @@ export class ProyectoPage implements OnInit{
 		public modalCtrl: ModalController,
 		public dbService: DbService,
 		public loadingCtrl: LoadingController) {
-		this.creaDB()
-	}
+		}
 
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
 	getProyectos() {
 		console.log('cargando los proyectos')
-		let loading = this.loadingCtrl.create({
-			content: 'Por favor espere',
-		})
-
-		loading.present();
+		
 		setTimeout(() => {
 			this.dbService.openDatabase()
 			.then(() => this.dbService.getProyectos())
 			.then(proyectos => {
 				this.proyectos = proyectos
-				loading.dismiss()
 			})
 			.catch(e => console.log(e))
 			//this.loading.dismiss()
@@ -94,11 +88,18 @@ export class ProyectoPage implements OnInit{
 	/* Funcion para inicializar la base de datos. */
 	creaDB = (): void  => {
 		console.log('inicia base de datos')
+		let loading = this.loadingCtrl.create({
+			content: 'Por favor espere',
+		})
+
+		loading.present()
+
 		this.dbService.openDatabase()
 		.then(() => this.dbService.resetTable())
 		.then(() => this.dbService.createTable())
 		.then(() => this.dbService.insertaDatos())
+		loading.dismiss()
 		//.then(() => this.dbService.getProyectos())
-		.then(() => this.getProyectos())
+		//.then(() => this.getProyectos())
 	}
 }
