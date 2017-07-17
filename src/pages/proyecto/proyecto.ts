@@ -12,19 +12,22 @@ import { DbService } from '../../services/db.service'
 })
 
 /* Clase de mi componente proyecto.html */
-export class ProyectoPage {
+export class ProyectoPage implements OnInit {
 
 	proyectos = []
 	items = []
 	opciones = []
 
 
-	ionViewWillEnter(): void {
+	ngOnInit(): void {
 		//
 		this.creaDB()
-		this.getProyectos()
 	}
 
+	ionViewDidEnter(): void {
+		//
+		this.getProyectos()
+	}
 	constructor(
 		public navCtrl: NavController,
 		public modalCtrl: ModalController,
