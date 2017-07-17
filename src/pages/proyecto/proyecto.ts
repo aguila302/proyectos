@@ -22,6 +22,7 @@ export class ProyectoPage implements OnInit {
 	ngOnInit(): void {
 		//this.getProyectos()
 		this.creaDB()
+
 	}
 
 	constructor(
@@ -88,10 +89,10 @@ export class ProyectoPage implements OnInit {
 	/* Funcion para inicializar la base de datos. */
 	creaDB = (): void  => {
 		
-		let loading = this.loadingCtrl.create({
-			content: 'Por favor espere',
-		})
-		loading.present()
+		// let loading = this.loadingCtrl.create({
+		// 	content: 'Por favor espere',
+		// })
+		// loading.present()
 		this.dbService.openDatabase()
 		//.then(() => this.dbService.revisionDatos())
 		// .then(() => this.dbService.resetTable())
@@ -99,9 +100,9 @@ export class ProyectoPage implements OnInit {
 		.then(() => this.dbService.insertaDatos())
 
 		.then(() => {
-			this.getProyectos()
+			//this.getProyectos()
 		})
-		loading.dismiss()
+		// loading.dismiss()
 
 		//.then(() => this.dbService.getProyectos())
 		//.then(() => this.getProyectos())
