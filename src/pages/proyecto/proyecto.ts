@@ -12,14 +12,14 @@ import { DbService } from '../../services/db.service'
 })
 
 /* Clase de mi componente proyecto.html */
-export class ProyectoPage implements OnInit {
+export class ProyectoPage {
 
 	proyectos = []
 	items = []
 	opciones = []
 
 
-	ngOnInit(): void {
+	ionViewDidLoad(): void {
 		//
 		this.creaDB()
 		this.getProyectos()
