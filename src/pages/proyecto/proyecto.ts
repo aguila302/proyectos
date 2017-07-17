@@ -20,9 +20,9 @@ export class ProyectoPage implements OnInit {
 
 
 	ngOnInit(): void {
-		//this.getProyectos()
+		//
 		this.creaDB()
-
+		this.getProyectos()
 	}
 
 	constructor(
