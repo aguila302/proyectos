@@ -18,7 +18,9 @@ export class ProyectoPage {
 	items = []
 	opciones = []
 
+
 	ngOnInit(): void {
+		//this.getProyectos()
 		this.creaDB()
 	}
 
@@ -27,6 +29,7 @@ export class ProyectoPage {
 		public modalCtrl: ModalController,
 		public dbService: DbService,
 		public loadingCtrl: LoadingController) {
+
 	}
 
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
@@ -84,21 +87,22 @@ export class ProyectoPage {
 
 	/* Funcion para inicializar la base de datos. */
 	creaDB = (): void  => {
-		console.log('inicia base de datos')
-		console.log('cargando los proyectos')
+		
 		let loading = this.loadingCtrl.create({
 			content: 'Por favor espere',
 		})
-		loading.present();
+		loading.present()
 		this.dbService.openDatabase()
 		//.then(() => this.dbService.revisionDatos())
 		// .then(() => this.dbService.resetTable())
 		.then(() => this.dbService.createTable())
 		.then(() => this.dbService.insertaDatos())
+
 		.then(() => {
 			this.getProyectos()
 			loading.dismiss()
 		})
+
 		//.then(() => this.dbService.getProyectos())
 		//.then(() => this.getProyectos())
 	}

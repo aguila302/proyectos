@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+import { Camera } from '@ionic-native/camera';
 
 import { EstadisticaPage } from '../pages/estadistica/estadistica';
 import { ContactPage } from '../pages/contact/contact';
@@ -43,6 +44,7 @@ const cloudSettings: CloudSettings = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    CloudModule.forRoot(cloudSettings),
     ChartsModule,
     CloudModule.forRoot(cloudSettings)
   ],
@@ -65,7 +67,8 @@ const cloudSettings: CloudSettings = {
       useClass: IonicErrorHandler
     },
     SQLite,
-    DbService
+    DbService,
+    Camera
   ]
 })
 export class AppModule {}
