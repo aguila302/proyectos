@@ -12,7 +12,7 @@ import { DbService } from '../../services/db.service'
 })
 
 /* Clase de mi componente proyecto.html */
-export class ProyectoPage {
+export class ProyectoPage implements OnInit {
 
 	proyectos = []
 	items = []
@@ -42,7 +42,7 @@ export class ProyectoPage {
 			})
 			.catch(e => console.log(e))
 			//this.loading.dismiss()
-		}, 100)
+		}, 0)
 	}
 
 	/* Funcion para ver el detalle de un proyecto. */
@@ -99,9 +99,9 @@ export class ProyectoPage {
 		.then(() => this.dbService.insertaDatos())
 
 		.then(() => {
-			//this.getProyectos()
-			loading.dismiss()
+			this.getProyectos()
 		})
+		loading.dismiss()
 
 		//.then(() => this.dbService.getProyectos())
 		//.then(() => this.getProyectos())
