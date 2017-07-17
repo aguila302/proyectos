@@ -99,7 +99,7 @@ export class ProyectoPage {
 		.then(() => this.dbService.insertaDatos())
 
 		.then(() => {
-			this.getProyectos()
+			//this.getProyectos()
 			loading.dismiss()
 		})
 
