@@ -66,6 +66,17 @@ export class DbService {
 
 	}
 
+	/* Funcion para revisar si hay registros en la tabla */
+	// revisionDatos() {
+	// 	let proyectos = []
+	// 	let sql = 'select count(*) from proyectos'
+
+	// 	return this.db.executeSql(sql, {})
+	// 		.then((response) => {
+	// 			console.log(response)
+	// 		})
+	// }
+
 	/* Insertamos los datos. */
 	insertaDatos() {
 		let origen = collect(PROYECTOS)
