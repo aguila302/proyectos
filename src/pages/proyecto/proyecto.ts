@@ -19,7 +19,7 @@ export class ProyectoPage {
 	opciones = []
 
 
-	ionViewDidLoad(): void {
+	ionViewWillEnter(): void {
 		//
 		this.creaDB()
 		this.getProyectos()
