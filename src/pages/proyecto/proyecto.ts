@@ -20,12 +20,11 @@ export class ProyectoPage implements OnInit {
 
 
 	ngOnInit(): void {
-		//
-		this.creaDB()
+		console.log('iniciando aplicacion')
+		//this.creaDB()
 	}
 
-	ionViewCanEnter(): void {
-		//
+	ionViewDidLoad(): void {
 		this.getProyectos()
 	}
 	constructor(
@@ -90,25 +89,25 @@ export class ProyectoPage implements OnInit {
 	}
 
 	/* Funcion para inicializar la base de datos. */
-	creaDB = (): void  => {
+	//creaDB = (): void  => {
 		
 		// let loading = this.loadingCtrl.create({
 		// 	content: 'Por favor espere',
 		// })
 		// loading.present()
-		this.dbService.openDatabase()
+		//this.dbService.openDatabase()
 		//.then(() => this.dbService.revisionDatos())
 		// .then(() => this.dbService.resetTable())
-		.then(() => this.dbService.createTable())
-		.then(() => this.dbService.insertaDatos())
+		//.then(() => this.dbService.createTable())
+		//.then(() => this.dbService.insertaDatos())
 
-		.then(() => {
+		//.then(() => {
 			//this.getProyectos()
-		})
+		//})
 		// loading.dismiss()
 
 		//.then(() => this.dbService.getProyectos())
 		//.then(() => this.getProyectos())
-	}
+	//}
 
 }
