@@ -42,9 +42,8 @@ export class ProyectoPage implements OnInit {
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
 	getProyectos() {
 		let loading = this.loadingCtrl.create({
-			content: 'Please wait...'
+			content: 'Por favor espere...'
 		})
-
 		loading.present()
 
 		setTimeout(() => {
@@ -56,7 +55,7 @@ export class ProyectoPage implements OnInit {
 			})
 			.catch(e => console.log(e))
 
-		}, 5000)
+		}, 0)
 
 	}
 

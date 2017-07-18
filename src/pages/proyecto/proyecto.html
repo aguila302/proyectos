@@ -9,7 +9,7 @@
 
     <ion-searchbar (ionInput)="buscaProyectos($event)" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)"></ion-searchbar>
 
-    <button ion-button full color="light" (click)="muestraFiltros()">Busqueda avanzadaaaa</button>
+    <button ion-button full color="light" (click)="muestraFiltros()">Busqueda avanzada</button>
     
     <ion-list [virtualScroll]="proyectos">
         <ion-item *virtualItem="let proyecto">

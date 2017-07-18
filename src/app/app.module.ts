@@ -2,7 +2,6 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 
 import { EstadisticaPage } from '../pages/estadistica/estadistica';
 import { ContactPage } from '../pages/contact/contact';
@@ -22,12 +21,6 @@ import { SQLite } from '@ionic-native/sqlite';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-const cloudSettings: CloudSettings = {
-  'core': {
-    'app_id': '18d46abc'
-  }
-};
-
 @NgModule({
   declarations: [
     MyApp,
@@ -43,9 +36,7 @@ const cloudSettings: CloudSettings = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    CloudModule.forRoot(cloudSettings),
     ChartsModule,
-    CloudModule.forRoot(cloudSettings)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
