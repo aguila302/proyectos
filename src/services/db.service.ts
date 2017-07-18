@@ -192,7 +192,7 @@ export class DbService {
 						'moneda': response.rows.item(index).moneda,
 					})
 				}
-				return Promise.resolve(proyectos)
+				return proyectos
 			})
 	}
 }
