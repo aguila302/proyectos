@@ -24,7 +24,7 @@ export class ProyectoPage implements OnInit {
 		this.creaDB()
 	}
 
-	ionViewDidEnter(): void {
+	ionViewCanEnter(): void {
 		//
 		this.getProyectos()
 	}
