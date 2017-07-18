@@ -12,33 +12,36 @@
     <button ion-button full color="light" (click)="muestraFiltros()">Busqueda avanzadaaaa</button>
     
     <ion-list [virtualScroll]="proyectos">
-        <ion-item *virtualItem="let proyecto">
-            <ion-card>
-                <ion-item text-wrap text-justify>
-                     <ion-icon name="pricetags" item-start large></ion-icon>
-                    <h2><strong>Proyecto</strong></h2>
-                    <h3>{{ proyecto.nombre_proyecto }}</h3>
-                </ion-item>
-                <ion-card-content>
-                    <ion-grid>
-                        <ion-row>
-                            <ion-col class="inline right">
-                                <p>Monto: </p>
-                                {{ proyecto.monto }}
-                            </ion-col>
-                            <ion-col class="inline right">
-                                <p>Moneda: </p>
-                                {{ proyecto.moneda }}
-                            </ion-col>
-                            <ion-col class="right">
-                                <button ion-button clear item-end (click)="detalleProyecto(proyecto)">
-                                    <strong style="text-transform: none;">Ver más ...</strong>
-                                </button>
-                            </ion-col>
-                        </ion-row>
-                    </ion-grid>
-                </ion-card-content>
-            </ion-card>
-        </ion-item>
+        <div *virtualItem="let proyecto">
+        
+            <ion-item [item]="proyecto">
+                <ion-card>
+                    <ion-item text-wrap text-justify>
+                         <ion-icon name="pricetags" item-start large></ion-icon>
+                        <h2><strong>Proyecto</strong></h2>
+                        <h3>{{ proyecto.nombre_proyecto }}</h3>
+                    </ion-item>
+                    <ion-card-content>
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col class="inline right">
+                                    <p>Monto: </p>
+                                    {{ proyecto.monto }}
+                                </ion-col>
+                                <ion-col class="inline right">
+                                    <p>Moneda: </p>
+                                    {{ proyecto.moneda }}
+                                </ion-col>
+                                <ion-col class="right">
+                                    <button ion-button clear item-end (click)="detalleProyecto(proyecto)">
+                                        <strong style="text-transform: none;">Ver más ...</strong>
+                                    </button>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </ion-card-content>
+                </ion-card>
+            </ion-item>
+        </div>
     </ion-list>
 </ion-content>
