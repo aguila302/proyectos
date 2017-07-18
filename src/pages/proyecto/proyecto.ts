@@ -27,24 +27,36 @@ export class ProyectoPage implements OnInit {
 	ionViewDidLoad(): void {
 		this.getProyectos()
 	}
+	// ngAfterViewInit() {
+		
+	// }
+
 	constructor(
 		public navCtrl: NavController,
 		public modalCtrl: ModalController,
 		public dbService: DbService,
 		public loadingCtrl: LoadingController) {
-
 	}
 
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
 	getProyectos() {
-		//setTimeout(() => {
+		let loading = this.loadingCtrl.create({
+			content: 'Please wait...'
+		})
+
+		loading.present()
+
+		setTimeout(() => {
 			this.dbService.openDatabase()
 			.then(() => this.dbService.getProyectos())
 			.then(proyectos => {
 				this.proyectos = proyectos
+				loading.dismiss();
 			})
 			.catch(e => console.log(e))
-		//}, 0)
+
+		}, 5000)
+
 	}
 
 	/* Funcion para ver el detalle de un proyecto. */
