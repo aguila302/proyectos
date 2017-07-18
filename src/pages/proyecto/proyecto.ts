@@ -37,15 +37,14 @@ export class ProyectoPage implements OnInit {
 
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
 	getProyectos() {
-		setTimeout(() => {
+		//setTimeout(() => {
 			this.dbService.openDatabase()
 			.then(() => this.dbService.getProyectos())
 			.then(proyectos => {
 				this.proyectos = proyectos
 			})
 			.catch(e => console.log(e))
-			//this.loading.dismiss()
-		}, 0)
+		//}, 0)
 	}
 
 	/* Funcion para ver el detalle de un proyecto. */
