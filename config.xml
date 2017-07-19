@@ -80,12 +80,10 @@
         <splash height="1024" src="resources/ios/splash/Default-Portrait~ipad.png" width="768" />
         <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
-
-        <allow-navigation href="http://localhost:8080/*"/>
+        <allow-navigation href="http://localhost:8080/*" />
         <feature name="CDVWKWebViewEngine">
-          <param name="ios-package" value="CDVWKWebViewEngine" />
+            <param name="ios-package" value="CDVWKWebViewEngine" />
         </feature>
-
         <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
     </platform>
     <engine name="android" spec="^6.2.3" />
@@ -95,6 +93,7 @@
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
     </plugin>
     <plugin name="cordova-plugin-console" spec="^1.0.7" />
+    <plugin name="cordova-plugin-dbcopy" spec="git+https://github.com/an-rahulpandey/cordova-plugin-dbcopy.git" />
     <plugin name="cordova-plugin-device" spec="^1.1.6" />
     <plugin name="cordova-plugin-http" spec="^1.2.0" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />

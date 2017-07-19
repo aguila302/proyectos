@@ -20,11 +20,13 @@ export class DbService {
 	openDatabase() {
 		return this.sqlite.create({
 				name: 'proyectos.db',
-				location: 'default'
+				location: 'default',
+				createFromLocation: 1
 			})
 			.then((db: SQLiteObject) => {
-				this.db = db;
+				this.db = db
 			})
+
 	}
 		/* Reseteamos la tabla proyectos. */
 	resetTable() {

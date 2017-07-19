@@ -25,18 +25,19 @@ export class ProyectoPage implements OnInit {
 		//this.creaDB()
 	}
 
-	ionViewDidLoad(): void {
+	// ionViewDidLoad(): void {
+	// 	this.getProyectos()
+	// }
+	ngAfterViewInit() {
 		this.getProyectos()
 	}
-	// ngAfterViewInit() {
-		
-	// }
 
 	constructor(
 		public navCtrl: NavController,
 		public modalCtrl: ModalController,
 		public dbService: DbService,
 		public loadingCtrl: LoadingController) {
+		
 	}
 
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
