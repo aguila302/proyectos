@@ -22,12 +22,12 @@ export class ProyectoPage implements OnInit {
 	ngOnInit(): void {
 		console.log('iniciando aplicacion')
 		//this.creaDB()
-		this.getProyectos()
+
 	}
 
-	// ionViewWillEnter(): void {
-	//  	this.getProyectos()
-	// }
+	ionViewWillEnter(): void {
+	 	this.getProyectos()
+	}
 	// ngAfterViewInit() {
 	// 	this.getProyectos()
 	// }
@@ -41,17 +41,16 @@ export class ProyectoPage implements OnInit {
 		public modalCtrl: ModalController,
 		public dbService: DbService,
 		public loadingCtrl: LoadingController) {
-		this.getProyectos()
+		// this.getProyectos()
 	}
 
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
 	getProyectos() {
-
+		let loading = this.loadingCtrl.create({
+			content: 'Por favor espere...'
+		})
+		loading.present()
 		setTimeout(() => {
-			let loading = this.loadingCtrl.create({
-				content: 'Por favor espere...'
-			})
-			loading.present()
 			this.dbService.openDatabase()
 			.then(() => this.dbService.getProyectos())
 			.then(proyectos => {
@@ -59,7 +58,6 @@ export class ProyectoPage implements OnInit {
 			})
 			.catch(e => console.log(e))
 			loading.dismiss();
-
 		}, 0)
 
 	}
