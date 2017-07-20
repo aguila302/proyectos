@@ -55,7 +55,8 @@ export class ProyectoPage implements OnInit {
 			.then(() => this.dbService.getProyectos())
 			.then(proyectos => {
 				this.proyectos = proyectos
-				loading.dismiss()
+				if(this.proyectos.length == 1330)
+					loading.dismiss()
 			})
 			.catch(e => console.log(e))
 		}, 5000)

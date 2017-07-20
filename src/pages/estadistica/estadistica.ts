@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, ViewChild } from '@angular/core'
 import { DbService } from '../../services/db.service'
 import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
@@ -11,6 +11,8 @@ import { NavController } from 'ionic-angular'
 	templateUrl: 'estadistica.html',
 })
 export class EstadisticaPage {
+
+	// @ViewChild(CircularPaisPage) userProfile: CircularPaisPage
 
 	pais: string = 'pais'
 	proyectos = []

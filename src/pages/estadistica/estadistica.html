@@ -20,17 +20,16 @@
     <div [ngSwitch]="pais">
         <ion-list *ngSwitchCase="'pais'">
             <button ion-button outline (click)="modoCircular()">  <ion-icon name="sync"></ion-icon></button>
-
             <div style="display: block">
                 <canvas baseChart
-                      [datasets]="barChartData"
-                      [labels]="barChartLabels"
-                      [options]="barChartOptions"
-                      [colors]="barChartColors"
-                      [legend]="barChartLegend"
-                      [chartType]="barChartType"
-                      (chartHover)="chartHovered($event)"
-                      (chartClick)="chartClicked($event)">
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="barChartOptions"
+                    [colors]="barChartColors"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)">
                 </canvas>
             </div>
             <ion-card *ngFor="let proyecto of proyectos">
@@ -57,13 +56,11 @@
             <ion-card>
                 <ion-grid>
                     <ion-row>
-                        <ion-col text-wrap text-justify>
-                        </ion-col>
-                        <ion-col text-wrap text-justify>
+                        <ion-col text-wrap text-right>
                             <strong>Monto total: </strong>
                             <h4>{{ monto_total }}</h4>
                         </ion-col>
-                        <ion-col text-wrap text-justify>
+                        <ion-col text-wrap text-left>
                             <strong>Total de proyectos: </strong>
                             <h4>{{ total_proyectos }}</h4>
                         </ion-col>
