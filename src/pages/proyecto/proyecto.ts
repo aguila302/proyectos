@@ -22,6 +22,7 @@ export class ProyectoPage implements OnInit {
 	ngOnInit(): void {
 		console.log('iniciando aplicacion')
 		//this.creaDB()
+		this.getProyectos()
 	}
 
 	// ionViewWillEnter(): void {
@@ -31,10 +32,10 @@ export class ProyectoPage implements OnInit {
 	// 	this.getProyectos()
 	// }
 
-	ionViewDidLoad() {
-		this.getProyectos()
-	}
-	
+	// ionViewDidLoad() {
+	// 	this.getProyectos()
+	// }
+
 	constructor(
 		public navCtrl: NavController,
 		public modalCtrl: ModalController,
