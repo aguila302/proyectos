@@ -11,5 +11,6 @@ export class DetalleProyectoPage {
 	proyecto = {}
 	constructor(private navParams: NavParams) {
 		this.proyecto = navParams.get('id')
+		console.log(this.proyecto)
 	}
 }
