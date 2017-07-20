@@ -23,10 +23,11 @@ export class ProyectosAgrupadosPage {
 		this.detallePorPais()
 	}
 	
-	// ionViewWillLeave () {
-	// 	console.log('me dejas')
-	// 	this.navCtrl.pop()
-	// }
+	ionViewDidLeave () {
+		console.log('me dejas proyecto agrupado')
+		// this.navCrtl.pop()
+		this.detallePorPais()
+	}
 
 	/* Funcion para obtener las proyectos de un pais es especial. */
 	detallePorPais = () => {

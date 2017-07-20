@@ -2,6 +2,7 @@ import { Component } from '@angular/core'
 import { NavParams, NavController } from 'ionic-angular'
 import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
+import { ProyectosAgrupadosPage } from './proyectos-agrupados/proyectos-agrupados'
 
 @Component({
 	selector: 'page-circular-pais',
@@ -19,9 +20,10 @@ export class CircularPaisPage {
 		this.loadDatos()
 	}
 
-	ionViewWillLeave () {
-		console.log('me dejas')
-		this.navCrtl.pop()
+	ionViewDidLeave () {
+		console.log('me dejas circular pais')
+		// this.navCrtl.pop()
+		this.loadDatos()
 	}
 	// Pie
 	public pieChartLabels: string[] = []
@@ -71,5 +73,12 @@ export class CircularPaisPage {
 	/* Funcion para cerrar la ventana de la grafica circular. */
 	back() {
 		this.navCrtl.pop()
+	}
+
+	/* Funcion para visualizar los proyectos agrupados por pais. */
+	verProyectosAgrupados = (pais: string): void => {
+		this.navCrtl.push(ProyectosAgrupadosPage, {
+			'pais': pais
+		})
 	}
 }

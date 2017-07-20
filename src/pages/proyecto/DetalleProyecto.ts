@@ -18,7 +18,7 @@ export class DetalleProyectoPage {
 	}
 
 	ionViewWillLeave () {
-		console.log('me dejas')
+		console.log('me dejas detalle proyecto')
 		this.navCtrl.pop()
 	}
 }
