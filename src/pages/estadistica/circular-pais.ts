@@ -19,6 +19,9 @@ export class CircularPaisPage {
 		this.loadDatos()
 	}
 
+	ionViewWillUnload () {
+		this.navCrtl.pop()
+	}
 	// Pie
 	public pieChartLabels: string[] = []
 	public pieChartData: number[] = []
@@ -66,6 +69,6 @@ export class CircularPaisPage {
 
 	/* Funcion para cerrar la ventana de la grafica circular. */
 	back() {
-		this.navCrtl.pop();
+		this.navCrtl.pop()
 	}
 }

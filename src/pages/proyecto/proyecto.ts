@@ -1,9 +1,8 @@
 // https://github.com/ionic-team/cordova-plugin-wkwebview-engine
 import { Component, OnInit } from '@angular/core'
-import { NavController } from 'ionic-angular'
 import { Proyecto } from '../../interfaces/proyecto'
 import { DetalleProyectoPage } from './DetalleProyecto'
-import { ModalController, LoadingController } from 'ionic-angular'
+import { ModalController, LoadingController, NavController } from 'ionic-angular'
 import { FiltrosPage } from './filtros/filtros'
 import { DbService } from '../../services/db.service'
 
@@ -25,12 +24,12 @@ export class ProyectoPage implements OnInit {
 		//this.creaDB()
 	}
 
-	// ionViewDidLoad(): void {
-	// 	this.getProyectos()
-	// }
-	ngAfterViewInit() {
-		this.getProyectos()
+	ionViewWillEnter(): void {
+	 	this.getProyectos()
 	}
+	//ngAfterViewInit() {
+	//	this.getProyectos()
+	//}
 
 	constructor(
 		public navCtrl: NavController,
@@ -42,19 +41,19 @@ export class ProyectoPage implements OnInit {
 
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
 	getProyectos() {
-		let loading = this.loadingCtrl.create({
-			content: 'Por favor espere...'
-		})
-		loading.present()
 
 		setTimeout(() => {
+			let loading = this.loadingCtrl.create({
+				content: 'Por favor espere...'
+			})
+			loading.present()
 			this.dbService.openDatabase()
 			.then(() => this.dbService.getProyectos())
 			.then(proyectos => {
 				this.proyectos = proyectos
-				loading.dismiss();
 			})
 			.catch(e => console.log(e))
+			loading.dismiss();
 
 		}, 0)
 

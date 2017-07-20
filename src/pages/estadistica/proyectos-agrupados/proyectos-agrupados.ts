@@ -1,6 +1,8 @@
 import { Component } from '@angular/core'
-import { NavParams, LoadingController } from 'ionic-angular'
+import { NavParams, LoadingController, NavController } from 'ionic-angular'
 import { DbService } from '../../../services/db.service'
+import { Proyecto } from '../../../interfaces/proyecto'
+import { DetalleProyectoPage } from '../../proyecto/DetalleProyecto'
 
 @Component({
 	selector: 'page-proyectos-agrupados',
@@ -14,7 +16,8 @@ export class ProyectosAgrupadosPage {
 
 	constructor(private navParams: NavParams,
 		private dbService: DbService,
-		public loadingCtrl: LoadingController) {
+		public loadingCtrl: LoadingController,
+		public navCtrl: NavController,) {
 		this.pais = navParams.get('pais')
 		this.detallePorPais()
 	}
@@ -24,7 +27,6 @@ export class ProyectosAgrupadosPage {
 		let loading = this.loadingCtrl.create({
 			content: 'Por favor espere',
 		})
-
 		loading.present();
 
 		setTimeout(() => {
@@ -36,5 +38,12 @@ export class ProyectosAgrupadosPage {
 			})
 			.catch(e => console.log(e))
 		}, 0)
+	}
+
+	/* Funcion para ver el detalle de un proyecto. */
+	detalleProyecto = (_proyecto: Proyecto): void => {
+		this.navCtrl.push(DetalleProyectoPage, {
+			id: _proyecto
+		})
 	}
 }

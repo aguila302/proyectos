@@ -1,0 +1,24 @@
+{
+  "sessions": [
+    {
+      "id": "4921e51a-e7cb-4ce8-8323-aebc5acb1299",
+      "tabLayout": {
+        "type": "stack",
+        "width": 100,
+        "height": 100,
+        "tabs": [
+          {
+            "id": "1bd2a1f2-79ce-4611-8efe-b9f723570b24",
+            "relativeUrl": "file://./src/pages/proyecto/proyecto.ts",
+            "additionalData": null
+          }
+        ],
+        "subItems": [],
+        "activeItemIndex": 0
+      },
+      "lastUsed": 1500248641584,
+      "selectedTabId": "1bd2a1f2-79ce-4611-8efe-b9f723570b24"
+    }
+  ],
+  "relativePathToTsconfig": "./tsconfig.json"
+}
