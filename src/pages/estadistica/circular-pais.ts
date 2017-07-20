@@ -19,7 +19,8 @@ export class CircularPaisPage {
 		this.loadDatos()
 	}
 
-	ionViewWillUnload () {
+	ionViewWillLeave () {
+		console.log('me dejas')
 		this.navCrtl.pop()
 	}
 	// Pie

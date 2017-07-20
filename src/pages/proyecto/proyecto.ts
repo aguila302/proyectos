@@ -22,12 +22,12 @@ export class ProyectoPage implements OnInit {
 	ngOnInit(): void {
 		console.log('iniciando aplicacion')
 		//this.creaDB()
-
+		// console.log(this.getProyectos())
 	}
 
-	ionViewWillEnter(): void {
-	 	this.getProyectos()
-	}
+	// ionViewWillEnter(): void {
+	//  	this.getProyectos()
+	// }
 	// ngAfterViewInit() {
 	// 	this.getProyectos()
 	// }
@@ -41,7 +41,7 @@ export class ProyectoPage implements OnInit {
 		public modalCtrl: ModalController,
 		public dbService: DbService,
 		public loadingCtrl: LoadingController) {
-		// this.getProyectos()
+		this.getProyectos()
 	}
 
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
@@ -55,11 +55,10 @@ export class ProyectoPage implements OnInit {
 			.then(() => this.dbService.getProyectos())
 			.then(proyectos => {
 				this.proyectos = proyectos
+				loading.dismiss()
 			})
 			.catch(e => console.log(e))
-			loading.dismiss();
-		}, 0)
-
+		}, 5000)
 	}
 
 	/* Funcion para ver el detalle de un proyecto. */

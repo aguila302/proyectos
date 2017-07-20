@@ -28,14 +28,6 @@ export class DbService {
 			})
 
 	}
-		/* Reseteamos la tabla proyectos. */
-	resetTable() {
-		let sql = 'drop table if exists proyectos'
-
-		return this.db.executeSql(sql, {})
-			.then(() => console.log('tabla reseteada'))
-			.catch(e => console.log(e))
-	}
 
 	/* Creamos la tabla. */
 	createTable() {
@@ -67,6 +59,24 @@ export class DbService {
 			.catch(e => console.log(e))
 	}
 
+	/* Validamos que la tabla proyectos tenga informacion. */
+	validaRegistros() {
+		let sql = 'select count(*) as contador from proyectos'
+		return this.db.executeSql(sql, {})
+		.then((response) => {
+			let filas = response.rows.item(0).contador
+			/* Si no hay registros insertamos los datos*/
+			// console.log(response.rows.item(0).contador)
+			if(filas === 0) {
+				//console.log('insertamos registros')
+				this.insertaDatos()
+			}
+			else {
+				console.log('tenemos registros')
+			}
+			// console.log(response.rows.length)
+		})
+	}
 	/* Insertamos los datos. */
 	insertaDatos() {
 		let origen = collect(PROYECTOS)

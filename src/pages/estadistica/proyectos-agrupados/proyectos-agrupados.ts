@@ -14,6 +14,7 @@ export class ProyectosAgrupadosPage {
 	proyectos = []
 	pais: string = '' 
 
+	
 	constructor(private navParams: NavParams,
 		private dbService: DbService,
 		public loadingCtrl: LoadingController,
@@ -21,6 +22,11 @@ export class ProyectosAgrupadosPage {
 		this.pais = navParams.get('pais')
 		this.detallePorPais()
 	}
+	
+	// ionViewWillLeave () {
+	// 	console.log('me dejas')
+	// 	this.navCtrl.pop()
+	// }
 
 	/* Funcion para obtener las proyectos de un pais es especial. */
 	detallePorPais = () => {
