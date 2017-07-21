@@ -41,14 +41,17 @@ export class EstadisticaPage {
 				}
 			}],
 			yAxes: [{
-
+				barPercentage: 0.5,
                 position: 'left',
 				display: true,
 				ticks: {
 					beginAtZero: false,
 					callback: function(value, index, values) {
                         return '%' + value;
-                    }
+                    },
+                    min: 0,
+        			max: 100,
+                    stepSize: 25
 				},
 				// scaleLabel: {
 				// 	display: true,

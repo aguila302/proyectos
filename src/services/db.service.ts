@@ -19,7 +19,7 @@ export class DbService {
 	/* Creamos la base de datos. */
 	openDatabase() {
 		return this.sqlite.create({
-				name: 'proyectos.db',
+				name: 'data.db',
 				location: 'default',
 				createFromLocation: 1
 			})
@@ -94,7 +94,7 @@ export class DbService {
 					item.nombre_proyecto,
 					item.nombre_corto,
 					item.contrato,
-					parseInt(item.monto),
+					parseInt(item.montoUsd),
 					item.moneda,
 					item.pais,
 					item.gerencia,
@@ -124,7 +124,7 @@ export class DbService {
 				for (let index = 0; index < response.rows.length; index++) {
 					proyectos.push({
 						'nombre_proyecto': response.rows.item(index).nombre_proyecto,
-						'monto': account.formatMoney(response.rows.item(index).monto),
+						'monto': account.formatNumber(response.rows.item(index).monto),
 						'moneda': response.rows.item(index).moneda,
 						'pais': response.rows.item(index).pais,
 						'gerencia': response.rows.item(index).gerencia,

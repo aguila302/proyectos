@@ -6,9 +6,10 @@
 </ion-header>
 
 <ion-content padding>
+
     <ion-searchbar (ionInput)="buscaProyectos($event)" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)"></ion-searchbar>
 
-    <button ion-button full color="light" (click)="muestraFiltros()">Busqueda avanzada</button>
+    <button ion-button full (click)="muestraFiltros()">Busqueda avanzada</button>
     
     <ion-list [virtualScroll]="proyectos">
         <ion-item *virtualItem="let proyecto">
@@ -27,11 +28,11 @@
                                 
                     </ion-col>
                     <ion-col class="inline left">
-                        <p>Monto: </p>
+                        <strong><p>Monto USD: </p></strong>
                         {{ proyecto.monto }}
                     </ion-col>
                     <ion-col class="inline left">
-                        <p>Moneda: </p>
+                        <strong><p>Moneda: </p></strong>
                         {{ proyecto.moneda }}
                     </ion-col>
                     <ion-col class="right">

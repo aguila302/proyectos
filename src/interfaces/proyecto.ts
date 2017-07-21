@@ -26,7 +26,7 @@ export interface Proyecto {
 	['ELECTRONICO 2']?: string
 	['ESTATUS PROYECTO']?: string
 	['monto MONEDA NACIONAL']?: string
-	['monto USD']?: string
+	montoUsd: string
 	NOMBRE?: string
 	nombre_corto: string
 	['OTROS DOCUMENTOS']?: string

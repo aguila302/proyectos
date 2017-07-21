@@ -31,7 +31,7 @@ $colors: (
   dark:       #222,
   botton:     #5499C7,
   twitter: (
-    base: #5499C7,
+    base: #34495E,
     contrast: #ffffff
   ),
 
@@ -39,8 +39,9 @@ $colors: (
 
 $text-color: #888888;
 $tabs-tab-color-active: #f4f4f4;
-$tabs-background: #5499C7;
-$background-color: #FDFEFE;
+$tabs-tab-color-inactive: #E5E8E8;
+$tabs-background: #34495E;
+// $background-color: #FDFEFE;
 $card-md-border-radius: 5px;
 
 

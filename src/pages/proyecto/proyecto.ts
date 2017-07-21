@@ -59,7 +59,7 @@ export class ProyectoPage implements OnInit {
 					loading.dismiss()
 			})
 			.catch(e => console.log(e))
-		}, 5000)
+		}, 100)
 	}
 
 	/* Funcion para ver el detalle de un proyecto. */

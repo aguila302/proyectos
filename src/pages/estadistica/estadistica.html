@@ -19,7 +19,7 @@
 <ion-content padding>
     <div [ngSwitch]="pais">
         <ion-list *ngSwitchCase="'pais'">
-            <button ion-button outline (click)="modoCircular()">  <ion-icon name="sync"></ion-icon></button>
+            <button ion-button (click)="modoCircular()">Modo circular</button>
             <div style="display: block">
                 <canvas baseChart
                     [datasets]="barChartData"
