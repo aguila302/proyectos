@@ -24,6 +24,9 @@ export class EstadisticaPage {
 	public barChartOptions: any = {
 		scaleShowVerticalLines: false,
 		responsive: true,
+		tooltips: {
+			enabled: true
+		},
 		scales: {
 			xAxes: [{
 				categoryPercentage: 0.8,
@@ -50,9 +53,9 @@ export class EstadisticaPage {
 					callback: function(value, index, values) {
                         return '%' + value;
                     },
-                    min: 0,
-        			max: 100,
-                    stepSize: 5
+                    //min: 100,
+        			//max: 100,
+                    //stepSize: 50
 				},
 				// scaleLabel: {
 				// 	display: true,
@@ -97,6 +100,8 @@ export class EstadisticaPage {
 						item.data = porcentaje
 					}
 				)
+
+				console.log(this.barChartData)
 
 				/* Para mostrar la tabla de informacion */
 				const collection = collect(response)
