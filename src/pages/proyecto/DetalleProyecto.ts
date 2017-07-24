@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { NavParams, NavController } from 'ionic-angular'
+import { NavParams, NavController, ViewController } from 'ionic-angular'
 
 @Component({
 	selector: 'page-detalle-proyecto',
@@ -12,13 +12,14 @@ export class DetalleProyectoPage {
 	
 	proyecto = {}
 	constructor(private navParams: NavParams,
-		private navCtrl: NavController) {
+		private navCtrl: NavController,
+		private viewCtrl: ViewController) {
 		this.proyecto = navParams.get('id')
-		// console.log(this.proyecto)
 	}
 
 	ionViewWillLeave () {
 		console.log('me dejas detalle proyecto')
 		this.navCtrl.pop()
 	}
+
 }

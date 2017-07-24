@@ -15,21 +15,12 @@
         </ion-segment>
     </ion-toolbar>
 </ion-header>
-
 <ion-content padding>
     <div [ngSwitch]="pais">
         <ion-list *ngSwitchCase="'pais'">
             <button ion-button (click)="modoCircular()">Modo circular</button>
             <div style="display: block">
-                <canvas baseChart
-                    [datasets]="barChartData"
-                    [labels]="barChartLabels"
-                    [options]="barChartOptions"
-                    [colors]="barChartColors"
-                    [legend]="barChartLegend"
-                    [chartType]="barChartType"
-                    (chartHover)="chartHovered($event)"
-                    (chartClick)="chartClicked($event)">
+                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                 </canvas>
             </div>
             <ion-card *ngFor="let proyecto of proyectos">
