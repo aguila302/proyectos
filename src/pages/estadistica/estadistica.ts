@@ -11,7 +11,6 @@ import { NavController } from 'ionic-angular'
 	templateUrl: 'estadistica.html',
 })
 export class EstadisticaPage {
-
 	constructor(private dbService: DbService,
 		private navCtrl: NavController, public zone: NgZone) {
 	}
@@ -75,16 +74,14 @@ export class EstadisticaPage {
 
 	/* Cuando cargue nuestra vista conseguimos los proyectos de cada pais. */
 	ionViewWillEnter (): void {
-		console.log('muestro data')
 		this.getDatosXPais()
 	}
 
 	/* Funcion para conseguir los datos de poryectos por pais. */
 	getDatosXPais() {
 		this.dbService.openDatabase()
-		.then(() => this.dbService.consultaXPais())
-		.then(response => {
-			this.zone.run(() => {
+			.then(() => this.dbService.consultaXPais())
+			.then(response => {
 				let paises: string[] = []
 				let porcentaje: number[] = []
 
@@ -99,7 +96,7 @@ export class EstadisticaPage {
 						item.data = porcentaje
 					}
 				)
-				
+
 				const collection = collect(response)
 				this.monto_total = account.formatMoney(collection.sum('monto'))
 				this.total_proyectos = collection.sum('numero_proyectos')
@@ -109,14 +106,13 @@ export class EstadisticaPage {
 						'pais': item.pais,
 						'porcentaje': item.porcentaje,
 						'monto': account.formatMoney(item.monto),
-						'numero_proyectos' : item.numero_proyectos
+						'numero_proyectos': item.numero_proyectos
 					}
 				})
 				this.proyectos = proyectos
-				this.dataCirular =  response
+				this.dataCirular = response
 			})
-		})
-		.catch(console.error.bind(console))
+			.catch(console.error.bind(console))
 	}
 
 	/* Funcion para visualizar los proyectos agrupados por pais. */
