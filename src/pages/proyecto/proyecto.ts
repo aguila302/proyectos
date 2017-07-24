@@ -1,5 +1,5 @@
 // https://github.com/ionic-team/cordova-plugin-wkwebview-engine
-import { Component, OnInit, NgZone } from '@angular/core'
+import { Component, NgZone } from '@angular/core'
 import { Proyecto } from '../../interfaces/proyecto'
 import { DetalleProyectoPage } from './DetalleProyecto'
 import { ModalController, LoadingController, NavController, Platform } from 'ionic-angular'
@@ -12,7 +12,7 @@ import { DbService } from '../../services/db.service'
 })
 
 /* Clase de mi componente proyecto.html */
-export class ProyectoPage implements OnInit {
+export class ProyectoPage {
 
 	constructor(
 		public navCtrl: NavController,
@@ -30,8 +30,6 @@ export class ProyectoPage implements OnInit {
 
 	ngOnInit(): void {
 		console.log('iniciando aplicacion')
-		//this.creaDB()
-		// console.log(this.getProyectos())
 	}
 
 	ionViewDidLoad() {
@@ -40,28 +38,26 @@ export class ProyectoPage implements OnInit {
 		})
 	}
 
-
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
 	getProyectos() {
-		// let loading = this.loadingCtrl.create({
-		// 	content: 'Por favor espere...'
-		// })
-		// loading.present()
-		//setTimeout(() => {
+		let loading = this.loadingCtrl.create({
+			content: 'Por favor espere...'
+		})
+		loading.present()
+		setTimeout(() => {
 			this.dbService.openDatabase()
 			.then(() => this.dbService.getProyectos())
 			.then(proyectos => {
 				this.zone.run(() => {
 					console.log('running zone')
 					this.proyectos = proyectos
+					if(this.proyectos.length == 1330)
+						loading.dismiss()
 				})
-				// this.proyectos = proyectos
-				// if(this.proyectos.length == 1330)
-					// loading.dismiss()
 			})
 			.catch(console.error.bind(console))
 			// .catch(e => console.log(e))
-		//}, 100)
+		}, 0)
 	}
 
 	/* Funcion para ver el detalle de un proyecto. */
@@ -103,27 +99,4 @@ export class ProyectoPage implements OnInit {
 			this.opciones = data
 		})
 	}
-
-	/* Funcion para inicializar la base de datos. */
-	//creaDB = (): void  => {
-		
-		// let loading = this.loadingCtrl.create({
-		// 	content: 'Por favor espere',
-		// })
-		// loading.present()
-		//this.dbService.openDatabase()
-		//.then(() => this.dbService.revisionDatos())
-		// .then(() => this.dbService.resetTable())
-		//.then(() => this.dbService.createTable())
-		//.then(() => this.dbService.insertaDatos())
-
-		//.then(() => {
-			//this.getProyectos()
-		//})
-		// loading.dismiss()
-
-		//.then(() => this.dbService.getProyectos())
-		//.then(() => this.getProyectos())
-	//}
-
 }

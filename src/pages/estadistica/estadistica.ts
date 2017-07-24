@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core'
+import { Component, NgZone } from '@angular/core'
 import { DbService } from '../../services/db.service'
 import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
@@ -12,7 +12,9 @@ import { NavController } from 'ionic-angular'
 })
 export class EstadisticaPage {
 
-	// @ViewChild(CircularPaisPage) userProfile: CircularPaisPage
+	constructor(private dbService: DbService,
+		private navCtrl: NavController, public zone: NgZone) {
+	}
 
 	pais: string = 'pais'
 	proyectos = []
@@ -72,12 +74,8 @@ export class EstadisticaPage {
 	}]
 
 	/* Cuando cargue nuestra vista conseguimos los proyectos de cada pais. */
-	ionViewDidLoad (): void {
-		this.getDatosXPais()
-	}
-
-	constructor(private dbService: DbService,
-		private navCtrl: NavController) {
+	ionViewWillEnter (): void {
+		console.log('muestro data')
 		this.getDatosXPais()
 	}
 
@@ -86,36 +84,39 @@ export class EstadisticaPage {
 		this.dbService.openDatabase()
 		.then(() => this.dbService.consultaXPais())
 		.then(response => {
-			let paises: string[] = []
-			let porcentaje: number[] = []
+			this.zone.run(() => {
+				let paises: string[] = []
+				let porcentaje: number[] = []
 
-			response.forEach(item => {
-				paises.push(item.pais)
-				porcentaje.push(item.porcentaje)
+				response.forEach(item => {
+					paises.push(item.pais)
+					porcentaje.push(item.porcentaje)
+				})
+
+				this.barChartLabels = paises
+				this.barChartData.forEach(
+					(item) => {
+						item.data = porcentaje
+					}
+				)
+				
+				const collection = collect(response)
+				this.monto_total = account.formatMoney(collection.sum('monto'))
+				this.total_proyectos = collection.sum('numero_proyectos')
+
+				let proyectos = collection.map(function(item) {
+					return {
+						'pais': item.pais,
+						'porcentaje': item.porcentaje,
+						'monto': account.formatMoney(item.monto),
+						'numero_proyectos' : item.numero_proyectos
+					}
+				})
+				this.proyectos = proyectos
+				this.dataCirular =  response
 			})
-
-			this.barChartLabels = paises
-			this.barChartData.forEach(
-				(item) => {
-					item.data = porcentaje
-				}
-			)
-			
-			const collection = collect(response)
-			this.monto_total = account.formatMoney(collection.sum('monto'))
-			this.total_proyectos = collection.sum('numero_proyectos')
-
-			let proyectos = collection.map(function(item) {
-				return {
-					'pais': item.pais,
-					'porcentaje': item.porcentaje,
-					'monto': account.formatMoney(item.monto),
-					'numero_proyectos' : item.numero_proyectos
-				}
-			})
-			this.proyectos = proyectos
-			this.dataCirular =  response
 		})
+		.catch(console.error.bind(console))
 	}
 
 	/* Funcion para visualizar los proyectos agrupados por pais. */
