@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar no-border-bottom color="twitter">
     <ion-title>
-      Detalle de {{ pais }}
+      Proyectos de  {{ pais }}
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -24,12 +24,11 @@
                                 
                     </ion-col>
                     <ion-col class="inline left">
-                        <p>Monto: </p>
-                        {{ proyecto.monto }}
+                        <strong><p>Monto USD: </p></strong> {{ proyecto.monto }}
+
                     </ion-col>
                     <ion-col class="inline left">
-                        <p>Moneda: </p>
-                        {{ proyecto.moneda }}
+                        <strong><p>Moneda: </p></strong> {{ proyecto.moneda }}
                     </ion-col>
                     <ion-col class="right">
                         <button ion-button clear item-end (click)="detalleProyecto(proyecto)">

@@ -20,11 +20,6 @@ export class CircularPaisPage {
 		this.loadDatos()
 	}
 
-	ionViewDidLeave () {
-		console.log('me dejas circular pais')
-		// this.navCrtl.pop()
-		this.loadDatos()
-	}
 	// Pie
 	public pieChartLabels: string[] = []
 	public pieChartData: number[] = []
@@ -68,11 +63,6 @@ export class CircularPaisPage {
 			}
 		})
 		this.proyectos = proyectos
-	}
-
-	/* Funcion para cerrar la ventana de la grafica circular. */
-	back() {
-		this.navCrtl.pop()
 	}
 
 	/* Funcion para visualizar los proyectos agrupados por pais. */

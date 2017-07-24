@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, NgZone } from '@angular/core'
 import { NavParams, LoadingController, NavController } from 'ionic-angular'
 import { DbService } from '../../../services/db.service'
 import { Proyecto } from '../../../interfaces/proyecto'
@@ -14,17 +14,17 @@ export class ProyectosAgrupadosPage {
 	proyectos = []
 	pais: string = '' 
 
-	
 	constructor(private navParams: NavParams,
 		private dbService: DbService,
 		public loadingCtrl: LoadingController,
-		public navCtrl: NavController,) {
+		public navCtrl: NavController,
+		private zone: NgZone) {
 		this.pais = navParams.get('pais')
-		this.detallePorPais()
 	}
 	
-	ionViewDidLeave () {
-		console.log('me dejas proyecto agrupado')
+	/* Cuando la vista esta activa mostramos el detalle de un pais. */
+	ionViewDidLoad () {
+		console.log('mostrando el detalle')
 		// this.navCrtl.pop()
 		this.detallePorPais()
 	}
@@ -40,10 +40,12 @@ export class ProyectosAgrupadosPage {
 			this.dbService.openDatabase()
 			.then(() => this.dbService.consultaPaisAgrupado(this.pais))
 			.then(proyectos => {
-				this.proyectos = proyectos
-				loading.dismiss();
+				this.zone.run(() => {
+					this.proyectos = proyectos
+					loading.dismiss();
+				})
 			})
-			.catch(e => console.log(e))
+			.catch(console.error.bind(console))
 		}, 0)
 	}
 

@@ -52,7 +52,7 @@ export class EstadisticaPage {
                     },
                     min: 0,
         			max: 100,
-                    stepSize: 25
+                    stepSize: 5
 				},
 				// scaleLabel: {
 				// 	display: true,
@@ -82,6 +82,7 @@ export class EstadisticaPage {
 		this.dbService.openDatabase()
 			.then(() => this.dbService.consultaXPais())
 			.then(response => {
+				/* Para mostrar la informacion de la grafica. */
 				let paises: string[] = []
 				let porcentaje: number[] = []
 
@@ -97,6 +98,7 @@ export class EstadisticaPage {
 					}
 				)
 
+				/* Para mostrar la tabla de informacion */
 				const collection = collect(response)
 				this.monto_total = account.formatMoney(collection.sum('monto'))
 				this.total_proyectos = collection.sum('numero_proyectos')
@@ -128,4 +130,16 @@ export class EstadisticaPage {
 			'datos_circular' : this.dataCirular
 		})
 	}
+
+	// events
+	public chartClicked(e: any): void {
+		console.log('chartClicked')
+		console.log(e);
+	}
+
+	public chartHovered(e: any): void {
+		console.log('chartHovered')
+		console.log(e);
+	}
+
 }

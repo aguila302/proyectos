@@ -16,10 +16,4 @@ export class DetalleProyectoPage {
 		private viewCtrl: ViewController) {
 		this.proyecto = navParams.get('id')
 	}
-
-	ionViewWillLeave () {
-		console.log('me dejas detalle proyecto')
-		this.navCtrl.pop()
-	}
-
 }
