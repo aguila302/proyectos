@@ -5,11 +5,11 @@
         </ion-title>
     </ion-navbar>
     <ion-toolbar no-border-top>
-        <ion-segment [(ngModel)]="pais" color="primary" (ionChange)="segmentChanged($event)">
-            <ion-segment-button value="pais">
+        <ion-segment [(ngModel)]="pais" color="secondary">
+            <ion-segment-button value="pais" (ionSelect)="getDatosXPais()">
                 <strong style="text-transform: capitalize;">País</strong>
             </ion-segment-button>
-            <ion-segment-button value="Anio">
+            <ion-segment-button value="Anio" (ionSelect)="getDatosXAnio()">
                 <strong style="text-transform: capitalize;">Año</strong>
             </ion-segment-button>
         </ion-segment>
@@ -94,7 +94,7 @@
                             <strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}
                         </ion-col>
                         <ion-col col-2 class="right">
-                            <button ion-button clear item-end>
+                            <button ion-button clear item-end (click)="verProyectosAgrupadosAnio(proyecto.anio)">
                                 <strong style="text-transform: none;">Ver más ...</strong>
                             </button>
                         </ion-col>

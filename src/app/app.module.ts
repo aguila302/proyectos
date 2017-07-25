@@ -13,6 +13,7 @@ import { DetalleProyectoPage } from '../pages/proyecto/DetalleProyecto';
 import { FiltrosPage } from '../pages/proyecto/filtros/filtros';
 import { CircularPaisPage } from '../pages/estadistica/circular-pais';
 import { ProyectosAgrupadosPage } from '../pages/estadistica/proyectos-agrupados/proyectos-agrupados';
+import { ProyectosAgrupadosAnioPage } from '../pages/estadistica/proyectos-agrupados/por-anio/proyectos-agrupados-anio';
 
 //import { ChartsModule } from 'ng2-charts';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
@@ -32,6 +33,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     FiltrosPage,
     CircularPaisPage,
     ProyectosAgrupadosPage,
+    ProyectosAgrupadosAnioPage
   ],
   imports: [
     BrowserModule,
@@ -49,6 +51,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     FiltrosPage,
     CircularPaisPage,
     ProyectosAgrupadosPage,
+    ProyectosAgrupadosAnioPage
   ],
   providers: [
     StatusBar,
