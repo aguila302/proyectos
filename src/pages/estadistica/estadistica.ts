@@ -53,9 +53,9 @@ export class EstadisticaPage {
 					callback: function(value, index, values) {
                         return '%' + value;
                     },
-                    //min: 100,
-        			//max: 100,
-                    //stepSize: 50
+                    min: 0,
+        			max: 100,
+                    stepSize: 20
 				},
 				// scaleLabel: {
 				// 	display: true,
@@ -73,6 +73,7 @@ export class EstadisticaPage {
 
 	public barChartData: any[] = [{
 		data: [],
+		label: []
 	}]
 
 	/* Cuando cargue nuestra vista conseguimos los proyectos de cada pais. */
@@ -100,8 +101,6 @@ export class EstadisticaPage {
 						item.data = porcentaje
 					}
 				)
-
-				console.log(this.barChartData)
 
 				/* Para mostrar la tabla de informacion */
 				const collection = collect(response)
