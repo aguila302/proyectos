@@ -32,7 +32,6 @@ export class ProyectosAgrupadosAnioPage {
 
 	ionViewDidLeave() {
 		console.log('removiendo la vista')
-		//this.navCtrl.pop()
 	}
 
 	/* Funcion para obtener las proyectos de un anio. */
@@ -56,9 +55,9 @@ export class ProyectosAgrupadosAnioPage {
 	}
 
 	// /* Funcion para ver el detalle de un proyecto. */
-	// detalleProyecto = (_proyecto: Proyecto): void => {
-	// 	this.navCtrl.push(DetalleProyectoPage, {
-	// 		id: _proyecto
-	// 	})
-	// }
+	detalleProyecto = (_proyecto: Proyecto): void => {
+		this.navCtrl.push(DetalleProyectoPage, {
+			id: _proyecto
+		})
+	}
 }

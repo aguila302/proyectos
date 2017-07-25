@@ -12,6 +12,7 @@ import { DbService } from '../services/db.service'
 import { DetalleProyectoPage } from '../pages/proyecto/DetalleProyecto';
 import { FiltrosPage } from '../pages/proyecto/filtros/filtros';
 import { CircularPaisPage } from '../pages/estadistica/circular-pais';
+import { CircularAnioPage } from '../pages/estadistica/graficaCircularAnio/circular-anio';
 import { ProyectosAgrupadosPage } from '../pages/estadistica/proyectos-agrupados/proyectos-agrupados';
 import { ProyectosAgrupadosAnioPage } from '../pages/estadistica/proyectos-agrupados/por-anio/proyectos-agrupados-anio';
 
@@ -33,7 +34,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     FiltrosPage,
     CircularPaisPage,
     ProyectosAgrupadosPage,
-    ProyectosAgrupadosAnioPage
+    ProyectosAgrupadosAnioPage,
+    CircularAnioPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     FiltrosPage,
     CircularPaisPage,
     ProyectosAgrupadosPage,
-    ProyectosAgrupadosAnioPage
+    ProyectosAgrupadosAnioPage,
+    CircularAnioPage
   ],
   providers: [
     StatusBar,

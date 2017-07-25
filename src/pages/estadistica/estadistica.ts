@@ -1,8 +1,9 @@
-import { Component, NgZone, ViewChild } from '@angular/core'
+import { Component, NgZone } from '@angular/core'
 import { DbService } from '../../services/db.service'
 import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
 import { CircularPaisPage } from './circular-pais'
+import { CircularAnioPage } from './graficaCircularAnio/circular-anio'
 import { ProyectosAgrupadosPage } from './proyectos-agrupados/proyectos-agrupados'
 import { ProyectosAgrupadosAnioPage } from './proyectos-agrupados/por-anio/proyectos-agrupados-anio'
 import { NavController } from 'ionic-angular'
@@ -87,9 +88,15 @@ export class EstadisticaPage {
 	ionViewDidLoad (): void {
 		this.getDatosXPais()
 	}
-	
+
 	/* Funcion para conseguir los datos de poryectos por pais. */
 	getDatosXPais() {
+		for(let index in this.barChartOptions) {
+			this.barChartOptions.scales.xAxes[0].scaleLabel.labelString = 'Paises'
+			this.barChartOptions.scales.yAxes[0].ticks.min = 0
+			this.barChartOptions.scales.yAxes[0].ticks.max = 100
+			this.barChartOptions.scales.yAxes[0].ticks.stepSize = 20
+		}
 		console.log('por pais')
 		this.dbService.openDatabase()
 			.then(() => this.dbService.consultaXPais())
@@ -156,6 +163,12 @@ export class EstadisticaPage {
 
 	getDatosXAnio = (): void => {
 		console.log('por anio')
+		for (let index in this.barChartOptions) {
+			this.barChartOptions.scales.xAxes[0].scaleLabel.labelString = 'Años'
+			this.barChartOptions.scales.yAxes[0].ticks.min = 1
+			this.barChartOptions.scales.yAxes[0].ticks.max = 10
+			this.barChartOptions.scales.yAxes[0].ticks.stepSize = 1
+		}
 		this.dbService.openDatabase()
 			.then(() => this.dbService.consultaXAnio())
 			.then(response => {
@@ -189,72 +202,21 @@ export class EstadisticaPage {
 					}
 				})
 				this.proyectos = proyectos
-					// this.dataCirular = response
+				this.dataCirular = response
 			})
 	}
-
-	/* Funcion para controlar el cambio del control segment. */
-	// segmentChanged(event) {
-	// 	console.log(event.value)
-	// 	if(event.value == 'pais') {
-	// 		for(let index in this.barChartOptions) {
-	// 			this.barChartOptions.scales.xAxes[0].scaleLabel.labelString = 'Paises'
-	// 			this.barChartOptions.scales.yAxes[0].ticks.min = 0
-	// 			this.barChartOptions.scales.yAxes[0].ticks.max = 100
-	// 			this.barChartOptions.scales.yAxes[0].ticks.stepSize = 20
-	// 		}
-	// 		this.getDatosXPais()
-	// 	}
-	// 	if(event.value == 'Anio') {
-	// 		for(let index in this.barChartOptions) {
-	// 			this.barChartOptions.scales.xAxes[0].scaleLabel.labelString = 'Años'
-	// 			this.barChartOptions.scales.yAxes[0].ticks.min = 1
-	// 			this.barChartOptions.scales.yAxes[0].ticks.max = 10
-	// 			this.barChartOptions.scales.yAxes[0].ticks.stepSize = 1
-	// 		}
-
-	// 		this.dbService.openDatabase()
-	// 		.then(() => this.dbService.consultaXAnio())
-	// 		.then(response => {
-	// 			 Para mostrar la informacion de la grafica. 
-	// 			let anios: string[] = []
-	// 			let porcentaje: number[] = []
-
-	// 			response.forEach(item => {
-	// 				anios.push(item.anio)
-	// 				porcentaje.push(item.porcentaje)
-	// 			})
-
-	// 			this.barChartLabels = anios
-	// 			this.barChartData.forEach(
-	// 				(item) => {
-	// 					item.data = porcentaje
-	// 				}
-	// 			)
-
-	// 			/* Para mostrar la tabla de informacion */
-	// 			const collection = collect(response)
-	// 			this.monto_total = account.formatMoney(collection.sum('monto'))
-	// 			this.total_proyectos = collection.sum('numero_proyectos')
-
-	// 			let proyectos = collection.map(function(item) {
-	// 				return {
-	// 					'anio': item.anio,
-	// 					'porcentaje': item.porcentaje,
-	// 					'monto': account.formatMoney(item.monto),
-	// 					'numero_proyectos': item.numero_proyectos
-	// 				}
-	// 			})
-	// 			this.proyectos = proyectos
-	// 			// this.dataCirular = response
-	// 		})
-	// 	}
-	// }
 
 	/* Funcion para visualizar los proyectos agrupados por anio. */
 	verProyectosAgrupadosAnio = (anio: string): void => {
 		this.navCtrl.push(ProyectosAgrupadosAnioPage, {
 			'anio': anio
+		})
+	}
+
+	/* Funcion para visualizar la grafica en modo circular por anio. */
+	modoCircularAnio = (): void => {
+		this.navCtrl.push(CircularAnioPage, {
+			'datos_circular' : this.dataCirular
 		})
 	}
 }
