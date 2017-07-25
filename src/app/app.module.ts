@@ -31,7 +31,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     DetalleProyectoPage,
     FiltrosPage,
     CircularPaisPage,
-    ProyectosAgrupadosPage
+    ProyectosAgrupadosPage,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +48,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     DetalleProyectoPage,
     FiltrosPage,
     CircularPaisPage,
-    ProyectosAgrupadosPage
+    ProyectosAgrupadosPage,
   ],
   providers: [
     StatusBar,

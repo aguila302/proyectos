@@ -1,4 +1,4 @@
-import { Component, NgZone } from '@angular/core'
+import { Component, NgZone, ViewChild } from '@angular/core'
 import { DbService } from '../../services/db.service'
 import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
@@ -11,6 +11,7 @@ import { NavController } from 'ionic-angular'
 	templateUrl: 'estadistica.html',
 })
 export class EstadisticaPage {
+
 	constructor(private dbService: DbService,
 		private navCtrl: NavController, public zone: NgZone) {
 	}
@@ -37,7 +38,7 @@ export class EstadisticaPage {
 				},
 				scaleLabel: {
 					display: true,
-					labelString: 'Países',
+					labelString: '',
 				},
 				gridLines: {
 					color: 'rgba(255,255,255,1.0)',
@@ -51,7 +52,7 @@ export class EstadisticaPage {
 				ticks: {
 					beginAtZero: false,
 					callback: function(value, index, values) {
-                        return '%' + value;
+                        return '%' + value
                     },
                     min: 0,
         			max: 100,
@@ -73,7 +74,8 @@ export class EstadisticaPage {
 
 	public barChartData: any[] = [{
 		data: [],
-		label: []
+		label: [],
+		backgroundColor: ['#3e95cd', '#8e5ea2', '#3cba9f', '#e8c3b9', '#c45850', '#17202A', '#3e95cd', '#8e5ea2', '#3cba9f', '#e8c3b9', '#c45850', '#17202A', '#e8c3b9', '#c45850', '#17202A'],
 	}]
 
 	/* Cuando cargue nuestra vista conseguimos los proyectos de cada pais. */
@@ -138,12 +140,69 @@ export class EstadisticaPage {
 	// events
 	public chartClicked(e: any): void {
 		console.log('chartClicked')
-		console.log(e);
+		console.log(e)
 	}
 
 	public chartHovered(e: any): void {
 		console.log('chartHovered')
-		console.log(e);
+		console.log(e)
+	}
+
+	segmentChanged(event) {
+		console.log(event.value)
+		if(event.value == 'pais') {
+			for(let index in this.barChartOptions) {
+				this.barChartOptions.scales.xAxes[0].scaleLabel.labelString = 'Paises'
+				this.barChartOptions.scales.yAxes[0].ticks.min = 0
+				this.barChartOptions.scales.yAxes[0].ticks.max = 100
+				this.barChartOptions.scales.yAxes[0].ticks.stepSize = 20
+			}
+			this.getDatosXPais()
+		}
+		if(event.value == 'Anio') {
+			for(let index in this.barChartOptions) {
+				this.barChartOptions.scales.xAxes[0].scaleLabel.labelString = 'Años'
+				this.barChartOptions.scales.yAxes[0].ticks.min = 1
+				this.barChartOptions.scales.yAxes[0].ticks.max = 10
+				this.barChartOptions.scales.yAxes[0].ticks.stepSize = 1
+			}
+
+			this.dbService.openDatabase()
+			.then(() => this.dbService.consultaXAnio())
+			.then(response => {
+				/* Para mostrar la informacion de la grafica. */
+				let anios: string[] = []
+				let porcentaje: number[] = []
+
+				response.forEach(item => {
+					anios.push(item.anio)
+					porcentaje.push(item.porcentaje)
+				})
+
+				this.barChartLabels = anios
+				this.barChartData.forEach(
+					(item) => {
+						item.data = porcentaje
+					}
+				)
+
+				/* Para mostrar la tabla de informacion */
+				const collection = collect(response)
+				this.monto_total = account.formatMoney(collection.sum('monto'))
+				this.total_proyectos = collection.sum('numero_proyectos')
+
+				let proyectos = collection.map(function(item) {
+					return {
+						'anio': item.anio,
+						'porcentaje': item.porcentaje,
+						'monto': account.formatMoney(item.monto),
+						'numero_proyectos': item.numero_proyectos
+					}
+				})
+				this.proyectos = proyectos
+				// this.dataCirular = response
+			})
+		}
 	}
 
 }

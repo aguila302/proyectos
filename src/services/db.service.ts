@@ -220,4 +220,27 @@ export class DbService {
 				return proyectos
 			})
 	}
+
+	/* Funcion para la consulta de proyectos por anio. */
+	consultaXAnio = (): any => {
+		let proyectos = []
+		let sql = `select anio, count(*) as numero_proyectos, sum(monto) as monto,
+					(select count(*) from proyectos) as total
+					FROM proyectos
+					group by anio order by anio desc`
+
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					proyectos.push({
+						'anio': response.rows.item(index).anio,
+						'numero_proyectos': response.rows.item(index).numero_proyectos,
+						'monto': parseInt(response.rows.item(index).monto),
+						'total': response.rows.item(index).total,
+						'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2)
+					})
+				}
+				return Promise.resolve(proyectos)
+			})
+	}
 }
