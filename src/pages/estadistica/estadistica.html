@@ -12,8 +12,8 @@
             <ion-segment-button value="Anio" (ionSelect)="getDatosXAnio()">
                 <strong style="text-transform: capitalize;">Año</strong>
             </ion-segment-button>
-            <ion-segment-button value="Cliente" (ionSelect)="getDatosXCliente()">
-                <strong style="text-transform: capitalize;">Cliente</strong>
+            <ion-segment-button value="Gerencia" (ionSelect)="getDatosXGerencia()">
+                <strong style="text-transform: capitalize;">Gerencia</strong>
             </ion-segment-button>
         </ion-segment>
     </ion-toolbar>
@@ -108,7 +108,7 @@
                 </ion-grid>
             </ion-card>
         </ion-list>
-        <ion-list *ngSwitchCase="'Cliente'">
+        <ion-list *ngSwitchCase="'Gerencia'">
             <div style="display: block">
                 <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                 </canvas>
@@ -131,7 +131,7 @@
                 <ion-grid>
                     <ion-row>
                         <ion-col col-2>
-                            <h4>{{ proyecto.contratante }}</h4>
+                            <h4>{{ proyecto.gerencia }}</h4>
                             <strong>{{ proyecto.porcentaje }} %</strong>
                         </ion-col>
                         <ion-col col-5 text-wrap text-justify>

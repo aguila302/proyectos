@@ -33,14 +33,19 @@ export class EstadisticaPage {
 		scales: {
 			xAxes: [{
 				categoryPercentage: 0.8,
-				barPercentage: 1.0,
+				// barPercentage: 1.0,
 				stacked: true,
 				ticks: {
+					maxRotation: 90,
+					minRotation: 0,
+					autoSkip: false,
+					labelOffset: 3,
+					mirror: true,
 					beginAtZero: true
 				},
 				scaleLabel: {
-					display: false,
-					labelString: '',
+					display: true,
+					labelString: 'Paises',
 				},
 				gridLines: {
 					color: 'rgba(255,255,255,1.0)',
@@ -68,6 +73,13 @@ export class EstadisticaPage {
 		},
 		legend: {
 			display: false,
+		},
+		plugins: {
+			deferred: { // enabled by default
+				xOffset: 150, // defer until 150px of the canvas width are inside the viewport
+				yOffset: '50%', // defer until 50% of the canvas height are inside the viewport
+				delay: 500 // delay of 500 ms after the canvas is considered inside the viewport
+			}
 		}
 	}
 	public barChartLabels: string[] = []
@@ -215,21 +227,28 @@ export class EstadisticaPage {
 		})
 	}
 
-	/* Funcion para conseguir los datos de poryectos por cliente. */
-	getDatosXCliente = (): void => {
+	/* Funcion para conseguir los datos de poryectos por gerencia. */
+	getDatosXGerencia = (): void => {
+		for(let index in this.barChartOptions) {
+			this.barChartOptions.scales.xAxes[0].scaleLabel.labelString = 'Gerencia'
+			this.barChartOptions.scales.yAxes[0].ticks.min = 0
+			this.barChartOptions.scales.yAxes[0].ticks.max = 100
+			this.barChartOptions.scales.yAxes[0].ticks.stepSize = 15
+		}
+
 		this.dbService.openDatabase()
-			.then(() => this.dbService.consultaXCliente())
+			.then(() => this.dbService.consultaXGerencia())
 			.then(response => {
 				// Para mostrar la informacion de la grafica. 
-				let contratante: string[] = []
+				let gerencia: string[] = []
 				let porcentaje: number[] = []
 
 				response.forEach(item => {
-					contratante.push(item.contratante)
+					gerencia.push(item.gerencia)
 					porcentaje.push(item.porcentaje)
 				})
 
-				this.barChartLabels = contratante
+				this.barChartLabels = gerencia
 				this.barChartData.forEach(
 					(item) => {
 						item.data = porcentaje
@@ -243,7 +262,7 @@ export class EstadisticaPage {
 
 				let proyectos = collection.map(function(item) {
 					return {
-						'contratante': item.contratante,
+						'gerencia': item.gerencia,
 						'porcentaje': item.porcentaje,
 						'monto': account.formatMoney(item.monto),
 						'numero_proyectos': item.numero_proyectos

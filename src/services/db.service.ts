@@ -275,19 +275,19 @@ export class DbService {
 			})
 	}
 
-	/* Funcion para la consulta de proyectos por cliente. */
-	consultaXCliente = (): any => {
+	/* Funcion para la consulta de proyectos por gerencia. */
+	consultaXGerencia = (): any => {
 		let proyectos = []
-		let sql = `select contratante, count(*) as numero_proyectos, sum(monto) as monto,
+		let sql = `select gerencia, count(*) as numero_proyectos, sum(monto) as monto,
 					(select count(*) from proyectos) as total
 					FROM proyectos
-					group by contratante order by contratante asc`
+					group by gerencia order by gerencia asc`
 
 		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
 					proyectos.push({
-						'contratante': response.rows.item(index).contratante,
+						'gerencia': response.rows.item(index).gerencia,
 						'numero_proyectos': response.rows.item(index).numero_proyectos,
 						'monto': parseInt(response.rows.item(index).monto),
 						'total': response.rows.item(index).total,
