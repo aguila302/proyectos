@@ -39,7 +39,7 @@ export class EstadisticaPage {
 					beginAtZero: true
 				},
 				scaleLabel: {
-					display: true,
+					display: false,
 					labelString: '',
 				},
 				gridLines: {
@@ -58,7 +58,7 @@ export class EstadisticaPage {
                     },
                     min: 0,
         			max: 100,
-                    stepSize: 20
+                    stepSize: 10
 				},
 				// scaleLabel: {
 				// 	display: true,
@@ -80,11 +80,6 @@ export class EstadisticaPage {
 		backgroundColor: ['#3e95cd', '#8e5ea2', '#3cba9f', '#e8c3b9', '#c45850', '#17202A', '#3e95cd', '#8e5ea2', '#3cba9f', '#e8c3b9', '#c45850', '#17202A', '#e8c3b9', '#c45850', '#17202A'],
 	}]
 
-	/* Cuando cargue nuestra vista conseguimos los proyectos de cada pais. */
-	// ionViewWillEnter (): void {
-	// 	this.getDatosXPais()
-	// }
-
 	ionViewDidLoad (): void {
 		this.getDatosXPais()
 	}
@@ -95,9 +90,8 @@ export class EstadisticaPage {
 			this.barChartOptions.scales.xAxes[0].scaleLabel.labelString = 'Paises'
 			this.barChartOptions.scales.yAxes[0].ticks.min = 0
 			this.barChartOptions.scales.yAxes[0].ticks.max = 100
-			this.barChartOptions.scales.yAxes[0].ticks.stepSize = 20
+			this.barChartOptions.scales.yAxes[0].ticks.stepSize = 10
 		}
-		console.log('por pais')
 		this.dbService.openDatabase()
 			.then(() => this.dbService.consultaXPais())
 			.then(response => {
@@ -116,6 +110,7 @@ export class EstadisticaPage {
 						item.data = porcentaje
 					}
 				)
+
 
 				/* Para mostrar la tabla de informacion */
 				const collection = collect(response)
@@ -161,13 +156,13 @@ export class EstadisticaPage {
 		console.log(e)
 	}
 
+	/* Funcion para conseguir los datos de poryectos por anio. */
 	getDatosXAnio = (): void => {
-		console.log('por anio')
 		for (let index in this.barChartOptions) {
 			this.barChartOptions.scales.xAxes[0].scaleLabel.labelString = 'Años'
-			this.barChartOptions.scales.yAxes[0].ticks.min = 1
+			this.barChartOptions.scales.yAxes[0].ticks.min = 0
 			this.barChartOptions.scales.yAxes[0].ticks.max = 10
-			this.barChartOptions.scales.yAxes[0].ticks.stepSize = 1
+			this.barChartOptions.scales.yAxes[0].ticks.stepSize = 2
 		}
 		this.dbService.openDatabase()
 			.then(() => this.dbService.consultaXAnio())
@@ -218,5 +213,44 @@ export class EstadisticaPage {
 		this.navCtrl.push(CircularAnioPage, {
 			'datos_circular' : this.dataCirular
 		})
+	}
+
+	/* Funcion para conseguir los datos de poryectos por cliente. */
+	getDatosXCliente = (): void => {
+		this.dbService.openDatabase()
+			.then(() => this.dbService.consultaXCliente())
+			.then(response => {
+				// Para mostrar la informacion de la grafica. 
+				let contratante: string[] = []
+				let porcentaje: number[] = []
+
+				response.forEach(item => {
+					contratante.push(item.contratante)
+					porcentaje.push(item.porcentaje)
+				})
+
+				this.barChartLabels = contratante
+				this.barChartData.forEach(
+					(item) => {
+						item.data = porcentaje
+					}
+				)
+
+				/* Para mostrar la tabla de informacion */
+				const collection = collect(response)
+				this.monto_total = account.formatMoney(collection.sum('monto'))
+				this.total_proyectos = collection.sum('numero_proyectos')
+
+				let proyectos = collection.map(function(item) {
+					return {
+						'contratante': item.contratante,
+						'porcentaje': item.porcentaje,
+						'monto': account.formatMoney(item.monto),
+						'numero_proyectos': item.numero_proyectos
+					}
+				})
+				this.proyectos = proyectos
+				// this.dataCirular = response
+			})
 	}
 }

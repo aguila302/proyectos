@@ -12,6 +12,9 @@
             <ion-segment-button value="Anio" (ionSelect)="getDatosXAnio()">
                 <strong style="text-transform: capitalize;">Año</strong>
             </ion-segment-button>
+            <ion-segment-button value="Cliente" (ionSelect)="getDatosXCliente()">
+                <strong style="text-transform: capitalize;">Cliente</strong>
+            </ion-segment-button>
         </ion-segment>
     </ion-toolbar>
 </ion-header>
@@ -54,7 +57,7 @@
                         </ion-col>
                         <ion-col col-2 class="right">
                             <button ion-button clear item-end (click)="verProyectosAgrupados(proyecto.pais)">
-                                <strong style="text-transform: none;">Ver más ...</strong>
+                                <strong style="text-transform: none;">Ver detalle</strong>
                             </button>
                         </ion-col>
                     </ion-row>
@@ -98,7 +101,48 @@
                         </ion-col>
                         <ion-col col-2 class="right">
                             <button ion-button clear item-end (click)="verProyectosAgrupadosAnio(proyecto.anio)">
-                                <strong style="text-transform: none;">Ver más ...</strong>
+                                <strong style="text-transform: none;">Ver detalle</strong>
+                            </button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card>
+        </ion-list>
+        <ion-list *ngSwitchCase="'Cliente'">
+            <div style="display: block">
+                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                </canvas>
+            </div>
+            <hr>
+            <hr>
+            <ion-card>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col text-wrap text-right>
+                            <strong>Monto total USD: </strong>{{ monto_total }}
+                        </ion-col>
+                        <ion-col text-wrap text-left>
+                            <strong>Total de proyectos: </strong> {{ total_proyectos }}
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card>
+            <ion-card *ngFor="let proyecto of proyectos">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-2>
+                            <h4>{{ proyecto.contratante }}</h4>
+                            <strong>{{ proyecto.porcentaje }} %</strong>
+                        </ion-col>
+                        <ion-col col-5 text-wrap text-justify>
+                            <strong>Monto USD: </strong> {{ proyecto.monto }}
+                        </ion-col>
+                        <ion-col col-3 text-wrap text-justify>
+                            <strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}
+                        </ion-col>
+                        <ion-col col-2 class="right">
+                            <button ion-button clear item-end >
+                                <strong style="text-transform: none;">Ver detalle</strong>
                             </button>
                         </ion-col>
                     </ion-row>
