@@ -6,6 +6,7 @@ import { CircularPaisPage } from './circular-pais'
 import { CircularAnioPage } from './graficaCircularAnio/circular-anio'
 import { ProyectosAgrupadosPage } from './proyectos-agrupados/proyectos-agrupados'
 import { ProyectosAgrupadosAnioPage } from './proyectos-agrupados/por-anio/proyectos-agrupados-anio'
+import { ProyectosAgrupadosGerenciaPage } from './proyectos-agrupados/por-gerencia/proyectos-agrupados-gerencia'
 import { NavController } from 'ionic-angular'
 
 @Component({
@@ -269,7 +270,14 @@ export class EstadisticaPage {
 					}
 				})
 				this.proyectos = proyectos
-				// this.dataCirular = response
+				//this.dataCirular = response
 			})
+	}
+
+	/* Funcion para visualizar los proyectos agrupados por gerencia. */
+	verProyectosAgrupadosGerencia = (gerencia: string): void => {
+		this.navCtrl.push(ProyectosAgrupadosGerenciaPage, {
+			'gerencia': gerencia
+		})
 	}
 }

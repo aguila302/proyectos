@@ -141,7 +141,7 @@
                             <strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}
                         </ion-col>
                         <ion-col col-2 class="right">
-                            <button ion-button clear item-end >
+                            <button ion-button clear item-end (click)="verProyectosAgrupadosGerencia(proyecto.gerencia)">
                                 <strong style="text-transform: none;">Ver detalle</strong>
                             </button>
                         </ion-col>
