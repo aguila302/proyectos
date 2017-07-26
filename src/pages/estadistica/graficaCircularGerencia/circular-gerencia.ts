@@ -43,7 +43,7 @@ export class CircularGerenciaPage {
 		let porcentaje: number[] = []
 
 		this.proyectos.forEach(item => {
-			gerencia.push(item.anio)
+			gerencia.push(item.gerencia)
 			porcentaje.push(item.porcentaje)
 		})
 
