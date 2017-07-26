@@ -109,6 +109,9 @@
             </ion-card>
         </ion-list>
         <ion-list *ngSwitchCase="'Gerencia'">
+            <div text-right>
+                <button ion-button clear (click)="modoCircularGerencia()">Ver modo circular</button>
+            </div>
             <div style="display: block">
                 <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                 </canvas>

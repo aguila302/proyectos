@@ -4,6 +4,8 @@ import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
 import { CircularPaisPage } from './circular-pais'
 import { CircularAnioPage } from './graficaCircularAnio/circular-anio'
+import { CircularGerenciaPage } from './graficaCircularGerencia/circular-gerencia'
+
 import { ProyectosAgrupadosPage } from './proyectos-agrupados/proyectos-agrupados'
 import { ProyectosAgrupadosAnioPage } from './proyectos-agrupados/por-anio/proyectos-agrupados-anio'
 import { ProyectosAgrupadosGerenciaPage } from './proyectos-agrupados/por-gerencia/proyectos-agrupados-gerencia'
@@ -87,10 +89,18 @@ export class EstadisticaPage {
 	public barChartType: string = 'bar'
 	public barChartLegend: boolean = true
 
+	public barChartColors: Array < any > = [{ 
+		// grey
+		backgroundColor: 'rgba(27, 38, 49)',
+		borderColor: 'rgba(148,159,177,1)',
+		pointBackgroundColor: 'rgba(148,159,177,1)',
+		pointBorderColor: '#fff',
+		pointHoverBackgroundColor: '#fff',
+		pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+	}];
 	public barChartData: any[] = [{
 		data: [],
 		label: [],
-		backgroundColor: ['#3e95cd', '#8e5ea2', '#3cba9f', '#e8c3b9', '#c45850', '#17202A', '#3e95cd', '#8e5ea2', '#3cba9f', '#e8c3b9', '#c45850', '#17202A', '#e8c3b9', '#c45850', '#17202A'],
 	}]
 
 	ionViewDidLoad (): void {
@@ -270,7 +280,7 @@ export class EstadisticaPage {
 					}
 				})
 				this.proyectos = proyectos
-				//this.dataCirular = response
+				this.dataCirular = response
 			})
 	}
 
@@ -278,6 +288,13 @@ export class EstadisticaPage {
 	verProyectosAgrupadosGerencia = (gerencia: string): void => {
 		this.navCtrl.push(ProyectosAgrupadosGerenciaPage, {
 			'gerencia': gerencia
+		})
+	}
+
+	/* Funcion para visualizar la grafica en modo circular por gerencia. */
+	modoCircularGerencia = (): void => {
+		this.navCtrl.push(CircularGerenciaPage, {
+			'datos_circular': this.dataCirular
 		})
 	}
 }
