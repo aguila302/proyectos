@@ -15,6 +15,9 @@
             <ion-segment-button value="Gerencia" (ionSelect)="getDatosXGerencia()">
                 <strong style="text-transform: capitalize;">Gerencia</strong>
             </ion-segment-button>
+            <ion-segment-button value="Cliente" (ionSelect)="getDatosXCliente()">
+                <strong style="text-transform: capitalize;">Cliente</strong>
+            </ion-segment-button>
         </ion-segment>
     </ion-toolbar>
 </ion-header>
@@ -151,6 +154,14 @@
                     </ion-row>
                 </ion-grid>
             </ion-card>
+        </ion-list>
+        <ion-list *ngSwitchCase="'Cliente'">
+            <div style="display: block; overflow: auto;">
+                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                </canvas>
+            </div>
+            <hr>
+            <hr>
         </ion-list>
     </div>
 </ion-content>

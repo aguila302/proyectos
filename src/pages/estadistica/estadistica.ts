@@ -99,6 +99,7 @@ export class EstadisticaPage {
 		pointHoverBorderColor: 'rgba(148,159,177,0.8)'
 	}];
 	public barChartData: any[] = [{
+
 		data: [],
 		label: [],
 	}]
@@ -238,7 +239,7 @@ export class EstadisticaPage {
 		})
 	}
 
-	/* Funcion para conseguir los datos de poryectos por gerencia. */
+	/* Funcion para conseguir los datos de proyectos por gerencia. */
 	getDatosXGerencia = (): void => {
 		for(let index in this.barChartOptions) {
 			this.barChartOptions.scales.xAxes[0].scaleLabel.labelString = 'Gerencia'
@@ -296,5 +297,53 @@ export class EstadisticaPage {
 		this.navCtrl.push(CircularGerenciaPage, {
 			'datos_circular': this.dataCirular
 		})
+	}
+
+	/* Funcion para obtener los proyectos por cliente. */
+	getDatosXCliente = (): void => {
+		// for(let index in this.barChartOptions) {
+		// 	this.barChartOptions.scales.xAxes[0].scaleLabel.labelString = 'Gerencia'
+		// 	this.barChartOptions.scales.yAxes[0].ticks.min = 0
+		// 	this.barChartOptions.scales.yAxes[0].ticks.max = 100
+		// 	this.barChartOptions.scales.yAxes[0].ticks.stepSize = 15
+		// }
+
+		this.dbService.openDatabase()
+			.then(() => this.dbService.consultaXCliente())
+			.then(response => {
+				
+				// Para mostrar la informacion de la grafica. 
+				console.log(response)
+				let cliente: string[] = []
+				let porcentaje: number[] = []
+
+				response.forEach(item => {
+					cliente.push(item.contratante)
+					porcentaje.push(item.porcentaje)
+				})
+
+				this.barChartLabels = cliente
+				this.barChartData.forEach(
+					(item) => {
+						item.data = porcentaje
+					}
+				)
+
+				/* Para mostrar la tabla de informacion */
+				// const collection = collect(response)
+				// this.monto_total = account.formatMoney(collection.sum('monto'))
+				// this.total_proyectos = collection.sum('numero_proyectos')
+
+				// let proyectos = collection.map(function(item) {
+				// 	return {
+				// 		'gerencia': item.gerencia,
+				// 		'porcentaje': item.porcentaje,
+				// 		'monto': account.formatMoney(item.monto),
+				// 		'numero_proyectos': item.numero_proyectos
+				// 	}
+				// })
+				// this.proyectos = proyectos
+				// this.dataCirular = response
+			})
 	}
 }
