@@ -332,20 +332,16 @@ export class DbService {
 	/* Funcion para la consulta de proyectos por cliente. */
 	consultaXCliente = (): any => {
 		let proyectos = []
-		let sql = `select contratante, count(*) as numero_proyectos, sum(monto) as monto,
-					(select count(*) from proyectos) as total
+		let sql = `select contratante, monto
 					FROM proyectos
-					group by contratante order by contratante asc`
+					order by contratante asc`
 
 		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
 					proyectos.push({
 						'contratante': response.rows.item(index).contratante,
-						'numero_proyectos': response.rows.item(index).numero_proyectos,
 						'monto': parseInt(response.rows.item(index).monto),
-						'total': response.rows.item(index).total,
-						'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2)
 					})
 				}
 				return Promise.resolve(proyectos)

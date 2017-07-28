@@ -162,6 +162,63 @@
             </div>
             <hr>
             <hr>
+            <ion-card>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col text-wrap text-right>
+                            <strong>Monto total USD: </strong>{{ monto_total }}
+                        </ion-col>
+                        <ion-col text-wrap text-left>
+                            <strong>Total de proyectos: </strong> {{ total_proyectos }}
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card>
+            <ion-card *ngFor="let proyecto of proyectos">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-2>
+                            <h4>{{ proyecto.contratante }}</h4>
+                            <strong>{{ proyecto.porcentaje }} %</strong>
+                        </ion-col>
+                        <ion-col col-5 text-wrap text-justify>
+                            <strong>Monto USD: </strong> {{ proyecto.monto }}
+                        </ion-col>
+                        <ion-col col-3 text-wrap text-justify>
+                            <strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}
+                        </ion-col>
+                        <ion-col col-2 class="right">
+                            <button ion-button clear item-end (click)="verProyectosAgrupadosGerencia(proyecto.gerencia)">
+                                <p style="text-transform: none; color: #3498DB;">Ver detalle</p>
+                            </button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card>
+            <div padding-top text-center style="border-bottom: 3px double #2E86C1;">
+                <h3>Proyectos agrupados</h3>
+            </div>
+            <ion-card *ngFor="let proyecto of proyectos_agrupados">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-2>
+                            <h4>{{ proyecto.contratante }}</h4>
+                            <strong>{{ proyecto.porcentaje }} %</strong>
+                        </ion-col>
+                        <ion-col col-5 text-wrap text-justify>
+                            <strong>Monto USD: </strong> {{ proyecto.monto }}
+                        </ion-col>
+                        <ion-col col-3 text-wrap text-justify>
+                            <strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}
+                        </ion-col>
+                        <ion-col col-2 class="right">
+                            <button ion-button clear item-end (click)="verProyectosAgrupadosGerencia(proyecto.gerencia)">
+                                <p style="text-transform: none; color: #3498DB;">Ver detalle</p>
+                            </button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card>
         </ion-list>
     </div>
 </ion-content>

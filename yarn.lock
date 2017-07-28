@@ -50,9 +50,9 @@
   dependencies:
     tsickle "^0.21.0"
 
-"@ionic-native/camera@^3.12.1":
-  version "3.12.1"
-  resolved "https://registry.yarnpkg.com/@ionic-native/camera/-/camera-3.12.1.tgz#a6ed10613843af9eb13b91c809e0097fc2f9eb46"
+"@ionic-native/camera@^3.14.0":
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/camera/-/camera-3.14.0.tgz#a3936dea959efc24e69c9cf4b7866e6f19026cc0"
 
 "@ionic-native/core@3.10.2":
   version "3.10.2"
@@ -109,42 +109,20 @@
     ws "1.1.1"
     xml2js "^0.4.17"
 
-"@ionic/cli-plugin-cordova@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@ionic/cli-plugin-cordova/-/cli-plugin-cordova-1.4.0.tgz#2d3dd7bbd7321e0f1994b6f1a217176f55145296"
+"@ionic/cli-plugin-cordova@1.4.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@ionic/cli-plugin-cordova/-/cli-plugin-cordova-1.4.1.tgz#d8fa1b4dd1a7e6f09b18e751e2c363e186bb6d8d"
   dependencies:
-    "@ionic/cli-utils" "1.4.0"
-    chalk "^1.1.3"
+    "@ionic/cli-utils" "1.5.0"
+    chalk "^2.0.0"
     xml2js "^0.4.17"
 
-"@ionic/cli-plugin-ionic-angular@^1.3.2":
+"@ionic/cli-plugin-ionic-angular@1.3.2":
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/@ionic/cli-plugin-ionic-angular/-/cli-plugin-ionic-angular-1.3.2.tgz#bdca59f27a337918f70653f674d7f80903596464"
   dependencies:
     "@ionic/cli-utils" "1.5.0"
     chalk "^2.0.0"
-
-"@ionic/cli-utils@1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@ionic/cli-utils/-/cli-utils-1.4.0.tgz#78c70b69c3b98a463aa01ea507d7d01da3dfa675"
-  dependencies:
-    archiver "^1.3.0"
-    chalk "^1.1.3"
-    cross-spawn "^4.0.2"
-    dargs "^5.1.0"
-    inquirer "^3.0.6"
-    leek "0.0.24"
-    lodash "^4.17.4"
-    minimist "^1.2.0"
-    ncp "^2.0.0"
-    os-name "^2.0.1"
-    rimraf "^2.5.4"
-    semver "^5.3.0"
-    slice-ansi "0.0.4"
-    string-width "^2.0.0"
-    superagent "^3.5.2"
-    uuid "^3.0.1"
-    wrap-ansi "^2.1.0"
 
 "@ionic/cli-utils@1.5.0":
   version "1.5.0"
@@ -166,6 +144,30 @@
     string-width "^2.1.0"
     strip-ansi "^4.0.0"
     superagent "^3.5.2"
+    uuid "^3.0.1"
+    wrap-ansi "^2.1.0"
+
+"@ionic/cli-utils@1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@ionic/cli-utils/-/cli-utils-1.6.0.tgz#33909ec8bdbb086121aac6fcf5c2db951e204e7d"
+  dependencies:
+    archiver "^1.3.0"
+    chalk "^2.0.0"
+    ci-info "^1.0.0"
+    cross-spawn "^4.0.2"
+    dargs "^5.1.0"
+    dev-null "^0.1.1"
+    inquirer "^3.0.6"
+    leek "0.0.24"
+    lodash "^4.17.4"
+    minimist "^1.2.0"
+    ncp "^2.0.0"
+    semver "^5.3.0"
+    slice-ansi "^1.0.0"
+    string-width "^2.1.0"
+    strip-ansi "^4.0.0"
+    superagent "^3.5.2"
+    tslib "^1.7.1"
     uuid "^3.0.1"
     wrap-ansi "^2.1.0"
 
@@ -1339,7 +1341,7 @@ cordova-common@2.0.2, cordova-common@^2.0.1:
     underscore "^1.8.3"
     unorm "^1.3.3"
 
-cordova-ios@^4.4.0:
+cordova-ios@^4.2.1:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/cordova-ios/-/cordova-ios-4.4.0.tgz#5cd6ef7224505db558446e4637ad97d0878c74ef"
   dependencies:
@@ -1363,6 +1365,10 @@ cordova-plugin-compat@^1.1.0:
 cordova-plugin-console@^1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/cordova-plugin-console/-/cordova-plugin-console-1.0.7.tgz#89b7a92ed1c335888dfc00d902dc417201cf3b0b"
+
+"cordova-plugin-dbcopy@git+https://github.com/an-rahulpandey/cordova-plugin-dbcopy.git":
+  version "2.0.0"
+  resolved "git+https://github.com/an-rahulpandey/cordova-plugin-dbcopy.git#89e9c153ab053e3840ac2474bf7152483b1f9705"
 
 cordova-plugin-device@^1.1.6:
   version "1.1.6"
@@ -1600,9 +1606,17 @@ detect-port@1.2.0:
     address "^1.0.1"
     debug "^2.6.0"
 
+dev-null@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/dev-null/-/dev-null-0.1.1.tgz#5a205ce3c2b2ef77b6238d6ba179eb74c6a0e818"
+
 diff@^2.2.1:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/diff/-/diff-2.2.3.tgz#60eafd0d28ee906e4e8ff0a52c1229521033bf99"
+
+diff@^3.2.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/diff/-/diff-3.3.0.tgz#056695150d7aa93237ca7e378ac3b1682b7963b9"
 
 diffie-hellman@^5.0.0:
   version "5.0.2"
@@ -2397,6 +2411,22 @@ ionic-angular@3.3.0:
 ionic-plugin-keyboard@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/ionic-plugin-keyboard/-/ionic-plugin-keyboard-2.2.1.tgz#f2a9e169bbe9b5522400347c9fd6d3467ee3fa12"
+
+ionic@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/ionic/-/ionic-3.6.0.tgz#f486c020765e928dbb4d6fe2c6543bb37f2a625b"
+  dependencies:
+    "@ionic/cli-utils" "1.6.0"
+    chalk "^2.0.0"
+    diff "^3.2.0"
+    minimist "^1.2.0"
+    opn "^4.0.2"
+    os-name "^2.0.1"
+    rimraf "^2.6.1"
+    semver "^5.3.0"
+    ssh-config "^1.0.1"
+    tar "^2.2.1"
+    tslib "^1.7.1"
 
 ionicons@3.0.0:
   version "3.0.0"
@@ -3396,6 +3426,13 @@ opn@5.0.0:
   dependencies:
     is-wsl "^1.1.0"
 
+opn@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/opn/-/opn-4.0.2.tgz#7abc22e644dff63b0a96d5ab7f2790c0f01abc95"
+  dependencies:
+    object-assign "^4.0.1"
+    pinkie-promise "^2.0.0"
+
 optimist@^0.6.1, optimist@~0.6.0:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/optimist/-/optimist-0.6.1.tgz#da3ea74686fa21a19a111c326e90eb15a0196686"
@@ -4195,10 +4232,6 @@ slash@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"
 
-slice-ansi@0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/slice-ansi/-/slice-ansi-0.0.4.tgz#edbf8903f66f7ce2f8eafd6ceed65e264c831b35"
-
 slice-ansi@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/slice-ansi/-/slice-ansi-1.0.0.tgz#044f1a49d8842ff307aad6b505ed178bd950134d"
@@ -4258,6 +4291,10 @@ spdx-license-ids@^1.0.2:
 sprintf-js@^1.0.3:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.1.1.tgz#36be78320afe5801f6cea3ee78b6e5aab940ea0c"
+
+ssh-config@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/ssh-config/-/ssh-config-1.0.1.tgz#38742116dced7d45f5362ca86af77130ccbebc8b"
 
 sshpk@^1.7.0:
   version "1.13.1"
