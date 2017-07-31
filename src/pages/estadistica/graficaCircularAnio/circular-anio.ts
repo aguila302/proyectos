@@ -51,14 +51,14 @@ export class CircularAnioPage {
 		this.pieChartData = porcentaje
 
 		const collection = collect(this.proyectos)
-		this.monto_total = account.formatMoney(collection.sum('monto'))
+		this.monto_total = account.formatNumber(collection.sum('monto'))
 		this.total_proyectos = collection.sum('numero_proyectos')
 
 		let proyectos = collection.map(function(item) {
 			return {
 				'anio': item.anio,
 				'porcentaje': item.porcentaje,
-				'monto': account.formatMoney(item.monto),
+				'monto': account.formatNumber(item.monto),
 				'numero_proyectos': item.numero_proyectos
 			}
 		})

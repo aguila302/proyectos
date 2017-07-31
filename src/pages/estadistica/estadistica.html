@@ -188,7 +188,7 @@
                             <strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}
                         </ion-col>
                         <ion-col col-2 class="right">
-                            <button ion-button clear item-end (click)="verProyectosAgrupadosGerencia(proyecto.gerencia)">
+                            <button ion-button clear item-end (click)="verProyectosAgrupadosCliente(proyecto.contratante)">
                                 <p style="text-transform: none; color: #3498DB;">Ver detalle</p>
                             </button>
                         </ion-col>
@@ -198,22 +198,21 @@
             <div padding-top text-center style="border-bottom: 3px double #2E86C1;">
                 <h3>Proyectos agrupados</h3>
             </div>
-
-            <ion-card *ngFor="let proyecto_agrupado of proyectos_agrupados">
+            <ion-card>
                 <ion-grid>
                     <ion-row>
                         <ion-col col-2>
-                            <h4>{{ proyecto_agrupado.contratante }}</h4>
-                            <strong>{{ proyecto_agrupado.porcentaje }} %</strong>
+                            <h4>Varios proyectos</h4>
+                            <strong>{{ proyectos_agrupados.porcentaje }} %</strong>
                         </ion-col>
                         <ion-col col-5 text-wrap text-justify>
-                            <strong>Monto USD: </strong> {{ proyecto_agrupado.monto }}
+                            <strong>Monto USD: </strong> {{ proyectos_agrupados.suma_montos_menores_de_uno }}
                         </ion-col>
                         <ion-col col-3 text-wrap text-justify>
-                            <strong>No. de proyectos: </strong>{{ proyecto_agrupado.numero_proyectos }}
+                            <strong>No. de proyectos: </strong>{{ proyectos_agrupados.numero_proyectos }}
                         </ion-col>
                         <ion-col col-2 class="right">
-                            <button ion-button clear item-end (click)="verProyectosAgrupadosGerencia(proyecto_agrupado.gerencia)">
+                            <button ion-button clear item-end (click)="verProyectosAgrupadosClientePorcentajeMenosAUno()">
                                 <p style="text-transform: none; color: #3498DB;">Ver detalle</p>
                             </button>
                         </ion-col>

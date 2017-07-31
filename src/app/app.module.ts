@@ -17,6 +17,8 @@ import { CircularGerenciaPage } from '../pages/estadistica/graficaCircularGerenc
 import { ProyectosAgrupadosPage } from '../pages/estadistica/proyectos-agrupados/proyectos-agrupados';
 import { ProyectosAgrupadosAnioPage } from '../pages/estadistica/proyectos-agrupados/por-anio/proyectos-agrupados-anio';
 import { ProyectosAgrupadosGerenciaPage } from '../pages/estadistica/proyectos-agrupados/por-gerencia/proyectos-agrupados-gerencia'
+import { ProyectosAgrupadosClientePage } from '../pages/estadistica/proyectos-agrupados/por-cliente/proyectos-agrupados-cliente'
+import { ProyectosAgrupadosClienteMenoresPage } from '../pages/estadistica/proyectos-agrupados/por-cliente/por-cliente-menores/proyectos-agrupados-cliente-menores'
 
 //import { ChartsModule } from 'ng2-charts';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
@@ -39,7 +41,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ProyectosAgrupadosAnioPage,
     CircularAnioPage,
     ProyectosAgrupadosGerenciaPage,
-    CircularGerenciaPage
+    CircularGerenciaPage,
+    ProyectosAgrupadosClientePage,
+    ProyectosAgrupadosClienteMenoresPage
   ],
   imports: [
     BrowserModule,
@@ -60,7 +64,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ProyectosAgrupadosAnioPage,
     CircularAnioPage,
     ProyectosAgrupadosGerenciaPage,
-    CircularGerenciaPage
+    CircularGerenciaPage,
+    ProyectosAgrupadosClientePage,
+    ProyectosAgrupadosClienteMenoresPage
   ],
   providers: [
     StatusBar,

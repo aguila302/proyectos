@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar no-border-bottom color="twitter" text-wrap text-justify>
+        <ion-title>
+            Detalle de los clientes agrupados
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-card *ngFor="let proyecto of proyectos_agrupados_detalle">
+        <ion-grid>
+            <ion-row>
+                <ion-col col-2>
+                    <h4>{{ proyecto.contratante }}</h4>
+                    <strong>{{ proyecto.porcentaje }} %</strong>
+                </ion-col>
+                <ion-col col-5 text-wrap text-justify>
+                    <strong>Monto USD: </strong> {{ proyecto.suma_monto }}
+                </ion-col>
+                <ion-col col-3 text-wrap text-justify>
+                    <strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}
+                </ion-col>
+                <ion-col col-2 class="right">
+                    <button ion-button clear item-end (click)="verProyectosAgrupadosCliente(proyecto.contratante)">
+                        <p style="text-transform: none; color: #3498DB;">Ver detalle</p>
+                    </button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+</ion-content>
