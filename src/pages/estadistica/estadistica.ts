@@ -302,11 +302,6 @@ export class EstadisticaPage {
 
 	/* Funcion para obtener los proyectos por cliente. */
 	getDatosXCliente = (): void => {
-		let loading = this.loadingCtrl.create({
-			content: 'Por favor espere...'
-		})
-		loading.present()
-
 		setTimeout(() => {
 			for (let index in this.barChartOptions) {
 				this.barChartOptions.scales.xAxes[0].scaleLabel.labelString = 'Cliente'
@@ -383,35 +378,36 @@ export class EstadisticaPage {
 							}
 						})
 						this.proyectos = proyectos
-
-						/* Para mostras la informacion agrupada con los proyectos menores del 1 %. */
-
-						/* Consigo el porcentaje y cliente para formar mi grafica. */
-						menores_de_uno.toArray()
-						let nombres_cliente: string = menores_de_uno.map(function(item) {
-							return item.contratante
-						})
-
-						this.barChartLabels.push('Proyectos agrupados')
-						this.barChartData.forEach(
-								(item) => {
-									item.data.push(parseFloat(suma_porcentajes_menores_de_uno))
-								}
-							)
-							/* Construyo la informacion para mi tablero. */
-						let proyectos_agrupados = menores_de_uno.map(function(item) {
-							return {
-								'contratante': item.contratante,
-								'porcentaje': item.porcentaje,
-								'monto': account.formatMoney(item.suma_monto),
-								'numero_proyectos': item.numero_proyectos
-							}
-						})
-						this.proyectos_agrupados = proyectos_agrupados
-						loading.dismiss()
+						this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno)
 					})
 				})
 		}, 100)
+	}
 
+	async proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno) {
+		/* Para mostras la informacion agrupada con los proyectos menores del 1 %. */
+
+		/* Consigo el porcentaje y cliente para formar mi grafica. */
+		menores_de_uno.toArray()
+		let nombres_cliente: string = menores_de_uno.map(function(item) {
+			return item.contratante
+		})
+
+		this.barChartLabels.push('Proyectos agrupados')
+		this.barChartData.forEach(
+				(item) => {
+					item.data.push(parseFloat(suma_porcentajes_menores_de_uno))
+				}
+			)
+			/* Construyo la informacion para mi tablero. */
+		let proyectos_agrupados = menores_de_uno.map(function(item) {
+			return {
+				'contratante': item.contratante,
+				'porcentaje': item.porcentaje,
+				'monto': account.formatMoney(item.suma_monto),
+				'numero_proyectos': item.numero_proyectos
+			}
+		})
+		this.proyectos_agrupados = proyectos_agrupados
 	}
 }
