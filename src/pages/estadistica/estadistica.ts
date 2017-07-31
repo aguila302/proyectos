@@ -415,8 +415,18 @@ export class EstadisticaPage {
 	}
 
 	verProyectosAgrupadosClientePorcentajeMenosAUno = (): void => {
+
+		let proyectos = this.proyectos_agrupados_detalle.map(function(item) {
+			return {
+				'contratante': item.contratante,
+				'porcentaje': item.porcentaje,
+				'monto': account.formatNumber(item.suma_monto),
+				'numero_proyectos': item.numero_proyectos
+			}
+		})
+
 		this.navCtrl.push(ProyectosAgrupadosClienteMenoresPage, {
-			'proyectos_agrupados_detalle': this.proyectos_agrupados_detalle
+			'proyectos_agrupados_detalle': proyectos
 		})
 	}
 }
