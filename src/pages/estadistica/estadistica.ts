@@ -337,6 +337,7 @@ export class EstadisticaPage {
 							}, 0)
 
 							return {
+								id: 
 								contratante: contratante[0].contratante,
 								suma_monto: suma_montos,
 								porcentaje: parseFloat(((suma_montos / monto_total) * 100).toFixed(2)),
@@ -418,6 +419,7 @@ export class EstadisticaPage {
 
 		let proyectos = this.proyectos_agrupados_detalle.map(function(item) {
 			return {
+				'id': item.id,
 				'contratante': item.contratante,
 				'porcentaje': item.porcentaje,
 				'monto': account.formatNumber(item.suma_monto),

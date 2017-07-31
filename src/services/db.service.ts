@@ -332,7 +332,7 @@ export class DbService {
 	/* Funcion para la consulta de proyectos por cliente. */
 	consultaXCliente = (): any => {
 		let proyectos = []
-		let sql = `select contratante, monto
+		let sql = `select id, contratante, monto
 					FROM proyectos
 					order by contratante asc`
 
@@ -340,6 +340,7 @@ export class DbService {
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
 					proyectos.push({
+						'id': response.rows.item(index).id,
 						'contratante': response.rows.item(index).contratante,
 						'monto': parseInt(response.rows.item(index).monto),
 					})

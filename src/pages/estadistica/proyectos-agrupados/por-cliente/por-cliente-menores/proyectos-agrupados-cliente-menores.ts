@@ -34,13 +34,13 @@ export class ProyectosAgrupadosClienteMenoresPage {
 	/* Funcion para obtener las proyectos de un anio. */
 	detalleProyectosMenores = () => {
 		this.proyectos = this.proyectos_agrupados.toArray()
-		console.log(this.proyectos)
 	}
 
-	/* Funcion para ver el detalle de un proyecto. */
-	// detalleProyecto = (_proyecto: Proyecto): void => {
-	// 	this.navCtrl.push(DetalleProyectoPage, {
-	// 		id: _proyecto
-	// 	})
-	// }
+	/* Funcion para ver los proyectos de un contratante agrupado. */
+	detalleProyectosMenoresPorContratante = (contratante): void => {
+		console.log(contratante)
+		// this.navCtrl.push(DetalleProyectoPage, {
+		// 	id: _proyecto
+		// })
+	}
 }
