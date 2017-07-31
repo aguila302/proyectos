@@ -9,7 +9,7 @@ import { CircularGerenciaPage } from './graficaCircularGerencia/circular-gerenci
 import { ProyectosAgrupadosPage } from './proyectos-agrupados/proyectos-agrupados'
 import { ProyectosAgrupadosAnioPage } from './proyectos-agrupados/por-anio/proyectos-agrupados-anio'
 import { ProyectosAgrupadosGerenciaPage } from './proyectos-agrupados/por-gerencia/proyectos-agrupados-gerencia'
-import { NavController } from 'ionic-angular'
+import { NavController, LoadingController } from 'ionic-angular'
 
 @Component({
 	selector: 'page-estadistica',
@@ -18,7 +18,7 @@ import { NavController } from 'ionic-angular'
 export class EstadisticaPage {
 
 	constructor(private dbService: DbService,
-		private navCtrl: NavController, public zone: NgZone) {
+		private navCtrl: NavController, public zone: NgZone, public loadingCtrl: LoadingController) {
 	}
 
 	pais: string = 'pais'
@@ -302,107 +302,116 @@ export class EstadisticaPage {
 
 	/* Funcion para obtener los proyectos por cliente. */
 	getDatosXCliente = (): void => {
-		for (let index in this.barChartOptions) {
-			this.barChartOptions.scales.xAxes[0].scaleLabel.labelString = 'Cliente'
-			this.barChartOptions.scales.yAxes[0].ticks.min = 0
-			this.barChartOptions.scales.yAxes[0].ticks.max = 70
-			this.barChartOptions.scales.yAxes[0].ticks.stepSize = 5
-		}
+		let loading = this.loadingCtrl.create({
+			content: 'Por favor espere...'
+		})
+		loading.present()
 
-		let porcentaje: number[] = []
-		let cliente: string[] = []
+		setTimeout(() => {
+			for (let index in this.barChartOptions) {
+				this.barChartOptions.scales.xAxes[0].scaleLabel.labelString = 'Cliente'
+				this.barChartOptions.scales.yAxes[0].ticks.min = 0
+				this.barChartOptions.scales.yAxes[0].ticks.max = 70
+				this.barChartOptions.scales.yAxes[0].ticks.stepSize = 5
+			}
 
-		this.dbService.openDatabase()
-			.then(() => this.dbService.consultaXCliente())
-			.then(response => {
-				this.zone.run(() => {
-					let data = collect(response)
+			let porcentaje: number[] = []
+			let cliente: string[] = []
 
-					/* monto total de todos los proyectos. */
-					let monto_total = data.sum('monto')
+			this.dbService.openDatabase()
+				.then(() => this.dbService.consultaXCliente())
+				.then(response => {
+					this.zone.run(() => {
+						let data = collect(response)
 
-					/* Agrupo mi data por contratante. */
-					let agrupados = data.groupBy('contratante').toArray()
+						/* monto total de todos los proyectos. */
+						let monto_total = data.sum('monto')
 
-					let datos = agrupados.map(function(contratante, monto) {
-							let num_proyectos = contratante.length
+						/* Agrupo mi data por contratante. */
+						let agrupados = data.groupBy('contratante').toArray()
 
-							let suma_montos = contratante.reduce(function(index, proyecto) {
-								return index + parseInt(proyecto.monto)
-							}, 0)
+						let datos = agrupados.map(function(contratante, monto) {
+								let num_proyectos = contratante.length
 
-							return {
-								contratante: contratante[0].contratante,
-								suma_monto: suma_montos,
-								porcentaje: parseFloat(((suma_montos / monto_total) * 100).toFixed(2)),
-								numero_proyectos: num_proyectos
-							}
+								let suma_montos = contratante.reduce(function(index, proyecto) {
+									return index + parseInt(proyecto.monto)
+								}, 0)
+
+								return {
+									contratante: contratante[0].contratante,
+									suma_monto: suma_montos,
+									porcentaje: parseFloat(((suma_montos / monto_total) * 100).toFixed(2)),
+									numero_proyectos: num_proyectos
+								}
+							})
+							/* Ordeno por porcentaje de mayor a menor. */
+						let ordenados = collect(datos).sortByDesc('porcentaje')
+
+						/* Clasifico los proyectos por porcentaje mayor a 1 y menores de 1. */
+						let mayores_de_uno = ordenados.where('porcentaje', '>', 1)
+						let menores_de_uno = ordenados.where('porcentaje', '<', 1)
+
+						/* Suma de los montos y porcentajes de porcentaje  menores de 1. */
+						let suma_montos_menores_de_uno = menores_de_uno.sum('suma_monto')
+						let suma_porcentajes_menores_de_uno = menores_de_uno.sum('porcentaje').toFixed(2)
+						mayores_de_uno.toArray()
+
+						/* Consigo el porcentaje y cliente para formar mi grafica. */
+						mayores_de_uno.map(function(contratante, monto) {
+							porcentaje.push(contratante.porcentaje)
+							cliente.push(contratante.contratante)
 						})
-						/* Ordeno por porcentaje de mayor a menor. */
-					let ordenados = collect(datos).sortByDesc('porcentaje')
 
-					/* Clasifico los proyectos por porcentaje mayor a 1 y menores de 1. */
-					let mayores_de_uno = ordenados.where('porcentaje', '>', 1)
-					let menores_de_uno = ordenados.where('porcentaje', '<', 1)
-
-					/* Suma de los montos y porcentajes de porcentaje  menores de 1. */
-					let suma_montos_menores_de_uno = menores_de_uno.sum('suma_monto')
-					let suma_porcentajes_menores_de_uno = menores_de_uno.sum('porcentaje').toFixed(2)
-					mayores_de_uno.toArray()
-
-					/* Consigo el porcentaje y cliente para formar mi grafica. */
-					mayores_de_uno.map(function(contratante, monto) {
-						porcentaje.push(contratante.porcentaje)
-						cliente.push(contratante.contratante)
-					})
-
-					/* inserto la informacion en los arreglos de origen de la grafica. */
-					this.barChartLabels = cliente
-					this.barChartData.forEach(
-						(item) => {
-							item.data = porcentaje
-						}
-					)
-
-					/* Para mostrar la tabla de informacion */
-					this.monto_total = account.formatMoney(data.sum('monto'))
-					this.total_proyectos = response.length
-
-					let proyectos = mayores_de_uno.map(function(item) {
-						return {
-							'contratante': item.contratante,
-							'porcentaje': item.porcentaje,
-							'monto': account.formatMoney(item.suma_monto),
-							'numero_proyectos': item.numero_proyectos
-						}
-					})
-					this.proyectos = proyectos
-
-					/* Para mostras la informacion agrupada. */
-
-					/* Consigo el porcentaje y cliente para formar mi grafica. */
-					menores_de_uno.toArray()
-					let nombres_cliente: string = menores_de_uno.map(function(item) {
-						return item.contratante
-					})
-
-					this.barChartLabels.push('Proyectos agrupados')
-					this.barChartData.forEach(
+						/* inserto la informacion en los arreglos de origen de la grafica. */
+						this.barChartLabels = cliente
+						this.barChartData.forEach(
 							(item) => {
-								item.data.push(parseFloat(suma_porcentajes_menores_de_uno))
+								item.data = porcentaje
 							}
 						)
-						/* Construyo la informacion para mi tablero. */
-					let proyectos_agrupados = menores_de_uno.map(function(item) {
-						return {
-							'contratante': item.contratante,
-							'porcentaje': item.porcentaje,
-							'monto': account.formatMoney(item.suma_monto),
-							'numero_proyectos': item.numero_proyectos
-						}
+
+						/* Para mostrar la tabla de informacion */
+						this.monto_total = account.formatMoney(data.sum('monto'))
+						this.total_proyectos = response.length
+
+						let proyectos = mayores_de_uno.map(function(item) {
+							return {
+								'contratante': item.contratante,
+								'porcentaje': item.porcentaje,
+								'monto': account.formatMoney(item.suma_monto),
+								'numero_proyectos': item.numero_proyectos
+							}
+						})
+						this.proyectos = proyectos
+
+						/* Para mostras la informacion agrupada con los proyectos menores del 1 %. */
+
+						/* Consigo el porcentaje y cliente para formar mi grafica. */
+						menores_de_uno.toArray()
+						let nombres_cliente: string = menores_de_uno.map(function(item) {
+							return item.contratante
+						})
+
+						this.barChartLabels.push('Proyectos agrupados')
+						this.barChartData.forEach(
+								(item) => {
+									item.data.push(parseFloat(suma_porcentajes_menores_de_uno))
+								}
+							)
+							/* Construyo la informacion para mi tablero. */
+						let proyectos_agrupados = menores_de_uno.map(function(item) {
+							return {
+								'contratante': item.contratante,
+								'porcentaje': item.porcentaje,
+								'monto': account.formatMoney(item.suma_monto),
+								'numero_proyectos': item.numero_proyectos
+							}
+						})
+						this.proyectos_agrupados = proyectos_agrupados
+						loading.dismiss()
 					})
-					this.proyectos_agrupados = proyectos_agrupados
 				})
-			})
+		}, 100)
+
 	}
 }
