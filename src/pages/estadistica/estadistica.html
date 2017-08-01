@@ -156,7 +156,10 @@
             </ion-card>
         </ion-list>
         <ion-list *ngSwitchCase="'Cliente'">
-            <div style="display: block; overflow: auto;">
+            <div text-right>
+                <button ion-button clear (click)="modoCircularCliente()">Ver modo circular</button>
+            </div>
+            <div style="display: block;">
                 <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                 </canvas>
             </div>

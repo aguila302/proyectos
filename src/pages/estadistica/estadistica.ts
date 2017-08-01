@@ -5,6 +5,7 @@ import * as account from 'accounting-js'
 import { CircularPaisPage } from './circular-pais'
 import { CircularAnioPage } from './graficaCircularAnio/circular-anio'
 import { CircularGerenciaPage } from './graficaCircularGerencia/circular-gerencia'
+import { CircularClientePage } from './graficaCircularCliente/circular-cliente'
 
 import { ProyectosAgrupadosPage } from './proyectos-agrupados/proyectos-agrupados'
 import { ProyectosAgrupadosAnioPage } from './proyectos-agrupados/por-anio/proyectos-agrupados-anio'
@@ -383,6 +384,7 @@ export class EstadisticaPage {
 					})
 
 					this.proyectos = proyectos
+					this.dataCirular = response
 					this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno)
 				})
 			})
@@ -415,7 +417,6 @@ export class EstadisticaPage {
 	}
 
 	verProyectosAgrupadosClientePorcentajeMenosAUno = (): void => {
-
 		let proyectos = this.proyectos_agrupados_detalle.map(function(item) {
 			return {
 				'id': item.id,
@@ -428,6 +429,13 @@ export class EstadisticaPage {
 
 		this.navCtrl.push(ProyectosAgrupadosClienteMenoresPage, {
 			'proyectos_agrupados_detalle': proyectos
+		})
+	}
+
+	/* Funcion para visualizar la grafica en modo circular por gerencia. */
+	modoCircularCliente = (): void => {
+		this.navCtrl.push(CircularClientePage, {
+			'datos_circular': this.dataCirular
 		})
 	}
 }

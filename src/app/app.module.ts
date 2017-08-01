@@ -14,6 +14,8 @@ import { FiltrosPage } from '../pages/proyecto/filtros/filtros';
 import { CircularPaisPage } from '../pages/estadistica/circular-pais';
 import { CircularAnioPage } from '../pages/estadistica/graficaCircularAnio/circular-anio';
 import { CircularGerenciaPage } from '../pages/estadistica/graficaCircularGerencia/circular-gerencia';
+import { CircularClientePage } from '../pages/estadistica/graficaCircularCliente/circular-cliente'
+
 import { ProyectosAgrupadosPage } from '../pages/estadistica/proyectos-agrupados/proyectos-agrupados';
 import { ProyectosAgrupadosAnioPage } from '../pages/estadistica/proyectos-agrupados/por-anio/proyectos-agrupados-anio';
 import { ProyectosAgrupadosGerenciaPage } from '../pages/estadistica/proyectos-agrupados/por-gerencia/proyectos-agrupados-gerencia'
@@ -43,7 +45,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ProyectosAgrupadosGerenciaPage,
     CircularGerenciaPage,
     ProyectosAgrupadosClientePage,
-    ProyectosAgrupadosClienteMenoresPage
+    ProyectosAgrupadosClienteMenoresPage,
+    CircularClientePage
   ],
   imports: [
     BrowserModule,
@@ -66,7 +69,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ProyectosAgrupadosGerenciaPage,
     CircularGerenciaPage,
     ProyectosAgrupadosClientePage,
-    ProyectosAgrupadosClienteMenoresPage
+    ProyectosAgrupadosClienteMenoresPage,
+    CircularClientePage
   ],
   providers: [
     StatusBar,
