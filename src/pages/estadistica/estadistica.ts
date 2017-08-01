@@ -330,21 +330,20 @@ export class EstadisticaPage {
 					let agrupados = data.groupBy('contratante').toArray()
 
 					let datos = agrupados.map(function(contratante, monto) {
-							let num_proyectos = contratante.length
+						let num_proyectos = contratante.length
+						let suma_montos = contratante.reduce(function(index, proyecto) {
+							return index + parseInt(proyecto.monto)
+						}, 0)
 
-							let suma_montos = contratante.reduce(function(index, proyecto) {
-								return index + parseInt(proyecto.monto)
-							}, 0)
-
-							return {
-								id: 
-								contratante: contratante[0].contratante,
-								suma_monto: suma_montos,
-								porcentaje: parseFloat(((suma_montos / monto_total) * 100).toFixed(2)),
-								numero_proyectos: num_proyectos
-							}
-						})
-						/* Ordeno por porcentaje de mayor a menor. */
+						return {
+							id: contratante[0].id,
+							contratante: contratante[0].contratante,
+							suma_monto: suma_montos,
+							porcentaje: parseFloat(((suma_montos / monto_total) * 100).toFixed(2)),
+							numero_proyectos: num_proyectos
+						}
+					})
+					/* Ordeno por porcentaje de mayor a menor. */
 					let ordenados = collect(datos).sortByDesc('porcentaje')
 
 					/* Clasifico los proyectos por porcentaje mayor a 1 y menores de 1. */

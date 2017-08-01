@@ -379,4 +379,9 @@ export class DbService {
 				return proyectos
 			})
 	}
+
+	//  Funcion para ver los proyectos de un contratande dado agrupado
+	// proyectoPorContratanteAgrupado(contratante: string) {
+		
+	// }
 }

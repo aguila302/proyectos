@@ -31,7 +31,7 @@
                         <strong><p>No de proyectos: </p></strong> {{ proyecto.numero_proyectos }}
                     </ion-col>
                     <ion-col class="right">
-                        <button ion-button clear item-end (click)="detalleProyectosMenoresPorContratante(proyecto)">
+                        <button ion-button clear item-end (click)="verProyectosAgrupadosCliente(proyecto.contratante)">
                             <p style="text-transform: none; color: #3498DB;">Ver detalle</p>
                         </button>
                     </ion-col>
