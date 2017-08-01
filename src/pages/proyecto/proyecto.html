@@ -22,10 +22,10 @@
                     <ion-col col-1>
                     </ion-col>
                     <ion-col class="inline left">
-                        <strong><p>Monto USD: </p></strong> {{ proyecto.monto }}
+                        <strong><p>Monto USD: </p></strong> <p> {{ proyecto.monto }}</p>
                     </ion-col>
-                    <ion-col class="inline left">
-                        <strong><p>Moneda: </p></strong> {{ proyecto.moneda }}
+                    <ion-col text-justify>
+                        <strong><p>Monto original: </p></strong> <p>{{ proyecto.monto_moneda_original }} {{ proyecto.moneda }} </p>
                     </ion-col>
                     <ion-col class="right">
                         <button ion-button clear item-end (click)="detalleProyecto(proyecto)">

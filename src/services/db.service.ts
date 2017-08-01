@@ -38,6 +38,7 @@ export class DbService {
 				nombre_corto text,
 				contrato text,
 				monto integer,
+				monto_moneda_original integer,
 				moneda text,
 				pais text,
 				gerencia text,
@@ -83,18 +84,19 @@ export class DbService {
 		origen.each(item => {
 			let sql = `insert into proyectos(
 				nombre_proyecto, nombre_corto, contrato,
-				monto, moneda, pais,
+				monto, monto_moneda_original, moneda, pais,
 				gerencia, unidad_negocio,
 				numero_contrato, producto,
 				anio, duracion, contratante,
 				datos_cliente, fecha_inicio,
 				fecha_fin, numero_propuesta,
-				anticipo) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+				anticipo) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
 			return this.db.executeSql(sql, [
 					item.nombre_proyecto,
 					item.nombre_corto,
 					item.contrato,
 					parseInt(item.montoUsd),
+					parseInt(item.monto_moneda_original),
 					item.moneda,
 					item.pais,
 					item.gerencia,
@@ -125,6 +127,7 @@ export class DbService {
 					proyectos.push({
 						'nombre_proyecto': response.rows.item(index).nombre_proyecto,
 						'monto': account.formatNumber(response.rows.item(index).monto),
+						'monto_moneda_original': account.formatNumber(response.rows.item(index).monto_moneda_original),
 						'moneda': response.rows.item(index).moneda,
 						'pais': response.rows.item(index).pais,
 						'gerencia': response.rows.item(index).gerencia,
