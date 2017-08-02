@@ -153,6 +153,8 @@ export class EstadisticaPage {
 						'pais': item.pais,
 						'porcentaje': item.porcentaje,
 						'monto': account.formatNumber(item.monto),
+						'monto_moneda_original': account.formatNumber(item.monto_moneda_original),
+						'moneda': item.moneda,
 						'numero_proyectos': item.numero_proyectos
 					}
 				})

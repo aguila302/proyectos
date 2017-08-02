@@ -24,8 +24,6 @@ export class ProyectosAgrupadosPage {
 	
 	/* Cuando la vista esta activa mostramos el detalle de un pais. */
 	ionViewDidLoad () {
-		console.log('mostrando el detalle')
-		// this.navCrtl.pop()
 		this.detallePorPais()
 	}
 
