@@ -22,13 +22,13 @@
                     <ion-col col-1>
                     </ion-col>
                     <ion-col class="inline left">
-                        <strong><p>Porcentaje: </p></strong> % {{ proyecto.porcentaje }}
+                        <strong><p>Porcentaje: </p></strong> % <p class="medium">{{ proyecto.porcentaje }}</p>
                     </ion-col>
                     <ion-col class="inline left">
-                        <strong><p>Monto USD: </p></strong> {{ proyecto.monto }}
+                        <strong><p>Monto USD: </p></strong><p class="medium">{{ proyecto.monto }}</p>
                     </ion-col>
                     <ion-col class="inline left">
-                        <strong><p>No de proyectos: </p></strong> {{ proyecto.numero_proyectos }}
+                        <strong><p>No de proyectos: </p></strong><p class="medium">{{ proyecto.numero_proyectos }}</p>
                     </ion-col>
                     <ion-col class="right">
                         <button ion-button clear item-end (click)="verProyectosAgrupadosCliente(proyecto.contratante)">

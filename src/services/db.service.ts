@@ -161,8 +161,8 @@ export class DbService {
 						proyectos.push({
 							'nombre_proyecto': response.rows.item(index).nombre_proyecto,
 							'moneda': response.rows.item(index).moneda,
-							'monto': account.formatMoney(response.rows.item(index).monto),
-							'monto_moneda_original': account.formatMoney(response.rows.item(index).monto_moneda_original),
+							'monto': account.formatNumber(response.rows.item(index).monto),
+							'monto_moneda_original': account.formatNumber(response.rows.item(index).monto_moneda_original),
 						})
 					}
 					Promise.resolve(proyectos)
@@ -174,7 +174,7 @@ export class DbService {
 	/* Funcion para consultar los proyectos por pais. */
 	consultaXPais = (): any => {
 		let proyectos = []
-		let sql = `select pais, count(*) as numero_proyectos, sum(monto) as monto, sum(monto_moneda_original) as monto_moneda_original, moneda,
+		let sql = `select pais, count(*) as numero_proyectos, sum(monto) as monto,
 					(select count(*) from proyectos) as total
 					FROM proyectos
 					group by pais order by pais asc`
@@ -186,8 +186,6 @@ export class DbService {
 						'pais': response.rows.item(index).pais,
 						'numero_proyectos': response.rows.item(index).numero_proyectos,
 						'monto': parseInt(response.rows.item(index).monto),
-						'monto_moneda_original': parseInt(response.rows.item(index).monto_moneda_original),
-						'moneda': response.rows.item(index).moneda,
 						'total': response.rows.item(index).total,
 						'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2)
 					})
@@ -206,8 +204,8 @@ export class DbService {
 				for (let index = 0; index < response.rows.length; index++) {
 					proyectos.push({
 						'nombre_proyecto': response.rows.item(index).nombre_proyecto,
-						'monto': account.formatMoney(response.rows.item(index).monto),
-						'monto_moneda_original': parseInt(response.rows.item(index).monto_moneda_original),
+						'monto': account.formatNumber(response.rows.item(index).monto),
+						'monto_moneda_original': account.formatNumber(response.rows.item(index).monto_moneda_original),
 						'moneda': response.rows.item(index).moneda,
 						'pais': response.rows.item(index).pais,
 						'gerencia': response.rows.item(index).gerencia,
@@ -261,7 +259,8 @@ export class DbService {
 				for (let index = 0; index < response.rows.length; index++) {
 					proyectos.push({
 						'nombre_proyecto': response.rows.item(index).nombre_proyecto,
-						'monto': account.formatMoney(response.rows.item(index).monto),
+						'monto': account.formatNumber(response.rows.item(index).monto),
+						'monto_moneda_original': account.formatNumber(response.rows.item(index).monto_moneda_original),
 						'moneda': response.rows.item(index).moneda,
 						'pais': response.rows.item(index).pais,
 						'gerencia': response.rows.item(index).gerencia,
@@ -315,7 +314,8 @@ export class DbService {
 				for (let index = 0; index < response.rows.length; index++) {
 					proyectos.push({
 						'nombre_proyecto': response.rows.item(index).nombre_proyecto,
-						'monto': account.formatMoney(response.rows.item(index).monto),
+						'monto': account.formatNumber(response.rows.item(index).monto),
+						'monto_moneda_original': account.formatNumber(response.rows.item(index).monto_moneda_original),
 						'moneda': response.rows.item(index).moneda,
 						'pais': response.rows.item(index).pais,
 						'gerencia': response.rows.item(index).gerencia,
@@ -366,7 +366,8 @@ export class DbService {
 				for (let index = 0; index < response.rows.length; index++) {
 					proyectos.push({
 						'nombre_proyecto': response.rows.item(index).nombre_proyecto,
-						'monto': account.formatMoney(response.rows.item(index).monto),
+						'monto': account.formatNumber(response.rows.item(index).monto),
+						'monto_moneda_original': account.formatNumber(response.rows.item(index).monto_moneda_original),
 						'moneda': response.rows.item(index).moneda,
 						'pais': response.rows.item(index).pais,
 						'gerencia': response.rows.item(index).gerencia,
@@ -386,9 +387,4 @@ export class DbService {
 				return proyectos
 			})
 	}
-
-	//  Funcion para ver los proyectos de un contratande dado agrupado
-	// proyectoPorContratanteAgrupado(contratante: string) {
-		
-	// }
 }
