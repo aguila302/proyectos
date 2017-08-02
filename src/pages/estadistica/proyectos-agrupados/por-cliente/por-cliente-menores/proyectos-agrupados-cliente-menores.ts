@@ -15,6 +15,7 @@ import { ProyectosAgrupadosClientePage } from '../../../proyectos-agrupados/por-
 export class ProyectosAgrupadosClienteMenoresPage {
 	proyectos = []
 	proyectos_agrupados: any
+	monto_total: number = 0
 
 	constructor(private navParams: NavParams,
 		public loadingCtrl: LoadingController,
@@ -22,6 +23,7 @@ export class ProyectosAgrupadosClienteMenoresPage {
 		private zone: NgZone,
 		private dbService: DbService) {
 			this.proyectos_agrupados = navParams.get('proyectos_agrupados_detalle')
+			this.monto_total = navParams.get('monto_total')
 	}
 	
 	/* Cuando la vista esta activa mostramos el detalle de un anio. */

@@ -13,6 +13,7 @@ import { DetalleProyectoPage } from '../../../proyecto/DetalleProyecto'
 export class ProyectosAgrupadosAnioPage {
 	proyectos = []
 	anio: number = 0
+	monto_total: number = 0
 
 	constructor(private navParams: NavParams,
 		private dbService: DbService,
@@ -21,6 +22,7 @@ export class ProyectosAgrupadosAnioPage {
 		private zone: NgZone,
 		private viewCtrl: ViewController) {
 		this.anio = navParams.get('anio')
+		this.monto_total = navParams.get('monto_total')
 	}
 	
 	/* Cuando la vista esta activa mostramos el detalle de un anio. */

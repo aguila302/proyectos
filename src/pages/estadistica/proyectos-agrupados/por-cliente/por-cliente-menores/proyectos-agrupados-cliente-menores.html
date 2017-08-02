@@ -6,6 +6,16 @@
     </ion-navbar>
 </ion-header>
 <ion-content padding>
+    <ion-card>
+        <ion-grid>
+            <ion-row>
+                <ion-col text-wrap text-center>
+                    <strong>Monto total USD: </strong>
+                    <p class="medium">{{ monto_total }}</p>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
     <ion-list [virtualScroll]="proyectos">
         <ion-item *virtualItem="let proyecto">
             <ion-grid>
@@ -22,13 +32,16 @@
                     <ion-col col-1>
                     </ion-col>
                     <ion-col class="inline">
-                        <strong><p  margin-right>Porcentaje: </p></strong> % <p class="medium">{{ proyecto.porcentaje }}</p>
+                        <strong><p  margin-right>Porcentaje: </p></strong> %
+                        <p class="medium">{{ proyecto.porcentaje }}</p>
                     </ion-col>
                     <ion-col class="inline">
-                        <strong><p margin-right>Monto USD: </p></strong><p class="medium">{{ proyecto.monto }}</p>
+                        <strong><p margin-right>Monto USD: </p></strong>
+                        <p class="medium">{{ proyecto.monto }}</p>
                     </ion-col>
                     <ion-col class="inline">
-                        <strong><p margin-right>No de proyectos: </p></strong><p class="medium">{{ proyecto.numero_proyectos }}</p>
+                        <strong><p margin-right>No de proyectos: </p></strong>
+                        <p class="medium">{{ proyecto.numero_proyectos }}</p>
                     </ion-col>
                     <ion-col class="right">
                         <button ion-button clear item-end (click)="verProyectosAgrupadosCliente(proyecto.contratante)">

@@ -13,7 +13,8 @@ import { DetalleProyectoPage } from '../../../proyecto/DetalleProyecto'
 export class ProyectosAgrupadosClientePage {
 	proyectos = []
 	contratante: string = ''
-
+	monto_total: number
+	
 	constructor(private navParams: NavParams,
 		private dbService: DbService,
 		public loadingCtrl: LoadingController,
@@ -21,6 +22,7 @@ export class ProyectosAgrupadosClientePage {
 		private zone: NgZone,
 		private viewCtrl: ViewController) {
 		this.contratante = navParams.get('contratante')
+		this.monto_total = navParams.get('monto_total')
 	}
 	
 	/* Cuando la vista esta activa mostramos el detalle de un anio. */

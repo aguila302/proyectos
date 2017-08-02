@@ -13,7 +13,7 @@ import { DetalleProyectoPage } from '../../proyecto/DetalleProyecto'
 export class ProyectosAgrupadosPage {
 	proyectos = []
 	pais: string = '' 
-	monto_total: integer = 0
+	monto_total: number
 
 	constructor(private navParams: NavParams,
 		private dbService: DbService,
@@ -21,11 +21,9 @@ export class ProyectosAgrupadosPage {
 		public navCtrl: NavController,
 		private zone: NgZone) {
 		this.pais = navParams.get('pais')
-		this.monto_total = NavParams.get('monto_total')
-		console.log(this.monto_total)
+		this.monto_total = navParams.get('monto_total')
 	}
 
-	
 	/* Cuando la vista esta activa mostramos el detalle de un pais. */
 	ionViewDidLoad () {
 		this.detallePorPais()

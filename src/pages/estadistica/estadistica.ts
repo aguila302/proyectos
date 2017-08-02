@@ -166,10 +166,10 @@ export class EstadisticaPage {
 	}
 
 	/* Funcion para visualizar los proyectos agrupados por pais. */
-	verProyectosAgrupados = (pais: string): void => {
+	verProyectosAgrupados = (pais: string, monto_total: string): void => {
 		this.navCtrl.push(ProyectosAgrupadosPage, {
 			'pais': pais,
-			'monto_total': this.monto_total
+			'monto_total': monto_total
 		})
 	}
 
@@ -237,9 +237,10 @@ export class EstadisticaPage {
 	}
 
 	/* Funcion para visualizar los proyectos agrupados por anio. */
-	verProyectosAgrupadosAnio = (anio: string): void => {
+	verProyectosAgrupadosAnio = (anio: string, monto_total:string): void => {
 		this.navCtrl.push(ProyectosAgrupadosAnioPage, {
-			'anio': anio
+			'anio': anio,
+			'monto_total': monto_total
 		})
 	}
 
@@ -297,9 +298,10 @@ export class EstadisticaPage {
 	}
 
 	/* Funcion para visualizar los proyectos agrupados por gerencia. */
-	verProyectosAgrupadosGerencia = (gerencia: string): void => {
+	verProyectosAgrupadosGerencia = (gerencia: string, monto_total:string): void => {
 		this.navCtrl.push(ProyectosAgrupadosGerenciaPage, {
-			'gerencia': gerencia
+			'gerencia': gerencia,
+			'monto_total' : monto_total
 		})
 	}
 
@@ -414,13 +416,14 @@ export class EstadisticaPage {
 	}
 
 	/* Funcion para visualizar los proyectos agrupados por contratante. */
-	verProyectosAgrupadosCliente = (contratante: string): void => {
+	verProyectosAgrupadosCliente = (contratante: string, monto_total: string): void => {
 		this.navCtrl.push(ProyectosAgrupadosClientePage, {
-			'contratante': contratante
+			'contratante': contratante,
+			'monto_total': monto_total
 		})
 	}
 
-	verProyectosAgrupadosClientePorcentajeMenosAUno = (): void => {
+	verProyectosAgrupadosClientePorcentajeMenosAUno = (monto_total: string): void => {
 		let proyectos = this.proyectos_agrupados_detalle.map(function(item) {
 			return {
 				'id': item.id,
@@ -432,7 +435,8 @@ export class EstadisticaPage {
 		})
 
 		this.navCtrl.push(ProyectosAgrupadosClienteMenoresPage, {
-			'proyectos_agrupados_detalle': proyectos
+			'proyectos_agrupados_detalle': proyectos,
+			'monto_total': monto_total
 		})
 	}
 
