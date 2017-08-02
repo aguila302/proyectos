@@ -42,9 +42,10 @@ export class ProyectosAgrupadosClienteMenoresPage {
 	}
 
 	/* Funcion para visualizar los proyectos agrupados por contratante. */
-	verProyectosAgrupadosCliente = (contratante: string): void => {
+	verProyectosAgrupadosCliente = (contratante: string, monto_total: string): void => {
 		this.navCtrl.push(ProyectosAgrupadosClientePage, {
-			'contratante': contratante
+			'contratante': contratante,
+			'monto_total' : monto_total
 		})
 	}
 }
