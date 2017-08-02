@@ -66,9 +66,10 @@ export class CircularGerenciaPage {
 	}
 
 	/* Funcion para visualizar los proyectos agrupados por pais. */
-	verProyectosAgrupadosGerencia = (gerencia: string): void => {
+	verProyectosAgrupadosGerencia = (gerencia: string, monto_total: string): void => {
 		this.navCrtl.push(ProyectosAgrupadosGerenciaPage, {
-			'gerencia': gerencia
+			'gerencia': gerencia,
+			'monto_total': monto_total
 		})
 	}
 }

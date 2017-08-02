@@ -42,7 +42,7 @@
                     <strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}
                 </ion-col>
                 <ion-col col-2 class="right">
-                    <button ion-button clear item-end (click)="verProyectosAgrupadosCliente(proyecto.contratante)">
+                    <button ion-button clear item-end (click)="verProyectosAgrupadosCliente(proyecto.contratante, proyecto.monto)">
                         <p style="text-transform: none; color: #3498DB;">Ver detalle</p>
                     </button>
                 </ion-col>
@@ -67,7 +67,7 @@
                     <strong>No. de proyectos: </strong>{{ proyectos_agrupados.numero_proyectos }}
                 </ion-col>
                 <ion-col col-2 class="right">
-                    <button ion-button clear item-end (click)="verProyectosAgrupadosClientePorcentajeMenosAUno()">
+                    <button ion-button clear item-end (click)="verProyectosAgrupadosClientePorcentajeMenosAUno(proyectos_agrupados.suma_montos_menores_de_uno)">
                         <p style="text-transform: none; color: #3498DB;">Ver detalle</p>
                     </button>
                 </ion-col>

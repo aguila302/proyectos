@@ -66,9 +66,10 @@ export class CircularPaisPage {
 	}
 
 	/* Funcion para visualizar los proyectos agrupados por pais. */
-	verProyectosAgrupados = (pais: string): void => {
+	verProyectosAgrupados = (pais: string, monto_total: string): void => {
 		this.navCrtl.push(ProyectosAgrupadosPage, {
-			'pais': pais
+			'pais': pais,
+			'monto_total': monto_total
 		})
 	}
 }

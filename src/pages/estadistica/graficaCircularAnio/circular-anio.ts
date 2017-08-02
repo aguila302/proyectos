@@ -66,9 +66,10 @@ export class CircularAnioPage {
 	}
 
 	/* Funcion para visualizar los proyectos agrupados por pais. */
-	verProyectosAgrupadosAnio = (anio: number): void => {
+	verProyectosAgrupadosAnio = (anio: number, monto_total: string): void => {
 		this.navCrtl.push(ProyectosAgrupadosAnioPage, {
-			'anio': anio
+			'anio': anio,
+			'monto_total': monto_total
 		})
 	}
 }
