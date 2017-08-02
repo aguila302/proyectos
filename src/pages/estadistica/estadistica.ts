@@ -60,7 +60,7 @@ export class EstadisticaPage {
 				gridLines: {
 					color: 'rgba(255,255,255,1.0)',
 					zeroLineColor: 'rgba(254,254,254, 1.0)'
-				}
+				},
 			}],
 			yAxes: [{
 				barPercentage: 0.5,
@@ -79,7 +79,10 @@ export class EstadisticaPage {
 				// 	display: true,
 				// 	labelString: '% del Total',
 				// }
-			}]
+			}],
+			// margins: {
+			// 	bottom: 100,
+			// },
 		},
 		legend: {
 			display: false,
@@ -165,7 +168,8 @@ export class EstadisticaPage {
 	/* Funcion para visualizar los proyectos agrupados por pais. */
 	verProyectosAgrupados = (pais: string): void => {
 		this.navCtrl.push(ProyectosAgrupadosPage, {
-			'pais': pais
+			'pais': pais,
+			'monto_total': this.monto_total
 		})
 	}
 
