@@ -22,7 +22,9 @@ import { ProyectosAgrupadosGerenciaPage } from '../pages/estadistica/proyectos-a
 import { ProyectosAgrupadosClientePage } from '../pages/estadistica/proyectos-agrupados/por-cliente/proyectos-agrupados-cliente'
 import { ProyectosAgrupadosClienteMenoresPage } from '../pages/estadistica/proyectos-agrupados/por-cliente/por-cliente-menores/proyectos-agrupados-cliente-menores'
 
-//import { ChartsModule } from 'ng2-charts';
+import { ChartModule } from 'angular2-highcharts';
+import * as highcharts from 'highcharts';
+
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { SQLite } from '@ionic-native/sqlite';
 
@@ -52,6 +54,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     ChartsModule,
+    ChartModule.forRoot(highcharts)
   ],
   bootstrap: [IonicApp],
   entryComponents: [

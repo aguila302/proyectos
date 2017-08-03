@@ -21,11 +21,56 @@ import { IonicPage, NavController, LoadingController } from 'ionic-angular'
 	templateUrl: 'estadistica.html',
 })
 export class EstadisticaPage {
+	// options: Object;
 
 	constructor(private dbService: DbService,
 		private navCtrl: NavController, public zone: NgZone, public loadingCtrl: LoadingController) {
 	}
+	options = {
+		chart: {
+			type: 'column'
+		},
+		title: {
+			text: 'Browser market shares. January, 2015 to May, 2015'
+		},
+		subtitle: {
+			text: 'Click the columns to view versions. Source: <a href="http://netmarketshare.com">netmarketshare.com</a>.'
+		},
+		xAxis: {
+			type: 'category'
+		},
+		yAxis: {
+			title: {
+				text: 'Total percent market share'
+			}
 
+		},
+		legend: {
+			enabled: false
+		},
+		plotOptions: {
+			series: {
+				borderWidth: 0,
+				dataLabels: {
+					enabled: true,
+					format: '{point.y:.1f}%'
+				}
+			}
+		},
+
+		tooltip: {
+			headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+			pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+		},
+
+		series: [{
+			name: 'Brands',
+			colorByPoint: false,
+			data: []
+		}],
+	}
+	// console.log(this.options)
+	
 	pais: string = 'pais'
 	proyectos = []
 	proyectos_agrupados = []
@@ -64,16 +109,16 @@ export class EstadisticaPage {
 			}],
 			yAxes: [{
 				barPercentage: 0.5,
-                position: 'left',
+				position: 'left',
 				display: true,
 				ticks: {
 					beginAtZero: false,
 					callback: function(value, index, values) {
-                        return '%' + value
-                    },
-                    min: 0,
-        			max: 100,
-                    stepSize: 10
+						return '%' + value
+					},
+					min: 0,
+					max: 100,
+					stepSize: 10
 				},
 				// scaleLabel: {
 				// 	display: true,
@@ -99,7 +144,7 @@ export class EstadisticaPage {
 	public barChartType: string = 'bar'
 	public barChartLegend: boolean = true
 
-	public barChartColors: Array < any > = [{ 
+	public barChartColors: Array < any > = [{
 		// grey
 		backgroundColor: 'rgba(27, 38, 49)',
 		borderColor: 'rgba(148,159,177,1)',
@@ -114,55 +159,56 @@ export class EstadisticaPage {
 		label: [],
 	}]
 
-	ionViewDidLoad (): void {
+	ionViewDidLoad(): void {
 		this.getDatosXPais()
 	}
 
 	/* Funcion para conseguir los datos de poryectos por pais. */
 	getDatosXPais() {
-		for(let index in this.barChartOptions) {
-			this.barChartOptions.scales.xAxes[0].scaleLabel.labelString = 'Paises'
-			this.barChartOptions.scales.yAxes[0].ticks.min = 0
-			this.barChartOptions.scales.yAxes[0].ticks.max = 100
-			this.barChartOptions.scales.yAxes[0].ticks.stepSize = 10
-		}
+		// for (let index in this.barChartOptions) {
+		// 	this.barChartOptions.scales.xAxes[0].scaleLabel.labelString = 'Paises'
+		// 	this.barChartOptions.scales.yAxes[0].ticks.min = 0
+		// 	this.barChartOptions.scales.yAxes[0].ticks.max = 100
+		// 	this.barChartOptions.scales.yAxes[0].ticks.stepSize = 10
+		// }
 		this.dbService.openDatabase()
 			.then(() => this.dbService.consultaXPais())
 			.then(response => {
-				/* Para mostrar la informacion de la grafica. */
-				let paises: string[] = []
-				let porcentaje: number[] = []
+				this.zone.run(() => {
+					/* Para mostrar la informacion de la grafica. */
+					console.log(response)
+					let data_grafica: {}
 
-				response.forEach(item => {
-					paises.push(item.pais)
-					porcentaje.push(item.porcentaje)
+					response.forEach(item => {
+						data_grafica = { name:item.pais, y: parseFloat(item.porcentaje)}
+						
+						this.options['series'][0].data.push(data_grafica)
+						//this.options['series'][0].data[1] = item.porcentaje
+					})
+					console.log(this.options)
+
+
+
+
+
+					/* Para mostrar la tabla de informacion */
+					const collection = collect(response)
+					this.monto_total = account.formatNumber(collection.sum('monto'))
+					this.total_proyectos = collection.sum('numero_proyectos')
+
+					let proyectos = collection.map(function(item) {
+						return {
+							'pais': item.pais,
+							'porcentaje': item.porcentaje,
+							'monto': account.formatNumber(item.monto),
+							'numero_proyectos': item.numero_proyectos
+						}
+					})
+					this.proyectos = proyectos
+					this.dataCirular = response
 				})
-
-				this.barChartLabels = paises
-				this.barChartData.forEach(
-					(item) => {
-						item.data = porcentaje
-					}
-				)
-
-
-				/* Para mostrar la tabla de informacion */
-				const collection = collect(response)
-				this.monto_total = account.formatNumber(collection.sum('monto'))
-				this.total_proyectos = collection.sum('numero_proyectos')
-
-				let proyectos = collection.map(function(item) {
-					return {
-						'pais': item.pais,
-						'porcentaje': item.porcentaje,
-						'monto': account.formatNumber(item.monto),
-						'numero_proyectos': item.numero_proyectos
-					}
-				})
-				this.proyectos = proyectos
-				this.dataCirular = response
-			})
 			.catch(console.error.bind(console))
+		})
 	}
 
 	/* Funcion para visualizar los proyectos agrupados por pais. */
@@ -176,7 +222,7 @@ export class EstadisticaPage {
 	/* Funcion para visualizar la grafica en modo circular. */
 	modoCircular = (): void => {
 		this.navCtrl.push(CircularPaisPage, {
-			'datos_circular' : this.dataCirular
+			'datos_circular': this.dataCirular
 		})
 	}
 
@@ -237,7 +283,7 @@ export class EstadisticaPage {
 	}
 
 	/* Funcion para visualizar los proyectos agrupados por anio. */
-	verProyectosAgrupadosAnio = (anio: string, monto_total:string): void => {
+	verProyectosAgrupadosAnio = (anio: string, monto_total: string): void => {
 		this.navCtrl.push(ProyectosAgrupadosAnioPage, {
 			'anio': anio,
 			'monto_total': monto_total
@@ -247,13 +293,13 @@ export class EstadisticaPage {
 	/* Funcion para visualizar la grafica en modo circular por anio. */
 	modoCircularAnio = (): void => {
 		this.navCtrl.push(CircularAnioPage, {
-			'datos_circular' : this.dataCirular
+			'datos_circular': this.dataCirular
 		})
 	}
 
 	/* Funcion para conseguir los datos de proyectos por gerencia. */
 	getDatosXGerencia = (): void => {
-		for(let index in this.barChartOptions) {
+		for (let index in this.barChartOptions) {
 			this.barChartOptions.scales.xAxes[0].scaleLabel.labelString = 'Gerencia'
 			this.barChartOptions.scales.yAxes[0].ticks.min = 0
 			this.barChartOptions.scales.yAxes[0].ticks.max = 100
@@ -298,10 +344,10 @@ export class EstadisticaPage {
 	}
 
 	/* Funcion para visualizar los proyectos agrupados por gerencia. */
-	verProyectosAgrupadosGerencia = (gerencia: string, monto_total:string): void => {
+	verProyectosAgrupadosGerencia = (gerencia: string, monto_total: string): void => {
 		this.navCtrl.push(ProyectosAgrupadosGerenciaPage, {
 			'gerencia': gerencia,
-			'monto_total' : monto_total
+			'monto_total': monto_total
 		})
 	}
 
@@ -337,20 +383,20 @@ export class EstadisticaPage {
 					let agrupados = data.groupBy('contratante').toArray()
 
 					let datos = agrupados.map(function(contratante, monto) {
-						let num_proyectos = contratante.length
-						let suma_montos = contratante.reduce(function(index, proyecto) {
-							return index + parseInt(proyecto.monto)
-						}, 0)
+							let num_proyectos = contratante.length
+							let suma_montos = contratante.reduce(function(index, proyecto) {
+								return index + parseInt(proyecto.monto)
+							}, 0)
 
-						return {
-							id: contratante[0].id,
-							contratante: contratante[0].contratante,
-							suma_monto: suma_montos,
-							porcentaje: parseFloat(((suma_montos / monto_total) * 100).toFixed(2)),
-							numero_proyectos: num_proyectos
-						}
-					})
-					/* Ordeno por porcentaje de mayor a menor. */
+							return {
+								id: contratante[0].id,
+								contratante: contratante[0].contratante,
+								suma_monto: suma_montos,
+								porcentaje: parseFloat(((suma_montos / monto_total) * 100).toFixed(2)),
+								numero_proyectos: num_proyectos
+							}
+						})
+						/* Ordeno por porcentaje de mayor a menor. */
 					let ordenados = collect(datos).sortByDesc('porcentaje')
 
 					/* Clasifico los proyectos por porcentaje mayor a 1 y menores de 1. */
@@ -407,10 +453,10 @@ export class EstadisticaPage {
 					item.data.push(parseFloat(suma_porcentajes_menores_de_uno))
 				}
 			)
-		/* Construyo la informacion para mi tablero. */
+			/* Construyo la informacion para mi tablero. */
 		this.proyectos_agrupados['suma_montos_menores_de_uno'] = account.formatNumber(menores_de_uno.sum('suma_monto'))
 		this.proyectos_agrupados['porcentaje'] = suma_porcentajes_menores_de_uno
-		this.proyectos_agrupados['numero_proyectos'] =  menores_de_uno.count()
+		this.proyectos_agrupados['numero_proyectos'] = menores_de_uno.count()
 
 		this.proyectos_agrupados_detalle = menores_de_uno
 	}
