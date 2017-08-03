@@ -16,14 +16,16 @@ export class ProyectosAgrupadosClienteMenoresPage {
 	proyectos = []
 	proyectos_agrupados: any
 	monto_total: number = 0
+	total_proyectos: number = 0
 
 	constructor(private navParams: NavParams,
 		public loadingCtrl: LoadingController,
 		public navCtrl: NavController,
 		private zone: NgZone,
 		private dbService: DbService) {
-			this.proyectos_agrupados = navParams.get('proyectos_agrupados_detalle')
-			this.monto_total = navParams.get('monto_total')
+		this.proyectos_agrupados = navParams.get('proyectos_agrupados_detalle')
+		this.monto_total = navParams.get('monto_total')
+		this.total_proyectos = this.proyectos_agrupados.count()
 	}
 	
 	/* Cuando la vista esta activa mostramos el detalle de un anio. */
@@ -36,7 +38,7 @@ export class ProyectosAgrupadosClienteMenoresPage {
 		console.log('removiendo la vista')
 	}
 
-	/* Funcion para obtener las proyectos de un anio. */
+	/* Funcion para obtener las proyectos de un cliente agrupado. */
 	detalleProyectosMenores = () => {
 		this.proyectos = this.proyectos_agrupados.toArray()
 	}
@@ -45,7 +47,7 @@ export class ProyectosAgrupadosClienteMenoresPage {
 	verProyectosAgrupadosCliente = (contratante: string, monto_total: string): void => {
 		this.navCtrl.push(ProyectosAgrupadosClientePage, {
 			'contratante': contratante,
-			'monto_total' : monto_total
+			'monto_total' : monto_total,
 		})
 	}
 }
