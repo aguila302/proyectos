@@ -219,10 +219,11 @@ export class EstadisticaPage {
 			series: [{
 				name: 'Brands',
 				colorByPoint: false,
-				data: xy
+				data: []
 			}],
 		}
-		//this.options['series'][0].data.push(xy)
+		this.options['series'][0].data.splice(0, this.options['series'][0].data.length)
+		this.options['series'][0].data.push(xy)
 	}
 /* Funcion para visualizar los proyectos agrupados por pais. */
 	verProyectosAgrupados = (pais: string, monto_total: string): void => {
