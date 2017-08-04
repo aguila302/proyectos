@@ -13,7 +13,7 @@ import { ProyectosAgrupadosClientePage } from './proyectos-agrupados/por-cliente
 import { ProyectosAgrupadosClienteMenoresPage } from './proyectos-agrupados/por-cliente/por-cliente-menores/proyectos-agrupados-cliente-menores'
 
 import { ProyectosAgrupadosGerenciaPage } from './proyectos-agrupados/por-gerencia/proyectos-agrupados-gerencia'
-import { IonicPage, NavController, LoadingController } from 'ionic-angular'
+import { Platform, NavController, LoadingController } from 'ionic-angular'
 
 // @IonicPage()
 @Component({
@@ -21,11 +21,14 @@ import { IonicPage, NavController, LoadingController } from 'ionic-angular'
 	templateUrl: 'estadistica.html',
 })
 export class EstadisticaPage {
-	// options: Object;
+	xy = []
+	options: Object
 
 	constructor(private dbService: DbService,
-		private navCtrl: NavController, public zone: NgZone, public loadingCtrl: LoadingController) {
-
+		private navCtrl: NavController, public zone: NgZone, public loadingCtrl: LoadingController,
+		public platform: Platform) {
+		console.log('constructor')
+		
 	}
 	// console.log(this.options)
 
@@ -37,49 +40,7 @@ export class EstadisticaPage {
 	total_proyectos: number
 	dataCirular = []
 	data_grafica: {}
-	options = {
-		chart: {
-			type: 'column'
-		},
-		title: {
-			text: 'Browser market shares. January, 2015 to May, 2015'
-		},
-		subtitle: {
-			text: 'Click the columns to view versions. Source: <a href="http://netmarketshare.com">netmarketshare.com</a>.'
-		},
-		xAxis: {
-			type: 'category'
-		},
-		yAxis: {
-			title: {
-				text: 'Total percent market share'
-			}
-
-		},
-		legend: {
-			enabled: false
-		},
-		plotOptions: {
-			series: {
-				borderWidth: 0,
-				dataLabels: {
-					enabled: true,
-					format: '{point.y:.1f}%'
-				}
-			}
-		},
-
-		tooltip: {
-			headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-			pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-		},
-
-		series: [{
-			name: 'Brands',
-			colorByPoint: false,
-			data: []
-		}],
-	}
+	
 	public barChartOptions: any = {
 		scaleShowVerticalLines: false,
 		responsive: true,
@@ -165,12 +126,13 @@ export class EstadisticaPage {
 	// }
 
 	ionViewDidLoad(): void {
-		console.log('toy activo')
-		
+		console.log('ionViewDidLoad')
 		this.getDatosXPais()
 	}
 
+
 	// ionViewDidEnter() {
+	// 	console.log('ionViewDidEnter')
 	// 	this.getDatosXPais()
 	// }
 
@@ -179,18 +141,19 @@ export class EstadisticaPage {
 		this.dbService.openDatabase()
 			.then(() => this.dbService.consultaXPais())
 			.then(response => {
-				this.options['series'][0].data.splice(0, this.options['series'][0].data.length)
+				//this.options['series'][0].data.splice(0, this.options['series'][0].data.length)
 				// let data_grafica: Object
 				this.zone.run(() => {
 					/* Para mostrar la informacion de la grafica. */
 					response.forEach(item => {
-						this.data_grafica = {
+						this.xy.push({
 							name: item.pais,
 							y: parseFloat(item.porcentaje)
-						}
-						this.options['series'][0].data.push(this.data_grafica)
+						})
+						this.datosGrafica(this.xy)
+						// this.options['series'][0].data.push(this.xy)
 					})
-					console.log(this.options)
+					// console.log(this.options)
 
 					/* Para mostrar la tabla de informacion */
 					const collection = collect(response)
@@ -210,6 +173,56 @@ export class EstadisticaPage {
 				})
 			})
 			.catch(console.error.bind(console))
+	}
+
+
+	datosGrafica(xy) {
+		console.log(xy)
+		//this.options['series'][0].data.splice(0, this.options['series'][0].data.length)
+		this.options = {
+			chart: {
+				type: 'column'
+			},
+			title: {
+				text: 'Browser market shares. January, 2015 to May, 2015'
+			},
+			subtitle: {
+				text: 'Click the columns to view versions. Source: <a href="http://netmarketshare.com">netmarketshare.com</a>.'
+			},
+			xAxis: {
+				type: 'category'
+			},
+			yAxis: {
+				title: {
+					text: 'Total percent market share'
+				}
+
+			},
+			legend: {
+				enabled: false
+			},
+			plotOptions: {
+				series: {
+					borderWidth: 0,
+					dataLabels: {
+						enabled: true,
+						format: '{point.y:.1f}%'
+					}
+				}
+			},
+
+			tooltip: {
+				headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+				pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+			},
+
+			series: [{
+				name: 'Brands',
+				colorByPoint: false,
+				data: xy
+			}],
+		}
+		//this.options['series'][0].data.push(xy)
 	}
 /* Funcion para visualizar los proyectos agrupados por pais. */
 	verProyectosAgrupados = (pais: string, monto_total: string): void => {
