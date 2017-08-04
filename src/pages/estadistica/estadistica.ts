@@ -15,7 +15,7 @@ import { ProyectosAgrupadosClienteMenoresPage } from './proyectos-agrupados/por-
 import { ProyectosAgrupadosGerenciaPage } from './proyectos-agrupados/por-gerencia/proyectos-agrupados-gerencia'
 import { IonicPage, NavController, LoadingController } from 'ionic-angular'
 
-// @IonicPage()
+@IonicPage()
 @Component({
 	selector: 'page-estadistica',
 	templateUrl: 'estadistica.html',
@@ -70,13 +70,14 @@ export class EstadisticaPage {
 		}],
 	}
 	// console.log(this.options)
-	
+
 	pais: string = 'pais'
 	proyectos = []
 	proyectos_agrupados = []
 	proyectos_agrupados_detalle = []
 	monto_total: string = ''
 	total_proyectos: number
+	data_grafica: {}
 	dataCirular = []
 
 	public barChartOptions: any = {
@@ -159,35 +160,27 @@ export class EstadisticaPage {
 		label: [],
 	}]
 
-	ionViewDidLoad(): void {
+	ionViewDidLoad() {
 		this.getDatosXPais()
 	}
 
 	/* Funcion para conseguir los datos de poryectos por pais. */
 	getDatosXPais() {
-		// for (let index in this.barChartOptions) {
-		// 	this.barChartOptions.scales.xAxes[0].scaleLabel.labelString = 'Paises'
-		// 	this.barChartOptions.scales.yAxes[0].ticks.min = 0
-		// 	this.barChartOptions.scales.yAxes[0].ticks.max = 100
-		// 	this.barChartOptions.scales.yAxes[0].ticks.stepSize = 10
-		// }
 		this.dbService.openDatabase()
 			.then(() => this.dbService.consultaXPais())
 			.then(response => {
 				this.zone.run(() => {
 					/* Para mostrar la informacion de la grafica. */
 					console.log(response)
-					let data_grafica: {}
-
 					response.forEach(item => {
-						data_grafica = { name:item.pais, y: parseFloat(item.porcentaje)}
-						
-						this.options['series'][0].data.push(data_grafica)
-						//this.options['series'][0].data[1] = item.porcentaje
+						this.data_grafica = {
+							name: item.pais,
+							y: parseFloat(item.porcentaje)
+						}
+
+						this.options['series'][0].data.push(this.data_grafica)
 					})
 					console.log(this.options)
-
-
 
 
 
@@ -207,8 +200,8 @@ export class EstadisticaPage {
 					this.proyectos = proyectos
 					this.dataCirular = response
 				})
+			})
 			.catch(console.error.bind(console))
-		})
 	}
 
 	/* Funcion para visualizar los proyectos agrupados por pais. */
@@ -491,5 +484,9 @@ export class EstadisticaPage {
 		this.navCtrl.push(CircularClientePage, {
 			'datos_circular': this.dataCirular
 		})
+	}
+
+	segmentChanged(event: any) {
+		this.options['series'][0].data.length = 0
 	}
 }

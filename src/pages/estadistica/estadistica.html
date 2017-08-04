@@ -5,7 +5,7 @@
         </ion-title>
     </ion-navbar>
     <ion-toolbar no-border-top>
-        <ion-segment [(ngModel)]="pais" color="secondary">
+        <ion-segment [(ngModel)]="pais" (ionChange)="segmentChanged($event)">
             <ion-segment-button value="pais" (ionSelect)="getDatosXPais()">
                 <strong style="text-transform: capitalize;">País</strong>
             </ion-segment-button>
@@ -33,7 +33,7 @@
                 <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
                 </canvas>
             </div> -->
-            
+
             <hr>
             <hr>
             <ion-card>
