@@ -14,6 +14,9 @@ export class CircularPaisPage {
 	monto_total: string = ''
 	total_proyectos: number
 
+	data_grafica = []
+	options: Object
+
 	constructor(private navParams: NavParams,
 		private navCrtl: NavController) {
 		this.proyectos = navParams.get('datos_circular')
@@ -42,13 +45,18 @@ export class CircularPaisPage {
 		let paises: string[] = []
 		let porcentaje: number[] = []
 
-		this.proyectos.forEach(item => {
-			paises.push(item.pais)
-			porcentaje.push(item.porcentaje)
-		})
+		this.data_grafica.splice(0, this.data_grafica.length)
 
-		this.pieChartLabels = paises
-		this.pieChartData = porcentaje
+		this.proyectos.forEach(item => {
+			this.data_grafica.push({
+				name: item.pais,
+				y: parseFloat(item.porcentaje)
+			})
+		})
+		this.options = this.datosGrafica(this.data_grafica)
+
+		// this.pieChartLabels = paises
+		// this.pieChartData = porcentaje
 
 		const collection = collect(this.proyectos)
 		this.monto_total = account.formatNumber(collection.sum('monto'))
@@ -63,6 +71,45 @@ export class CircularPaisPage {
 			}
 		})
 		this.proyectos = proyectos
+	}
+
+	datosGrafica = (xy): Object => {
+		//console.log(xy)
+		let options = {
+			chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: true,
+            type: 'pie'
+        },
+        title: {
+            text: 'Proyectos agrupados por país'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'Paises',
+            colorByPoint: true,
+            data: []
+        }]
+		}
+		// options['series'][0].data.splice(0, options['series'][0].data.length)
+		console.log(options)
+		options['series'][0].data = xy
+		return options
+		
+		//this.options['series'][0].data.splice(0, this.options['series'][0].data.length)
 	}
 
 	/* Funcion para visualizar los proyectos agrupados por pais. */

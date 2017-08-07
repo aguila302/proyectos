@@ -6,10 +6,13 @@
     </ion-navbar>
 </ion-header>
 <ion-content padding>
-    <div style="display: block">
+    <div id="container" text-right>
+        <chart [options]="options"></chart>
+    </div>
+    <!-- <div style="display: block">
         <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOptions" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
         </canvas>
-    </div>
+    </div> -->
     <hr>
     <hr>
     <ion-card>

@@ -174,7 +174,7 @@ export class EstadisticaPage {
 			})
 			.catch(console.error.bind(console))
 	}
-	
+
 	datosGrafica = (xy): Object => {
 		//console.log(xy)
 		let options = {
@@ -191,6 +191,9 @@ export class EstadisticaPage {
 			},
 			xAxis: {
 				type: 'category'
+			},
+			credits: {
+				enabled: false
 			},
 			yAxis: {
 				// minorTickInterval: 'auto',
