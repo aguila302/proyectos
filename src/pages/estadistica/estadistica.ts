@@ -180,20 +180,30 @@ export class EstadisticaPage {
 		//console.log(xy)
 		let options = {
 			chart: {
-				type: 'column'
+				type: 'column',
+				width: 600,
+				height: 350
 			},
 			title: {
-				text: 'Browser market shares. January, 2015 to May, 2015'
+				text: 'Proyectos agrupados por país'
 			},
 			subtitle: {
-				text: 'Click the columns to view versions. Source: <a href="http://netmarketshare.com">netmarketshare.com</a>.'
+				text: ''
 			},
 			xAxis: {
 				type: 'category'
 			},
 			yAxis: {
+				// minorTickInterval: 'auto',
+				tickInterval: 15,
+				labels: {
+					x: -15,
+					formatter: function() {
+						return this.value + ' %';
+					}
+				},
 				title: {
-					text: 'Total percent market share'
+					text: 'Porcentaje total de participación'
 				}
 
 			},
@@ -212,11 +222,11 @@ export class EstadisticaPage {
 
 			tooltip: {
 				headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-				pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+				pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> del total<br/>'
 			},
 
 			series: [{
-				name: 'Brands',
+				name: 'Paises',
 				colorByPoint: false,
 				data: []
 			}],
@@ -230,7 +240,7 @@ export class EstadisticaPage {
 						xAxis: {
 							labels: {
 								formatter: function() {
-									return this.value.charAt(0);
+									return this.value
 								}
 							}
 						},
@@ -241,7 +251,7 @@ export class EstadisticaPage {
 								y: -2
 							},
 							title: {
-								text: ''
+								text: 'Porcentaje total de participación'
 							}
 						}
 					}
