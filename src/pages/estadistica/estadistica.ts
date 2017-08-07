@@ -121,27 +121,16 @@ export class EstadisticaPage {
 		label: [],
 	}]
 
-	// ionViewDidLoad(){
-	// 	this.getDatosXPais()
-	// }
-
 	ionViewDidLoad(): void {
 		console.log('ionViewDidLoad')
 		this.getDatosXPais()
 	}
-
-
-	// ionViewDidEnter() {
-	// 	console.log('ionViewDidEnter')
-	// 	this.getDatosXPais()
-	// }
 
 	/* Funcion para conseguir los datos de poryectos por pais. */
 	getDatosXPais() {
 		this.dbService.openDatabase()
 			.then(() => this.dbService.consultaXPais())
 			.then(response => {
-				//this.options['series'][0].data.splice(0, this.options['series'][0].data.length)
 				this.zone.run(() => {
 					/* Para mostrar la informacion de la grafica. */
 					this.xy.splice(0, this.xy.length)
@@ -150,10 +139,8 @@ export class EstadisticaPage {
 							name: item.pais,
 							y: parseFloat(item.porcentaje)
 						})
-						//this.options['series'][0].data.push(this.xy)
 					})
 					this.options = this.datosGrafica(this.xy)
-					// console.log(this.options)
 
 					/* Para mostrar la tabla de informacion */
 					const collection = collect(response)
@@ -175,98 +162,7 @@ export class EstadisticaPage {
 			.catch(console.error.bind(console))
 	}
 
-	datosGrafica = (xy): Object => {
-		//console.log(xy)
-		let options = {
-			chart: {
-				type: 'column',
-				width: 600,
-				height: 350
-			},
-			title: {
-				text: 'Proyectos agrupados por país'
-			},
-			subtitle: {
-				text: ''
-			},
-			xAxis: {
-				type: 'category'
-			},
-			credits: {
-				enabled: false
-			},
-			yAxis: {
-				// minorTickInterval: 'auto',
-				tickInterval: 15,
-				labels: {
-					// x: -15,
-					formatter: function() {
-						return this.value + ' %';
-					}
-				},
-				title: {
-					text: 'Porcentaje total de participación'
-				}
-
-			},
-			legend: {
-				enabled: true
-			},
-			plotOptions: {
-				series: {
-					borderWidth: 0,
-					dataLabels: {
-						enabled: true,
-						format: '{point.y:.1f}%'
-					}
-				}
-			},
-
-			tooltip: {
-				headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-				pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> del total<br/>'
-			},
-
-			series: [{
-				name: 'Paises',
-				colorByPoint: false,
-				data: []
-			}],
-			responsive: {
-				rules: [{
-					condition: {
-						maxWidth: 700
-					},
-					// Make the labels less space demanding on mobile
-					chartOptions: {
-						xAxis: {
-							labels: {
-								formatter: function() {
-									return this.value
-								}
-							}
-						},
-						yAxis: {
-							labels: {
-								align: 'left',
-								x: 0,
-								y: -2
-							},
-							title: {
-								text: 'Porcentaje total de participación'
-							}
-						}
-					}
-				}]
-			}
-		}
-		// options['series'][0].data.splice(0, options['series'][0].data.length)
-		console.log(options)
-		options['series'][0].data = xy
-		return options
-		
-		//this.options['series'][0].data.splice(0, this.options['series'][0].data.length)
-	}
+	
 /* Funcion para visualizar los proyectos agrupados por pais. */
 	verProyectosAgrupados = (pais: string, monto_total: string): void => {
 		this.navCtrl.push(ProyectosAgrupadosPage, {
@@ -547,5 +443,93 @@ export class EstadisticaPage {
 		this.navCtrl.push(CircularClientePage, {
 			'datos_circular': this.dataCirular
 		})
+	}
+
+	datosGrafica = (xy): Object => {
+		let options = {
+			chart: {
+				type: 'column',
+				width: 900,
+				height: 650
+			},
+			title: {
+				text: 'Proyectos agrupados por país'
+			},
+			subtitle: {
+				text: ''
+			},
+			xAxis: {
+				type: 'category'
+			},
+			credits: {
+				enabled: false
+			},
+			yAxis: {
+				// minorTickInterval: 'auto',
+				tickInterval: 15,
+				labels: {
+					// x: -15,
+					formatter: function() {
+						return this.value + ' %';
+					}
+				},
+				title: {
+					text: 'Porcentaje total de participación'
+				}
+
+			},
+			legend: {
+				enabled: true
+			},
+			plotOptions: {
+				series: {
+					borderWidth: 0,
+					dataLabels: {
+						enabled: true,
+						format: '{point.y:.1f}%'
+					}
+				}
+			},
+
+			tooltip: {
+				headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+				pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> del total<br/>'
+			},
+
+			series: [{
+				name: 'Paises',
+				colorByPoint: false,
+				data: []
+			}],
+			responsive: {
+				rules: [{
+					condition: {
+						maxWidth: 700
+					},
+					// Make the labels less space demanding on mobile
+					chartOptions: {
+						xAxis: {
+							labels: {
+								formatter: function() {
+									return this.value
+								}
+							}
+						},
+						yAxis: {
+							labels: {
+								align: 'left',
+								x: 0,
+								y: -2
+							},
+							title: {
+								text: 'Porcentaje total de participación'
+							}
+						}
+					}
+				}]
+			}
+		}
+		options['series'][0].data = xy
+		return options
 	}
 }

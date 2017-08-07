@@ -80,7 +80,9 @@ export class CircularPaisPage {
             plotBackgroundColor: null,
             plotBorderWidth: null,
             plotShadow: true,
-            type: 'pie'
+            type: 'pie',
+            width: 900,
+			height: 650
         },
         title: {
             text: 'Proyectos agrupados por país'
@@ -89,12 +91,13 @@ export class CircularPaisPage {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
         },
         plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true
-                },
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						enabled: true,
+						format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+					},
                 showInLegend: true
             }
         },
