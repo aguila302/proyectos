@@ -15,6 +15,7 @@ import { ProyectosAgrupadosClienteMenoresPage } from './proyectos-agrupados/por-
 import { ProyectosAgrupadosGerenciaPage } from './proyectos-agrupados/por-gerencia/proyectos-agrupados-gerencia'
 import { Platform, NavController, LoadingController } from 'ionic-angular'
 
+
 // @IonicPage()
 @Component({
 	selector: 'page-estadistica',
@@ -140,7 +141,7 @@ export class EstadisticaPage {
 							y: parseFloat(item.porcentaje)
 						})
 					})
-					this.options = this.datosGrafica(this.xy)
+					this.options = this.datosGrafica(this.xy, 15, 'Paises', 'Proyectos agrupados por país')
 
 					/* Para mostrar la tabla de informacion */
 					const collection = collect(response)
@@ -178,43 +179,20 @@ export class EstadisticaPage {
 		})
 	}
 
-	// events
-	public chartClicked(e: any): void {
-		console.log('chartClicked')
-		console.log(e)
-	}
-
-	public chartHovered(e: any): void {
-		console.log('chartHovered')
-		console.log(e)
-	}
-
 	/* Funcion para conseguir los datos de poryectos por anio. */
 	getDatosXAnio = (): void => {
-		for (let index in this.barChartOptions) {
-			this.barChartOptions.scales.xAxes[0].scaleLabel.labelString = 'Años'
-			this.barChartOptions.scales.yAxes[0].ticks.min = 0
-			this.barChartOptions.scales.yAxes[0].ticks.max = 10
-			this.barChartOptions.scales.yAxes[0].ticks.stepSize = 2
-		}
 		this.dbService.openDatabase()
 			.then(() => this.dbService.consultaXAnio())
 			.then(response => {
 				// Para mostrar la informacion de la grafica. 
-				let anios: string[] = []
-				let porcentaje: number[] = []
-
+				this.xy.splice(0, this.xy.length)
 				response.forEach(item => {
-					anios.push(item.anio)
-					porcentaje.push(item.porcentaje)
+					this.xy.push({
+						name: item.anio,
+						y: parseFloat(item.porcentaje)
+					})
 				})
-
-				this.barChartLabels = anios
-				this.barChartData.forEach(
-					(item) => {
-						item.data = porcentaje
-					}
-				)
+				this.options = this.datosGrafica(this.xy, 2, 'Años', 'Proyectos agrupados por año')
 
 				/* Para mostrar la tabla de informacion */
 				const collection = collect(response)
@@ -445,7 +423,7 @@ export class EstadisticaPage {
 		})
 	}
 
-	datosGrafica = (xy): Object => {
+	datosGrafica = (xy: Array<any>, intervalo: number, serie_name: string, title_name: string): Object => {
 		let options = {
 			chart: {
 				type: 'column',
@@ -453,20 +431,26 @@ export class EstadisticaPage {
 				height: 650
 			},
 			title: {
-				text: 'Proyectos agrupados por país'
+				text: title_name
 			},
 			subtitle: {
 				text: ''
 			},
 			xAxis: {
-				type: 'category'
+				type: 'category',
+				labels: {
+					style: {
+						color: '#FF5733'
+					}
+				}
 			},
 			credits: {
 				enabled: false
 			},
 			yAxis: {
 				// minorTickInterval: 'auto',
-				tickInterval: 15,
+				className: 'highcharts-color-0',
+				tickInterval: intervalo,
 				labels: {
 					// x: -15,
 					formatter: function() {
@@ -483,6 +467,7 @@ export class EstadisticaPage {
 			},
 			plotOptions: {
 				series: {
+					fillColor: '#A5D6A7',
 					borderWidth: 0,
 					dataLabels: {
 						enabled: true,
@@ -497,7 +482,7 @@ export class EstadisticaPage {
 			},
 
 			series: [{
-				name: 'Paises',
+				name: serie_name,
 				colorByPoint: false,
 				data: []
 			}],
@@ -516,6 +501,7 @@ export class EstadisticaPage {
 							}
 						},
 						yAxis: {
+							className: 'highcharts-color-0',
 							labels: {
 								align: 'left',
 								x: 0,
@@ -530,6 +516,7 @@ export class EstadisticaPage {
 			}
 		}
 		options['series'][0].data = xy
+		console.log(options)
 		return options
 	}
 }

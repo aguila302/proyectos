@@ -6,4 +6,14 @@ page-estadistica {
 		display: flex;
 		justify-content: center;
 	}
+	.highcharts-color-0 {
+		fill: #7cb5ec;
+		stroke: #FFC107;
+	}
+	.highcharts-axis.highcharts-color-0 .highcharts-axis-line {
+		stroke: #26C6DA;
+	}
+	.highcharts-axis.highcharts-color-0 text {
+		fill: #7cb5ec;
+	}
 }

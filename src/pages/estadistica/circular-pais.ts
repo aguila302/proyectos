@@ -23,30 +23,8 @@ export class CircularPaisPage {
 		this.loadDatos()
 	}
 
-	// Pie
-	public pieChartLabels: string[] = []
-	public pieChartData: number[] = []
-	public pieChartType: string = 'pie'
-
-	// events
-	public chartClicked(e: any): void {
-		console.log(e)
-	}
-
-	public chartHovered(e: any): void {
-		console.log(e)
-	}
-	public pieChartOptions: any = {
-		scaleShowVerticalLines: false,
-		responsive: true,
-	}
-
 	loadDatos= () => {
-		let paises: string[] = []
-		let porcentaje: number[] = []
-
 		this.data_grafica.splice(0, this.data_grafica.length)
-
 		this.proyectos.forEach(item => {
 			this.data_grafica.push({
 				name: item.pais,
@@ -54,9 +32,6 @@ export class CircularPaisPage {
 			})
 		})
 		this.options = this.datosGrafica(this.data_grafica)
-
-		// this.pieChartLabels = paises
-		// this.pieChartData = porcentaje
 
 		const collection = collect(this.proyectos)
 		this.monto_total = account.formatNumber(collection.sum('monto'))
@@ -73,24 +48,24 @@ export class CircularPaisPage {
 		this.proyectos = proyectos
 	}
 
+	/* Funcion para dibujar la grafica circular.*/
 	datosGrafica = (xy): Object => {
-		//console.log(xy)
 		let options = {
 			chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: true,
-            type: 'pie',
-            width: 900,
-			height: 650
-        },
-        title: {
-            text: 'Proyectos agrupados por país'
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
+				plotBackgroundColor: null,
+				plotBorderWidth: null,
+				plotShadow: true,
+				type: 'pie',
+				width: 900,
+				height: 650
+			},
+			title: {
+				text: 'Proyectos agrupados por país'
+			},
+			tooltip: {
+				pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+			},
+			plotOptions: {
 				pie: {
 					allowPointSelect: true,
 					cursor: 'pointer',
@@ -98,21 +73,17 @@ export class CircularPaisPage {
 						enabled: true,
 						format: '<b>{point.name}</b>: {point.percentage:.1f} %',
 					},
-                showInLegend: true
-            }
-        },
-        series: [{
-            name: 'Paises',
-            colorByPoint: true,
-            data: []
-        }]
+					showInLegend: true
+				}
+			},
+			series: [{
+				name: 'Paises',
+				colorByPoint: true,
+				data: []
+			}]
 		}
-		// options['series'][0].data.splice(0, options['series'][0].data.length)
-		console.log(options)
 		options['series'][0].data = xy
 		return options
-		
-		//this.options['series'][0].data.splice(0, this.options['series'][0].data.length)
 	}
 
 	/* Funcion para visualizar los proyectos agrupados por pais. */

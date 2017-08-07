@@ -13,6 +13,8 @@ export class CircularAnioPage {
 	proyectos = []
 	monto_total: string = ''
 	total_proyectos: number
+	data_grafica = []
+	options: Object
 
 	constructor(private navParams: NavParams,
 		private navCrtl: NavController) {
@@ -20,36 +22,17 @@ export class CircularAnioPage {
 		this.loadDatos()
 	}
 
-	// Pie
-	public pieChartLabels: string[] = []
-	public pieChartData: number[] = []
-	public pieChartType: string = 'pie'
-
-	// events
-	public chartClicked(e: any): void {
-		console.log(e)
-	}
-
-	public chartHovered(e: any): void {
-		console.log(e)
-	}
-	public pieChartOptions: any = {
-		scaleShowVerticalLines: false,
-		responsive: true,
-	}
-
 	loadDatos= () => {
-		let anios: string[] = []
-		let porcentaje: number[] = []
-
+		this.data_grafica.splice(0, this.data_grafica.length)
 		this.proyectos.forEach(item => {
-			anios.push(item.anio)
-			porcentaje.push(item.porcentaje)
+			this.data_grafica.push({
+				name: item.anio,
+				y: parseFloat(item.porcentaje)
+			})
 		})
+		this.options = this.datosGrafica(this.data_grafica)
 
-		this.pieChartLabels = anios
-		this.pieChartData = porcentaje
-
+		/* Para mostrar la tabla dinamica. */
 		const collection = collect(this.proyectos)
 		this.monto_total = account.formatNumber(collection.sum('monto'))
 		this.total_proyectos = collection.sum('numero_proyectos')
@@ -63,6 +46,45 @@ export class CircularAnioPage {
 			}
 		})
 		this.proyectos = proyectos
+	}
+
+	/* Funcion para dibujar la grafica circular.*/
+	datosGrafica = (xy): Object => {
+		let options = {
+			chart: {
+				plotBackgroundColor: null,
+				plotBorderWidth: null,
+				plotShadow: true,
+				type: 'pie',
+				width: 900,
+				height: 650
+			},
+			title: {
+				text: 'Proyectos agrupados por año'
+			},
+			tooltip: {
+				pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+			},
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						enabled: true,
+						format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+					},
+					showInLegend: true
+				}
+			},
+			series: [{
+				name: 'Años',
+				colorByPoint: true,
+				data: []
+			}]
+		}
+		options['series'][0].data = xy
+		console.log(options)
+		return options
 	}
 
 	/* Funcion para visualizar los proyectos agrupados por pais. */
