@@ -30,7 +30,7 @@ export class EstadisticaPage {
 		console.log('constructor')
 		
 	}
-	// console.log(this.options)
+
 
 	pais: string = 'pais'
 	proyectos = []
@@ -142,17 +142,17 @@ export class EstadisticaPage {
 			.then(() => this.dbService.consultaXPais())
 			.then(response => {
 				//this.options['series'][0].data.splice(0, this.options['series'][0].data.length)
-				// let data_grafica: Object
 				this.zone.run(() => {
 					/* Para mostrar la informacion de la grafica. */
+					this.xy.splice(0, this.xy.length)
 					response.forEach(item => {
 						this.xy.push({
 							name: item.pais,
 							y: parseFloat(item.porcentaje)
 						})
-						this.datosGrafica(this.xy)
-						// this.options['series'][0].data.push(this.xy)
+						//this.options['series'][0].data.push(this.xy)
 					})
+					this.options = this.datosGrafica(this.xy)
 					// console.log(this.options)
 
 					/* Para mostrar la tabla de informacion */
@@ -176,10 +176,9 @@ export class EstadisticaPage {
 	}
 
 
-	datosGrafica(xy) {
-		console.log(xy)
-		//this.options['series'][0].data.splice(0, this.options['series'][0].data.length)
-		this.options = {
+	datosGrafica = (xy): Object => {
+		//console.log(xy)
+		let options = {
 			chart: {
 				type: 'column'
 			},
@@ -199,7 +198,7 @@ export class EstadisticaPage {
 
 			},
 			legend: {
-				enabled: false
+				enabled: true
 			},
 			plotOptions: {
 				series: {
@@ -221,9 +220,40 @@ export class EstadisticaPage {
 				colorByPoint: false,
 				data: []
 			}],
+			responsive: {
+				rules: [{
+					condition: {
+						maxWidth: 700
+					},
+					// Make the labels less space demanding on mobile
+					chartOptions: {
+						xAxis: {
+							labels: {
+								formatter: function() {
+									return this.value.charAt(0);
+								}
+							}
+						},
+						yAxis: {
+							labels: {
+								align: 'left',
+								x: 0,
+								y: -2
+							},
+							title: {
+								text: ''
+							}
+						}
+					}
+				}]
+			}
 		}
-		this.options['series'][0].data.splice(0, this.options['series'][0].data.length)
-		this.options['series'][0].data.push(xy)
+		// options['series'][0].data.splice(0, options['series'][0].data.length)
+		console.log(options)
+		options['series'][0].data = xy
+		return options
+		
+		//this.options['series'][0].data.splice(0, this.options['series'][0].data.length)
 	}
 /* Funcion para visualizar los proyectos agrupados por pais. */
 	verProyectosAgrupados = (pais: string, monto_total: string): void => {
