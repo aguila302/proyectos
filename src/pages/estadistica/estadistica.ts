@@ -174,8 +174,7 @@ export class EstadisticaPage {
 			})
 			.catch(console.error.bind(console))
 	}
-
-
+	
 	datosGrafica = (xy): Object => {
 		//console.log(xy)
 		let options = {
@@ -197,7 +196,7 @@ export class EstadisticaPage {
 				// minorTickInterval: 'auto',
 				tickInterval: 15,
 				labels: {
-					x: -15,
+					// x: -15,
 					formatter: function() {
 						return this.value + ' %';
 					}
