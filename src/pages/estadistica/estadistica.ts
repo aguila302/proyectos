@@ -319,8 +319,8 @@ export class EstadisticaPage {
 		let options = {
 			chart: {
 				type: 'column',
-				// width: 900,
-				// height: 650
+				// width: 600,
+				// height: 350
 			},
 			title: {
 				text: title_name
@@ -347,7 +347,7 @@ export class EstadisticaPage {
 			plotOptions: {
 				series: {
 					// fillColor: '#F39C12',
-					borderWidth: 2,
+					borderWidth: 0,
 					dataLabels: {
 						enabled: true,
 						format: '{point.y:.1f}%'
@@ -362,7 +362,7 @@ export class EstadisticaPage {
 
 			series: [{
 				name: serie_name,
-				colorByPoint: true,
+				// colorByPoint: true,
 				data: [],
 			}],
 			responsive: {

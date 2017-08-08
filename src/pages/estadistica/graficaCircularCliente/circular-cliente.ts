@@ -102,8 +102,8 @@ export class CircularClientePage {
 				plotBorderWidth: null,
 				plotShadow: true,
 				type: 'pie',
-				width: 900,
-				height: 650
+				width: 750,
+				height: 600
 			},
 			title: {
 				text: 'Proyectos agrupados por clientes'
