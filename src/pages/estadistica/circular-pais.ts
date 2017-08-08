@@ -56,8 +56,6 @@ export class CircularPaisPage {
 				plotBorderWidth: null,
 				plotShadow: true,
 				type: 'pie',
-				width: 900,
-				height: 650
 			},
 			title: {
 				text: 'Proyectos agrupados por país'
