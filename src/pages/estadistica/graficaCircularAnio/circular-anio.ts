@@ -83,7 +83,6 @@ export class CircularAnioPage {
 			}]
 		}
 		options['series'][0].data = xy
-		console.log(options)
 		return options
 	}
 

@@ -19,33 +19,17 @@ export class CircularClientePage {
 	proyectos_agrupados = []
 	proyectos_agrupados_detalle = []
 
+	data_grafica = []
+	options: Object
+
 	constructor(private navParams: NavParams,
 		private navCrtl: NavController) {
 		this.datos = navParams.get('datos_circular')
 		this.loadDatos()
 	}
 
-	// Pie
-	public pieChartLabels: string[] = []
-	public pieChartData: number[] = []
-	public pieChartType: string = 'pie'
-
-	// events
-	public chartClicked(e: any): void {
-		console.log(e)
-	}
-
-	public chartHovered(e: any): void {
-		console.log(e)
-	}
-	public pieChartOptions: any = {
-		scaleShowVerticalLines: false,
-		responsive: true,
-	}
-
 	loadDatos = () => {
-		let porcentaje: number[] = []
-		let cliente: string[] = []
+		let data_cliente = []
 
 		let data = collect(this.datos)
 		/* monto total de todos los proyectos. */
@@ -82,14 +66,16 @@ export class CircularClientePage {
 		mayores_de_uno.toArray()
 
 		/* Consigo el porcentaje y cliente para formar mi grafica. */
+		this.data_grafica.splice(0, this.data_grafica.length)
 		mayores_de_uno.map(function(contratante, monto) {
-			porcentaje.push(contratante.porcentaje)
-			cliente.push(contratante.contratante)
+			data_cliente.push({
+				name: contratante.contratante,
+				y: parseFloat(contratante.porcentaje)
+			})
 		})
 
-		/* inserto la informacion en los arreglos de origen de la grafica. */
-		this.pieChartLabels = cliente
-		this.pieChartData = porcentaje
+		this.data_grafica = data_cliente
+		this.options = this.datosGrafica(this.data_grafica)
 
 		/* Para mostrar la tabla de informacion */
 		this.monto_total = account.formatNumber(data.sum('monto'))
@@ -108,13 +94,55 @@ export class CircularClientePage {
 		this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno)
 	}
 
+	/* Funcion para dibujar la grafica circular.*/
+	datosGrafica = (xy): Object => {
+		let options = {
+			chart: {
+				plotBackgroundColor: null,
+				plotBorderWidth: null,
+				plotShadow: true,
+				type: 'pie',
+				width: 900,
+				height: 650
+			},
+			title: {
+				text: 'Proyectos agrupados por clientes'
+			},
+			tooltip: {
+				pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+			},
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						enabled: true,
+						format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+					},
+					showInLegend: true
+				}
+			},
+			series: [{
+				name: 'Clientes',
+				colorByPoint: true,
+				data: []
+			}]
+		}
+		options['series'][0].data = xy
+		return options
+	}
+
 	/* Funcion para los proyectos que tienen menos de 1 porcentaje. */
 	async proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno) {
 		/* Para mostras la informacion agrupada con los proyectos menores del 1 %. */
 		/* Consigo el porcentaje y cliente para formar mi grafica. */
 		menores_de_uno.toArray()
-		this.pieChartLabels.push('Proyectos agrupados')
-		this.pieChartData.push(parseFloat(suma_porcentajes_menores_de_uno))
+
+		this.data_grafica.push({
+			name: 'Proyectos agrupados',
+			y: parseFloat(suma_porcentajes_menores_de_uno)
+		})
+
 		/* Construyo la informacion para mi tablero. */
 		this.proyectos_agrupados['suma_montos_menores_de_uno'] = account.formatNumber(menores_de_uno.sum('suma_monto'))
 		this.proyectos_agrupados['porcentaje'] = suma_porcentajes_menores_de_uno

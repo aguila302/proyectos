@@ -6,10 +6,8 @@
     </ion-navbar>
 </ion-header>
 <ion-content padding>
-    <!-- <button ion-button outline (click)="back()">  <ion-icon name="sync"></ion-icon></button> -->
-    <div style="display: block">
-        <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOptions" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-        </canvas>
+    <div id="container">
+        <chart [options]="options"></chart>
     </div>
     <hr>
     <hr>

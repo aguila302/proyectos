@@ -32,7 +32,6 @@ export class EstadisticaPage {
 		
 	}
 
-
 	pais: string = 'pais'
 	proyectos = []
 	proyectos_agrupados = []
@@ -42,86 +41,6 @@ export class EstadisticaPage {
 	dataCirular = []
 	data_grafica: {}
 	
-	public barChartOptions: any = {
-		scaleShowVerticalLines: false,
-		responsive: true,
-		tooltips: {
-			enabled: true
-		},
-		scales: {
-			xAxes: [{
-				categoryPercentage: 0.8,
-				// barPercentage: 1.0,
-				stacked: true,
-				ticks: {
-					maxRotation: 90,
-					minRotation: 0,
-					autoSkip: false,
-					labelOffset: 3,
-					mirror: true,
-					beginAtZero: true
-				},
-				scaleLabel: {
-					display: true,
-					labelString: 'Paises',
-				},
-				gridLines: {
-					color: 'rgba(255,255,255,1.0)',
-					zeroLineColor: 'rgba(254,254,254, 1.0)'
-				},
-			}],
-			yAxes: [{
-				barPercentage: 0.5,
-                position: 'left',
-				display: true,
-				ticks: {
-					beginAtZero: false,
-					callback: function(value, index, values) {
-                        return '%' + value
-                    },
-                    min: 0,
-        			max: 100,
-                    stepSize: 10
-				},
-				// scaleLabel: {
-				// 	display: true,
-				// 	labelString: '% del Total',
-				// }
-			}],
-			// margins: {
-			// 	bottom: 100,
-			// },
-		},
-		legend: {
-			display: false,
-		},
-		plugins: {
-			deferred: { // enabled by default
-				xOffset: 150, // defer until 150px of the canvas width are inside the viewport
-				yOffset: '50%', // defer until 50% of the canvas height are inside the viewport
-				delay: 500 // delay of 500 ms after the canvas is considered inside the viewport
-			}
-		}
-	}
-	public barChartLabels: string[] = []
-	public barChartType: string = 'bar'
-	public barChartLegend: boolean = true
-
-	public barChartColors: Array < any > = [{ 
-		// grey
-		backgroundColor: 'rgba(27, 38, 49)',
-		borderColor: 'rgba(148,159,177,1)',
-		pointBackgroundColor: 'rgba(148,159,177,1)',
-		pointBorderColor: '#fff',
-		pointHoverBackgroundColor: '#fff',
-		pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-	}]
-	public barChartData: any[] = [{
-
-		data: [],
-		label: [],
-	}]
-
 	ionViewDidLoad(): void {
 		console.log('ionViewDidLoad')
 		this.getDatosXPais()
@@ -229,31 +148,18 @@ export class EstadisticaPage {
 
 	/* Funcion para conseguir los datos de proyectos por gerencia. */
 	getDatosXGerencia = (): void => {
-		for(let index in this.barChartOptions) {
-			this.barChartOptions.scales.xAxes[0].scaleLabel.labelString = 'Gerencia'
-			this.barChartOptions.scales.yAxes[0].ticks.min = 0
-			this.barChartOptions.scales.yAxes[0].ticks.max = 100
-			this.barChartOptions.scales.yAxes[0].ticks.stepSize = 15
-		}
-
 		this.dbService.openDatabase()
 			.then(() => this.dbService.consultaXGerencia())
 			.then(response => {
 				// Para mostrar la informacion de la grafica. 
-				let gerencia: string[] = []
-				let porcentaje: number[] = []
-
-				response.forEach(item => {
-					gerencia.push(item.gerencia)
-					porcentaje.push(item.porcentaje)
-				})
-
-				this.barChartLabels = gerencia
-				this.barChartData.forEach(
-					(item) => {
-						item.data = porcentaje
-					}
-				)
+				this.xy.splice(0, this.xy.length)
+					response.forEach(item => {
+						this.xy.push({
+							name: item.gerencia,
+							y: parseFloat(item.porcentaje)
+						})
+					})
+				this.options = this.datosGrafica(this.xy, 15, 'Gerencias', 'Proyectos agrupados por gerencia')
 
 				/* Para mostrar la tabla de informacion */
 				const collection = collect(response)
@@ -290,16 +196,7 @@ export class EstadisticaPage {
 
 	/* Funcion para obtener los proyectos por cliente. */
 	getDatosXCliente = (): void => {
-		for (let index in this.barChartOptions) {
-			this.barChartOptions.scales.xAxes[0].scaleLabel.labelString = 'Cliente'
-			this.barChartOptions.scales.yAxes[0].ticks.min = 0
-			this.barChartOptions.scales.yAxes[0].ticks.max = 70
-			this.barChartOptions.scales.yAxes[0].ticks.stepSize = 5
-		}
-
-		let porcentaje: number[] = []
-		let cliente: string[] = []
-
+		let data_cliente = []
 		this.dbService.openDatabase()
 			.then(() => this.dbService.consultaXCliente())
 			.then(response => {
@@ -339,18 +236,15 @@ export class EstadisticaPage {
 					mayores_de_uno.toArray()
 
 					/* Consigo el porcentaje y cliente para formar mi grafica. */
+					this.xy.splice(0, this.xy.length)
 					mayores_de_uno.map(function(contratante, monto) {
-						porcentaje.push(contratante.porcentaje)
-						cliente.push(contratante.contratante)
+						data_cliente.push({
+							name: contratante.contratante,
+							y: parseFloat(contratante.porcentaje)
+						})
 					})
-
-					/* inserto la informacion en los arreglos de origen de la grafica. */
-					this.barChartLabels = cliente
-					this.barChartData.forEach(
-						(item) => {
-							item.data = porcentaje
-						}
-					)
+					this.xy = data_cliente
+					this.options = this.datosGrafica(this.xy, 10, 'Clientes', 'Proyectos agrupados por clientes')
 
 					/* Para mostrar la tabla de informacion */
 					this.monto_total = account.formatNumber(data.sum('monto'))
@@ -376,17 +270,15 @@ export class EstadisticaPage {
 	async proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno) {
 		/* Para mostras la informacion agrupada con los proyectos menores del 1 %. */
 		/* Consigo el porcentaje y cliente para formar mi grafica. */
-		menores_de_uno.toArray()
-		this.barChartLabels.push('Proyectos agrupados')
-		this.barChartData.forEach(
-				(item) => {
-					item.data.push(parseFloat(suma_porcentajes_menores_de_uno))
-				}
-			)
+		this.xy.push({
+			name: 'Proyectos agrupados',
+			y: parseFloat(suma_porcentajes_menores_de_uno)
+		})
+
 		/* Construyo la informacion para mi tablero. */
 		this.proyectos_agrupados['suma_montos_menores_de_uno'] = account.formatNumber(menores_de_uno.sum('suma_monto'))
 		this.proyectos_agrupados['porcentaje'] = suma_porcentajes_menores_de_uno
-		this.proyectos_agrupados['numero_proyectos'] =  menores_de_uno.count()
+		this.proyectos_agrupados['numero_proyectos'] = menores_de_uno.count()
 
 		this.proyectos_agrupados_detalle = menores_de_uno
 	}
@@ -433,22 +325,10 @@ export class EstadisticaPage {
 			title: {
 				text: title_name
 			},
-			subtitle: {
-				text: ''
-			},
 			xAxis: {
-				type: 'category',
-				labels: {
-					style: {
-						color: '#FF5733'
-					}
-				}
+				type: 'category'
 			},
-			credits: {
-				enabled: false
-			},
-			yAxis: {
-				// minorTickInterval: 'auto',
+			yAxis: [{
 				className: 'highcharts-color-0',
 				tickInterval: intervalo,
 				labels: {
@@ -460,15 +340,14 @@ export class EstadisticaPage {
 				title: {
 					text: 'Porcentaje total de participación'
 				}
-
-			},
+			}],
 			legend: {
-				enabled: true
+				enabled: false
 			},
 			plotOptions: {
 				series: {
-					fillColor: '#A5D6A7',
-					borderWidth: 0,
+					// fillColor: '#F39C12',
+					borderWidth: 2,
 					dataLabels: {
 						enabled: true,
 						format: '{point.y:.1f}%'
@@ -483,13 +362,19 @@ export class EstadisticaPage {
 
 			series: [{
 				name: serie_name,
-				colorByPoint: false,
-				data: []
+				colorByPoint: true,
+				data: [],
 			}],
 			responsive: {
 				rules: [{
 					condition: {
 						maxWidth: 700
+					},
+					title: {
+						text: 'responsive'
+					},
+					xAxis: {
+						type: 'category'
 					},
 					// Make the labels less space demanding on mobile
 					chartOptions: {
@@ -516,7 +401,6 @@ export class EstadisticaPage {
 			}
 		}
 		options['series'][0].data = xy
-		console.log(options)
 		return options
 	}
 }

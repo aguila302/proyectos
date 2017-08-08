@@ -27,13 +27,9 @@
             <div text-right>
                 <button ion-button clear (click)="modoCircular()">Ver modo circular</button>
             </div>
-            <div id="container" text-right>
+            <div id="container">
                 <chart [options]="options"></chart>
             </div>
-            <!-- <div style="display: block; height: 400px;">
-                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                </canvas>
-            </div> -->
             <hr>
             <hr>
             <ion-card>
@@ -77,7 +73,7 @@
             <div text-right>
                 <button ion-button clear (click)="modoCircularAnio()">Ver modo circular</button>
             </div>
-            <div id="container" text-right>
+            <div id="container">
                 <chart [options]="options"></chart>
             </div>
             <hr>
@@ -123,9 +119,8 @@
             <div text-right>
                 <button ion-button clear (click)="modoCircularGerencia()">Ver modo circular</button>
             </div>
-            <div style="display: block">
-                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                </canvas>
+            <div id="container">
+                <chart [options]="options"></chart>
             </div>
             <hr>
             <hr>
@@ -170,9 +165,8 @@
             <div text-right>
                 <button ion-button clear (click)="modoCircularCliente()">Ver modo circular</button>
             </div>
-            <div style="display: block;">
-                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-                </canvas>
+            <div id="container">
+                <chart [options]="options"></chart>
             </div>
             <hr>
             <hr>

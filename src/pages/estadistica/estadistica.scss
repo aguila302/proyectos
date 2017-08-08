@@ -1,3 +1,4 @@
+
 page-estadistica {
 	.medium {
 		font-size: 13px
@@ -6,14 +7,33 @@ page-estadistica {
 		display: flex;
 		justify-content: center;
 	}
+	.highcharts-title {
+    	fill: #00796B;
+	}
+
 	.highcharts-color-0 {
-		fill: #7cb5ec;
-		stroke: #FFC107;
+		fill: #F39C12;
+		stroke: #E91E63;
 	}
 	.highcharts-axis.highcharts-color-0 .highcharts-axis-line {
-		stroke: #26C6DA;
+		stroke: #E91E63;
 	}
 	.highcharts-axis.highcharts-color-0 text {
-		fill: #7cb5ec;
+		fill: #F4511E;
+	}
+	.highcharts-color-1 {
+		fill:#E91E63;
+		stroke: #90ed7d;
+	}
+	.highcharts-axis.highcharts-color-1 .highcharts-axis-line {
+		stroke: #E91E63;
+	}
+	.highcharts-axis.highcharts-color-1 text {
+		fill: #E91E63;
+	}
+
+
+	.highcharts-yaxis .highcharts-axis-line {
+		stroke-width: 2px;
 	}
 }

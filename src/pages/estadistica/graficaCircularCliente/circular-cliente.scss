@@ -2,4 +2,8 @@ page-circular-cliente {
 	.medium {
 		font-size: 13px
 	}
+	#container {
+		display: flex;
+		justify-content: center;
+	}
 }
