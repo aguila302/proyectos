@@ -6,6 +6,9 @@ page-estadistica {
 	#container {
 		display: flex;
 		justify-content: center;
+		height: 500px;
+		min-width: 200px;
+		max-width: 800px;
 	}
 	.highcharts-title {
     	fill: #00796B;

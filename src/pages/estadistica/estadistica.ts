@@ -319,8 +319,8 @@ export class EstadisticaPage {
 		let options = {
 			chart: {
 				type: 'column',
-				width: 900,
-				height: 650
+				// width: 900,
+				// height: 650
 			},
 			title: {
 				text: title_name
@@ -368,7 +368,7 @@ export class EstadisticaPage {
 			responsive: {
 				rules: [{
 					condition: {
-						maxWidth: 700
+						maxWidth: 500
 					},
 					title: {
 						text: 'responsive'
@@ -381,7 +381,7 @@ export class EstadisticaPage {
 						xAxis: {
 							labels: {
 								formatter: function() {
-									return this.value
+									return this.value.charAt(0)
 								}
 							}
 						},
