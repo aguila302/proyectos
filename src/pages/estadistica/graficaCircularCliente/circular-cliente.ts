@@ -96,6 +96,7 @@ export class CircularClientePage {
 
 	/* Funcion para dibujar la grafica circular.*/
 	datosGrafica = (xy): Object => {
+		let format = '<b>{point.name}</b>: {point.percentage:.1f} %'
 		let options = {
 			chart: {
 				plotBackgroundColor: null,
@@ -118,6 +119,7 @@ export class CircularClientePage {
 					dataLabels: {
 						enabled: true,
 						format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+						// format: '<b>{point.name}</b>: {point.percentage:.1f} %',
 					},
 					showInLegend: true
 				}
