@@ -346,7 +346,6 @@ export class EstadisticaPage {
 			},
 			plotOptions: {
 				series: {
-					// fillColor: '#F39C12',
 					borderWidth: 0,
 					dataLabels: {
 						enabled: true,
