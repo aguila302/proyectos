@@ -7,6 +7,7 @@ import { EstadisticaPage } from '../pages/estadistica/estadistica';
 import { ContactPage } from '../pages/contact/contact';
 import { ProyectoPage } from '../pages/proyecto/proyecto';
 import { TabsPage } from '../pages/tabs/tabs';
+import { LoginPage } from '../pages/login/login'
 
 import { DbService } from '../services/db.service'
 import { DetalleProyectoPage } from '../pages/proyecto/DetalleProyecto';
@@ -48,7 +49,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     CircularGerenciaPage,
     ProyectosAgrupadosClientePage,
     ProyectosAgrupadosClienteMenoresPage,
-    CircularClientePage
+    CircularClientePage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     CircularGerenciaPage,
     ProyectosAgrupadosClientePage,
     ProyectosAgrupadosClienteMenoresPage,
-    CircularClientePage
+    CircularClientePage,
+    LoginPage
   ],
   providers: [
     StatusBar,
