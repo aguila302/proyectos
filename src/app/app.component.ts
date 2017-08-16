@@ -23,7 +23,14 @@ export class MyApp {
       this.dbService.openDatabase()
       .then(() => this.dbService.createTable())
       .then(() => this.dbService.validaRegistros())
-      // .then(() => this.dbService.insertaDatos())
+      .then(() => this.dbService.creaTablaReportes())
+      .then(() => this.dbService.creaTablaReporteColumnas())
+      .then(() => this.dbService.creaTablaReporteFiltros())
+      .then(() => this.dbService.creaTablaReporteAgrupaciones())
+      // .then(() => this.dbService.insertaDatosTablaReportes())
+      // .then(() => this.dbService.insertaDatosTablaReportesColunas())
+      // .then(() => this.dbService.insertaDatosTablaReportesFiltros())
+      // .then(() => this.dbService.insertaDatosTablaReportesAgrupacion())
     });
   }
 }

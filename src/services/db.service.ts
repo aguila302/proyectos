@@ -400,4 +400,108 @@ export class DbService {
 				return proyectos
 			})
 	}
+
+	/* Funcion para crear la tabla de reportes. */
+	creaTablaReportes() {
+		let sql = `
+			create table if not exists reportes(
+				id integer primary key autoincrement,
+				nombre_reporte text)
+		`;
+
+		return this.db.executeSql(sql, {})
+			.then(() => console.log('tabla de reportes creada'))
+			.catch(e => console.log(e))
+	}
+
+	/* Funcion para crear la tabla de reportesColumnas. */
+	creaTablaReporteColumnas() {
+		let sql = `
+			create table if not exists reportes_columnas(
+				id integer primary key autoincrement,
+				reporte_id integer,
+				nombre_columna text,
+				FOREIGN KEY(reporte_id) REFERENCES reportes(id)
+			)`;
+
+		return this.db.executeSql(sql, {})
+			.then(() => console.log('tabla de reportes columnas creada'))
+			.catch(e => console.log(e))
+	}
+
+	/* Funcion para crear la tabla de reportesFiltros. */
+	creaTablaReporteFiltros() {
+		let sql = `
+			create table if not exists reportes_filtros(
+				id integer primary key autoincrement,
+				reporte_id integer,
+				nombre_columna text,
+				valor text,
+				FOREIGN KEY(reporte_id) REFERENCES reportes(id)
+			)`;
+
+		return this.db.executeSql(sql, {})
+			.then(() => console.log('tabla de reportes filtros creada'))
+			.catch(e => console.log(e))
+	}
+
+		/* Funcion para crear la tabla de reporteAgrupaciones. */
+	creaTablaReporteAgrupaciones() {
+		let sql = `
+			create table if not exists reportes_agrupacion(
+				id integer primary key autoincrement,
+				reporte_id integer,
+				nombre_columna text,
+				orden_agrupacion text,
+				FOREIGN KEY(reporte_id) REFERENCES reportes(id)
+			)`;
+
+		return this.db.executeSql(sql, {})
+			.then(() => console.log('tabla de reportes agrupacion creada'))
+			.catch(e => console.log(e))
+	}
+
+	/* Funcion para insertar datos en la tabla de reportes */
+	insertaDatosTablaReportes() {
+		let sql = `insert into reportes(
+				nombre_reporte) values(?)`
+		return this.db.executeSql(sql, ['Reporte por año'])
+			.then(() => console.log('regustros insertados en tabla reportes'))
+			.catch(e => console.log(e))
+	}
+
+	/* Funcion para insertar datos en la tabla de reportes_columnas */
+	insertaDatosTablaReportesColunas() {
+		let sql = `insert into reportes_columnas(
+				reporte_id, nombre_columna) values(?, ?)`
+		return this.db.executeSql(sql, ['1', 'año'])
+			.then(() => console.log('regustros insertados en tabla reportes columnas'))
+			.catch(e => console.log(e))
+	}
+
+	/* Funcion para insertar datos en la tabla de reportes_filtros */
+	insertaDatosTablaReportesFiltros() {
+		let sql = `insert into reportes_filtros(
+				reporte_id, nombre_columna, valor) values(?, ?, ?)`
+		return this.db.executeSql(sql, ['1', 'año', '2017'])
+			.then(() => console.log('regustros insertados en tabla reportes filtros'))
+			.catch(e => console.log(e))
+	}
+
+	/* Funcion para insertar datos en la tabla de reportes_agrupacion */
+	insertaDatosTablaReportesAgrupacion() {
+		let sql = `insert into reportes_agrupacion(
+				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
+		return this.db.executeSql(sql, ['1', 'año', '1'])
+			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
+			.catch(e => console.log(e))
+	}
+
+	delete() {
+		let sql = `DETACH DATABASE data;`
+		return this.db.executeSql(sql, [])
+			.then(() => console.log('deleted'))
+			.catch(e => console.log(e))
+	}
+
 }
