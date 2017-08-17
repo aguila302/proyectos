@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DetalleReportePage } from './detalle-reporte/detalle-reporte'
+import { NuevoReportePage } from './nuevo-reporte/nuevo-reporte'
 /**
  * Generated class for the ReportePage page.
  *
@@ -24,5 +25,10 @@ export class ReportePage {
 	detalleReporte = (): void => {
 		console.log('show detalle')
 		this.navCtrl.push(DetalleReportePage, {})
+	}
+
+	/* Funcion para crear nuevo reporte. */
+	nuevoReporte = (): void => {
+		this.navCtrl.push(NuevoReportePage, {})
 	}
 }
