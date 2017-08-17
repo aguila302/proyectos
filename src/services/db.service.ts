@@ -4,6 +4,7 @@ import { PROYECTOS } from '../services/mocks/proyectos'
 import { Proyecto } from '../interfaces/proyecto'
 import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
+import { ReportesDbService } from './reportes.db.service'
 
 @Injectable()
 
@@ -12,7 +13,7 @@ export class DbService {
 	db: SQLiteObject = null
 	sqlite: SQLite = null;
 
-	constructor() {
+	constructor(public reporteService: ReportesDbService) {
 		this.sqlite = new SQLite();
 	}
 
@@ -25,6 +26,9 @@ export class DbService {
 			})
 			.then((db: SQLiteObject) => {
 				this.db = db
+
+				/* Inicio mi servicio para los reportes. */
+				this.reporteService.initDb(this.db)
 			})
 
 	}
@@ -474,7 +478,7 @@ export class DbService {
 	insertaDatosTablaReportesColunas() {
 		let sql = `insert into reportes_columnas(
 				reporte_id, nombre_columna) values(?, ?)`
-		return this.db.executeSql(sql, ['1', 'año'])
+		return this.db.executeSql(sql, ['1', 'anio'])
 			.then(() => console.log('regustros insertados en tabla reportes columnas'))
 			.catch(e => console.log(e))
 	}
@@ -483,7 +487,7 @@ export class DbService {
 	insertaDatosTablaReportesFiltros() {
 		let sql = `insert into reportes_filtros(
 				reporte_id, nombre_columna, valor) values(?, ?, ?)`
-		return this.db.executeSql(sql, ['1', 'año', '2017'])
+		return this.db.executeSql(sql, ['1', 'anio', '2017'])
 			.then(() => console.log('regustros insertados en tabla reportes filtros'))
 			.catch(e => console.log(e))
 	}
@@ -492,15 +496,8 @@ export class DbService {
 	insertaDatosTablaReportesAgrupacion() {
 		let sql = `insert into reportes_agrupacion(
 				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
-		return this.db.executeSql(sql, ['1', 'año', '1'])
+		return this.db.executeSql(sql, ['1', 'anio', '1'])
 			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
-			.catch(e => console.log(e))
-	}
-
-	delete() {
-		let sql = `DETACH DATABASE data;`
-		return this.db.executeSql(sql, [])
-			.then(() => console.log('deleted'))
 			.catch(e => console.log(e))
 	}
 

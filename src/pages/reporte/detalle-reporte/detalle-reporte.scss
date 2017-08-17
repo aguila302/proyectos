@@ -1,0 +1,35 @@
+page-detalle-reporte {
+	#container {
+		display: flex;
+		justify-content: center;
+		height: 500px;
+		min-width: 100%;
+		max-width: 100%;
+		margin: 0 auto;
+	}
+	.highcharts-color-0 {
+		fill: #5D6D7E;
+		// stroke: #85929E;
+	}
+	// .highcharts-axis.highcharts-color-0 .highcharts-axis-line {
+	// 	stroke: #85929E;
+	// }
+	// .highcharts-axis.highcharts-color-0 text {
+	// 	fill: #5D6D7E;
+	// }
+	// .highcharts-color-1 {
+	// 	fill:#E91E63;
+	// 	stroke: #90ed7d;
+	// }
+	// .highcharts-axis.highcharts-color-1 .highcharts-axis-line {
+	// 	stroke: #E91E63;
+	// }
+	// .highcharts-axis.highcharts-color-1 text {
+	// 	fill: #E91E63;
+	// }
+
+
+	.highcharts-yaxis .highcharts-axis-line {
+		stroke-width: 2px;
+	}
+}

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { DetalleReportePage } from './detalle-reporte/detalle-reporte'
 /**
  * Generated class for the ReportePage page.
  *
@@ -20,4 +20,9 @@ export class ReportePage {
 		console.log('ionViewDidLoad ReportePage');
 	}
 
+	/* Funcion para mostrar el detalle de un reporte. */
+	detalleReporte = (): void => {
+		console.log('show detalle')
+		this.navCtrl.push(DetalleReportePage, {})
+	}
 }

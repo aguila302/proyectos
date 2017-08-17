@@ -10,12 +10,15 @@
 	</ion-navbar>
 </ion-header>
 <ion-content padding>
+	<div text-right>
+		<button ion-button>Reporte nuevo</button>
+	</div>
 	<ion-list>
 		<ion-item>
 			<ion-grid>
 				<ion-row>
 					<ion-col>
-						<ion-card margin-bottom>
+						<ion-card margin-bottom (click)="detalleReporte()">
 							<ion-card-content text-wrap text-center>
 								<ion-card-title>
 									<i class="fa fa-bar-chart" aria-hidden="true" style="font-size: 60px;"></i>

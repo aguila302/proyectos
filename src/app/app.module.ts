@@ -10,6 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login'
 
 import { DbService } from '../services/db.service'
+import { ReportesDbService } from '../services/reportes.db.service'
 import { DetalleProyectoPage } from '../pages/proyecto/DetalleProyecto';
 import { FiltrosPage } from '../pages/proyecto/filtros/filtros';
 import { CircularPaisPage } from '../pages/estadistica/circular-pais';
@@ -22,6 +23,7 @@ import { ProyectosAgrupadosAnioPage } from '../pages/estadistica/proyectos-agrup
 import { ProyectosAgrupadosGerenciaPage } from '../pages/estadistica/proyectos-agrupados/por-gerencia/proyectos-agrupados-gerencia'
 import { ProyectosAgrupadosClientePage } from '../pages/estadistica/proyectos-agrupados/por-cliente/proyectos-agrupados-cliente'
 import { ProyectosAgrupadosClienteMenoresPage } from '../pages/estadistica/proyectos-agrupados/por-cliente/por-cliente-menores/proyectos-agrupados-cliente-menores'
+import { DetalleReportePage } from '../pages/reporte/detalle-reporte/detalle-reporte'
 
 import { ChartModule } from 'angular2-highcharts';
 import * as highcharts from 'highcharts';
@@ -50,7 +52,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ProyectosAgrupadosClientePage,
     ProyectosAgrupadosClienteMenoresPage,
     CircularClientePage,
-    LoginPage
+    LoginPage,
+    DetalleReportePage
   ],
   imports: [
     BrowserModule,
@@ -76,7 +79,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ProyectosAgrupadosClientePage,
     ProyectosAgrupadosClienteMenoresPage,
     CircularClientePage,
-    LoginPage
+    LoginPage,
+    DetalleReportePage
   ],
   providers: [
     StatusBar,
@@ -86,6 +90,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     },
     SQLite,
     DbService,
+    ReportesDbService
   ]
 })
 export class AppModule {}
