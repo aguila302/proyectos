@@ -30,7 +30,6 @@ export class ReportesDbService {
 
 		return this.db.executeSql(sql, {})
 			.then(response => {
-				console.log(response)
 				for (let index = 0; index < response.rows.length; index++) {
 					reporteAnio.push({
 						'anio': response.rows.item(index).anio,
@@ -43,6 +42,22 @@ export class ReportesDbService {
 				}
 
 				return Promise.resolve(reporteAnio)
+			})
+	}
+
+	/* Funcion para traer las columnas. */
+	getColumnas = (): any => {
+		let columnas = []
+		let sql = `PRAGMA table_info('proyectos')`
+
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					columnas.push(
+						response.rows.item(index).name
+					)
+				}
+				return Promise.resolve(columnas)
 			})
 	}
 

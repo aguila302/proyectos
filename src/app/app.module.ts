@@ -25,6 +25,7 @@ import { ProyectosAgrupadosClientePage } from '../pages/estadistica/proyectos-ag
 import { ProyectosAgrupadosClienteMenoresPage } from '../pages/estadistica/proyectos-agrupados/por-cliente/por-cliente-menores/proyectos-agrupados-cliente-menores'
 import { DetalleReportePage } from '../pages/reporte/detalle-reporte/detalle-reporte'
 import { NuevoReportePage } from '../pages/reporte/nuevo-reporte/nuevo-reporte'
+import { SelectColumnasPage } from '../pages/reporte/select-columnas/select-columnas'
 
 import { ChartModule } from 'angular2-highcharts';
 import * as highcharts from 'highcharts';
@@ -55,7 +56,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     CircularClientePage,
     LoginPage,
     DetalleReportePage,
-    NuevoReportePage
+    NuevoReportePage,
+    SelectColumnasPage
   ],
   imports: [
     BrowserModule,
@@ -83,7 +85,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     CircularClientePage,
     LoginPage,
     DetalleReportePage,
-    NuevoReportePage
+    NuevoReportePage,
+    SelectColumnasPage
   ],
   providers: [
     StatusBar,

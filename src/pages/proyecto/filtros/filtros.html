@@ -1,36 +1,35 @@
-<ion-header >
-    <ion-navbar>
+<ion-header>
+	<ion-navbar>
 		<ion-title>Selecciona tus opciones</ion-title>
 		<ion-buttons start>
-		      <button ion-button (click)="cancelar()">
-		        <span ion-text color="primary" showWhen="ios">Cancelar</span>
-		        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
-		      </button>
-		    </ion-buttons>
+			<button ion-button (click)="cancelar()">
+				<span ion-text color="primary" showWhen="ios">Cancelar</span>
+				<ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+			</button>
+		</ion-buttons>
 	</ion-navbar>
-    <ion-grid >
-		<ion-row >
-			<ion-col >
+	<ion-grid>
+		<ion-row>
+			<ion-col>
 				<ion-item>
 					<ion-label color="twitter">
-					<strong>Selecciona todos</strong></ion-label>
+						<strong>Selecciona todos</strong></ion-label>
 					<ion-checkbox (ionChange)="seleccionAll($event)"></ion-checkbox>
 				</ion-item>
 			</ion-col>
 			<ion-col>
 				<ion-item>
 					<ion-label color="twitter">
-					<strong>Seleccion por default</strong></ion-label>
-					<ion-checkbox  (ionChange)="seleccionDefault($event)"></ion-checkbox>
+						<strong>Seleccion por default</strong></ion-label>
+					<ion-checkbox (ionChange)="seleccionDefault($event)"></ion-checkbox>
 				</ion-item>
 			</ion-col>
 		</ion-row>
 	</ion-grid>
 </ion-header>
-
 <ion-content padding>
 	<ion-list>
-	 	<ion-item *ngFor="let item of items">
+		<ion-item *ngFor="let item of items">
 			<ion-label>{{ item.texto }}</ion-label>
 			<ion-checkbox checked="{{ item.checked }}" (ionChange)="seleccionFiltros($event, item.opcion)"></ion-checkbox>
 		</ion-item>

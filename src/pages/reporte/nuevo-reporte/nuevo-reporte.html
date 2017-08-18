@@ -11,4 +11,14 @@
 </ion-header>
 <ion-content padding>
 	<button ion-button full (click)="selectColumnas()">Seleccionar columnas</button>
+	<ion-list>
+		<ion-item *ngFor="let item of columnas_seleccionadas">
+			<ion-label>{{ item.columna }}</ion-label>
+		</ion-item>
+	</ion-list>
+
+<ag-grid-angular style="width: 500px; height: 115px;" class="ag-fresh"
+                 [rowData]="rowData"
+                 [columnDefs]="columnDefs">
+</ag-grid-angular>
 </ion-content>

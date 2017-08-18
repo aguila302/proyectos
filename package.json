@@ -29,6 +29,7 @@
         "@ionic-native/status-bar": "3.10.2",
         "@ionic/storage": "2.0.1",
         "accounting-js": "^1.1.1",
+        "ag-grid-angular": "^12.0.0",
         "angular2-highcharts": "^0.5.5",
         "angular2-materialize": "^15.0.4",
         "chart.js": "^2.6.0",
