@@ -25,12 +25,12 @@ export class SelectColumnasPage {
 
 	seleccionColumnas = (event, columna: string): void => {
 		if(event.value == true) {
-			this.columnas_seleccionadas.push({columna})
+			this.columnas_seleccionadas.push(columna)
 		}
+		/* En caso de que la columna este seleccionado y lo quiero desactivar lo
+		quito de mi arreglo.
+		*/
 		else {
-			/* En caso de que la columna este seleccionado y lo quiero desactivar lo
-			quito de mi arreglo.
-			*/
 			let encontrado = this.columnas_seleccionadas.indexOf(columna)
 			if(encontrado !== -1) {
 				this.columnas_seleccionadas.splice(encontrado, 1)

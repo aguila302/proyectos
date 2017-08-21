@@ -29,7 +29,6 @@
         "@ionic-native/status-bar": "3.10.2",
         "@ionic/storage": "2.0.1",
         "accounting-js": "^1.1.1",
-        "ag-grid-angular": "^12.0.0",
         "angular2-highcharts": "^0.5.5",
         "angular2-materialize": "^15.0.4",
         "chart.js": "^2.6.0",
@@ -37,7 +36,6 @@
         "collect.js": "^3.0.43",
         "cordova-android": "^6.2.3",
         "cordova-ios": "^4.4.0",
-        "cordova-plugin-camera": "^2.4.1",
         "cordova-plugin-compat": "^1.1.0",
         "cordova-plugin-console": "^1.0.7",
         "cordova-plugin-dbcopy": "git+https://github.com/an-rahulpandey/cordova-plugin-dbcopy.git",
@@ -60,6 +58,7 @@
         "materialize-css": "^0.98.2",
         "ng2-accordion": "0.0.15",
         "ng2-charts": "^1.6.0",
+        "ng2-smart-table": "^1.2.1",
         "rxjs": "5.1.1",
         "serve": "^5.2.2",
         "sw-toolbox": "3.6.0",
@@ -86,10 +85,6 @@
             "ionic-plugin-keyboard": {},
             "cordova-plugin-http": {},
             "cordova-sqlite-storage": {},
-            "cordova-plugin-camera": {
-                "CAMERA_USAGE_DESCRIPTION": " ",
-                "PHOTOLIBRARY_USAGE_DESCRIPTION": " "
-            },
             "cordova-plugin-dbcopy": {},
             "cordova-plugin-wkwebview-engine": {}
         },

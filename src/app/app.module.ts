@@ -35,6 +35,7 @@ import { SQLite } from '@ionic-native/sqlite';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     ChartsModule,
-    ChartModule.forRoot(highcharts)
+    ChartModule.forRoot(highcharts),
+    Ng2SmartTableModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
