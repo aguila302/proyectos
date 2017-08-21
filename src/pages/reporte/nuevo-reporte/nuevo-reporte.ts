@@ -142,6 +142,12 @@ export class NuevoReportePage {
 			data.forEach(items => {
 				this.columnas_seleccionadas.push({items})
 			})
+			this.getDataCampos(this.columnas_seleccionadas);
 		})
+	}
+
+	/* Funcion para traer los datos de los campos seleccionados. */
+	getDataCampos = (): void => {
+		
 	}
 }
