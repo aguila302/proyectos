@@ -6,7 +6,6 @@ import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
 
 @Injectable()
-
 /* Clase para el manejo de los reportes. */
 export class ReportesDbService {
 
@@ -39,6 +38,29 @@ export class ReportesDbService {
 						'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2)
 
 					})
+				}
+
+				return Promise.resolve(reporteAnio)
+			})
+	}
+
+	/* Funcion para la consulta de los reportes. */
+	getReportes = (campo: string, group_by: string): any => {
+		let reporteAnio = []
+		let sql = `select * from reportes`
+
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					console.log(response.rows.item(index))
+					// reporteAnio.push({
+					// 	'anio': response.rows.item(index).anio,
+					// 	'numero_proyectos': response.rows.item(index).numero_proyectos,
+					// 	'monto': parseInt(response.rows.item(index).monto),
+					// 	'total': response.rows.item(index).total,
+					// 	'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2)
+
+					// })
 				}
 
 				return Promise.resolve(reporteAnio)

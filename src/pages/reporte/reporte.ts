@@ -2,12 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DetalleReportePage } from './detalle-reporte/detalle-reporte'
 import { NuevoReportePage } from './nuevo-reporte/nuevo-reporte'
-/**
- * Generated class for the ReportePage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { ReportesDbService } from '../../services/reportes.db.service'
+
 @IonicPage()
 @Component({
 	selector: 'page-reporte',
@@ -15,7 +11,8 @@ import { NuevoReportePage } from './nuevo-reporte/nuevo-reporte'
 })
 export class ReportePage {
 
-	constructor(public navCtrl: NavController, public navParams: NavParams) {}
+	constructor(public navCtrl: NavController, public navParams: NavParams,
+		private reporteService : ReportesDbService) {}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad ReportePage');
@@ -30,5 +27,9 @@ export class ReportePage {
 	/* Funcion para crear nuevo reporte. */
 	nuevoReporte = (): void => {
 		this.navCtrl.push(NuevoReportePage, {})
+	}
+
+	getReportes = (): void => {
+		this.reporteService.getReportes()
 	}
 }

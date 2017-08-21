@@ -410,7 +410,10 @@ export class DbService {
 		let sql = `
 			create table if not exists reportes(
 				id integer primary key autoincrement,
-				nombre_reporte text)
+				nombre_reporte text,
+				total_usd integer,
+				total_proyectos integer
+				)
 		`;
 
 		return this.db.executeSql(sql, {})
@@ -468,8 +471,11 @@ export class DbService {
 	/* Funcion para insertar datos en la tabla de reportes */
 	insertaDatosTablaReportes() {
 		let sql = `insert into reportes(
-				nombre_reporte) values(?)`
-		return this.db.executeSql(sql, ['Reporte por año'])
+				nombre_reporte,
+				total_usd,
+				total_proyectos
+			) values(?, ?, ?)`
+		return this.db.executeSql(sql, ['Reporte por año', '2062717473.00', '1330'])
 			.then(() => console.log('regustros insertados en tabla reportes'))
 			.catch(e => console.log(e))
 	}
@@ -500,5 +506,11 @@ export class DbService {
 			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
 			.catch(e => console.log(e))
 	}
+	// delete() {
+	// 	let sql = `drop table reportes`
+	// 	return this.db.executeSql(sql, {})
+	// 		.then(() => console.log('deleted'))
+	// 		.catch(e => console.log(e))
+	// }
 
 }

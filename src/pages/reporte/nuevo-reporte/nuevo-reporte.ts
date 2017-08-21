@@ -142,7 +142,7 @@ export class NuevoReportePage {
 			data.forEach(items => {
 				this.columnas_seleccionadas.push({items})
 			})
-			this.getDataCampos(this.columnas_seleccionadas);
+			// this.getDataCampos(this.columnas_seleccionadas);
 		})
 	}
 
