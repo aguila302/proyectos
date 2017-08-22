@@ -215,7 +215,6 @@ export class DbService {
 	consultaPaisAgrupado = (pais: string): any => {
 		let proyectos = []
 		let sql = 'select * from proyectos where pais = ' + "'"  + pais + "'"
-		console.log(sql)
 		
 		return this.db.executeSql(sql, {})
 			.then((response) => {

@@ -85,7 +85,7 @@ export class ReportesDbService {
 		let sql = `select ` + campo + ` as campo, count(*) as numero_proyectos, sum(monto) as monto,
 					(select count(*) from proyectos) as total
 					FROM proyectos
-					group by ` + group_by + ` order by ` + campo +` desc`
+					group by ` + group_by + ` order by ` + campo +` asc`
 
 		return this.db.executeSql(sql, {})
 			.then(response => {
