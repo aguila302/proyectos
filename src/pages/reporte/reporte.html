@@ -16,7 +16,7 @@
 	<ion-list>
 		<ion-item>
 			<ion-grid>
-				<ion-row *ngFor="let reporte of reportes" margin-bottom (click)="detalleReporte()">
+				<ion-row *ngFor="let reporte of reportes" margin-bottom (click)="detalleReporte(reporte.id)">
 					<ion-col>
 						<ion-card>
 							<ion-card-content text-wrap text-center>

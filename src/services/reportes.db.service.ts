@@ -27,30 +27,7 @@ export class ReportesDbService {
 		this.db = db
 	}
 
-	/* Funcion para la consulta de reporte por año. */
-	detalleReporte = (campo: string, group_by: string): any => {
-		let reportes = []
-		let sql = `select ` + campo + ` , count(*) as numero_proyectos, sum(monto) as monto,
-					(select count(*) from proyectos) as total
-					FROM proyectos
-					group by ` + group_by + ` order by anio desc`
-
-		console.log(sql)
-		
-		return this.db.executeSql(sql, {})
-			.then(response => {
-				for (let index = 0; index < response.rows.length; index++) {
-					reportes.push({
-						'anio': response.rows.item(index).anio,
-						'numero_proyectos': response.rows.item(index).numero_proyectos,
-						'monto': parseInt(response.rows.item(index).monto),
-						'total': response.rows.item(index).total,
-						'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2)
-					})
-				}
-				return Promise.resolve(reportes)
-			})
-	}
+	
 
 	/* Funcion para la consulta de los reportes. */
 	getReportes = (): any => {
@@ -70,6 +47,62 @@ export class ReportesDbService {
 				return Promise.resolve(reportes)
 			})
 	}
+
+	/* Funcion para obtener la agrupacion de un detalle de reporte a consultar. */
+	obtenerAgrupacionDetalle = (id: number): any => {
+		let agrupaciones = []
+		let agrupacion = `select nombre_columna from reportes_agrupacion where reporte_id = ` + id
+		return this.db.executeSql(agrupacion, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					agrupaciones.push({
+						'nombre_columna': response.rows.item(index).nombre_columna,
+					})
+				}
+				return Promise.resolve(agrupaciones)
+			})
+	}
+
+	/* Funcion para obtener las columans de select de un detalle de reporte a consultar. */
+	obtenerCamposDetalle = (id: number): any => {
+		let campos_select = []
+		let select = `select nombre_columna from reportes_columnas where reporte_id = ` + id
+		return this.db.executeSql(select, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					campos_select.push({
+						'nombre_columna': response.rows.item(index).nombre_columna,
+					})
+				}
+				return Promise.resolve(campos_select)
+			})
+	}
+
+
+	/* Funcion para la consulta de reporte por año. */
+	detalleReporte = (campo: string, group_by: string): any => {
+		let reportes = []
+		let sql = `select ` + campo + ` as campo, count(*) as numero_proyectos, sum(monto) as monto,
+					(select count(*) from proyectos) as total
+					FROM proyectos
+					group by ` + group_by + ` order by ` + campo +` desc`
+
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					reportes.push({
+						'campo': response.rows.item(index).campo,
+						'numero_proyectos': response.rows.item(index).numero_proyectos,
+						'monto': parseInt(response.rows.item(index).monto),
+						'total': response.rows.item(index).total,
+						'group_by': group_by,
+						'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2)
+					})
+				}
+				return Promise.resolve(reportes)
+			})
+	}
+
 
 	/* Funcion para traer las columnas. */
 	getColumnas = (): any => {

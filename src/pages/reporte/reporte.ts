@@ -22,9 +22,9 @@ export class ReportePage {
 	}
 
 	/* Funcion para mostrar el detalle de un reporte. */
-	detalleReporte = (): void => {
+	detalleReporte = (id: number): void => {
 		console.log('show detalle')
-		this.navCtrl.push(DetalleReportePage, {})
+		this.navCtrl.push(DetalleReportePage, {'id': id})
 	}
 
 	/* Funcion para crear nuevo reporte. */

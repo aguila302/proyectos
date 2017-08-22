@@ -6,7 +6,7 @@
 -->
 <ion-header>
 	<ion-navbar no-border-bottom color="twitter">
-		<ion-title>Detalle de reporte por año</ion-title>
+		<ion-title>Detalle de reporte</ion-title>
 	</ion-navbar>
 </ion-header>
 <ion-content padding>
@@ -33,7 +33,7 @@
 		<ion-grid>
 			<ion-row>
 				<ion-col col-2>
-					<h4>{{ proyecto.anio }}</h4>
+					<h4>{{ proyecto.campo }}</h4>
 					<strong>{{ proyecto.porcentaje }} %</strong>
 				</ion-col>
 				<ion-col col-5 text-center>
@@ -44,7 +44,7 @@
 					<strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}
 				</ion-col>
 				<ion-col col-2 class="right">
-					<button ion-button clear item-end (click)="verProyectosAgrupados(proyecto.pais, proyecto.monto)">
+					<button ion-button clear item-end (click)="verProyectosAgrupados(proyecto.group_by, proyecto.campo, proyecto.monto)">
 						<p style="text-transform: none; color: #3498DB;">Ver detalle</p>
 					</button>
 				</ion-col>

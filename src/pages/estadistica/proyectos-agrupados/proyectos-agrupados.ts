@@ -40,6 +40,8 @@ export class ProyectosAgrupadosPage {
 			this.dbService.openDatabase()
 			.then(() => this.dbService.consultaPaisAgrupado(this.pais))
 			.then(proyectos => {
+				console.log(proyectos)
+				
 				this.zone.run(() => {
 					this.proyectos = proyectos
 					loading.dismiss();

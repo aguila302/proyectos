@@ -215,7 +215,8 @@ export class DbService {
 	consultaPaisAgrupado = (pais: string): any => {
 		let proyectos = []
 		let sql = 'select * from proyectos where pais = ' + "'"  + pais + "'"
-
+		console.log(sql)
+		
 		return this.db.executeSql(sql, {})
 			.then((response) => {
 				for (let index = 0; index < response.rows.length; index++) {
@@ -501,9 +502,27 @@ export class DbService {
 
 	/* Funcion para insertar datos en la tabla de reportes_columnas */
 	insertaDatosTablaReportesColunas() {
-		let sql = `insert into reportes_columnas(
+		let pais = `insert into reportes_columnas(
 				reporte_id, nombre_columna) values(?, ?)`
-		return this.db.executeSql(sql, ['1', 'anio'])
+		this.db.executeSql(pais, ['1', 'pais'])
+			.then(() => console.log('regustros insertados en tabla reportes columnas'))
+			.catch(e => console.log(e))
+
+		let anio = `insert into reportes_columnas(
+				reporte_id, nombre_columna) values(?, ?)`
+		this.db.executeSql(anio, ['2', 'anio'])
+			.then(() => console.log('regustros insertados en tabla reportes columnas'))
+			.catch(e => console.log(e))
+
+		let gerencia = `insert into reportes_columnas(
+				reporte_id, nombre_columna) values(?, ?)`
+		this.db.executeSql(gerencia, ['3', 'gerencia'])
+			.then(() => console.log('regustros insertados en tabla reportes columnas'))
+			.catch(e => console.log(e))
+
+		let cliente = `insert into reportes_columnas(
+				reporte_id, nombre_columna) values(?, ?)`
+		this.db.executeSql(cliente, ['4', 'contratante'])
 			.then(() => console.log('regustros insertados en tabla reportes columnas'))
 			.catch(e => console.log(e))
 	}
@@ -519,14 +538,32 @@ export class DbService {
 
 	/* Funcion para insertar datos en la tabla de reportes_agrupacion */
 	insertaDatosTablaReportesAgrupacion() {
-		let sql = `insert into reportes_agrupacion(
+		let pais = `insert into reportes_agrupacion(
 				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
-		return this.db.executeSql(sql, ['1', 'anio', '1'])
+		this.db.executeSql(pais, ['1', 'pais', '1'])
+			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
+			.catch(e => console.log(e))
+
+		let anio = `insert into reportes_agrupacion(
+				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
+		this.db.executeSql(pais, ['2', 'anio', '1'])
+			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
+			.catch(e => console.log(e))
+
+		let gerencia = `insert into reportes_agrupacion(
+				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
+		this.db.executeSql(gerencia, ['3', 'gerencia', '1'])
+			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
+			.catch(e => console.log(e))
+
+		let cliente = `insert into reportes_agrupacion(
+				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
+		this.db.executeSql(cliente, ['4', 'contratante', '1'])
 			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
 			.catch(e => console.log(e))
 	}
 
-	
+
 	delete() {
 		let anio = `drop table reportes`
 		this.db.executeSql(anio, {})
