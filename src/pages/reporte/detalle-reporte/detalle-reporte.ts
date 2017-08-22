@@ -26,12 +26,12 @@ export class DetalleReportePage {
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad DetalleReportePage');
-		this.getReporteXanio()
+		this.getReporteDetalle()
 	}
 
 	/* Funcion para reporte por año. */
-	getReporteXanio = (): void => {
-		this.reporteServive.reporteXanio(this.campo, this.group_by)
+	getReporteDetalle = (): void => {
+		this.reporteServive.detalleReporte(this.campo, this.group_by)
 			.then(response => {
 				// Para mostrar la informacion de la grafica. 
 				this.xy.splice(0, this.xy.length)

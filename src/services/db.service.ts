@@ -470,12 +470,31 @@ export class DbService {
 
 	/* Funcion para insertar datos en la tabla de reportes */
 	insertaDatosTablaReportes() {
-		let sql = `insert into reportes(
-				nombre_reporte,
-				total_usd,
-				total_proyectos
-			) values('Reporte por pais', '2062717473.00', '1330')`
-		return this.db.executeSql(sql, {})
+		let pais = ''
+		let anio = ''
+		let gerencia = ''
+		let cliente = ''
+
+		pais = `insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por país', '2062717473.00', '1330');`
+		this.db.executeSql(pais, {})
+			.then(() => console.log('regustros insertados en tabla reportes'))
+			.catch(e => console.log(e))
+
+		anio = `
+			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por año', '2062717473.00', '1330');`
+		this.db.executeSql(anio, {})
+			.then(() => console.log('regustros insertados en tabla reportes'))
+			.catch(e => console.log(e))
+
+		gerencia = `
+			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por gerencia', '2062717473.00', '1330');`
+		this.db.executeSql(gerencia, {})
+			.then(() => console.log('regustros insertados en tabla reportes'))
+			.catch(e => console.log(e))
+
+		cliente = `
+			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por cliente', '2062717473.00', '1330');`
+		this.db.executeSql(cliente, {})
 			.then(() => console.log('regustros insertados en tabla reportes'))
 			.catch(e => console.log(e))
 	}
@@ -506,11 +525,28 @@ export class DbService {
 			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
 			.catch(e => console.log(e))
 	}
-	// delete() {
-	// 	let sql = `drop table reportes`
-	// 	return this.db.executeSql(sql, {})
-	// 		.then(() => console.log('deleted'))
-	// 		.catch(e => console.log(e))
-	// }
+
+	
+	delete() {
+		let anio = `drop table reportes`
+		this.db.executeSql(anio, {})
+			.then(() => console.log('deleted'))
+			.catch(e => console.log(e))
+
+		let rc = `drop table reportes_columnas`
+		this.db.executeSql(rc, {})
+			.then(() => console.log('deleted'))
+			.catch(e => console.log(e))
+
+		let rf = `drop table reportes_filtros`
+		this.db.executeSql(rf, {})
+			.then(() => console.log('deleted'))
+			.catch(e => console.log(e))
+
+		let ra = `drop table reportes_agrupacion`
+		this.db.executeSql(ra, {})
+			.then(() => console.log('deleted'))
+			.catch(e => console.log(e))
+	}
 
 }

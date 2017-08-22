@@ -28,17 +28,19 @@ export class ReportesDbService {
 	}
 
 	/* Funcion para la consulta de reporte por año. */
-	reporteXanio = (campo: string, group_by: string): any => {
-		let reporteAnio = []
+	detalleReporte = (campo: string, group_by: string): any => {
+		let reportes = []
 		let sql = `select ` + campo + ` , count(*) as numero_proyectos, sum(monto) as monto,
 					(select count(*) from proyectos) as total
 					FROM proyectos
 					group by ` + group_by + ` order by anio desc`
 
+		console.log(sql)
+		
 		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
-					reporteAnio.push({
+					reportes.push({
 						'anio': response.rows.item(index).anio,
 						'numero_proyectos': response.rows.item(index).numero_proyectos,
 						'monto': parseInt(response.rows.item(index).monto),
@@ -46,7 +48,7 @@ export class ReportesDbService {
 						'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2)
 					})
 				}
-				return Promise.resolve(reporteAnio)
+				return Promise.resolve(reportes)
 			})
 	}
 
