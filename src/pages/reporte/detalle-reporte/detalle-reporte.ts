@@ -143,8 +143,8 @@ export class DetalleReportePage {
 				})
 			})
 		}
-
-		this.reporteService.detalleReporte(this.campo_select, this.campo_agrupacion)
+		else {
+			this.reporteService.detalleReporte(this.campo_select, this.campo_agrupacion)
 			.then(response => {
 				// Para mostrar la informacion de la grafica.
 				this.xy.splice(0, this.xy.length)
@@ -174,6 +174,7 @@ export class DetalleReportePage {
 				this.proyectos = proyectos
 				console.log(this.proyectos)
 			})
+		}
 	}
 
 	/* Funcion para ver detalle de los proyectos agrupados que tienen menos de 1 %. */
