@@ -10,12 +10,15 @@ import { ReportesDbService } from '../../services/reportes.db.service'
 	templateUrl: 'reporte.html',
 })
 export class ReportePage {
+	reportes = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private reporteService : ReportesDbService) {}
 
+	/* Cargamos los proyectos cuando la vista esta activa. */
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad ReportePage');
+		this.getReportes()
 	}
 
 	/* Funcion para mostrar el detalle de un reporte. */
@@ -29,7 +32,11 @@ export class ReportePage {
 		this.navCtrl.push(NuevoReportePage, {})
 	}
 
+	/* Funcion para mostrar listado de reportes. */
 	getReportes = (): void => {
 		this.reporteService.getReportes()
+		.then(response => {
+			this.reportes = response
+		})
 	}
 }

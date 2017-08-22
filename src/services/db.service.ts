@@ -474,8 +474,8 @@ export class DbService {
 				nombre_reporte,
 				total_usd,
 				total_proyectos
-			) values(?, ?, ?)`
-		return this.db.executeSql(sql, ['Reporte por año', '2062717473.00', '1330'])
+			) values('Reporte por pais', '2062717473.00', '1330')`
+		return this.db.executeSql(sql, {})
 			.then(() => console.log('regustros insertados en tabla reportes'))
 			.catch(e => console.log(e))
 	}

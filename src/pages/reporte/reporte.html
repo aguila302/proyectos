@@ -16,48 +16,18 @@
 	<ion-list>
 		<ion-item>
 			<ion-grid>
-				<ion-row>
-					<ion-col>
-						<ion-card margin-bottom (click)="detalleReporte()">
-							<ion-card-content text-wrap text-center>
-								<ion-card-title>
-									<i class="fa fa-bar-chart" aria-hidden="true" style="font-size: 60px;"></i>
-									<p class="medium"><strong>Reporte agrupado por año</strong></p>
-								</ion-card-title>
-								<strong>Monto total USD: </strong>
-								<p class="medium">2,062,717,473.00</p>
-								<strong>Total de proyectos: </strong>
-								<p class="medium">1330</p>
-							</ion-card-content>
-						</ion-card>
-					</ion-col>
-					<ion-col>
-						<ion-card margin-bottom>
-							<ion-card-content text-wrap text-center>
-								<ion-card-title>
-									<i class="fa fa-bar-chart" aria-hidden="true" style="font-size: 60px;"></i>
-									<p class="medium"><strong>Reporte agrupado por país</strong></p>
-								</ion-card-title>
-								<strong>Monto total USD: </strong>
-								<p class="medium">2,062,717,473.00</p>
-								<strong>Total de proyectos: </strong>
-								<p class="medium">1330</p>
-							</ion-card-content>
-						</ion-card>
-					</ion-col>
-				</ion-row>
-				<ion-row>
+				<ion-row *ngFor="let reporte of reportes" margin-bottom (click)="detalleReporte()">
 					<ion-col>
 						<ion-card>
 							<ion-card-content text-wrap text-center>
 								<ion-card-title>
 									<i class="fa fa-bar-chart" aria-hidden="true" style="font-size: 60px;"></i>
-									<p class="medium"><strong>Reporte agrupado por gerencia</strong></p>
+									<p class="medium"><strong>{{ reporte.nombre_reporte}}</strong></p>
 								</ion-card-title>
 								<strong>Monto total USD: </strong>
-								<p class="medium">2,062,717,473.00</p>
+								<p class="medium">{{ reporte.total_usd }}</p>
 								<strong>Total de proyectos: </strong>
-								<p class="medium">1330</p>
+								<p class="medium">{{ reporte.total_proyectos }}</p>
 							</ion-card-content>
 						</ion-card>
 					</ion-col>
@@ -66,42 +36,12 @@
 							<ion-card-content text-wrap text-center>
 								<ion-card-title>
 									<i class="fa fa-bar-chart" aria-hidden="true" style="font-size: 60px;"></i>
-									<p class="medium"><strong>Reporte agrupado por cliente</strong></p>
+									<p class="medium"><strong>{{ reporte.nombre_reporte}}</strong></p>
 								</ion-card-title>
 								<strong>Monto total USD: </strong>
-								<p class="medium">2,062,717,473.00</p>
+								<p class="medium">{{ reporte.total_usd }}</p>
 								<strong>Total de proyectos: </strong>
-								<p class="medium">1330</p>
-							</ion-card-content>
-						</ion-card>
-					</ion-col>
-				</ion-row>
-				<ion-row>
-					<ion-col>
-						<ion-card>
-							<ion-card-content text-wrap text-center>
-								<ion-card-title>
-									<i class="fa fa-pie-chart" aria-hidden="true" style="font-size: 60px;"></i>
-									<p class="medium"><strong>Reporte agrupado por país</strong></p>
-								</ion-card-title>
-								<strong>Monto total USD: </strong>
-								<p class="medium">2,062,717,473.00</p>
-								<strong>Total de proyectos: </strong>
-								<p class="medium">1330</p>
-							</ion-card-content>
-						</ion-card>
-					</ion-col>
-					<ion-col>
-						<ion-card>
-							<ion-card-content text-wrap text-center>
-								<ion-card-title>
-									<i class="fa fa-pie-chart" aria-hidden="true" style="font-size: 60px;"></i>
-									<p class="medium"><strong>Reporte agrupado por país</strong></p>
-								</ion-card-title>
-								<strong>Monto total USD: </strong>
-								<p class="medium">2,062,717,473.00</p>
-								<strong>Total de proyectos: </strong>
-								<p class="medium">1330</p>
+								<p class="medium">{{ reporte.total_proyectos }}</p>
 							</ion-card-content>
 						</ion-card>
 					</ion-col>
