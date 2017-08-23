@@ -15,102 +15,14 @@ export class NuevoReportePage {
 	columnas = []
 	columnas_seleccionadas = []
 	settings = {}
-	data = []
+	// data = []
+
+	
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private reporteServive : ReportesDbService, private modal: ModalController) {
-		this.settings = {
-			columns: {
-				id: {
-					title: 'ID',
-				},
-				name: {
-					title: 'Full Name',
-					filter: {
-						type: 'list',
-						config: {
-							selectText: 'Select...',
-							list: [{
-								value: 'Glenna Reichert',
-								title: 'Glenna Reichert'
-							}, {
-								value: 'Kurtis Weissnat',
-								title: 'Kurtis Weissnat'
-							}, {
-								value: 'Chelsey Dietrich',
-								title: 'Chelsey Dietrich'
-							}, ],
-						},
-					},
-				},
-				email: {
-					title: 'Email',
-					filter: {
-						type: 'completer',
-						config: {
-							completer: {
-								data: this.data,
-								searchFields: 'email',
-								titleField: 'email',
-							},
-						},
-					},
-				},
-				passed: {
-					title: 'Passed',
-					filter: {
-						type: 'checkbox',
-						config: {
-							true: 'Yes',
-							false: 'No',
-							resetText: 'clear',
-						},
-					},
-				},
-			},
-		};
-
-		this.data = [{
-			id: 4,
-			name: 'Patricia Lebsack',
-			email: 'Julianne.OConner@kory.org',
-			passed: 'Yes',
-		}, {
-			id: 5,
-			name: 'Chelsey Dietrich',
-			email: 'Lucio_Hettinger@annie.ca',
-			passed: 'No',
-		}, {
-			id: 6,
-			name: 'Mrs. Dennis Schulist',
-			email: 'Karley_Dach@jasper.info',
-			passed: 'Yes',
-		}, {
-			id: 7,
-			name: 'Kurtis Weissnat',
-			email: 'Telly.Hoeger@billy.biz',
-			passed: 'No',
-		}, {
-			id: 8,
-			name: 'Nicholas Runolfsdottir V',
-			email: 'Sherwood@rosamond.me',
-			passed: 'Yes',
-		}, {
-			id: 9,
-			name: 'Glenna Reichert',
-			email: 'Chaim_McDermott@dana.io',
-			passed: 'No',
-		}, {
-			id: 10,
-			name: 'Clementina DuBuque',
-			email: 'Rey.Padberg@karina.biz',
-			passed: 'No',
-		}, {
-			id: 11,
-			name: 'Nicholas DuBuque',
-			email: 'Rey.Padberg@rosamond.biz',
-			passed: 'Yes',
-		}, ]
+		// this.data = [{
+		// }]
 	}
 
 	ionViewDidLoad() {
@@ -120,7 +32,6 @@ export class NuevoReportePage {
 
 	/* Funcion para conseguir columnas. */
 	getColumnas = (): any => {
-		
 		this.reporteServive.getColumnas()
 			.then(response => {
 				response.forEach(items => {
@@ -131,6 +42,7 @@ export class NuevoReportePage {
 
 	/* Funcion para mostrar las comunas y escoger*/
 	selectColumnas = (): void => {
+		let mis_columnas = []
 		/* Pasamos las columnas a la vista de seleeccion de columnas. */
 		let modal_columnas = this.modal.create(SelectColumnasPage, {
 			'columnas': this.columnas
@@ -142,12 +54,73 @@ export class NuevoReportePage {
 			data.forEach(items => {
 				this.columnas_seleccionadas.push({items})
 			})
-			// this.getDataCampos(this.columnas_seleccionadas);
+			this.columnas_seleccionadas.forEach(items => {
+				mis_columnas.push({items})
+			})
+			this.manageGrid(mis_columnas)
+			this.getDataCampos(mis_columnas)
 		})
+		
+	}
+	/* Funcion para llegar el grid.  */
+	manageGrid = (columnas: Array<any>): Object => {
+
+		this.settings = {
+			columns: {},
+		}
+
+		columnas.forEach(items => {
+			this.settings['hideSubHeader'] = true
+			this.settings['hideHeader'] = false
+			this.settings['actions'] = false
+
+			this.settings['actions'] = {
+				columnTitle: 'Actionsgg',
+				add: false,
+				edit: false,
+				delete: false,
+				custom: true,
+				// custom: [],
+				position: 'right',
+			}
+			this.settings['add'] = {
+				inputClass: '',
+				addButtonContent: '',
+				createButtonContent: '',
+				cancelButtonContent: '',
+				confirmCreate: false,
+			}
+			
+			this.settings['columns'][items.items.items] = {
+				title: items.items.items,
+				filter: {
+					type: 'list',
+					config: {
+						selectText: 'Select...',
+						list: [{
+							value: 'Glenna Reichert',
+							title: 'Glenna Reichert'
+						}, {
+							value: 'Kurtis Weissnat',
+							title: 'Kurtis Weissnat'
+						}, {
+							value: 'Chelsey Dietrich',
+							title: 'Chelsey Dietrich'
+						}, ],
+					},
+				},
+			}
+		})
+		// console.log(this.settings)
+		
+		return this.settings
 	}
 
 	/* Funcion para traer los datos de los campos seleccionados. */
-	getDataCampos = (): void => {
-		
+	getDataCampos = (columnas): void => {
+		this.reporteServive.obtenerDataCampos(columnas)
+		.then(response => {
+			console.log(response)
+		})
 	}
 }

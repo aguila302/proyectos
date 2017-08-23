@@ -156,9 +156,7 @@ export class DbService {
 	buscaProyecto = (val, filtros): any => {
 		let proyectos = []
 		for (let i in filtros) {
-			console.log(filtros)
 			let sql = 'select * from proyectos where ' + i + ' like ' + "'%" + val + "%'"
-			console.log(sql)
 			this.db.executeSql(sql, {})
 				.then((response) => {
 					for (let index = 0; index < response.rows.length; index++) {
