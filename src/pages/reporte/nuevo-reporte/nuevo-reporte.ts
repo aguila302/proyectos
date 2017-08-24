@@ -15,14 +15,11 @@ export class NuevoReportePage {
 	columnas = []
 	columnas_seleccionadas = []
 	settings = {}
-	// data = []
-
-	
+	data = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
-		private reporteServive : ReportesDbService, private modal: ModalController) {
-		// this.data = [{
-		// }]
+		private reporteService : ReportesDbService, private modal: ModalController) {
+		
 	}
 
 	ionViewDidLoad() {
@@ -32,7 +29,7 @@ export class NuevoReportePage {
 
 	/* Funcion para conseguir columnas. */
 	getColumnas = (): any => {
-		this.reporteServive.getColumnas()
+		this.reporteService.getColumnas()
 			.then(response => {
 				response.forEach(items => {
 					this.columnas.push({items})
@@ -47,50 +44,49 @@ export class NuevoReportePage {
 		let modal_columnas = this.modal.create(SelectColumnasPage, {
 			'columnas': this.columnas
 		})
+		/* Muestro el modal para seleccionar las columnas. */
 		modal_columnas.present()
+		/* Cuando cierro mi modal recupero mis columnas que seleccione. */
 		modal_columnas.onDidDismiss(data => {
+
 			/* Muestro las columnas seleccionadas en la vista. */
 			this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
 			data.forEach(items => {
 				this.columnas_seleccionadas.push({items})
 			})
+
+			/* Aqui acomodo las columnas seleccionandas para mostrarlas en el grid. */
 			this.columnas_seleccionadas.forEach(items => {
 				mis_columnas.push({items})
 			})
-			this.manageGrid(mis_columnas)
-			this.getDataCampos(mis_columnas)
+			// this.manageGrid(mis_columnas)
+			/* Voy a la funcion que me ayudara a conseguir la data de mis columnas. */
+			this.getDataCampos(mis_columnas, data)
 		})
-		
 	}
-	/* Funcion para llegar el grid.  */
-	manageGrid = (columnas: Array<any>): Object => {
+
+	/* Funcion para traer los datos de los campos seleccionados. */
+	getDataCampos = (columnas, data): any => {
+		this.reporteService.obtenerDataCampos(data)
+		.then(response => {
+			this.manageGrid(columnas, response)
+		})
+	}
+
+		/* Funcion para llegar el grid.  */
+	manageGrid = (columnas: Array<any>, data: Array<any>): Object => {
 
 		this.settings = {
 			columns: {},
 		}
+		this.data = data
+		// console.log(this.data)
+		
 
 		columnas.forEach(items => {
-			this.settings['hideSubHeader'] = true
+			this.settings['hideSubHeader'] = false
 			this.settings['hideHeader'] = false
-			this.settings['actions'] = false
-
-			this.settings['actions'] = {
-				columnTitle: 'Actionsgg',
-				add: false,
-				edit: false,
-				delete: false,
-				custom: true,
-				// custom: [],
-				position: 'right',
-			}
-			this.settings['add'] = {
-				inputClass: '',
-				addButtonContent: '',
-				createButtonContent: '',
-				cancelButtonContent: '',
-				confirmCreate: false,
-			}
-			
+	
 			this.settings['columns'][items.items.items] = {
 				title: items.items.items,
 				filter: {
@@ -111,16 +107,6 @@ export class NuevoReportePage {
 				},
 			}
 		})
-		// console.log(this.settings)
-		
 		return this.settings
-	}
-
-	/* Funcion para traer los datos de los campos seleccionados. */
-	getDataCampos = (columnas): void => {
-		this.reporteServive.obtenerDataCampos(columnas)
-		.then(response => {
-			// console.log(response)
-		})
 	}
 }

@@ -27,8 +27,6 @@ export class ReportesDbService {
 		this.db = db
 	}
 
-	
-
 	/* Funcion para la consulta de los reportes. */
 	getReportes = (): any => {
 		let reportes = []
@@ -122,25 +120,29 @@ export class ReportesDbService {
 
 	/* Funcion para obtener los datos de las columnas que se selecciono en los filtros para el grid. */
 	obtenerDataCampos = (columnas): any => {
+
 		let campos_data = []
-		columnas.forEach(items => {
-			let select = 'select DISTINCT ' + items.items.items + ' from proyectos'
+
+		for (let index in columnas) {
+			console.log(columnas[index])
+			let select = 'select ' + columnas[index] + ' from proyectos'
+			console.log(select);
+			
 			return this.db.executeSql(select, {})
-				.then(response => {
+				.then((response) => {
 					for (let index = 0; index < response.rows.length; index++) {
 						campos_data.push(
 							response.rows.item(index),
 						)
 					}
-					
+					// return campos_data
 					return Promise.resolve(campos_data)
-				
+					// console.log(campos_data)
+
 				})
 				.catch(console.error.bind(console))
-		})
+		}
 		console.log(campos_data)
-		return Promise.resolve(campos_data)
-		// console.log(campos_data);
 	}
 
 	/* Objeto para construir  la grafica de barras. */
