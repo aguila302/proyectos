@@ -80,34 +80,41 @@ export class NuevoReportePage {
 	manageGrid = (columnas: Array < any > , data: Array < any > ): Object => {
 
 		this.settings = {
-			columns: {},
+			columns: {}
 		}
 		this.data = data
 
 		columnas.forEach(items => {
 			this.settings['hideSubHeader'] = false
 			this.settings['hideHeader'] = false
+			this.settings['actions'] = {
+				columnTitle: 'Actions',
+				add: true,
+				edit: true,
+				delete: true,
+				custom: [],
+				position: 'left', // left|right
+			}
 
 			this.settings['columns'][items.items.items] = {
 				title: items.items.items,
 				filter: {
-					type: 'list',
+					type: 'completer',
 					config: {
-						selectText: 'Select...',
-						list: [{
-							value: 'Glenna Reichert',
-							title: 'Glenna Reichert'
-						}, {
-							value: 'Kurtis Weissnat',
-							title: 'Kurtis Weissnat'
-						}, {
-							value: 'Chelsey Dietrich',
-							title: 'Chelsey Dietrich'
-						}, ],
-					},
-				},
+						completer: {
+							data: this.data,
+							searchFields: 'pais',
+							titleField: 'pais',
+						}
+					}
+				}
+			}
+			this.settings['pager'] = {
+				display: true,
+				perPage: 20,
 			}
 		})
+		console.log(this.settings)
 		return this.settings
 	}
 }
