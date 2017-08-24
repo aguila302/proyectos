@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, NgZone } from '@angular/core'
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular'
 import { ReportesDbService } from '../../../services/reportes.db.service'
 import * as collect from 'collect.js/dist'
@@ -18,7 +18,8 @@ export class NuevoReportePage {
 	data = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
-		private reporteService : ReportesDbService, private modal: ModalController) {
+		private reporteService : ReportesDbService, private modal: ModalController,
+		public zone: NgZone) {
 		
 	}
 
@@ -69,24 +70,24 @@ export class NuevoReportePage {
 	getDataCampos = (columnas, data): any => {
 		this.reporteService.obtenerDataCampos(data)
 		.then(response => {
-			this.manageGrid(columnas, response)
+			this.zone.run(() => {
+				this.manageGrid(columnas, response)
+			})
 		})
 	}
 
-		/* Funcion para llegar el grid.  */
-	manageGrid = (columnas: Array<any>, data: Array<any>): Object => {
+	/* Funcion para llegar el grid.  */
+	manageGrid = (columnas: Array < any > , data: Array < any > ): Object => {
 
 		this.settings = {
 			columns: {},
 		}
 		this.data = data
-		// console.log(this.data)
-		
 
 		columnas.forEach(items => {
 			this.settings['hideSubHeader'] = false
 			this.settings['hideHeader'] = false
-	
+
 			this.settings['columns'][items.items.items] = {
 				title: items.items.items,
 				filter: {

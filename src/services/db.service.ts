@@ -183,6 +183,8 @@ export class DbService {
 					Promise.resolve(proyectos)
 				})
 		}
+		console.log(proyectos)
+		
 		return proyectos
 	}
 
