@@ -20,7 +20,7 @@ export class NuevoReportePage {
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private reporteService : ReportesDbService, private modal: ModalController,
 		public zone: NgZone) {
-		
+
 	}
 
 	ionViewDidLoad() {
@@ -60,7 +60,7 @@ export class NuevoReportePage {
 			this.columnas_seleccionadas.forEach(items => {
 				mis_columnas.push({items})
 			})
-			// this.manageGrid(mis_columnas)
+
 			/* Voy a la funcion que me ayudara a conseguir la data de mis columnas. */
 			this.getDataCampos(mis_columnas, data)
 		})
@@ -78,34 +78,31 @@ export class NuevoReportePage {
 
 	/* Funcion para llegar el grid.  */
 	manageGrid = (columnas: Array < any > , data: Array < any > ): Object => {
-
+		let filtrados = []
 		this.settings = {
 			columns: {}
 		}
 		this.data = data
 
+		this.data.forEach(items => {
+			for(var i in items) {
+				console.log(items[i])
+			} 
+		})
+		// console.log(filtrados)
+		
+
 		columnas.forEach(items => {
 			this.settings['hideSubHeader'] = false
 			this.settings['hideHeader'] = false
-			this.settings['actions'] = {
-				columnTitle: 'Actions',
-				add: true,
-				edit: true,
-				delete: true,
-				custom: [],
-				position: 'left', // left|right
-			}
 
 			this.settings['columns'][items.items.items] = {
 				title: items.items.items,
 				filter: {
-					type: 'completer',
+					type: 'list',
 					config: {
-						completer: {
-							data: this.data,
-							searchFields: 'pais',
-							titleField: 'pais',
-						}
+						selectText: 'Select...',
+						list: [ { value: items.items.items, title: items.items.items },],
 					}
 				}
 			}
@@ -114,7 +111,7 @@ export class NuevoReportePage {
 				perPage: 20,
 			}
 		})
-		console.log(this.settings)
+
 		return this.settings
 	}
 }
