@@ -120,7 +120,7 @@ export class NuevoReportePage {
 	getDataCampos = (columnas): void => {
 		this.reporteServive.obtenerDataCampos(columnas)
 		.then(response => {
-			console.log(response)
+			// console.log(response)
 		})
 	}
 }
