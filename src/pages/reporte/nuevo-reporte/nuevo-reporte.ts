@@ -90,11 +90,9 @@ export class NuevoReportePage {
 					value: items[i],
 					title: items[i]
 				})
-				// console.log(items[i])
 			} 
 		})
-		console.log(filtrados)
-		
+
 
 		columnas.forEach(items => {
 			this.settings['hideSubHeader'] = false
@@ -115,7 +113,6 @@ export class NuevoReportePage {
 				perPage: 20,
 			}
 		})
-
 		return this.settings
 	}
 }

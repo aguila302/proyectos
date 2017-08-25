@@ -123,7 +123,7 @@ export class ReportesDbService {
 		let campos_data = []
 		let columns = collect(columnas).implode(',')
 
-		let select = 'select ' + columns + ' from proyectos limit 50'
+		let select = 'select ' + columns + ' from proyectos limit 100'
 
 		return this.db.executeSql(select, {})
 			.then((response) => {
@@ -132,10 +132,7 @@ export class ReportesDbService {
 						response.rows.item(index),
 					)
 				}
-				// return campos_data
 				return Promise.resolve(campos_data)
-					// console.log(campos_data)
-
 			})
 			.catch(console.error.bind(console))
 	}
