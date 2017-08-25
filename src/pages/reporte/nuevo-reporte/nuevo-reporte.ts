@@ -86,10 +86,14 @@ export class NuevoReportePage {
 
 		this.data.forEach(items => {
 			for(var i in items) {
-				console.log(items[i])
+				filtrados.push({
+					value: items[i],
+					title: items[i]
+				})
+				// console.log(items[i])
 			} 
 		})
-		// console.log(filtrados)
+		console.log(filtrados)
 		
 
 		columnas.forEach(items => {
@@ -102,7 +106,7 @@ export class NuevoReportePage {
 					type: 'list',
 					config: {
 						selectText: 'Select...',
-						list: [ { value: items.items.items, title: items.items.items },],
+						list: filtrados,
 					}
 				}
 			}
