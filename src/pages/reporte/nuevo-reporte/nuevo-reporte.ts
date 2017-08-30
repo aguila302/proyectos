@@ -1,5 +1,5 @@
 import { Component, NgZone } from '@angular/core'
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular'
+import { IonicPage, NavController,NavParams, ModalController } from 'ionic-angular'
 import { ReportesDbService } from '../../../services/reportes.db.service'
 import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
@@ -18,7 +18,7 @@ export class NuevoReportePage {
 	data = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
-		private reporteService : ReportesDbService, private modal: ModalController,
+		private reporteService: ReportesDbService, private modal: ModalController,
 		public zone: NgZone) {
 
 	}
@@ -33,7 +33,9 @@ export class NuevoReportePage {
 		this.reporteService.getColumnas()
 			.then(response => {
 				response.forEach(items => {
-					this.columnas.push({items})
+					this.columnas.push({
+						items
+					})
 				})
 			})
 	}
@@ -41,24 +43,28 @@ export class NuevoReportePage {
 	/* Funcion para mostrar las comunas y escoger*/
 	selectColumnas = (): void => {
 		let mis_columnas = []
-		/* Pasamos las columnas a la vista de seleeccion de columnas. */
+			/* Pasamos las columnas a la vista de seleeccion de columnas. */
 		let modal_columnas = this.modal.create(SelectColumnasPage, {
-			'columnas': this.columnas
-		})
-		/* Muestro el modal para seleccionar las columnas. */
+				'columnas': this.columnas
+			})
+			/* Muestro el modal para seleccionar las columnas. */
 		modal_columnas.present()
-		/* Cuando cierro mi modal recupero mis columnas que seleccione. */
+			/* Cuando cierro mi modal recupero mis columnas que seleccione. */
 		modal_columnas.onDidDismiss(data => {
 
 			/* Muestro las columnas seleccionadas en la vista. */
 			this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
 			data.forEach(items => {
-				this.columnas_seleccionadas.push({items})
+				this.columnas_seleccionadas.push({
+					items
+				})
 			})
 
 			/* Aqui acomodo las columnas seleccionandas para mostrarlas en el grid. */
 			this.columnas_seleccionadas.forEach(items => {
-				mis_columnas.push({items})
+				mis_columnas.push({
+					items
+				})
 			})
 
 			/* Voy a la funcion que me ayudara a conseguir la data de mis columnas. */
@@ -69,11 +75,11 @@ export class NuevoReportePage {
 	/* Funcion para traer los datos de los campos seleccionados. */
 	getDataCampos = (columnas, data): any => {
 		this.reporteService.obtenerDataCampos(data)
-		.then(response => {
-			this.zone.run(() => {
-				this.manageGrid(columnas, response)
+			.then(response => {
+				this.zone.run(() => {
+					this.manageGrid(columnas, response)
+				})
 			})
-		})
 	}
 
 	/* Funcion para llegar el grid.  */
@@ -84,15 +90,14 @@ export class NuevoReportePage {
 		}
 		this.data = data
 
-		this.data.forEach(items => {
-			for(var i in items) {
-				filtrados.push({
-					value: items[i],
-					title: items[i]
-				})
-			} 
-		})
-
+		// this.data.forEach(items => {
+		// 	for (var i in items) {
+		// 		filtrados.push({
+		// 			value: items[i],
+		// 			title: items[i]
+		// 		})
+		// 	}
+		// })
 
 		columnas.forEach(items => {
 			this.settings['hideSubHeader'] = false
@@ -101,10 +106,13 @@ export class NuevoReportePage {
 			this.settings['columns'][items.items.items] = {
 				title: items.items.items,
 				filter: {
-					type: 'list',
+					type: 'completer',
 					config: {
-						selectText: 'Select...',
-						list: filtrados,
+						completer: {
+							data: this.data,
+							searchFields: items.items.items,
+							titleField: items.items.items,
+						},
 					}
 				}
 			}
