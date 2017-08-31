@@ -1,5 +1,5 @@
 import { Component, NgZone } from '@angular/core'
-import { IonicPage, NavController,NavParams, ModalController } from 'ionic-angular'
+import { IonicPage, NavController,NavParams, ModalController, AlertController, LoadingController } from 'ionic-angular'
 import { ReportesDbService } from '../../../services/reportes.db.service'
 import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
@@ -20,10 +20,11 @@ export class NuevoReportePage {
 	data = []
 	xy = []
 	options = {}
+	visible: boolean = false
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private reporteService: ReportesDbService, private modal: ModalController,
-		public zone: NgZone) {
+		public zone: NgZone, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
 
 	}
 
@@ -78,11 +79,16 @@ export class NuevoReportePage {
 
 	/* Funcion para traer los datos de los campos seleccionados. */
 	getDataCampos = (columnas, data): any => {
+		let loader = this.loadingCtrl.create({
+			content: "Please wait...",
+		});
+    	loader.present();
 		this.reporteService.obtenerDataCampos(data)
 			.then(response => {
 				this.zone.run(() => {
 					this.manageGrid(columnas, response)
 				})
+				loader.dismiss()
 			})
 	}
 
@@ -109,22 +115,34 @@ export class NuevoReportePage {
 
 	/* Funcion que nos servira para graficar la informacion. */
 	graficar = (columnas: Array < any > , agrupacion: Array < any > ): void => {
-		let title = collect(agrupacion).implode('items', ',');
-		
-		this.reporteService.paraGraficar(columnas, agrupacion)
-			.then(response => {
-				this.xy.splice(0, this.xy.length)
-				response.forEach(item => {
-					this.xy.push({
-						name: item.campo,
-						y: parseFloat(item.porcentaje)
+		if (columnas.length === 0 || agrupacion.length === 0) {
+			let alert = this.alertCtrl.create({
+				title: 'Aviso!',
+				subTitle: 'Por favor seleccione los columnas y la agrupación para visualizar la grafica!',
+				buttons: ['OK']
+			});
+			alert.present();
+		}
+		else {
+			this.visible = !this.visible
+			let title = collect(agrupacion).implode('items', ',');
+
+			this.reporteService.paraGraficar(columnas, agrupacion)
+				.then(response => {
+					this.xy.splice(0, this.xy.length)
+					response.forEach(item => {
+						this.xy.push({
+							name: item.campo,
+							y: parseFloat(item.porcentaje)
+						})
+
 					})
 
+					this.options = this.reporteService.datosGrafica(this.xy, 2, '', 'Proyectos agrupados por ' + title)
+
 				})
+		}
 
-				this.options = this.reporteService.datosGrafica(this.xy, 2, '', 'Proyectos agrupados por ' + title)
-
-			})
 	}
 
 	/* Funcion para llegar el grid.  */

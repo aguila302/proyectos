@@ -123,7 +123,7 @@ export class ReportesDbService {
 		let campos_data = []
 		let columns = collect(columnas).implode(',')
 
-		let select = 'select ' + columns + ' from proyectos limit 20'
+		let select = 'select ' + columns + ' from proyectos order by RANDOM() limit 200'
 
 		return this.db.executeSql(select, {})
 			.then((response) => {

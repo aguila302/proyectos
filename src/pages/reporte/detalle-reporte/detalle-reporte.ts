@@ -231,16 +231,13 @@ export class DetalleReportePage {
 			})
 		}
 		if(group_by === 'anio') {
-			console.log(group_by)
-			
+
 			this.navCtrl.push(ProyectosAgrupadosAnioPage, {
 				'anio': campo,
 				'monto_total': monto_total
 			})
 		}
 		if(group_by === 'gerencia') {
-			console.log(group_by)
-			
 			this.navCtrl.push(ProyectosAgrupadosGerenciaPage, {
 				'gerencia': campo,
 				'monto_total': monto_total
