@@ -5,19 +5,19 @@
 </ion-header>
 <ion-content padding>
 	<button ion-button full (click)="selectColumnas()">Seleccionar columnas</button>
-	<ion-list>
+<!-- 	<ion-list>
 		<ion-item *ngFor="let item of columnas_seleccionadas">
 			<ion-label>{{ item.items }}</ion-label>
 		</ion-item>
-	</ion-list>
+	</ion-list> -->
 	<!-- <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table> -->
 	<ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
 	<button ion-button full (click)="selectAgrupaciones(columnas_seleccionadas)">Seleccionar agrupaciones</button>
-	<ion-list>
+<!-- 	<ion-list>
 		<ion-item *ngFor="let item of agrupacion_seleccionada">
 			<ion-label>{{ item.items }}</ion-label>
 		</ion-item>
-	</ion-list>
+	</ion-list> -->
 	<div id="container" [hidden]="!visible">
 		<chart [options]="options"></chart>
 	</div>
@@ -29,10 +29,10 @@
 				<button ion-button (click)="graficar(columnas_seleccionadas, agrupacion_seleccionada)">Graficar</button>
 			</ion-col>
 			<ion-col>
-				<!-- <button ion-button>Seleccionar agrupaciones</button> -->
+				<!-- <button ion-button (click)="">Seleccionar agrupaciones</button> -->
 			</ion-col>
 			<ion-col>
-				<!-- <button ion-button>Seleccionar agrupaciones</button> -->
+				<button ion-button (click)="guardarReporte(agrupacion_seleccionada)">Guardar</button>
 			</ion-col>
 		</ion-row>
 	</ion-grid>

@@ -15,7 +15,7 @@ import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
 
 @Injectable()
-	/* Clase para el manejo de los reportes. */
+/* Clase para el manejo de los reportes. */
 export class ReportesDbService {
 
 	db: SQLiteObject = null
@@ -123,7 +123,7 @@ export class ReportesDbService {
 		let campos_data = []
 		let columns = collect(columnas).implode(',')
 
-		let select = 'select ' + columns + ' from proyectos order by RANDOM() limit 200'
+		let select = 'select ' + columns + ' from proyectos order by anio DESC limit 10'
 
 		return this.db.executeSql(select, {})
 			.then((response) => {

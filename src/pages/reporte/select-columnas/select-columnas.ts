@@ -17,6 +17,8 @@ export class SelectColumnasPage {
 		/* Recupero mis columnas antes recibidas. */
 		this.columnas = this.navParams.get('columnas')
 		this.columnas.shift()
+
+		this.columnas = collect(this.columnas).sortBy('items').all()
 	}
 
 	ionViewDidLoad() {

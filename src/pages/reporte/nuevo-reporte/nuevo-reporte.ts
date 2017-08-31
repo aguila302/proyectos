@@ -145,6 +145,13 @@ export class NuevoReportePage {
 
 	}
 
+	/* Funcion para guardar un reporte. */
+	guardarReporte = (agrupacion: Array<any>): void => {
+		let title = collect(agrupacion).implode('items', ',')
+		console.log(title)
+		
+	}
+
 	/* Funcion para llegar el grid.  */
 	manageGrid = (columnas: Array < any > , data: Array < any > ): Object => {
 		this.settings = {

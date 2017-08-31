@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import * as collect from 'collect.js/dist'
 
-/**
- * Generated class for the SelectAgrupacionesPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
 	selector: 'page-select-agrupaciones',
@@ -18,6 +13,7 @@ export class SelectAgrupacionesPage {
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
 		this.agrupaciones = navParams.get('agrupaciones')
+		this.agrupaciones = collect(this.agrupaciones).sortBy('items').all()
 	}
 
 	ionViewDidLoad() {
