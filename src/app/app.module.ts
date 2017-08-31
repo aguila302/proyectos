@@ -26,6 +26,7 @@ import { ProyectosAgrupadosClienteMenoresPage } from '../pages/estadistica/proye
 import { DetalleReportePage } from '../pages/reporte/detalle-reporte/detalle-reporte'
 import { NuevoReportePage } from '../pages/reporte/nuevo-reporte/nuevo-reporte'
 import { SelectColumnasPage } from '../pages/reporte/select-columnas/select-columnas'
+import { SelectAgrupacionesPage } from '../pages/reporte/select-agrupaciones/select-agrupaciones'
 
 import { ChartModule } from 'angular2-highcharts';
 import * as highcharts from 'highcharts';
@@ -58,7 +59,8 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     LoginPage,
     DetalleReportePage,
     NuevoReportePage,
-    SelectColumnasPage
+    SelectColumnasPage,
+    SelectAgrupacionesPage
   ],
   imports: [
     BrowserModule,
@@ -88,7 +90,8 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     LoginPage,
     DetalleReportePage,
     NuevoReportePage,
-    SelectColumnasPage
+    SelectColumnasPage,
+    SelectAgrupacionesPage
   ],
   providers: [
     StatusBar,

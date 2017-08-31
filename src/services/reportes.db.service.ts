@@ -77,7 +77,7 @@ export class ReportesDbService {
 	}
 
 
-	/* Funcion para la consulta de reporte por año. */
+	/* Funcion para la consulta del detalle de reportes. */
 	detalleReporte = (campo: string, group_by: string): any => {
 		let reportes = []
 		let sql = `select ` + campo + ` as campo, count(*) as numero_proyectos, sum(monto) as monto,
@@ -123,7 +123,7 @@ export class ReportesDbService {
 		let campos_data = []
 		let columns = collect(columnas).implode(',')
 
-		let select = 'select ' + columns + ' from proyectos limit 100'
+		let select = 'select ' + columns + ' from proyectos limit 20'
 
 		return this.db.executeSql(select, {})
 			.then((response) => {
@@ -135,6 +135,34 @@ export class ReportesDbService {
 				return Promise.resolve(campos_data)
 			})
 			.catch(console.error.bind(console))
+	}
+	/*Funcion para conseguir la informacion para construir la grafica. */
+	paraGraficar = (columnas: Array<any>, agrupacion: Array<any>) => {
+		let  mis_columnas = collect(columnas).implode('items', ',')
+		let  mi_agrupacion = collect(agrupacion).implode('items', ',')
+		let data_grafica = []
+		
+		let sql = `select ` + mis_columnas + `, count(*) as numero_proyectos, sum(monto) as monto,
+					(select count(*) from proyectos) as total
+					FROM proyectos
+					group by ` + mi_agrupacion + ` order by ` + mi_agrupacion +` asc`
+		console.log(sql)
+		
+
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					data_grafica.push({
+						'campo': response.rows.item(index).anio,
+						'numero_proyectos': response.rows.item(index).numero_proyectos,
+						'monto': parseInt(response.rows.item(index).monto),
+						'total': response.rows.item(index).total,
+						'group_by': mi_agrupacion,
+						'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2)
+					})
+				}
+				return Promise.resolve(data_grafica)
+			})
 	}
 
 	/* Objeto para construir  la grafica de barras. */
