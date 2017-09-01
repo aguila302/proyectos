@@ -154,8 +154,8 @@ export class ReportesDbService {
 			})
 	}
 
-	/* Objeto para construir  la grafica de barras. */
-	datosGrafica = (xy: Array < any > , intervalo: number, categorias: any, title_name: string): Object => {
+	/* Objeto para construir  la grafica de barras agruapdos. */
+	datosGraficaAgrupados = (xy: Array < any > , intervalo: number, categorias: any, title_name: string): Object => {
 		let options = {
 			chart: {
 				type: 'column'
@@ -209,6 +209,94 @@ export class ReportesDbService {
 			}]
 		}
 		// options['series'][0].data = xy
+		return options
+	}
+	/* Objeto para construir  la grafica de barras. */
+	datosGrafica = (xy: Array < any > , intervalo: number, serie_name: string, title_name: string): Object => {
+		let options = {
+			chart: {
+				type: 'column',
+				// width: 600,
+				// height: 350
+			},
+			title: {
+				text: title_name
+			},
+			xAxis: {
+				type: 'category'
+			},
+			yAxis: [{
+				className: 'highcharts-color-0',
+				tickInterval: intervalo,
+				labels: {
+					// x: -15,
+					formatter: function() {
+						return this.value + ' %';
+					}
+				},
+				title: {
+					text: 'Porcentaje total de participación'
+				}
+			}],
+			legend: {
+				enabled: false
+			},
+			plotOptions: {
+				series: {
+					borderWidth: 0,
+					dataLabels: {
+						enabled: true,
+						format: '{point.y:.1f}%'
+					}
+				}
+			},
+
+			tooltip: {
+				headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+				pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> del total<br/>'
+			},
+
+			series: [{
+				name: serie_name,
+				// colorByPoint: true,
+				data: [],
+			}],
+			responsive: {
+				rules: [{
+					condition: {
+						maxWidth: 500
+					},
+					title: {
+						text: 'responsive'
+					},
+					xAxis: {
+						type: 'category'
+					},
+					// Make the labels less space demanding on mobile
+					chartOptions: {
+						xAxis: {
+							labels: {
+								formatter: function() {
+									return this.value.charAt(0)
+								}
+							}
+						},
+						yAxis: {
+							className: 'highcharts-color-0',
+							labels: {
+								align: 'left',
+								x: 0,
+								y: -2
+							},
+							title: {
+								text: 'Porcentaje total de participación'
+							}
+						}
+					}
+				}]
+			}
+		}
+		options['series'][0].data = xy
 		return options
 	}
 }

@@ -163,10 +163,14 @@ export class NuevoReportePage {
 						})
 					}
 					this.categories = arg
-					console.log(collection_data)
+					/* Para formar la data se la serie de la grafica. */
+					// const grouped = collection_data.groupBy(agrupacion[1].items).toArray()
+					const grouped = collection_data.groupBy(agrupacion[1].items)
+					let keys_agruapcion = grouped.keys().toArray()
+					console.log(keys_agruapcion)
 					
 					this.categories = collect(this.categories).unique().all()
-					this.options = this.reporteService.datosGrafica(this.xy, 0, this.categories, 'Proyectos agrupados por ' + title)
+					this.options = this.reporteService.datosGraficaAgrupados(this.xy, 0, this.categories, 'Proyectos agrupados por ' + title)
 				})
 		}
 	}
