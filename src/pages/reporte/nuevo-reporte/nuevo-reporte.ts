@@ -1,10 +1,26 @@
-import { Component, NgZone } from '@angular/core'
-import { IonicPage, NavController,NavParams, ModalController, AlertController, LoadingController } from 'ionic-angular'
-import { ReportesDbService } from '../../../services/reportes.db.service'
+import {
+	Component,
+	NgZone
+} from '@angular/core'
+import {
+	IonicPage,
+	NavController,
+	NavParams,
+	ModalController,
+	AlertController,
+	LoadingController
+} from 'ionic-angular'
+import {
+	ReportesDbService
+} from '../../../services/reportes.db.service'
 import * as collect from 'collect.js/dist'
-import * as account from 'accounting-js'
-import { SelectColumnasPage } from '../select-columnas/select-columnas'
-import { SelectAgrupacionesPage } from '../select-agrupaciones/select-agrupaciones'
+
+import {
+	SelectColumnasPage
+} from '../select-columnas/select-columnas'
+import {
+	SelectAgrupacionesPage
+} from '../select-agrupaciones/select-agrupaciones'
 
 
 @IonicPage()
@@ -19,6 +35,7 @@ export class NuevoReportePage {
 	settings = {}
 	data = []
 	xy = []
+	categories = []
 	options = {}
 	visible: boolean = false
 
@@ -52,9 +69,9 @@ export class NuevoReportePage {
 		let modal_columnas = this.modal.create(SelectColumnasPage, {
 				'columnas': this.columnas
 			})
-		/* Muestro el modal para seleccionar las columnas. */
+			/* Muestro el modal para seleccionar las columnas. */
 		modal_columnas.present()
-		/* Cuando cierro mi modal recupero mis columnas que seleccione. */
+			/* Cuando cierro mi modal recupero mis columnas que seleccione. */
 		modal_columnas.onDidDismiss(data => {
 
 			/* Muestro las columnas seleccionadas en la vista. */
@@ -82,7 +99,7 @@ export class NuevoReportePage {
 		let loader = this.loadingCtrl.create({
 			content: "Please wait...",
 		});
-    	loader.present();
+		loader.present();
 		this.reporteService.obtenerDataCampos(data)
 			.then(response => {
 				this.zone.run(() => {
@@ -96,9 +113,9 @@ export class NuevoReportePage {
 	selectAgrupaciones = (columnas: Array < any > ): void => {
 		/* Pasamos las columnas antes seleccionadas para las agruapciones. */
 		let modal_agrupacion = this.modal.create(SelectAgrupacionesPage, {
-			'agrupaciones': columnas
-		})
-		/* Muestro el modal para seleccionar las agrupaciones. */
+				'agrupaciones': columnas
+			})
+			/* Muestro el modal para seleccionar las agrupaciones. */
 		modal_agrupacion.present()
 
 		modal_agrupacion.onDidDismiss(data => {
@@ -121,34 +138,44 @@ export class NuevoReportePage {
 				buttons: ['OK']
 			});
 			alert.present();
-		}
-		else {
+		} else {
 			this.visible = !this.visible
 			let title = collect(agrupacion).implode('items', ',');
+			let serie = collect(agrupacion).toArray()[0].items
 
 			this.reporteService.paraGraficar(columnas, agrupacion)
 				.then(response => {
-					this.xy.splice(0, this.xy.length)
+					let mi_data = []
+					/* Obtenemos las categorias para construir la grafica. */
+					this.categories.splice(0, this.xy.length)
 					response.forEach(item => {
-						this.xy.push({
-							name: item.campo,
-							y: parseFloat(item.porcentaje)
-						})
-
+						mi_data.push(item.data)
 					})
-					// console.log(this.xy)
-					this.options = this.reporteService.datosGrafica(this.xy, 2, '', 'Proyectos agrupados por ' + title)
 
+					const collection_data = collect(mi_data)
+					let keys = collection_data.keys().toArray()
+					let encontrado = keys.indexOf(serie)
+					let r = keys[encontrado]
+					let arg = []
+					if (encontrado !== -1) {
+						collection_data.each(function (item) {
+							arg.push(item[r])
+						})
+					}
+					this.categories = arg
+					console.log(collection_data)
+					
+					this.categories = collect(this.categories).unique().all()
+					this.options = this.reporteService.datosGrafica(this.xy, 0, this.categories, 'Proyectos agrupados por ' + title)
 				})
 		}
-
 	}
 
 	/* Funcion para guardar un reporte. */
-	guardarReporte = (agrupacion: Array<any>): void => {
+	guardarReporte = (agrupacion: Array < any > ): void => {
 		let title = collect(agrupacion).implode('items', ',')
 		console.log(title)
-		
+
 	}
 
 	/* Funcion para llegar el grid.  */

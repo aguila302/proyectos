@@ -2,15 +2,9 @@ import {
 	Injectable
 } from '@angular/core'
 import {
-	SQLite,
 	SQLiteObject
 } from '@ionic-native/sqlite'
-import {
-	PROYECTOS
-} from '../services/mocks/proyectos'
-import {
-	Proyecto
-} from '../interfaces/proyecto'
+
 import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
 
@@ -140,25 +134,20 @@ export class ReportesDbService {
 	paraGraficar = (columnas: Array<any>, agrupacion: Array<any>) => {
 		let  mis_columnas = collect(columnas).implode('items', ',')
 		let  mi_agrupacion = collect(agrupacion).implode('items', ',')
+
 		let data_grafica = []
-		
+
 		let sql = `select ` + mis_columnas + `, count(*) as numero_proyectos, sum(monto) as monto,
 					(select count(*) from proyectos) as total
 					FROM proyectos
 					group by ` + mi_agrupacion + ` order by ` + mi_agrupacion +` asc`
-		console.log(sql)
-		
 
+		// console.log(sql)
 		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
 					data_grafica.push({
-						'campo': response.rows.item(index).anio,
-						'numero_proyectos': response.rows.item(index).numero_proyectos,
-						'monto': parseInt(response.rows.item(index).monto),
-						'total': response.rows.item(index).total,
-						'group_by': mi_agrupacion,
-						'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2)
+						'data': response.rows.item(index)
 					})
 				}
 				return Promise.resolve(data_grafica)
@@ -166,91 +155,60 @@ export class ReportesDbService {
 	}
 
 	/* Objeto para construir  la grafica de barras. */
-	datosGrafica = (xy: Array < any > , intervalo: number, serie_name: string, title_name: string): Object => {
+	datosGrafica = (xy: Array < any > , intervalo: number, categorias: any, title_name: string): Object => {
 		let options = {
 			chart: {
-				type: 'column',
-				// width: 600,
-				// height: 350
+				type: 'column'
 			},
 			title: {
-				text: title_name
+				text: 'Monthly Average Rainfall'
+			},
+			subtitle: {
+				text: 'Source: WorldClimate.com'
 			},
 			xAxis: {
-				type: 'category'
+				categories: categorias,
+				crosshair: true
 			},
-			yAxis: [{
-				className: 'highcharts-color-0',
-				tickInterval: intervalo,
-				labels: {
-					// x: -15,
-					formatter: function() {
-						return this.value + ' %';
-					}
-				},
+			yAxis: {
+				min: 0,
 				title: {
-					text: 'Porcentaje total de participación'
+					text: 'Rainfall (mm)'
 				}
-			}],
-			legend: {
-				enabled: false
+			},
+			tooltip: {
+				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+				pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+					'<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+				footerFormat: '</table>',
+				shared: true,
+				useHTML: true
 			},
 			plotOptions: {
-				series: {
-					borderWidth: 0,
-					dataLabels: {
-						enabled: true,
-						format: '{point.y:.1f}%'
-					}
+				column: {
+					pointPadding: 0.2,
+					borderWidth: 0
 				}
 			},
-
-			tooltip: {
-				headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-				pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> del total<br/>'
-			},
-
 			series: [{
-				name: serie_name,
-				// colorByPoint: true,
-				data: [],
-			}],
-			responsive: {
-				rules: [{
-					condition: {
-						maxWidth: 500
-					},
-					title: {
-						text: 'responsive'
-					},
-					xAxis: {
-						type: 'category'
-					},
-					// Make the labels less space demanding on mobile
-					chartOptions: {
-						xAxis: {
-							labels: {
-								formatter: function() {
-									return this.value.charAt(0)
-								}
-							}
-						},
-						yAxis: {
-							className: 'highcharts-color-0',
-							labels: {
-								align: 'left',
-								x: 0,
-								y: -2
-							},
-							title: {
-								text: 'Porcentaje total de participación'
-							}
-						}
-					}
-				}]
-			}
+				name: 'Tokyo',
+				data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+
+			}, {
+				name: 'New York',
+				data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+
+			}, {
+				name: 'London',
+				data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+
+			}, {
+				name: 'Berlin',
+				data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+
+			}]
 		}
-		options['series'][0].data = xy
+		// options['series'][0].data = xy
 		return options
 	}
 }
