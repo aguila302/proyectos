@@ -109,7 +109,6 @@ export class NuevoReportePage {
 					items
 				})
 			})
-			
 		})
 	}
 
@@ -137,7 +136,7 @@ export class NuevoReportePage {
 						})
 
 					})
-
+					// console.log(this.xy)
 					this.options = this.reporteService.datosGrafica(this.xy, 2, '', 'Proyectos agrupados por ' + title)
 
 				})
