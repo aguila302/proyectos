@@ -167,7 +167,12 @@ export class NuevoReportePage {
 					// const grouped = collection_data.groupBy(agrupacion[1].items).toArray()
 					const grouped = collection_data.groupBy(agrupacion[1].items)
 					let keys_agruapcion = grouped.keys().toArray()
-					console.log(keys_agruapcion)
+					console.log(agrupacion[1].items)
+					
+					let encontrado_agru = keys_agruapcion.indexOf(agrupacion[1].items)
+					console.log(encontrado_agru)
+					
+			
 					
 					this.categories = collect(this.categories).unique().all()
 					this.options = this.reporteService.datosGraficaAgrupados(this.xy, 0, this.categories, 'Proyectos agrupados por ' + title)
