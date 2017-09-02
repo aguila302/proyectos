@@ -142,7 +142,7 @@ export class ReportesDbService {
 					FROM proyectos
 					group by ` + mi_agrupacion + ` order by ` + mi_agrupacion +` asc`
 
-		// console.log(sql)
+		console.log(sql)
 
 		return this.db.executeSql(sql, {})
 			.then(response => {
@@ -151,7 +151,9 @@ export class ReportesDbService {
 						'data': response.rows.item(index)
 					})
 				}
+				console.log(data_grafica)
 				return Promise.resolve(data_grafica)
+				
 			})
 	}
 

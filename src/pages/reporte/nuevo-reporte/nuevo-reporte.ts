@@ -170,8 +170,7 @@ export class NuevoReportePage {
 					if (encontrado_segunda_agrupacion !== -1) {
 						let group = collection_data.groupBy(primer_agrupacion).toArray()
 						group.map(function (item) {
-							console.log(item)
-							
+							// console.log(item)
 						})
 						
 					}
