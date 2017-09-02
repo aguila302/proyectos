@@ -73,7 +73,6 @@ export class NuevoReportePage {
 		modal_columnas.present()
 			/* Cuando cierro mi modal recupero mis columnas que seleccione. */
 		modal_columnas.onDidDismiss(data => {
-
 			/* Muestro las columnas seleccionadas en la vista. */
 			this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
 			data.forEach(items => {
@@ -141,12 +140,13 @@ export class NuevoReportePage {
 		} else {
 			this.visible = !this.visible
 			let title = collect(agrupacion).implode('items', ',');
-			let serie = collect(agrupacion).toArray()[0].items
+			let primer_agrupacion = collect(agrupacion).toArray()[0].items
+			let segunda_agrupacion = collect(agrupacion).toArray()[1].items
 
 			this.reporteService.paraGraficar(columnas, agrupacion)
 				.then(response => {
 					let mi_data = []
-					/* Obtenemos las categorias para construir la grafica. */
+						/* Obtenemos las categorias para construir la grafica. */
 					this.categories.splice(0, this.xy.length)
 					response.forEach(item => {
 						mi_data.push(item.data)
@@ -154,28 +154,29 @@ export class NuevoReportePage {
 
 					const collection_data = collect(mi_data)
 					let keys = collection_data.keys().toArray()
-					let encontrado = keys.indexOf(serie)
-					let r = keys[encontrado]
+					let encontrado_primer_agrupacion = keys.indexOf(primer_agrupacion)
+					let r = keys[encontrado_primer_agrupacion]
 					let arg = []
-					if (encontrado !== -1) {
-						collection_data.each(function (item) {
+					if (encontrado_primer_agrupacion !== -1) {
+						collection_data.each(function(item) {
 							arg.push(item[r])
 						})
 					}
 					this.categories = arg
-					/* Para formar la data se la serie de la grafica. */
-					// const grouped = collection_data.groupBy(agrupacion[1].items).toArray()
-					const grouped = collection_data.groupBy(agrupacion[1].items)
-					let keys_agruapcion = grouped.keys().toArray()
-					console.log(agrupacion[1].items)
-					
-					let encontrado_agru = keys_agruapcion.indexOf(agrupacion[1].items)
-					console.log(encontrado_agru)
-					
-			
-					
+						/* Para formar la data se la serie de la grafica. */
+					let encontrado_segunda_agrupacion = keys.indexOf(segunda_agrupacion)
+					let r2 = keys[encontrado_segunda_agrupacion]
+					let arg2 = []
+					if (encontrado_segunda_agrupacion !== -1) {
+						let group = collection_data.groupBy(primer_agrupacion).toArray()
+						group.map(function (item) {
+							console.log(item)
+							
+						})
+						
+					}
 					this.categories = collect(this.categories).unique().all()
-					this.options = this.reporteService.datosGraficaAgrupados(this.xy, 0, this.categories, 'Proyectos agrupados por ' + title)
+					this.options = this.reporteService.datosGraficaAgrupados(arg2, 0, this.categories, 'Proyectos agrupados por ' + title)
 				})
 		}
 	}
@@ -183,8 +184,6 @@ export class NuevoReportePage {
 	/* Funcion para guardar un reporte. */
 	guardarReporte = (agrupacion: Array < any > ): void => {
 		let title = collect(agrupacion).implode('items', ',')
-		console.log(title)
-
 	}
 
 	/* Funcion para llegar el grid.  */

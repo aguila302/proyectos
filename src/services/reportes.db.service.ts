@@ -143,6 +143,7 @@ export class ReportesDbService {
 					group by ` + mi_agrupacion + ` order by ` + mi_agrupacion +` asc`
 
 		// console.log(sql)
+
 		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
@@ -209,6 +210,8 @@ export class ReportesDbService {
 			}]
 		}
 		// options['series'][0].data = xy
+		// console.log(options)
+		
 		return options
 	}
 	/* Objeto para construir  la grafica de barras. */
