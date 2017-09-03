@@ -141,41 +141,41 @@ export class NuevoReportePage {
 			this.visible = !this.visible
 			let title = collect(agrupacion).implode('items', ',');
 			let primer_agrupacion = collect(agrupacion).toArray()[0].items
-			let segunda_agrupacion = collect(agrupacion).toArray()[1].items
 
 			this.reporteService.paraGraficar(columnas, agrupacion)
 				.then(response => {
 					let mi_data = []
-						/* Obtenemos las categorias para construir la grafica. */
-					this.categories.splice(0, this.xy.length)
-					response.forEach(item => {
-						mi_data.push(item.data)
+					response.forEach(items => {
+						mi_data.push(items.data)
 					})
-
+					/* monto total de todos los proyectos. */
 					const collection_data = collect(mi_data)
+					let monto_total = collection_data.sum('monto')
+	
 					let keys = collection_data.keys().toArray()
 					let encontrado_primer_agrupacion = keys.indexOf(primer_agrupacion)
 					let r = keys[encontrado_primer_agrupacion]
 					let arg = []
 					if (encontrado_primer_agrupacion !== -1) {
-						collection_data.each(function(item) {
-							arg.push(item[r])
+						let agrupados = collection_data.groupBy(primer_agrupacion).toArray()
+
+						let datos = agrupados.map(function(item, monto) {
+							// console.log(item[0])
+							let num_proyectos = item[0]['numero_proyectos']
+							let total = item[0]['total']
+			
+							let suma_montos = item.reduce(function(index, proyecto) {
+								return index + parseInt(proyecto.monto)
+							}, 0)
+							// 'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2)
+							return {
+								name: item[0][r],
+								y: parseFloat(((num_proyectos / total) * 100).toFixed(2)),
+							}
 						})
+					this.options = this.reporteService.datosGrafica(datos, 10, '', 'Proyectos agrupados por ' + title.charAt(0).toUpperCase() + title.slice(1))
 					}
-					this.categories = arg
-						/* Para formar la data se la serie de la grafica. */
-					let encontrado_segunda_agrupacion = keys.indexOf(segunda_agrupacion)
-					let r2 = keys[encontrado_segunda_agrupacion]
-					let arg2 = []
-					if (encontrado_segunda_agrupacion !== -1) {
-						let group = collection_data.groupBy(primer_agrupacion).toArray()
-						group.map(function (item) {
-							// console.log(item)
-						})
-						
-					}
-					this.categories = collect(this.categories).unique().all()
-					this.options = this.reporteService.datosGraficaAgrupados(arg2, 0, this.categories, 'Proyectos agrupados por ' + title)
+
 				})
 		}
 	}
