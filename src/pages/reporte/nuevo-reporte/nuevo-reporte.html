@@ -25,14 +25,14 @@
 	<hr>
 	<ion-grid>
 		<ion-row>
-			<ion-col>
-				<button ion-button  (click)="graficar(columnas_seleccionadas, agrupacion_seleccionada)">Graficar</button>
+			<ion-col text-center>
+				<button ion-button [hidden]="!visible_boton" (click)="graficar(columnas_seleccionadas, agrupacion_seleccionada)">Graficar</button>
 			</ion-col>
-			<ion-col>
-				<!-- <button ion-button (click)="">Seleccionar agrupaciones</button> -->
+			<ion-col text-center>
+				<button ion-button>Cancelar</button>
 			</ion-col>
-			<ion-col>
-				<button ion-button (click)="guardarReporte(agrupacion_seleccionada)">Guardar</button>
+			<ion-col text-center>
+				<button ion-button [hidden]="!visible_boton" (click)="guardarReporte(agrupacion_seleccionada)">Guardar</button>
 			</ion-col>
 		</ion-row>
 	</ion-grid>

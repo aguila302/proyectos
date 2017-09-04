@@ -38,6 +38,7 @@ export class NuevoReportePage {
 	categories = []
 	options = {}
 	visible: boolean = false
+	visible_boton: boolean = false
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private reporteService: ReportesDbService, private modal: ModalController,
@@ -125,6 +126,7 @@ export class NuevoReportePage {
 					items
 				})
 			})
+			this.visible_boton = !this.visible_boton
 		})
 	}
 
