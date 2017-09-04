@@ -5,6 +5,7 @@ import { Proyecto } from '../interfaces/proyecto'
 import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
 import { ReportesDbService } from './reportes.db.service'
+import { SQLitePorter } from '@ionic-native/sqlite-porter';
 
 @Injectable()
 
@@ -13,7 +14,8 @@ export class DbService {
 	db: SQLiteObject = null
 	sqlite: SQLite = null;
 
-	constructor(public reporteService: ReportesDbService) {
+	constructor(public reporteService: ReportesDbService,
+		private sqlitePorter: SQLitePorter) {
 		this.sqlite = new SQLite();
 	}
 
@@ -24,11 +26,12 @@ export class DbService {
 				location: 'default',
 				createFromLocation: 1
 			})
-			.then((db: SQLiteObject) => {
+			.then((db: any) => {
 				this.db = db
+				// let dbInstance = db._objectInstance;
 
 				/* Inicio mi servicio para los reportes. */
-				this.reporteService.initDb(this.db)
+				this.reporteService.initDb(db)
 			})
 
 	}
@@ -58,6 +61,13 @@ export class DbService {
 				numero_propuesta text,
 				anticipo text)
 		`;
+		// this.sqlitePorter.exportDbToSql(this.db)
+		// 	.then(r => {
+		// 		console.log(r)
+				
+		// 		console.log('Exported')
+		// 	})
+		// 	.catch(e => console.error(e))
 
 		return this.db.executeSql(sql, {})
 			.then(() => console.log('tabla creada'))

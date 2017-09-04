@@ -167,7 +167,6 @@ export class NuevoReportePage {
 							let suma_montos = item.reduce(function(index, proyecto) {
 								return index + parseInt(proyecto.monto)
 							}, 0)
-							// 'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2)
 							return {
 								name: item[0][r],
 								y: parseFloat(((num_proyectos / total) * 100).toFixed(2)),
@@ -175,14 +174,57 @@ export class NuevoReportePage {
 						})
 					this.options = this.reporteService.datosGrafica(datos, 10, '', 'Proyectos agrupados por ' + title.charAt(0).toUpperCase() + title.slice(1))
 					}
-
 				})
 		}
 	}
 
 	/* Funcion para guardar un reporte. */
-	guardarReporte = (agrupacion: Array < any > ): void => {
+	guardarReporte = (agrupacion: Array < any >, Object ): void => {
 		let title = collect(agrupacion).implode('items', ',')
+		let confirmacion = this.alertCtrl.create({
+			title: 'Registro de reporte',
+			message: '¿ Esta seguro de guardar el reporte ?',
+			buttons: [{
+				text: 'Cancelar',
+				handler: () => {
+					console.log('Disagree clicked')
+					confirmacion.dismiss()
+				}
+			}, {
+				text: 'Guardar',
+				handler: () => {
+					console.log('Agree clicked')
+					/* Consigo el total del monto y numero de proyectos para registrar el reporte. */
+					this.reporteService.paraGuardarReporte(title)
+						.then(response => {
+							let mi_collect = collect(response)
+							let monto_total = mi_collect.sum('monto')
+							let numero_proyectos = mi_collect.sum('numero_proyectos')
+
+							this.reporteService.saveReporte(title, monto_total, numero_proyectos)
+								.then(response => {
+									let last_id = response[0]['id']
+									this.reporteService.insertarReporteAgrupado(last_id, title)
+										.then(response => {
+											console.log('insertarReporteAgrupado')
+											console.log(response.insertId)
+											this.reporteService.insertReporteColumnas(response.insertId, title)
+												.then(response => {
+													console.log('insertReporteColumnas')
+													console.log(response.insertId)
+													if (response.insertId !== 0) {
+														console.log('regustro Exitoso')
+														this.navCtrl.pop()
+													}
+												})
+										})
+								})
+						})
+				}
+			}]
+		})
+		confirmacion.present()
+		
 	}
 
 	/* Funcion para llegar el grid.  */

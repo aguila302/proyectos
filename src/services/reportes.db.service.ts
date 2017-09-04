@@ -153,6 +153,75 @@ export class ReportesDbService {
 			})
 	}
 
+	/* Funcion para obtener la data para registrar un reporte. */
+	paraGuardarReporte = (agrupacion: string) => {
+		let data = []
+		let sql = `select sum(monto) as monto,
+					count(*) as numero_proyectos
+					FROM proyectos
+					group by ` + agrupacion + ``
+
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					data.push({
+						'monto': response.rows.item(index).monto,
+						'numero_proyectos': response.rows.item(index).numero_proyectos,
+					})
+				}
+				return Promise.resolve(data)
+			})
+	}
+
+	/* Funcion para guardar un reporte. */
+	saveReporte = (title: string, monto_total: number, numero_proyectos: number): any => {
+		let array_id = []
+
+		let insert = `insert into reportes(
+				nombre_reporte, total_usd, total_proyectos) values(?, ?, ?)`
+		this.db.executeSql(insert, [title, monto_total, numero_proyectos])
+			.then(() => console.log('nuevo reporte insertado'))
+			.catch(e => console.log(e))
+
+		let last_id = `SELECT max(id) as id from reportes`
+		return this.db.executeSql(last_id, {})
+			.then(response => {
+				let id: number
+				for (let index = 0; index < response.rows.length; index++) {
+					array_id.push({
+						'id': response.rows.item(index).id
+					})
+				}
+				return Promise.resolve(array_id)
+			})
+	}
+
+	/* Funcion para insertar en reportes agrupacion*/
+	insertarReporteAgrupado = (id: number, agrupacion: string): any => {
+		let success: number = 0
+		let insert_grupado = `insert into reportes_agrupacion(
+				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
+
+		return this.db.executeSql(insert_grupado, [id, agrupacion, '1'])
+			// .then(() =>
+			// 	console.log('regustros insertados en tabla reportes agrupacion de nuevo reporte'),
+			// 	// this.insertReporteColumnas(id, agrupacion)
+			// )
+			// .catch(e => console.log(e))
+		// success = 1
+		// return success
+	}
+
+	/* Funcion para insertar e reportes columans*/
+	insertReporteColumnas = (id: number, agrupacion: string): any => {
+		let insert_grupado = `insert into reportes_columnas(
+				reporte_id, nombre_columna) values(?, ?)`
+
+		return this.db.executeSql(insert_grupado, [id, agrupacion])
+			// .then(() => console.log('regustros insertados en tabla reportes columnas de nuevo reporte'))
+			// .catch(e => console.log(e))
+	}
+
 	/* Objeto para construir  la grafica de barras agruapdos. */
 	datosGraficaAgrupados = (xy: Array < any > , intervalo: number, categorias: any, title_name: string): Object => {
 			let options = {
@@ -207,11 +276,9 @@ export class ReportesDbService {
 
 					}]
 				}
-				// options['series'][0].data = xy
-				// console.log(options)
 
-			return options
-		}
+		return options
+	}
 		/* Objeto para construir  la grafica de barras. */
 	datosGrafica = (xy: Array < any > , intervalo: number, serie_name: string, title_name: string): Object => {
 		let options = {

@@ -37,6 +37,7 @@ import { SQLite } from '@ionic-native/sqlite';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { SQLitePorter } from '@ionic-native/sqlite-porter';
 
 @NgModule({
   declarations: [
@@ -101,7 +102,8 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     },
     SQLite,
     DbService,
-    ReportesDbService
+    ReportesDbService,
+    SQLitePorter
   ]
 })
 export class AppModule {}

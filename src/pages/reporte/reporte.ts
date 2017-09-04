@@ -13,7 +13,9 @@ export class ReportePage {
 	reportes = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
-		private reporteService : ReportesDbService) {}
+		private reporteService : ReportesDbService) {
+		// this.getReportes()
+	}
 
 	/* Cargamos los proyectos cuando la vista esta activa. */
 	ionViewDidLoad() {
@@ -21,6 +23,10 @@ export class ReportePage {
 		this.getReportes()
 	}
 
+	ionViewWillEnter() {
+		console.log('volviste')
+		this.getReportes()
+	}
 	/* Funcion para mostrar el detalle de un reporte. */
 	detalleReporte = (id: number): void => {
 		console.log('show detalle')
