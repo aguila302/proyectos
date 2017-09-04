@@ -32,15 +32,12 @@
         "@ionic/storage": "2.0.1",
         "accounting-js": "^1.1.1",
         "angular2-highcharts": "^0.5.5",
-        "angular2-materialize": "^15.0.4",
         "chart.js": "^2.6.0",
-        "collect-js": "0.0.4",
         "collect.js": "^3.0.43",
         "cordova-android": "^6.2.3",
         "cordova-ios": "^4.4.0",
         "cordova-plugin-compat": "^1.1.0",
         "cordova-plugin-console": "^1.0.7",
-        "cordova-plugin-crosswalk-webview": "^2.3.0",
         "cordova-plugin-dbcopy": "git+https://github.com/an-rahulpandey/cordova-plugin-dbcopy.git",
         "cordova-plugin-device": "^1.1.6",
         "cordova-plugin-file": "^4.3.3",
@@ -59,7 +56,6 @@
         "load-json-file": "^2.0.0",
         "lodash": "^4.17.4",
         "materialize-css": "^0.98.2",
-        "ng2-accordion": "0.0.15",
         "ng2-charts": "^1.6.0",
         "ng2-smart-table": "^1.2.1",
         "rxjs": "5.1.1",
@@ -91,14 +87,7 @@
             "cordova-sqlite-storage": {},
             "cordova-plugin-dbcopy": {},
             "cordova-plugin-wkwebview-engine": {},
-            "uk.co.workingedge.cordova.plugin.sqliteporter": {},
-            "cordova-plugin-crosswalk-webview": {
-                "XWALK_VERSION": "23+",
-                "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
-                "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
-                "XWALK_MODE": "embedded",
-                "XWALK_MULTIPLEAPK": "true"
-            }
+            "uk.co.workingedge.cordova.plugin.sqliteporter": {}
         },
         "platforms": [
             "android",

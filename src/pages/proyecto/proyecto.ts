@@ -37,6 +37,10 @@ export class ProyectoPage {
 			this.getProyectos()
 		})
 	}
+	ionViewWillEnter() {
+		console.log('volviste')
+		this.getProyectos()
+	}
 
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
 	getProyectos() {
