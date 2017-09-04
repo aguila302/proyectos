@@ -70,7 +70,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/05/1986',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,50 ',
 	'TIPO DE CAMBIO MX': ' 2,50 ',
-	'unidad_negocio': 'computadora',
+	'unidad_negocio': 'Sin dato',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '426448,516',
 	'anio': '1986',
 	'id': 1
@@ -211,7 +211,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/04/1990',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,80 ',
 	'TIPO DE CAMBIO MX': ' 2,80 ',
-	'unidad_negocio': 'buitre',
+	'unidad_negocio': 'Sin dato',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '35160357,1428571',
 	'anio': '1990',
 	'id': 5
