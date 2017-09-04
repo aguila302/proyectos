@@ -126,7 +126,10 @@ export class NuevoReportePage {
 					items
 				})
 			})
+			/* Funcion que nos servira para graficar la informacion. */
+			this.graficar(this.columnas_seleccionadas, this.agrupacion_seleccionada)
 		})
+	
 	}
 
 	/* Funcion que nos servira para graficar la informacion. */
