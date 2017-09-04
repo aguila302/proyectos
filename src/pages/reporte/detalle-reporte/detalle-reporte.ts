@@ -223,33 +223,30 @@ export class DetalleReportePage {
 	/* Funcion para ver el detalle de los proyectos segun la opcion que se escoja. */
 	verProyectosAgrupados = (group_by: string, campo: string, monto_total: string): void => {
 
-		if(group_by === 'pais') {
+		if (group_by === 'pais') {
 			this.navCtrl.push(ProyectosAgrupadosPage, {
 				'pais': campo,
 				'monto_total': monto_total
 			})
-		}
-		if(group_by === 'anio') {
+		} else if (group_by === 'anio') {
 			this.navCtrl.push(ProyectosAgrupadosAnioPage, {
 				'anio': campo,
 				'monto_total': monto_total
 			})
-		}
-		if(group_by === 'gerencia') {
+		} else if (group_by === 'gerencia') {
 			this.navCtrl.push(ProyectosAgrupadosGerenciaPage, {
 				'gerencia': campo,
 				'monto_total': monto_total
 			})
-		}
-		if(group_by === 'contratante') {
+		} else if (group_by === 'contratante') {
 			console.log(group_by)
 			this.verProyectosAgrupadosCliente(campo, monto_total)
+		} else {
+			this.navCtrl.push(DetalleReporteAgrupadoPage, {
+				'campo': campo,
+				'monto_total': monto_total,
+				'groupBy': group_by
+			})
 		}
-
-		this.navCtrl.push(DetalleReporteAgrupadoPage, {
-			'campo': campo,
-			'monto_total': monto_total,
-			'groupBy': group_by
-		})
 	}
 }
