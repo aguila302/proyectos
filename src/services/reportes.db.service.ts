@@ -117,7 +117,7 @@ export class ReportesDbService {
 			let campos_data = []
 			let columns = collect(columnas).implode(',')
 
-			let select = 'select ' + columns + ' from proyectos order by anio DESC limit 10'
+			let select = 'select ' + columns + ' from proyectos order by anio'
 
 			return this.db.executeSql(select, {})
 				.then((response) => {

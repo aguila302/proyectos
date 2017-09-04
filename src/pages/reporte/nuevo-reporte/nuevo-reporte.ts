@@ -97,7 +97,7 @@ export class NuevoReportePage {
 	/* Funcion para traer los datos de los campos seleccionados. */
 	getDataCampos = (columnas, data): any => {
 		let loader = this.loadingCtrl.create({
-			content: "Please wait...",
+			content: 'Por favor espere',
 		});
 		loader.present();
 		this.reporteService.obtenerDataCampos(data)
@@ -185,7 +185,11 @@ export class NuevoReportePage {
 		let title = collect(agrupacion).implode('items', ',')
 		let confirmacion = this.alertCtrl.create({
 			title: 'Registro de reporte',
-			message: '¿ Esta seguro de guardar el reporte ?',
+			message: 'Introduce un nombre para este nuevo reporte',
+			inputs: [{
+				name: 'title',
+				placeholder: 'Nombre del reporte'
+			},],
 			buttons: [{
 				text: 'Cancelar',
 				handler: () => {
@@ -194,7 +198,9 @@ export class NuevoReportePage {
 				}
 			}, {
 				text: 'Guardar',
-				handler: () => {
+				handler: data => {
+					console.log(data['title'])
+					
 					console.log('Agree clicked')
 					/* Consigo el total del monto y numero de proyectos para registrar el reporte. */
 					this.reporteService.paraGuardarReporte(title)
@@ -203,7 +209,7 @@ export class NuevoReportePage {
 							let monto_total = mi_collect.sum('monto')
 							let numero_proyectos = mi_collect.sum('numero_proyectos')
 
-							this.reporteService.saveReporte(title, monto_total, numero_proyectos)
+							this.reporteService.saveReporte(data['title'], monto_total, numero_proyectos)
 								.then(response => {
 									let last_id = response[0]['id']
 									this.reporteService.insertarReporteAgrupado(last_id, title)
@@ -245,7 +251,7 @@ export class NuevoReportePage {
 			}
 			this.settings['pager'] = {
 				display: true,
-				perPage: 20,
+				perPage: 10,
 			}
 		})
 		return this.settings
