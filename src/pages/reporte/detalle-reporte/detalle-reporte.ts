@@ -9,7 +9,7 @@ import { ProyectosAgrupadosClientePage } from '../../estadistica/proyectos-agrup
 import { ProyectosAgrupadosGerenciaPage } from '../../estadistica/proyectos-agrupados/por-gerencia/proyectos-agrupados-gerencia'
 import { DbService } from '../../../services/db.service'
 import { ProyectosAgrupadosClienteMenoresPage } from '../../estadistica/proyectos-agrupados/por-cliente/por-cliente-menores/proyectos-agrupados-cliente-menores'
-
+import { DetalleReporteAgrupadoPage } from '../../reporte/detalle-reporte/detalle-reporte-agrupado/detalle-reporte-agrupado'
 
 @IonicPage()
 @Component({
@@ -222,16 +222,14 @@ export class DetalleReportePage {
 
 	/* Funcion para ver el detalle de los proyectos segun la opcion que se escoja. */
 	verProyectosAgrupados = (group_by: string, campo: string, monto_total: string): void => {
+
 		if(group_by === 'pais') {
-			console.log(group_by)
-			
 			this.navCtrl.push(ProyectosAgrupadosPage, {
 				'pais': campo,
 				'monto_total': monto_total
 			})
 		}
 		if(group_by === 'anio') {
-
 			this.navCtrl.push(ProyectosAgrupadosAnioPage, {
 				'anio': campo,
 				'monto_total': monto_total
@@ -247,5 +245,11 @@ export class DetalleReportePage {
 			console.log(group_by)
 			this.verProyectosAgrupadosCliente(campo, monto_total)
 		}
+
+		this.navCtrl.push(DetalleReporteAgrupadoPage, {
+			'campo': campo,
+			'monto_total': monto_total,
+			'groupBy': group_by
+		})
 	}
 }
