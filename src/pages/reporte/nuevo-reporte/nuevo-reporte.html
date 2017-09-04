@@ -29,7 +29,7 @@
 				<button ion-button [hidden]="!visible_boton" (click)="graficar(columnas_seleccionadas, agrupacion_seleccionada)">Graficar</button>
 			</ion-col>
 			<ion-col text-center>
-				<button ion-button>Cancelar</button>
+				<button ion-button [hidden]="!visible">Cancelar</button>
 			</ion-col>
 			<ion-col text-center>
 				<button ion-button [hidden]="!visible_boton" (click)="guardarReporte(agrupacion_seleccionada)">Guardar</button>
