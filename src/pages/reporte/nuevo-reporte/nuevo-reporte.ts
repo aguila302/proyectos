@@ -49,113 +49,38 @@ export class NuevoReportePage {
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad NuevoReportePage')
-		this.getColumnas()
-	}
-
-	/* Funcion para conseguir columnas. */
-	getColumnas = (): any => {
-		this.reporteService.getColumnas()
-			.then(response => {
-				response.forEach(items => {
-					this.columnas.push({
-						items
-					})
-				})
-			})
+		// this.getColumnas()
 	}
 
 	/* Funcion para mostrar las comunas y escoger*/
 	selectColumnas = (): void => {
 		let mis_columnas = []
 			/* Pasamos las columnas a la vista de seleeccion de columnas. */
-		let modal_columnas = this.modal.create(SelectColumnasPage, {
-				'columnas': this.columnas
-			})
+		let modal_columnas = this.modal.create(SelectColumnasPage, {})
 			/* Muestro el modal para seleccionar las columnas. */
 		modal_columnas.present()
 			/* Cuando cierro mi modal recupero mis columnas que seleccione. */
 		modal_columnas.onDidDismiss(data => {
-			/* Muestro las columnas seleccionadas en la vista. */
-			this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
+
+			/* Aqui acomodo las columnas seleccionandas para mostrarlas en el grid. */
 			data.forEach(items => {
 				this.columnas_seleccionadas.push({
 					items
 				})
 			})
 
-			/* Aqui acomodo las columnas seleccionandas para mostrarlas en el grid. */
-			this.columnas_seleccionadas.forEach(items => {
-				mis_columnas.push({
-					items
-				})
-			})
-
-			/* Voy a la funcion que me ayudara a conseguir la data de mis columnas. */
-			this.getDataCampos(mis_columnas, data)
+			this.manageGrid(this.columnas_seleccionadas, [])
 		})
 	}
 
-	/* Funcion para traer los datos de los campos seleccionados. */
-	getDataCampos = (columnas, data): any => {
-		let loader = this.loadingCtrl.create({
-			content: 'Por favor espere',
-		});
-		loader.present();
-		this.reporteService.obtenerDataCampos(data)
-			.then(response => {
-				// console.log(response)
-				// let fetch = [{}]
-				let mi_data = collect(response)
-				// // console.log(mi_data)
-				const multiplied = mi_data.map(function(item) {
-					// return item;
-					// let monto = ''
-					item.monto = account.formatNumber(item.monto)
-					// if(item.monto) {
-						// return account.formatNumber(item.monto)
-					// }
-					return item
-				})
-
-				console.log(multiplied.all())
-
-				this.zone.run(() => {
-					this.manageGrid(columnas, response)
-				})
-				loader.dismiss()
-			})
-	}
-
-	/* Funcion para mostrar las agrupaciones y escoger*/
-	selectAgrupaciones = (columnas: Array < any > ): void => {
-		/* Pasamos las columnas antes seleccionadas para las agruapciones. */
-		let modal_agrupacion = this.modal.create(SelectAgrupacionesPage, {
-				'agrupaciones': columnas
-			})
-			/* Muestro el modal para seleccionar las agrupaciones. */
-		modal_agrupacion.present()
-
-		modal_agrupacion.onDidDismiss(data => {
-			/* Muestro las agruapciones seleccionadas en la vista. */
-			this.agrupacion_seleccionada.splice(0, this.agrupacion_seleccionada.length)
-			data.forEach(items => {
-				this.agrupacion_seleccionada.push({
-					items
-				})
-			})
-			/* Funcion que nos servira para graficar la informacion. */
-			// console.log('actualnete agrupados')
-			// console.log(this.agrupacion_seleccionada.length)
-			// if(this.agrupacion_seleccionada.length > 0) {
-			// 	this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
-			// }
-			this.graficar(this.columnas_seleccionadas, this.agrupacion_seleccionada)
-		})
-	
+	/* Funcion para filtar mis columnas seleccionadas.*/
+	filtrarColumnas = (columnas_seleccionadas: Array<any>) => {
+		console.log(columnas_seleccionadas)
+		
 	}
 
 	/* Funcion que nos servira para graficar la informacion. */
-	graficar = (columnas: Array < any > , agrupacion: Array < any > ): void => {
+	graficar = (columnas: Array < any > , agrupacion?: Array < any > ): void => {
 		if (columnas.length === 0 || agrupacion.length === 0) {
 			let alert = this.alertCtrl.create({
 				title: 'Aviso!',
@@ -262,21 +187,20 @@ export class NuevoReportePage {
 
 	/* Funcion para llegar el grid.  */
 	manageGrid = (columnas: Array < any > , data: Array < any > ): Object => {
+
 		this.settings = {
 			columns: {}
 		}
 		this.data = data
 
 		columnas.forEach(items => {
+
 			this.settings['hideSubHeader'] = false
 			this.settings['hideHeader'] = false
 
-			this.settings['columns'][items.items.items] = {
-				title: items.items.items,
-			}
-			this.settings['pager'] = {
-				display: true,
-				perPage: 10,
+			this.settings['columns'][items.items] = {
+				title: items.items,
+				filter: false
 			}
 		})
 		return this.settings

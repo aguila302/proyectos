@@ -23,8 +23,8 @@
 <ion-content>
 	<ion-list>
 		<ion-item *ngFor="let item of columnas">
-			<ion-label>{{ item.items }}</ion-label>
-			<ion-checkbox (ionChange)="seleccionColumnas($event, item.items)"></ion-checkbox>
+			<ion-label>{{ item.texto }}</ion-label>
+			<ion-checkbox checked="{{ item.checked }}" (ionChange)="seleccionColumnas($event, item.opcion)"></ion-checkbox>
 		</ion-item>
 		<button ion-button block color="botton" (click)="aceptar()">Aceptar</button>
 	</ion-list>

@@ -5,19 +5,12 @@
 </ion-header>
 <ion-content padding>
 	<button ion-button full (click)="selectColumnas()">Seleccionar columnas</button>
-<!-- 	<ion-list>
-		<ion-item *ngFor="let item of columnas_seleccionadas">
-			<ion-label>{{ item.items }}</ion-label>
-		</ion-item>
-	</ion-list> -->
-	<!-- <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table> -->
-	<ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+	<hr>
+	<hr>
+	<button ion-button full (click)="filtrarColumnas()">Filtrar columnas</button>
+
 	<button ion-button full (click)="selectAgrupaciones(columnas_seleccionadas)">Seleccionar agrupaciones</button>
-<!-- 	<ion-list>
-		<ion-item *ngFor="let item of agrupacion_seleccionada">
-			<ion-label>{{ item.items }}</ion-label>
-		</ion-item>
-	</ion-list> -->
+	<ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
 	<div id="container" [hidden]="!visible">
 		<chart [options]="options"></chart>
 	</div>

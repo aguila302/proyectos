@@ -8,33 +8,34 @@ import * as collect from 'collect.js/dist'
 	templateUrl: 'select-columnas.html',
 })
 export class SelectColumnasPage {
-	columnas = []
+	// columnas = []
 	columnas_seleccionadas = []
 
-	// items = [
-	// 	{'opcion': 'unidad_negocio', 'texto': 'Por unidad de negocio', 'checked': false},
-	// 	{'opcion': 'gerencia', 'texto': 'Por gerencia', 'checked': false},
-	// 	{'opcion': 'producto', 'texto': 'Por producto', 'checked': false},
-	// 	{'opcion': 'numero_propuesta', 'texto': 'Por numero de propuesta', 'checked': false},
-	// 	{'opcion': 'contrato', 'texto': 'Por contrato', 'checked': false},
-	// 	{'opcion': 'anio', 'texto': 'Por año', 'checked': false},
-	// 	{'opcion': 'nombre_proyecto', 'texto': 'Por nombre de proyecto', 'checked': false},
-	// 	{'opcion': 'nombre_corto', 'texto': 'Por nombre corto', 'checked': false},
-	// 	{'opcion': 'contratante', 'texto': 'Por contratante', 'checked': false},
-	// 	{'opcion': 'datos_cliente', 'texto': 'Por datos de cliente', 'checked': false},
-	// 	{'opcion': 'fecha_inicio', 'texto': 'Por fecha de inicio', 'checked': false},
-	// 	{'opcion': 'fecha_fin', 'texto': 'Por fecha de termino', 'checked': false},
-	// 	{'opcion': 'duracion', 'texto': 'Por duracion', 'checked': false},
-	// ]
+	columnas = [
+		{'opcion': 'nombre_proyecto', 'texto': 'Por nombre de proyecto', 'checked': false},
+		{'opcion': 'nombre_corto', 'texto': 'Por nombre corto', 'checked': false},
+		{'opcion': 'contrato', 'texto': 'Por contrato', 'checked': false},
+		{'opcion': 'monto', 'texto': 'Por monto USD', 'checked': false},
+		{'opcion': 'monto_moneda_original', 'texto': 'Por monto moneda original', 'checked': false},
+		{'opcion': 'moneda', 'texto': 'Por moneda', 'checked': false},
+		{'opcion': 'pais', 'texto': 'Por país', 'checked': false},
+		{'opcion': 'gerencia', 'texto': 'Por gerencia', 'checked': false},
+		{'opcion': 'unidad_negocio', 'texto': 'Por unidad de negocio', 'checked': false},
+		{'opcion': 'numero_propuesta', 'texto': 'Por numero de propuesta', 'checked': false},
+		{'opcion': 'producto', 'texto': 'Por producto', 'checked': false},
+		{'opcion': 'anio', 'texto': 'Por año', 'checked': false},
+		{'opcion': 'duracion', 'texto': 'Por duracion', 'checked': false},
+		{'opcion': 'contratante', 'texto': 'Por contratante', 'checked': false},
+		{'opcion': 'datos_cliente', 'texto': 'Por datos de cliente', 'checked': false},
+		{'opcion': 'fecha_inicio', 'texto': 'Por fecha de inicio', 'checked': false},
+		{'opcion': 'fecha_fin', 'texto': 'Por fecha de termino', 'checked': false},
+		{'opcion': 'numero_propuesta', 'texto': 'Por numero de propuesta', 'checked': false},
+		{'opcion': 'anticipo', 'texto': 'Por anticipo', 'checked': false},
+	]
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private view: ViewController) {
-
-		/* Recupero mis columnas antes recibidas. */
-		this.columnas = this.navParams.get('columnas')
-		this.columnas.shift()
-
-		this.columnas = collect(this.columnas).sortBy('items').all()
+			this.columnas = collect(this.columnas).sortBy('texto').all()
 	}
 
 	ionViewDidLoad() {
