@@ -105,19 +105,19 @@ export class NuevoReportePage {
 			.then(response => {
 				// console.log(response)
 				// let fetch = [{}]
-				// let mi_data = collect(response)
+				let mi_data = collect(response)
 				// // console.log(mi_data)
-				// const multiplied = mi_data.map(function(item) {
-				// 	// return item;
-				// 	let monto = ''
-				// 	monto = account.formatNumber(item.monto)
-				// 	// if(item.monto) {
-				// 		// return account.formatNumber(item.monto)
-				// 	// }
-				// 	return [item,monto]
-				// })
+				const multiplied = mi_data.map(function(item) {
+					// return item;
+					// let monto = ''
+					item.monto = account.formatNumber(item.monto)
+					// if(item.monto) {
+						// return account.formatNumber(item.monto)
+					// }
+					return item
+				})
 
-				// console.log(multiplied.all())
+				console.log(multiplied.all())
 
 				this.zone.run(() => {
 					this.manageGrid(columnas, response)
