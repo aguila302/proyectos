@@ -144,11 +144,11 @@ export class NuevoReportePage {
 				})
 			})
 			/* Funcion que nos servira para graficar la informacion. */
-			console.log('actualnete agrupados')
-			console.log(this.agrupacion_seleccionada.length)
-			if(this.agrupacion_seleccionada.length > 0) {
-				this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
-			}
+			// console.log('actualnete agrupados')
+			// console.log(this.agrupacion_seleccionada.length)
+			// if(this.agrupacion_seleccionada.length > 0) {
+			// 	this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
+			// }
 			this.graficar(this.columnas_seleccionadas, this.agrupacion_seleccionada)
 		})
 	
