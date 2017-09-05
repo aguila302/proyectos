@@ -21,6 +21,7 @@ import {
 import {
 	SelectAgrupacionesPage
 } from '../select-agrupaciones/select-agrupaciones'
+import * as account from 'accounting-js'
 
 
 @IonicPage()
@@ -102,6 +103,22 @@ export class NuevoReportePage {
 		loader.present();
 		this.reporteService.obtenerDataCampos(data)
 			.then(response => {
+				// console.log(response)
+				// let fetch = [{}]
+				// let mi_data = collect(response)
+				// // console.log(mi_data)
+				// const multiplied = mi_data.map(function(item) {
+				// 	// return item;
+				// 	let monto = ''
+				// 	monto = account.formatNumber(item.monto)
+				// 	// if(item.monto) {
+				// 		// return account.formatNumber(item.monto)
+				// 	// }
+				// 	return [item,monto]
+				// })
+
+				// console.log(multiplied.all())
+
 				this.zone.run(() => {
 					this.manageGrid(columnas, response)
 				})
@@ -127,6 +144,11 @@ export class NuevoReportePage {
 				})
 			})
 			/* Funcion que nos servira para graficar la informacion. */
+			console.log('actualnete agrupados')
+			console.log(this.agrupacion_seleccionada.length)
+			if(this.agrupacion_seleccionada.length > 0) {
+				this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
+			}
 			this.graficar(this.columnas_seleccionadas, this.agrupacion_seleccionada)
 		})
 	
