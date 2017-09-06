@@ -18,11 +18,9 @@ import * as collect from 'collect.js/dist'
 import {
 	SelectColumnasPage
 } from '../select-columnas/select-columnas'
-import {
-	SelectAgrupacionesPage
-} from '../select-agrupaciones/select-agrupaciones'
-import * as account from 'accounting-js'
-
+// import {
+// 	SelectAgrupacionesPage
+// } from '../select-agrupaciones/select-agrupaciones'
 
 @IonicPage()
 @Component({
@@ -49,19 +47,17 @@ export class NuevoReportePage {
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad NuevoReportePage')
-		// this.getColumnas()
+			// this.getColumnas()
 	}
 
 	/* Funcion para mostrar las comunas y escoger*/
 	selectColumnas = (): void => {
-		let mis_columnas = []
-			/* Pasamos las columnas a la vista de seleeccion de columnas. */
+		/* Pasamos las columnas a la vista de seleeccion de columnas. */
 		let modal_columnas = this.modal.create(SelectColumnasPage, {})
-			/* Muestro el modal para seleccionar las columnas. */
+		/* Muestro el modal para seleccionar las columnas. */
 		modal_columnas.present()
-			/* Cuando cierro mi modal recupero mis columnas que seleccione. */
+		/* Cuando cierro mi modal recupero mis columnas que seleccione. */
 		modal_columnas.onDidDismiss(data => {
-
 			/* Aqui acomodo las columnas seleccionandas para mostrarlas en el grid. */
 			data.forEach(items => {
 				this.columnas_seleccionadas.push({
@@ -70,17 +66,18 @@ export class NuevoReportePage {
 			})
 
 			this.manageGrid(this.columnas_seleccionadas, [])
+			this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
 		})
 	}
 
 	/* Funcion para filtar mis columnas seleccionadas.*/
-	filtrarColumnas = (columnas_seleccionadas: Array<any>) => {
+	filtrarColumnas = (columnas_seleccionadas: Array < any > ) => {
 		console.log(columnas_seleccionadas)
-		
+
 	}
 
 	/* Funcion que nos servira para graficar la informacion. */
-	graficar = (columnas: Array < any > , agrupacion?: Array < any > ): void => {
+	graficar = (columnas: Array < any > , agrupacion ? : Array < any > ): void => {
 		if (columnas.length === 0 || agrupacion.length === 0) {
 			let alert = this.alertCtrl.create({
 				title: 'Aviso!',
@@ -97,12 +94,12 @@ export class NuevoReportePage {
 				.then(response => {
 					let mi_data = []
 					response.forEach(items => {
-						mi_data.push(items.data)
-					})
-					/* monto total de todos los proyectos. */
+							mi_data.push(items.data)
+						})
+						/* monto total de todos los proyectos. */
 					const collection_data = collect(mi_data)
 					let monto_total = collection_data.sum('monto')
-	
+
 					let keys = collection_data.keys().toArray()
 					let encontrado_primer_agrupacion = keys.indexOf(primer_agrupacion)
 					let r = keys[encontrado_primer_agrupacion]
@@ -114,7 +111,7 @@ export class NuevoReportePage {
 							// console.log(item[0])
 							let num_proyectos = item[0]['numero_proyectos']
 							let total = item[0]['total']
-			
+
 							let suma_montos = item.reduce(function(index, proyecto) {
 								return index + parseInt(proyecto.monto)
 							}, 0)
@@ -131,7 +128,7 @@ export class NuevoReportePage {
 	}
 
 	/* Funcion para guardar un reporte. */
-	guardarReporte = (agrupacion: Array < any >, Object ): void => {
+	guardarReporte = (agrupacion: Array < any > , Object): void => {
 		let title = collect(agrupacion).implode('items', ',')
 		let confirmacion = this.alertCtrl.create({
 			title: 'Registro de reporte',
@@ -139,7 +136,7 @@ export class NuevoReportePage {
 			inputs: [{
 				name: 'title',
 				placeholder: 'Nombre del reporte'
-			},],
+			}, ],
 			buttons: [{
 				text: 'Cancelar',
 				handler: () => {
@@ -150,9 +147,9 @@ export class NuevoReportePage {
 				text: 'Guardar',
 				handler: data => {
 					console.log(data['title'])
-					
+
 					console.log('Agree clicked')
-					/* Consigo el total del monto y numero de proyectos para registrar el reporte. */
+						/* Consigo el total del monto y numero de proyectos para registrar el reporte. */
 					this.reporteService.paraGuardarReporte(title)
 						.then(response => {
 							let mi_collect = collect(response)
@@ -182,7 +179,6 @@ export class NuevoReportePage {
 			}]
 		})
 		confirmacion.present()
-		
 	}
 
 	/* Funcion para llegar el grid.  */
@@ -194,12 +190,11 @@ export class NuevoReportePage {
 		this.data = data
 
 		columnas.forEach(items => {
-
 			this.settings['hideSubHeader'] = false
 			this.settings['hideHeader'] = false
 
-			this.settings['columns'][items.items] = {
-				title: items.items,
+			this.settings['columns'][items.items.columna] = {
+				title: items.items.title,
 				filter: false
 			}
 		})
