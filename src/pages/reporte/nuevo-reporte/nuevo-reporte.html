@@ -8,8 +8,8 @@
 	<hr>
 	<hr>
 	<button ion-button full (click)="filtrarColumnas()">Filtrar columnas</button>
-
 	<button ion-button full (click)="selectAgrupaciones(columnas_seleccionadas)">Seleccionar agrupaciones</button>
+	<button class="item item-block item-ios" icon-start ion-item>ff</button>
 	<ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
 	<div id="container" [hidden]="!visible">
 		<chart [options]="options"></chart>

@@ -30,6 +30,7 @@ import {
 export class NuevoReportePage {
 	columnas = []
 	columnas_seleccionadas = []
+	filtrar_seleccionadas = []
 	agrupacion_seleccionada = []
 	settings = {}
 	data = []
@@ -65,14 +66,22 @@ export class NuevoReportePage {
 				})
 			})
 
+			/* Hacemos una copia de data para filtrar las columnas */
+			this.filtrar_seleccionadas.splice(0, this.filtrar_seleccionadas.length)
+			data.forEach(items => {
+				this.filtrar_seleccionadas.push({
+					items
+				})
+			})
+
 			this.manageGrid(this.columnas_seleccionadas, [])
 			this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
 		})
 	}
 
 	/* Funcion para filtar mis columnas seleccionadas.*/
-	filtrarColumnas = (columnas_seleccionadas: Array < any > ) => {
-		console.log(columnas_seleccionadas)
+	filtrarColumnas = () => {
+		console.log(this.filtrar_seleccionadas)
 
 	}
 
@@ -98,12 +107,12 @@ export class NuevoReportePage {
 						})
 						/* monto total de todos los proyectos. */
 					const collection_data = collect(mi_data)
-					let monto_total = collection_data.sum('monto')
+					// let monto_total = collection_data.sum('monto')
 
 					let keys = collection_data.keys().toArray()
 					let encontrado_primer_agrupacion = keys.indexOf(primer_agrupacion)
 					let r = keys[encontrado_primer_agrupacion]
-					let arg = []
+
 					if (encontrado_primer_agrupacion !== -1) {
 						let agrupados = collection_data.groupBy(primer_agrupacion).toArray()
 
@@ -112,9 +121,9 @@ export class NuevoReportePage {
 							let num_proyectos = item[0]['numero_proyectos']
 							let total = item[0]['total']
 
-							let suma_montos = item.reduce(function(index, proyecto) {
-								return index + parseInt(proyecto.monto)
-							}, 0)
+							// let suma_montos = item.reduce(function(index, proyecto) {
+							// 	return index + parseInt(proyecto.monto)
+							// }, 0)
 							return {
 								name: item[0][r],
 								y: parseFloat(((num_proyectos / total) * 100).toFixed(2)),
