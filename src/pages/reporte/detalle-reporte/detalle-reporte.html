@@ -8,7 +8,14 @@
 		<button ion-button >Editar</button>
 	</div>
 	<div id="container">
+		<div text-left>
+			<i class="fa fa-usd" aria-hidden="true"></i>
+			<i class="fa fa-percent" aria-hidden="true"></i>
+		</div>
 		<chart [options]="options"></chart>
+	</div>
+	<div text-center  margin-top>
+		<i class="fa fa-filter" aria-hidden="true" style="font-size: 20px" padding-top (click)="filtrar(options)"></i>
 	</div>
 	<hr>
 	<hr>

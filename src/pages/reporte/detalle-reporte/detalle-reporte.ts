@@ -1,4 +1,4 @@
-import { Component, NgZone, EventEmitter, Input, Output } from '@angular/core'
+import { Component, NgZone } from '@angular/core'
 import { IonicPage, NavController, NavParams } from 'ionic-angular'
 import { ReportesDbService } from '../../../services/reportes.db.service'
 import * as collect from 'collect.js/dist'
@@ -30,9 +30,6 @@ export class DetalleReportePage {
 
 	visible: boolean = false
 
-	@Output() open: EventEmitter < any > = new EventEmitter();
-	@Output() close: EventEmitter < any > = new EventEmitter();
-
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private reporteService : ReportesDbService, private dbService: DbService, public zone: NgZone) {
 		this.id = navParams.get('id')
@@ -61,17 +58,9 @@ export class DetalleReportePage {
 
 	/* Funcion para reporte por año. */
 	getReporteDetalle = (): void => {
-		// this.visible = false
-		// this.visible = !this.visible
-		// console.log(this.visible)
-		
 		if(this.campo_agrupacion === 'contratante') {
 			this.visible = !this.visible
-			// if (this.visible) {
-			// 	this.open.emit(null);
-			// } else {
-			// 	this.close.emit(null);
-			// }
+
 			let data_cliente = []
 
 			this.dbService.openDatabase()
@@ -175,6 +164,11 @@ export class DetalleReportePage {
 				console.log(this.proyectos)
 			})
 		}
+	}
+
+	/* Funcion para filtrar la argrupacion de mi grafica.*/
+	filtrar = (opciones: Object) => {
+		opciones['series'][0].data
 	}
 
 	/* Funcion para ver detalle de los proyectos agrupados que tienen menos de 1 %. */

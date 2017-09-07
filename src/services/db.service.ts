@@ -484,8 +484,9 @@ export class DbService {
 		let anio = ''
 		let gerencia = ''
 		let cliente = ''
+		let producto = ''
 
-		pais = `insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por país', '2062717473.00', '1330');`
+		pais = `insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por pais', '2062717473.00', '1330');`
 		this.db.executeSql(pais, {})
 			.then(() => console.log('regustros insertados en tabla reportes'))
 			.catch(e => console.log(e))
@@ -505,6 +506,12 @@ export class DbService {
 		cliente = `
 			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por cliente', '2062717473.00', '1330');`
 		this.db.executeSql(cliente, {})
+			.then(() => console.log('regustros insertados en tabla reportes'))
+			.catch(e => console.log(e))
+
+		producto = `
+			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por producto', '2062717473.00', '1330');`
+		this.db.executeSql(producto, {})
 			.then(() => console.log('regustros insertados en tabla reportes'))
 			.catch(e => console.log(e))
 	}
@@ -534,6 +541,13 @@ export class DbService {
 		this.db.executeSql(cliente, ['4', 'contratante'])
 			.then(() => console.log('regustros insertados en tabla reportes columnas'))
 			.catch(e => console.log(e))
+
+		let producto = `insert into reportes_columnas(
+				reporte_id, nombre_columna) values(?, ?)`
+		this.db.executeSql(producto, ['5', 'producto'])
+			.then(() => console.log('regustros insertados en tabla reportes columnas'))
+			.catch(e => console.log(e))
+
 	}
 
 	/* Funcion para insertar datos en la tabla de reportes_filtros */
@@ -555,7 +569,7 @@ export class DbService {
 
 		let anio = `insert into reportes_agrupacion(
 				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
-		this.db.executeSql(pais, ['2', 'anio', '1'])
+		this.db.executeSql(anio, ['2', 'anio', '1'])
 			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
 			.catch(e => console.log(e))
 
@@ -568,6 +582,12 @@ export class DbService {
 		let cliente = `insert into reportes_agrupacion(
 				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
 		this.db.executeSql(cliente, ['4', 'contratante', '1'])
+			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
+			.catch(e => console.log(e))
+
+		let producto = `insert into reportes_agrupacion(
+				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
+		this.db.executeSql(producto, ['5', 'producto', '1'])
 			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
 			.catch(e => console.log(e))
 	}

@@ -79,6 +79,8 @@ export class ReportesDbService {
 					FROM proyectos
 					group by ` + group_by + ` order by ` + campo + ` asc`
 
+		console.log(sql)
+		
 		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
