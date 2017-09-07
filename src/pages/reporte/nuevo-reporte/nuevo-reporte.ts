@@ -1,23 +1,10 @@
-import {
-	Component,
-	NgZone
-} from '@angular/core'
-import {
-	IonicPage,
-	NavController,
-	NavParams,
-	ModalController,
-	AlertController,
-	LoadingController
-} from 'ionic-angular'
-import {
-	ReportesDbService
-} from '../../../services/reportes.db.service'
+import { Component, NgZone } from '@angular/core'
+import { IonicPage, NavController, NavParams, ModalController, AlertController, LoadingController } from 'ionic-angular'
+import { ReportesDbService } from '../../../services/reportes.db.service'
 import * as collect from 'collect.js/dist'
+import { SelectColumnasPage } from '../select-columnas/select-columnas'
+import { FiltrarColumnasPage } from './filtrar-columnas/filtrar-columnas'
 
-import {
-	SelectColumnasPage
-} from '../select-columnas/select-columnas'
 // import {
 // 	SelectAgrupacionesPage
 // } from '../select-agrupaciones/select-agrupaciones'
@@ -60,6 +47,7 @@ export class NuevoReportePage {
 		/* Cuando cierro mi modal recupero mis columnas que seleccione. */
 		modal_columnas.onDidDismiss(data => {
 			/* Aqui acomodo las columnas seleccionandas para mostrarlas en el grid. */
+			this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
 			data.forEach(items => {
 				this.columnas_seleccionadas.push({
 					items
@@ -81,8 +69,9 @@ export class NuevoReportePage {
 
 	/* Funcion para filtar mis columnas seleccionadas.*/
 	filtrarColumnas = () => {
-		console.log(this.filtrar_seleccionadas)
-
+		this.navCtrl.push(FiltrarColumnasPage, {
+			'columnas-seleccionadas' : this.filtrar_seleccionadas
+		})
 	}
 
 	/* Funcion que nos servira para graficar la informacion. */

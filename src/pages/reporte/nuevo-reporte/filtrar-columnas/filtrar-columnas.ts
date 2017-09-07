@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the FiltrarColumnasPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
 	selector: 'page-filtrar-columnas',
@@ -14,10 +8,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FiltrarColumnasPage {
 
-	constructor(public navCtrl: NavController, public navParams: NavParams) {}
+	columnas_seleccionadas = []
 
-	ionViewDidLoad() {
-		console.log('ionViewDidLoad FiltrarColumnasPage');
+	constructor(public navCtrl: NavController, public navParams: NavParams) {
+		/* Recuperamos las columnas para mostralas en la vista. */
+		this.columnas_seleccionadas = navParams.get('columnas-seleccionadas')
 	}
 
+	ionViewDidLoad() {
+		console.log('ionViewDidLoad FiltrarColumnasPage')
+		console.log(this.columnas_seleccionadas)
+	}
 }
