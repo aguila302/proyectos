@@ -174,13 +174,12 @@ export class DetalleReportePage {
 					}
 				})
 				this.proyectos = proyectos
-				console.log(this.proyectos)
 			})
 		}
 	}
 
 	/* Funcion para filtrar la argrupacion de mi grafica. */
-	filtrar = (opciones: Object) => {
+	filtrar = (opciones: Object): void => {
 		/* HAcemos una consulta para obtener los distintos valores de la agrupacion. */
 		this.reporteService.selectDistinct(this.campo_agrupacion)
 		.then(response => {
@@ -195,9 +194,10 @@ export class DetalleReportePage {
 	
 	/* Hacemos la consulta para obtener los datos para graficar de acuerdo a los filtros. */
 	modAgrupacion() {
-		this.reporteService.paraGraficar(this.campo_select, this.campo_agrupacion, this.filtros)
+		this.dbService.openDatabase()
+		.then(() => this.dbService.paraGraficar(this.campo_select, this.campo_agrupacion, this.filtros))
 		.then(response => {
-			// console.log(response)
+			console.log(response)
 		})
 	}
 

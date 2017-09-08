@@ -4,6 +4,7 @@ import { ReportesDbService } from '../../../services/reportes.db.service'
 import * as collect from 'collect.js/dist'
 import { SelectColumnasPage } from '../select-columnas/select-columnas'
 import { FiltrarColumnasPage } from './filtrar-columnas/filtrar-columnas'
+import { DbService } from '../../../services/db.service'
 
 // import {
 // 	SelectAgrupacionesPage
@@ -29,7 +30,7 @@ export class NuevoReportePage {
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private reporteService: ReportesDbService, private modal: ModalController,
-		public zone: NgZone, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+		public zone: NgZone, public alertCtrl: AlertController, public loadingCtrl: LoadingController, private dbService: DbService) {
 
 	}
 
@@ -88,7 +89,7 @@ export class NuevoReportePage {
 			let title = collect(agrupacion).implode('items', ',');
 			let primer_agrupacion = collect(agrupacion).toArray()[0].items
 
-			this.reporteService.paraGraficar(columnas, agrupacion, [])
+			this.dbService.paraGraficar(columnas, agrupacion, [])
 				.then(response => {
 					let mi_data = []
 					response.forEach(items => {

@@ -131,39 +131,7 @@ export class ReportesDbService {
 			.catch(console.error.bind(console))
 	}
 
-	/*Funcion para conseguir la informacion para construir la grafica. */
-	paraGraficar = (columnas: any , agrupacion: any, where = []): any => {
-		let data_grafica = []
-
-		for (let index in where) {
-			console.log(where[index])
-		}
-
-		// 	let sql = `select ` + columnas + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
-		// 				(select count(*) from proyectos) as total
-		// 				FROM proyectos
-		// 				where ` + agrupacion +` in ('` + where + `')`
-		// 				+ ` group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
-
-		// 	this.db.executeSql(sql, {})
-		// 		.then(response => {
-		// 			for (let index = 0; index < response.rows.length; index++) {
-		// 				data_grafica.push({
-		// 					'campo': response.rows.item(index).campo,
-		// 					'numero_proyectos': response.rows.item(index).numero_proyectos,
-		// 					'monto': parseInt(response.rows.item(index).monto),
-		// 					'total': response.rows.item(index).total,
-		// 					'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2)
-		// 				})
-		// 			}
-		// 			console.log(data_grafica)
-		// 			return Promise.resolve(data_grafica)
-		// 		})
-
-		// console.log(data_grafica)
-		
-		// return Promise.resolve(data_grafica)
-	}
+	
 
 	/* Funcion para obtener la data para registrar un reporte. */
 	paraGuardarReporte = (agrupacion: string) => {

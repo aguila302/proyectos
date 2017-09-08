@@ -79,13 +79,13 @@ export class ProyectoPage {
 		// Si el valor no es vacio filtra los proyectos.
 		val && val.trim() != '' ? (
 			setTimeout(() => {
-			this.dbService.openDatabase()
-			.then(() => this.dbService.buscaProyecto(val, filtros))
-			.then(proyectos => {
-				this.proyectos = proyectos
-			})
-			.catch(e => console.log(e))
-		}, 0)
+				this.dbService.openDatabase()
+					.then(() => this.dbService.buscaProyecto(val, filtros))
+					.then(proyectos => {
+						this.proyectos = proyectos
+					})
+					.catch(e => console.log(e))
+			}, 0)
 		) : (
 			/* Si no hay ningun valor en el campo muestra el listado de los proyectos. */
 			this.getProyectos()
