@@ -10,6 +10,7 @@ import { ProyectosAgrupadosGerenciaPage } from '../../estadistica/proyectos-agru
 import { DbService } from '../../../services/db.service'
 import { ProyectosAgrupadosClienteMenoresPage } from '../../estadistica/proyectos-agrupados/por-cliente/por-cliente-menores/proyectos-agrupados-cliente-menores'
 import { DetalleReporteAgrupadoPage } from '../../reporte/detalle-reporte/detalle-reporte-agrupado/detalle-reporte-agrupado'
+import { FiltrarAgrupacionPage } from '../../reporte/detalle-reporte/filtrar-agrupacion/filtrar-agrupacion'
 
 @IonicPage()
 @Component({
@@ -27,19 +28,31 @@ export class DetalleReportePage {
 	id: number = 0
 	proyectos_agrupados = []
 	proyectos_agrupados_detalle = []
+	filtros = []
 
 	visible: boolean = false
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private reporteService : ReportesDbService, private dbService: DbService, public zone: NgZone) {
 		this.id = navParams.get('id')
+		this.filtros = navParams.get('filtros')
+		this.campo_select = navParams.get('campo_select')
+		this.campo_agrupacion = navParams.get('campo_agrupacion')
 	}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad DetalleReportePage')
 		// this.getReporteDetalle()
 		this.getAgrupacion()
+		// console.log(this.filtros.length)
+		this.filtros === undefined ?( this.getAgrupacion()): ( this.modAgrupacion() )
 	}
+	// ionViewDidEnter() {
+	// 	console.log('volviste')
+	// 	console.log('agrupacion' + this.campo_agrupacion)
+	// 	console.log('select' + this.campo_select)
+	// 	console.log('filtros' + collect(this.filtros).implode(','))
+	// }
 
 	/* Funcion para obtener la agrupacion y campos del select del reporte a consultar. */
 	getAgrupacion = (): void => {
@@ -97,7 +110,7 @@ export class DetalleReportePage {
 					let menores_de_uno = ordenados.where('porcentaje', '<', 1)
 
 					/* Suma de los montos y porcentajes de porcentaje  menores de 1. */
-					let suma_montos_menores_de_uno = menores_de_uno.sum('suma_monto')
+					// let suma_montos_menores_de_uno = menores_de_uno.sum('suma_monto')
 					let suma_porcentajes_menores_de_uno = menores_de_uno.sum('porcentaje').toFixed(2)
 					mayores_de_uno.toArray()
 
@@ -166,9 +179,26 @@ export class DetalleReportePage {
 		}
 	}
 
-	/* Funcion para filtrar la argrupacion de mi grafica.*/
+	/* Funcion para filtrar la argrupacion de mi grafica. */
 	filtrar = (opciones: Object) => {
-		opciones['series'][0].data
+		/* HAcemos una consulta para obtener los distintos valores de la agrupacion. */
+		this.reporteService.selectDistinct(this.campo_agrupacion)
+		.then(response => {
+			this.navCtrl.push(FiltrarAgrupacionPage, {
+				'registros': response,
+				'id': this.id,
+				'campo_select': this.campo_select,
+				'campo_agrupacion': this.campo_agrupacion
+			})
+		})
+	}
+	
+	/* Hacemos la consulta para obtener los datos para graficar de acuerdo a los filtros. */
+	modAgrupacion() {
+		this.reporteService.paraGraficar(this.campo_select, this.campo_agrupacion, this.filtros)
+		.then(response => {
+			// console.log(response)
+		})
 	}
 
 	/* Funcion para ver detalle de los proyectos agrupados que tienen menos de 1 %. */

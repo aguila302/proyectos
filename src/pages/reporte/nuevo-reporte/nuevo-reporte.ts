@@ -88,7 +88,7 @@ export class NuevoReportePage {
 			let title = collect(agrupacion).implode('items', ',');
 			let primer_agrupacion = collect(agrupacion).toArray()[0].items
 
-			this.reporteService.paraGraficar(columnas, agrupacion)
+			this.reporteService.paraGraficar(columnas, agrupacion, [])
 				.then(response => {
 					let mi_data = []
 					response.forEach(items => {

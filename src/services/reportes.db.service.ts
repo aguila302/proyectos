@@ -79,8 +79,6 @@ export class ReportesDbService {
 					FROM proyectos
 					group by ` + group_by + ` order by ` + campo + ` asc`
 
-		console.log(sql)
-		
 		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
@@ -116,43 +114,55 @@ export class ReportesDbService {
 
 	/* Funcion para obtener los datos de las columnas que se selecciono en los filtros para el grid. */
 	obtenerDataCampos = (columnas): any => {
-			let campos_data = []
-			let columns = collect(columnas).implode(',')
+		let campos_data = []
+		let columns = collect(columnas).implode(',')
 
-			let select = 'select ' + columns + ' from proyectos order by anio'
+		let select = 'select ' + columns + ' from proyectos order by anio'
 
-			return this.db.executeSql(select, {})
-				.then((response) => {
-					for (let index = 0; index < response.rows.length; index++) {
-						campos_data.push(
-							response.rows.item(index),
-						)
-					}
-					return Promise.resolve(campos_data)
-				})
-				.catch(console.error.bind(console))
-		}
-		/*Funcion para conseguir la informacion para construir la grafica. */
-	paraGraficar = (columnas: Array < any > , agrupacion: Array < any > ) => {
-		let mis_columnas = collect(columnas).implode('items', ',')
-	
-		let data_grafica = []
-		let mi_agrupacion = agrupacion[0].items
-
-		let sql = `select ` + mis_columnas + `, count(*) as numero_proyectos, sum(monto) as monto,
-					(select count(*) from proyectos) as total
-					FROM proyectos
-					group by ` + mi_agrupacion + ` order by ` + mi_agrupacion + ` asc`
-
-		return this.db.executeSql(sql, {})
-			.then(response => {
+		return this.db.executeSql(select, {})
+			.then((response) => {
 				for (let index = 0; index < response.rows.length; index++) {
-					data_grafica.push({
-						'data': response.rows.item(index),
-					})
+					campos_data.push(
+						response.rows.item(index),
+					)
 				}
-				return Promise.resolve(data_grafica)
+				return Promise.resolve(campos_data)
 			})
+			.catch(console.error.bind(console))
+	}
+
+	/*Funcion para conseguir la informacion para construir la grafica. */
+	paraGraficar = (columnas: any , agrupacion: any, where = []): any => {
+		let data_grafica = []
+
+		for (let index in where) {
+			console.log(where[index])
+		}
+
+		// 	let sql = `select ` + columnas + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
+		// 				(select count(*) from proyectos) as total
+		// 				FROM proyectos
+		// 				where ` + agrupacion +` in ('` + where + `')`
+		// 				+ ` group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
+
+		// 	this.db.executeSql(sql, {})
+		// 		.then(response => {
+		// 			for (let index = 0; index < response.rows.length; index++) {
+		// 				data_grafica.push({
+		// 					'campo': response.rows.item(index).campo,
+		// 					'numero_proyectos': response.rows.item(index).numero_proyectos,
+		// 					'monto': parseInt(response.rows.item(index).monto),
+		// 					'total': response.rows.item(index).total,
+		// 					'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2)
+		// 				})
+		// 			}
+		// 			console.log(data_grafica)
+		// 			return Promise.resolve(data_grafica)
+		// 		})
+
+		// console.log(data_grafica)
+		
+		// return Promise.resolve(data_grafica)
 	}
 
 	/* Funcion para obtener la data para registrar un reporte. */
@@ -188,7 +198,7 @@ export class ReportesDbService {
 		let last_id = `SELECT max(id) as id from reportes`
 		return this.db.executeSql(last_id, {})
 			.then(response => {
-				let id: number
+				// let id: number
 				for (let index = 0; index < response.rows.length; index++) {
 					array_id.push({
 						'id': response.rows.item(index).id
@@ -200,7 +210,7 @@ export class ReportesDbService {
 
 	/* Funcion para insertar en reportes agrupacion*/
 	insertarReporteAgrupado = (id: number, agrupacion: string): any => {
-		let success: number = 0
+
 		let insert_grupado = `insert into reportes_agrupacion(
 				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
 
@@ -226,12 +236,8 @@ export class ReportesDbService {
 
 	/* Funcion consultar el detalle de un reporte dado a un campo. */
 	consultaXCampoAgrupado = (campo: string, groupBy: string): any => {
-		console.log('mi campo' + campo)
-		
 		let proyectos = []
 		let sql = 'select * from proyectos where '+ groupBy +' = ' + "'"  + campo + "'"
-		console.log(sql)
-		
 		return this.db.executeSql(sql, {})
 			.then((response) => {
 				for (let index = 0; index < response.rows.length; index++) {
@@ -258,64 +264,25 @@ export class ReportesDbService {
 				return proyectos
 			})
 	}
-	/* Objeto para construir  la grafica de barras agruapdos. */
-	datosGraficaAgrupados = (xy: Array < any > , intervalo: number, categorias: any, title_name: string): Object => {
-			let options = {
-					chart: {
-						type: 'column'
-					},
-					title: {
-						text: 'Monthly Average Rainfall'
-					},
-					subtitle: {
-						text: 'Source: WorldClimate.com'
-					},
-					xAxis: {
-						categories: categorias,
-						crosshair: true
-					},
-					yAxis: {
-						min: 0,
-						title: {
-							text: 'Rainfall (mm)'
-						}
-					},
-					tooltip: {
-						headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-						pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-							'<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-						footerFormat: '</table>',
-						shared: true,
-						useHTML: true
-					},
-					plotOptions: {
-						column: {
-							pointPadding: 0.2,
-							borderWidth: 0
-						}
-					},
-					series: [{
-						name: 'Tokyo',
-						data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
 
-					}, {
-						name: 'New York',
-						data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
-
-					}, {
-						name: 'London',
-						data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
-
-					}, {
-						name: 'Berlin',
-						data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
-
-					}]
+	/* Funcion para obtener los distintos valores de agruapcion. */
+	selectDistinct = (agrupacion: string): any => {
+		let reportes = []
+		let sql = 'select distinct(' + agrupacion +') as registros from proyectos'
+		console.log(sql)
+		
+		return this.db.executeSql(sql, {})
+			.then((response) => {
+				for (let index = 0; index < response.rows.length; index++) {
+					reportes.push({
+						'registros': response.rows.item(index).registros,
+					})
 				}
-
-		return options
+				return reportes
+			})
 	}
-		/* Objeto para construir  la grafica de barras. */
+	
+	/* Objeto para construir  la grafica de barras. */
 	datosGrafica = (xy: Array < any > , intervalo: number, serie_name: string, title_name: string): Object => {
 		let options = {
 			chart: {
