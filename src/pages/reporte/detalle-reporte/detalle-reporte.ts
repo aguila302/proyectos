@@ -197,6 +197,7 @@ export class DetalleReportePage {
 		this.dbService.openDatabase()
 		.then(() => this.dbService.paraGraficar(this.campo_select, this.campo_agrupacion, this.filtros))
 		.then(response => {
+			console.log('mi response')
 			console.log(response)
 		})
 	}

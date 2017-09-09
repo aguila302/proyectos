@@ -167,6 +167,8 @@ export class DbService {
 		let proyectos = []
 		for (let i in filtros) {
 			let sql = 'select * from proyectos where ' + i + ' like ' + "'%" + val + "%'"
+			console.log(sql)
+			
 			this.db.executeSql(sql, {})
 				.then((response) => {
 					for (let index = 0; index < response.rows.length; index++) {
@@ -636,13 +638,15 @@ export class DbService {
 							'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2)
 						})
 					}
-					Promise.resolve(data_grafica)
 				})
-
+				// console.log(Promise.resolve(data_grafica))
 				
 		}
+		console.log(Promise.resolve(data_grafica))
+		
+		return Promise.resolve(data_grafica)
 		// Promise.resolve(data_grafica)
 		// console.log(data_grafica)
-		return data_grafica
+		// return data_grafica
 	}
 }
