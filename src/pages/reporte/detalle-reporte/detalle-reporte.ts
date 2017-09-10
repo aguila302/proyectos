@@ -1,5 +1,5 @@
 import { Component, NgZone } from '@angular/core'
-import { IonicPage, NavController, NavParams } from 'ionic-angular'
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular'
 import { ReportesDbService } from '../../../services/reportes.db.service'
 import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
@@ -11,6 +11,7 @@ import { DbService } from '../../../services/db.service'
 import { ProyectosAgrupadosClienteMenoresPage } from '../../estadistica/proyectos-agrupados/por-cliente/por-cliente-menores/proyectos-agrupados-cliente-menores'
 import { DetalleReporteAgrupadoPage } from '../../reporte/detalle-reporte/detalle-reporte-agrupado/detalle-reporte-agrupado'
 import { FiltrarAgrupacionPage } from '../../reporte/detalle-reporte/filtrar-agrupacion/filtrar-agrupacion'
+import { GraficaFiltradaPage } from '../../reporte/detalle-reporte/grafica-filtrada/grafica-filtrada'
 
 @IonicPage()
 @Component({
@@ -33,11 +34,12 @@ export class DetalleReportePage {
 	visible: boolean = false
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
-		private reporteService : ReportesDbService, private dbService: DbService, public zone: NgZone) {
+		private reporteService : ReportesDbService, private dbService: DbService, public zone: NgZone,
+		public modalCtrl: ModalController) {
 		this.id = navParams.get('id')
-		this.filtros = navParams.get('filtros')
-		this.campo_select = navParams.get('campo_select')
-		this.campo_agrupacion = navParams.get('campo_agrupacion')
+		// this.filtros = navParams.get('filtros')
+		// this.campo_select = navParams.get('campo_select')
+		// this.campo_agrupacion = navParams.get('campo_agrupacion')
 	}
 
 	ionViewDidLoad() {
@@ -45,7 +47,7 @@ export class DetalleReportePage {
 		// this.getReporteDetalle()
 		this.getAgrupacion()
 		// console.log(this.filtros.length)
-		this.filtros === undefined ?( this.getAgrupacion()): ( this.modAgrupacion() )
+		// this.filtros === undefined ?( this.getAgrupacion()): ( this.modAgrupacion() )
 	}
 	// ionViewDidEnter() {
 	// 	console.log('volviste')
@@ -180,25 +182,47 @@ export class DetalleReportePage {
 
 	/* Funcion para filtrar la argrupacion de mi grafica. */
 	filtrar = (opciones: Object): void => {
+		let data_grafica = []
 		/* HAcemos una consulta para obtener los distintos valores de la agrupacion. */
 		this.reporteService.selectDistinct(this.campo_agrupacion)
 		.then(response => {
-			this.navCtrl.push(FiltrarAgrupacionPage, {
+			let modal = this.modalCtrl.create(FiltrarAgrupacionPage, {
 				'registros': response,
-				'id': this.id,
-				'campo_select': this.campo_select,
-				'campo_agrupacion': this.campo_agrupacion
 			})
-		})
-	}
-	
-	/* Hacemos la consulta para obtener los datos para graficar de acuerdo a los filtros. */
-	modAgrupacion() {
-		this.dbService.openDatabase()
-		.then(() => this.dbService.paraGraficar(this.campo_select, this.campo_agrupacion, this.filtros))
-		.then(response => {
-			console.log('mi response')
-			console.log(response)
+			modal.present()
+			modal.onDidDismiss(data => {
+				// console.log(data)
+				let resultado = []
+				// let arg = []
+				for (let index in data) {
+					// arg = this.dbService.paraGraficar(this.campo_select, this.campo_agrupacion, data[index])
+					resultado.push(this.dbService.paraGraficar(this.campo_select, this.campo_agrupacion, data[index]))
+				}
+				// console.log('resultado')
+				console.log(resultado)
+				resultado.forEach(function callback(element, index, array) {
+					 console.log("a[" + index + "] = " + element['campo'])
+					// element.forEach(item => {
+					// 	console.log(item)
+					// })
+				})
+				// for (let i in resultado) {
+				// 	// console.log(resultado)
+				// 	console.log(i['campo'])
+				// }
+				// resultado.forEach(items => {
+				// 	console.log(items)
+					
+				// 	data_grafica.push({
+				// 		name: items.campo,
+				// 		y: parseFloat(items.porcentaje)
+				// 	})
+				// })
+
+				this.navCtrl.push(GraficaFiltradaPage, {
+					'data_grafica': data_grafica
+				})
+			})
 		})
 	}
 

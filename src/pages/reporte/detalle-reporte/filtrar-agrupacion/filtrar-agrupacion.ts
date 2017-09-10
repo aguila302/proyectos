@@ -25,9 +25,9 @@ export class FiltrarAgrupacionPage {
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
 		this.registros = navParams.get('registros')
-		this.id = navParams.get('id')
-		this.campo_select = navParams.get('campo_select')
-		this.campo_agrupacion = navParams.get('campo_agrupacion')
+		// this.id = navParams.get('id')
+		// this.campo_select = navParams.get('campo_select')
+		// this.campo_agrupacion = navParams.get('campo_agrupacion')
 	}
 
 	ionViewDidLoad() {
@@ -49,13 +49,7 @@ export class FiltrarAgrupacionPage {
 		}
 		/* Funcion para enviar columnas seleccionadas. */
 	aceptar() {
-		this.navCtrl.pop()
-		this.navCtrl.push(DetalleReportePage, {
-			'filtros': this.filtros_seleccionadas,
-			'id': this.id,
-			'campo_select': this.campo_select,
-			'campo_agrupacion': this.campo_agrupacion
-		})
+		this.view.dismiss(this.filtros_seleccionadas)
 	}
 
 	/* Funcion para cancelar los filtros. */

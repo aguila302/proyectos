@@ -619,34 +619,27 @@ export class DbService {
 
 	/*Funcion para conseguir la informacion para construir la grafica. */
 	paraGraficar = (columnas, agrupacion, where): any => {
-		let data_grafica = []
-		
-		for (let i in where) {
+		let data_grafica = {}
 			let sql = `select ` + columnas + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
 						(select count(*) from proyectos) as total
 						FROM proyectos
-						where ` + agrupacion + ` in ('` + where[i]  + `')` + ` group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
+						where ` + agrupacion + ` in ('` + where  + `')` + ` group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
 
 			this.db.executeSql(sql, {})
 				.then((response) => {
 					for (let index = 0; index < response.rows.length; index++) {
-						data_grafica.push({
-							'campo': response.rows.item(index).campo,
-							'numero_proyectos': response.rows.item(index).numero_proyectos,
-							'monto': parseInt(response.rows.item(index).monto),
-							'total': response.rows.item(index).total,
-							'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2)
-						})
+						data_grafica['campo'] = response.rows.item(index).campo
+						data_grafica['numero_proyectos'] = response.rows.item(index).numero_proyectos
+						data_grafica['monto'] = parseInt(response.rows.item(index).monto)
+						data_grafica['total'] = response.rows.item(index).total
+						data_grafica['porcentaje']  = account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2)
+						
 					}
 				})
-				// console.log(Promise.resolve(data_grafica))
+				console.log('data_grafica db')
 				
+				console.log(data_grafica)
+				
+			return data_grafica
 		}
-		console.log(Promise.resolve(data_grafica))
-		
-		return Promise.resolve(data_grafica)
-		// Promise.resolve(data_grafica)
-		// console.log(data_grafica)
-		// return data_grafica
-	}
 }

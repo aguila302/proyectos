@@ -237,8 +237,7 @@ export class ReportesDbService {
 	selectDistinct = (agrupacion: string): any => {
 		let reportes = []
 		let sql = 'select distinct(' + agrupacion +') as registros from proyectos'
-		console.log(sql)
-		
+
 		return this.db.executeSql(sql, {})
 			.then((response) => {
 				for (let index = 0; index < response.rows.length; index++) {
@@ -336,6 +335,8 @@ export class ReportesDbService {
 			}
 		}
 		options['series'][0].data = xy
+		// console.log(options)
+		
 		return options
 	}
 }
