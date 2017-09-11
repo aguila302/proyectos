@@ -23,6 +23,8 @@ export class DetalleReporteAgrupadoPage {
 		this.campo = navParams.get('campo')
 		this.monto_total = navParams.get('monto_total')
 		this.groupBy = navParams.get('groupBy')
+		console.log(this.groupBy)
+		
 	}
 
 	ionViewDidLoad() {

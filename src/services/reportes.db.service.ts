@@ -206,6 +206,8 @@ export class ReportesDbService {
 	consultaXCampoAgrupado = (campo: string, groupBy: string): any => {
 		let proyectos = []
 		let sql = 'select * from proyectos where '+ groupBy +' = ' + "'"  + campo + "'"
+		console.log(sql)
+		
 		return this.db.executeSql(sql, {})
 			.then((response) => {
 				for (let index = 0; index < response.rows.length; index++) {
@@ -252,7 +254,7 @@ export class ReportesDbService {
 	/*Funcion para conseguir la informacion para construir la grafica. */
 	paraGraficar = (columnas, agrupacion, where): any => {
 		let sql = `select ` + columnas + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
-						(select count(*) from proyectos) as total
+						(select count(*) from proyectos) as total, sum(monto) as monto_filtrado
 						FROM proyectos
 						where ` + agrupacion + ` in ('` + where + `')` + ` group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
 

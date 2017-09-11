@@ -191,13 +191,15 @@ export class DetalleReportePage {
 			})
 			modal.present()
 			modal.onDidDismiss(data => {
+				/* Una vez cerrada la ventana de filtros validamos que se haya seleccionado alguna opcion. */
 				this.resultado.splice(0, this.resultado.length)
-				console.log(data.length)
+				/* En caso de que haya opciones seleccionadas nos vamos a graficar. */
 				data.length > 0 ? (this.paraGraficarFiltrado(data)) : ''
 			})
 		})
 	}
 
+	/* Funcion para graficar los filtros seleccionados. */
 	async paraGraficarFiltrado(data) {
 		var miglobal = this
 		for (let index in data) {
@@ -206,16 +208,23 @@ export class DetalleReportePage {
 					for (var i = 0; i < res.rows.length; i++) {
 						miglobal.resultado.push({
 							'campo': res.rows.item(i).campo,
-							'monto': parseInt(res.rows.item(i).monto),
+							'monto':  account.formatNumber(parseInt(res.rows.item(i).monto)),
 							'total': res.rows.item(i).total,
+							'numero_proyectos': res.rows.item(i).numero_proyectos,
+							'monto_filtrado': res.rows.item(i).monto_filtrado,
 							'porcentaje': account.toFixed((res.rows.item(i).numero_proyectos / res.rows.item(i).total) * 100, 2)
 						})
 					}
 				})
 		}
+		this.monto_total = account.formatNumber(collect(miglobal.resultado).sum('monto_filtrado'))
+		this.total_proyectos = collect(miglobal.resultado).sum('numero_proyectos')
 
 		this.navCtrl.push(GraficaFiltradaPage, {
-			'data_grafica' : miglobal.resultado
+			'data_grafica' : miglobal.resultado,
+			'monto_total': this.monto_total,
+			'total_proyectos': this.total_proyectos,
+			'groupBy': this.campo_agrupacion
 		})
 	}
 
@@ -287,7 +296,7 @@ export class DetalleReportePage {
 			this.navCtrl.push(DetalleReporteAgrupadoPage, {
 				'campo': campo,
 				'monto_total': monto_total,
-				'groupBy': group_by
+				'groupBy': this.campo_agrupacion
 			})
 		}
 	}
