@@ -30,6 +30,7 @@ export class DetalleReportePage {
 	proyectos_agrupados = []
 	proyectos_agrupados_detalle = []
 	filtros = []
+	resultado = []
 
 	visible: boolean = false
 
@@ -182,7 +183,6 @@ export class DetalleReportePage {
 
 	/* Funcion para filtrar la argrupacion de mi grafica. */
 	filtrar = (opciones: Object): void => {
-		let data_grafica = []
 		/* HAcemos una consulta para obtener los distintos valores de la agrupacion. */
 		this.reporteService.selectDistinct(this.campo_agrupacion)
 		.then(response => {
@@ -191,38 +191,31 @@ export class DetalleReportePage {
 			})
 			modal.present()
 			modal.onDidDismiss(data => {
-				// console.log(data)
-				let resultado = []
-				// let arg = []
-				for (let index in data) {
-					// arg = this.dbService.paraGraficar(this.campo_select, this.campo_agrupacion, data[index])
-					resultado.push(this.dbService.paraGraficar(this.campo_select, this.campo_agrupacion, data[index]))
-				}
-				// console.log('resultado')
-				console.log(resultado)
-				resultado.forEach(function callback(element, index, array) {
-					 console.log("a[" + index + "] = " + element['campo'])
-					// element.forEach(item => {
-					// 	console.log(item)
-					// })
-				})
-				// for (let i in resultado) {
-				// 	// console.log(resultado)
-				// 	console.log(i['campo'])
-				// }
-				// resultado.forEach(items => {
-				// 	console.log(items)
-					
-				// 	data_grafica.push({
-				// 		name: items.campo,
-				// 		y: parseFloat(items.porcentaje)
-				// 	})
-				// })
-
-				this.navCtrl.push(GraficaFiltradaPage, {
-					'data_grafica': data_grafica
-				})
+				this.resultado.splice(0, this.resultado.length)
+				console.log(data.length)
+				data.length > 0 ? (this.paraGraficarFiltrado(data)) : ''
 			})
+		})
+	}
+
+	async paraGraficarFiltrado(data) {
+		var miglobal = this
+		for (let index in data) {
+			await  this.reporteService.paraGraficar(this.campo_select, this.campo_agrupacion, data[index])
+				.then(res => {
+					for (var i = 0; i < res.rows.length; i++) {
+						miglobal.resultado.push({
+							'campo': res.rows.item(i).campo,
+							'monto': parseInt(res.rows.item(i).monto),
+							'total': res.rows.item(i).total,
+							'porcentaje': account.toFixed((res.rows.item(i).numero_proyectos / res.rows.item(i).total) * 100, 2)
+						})
+					}
+				})
+		}
+
+		this.navCtrl.push(GraficaFiltradaPage, {
+			'data_grafica' : miglobal.resultado
 		})
 	}
 

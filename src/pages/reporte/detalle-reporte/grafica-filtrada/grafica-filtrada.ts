@@ -14,27 +14,27 @@ export class GraficaFiltradaPage {
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteService : ReportesDbService) {
 		this.reportes = navParams.get('data_grafica')
-		// console.log(this.reportes)
-		this.options = this.reporteService.datosGrafica(this.reportes , 5, '', '')
+		console.log(this.reportes)
+		// this.options = this.reporteService.datosGrafica(this.reportes , 5, '', '')
 	}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad GraficaFiltradaPage')
+		this.muestraGrafica()
 	}
 
 	/* Funcion para visualizar la grafica con los filtros seleccionados. */
-	// muestraGrafica = () => {
-	// 	let data = []
-	// 	this.reportes.forEach(items => {
-	// 		console.log(items)
-			
-	// 		data.push({
-	// 			name: items.campo,
-	// 			y: parseFloat(items.porcentaje)
-	// 		})
-	// 	})
-	// 	this.options = this.reporteService.datosGrafica(data , 5, '', '')
-	// 	// console.log(this.options)
-		
-	// }
+	muestraGrafica = () => {
+		let data = []
+		this.reportes.forEach(items => {
+			console.log(items)
+
+			data.push({
+				name: items.campo,
+				y: parseFloat(items.porcentaje)
+			})
+		})
+		this.options = this.reporteService.datosGrafica(data , 5, '', '')
+
+	}
 }

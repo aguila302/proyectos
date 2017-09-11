@@ -236,7 +236,7 @@ export class ReportesDbService {
 	/* Funcion para obtener los distintos valores de agruapcion. */
 	selectDistinct = (agrupacion: string): any => {
 		let reportes = []
-		let sql = 'select distinct(' + agrupacion +') as registros from proyectos'
+		let sql = 'select distinct(' + agrupacion +') as registros from proyectos order by ' + agrupacion + ' desc'
 
 		return this.db.executeSql(sql, {})
 			.then((response) => {
@@ -248,7 +248,17 @@ export class ReportesDbService {
 				return reportes
 			})
 	}
-	
+
+	/*Funcion para conseguir la informacion para construir la grafica. */
+	paraGraficar = (columnas, agrupacion, where): any => {
+		let sql = `select ` + columnas + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
+						(select count(*) from proyectos) as total
+						FROM proyectos
+						where ` + agrupacion + ` in ('` + where + `')` + ` group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
+
+		return this.db.executeSql(sql, {})
+	}
+
 	/* Objeto para construir  la grafica de barras. */
 	datosGrafica = (xy: Array < any > , intervalo: number, serie_name: string, title_name: string): Object => {
 		let options = {
