@@ -12,6 +12,7 @@ import { ProyectosAgrupadosClienteMenoresPage } from '../../estadistica/proyecto
 import { DetalleReporteAgrupadoPage } from '../../reporte/detalle-reporte/detalle-reporte-agrupado/detalle-reporte-agrupado'
 import { FiltrarAgrupacionPage } from '../../reporte/detalle-reporte/filtrar-agrupacion/filtrar-agrupacion'
 import { GraficaFiltradaPage } from '../../reporte/detalle-reporte/grafica-filtrada/grafica-filtrada'
+import { DetalleGrupoPage } from '../../reporte/detalle-reporte/detalle-grupo/detalle-grupo'
 
 @IonicPage()
 @Component({
@@ -45,17 +46,8 @@ export class DetalleReportePage {
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad DetalleReportePage')
-		// this.getReporteDetalle()
 		this.getAgrupacion()
-		// console.log(this.filtros.length)
-		// this.filtros === undefined ?( this.getAgrupacion()): ( this.modAgrupacion() )
 	}
-	// ionViewDidEnter() {
-	// 	console.log('volviste')
-	// 	console.log('agrupacion' + this.campo_agrupacion)
-	// 	console.log('select' + this.campo_select)
-	// 	console.log('filtros' + collect(this.filtros).implode(','))
-	// }
 
 	/* Funcion para obtener la agrupacion y campos del select del reporte a consultar. */
 	getAgrupacion = (): void => {
@@ -201,6 +193,9 @@ export class DetalleReportePage {
 
 	/* Funcion para graficar los filtros seleccionados. */
 	async paraGraficarFiltrado(data) {
+		var numero_proyectos: number = 0
+		var monto_total: string =''
+
 		var miglobal = this
 		for (let index in data) {
 			await  this.reporteService.paraGraficar(this.campo_select, this.campo_agrupacion, data[index])
@@ -217,13 +212,13 @@ export class DetalleReportePage {
 					}
 				})
 		}
-		this.monto_total = account.formatNumber(collect(miglobal.resultado).sum('monto_filtrado'))
-		this.total_proyectos = collect(miglobal.resultado).sum('numero_proyectos')
+		monto_total = account.formatNumber(collect(miglobal.resultado).sum('monto_filtrado'))
+		numero_proyectos = collect(miglobal.resultado).sum('numero_proyectos')
 
 		this.navCtrl.push(GraficaFiltradaPage, {
 			'data_grafica' : miglobal.resultado,
-			'monto_total': this.monto_total,
-			'total_proyectos': this.total_proyectos,
+			'monto_total': monto_total,
+			'total_proyectos': numero_proyectos,
 			'groupBy': this.campo_agrupacion
 		})
 	}
@@ -299,5 +294,12 @@ export class DetalleReportePage {
 				'groupBy': this.campo_agrupacion
 			})
 		}
+	}
+
+	/* Funcion para ver detalle por monto total o por numero de proyectos. */
+	verDetalleGrupo = (grupo: string) => {
+		this.navCtrl.push(DetalleGrupoPage, {
+			'grupo': grupo
+		})
 	}
 }

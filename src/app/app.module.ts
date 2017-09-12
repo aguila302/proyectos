@@ -31,6 +31,7 @@ import { DetalleReporteAgrupadoPage } from '../pages/reporte/detalle-reporte/det
 import { FiltrarColumnasPage } from '../pages/reporte/nuevo-reporte/filtrar-columnas/filtrar-columnas'
 import { FiltrarAgrupacionPage } from '../pages/reporte/detalle-reporte/filtrar-agrupacion/filtrar-agrupacion'
 import { GraficaFiltradaPage } from '../pages/reporte/detalle-reporte/grafica-filtrada/grafica-filtrada'
+import { DetalleGrupoPage } from '../pages/reporte/detalle-reporte/detalle-grupo/detalle-grupo'
 
 import { ChartModule } from 'angular2-highcharts';
 import * as highcharts from 'highcharts';
@@ -69,7 +70,8 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter';
     DetalleReporteAgrupadoPage,
     FiltrarColumnasPage,
     FiltrarAgrupacionPage,
-    GraficaFiltradaPage
+    GraficaFiltradaPage,
+    DetalleGrupoPage
   ],
   imports: [
     BrowserModule,
@@ -104,7 +106,8 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter';
     DetalleReporteAgrupadoPage,
     FiltrarColumnasPage,
     FiltrarAgrupacionPage,
-    GraficaFiltradaPage
+    GraficaFiltradaPage,
+    DetalleGrupoPage
   ],
   providers: [
     StatusBar,
