@@ -13,6 +13,7 @@ import { DetalleReporteAgrupadoPage } from '../../reporte/detalle-reporte/detall
 import { FiltrarAgrupacionPage } from '../../reporte/detalle-reporte/filtrar-agrupacion/filtrar-agrupacion'
 import { GraficaFiltradaPage } from '../../reporte/detalle-reporte/grafica-filtrada/grafica-filtrada'
 import { DetalleGrupoPage } from '../../reporte/detalle-reporte/detalle-grupo/detalle-grupo'
+import { GraficaCircularPage } from '../../reporte/detalle-reporte/grafica-circular/grafica-circular'
 
 @IonicPage()
 @Component({
@@ -32,6 +33,7 @@ export class DetalleReportePage {
 	proyectos_agrupados_detalle = []
 	filtros = []
 	resultado = []
+	data_circular = []
 
 	visible: boolean = false
 
@@ -63,6 +65,7 @@ export class DetalleReportePage {
 
 	/* Funcion para reporte por año. */
 	getReporteDetalle = (): void => {
+
 		if(this.campo_agrupacion === 'contratante') {
 			this.visible = !this.visible
 
@@ -165,6 +168,7 @@ export class DetalleReportePage {
 					}
 				})
 				this.proyectos = proyectos
+				this.data_circular = response
 			})
 		}
 	}
@@ -298,6 +302,13 @@ export class DetalleReportePage {
 			'select': this.campo_select,
 			'grupo': grupo,
 			'groupBy': this.campo_agrupacion
+		})
+	}
+
+	/* Funcion para ver la grafica circular. */
+	modoCircular(select: string, group_by: string) {
+		this.navCtrl.push(GraficaCircularPage, {
+			'datos_circular': this.data_circular,
 		})
 	}
 }
