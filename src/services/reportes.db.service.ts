@@ -131,7 +131,7 @@ export class ReportesDbService {
 			.catch(console.error.bind(console))
 	}
 
-	
+
 
 	/* Funcion para obtener la data para registrar un reporte. */
 	paraGuardarReporte = (agrupacion: string) => {
@@ -183,13 +183,6 @@ export class ReportesDbService {
 				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
 
 		return this.db.executeSql(insert_grupado, [id, agrupacion, '1'])
-			// .then(() =>
-			// 	console.log('regustros insertados en tabla reportes agrupacion de nuevo reporte'),
-			// 	// this.insertReporteColumnas(id, agrupacion)
-			// )
-			// .catch(e => console.log(e))
-		// success = 1
-		// return success
 	}
 
 	/* Funcion para insertar e reportes columans*/
@@ -205,9 +198,9 @@ export class ReportesDbService {
 	/* Funcion consultar el detalle de un reporte dado a un campo. */
 	consultaXCampoAgrupado = (campo: string, groupBy: string): any => {
 		let proyectos = []
-		let sql = 'select * from proyectos where '+ groupBy +' = ' + "'"  + campo + "'"
+		let sql = 'select * from proyectos where ' + groupBy + ' = ' + "'" + campo + "'"
 		console.log(sql)
-		
+
 		return this.db.executeSql(sql, {})
 			.then((response) => {
 				for (let index = 0; index < response.rows.length; index++) {
@@ -238,7 +231,7 @@ export class ReportesDbService {
 	/* Funcion para obtener los distintos valores de agruapcion. */
 	selectDistinct = (agrupacion: string): any => {
 		let reportes = []
-		let sql = 'select distinct(' + agrupacion +') as registros from proyectos order by ' + agrupacion + ' desc'
+		let sql = 'select distinct(' + agrupacion + ') as registros from proyectos order by ' + agrupacion + ' desc'
 
 		return this.db.executeSql(sql, {})
 			.then((response) => {
@@ -259,6 +252,53 @@ export class ReportesDbService {
 						where ` + agrupacion + ` in ('` + where + `')` + ` group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
 
 		return this.db.executeSql(sql, {})
+	}
+
+	/* Funcion para ver el detalle para el grupo monto total. */
+	detallePorMontoTotal = (select, groupBY): any => {
+		let reportes = []
+
+		let sql = `select ` + select + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
+						(select sum(monto) from proyectos) as monto_total
+						FROM proyectos group by ` + groupBY + ` order by ` + groupBY + ` asc`
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					reportes.push({
+						'campo': response.rows.item(index).campo,
+						// 'monto': account.formatNumber(response.rows.item(index).monto),
+						'monto': response.rows.item(index).monto,
+						'monto_total': response.rows.item(index).monto_total,
+						'numero_proyectos': response.rows.item(index).numero_proyectos,
+						'porcentaje': account.toFixed((response.rows.item(index).monto / response.rows.item(index).monto_total) * 100, 2)
+					})
+				}
+				return Promise.resolve(reportes)
+			})
+	}
+
+	/* Funcion para ver el detalle para el grupo numero de proyectos. */
+	detallePorNumeroProyectos = (select, groupBY): any => {
+		let reportes = []
+
+		let sql = `select ` + select + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
+						(select count(*) from proyectos) as total_proyectos
+						FROM proyectos group by ` + groupBY + ` order by ` + groupBY + ` asc`
+		console.log(sql)
+		
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					reportes.push({
+						'campo': response.rows.item(index).campo,
+						'monto': response.rows.item(index).monto,
+						'total_proyectos': response.rows.item(index).total_proyectos,
+						'numero_proyectos': response.rows.item(index).numero_proyectos,
+						'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total_proyectos) * 100, 2)
+					})
+				}
+				return Promise.resolve(reportes)
+			})
 	}
 
 	/* Objeto para construir  la grafica de barras. */
@@ -347,8 +387,95 @@ export class ReportesDbService {
 			}
 		}
 		options['series'][0].data = xy
-		// console.log(options)
-		
+		return options
+	}
+
+	/* Objeto para construir  la grafica de barras. */
+	datosGraficaGrupoNumeroProyecto = (xy: Array < any > , intervalo: number, serie_name: string, title_name: string): Object => {
+		let options = {
+			chart: {
+				type: 'column',
+				// width: 600,
+				// height: 350
+			},
+			title: {
+				text: title_name
+			},
+			xAxis: {
+				type: 'category'
+			},
+			yAxis: [{
+				className: 'highcharts-color-0',
+				tickInterval: intervalo,
+				labels: {
+					// x: -15,
+					formatter: function() {
+						return this.value + ' #';
+					}
+				},
+				title: {
+					text: 'Participación en total de proyectos'
+				}
+			}],
+			legend: {
+				enabled: false
+			},
+			plotOptions: {
+				series: {
+					borderWidth: 0,
+					dataLabels: {
+						enabled: true,
+						format: '{point.y:.1f}#'
+					}
+				}
+			},
+
+			tooltip: {
+				headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+				pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}#</b> del total<br/>'
+			},
+
+			series: [{
+				name: serie_name,
+				// colorByPoint: true,
+				data: [],
+			}],
+			responsive: {
+				rules: [{
+					condition: {
+						maxWidth: 500
+					},
+					title: {
+						text: 'responsive'
+					},
+					xAxis: {
+						type: 'category'
+					},
+					// Make the labels less space demanding on mobile
+					chartOptions: {
+						xAxis: {
+							labels: {
+								formatter: function() {
+									return this.value.charAt(0)
+								}
+							}
+						},
+						yAxis: {
+							className: 'highcharts-color-0',
+							labels: {
+								align: 'left',
+								x: 0,
+								y: -2
+							},
+							title: {
+								text: 'Participación en total de proyectos'
+							}
+						}
+					}
+				}]
+			}
+		}
+		options['series'][0].data = xy
 		return options
 	}
 }

@@ -39,9 +39,6 @@ export class DetalleReportePage {
 		private reporteService : ReportesDbService, private dbService: DbService, public zone: NgZone,
 		public modalCtrl: ModalController) {
 		this.id = navParams.get('id')
-		// this.filtros = navParams.get('filtros')
-		// this.campo_select = navParams.get('campo_select')
-		// this.campo_agrupacion = navParams.get('campo_agrupacion')
 	}
 
 	ionViewDidLoad() {
@@ -135,7 +132,6 @@ export class DetalleReportePage {
 					})
 
 					this.proyectos = proyectos
-					// this.dataCirular = response
 					this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno)
 				})
 			})
@@ -299,7 +295,9 @@ export class DetalleReportePage {
 	/* Funcion para ver detalle por monto total o por numero de proyectos. */
 	verDetalleGrupo = (grupo: string) => {
 		this.navCtrl.push(DetalleGrupoPage, {
-			'grupo': grupo
+			'select': this.campo_select,
+			'grupo': grupo,
+			'groupBy': this.campo_agrupacion
 		})
 	}
 }
