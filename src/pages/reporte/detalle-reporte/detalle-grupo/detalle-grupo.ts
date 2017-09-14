@@ -122,10 +122,7 @@ export class DetalleGrupoPage {
 				'monto_total': monto_total
 			})
 		}
-		// else if (group_by === 'contratante') {
-		// 	console.log(group_by)
-		// 	this.verProyectosAgrupadosCliente(campo, monto_total)
-		// }
+
 		else {
 			this.navCtrl.push(DetalleReporteAgrupadoPage, {
 				'campo': campo,

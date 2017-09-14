@@ -7,9 +7,6 @@ import {
 	NavParams,
 	ViewController
 } from 'ionic-angular';
-import {
-	DetalleReportePage
-} from '../../../../pages/reporte/detalle-reporte/detalle-reporte'
 
 @IonicPage()
 @Component({
@@ -25,9 +22,6 @@ export class FiltrarAgrupacionPage {
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
 		this.registros = navParams.get('registros')
-		// this.id = navParams.get('id')
-		// this.campo_select = navParams.get('campo_select')
-		// this.campo_agrupacion = navParams.get('campo_agrupacion')
 	}
 
 	ionViewDidLoad() {

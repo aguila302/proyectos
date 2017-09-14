@@ -166,7 +166,6 @@ export class ReportesDbService {
 		let last_id = `SELECT max(id) as id from reportes`
 		return this.db.executeSql(last_id, {})
 			.then(response => {
-				// let id: number
 				for (let index = 0; index < response.rows.length; index++) {
 					array_id.push({
 						'id': response.rows.item(index).id
@@ -191,15 +190,12 @@ export class ReportesDbService {
 				reporte_id, nombre_columna) values(?, ?)`
 
 		return this.db.executeSql(insert_grupado, [id, agrupacion])
-			// .then(() => console.log('regustros insertados en tabla reportes columnas de nuevo reporte'))
-			// .catch(e => console.log(e))
 	}
 
 	/* Funcion consultar el detalle de un reporte dado a un campo. */
 	consultaXCampoAgrupado = (campo: string, groupBy: string): any => {
 		let proyectos = []
 		let sql = 'select * from proyectos where ' + groupBy + ' = ' + "'" + campo + "'"
-		console.log(sql)
 
 		return this.db.executeSql(sql, {})
 			.then((response) => {
@@ -307,8 +303,6 @@ export class ReportesDbService {
 		let options = {
 			chart: {
 				type: 'column',
-				// width: 600,
-				// height: 350
 			},
 			title: {
 				text: title_name
@@ -320,7 +314,6 @@ export class ReportesDbService {
 				className: 'highcharts-color-0',
 				tickInterval: intervalo,
 				labels: {
-					// x: -15,
 					formatter: function() {
 						return this.value + ' %';
 					}
@@ -349,7 +342,6 @@ export class ReportesDbService {
 
 			series: [{
 				name: serie_name,
-				// colorByPoint: true,
 				data: [],
 			}],
 			responsive: {
@@ -396,8 +388,6 @@ export class ReportesDbService {
 		let options = {
 			chart: {
 				type: 'column',
-				// width: 600,
-				// height: 350
 			},
 			title: {
 				text: title_name
@@ -409,7 +399,6 @@ export class ReportesDbService {
 				className: 'highcharts-color-0',
 				tickInterval: intervalo,
 				labels: {
-					// x: -15,
 					formatter: function() {
 						return this.value + '';
 					}
@@ -438,7 +427,6 @@ export class ReportesDbService {
 
 			series: [{
 				name: serie_name,
-				// colorByPoint: true,
 				data: [],
 			}],
 			responsive: {

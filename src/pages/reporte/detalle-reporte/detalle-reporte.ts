@@ -240,6 +240,7 @@ export class DetalleReportePage {
 			'monto_total': monto_total
 		})
 	}
+	
 	/* Funcion para visualizar los proyectos agrupados por contratante. */
 	verProyectosAgrupadosCliente = (contratante: string, monto_total: string): void => {
 		this.navCtrl.push(ProyectosAgrupadosClientePage, {

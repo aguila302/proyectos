@@ -14,7 +14,6 @@ export class ReportePage {
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private reporteService : ReportesDbService) {
-		// this.getReportes()
 	}
 
 	/* Cargamos los proyectos cuando la vista esta activa. */
