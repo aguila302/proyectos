@@ -261,6 +261,7 @@ export class ReportesDbService {
 		let sql = `select ` + select + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
 						(select sum(monto) from proyectos) as monto_total
 						FROM proyectos group by ` + groupBY + ` order by ` + groupBY + ` asc`
+
 		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
@@ -410,7 +411,7 @@ export class ReportesDbService {
 				labels: {
 					// x: -15,
 					formatter: function() {
-						return this.value + ' #';
+						return this.value + '';
 					}
 				},
 				title: {
@@ -425,14 +426,14 @@ export class ReportesDbService {
 					borderWidth: 0,
 					dataLabels: {
 						enabled: true,
-						format: '{point.y:.1f}#'
+						format: '{point.y:.1f}'
 					}
 				}
 			},
 
 			tooltip: {
 				headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-				pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}#</b> del total<br/>'
+				pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b> del total<br/>'
 			},
 
 			series: [{

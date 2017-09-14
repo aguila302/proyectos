@@ -2,6 +2,12 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular'
 import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
+import { ProyectosAgrupadosPage } from '../../../estadistica/proyectos-agrupados/proyectos-agrupados'
+import { ProyectosAgrupadosAnioPage } from '../../../estadistica/proyectos-agrupados/por-anio/proyectos-agrupados-anio'
+import { ProyectosAgrupadosClientePage } from '../../../estadistica/proyectos-agrupados/por-cliente/proyectos-agrupados-cliente'
+import { ProyectosAgrupadosGerenciaPage } from '../../../estadistica/proyectos-agrupados/por-gerencia/proyectos-agrupados-gerencia'
+import { DetalleReporteAgrupadoPage } from '../../../reporte/detalle-reporte/detalle-reporte-agrupado/detalle-reporte-agrupado'
+
 
 @IonicPage()
 @Component({
@@ -14,9 +20,11 @@ export class GraficaCircularPage {
 	options: Object
 	monto_total: string = ''
 	total_proyectos: number
+	groupBy = ''
 
 	constructor(public navCtrl: NavController, public navParams: NavParams) {
 		this.proyectos = this.navParams.get('datos_circular')
+		this.groupBy = this.navParams.get('groupBy')
 	}
 
 	ionViewDidLoad() {
@@ -50,6 +58,34 @@ export class GraficaCircularPage {
 			}
 		})
 		this.proyectos = proyectos
+	}
+
+	/* Funcion para ver el detalle de los proyectos segun la opcion que se escoja. */
+	verProyectosAgrupados = (group_by: string, campo: string, monto_total: string): void => {
+
+		if (group_by === 'pais') {
+			this.navCtrl.push(ProyectosAgrupadosPage, {
+				'pais' : campo,
+				'monto_total': monto_total
+			})
+		} else if (group_by === 'anio') {
+			this.navCtrl.push(ProyectosAgrupadosAnioPage, {
+				'anio': campo,
+				'monto_total': monto_total
+			})
+		} else if (group_by === 'gerencia') {
+			this.navCtrl.push(ProyectosAgrupadosGerenciaPage, {
+				'gerencia': campo,
+				'monto_total': monto_total
+			})
+		}
+		else {
+			this.navCtrl.push(DetalleReporteAgrupadoPage, {
+				'campo': campo,
+				'monto_total': monto_total,
+				'groupBy': this.groupBy
+			})
+		}
 	}
 
 	/* Funcion para dibujar la grafica circular.*/

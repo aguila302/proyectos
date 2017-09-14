@@ -1,11 +1,24 @@
-import { Injectable } from '@angular/core'
-import { SQLite, SQLiteObject } from '@ionic-native/sqlite'
-import { PROYECTOS } from '../services/mocks/proyectos'
-import { Proyecto } from '../interfaces/proyecto'
+import {
+	Injectable
+} from '@angular/core'
+import {
+	SQLite,
+	SQLiteObject
+} from '@ionic-native/sqlite'
+import {
+	PROYECTOS
+} from '../services/mocks/proyectos'
+import {
+	Proyecto
+} from '../interfaces/proyecto'
 import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
-import { ReportesDbService } from './reportes.db.service'
-import { SQLitePorter } from '@ionic-native/sqlite-porter';
+import {
+	ReportesDbService
+} from './reportes.db.service'
+import {
+	SQLitePorter
+} from '@ionic-native/sqlite-porter';
 
 @Injectable()
 
@@ -28,8 +41,6 @@ export class DbService {
 			})
 			.then((db: any) => {
 				this.db = db
-				// let dbInstance = db._objectInstance;
-
 				/* Inicio mi servicio para los reportes. */
 				this.reporteService.initDb(db)
 			})
@@ -61,10 +72,10 @@ export class DbService {
 				numero_propuesta text,
 				anticipo text)
 		`
-		// this.sqlitePorter.exportDbToSql(this.db)
-		// 	.then(r => {
-		// 		console.log(r)
-				
+			// this.sqlitePorter.exportDbToSql(this.db)
+			// 	.then(r => {
+			// 		console.log(r)
+
 		// 		console.log('Exported')
 		// 	})
 		// 	.catch(e => console.error(e))
@@ -76,23 +87,22 @@ export class DbService {
 
 	/* Validamos que la tabla proyectos tenga informacion. */
 	validaRegistros() {
-		let sql = 'select count(*) as contador from proyectos'
-		return this.db.executeSql(sql, {})
-		.then((response) => {
-			let filas = response.rows.item(0).contador
-			/* Si no hay registros insertamos los datos*/
-			// console.log(response.rows.item(0).contador)
-			if(filas === 0) {
-				//console.log('insertamos registros')
-				this.insertaDatos()
-			}
-			else {
-				console.log('tenemos registros')
-			}
-			// console.log(response.rows.length)
-		})
-	}
-	/* Insertamos los datos. */
+			let sql = 'select count(*) as contador from proyectos'
+			return this.db.executeSql(sql, {})
+				.then((response) => {
+					let filas = response.rows.item(0).contador
+						/* Si no hay registros insertamos los datos*/
+						// console.log(response.rows.item(0).contador)
+					if (filas === 0) {
+						//console.log('insertamos registros')
+						this.insertaDatos()
+					} else {
+						console.log('tenemos registros')
+					}
+					// console.log(response.rows.length)
+				})
+		}
+		/* Insertamos los datos. */
 	insertaDatos() {
 		let origen = collect(PROYECTOS)
 		origen.each(item => {
@@ -168,7 +178,7 @@ export class DbService {
 		for (let i in filtros) {
 			let sql = 'select * from proyectos where ' + i + ' like ' + "'%" + val + "%'"
 			console.log(sql)
-			
+
 			this.db.executeSql(sql, {})
 				.then((response) => {
 					for (let index = 0; index < response.rows.length; index++) {
@@ -196,7 +206,7 @@ export class DbService {
 				})
 		}
 		console.log(proyectos)
-		
+
 		return proyectos
 	}
 
@@ -226,8 +236,8 @@ export class DbService {
 	/* Funcion para traer los proyectos de un pais dado. */
 	consultaPaisAgrupado = (pais: string): any => {
 		let proyectos = []
-		let sql = 'select * from proyectos where pais = ' + "'"  + pais + "'"
-		
+		let sql = 'select * from proyectos where pais = ' + "'" + pais + "'"
+
 		return this.db.executeSql(sql, {})
 			.then((response) => {
 				for (let index = 0; index < response.rows.length; index++) {
@@ -281,7 +291,7 @@ export class DbService {
 	/* Funcion para traer los proyectos de un anio dado. */
 	consultaAnioAgrupado = (anio: number): any => {
 		let proyectos = []
-		let sql = 'select * from proyectos where anio = ' + "'"  + anio + "'"
+		let sql = 'select * from proyectos where anio = ' + "'" + anio + "'"
 
 		return this.db.executeSql(sql, {})
 			.then((response) => {
@@ -336,7 +346,7 @@ export class DbService {
 	/* Funcion para traer los proyectos de un gerencia dado. */
 	consultaGerenciaAgrupado = (gerencia: string): any => {
 		let proyectos = []
-		let sql = 'select * from proyectos where gerencia = ' + "'"  + gerencia + "'"
+		let sql = 'select * from proyectos where gerencia = ' + "'" + gerencia + "'"
 
 		return this.db.executeSql(sql, {})
 			.then((response) => {
@@ -388,7 +398,7 @@ export class DbService {
 	/* Funcion para traer los proyectos de un cliente dado. */
 	consultaClienteAgrupado = (contratante: string): any => {
 		let proyectos = []
-		let sql = 'select * from proyectos where contratante = ' + "'"  + contratante + "'"
+		let sql = 'select * from proyectos where contratante = ' + "'" + contratante + "'"
 
 		return this.db.executeSql(sql, {})
 			.then((response) => {
@@ -464,7 +474,7 @@ export class DbService {
 			.catch(e => console.log(e))
 	}
 
-		/* Funcion para crear la tabla de reporteAgrupaciones. */
+	/* Funcion para crear la tabla de reporteAgrupaciones. */
 	creaTablaReporteAgrupaciones() {
 		let sql = `
 			create table if not exists reportes_agrupacion(
@@ -487,6 +497,7 @@ export class DbService {
 		let gerencia = ''
 		let cliente = ''
 		let producto = ''
+		let diireccion = ''
 
 		pais = `insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por pais', '2062717473.00', '1330');`
 		this.db.executeSql(pais, {})
@@ -506,14 +517,23 @@ export class DbService {
 			.catch(e => console.log(e))
 
 		cliente = `
-			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por cliente', '2062717473.00', '1330');`
+			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por cliente',
+			(select sum(monto) from proyectos), (select count(*) from proyectos));`
 		this.db.executeSql(cliente, {})
 			.then(() => console.log('regustros insertados en tabla reportes'))
 			.catch(e => console.log(e))
 
 		producto = `
-			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por producto', '2062717473.00', '1330');`
+			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por producto',
+			(select sum(monto) from proyectos), (select count(*) from proyectos));`
 		this.db.executeSql(producto, {})
+			.then(() => console.log('regustros insertados en tabla reportes'))
+			.catch(e => console.log(e))
+
+		diireccion = `
+			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por dirección',
+			(select sum(monto) from proyectos), (select count(*) from proyectos));`
+		this.db.executeSql(diireccion, {})
 			.then(() => console.log('regustros insertados en tabla reportes'))
 			.catch(e => console.log(e))
 	}
@@ -547,6 +567,12 @@ export class DbService {
 		let producto = `insert into reportes_columnas(
 				reporte_id, nombre_columna) values(?, ?)`
 		this.db.executeSql(producto, ['5', 'producto'])
+			.then(() => console.log('regustros insertados en tabla reportes columnas'))
+			.catch(e => console.log(e))
+
+		let direccion = `insert into reportes_columnas(
+				reporte_id, nombre_columna) values(?, ?)`
+		this.db.executeSql(direccion, ['6', 'unidad_negocio'])
 			.then(() => console.log('regustros insertados en tabla reportes columnas'))
 			.catch(e => console.log(e))
 
@@ -590,6 +616,12 @@ export class DbService {
 		let producto = `insert into reportes_agrupacion(
 				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
 		this.db.executeSql(producto, ['5', 'producto', '1'])
+			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
+			.catch(e => console.log(e))
+
+		let direccion = `insert into reportes_agrupacion(
+				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
+		this.db.executeSql(direccion, ['6', 'unidad_negocio', '1'])
 			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
 			.catch(e => console.log(e))
 	}
