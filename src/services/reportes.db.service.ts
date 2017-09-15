@@ -298,6 +298,42 @@ export class ReportesDbService {
 			})
 	}
 
+	/* Funcion para obtener el reporte de direccion. */
+	reportePorDireccion = () => {
+		let reportes = []
+		let sql = `select anio, unidad_negocio, count(*) as numero_proyectos, (select count(*) from proyectos) as total_proyectos
+					from proyectos where anio = 1985 group by anio, unidad_negocio order by 1 asc`
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					reportes.push({
+						'anio': response.rows.item(index).anio,
+						'unidad_negocio': response.rows.item(index).unidad_negocio,
+						'total_proyectos': response.rows.item(index).total_proyectos,
+						'numero_proyectos': response.rows.item(index).numero_proyectos,
+						'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total_proyectos) * 100, 2)
+					})
+				}
+				return Promise.resolve(reportes)
+			})
+	}
+	/* Funcion para obtener los distintos valores de anio para el reporte de direccion. */
+	selectDistinctAnio = (): any => {
+		let anios = []
+		let sql = 'select distinct(anio) as anios, 0 as porcentaje from proyectos order by 1 asc'
+
+		return this.db.executeSql(sql, {})
+			.then((response) => {
+				for (let index = 0; index < response.rows.length; index++) {
+					anios.push({
+						anio: response.rows.item(index).anios,
+						porcentaje: response.rows.item(index).porcentaje,
+					})
+				}
+				return Promise.resolve(anios)
+			})
+	}
+
 	/* Objeto para construir  la grafica de barras. */
 	datosGrafica = (xy: Array < any > , intervalo: number, serie_name: string, title_name: string): Object => {
 		let options = {

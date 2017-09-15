@@ -39,7 +39,7 @@ export class DetalleGrupoPage {
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad DetalleGrupoPage')
-		this.verDetalle()
+		// this.verDetalle()
 	}
 
 	/* Funcion para mostrar el detalle de un grupo selecccionado. */
