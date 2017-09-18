@@ -35,7 +35,7 @@ export class DbService {
 	/* Creamos la base de datos. */
 	openDatabase() {
 		return this.sqlite.create({
-				name: 'data.db',
+				name: 'proyectos.db',
 				location: 'default',
 				createFromLocation: 1
 			})
@@ -70,15 +70,14 @@ export class DbService {
 				fecha_inicio text,
 				fecha_fin text,
 				numero_propuesta text,
-				anticipo text)
-		`
-		this.sqlitePorter.exportDbToSql(this.db)
-			.then(r => {
-				console.log(r)
+				anticipo text)`
+		// this.sqlitePorter.exportDbToSql(this.db)
+		// 	.then(r => {
+		// 		console.log(r)
 
-				console.log('Exported')
-			})
-			.catch(e => console.error(e))
+		// 		console.log('Exported')
+		// 	})
+		// 	.catch(e => console.error(e))
 
 		return this.db.executeSql(sql, {})
 			.then(() => console.log('tabla creada'))
@@ -491,56 +490,54 @@ export class DbService {
 	}
 
 	/* Funcion para crear la tabla de anios. */
-	creaTablaAnios() {
-		let sql = `
-			create table if not exists anios(
-				id integer primary key autoincrement,
-				anio integer
-			)`;
+	// creaTablaAnios() {
+	// 	let sql = `
+	// 		create table if not exists anios(
+	// 			id integer primary key autoincrement,
+	// 			anio integer
+	// 		)`;
 
-		return this.db.executeSql(sql, {})
-			.then(() => console.log('tabla de anios creada'))
-			.catch(e => console.log(e))
-	}
+	// 	return this.db.executeSql(sql, {})
+	// 		.then(() => console.log('tabla de anios creada'))
+	// 		.catch(e => console.log(e))
+	// }
 
 	/* Funcion para crear la tabla direccion_anios para el reporte de direccion y anios. */
-	createTableDireccionAnios() {
-		let sql = `
-			create table if not exists direccion_anios(
-				id integer primary key autoincrement,
-				unidad_negocio text,
-				[1985] integer,
-				[1986] integer,
-				[1987] integer,
-				[1988] integer,
-				[1989] integer,
-				[1990] integer
-			)`;
-		console.log(sql)
-		
-		return this.db.executeSql(sql, {})
-			.then(() => console.log('tabla de direccion_anios creada'))
-			.catch(e => console.log(e))
-	}
+	// createTableDireccionAnios() {
+	// 	let sql = `
+	// 		create table if not exists direccion_anios(
+	// 			id integer primary key autoincrement,
+	// 			unidad_negocio text,
+	// 			[1985] integer,
+	// 			[1986] integer,
+	// 			[1987] integer,
+	// 			[1988] integer,
+	// 			[1989] integer,
+	// 			[1990] integer
+	// 		)`;
+	// 	return this.db.executeSql(sql, {})
+	// 		.then(() => console.log('tabla de direccion_anios creada'))
+	// 		.catch(e => console.log(e))
+	// }
 
 	/* Funcion que hace la consulta necesaria para obtener la informacion del reporte direccion con años. */
-	insertaDireccionAnios() {
-		let sql = ` insert into direccion_anios('unidad_negocio', '1985', '1986', '1987', '1988', '1989', '1990')
-					 select proyectos.unidad_negocio,
-					 	 cast(count(case when anios.anio = '1985' then anios.anio end) as float)/1330*100 as [1985],
-						 cast(count(case when anios.anio = '1986' then anios.anio end) as float)/1330*100 as [1986],
-						 cast(count(case when anios.anio = '1987' then anios.anio end) as float)/1330*100 as [1987],
-						 cast(count(case when anios.anio = '1988' then anios.anio end) as float)/1330*100 as [1988],
-						 cast(count(case when anios.anio = '1989' then anios.anio end) as float)/1330*100 as [1989],
-						 cast(count(case when anios.anio = '1990' then anios.anio end) as float)/1330*100 as [1990]
-					 from proyectos
-					LEFT OUTER JOIN anios ON (proyectos.anio = anios.anio)
- 					group by proyectos.unidad_negocio`
+	// insertaDireccionAnios() {
+	// 	let sql = ` insert into direccion_anios('unidad_negocio', '1985', '1986', '1987', '1988', '1989', '1990')
+	// 				 select proyectos.unidad_negocio,
+	// 				 	 cast(count(case when anios.anio = '1985' then anios.anio end) as double)/1330*100 as [1985],
+	// 					 cast(count(case when anios.anio = '1986' then anios.anio end) as double)/1330*100 as [1986],
+	// 					 cast(count(case when anios.anio = '1987' then anios.anio end) as double)/1330*100 as [1987],
+	// 					 cast(count(case when anios.anio = '1988' then anios.anio end) as double)/1330*100 as [1988],
+	// 					 cast(count(case when anios.anio = '1989' then anios.anio end) as double)/1330*100 as [1989],
+	// 					 cast(count(case when anios.anio = '1990' then anios.anio end) as double)/1330*100 as [1990]
+	// 				 from proyectos
+	// 				LEFT OUTER JOIN anios ON (proyectos.anio = anios.anio)
+ // 					group by proyectos.unidad_negocio`
 
-		return this.db.executeSql(sql, {})
-			.then(() => console.log('direcciones anios insertado'))
-			.catch(e => console.log(e))
-	}
+	// 	return this.db.executeSql(sql, {})
+	// 		.then(() => console.log('direcciones anios insertado'))
+	// 		.catch(e => console.log(e))
+	// }
 
 	/* Funcion para insertar datos en la tabla de reportes */
 	insertaDatosTablaReportes() {
@@ -679,12 +676,12 @@ export class DbService {
 	}
 
 	/* Funcion para insertar en la tabla de anios. */
-	insertaAnios() {
-		let direccion = `insert into anios('anio') select distinct(anio) from proyectos`
-		this.db.executeSql(direccion, [])
-			.then(() => console.log('regustros insertados en tabla anios'))
-			.catch(e => console.log(e))
-	}
+	// insertaAnios() {
+	// 	let direccion = `insert into anios('anio') select distinct(anio) from proyectos`
+	// 	this.db.executeSql(direccion, [])
+	// 		.then(() => console.log('regustros insertados en tabla anios'))
+	// 		.catch(e => console.log(e))
+	// }
 
 	delete() {
 		let anio = `drop table reportes`
@@ -707,9 +704,14 @@ export class DbService {
 			.then(() => console.log('deleted'))
 			.catch(e => console.log(e))
 
-		// let vista = `drop view direccioAnio`
-		// this.db.executeSql(vista, {})
-		// 	.then(() => console.log('deleted vista'))
-		// 	.catch(e => console.log(e))
+		let anios = `drop table direccion_anios`
+		this.db.executeSql(anios, {})
+			.then(() => console.log('deleted anios'))
+			.catch(e => console.log(e))
+
+		let direccionAnio = `drop table direccion_anios`
+		this.db.executeSql(direccionAnio, {})
+			.then(() => console.log('deleted direccion_anios'))
+			.catch(e => console.log(e))
 	}
 }

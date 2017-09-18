@@ -41,6 +41,9 @@ export class DetalleReportePage {
 		private reporteService : ReportesDbService, private dbService: DbService, public zone: NgZone,
 		public modalCtrl: ModalController) {
 		this.id = navParams.get('id')
+
+		if(this.id === undefined)
+			this.reporteDireccionAnios()
 	}
 
 	ionViewDidLoad() {
@@ -311,6 +314,25 @@ export class DetalleReportePage {
 		this.navCtrl.push(GraficaCircularPage, {
 			'datos_circular': this.data_circular,
 			'groupBy': this.campo_agrupacion
+		})
+	}
+
+	/* Funcion para obtener la informacion para construir el reporte de direccicon con años. */
+	reporteDireccionAnios() {
+		var series = []
+		var categorias = []
+
+		this.reporteService.reportePorDireccion()
+		.then(response => {
+			categorias = ['Consultoría', 'Desarrollo de sistemas', 'Ingeniería', 'Sin dato', 'Sin datobonus', 'Suramérica']
+			response.forEach(item => {
+				series.push({
+					name: item.anio,
+					data: [item.unidad_negocio1, item.unidad_negocio2, item.unidad_negocio3, item.unidad_negocio4, item.unidad_negocio5, item.unidad_negocio6]
+				})
+			})
+			
+			this.options = this.reporteService.graficaDireccionAnios(categorias, series)
 		})
 	}
 }

@@ -301,22 +301,29 @@ export class ReportesDbService {
 	/* Funcion para obtener el reporte de direccion. */
 	reportePorDireccion = () => {
 		let reportes = []
-		let sql = `select unidad_negocio, v from direccioAnio`
+		// let sql = `select * from direccion_anios order by 2 asc`
+		let sql = `select proyectos.anio,
+					 	 cast(count(case when proyectos.unidad_negocio = 'Consultoría' then proyectos.unidad_negocio end) as double)/1330*100 as unidad_negocio1,
+						 cast(count(case when proyectos.unidad_negocio = 'Desarrollo de sistemas' then proyectos.unidad_negocio end) as double)/1330*100 as unidad_negocio2,
+						 cast(count(case when proyectos.unidad_negocio = 'Ingeniería' then proyectos.unidad_negocio end) as double)/1330*100 as unidad_negocio3,
+						 cast(count(case when proyectos.unidad_negocio = 'Sin dato' then proyectos.unidad_negocio end) as double)/1330*100 as unidad_negocio4,
+						 cast(count(case when proyectos.unidad_negocio = 'Sin datobonus' then proyectos.unidad_negocio end) as double)/1330*100 as unidad_negocio5,
+						 cast(count(case when proyectos.unidad_negocio = 'Suramérica' then proyectos.unidad_negocio end) as double)/1330*100 as unidad_negocio6
+					 from proyectos
+					LEFT OUTER JOIN anios ON (proyectos.anio = anios.anio)
+ 					group by proyectos.anio`
 
 		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
-					console.log(response.rows.item(index))
-					
 					reportes.push({
-						'unidad_negocio': response.rows.item(index).unidad_negocio, 
-						'v': response.rows.item(index).v,
-						// 'v2': response.rows.item(index).v2,
-						// 'v3': response.rows.item(index).v3,
-						// 'v4': response.rows.item(index).v4,
-						// 'v5': response.rows.item(index).v5,
-						// 'v6': response.rows.item(index).v6,
-						// 'v7': response.rows.item(index).v7
+						'anio': response.rows.item(index).anio, 
+						'unidad_negocio1': response.rows.item(index).unidad_negocio1,
+						'unidad_negocio2': response.rows.item(index).unidad_negocio2,
+						'unidad_negocio3': response.rows.item(index).unidad_negocio3,
+						'unidad_negocio4': response.rows.item(index).unidad_negocio4,
+						'unidad_negocio5': response.rows.item(index).unidad_negocio5,
+						'unidad_negocio6': response.rows.item(index).unidad_negocio6,
 					})
 				}
 				return Promise.resolve(reportes)
@@ -491,6 +498,48 @@ export class ReportesDbService {
 			}
 		}
 		options['series'][0].data = xy
+		return options
+	}
+
+	graficaDireccionAnios = (categorias, serie): Object => {
+		let options = {
+				chart: {
+					type: 'column'
+				},
+				title: {
+					text: 'Monthly Average Rainfall'
+				},
+				subtitle: {
+					text: 'Source: WorldClimate.com'
+				},
+				xAxis: {
+					categories: categorias,
+					crosshair: true
+				},
+				yAxis: {
+					min: 0,
+					title: {
+						text: 'Rainfall (mm)'
+					}
+				},
+				tooltip: {
+					headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+					pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+						'<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+					footerFormat: '</table>',
+					shared: true,
+					useHTML: true
+				},
+				plotOptions: {
+					column: {
+						pointPadding: 0.2,
+						borderWidth: 0
+					}
+				},
+				series: serie
+				}
+			console.log(options)
+			
 		return options
 	}
 }
