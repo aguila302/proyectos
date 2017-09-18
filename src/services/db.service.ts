@@ -41,7 +41,7 @@ export class DbService {
 			})
 			.then((db: any) => {
 				this.db = db
-				/* Inicio mi servicio para los reportes. */
+					/* Inicio mi servicio para los reportes. */
 				this.reporteService.initDb(db)
 			})
 
@@ -72,9 +72,9 @@ export class DbService {
 				numero_propuesta text,
 				anticipo text)
 		`
-			// this.sqlitePorter.exportDbToSql(this.db)
-			// 	.then(r => {
-			// 		console.log(r)
+		// this.sqlitePorter.exportDbToSql(this.db)
+		// 	.then(r => {
+		// 		console.log(r)
 
 		// 		console.log('Exported')
 		// 	})
@@ -490,6 +490,32 @@ export class DbService {
 			.catch(e => console.log(e))
 	}
 
+	/* Funcion para crear la tabla de anios. */
+	creaTablaAnios() {
+		let sql = `
+			create table if not exists anios(
+				id integer primary key autoincrement,
+				anio integer
+			)`;
+
+		return this.db.executeSql(sql, {})
+			.then(() => console.log('tabla de anios creada'))
+			.catch(e => console.log(e))
+	}
+	/* home123--%% */
+	createVista() {
+		let sql = `insert into direccion_anios(unidad_negocio, campo1)	
+select proyectos.unidad_negocio,
+	count(case when anios.anio = '1985' then anios.anio end) as [1985]
+from proyectos
+LEFT OUTER JOIN anios ON (proyectos.anio = anios.anio)
+group by proyectos.unidad_negocio`
+
+		return this.db.executeSql(sql, {})
+			.then(() => console.log('vista creada'))
+			.catch(e => console.log(e))
+	}
+
 	/* Funcion para insertar datos en la tabla de reportes */
 	insertaDatosTablaReportes() {
 		let pais = ''
@@ -626,6 +652,13 @@ export class DbService {
 			.catch(e => console.log(e))
 	}
 
+	/* Funcion para insertar en la tabla de anios. */
+	insertaAnios() {
+		let direccion = `insert into anios(anio) values((select distinct(anio) from proyectos))`
+		this.db.executeSql(direccion, [])
+			.then(() => console.log('regustros insertados en tabla anios'))
+			.catch(e => console.log(e))
+	}
 
 	delete() {
 		let anio = `drop table reportes`
@@ -646,6 +679,11 @@ export class DbService {
 		let ra = `drop table reportes_agrupacion`
 		this.db.executeSql(ra, {})
 			.then(() => console.log('deleted'))
+			.catch(e => console.log(e))
+
+		let vista = `drop view direccioAnio`
+		this.db.executeSql(vista, {})
+			.then(() => console.log('deleted vista'))
 			.catch(e => console.log(e))
 	}
 }

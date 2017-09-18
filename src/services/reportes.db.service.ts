@@ -301,21 +301,29 @@ export class ReportesDbService {
 	/* Funcion para obtener el reporte de direccion. */
 	reportePorDireccion = () => {
 		let reportes = []
-		let sql = `select anio, unidad_negocio, count(*) as numero_proyectos, (select count(*) from proyectos) as total_proyectos
-					from proyectos where anio = 1985 group by anio, unidad_negocio order by 1 asc`
+		let sql = `select unidad_negocio, v from direccioAnio`
+
 		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
+					console.log(response.rows.item(index))
+					
 					reportes.push({
-						'anio': response.rows.item(index).anio,
-						'unidad_negocio': response.rows.item(index).unidad_negocio,
-						'total_proyectos': response.rows.item(index).total_proyectos,
-						'numero_proyectos': response.rows.item(index).numero_proyectos,
-						'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total_proyectos) * 100, 2)
+						'unidad_negocio': response.rows.item(index).unidad_negocio, 
+						'v': response.rows.item(index).v,
+						// 'v2': response.rows.item(index).v2,
+						// 'v3': response.rows.item(index).v3,
+						// 'v4': response.rows.item(index).v4,
+						// 'v5': response.rows.item(index).v5,
+						// 'v6': response.rows.item(index).v6,
+						// 'v7': response.rows.item(index).v7
 					})
 				}
+				// console.log(reportes)
+				
 				return Promise.resolve(reportes)
 			})
+			.catch(console.error.bind(console));
 	}
 	/* Funcion para obtener los distintos valores de anio para el reporte de direccion. */
 	selectDistinctAnio = (): any => {
