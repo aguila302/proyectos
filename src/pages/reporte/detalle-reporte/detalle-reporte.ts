@@ -269,10 +269,8 @@ export class DetalleReportePage {
 		this.proyectos_agrupados_detalle = menores_de_uno
 	}
 
-
 	/* Funcion para ver el detalle de los proyectos segun la opcion que se escoja. */
 	verProyectosAgrupados = (group_by: string, campo: string, monto_total: string): void => {
-
 		if (group_by === 'pais') {
 			this.navCtrl.push(ProyectosAgrupadosPage, {
 				'pais': campo,
@@ -331,7 +329,7 @@ export class DetalleReportePage {
 					data: [item.unidad_negocio1, item.unidad_negocio2, item.unidad_negocio3, item.unidad_negocio4, item.unidad_negocio5, item.unidad_negocio6]
 				})
 			})
-			
+
 			this.options = this.reporteService.graficaDireccionAnios(categorias, series)
 		})
 	}

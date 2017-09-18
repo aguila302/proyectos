@@ -15,7 +15,6 @@ import {
 import {
 	ReportesDbService
 } from '../../services/reportes.db.service'
-import * as collect from 'collect.js/dist'
 
 @IonicPage()
 @Component({
@@ -32,13 +31,11 @@ export class ReportePage {
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad ReportePage');
 		this.getReportes()
-			// this.reporteDireccion()
 	}
 
 	ionViewWillEnter() {
-			console.log('volviste')
-			this.getReportes()
-		}
+		this.getReportes()
+	}
 		/* Funcion para mostrar el detalle de un reporte. */
 	detalleReporte = (id: number): void => {
 		console.log('show detalle')

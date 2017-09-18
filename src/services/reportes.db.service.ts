@@ -70,7 +70,6 @@ export class ReportesDbService {
 			})
 	}
 
-
 	/* Funcion para la consulta del detalle de reportes. */
 	detalleReporte = (campo: string, group_by: string): any => {
 		let reportes = []
@@ -94,7 +93,6 @@ export class ReportesDbService {
 				return Promise.resolve(reportes)
 			})
 	}
-
 
 	/* Funcion para traer las columnas. */
 	getColumnas = (): any => {
@@ -130,8 +128,6 @@ export class ReportesDbService {
 			})
 			.catch(console.error.bind(console))
 	}
-
-
 
 	/* Funcion para obtener la data para registrar un reporte. */
 	paraGuardarReporte = (agrupacion: string) => {
@@ -301,7 +297,6 @@ export class ReportesDbService {
 	/* Funcion para obtener el reporte de direccion. */
 	reportePorDireccion = () => {
 		let reportes = []
-		// let sql = `select * from direccion_anios order by 2 asc`
 		let sql = `select proyectos.anio,
 					 	 cast(count(case when proyectos.unidad_negocio = 'Consultoría' then proyectos.unidad_negocio end) as double)/1330*100 as unidad_negocio1,
 						 cast(count(case when proyectos.unidad_negocio = 'Desarrollo de sistemas' then proyectos.unidad_negocio end) as double)/1330*100 as unidad_negocio2,
