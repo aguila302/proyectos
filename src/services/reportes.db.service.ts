@@ -319,27 +319,9 @@ export class ReportesDbService {
 						// 'v7': response.rows.item(index).v7
 					})
 				}
-				// console.log(reportes)
-				
 				return Promise.resolve(reportes)
 			})
 			.catch(console.error.bind(console));
-	}
-	/* Funcion para obtener los distintos valores de anio para el reporte de direccion. */
-	selectDistinctAnio = (): any => {
-		let anios = []
-		let sql = 'select distinct(anio) as anios, 0 as porcentaje from proyectos order by 1 asc'
-
-		return this.db.executeSql(sql, {})
-			.then((response) => {
-				for (let index = 0; index < response.rows.length; index++) {
-					anios.push({
-						anio: response.rows.item(index).anios,
-						porcentaje: response.rows.item(index).porcentaje,
-					})
-				}
-				return Promise.resolve(anios)
-			})
 	}
 
 	/* Objeto para construir  la grafica de barras. */

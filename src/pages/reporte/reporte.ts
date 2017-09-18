@@ -21,7 +21,7 @@ export class ReportePage {
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad ReportePage');
 		this.getReportes()
-		this.reporteDireccion()
+		// this.reporteDireccion()
 	}
 
 	ionViewWillEnter() {
@@ -48,10 +48,10 @@ export class ReportePage {
 	}
 
 	/* Funcion para le reporte de direccion. */
-	reporteDireccion() {
-		this.reporteService.reportePorDireccion()
-			.then(response => {
-				// console.log(response)
-			})
-	}
+	// reporteDireccion() {
+	// 	this.reporteService.reportePorDireccion()
+	// 		.then(response => {
+	// 			// console.log(response)
+	// 		})
+	// }
 }
