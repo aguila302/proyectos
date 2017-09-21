@@ -32,6 +32,8 @@ export class MyApp {
         .then(() => this.dbService.insertaDatosTablaReportesColunas())
         .then(() => this.dbService.insertaDatosTablaReportesFiltros())
         .then(() => this.dbService.insertaDatosTablaReportesAgrupacion())
+        .then(() => this.dbService.createTableAnios())
+        .then(() => this.dbService.insertAnios())
     });
   }
 }

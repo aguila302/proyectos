@@ -489,6 +489,22 @@ export class DbService {
 			.catch(e => console.log(e))
 	}
 
+	/* Funcion para crear el catalogo de anios. */
+	createTableAnios() {
+		let sql = `CREATE TABLE anios (
+				id integer PRIMARY KEY AUTOINCREMENT,
+				anio integer );`
+		return this.db.executeSql(sql, {})
+			.then(() => console.log('tabla de anios creada'))
+			.catch(e => console.log(e))
+	}
+	// inserta los anios
+	insertAnios() {
+		let insertAnios = ` insert into anios(anio) select distinct(anio) from proyectos`
+		this.db.executeSql(insertAnios, {})
+			.then(() => console.log('regustros insertados en tabla de anios'))
+			.catch(e => console.log(e))
+	}
 	/* Funcion para insertar datos en la tabla de reportes */
 	insertaDatosTablaReportes() {
 		let pais = ''

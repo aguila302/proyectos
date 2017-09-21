@@ -334,6 +334,7 @@ export class DetalleReportePage {
 			})
 			this.options = this.reporteService.graficaDireccionAnios(categorias, series)
 			this.reporteService.detalleReporte(this.campo_select, this.campo_agrupacion)
+			
 			.then(response => {
 				console.log(response)
 				/* Para mostrar la tabla de informacion */
