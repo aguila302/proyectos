@@ -71,9 +71,9 @@ export class DbService {
 				fecha_fin text,
 				numero_propuesta text,
 				anticipo text)`
-		// this.sqlitePorter.exportDbToSql(this.db)
-		// 	.then(r => {
-		// 		console.log(r)
+			// this.sqlitePorter.exportDbToSql(this.db)
+			// 	.then(r => {
+			// 		console.log(r)
 
 		// 		console.log('Exported')
 		// 	})
@@ -489,56 +489,6 @@ export class DbService {
 			.catch(e => console.log(e))
 	}
 
-	/* Funcion para crear la tabla de anios. */
-	// creaTablaAnios() {
-	// 	let sql = `
-	// 		create table if not exists anios(
-	// 			id integer primary key autoincrement,
-	// 			anio integer
-	// 		)`;
-
-	// 	return this.db.executeSql(sql, {})
-	// 		.then(() => console.log('tabla de anios creada'))
-	// 		.catch(e => console.log(e))
-	// }
-
-	/* Funcion para crear la tabla direccion_anios para el reporte de direccion y anios. */
-	// createTableDireccionAnios() {
-	// 	let sql = `
-	// 		create table if not exists direccion_anios(
-	// 			id integer primary key autoincrement,
-	// 			unidad_negocio text,
-	// 			[1985] integer,
-	// 			[1986] integer,
-	// 			[1987] integer,
-	// 			[1988] integer,
-	// 			[1989] integer,
-	// 			[1990] integer
-	// 		)`;
-	// 	return this.db.executeSql(sql, {})
-	// 		.then(() => console.log('tabla de direccion_anios creada'))
-	// 		.catch(e => console.log(e))
-	// }
-
-	/* Funcion que hace la consulta necesaria para obtener la informacion del reporte direccion con años. */
-	// insertaDireccionAnios() {
-	// 	let sql = ` insert into direccion_anios('unidad_negocio', '1985', '1986', '1987', '1988', '1989', '1990')
-	// 				 select proyectos.unidad_negocio,
-	// 				 	 cast(count(case when anios.anio = '1985' then anios.anio end) as double)/1330*100 as [1985],
-	// 					 cast(count(case when anios.anio = '1986' then anios.anio end) as double)/1330*100 as [1986],
-	// 					 cast(count(case when anios.anio = '1987' then anios.anio end) as double)/1330*100 as [1987],
-	// 					 cast(count(case when anios.anio = '1988' then anios.anio end) as double)/1330*100 as [1988],
-	// 					 cast(count(case when anios.anio = '1989' then anios.anio end) as double)/1330*100 as [1989],
-	// 					 cast(count(case when anios.anio = '1990' then anios.anio end) as double)/1330*100 as [1990]
-	// 				 from proyectos
-	// 				LEFT OUTER JOIN anios ON (proyectos.anio = anios.anio)
- // 					group by proyectos.unidad_negocio`
-
-	// 	return this.db.executeSql(sql, {})
-	// 		.then(() => console.log('direcciones anios insertado'))
-	// 		.catch(e => console.log(e))
-	// }
-
 	/* Funcion para insertar datos en la tabla de reportes */
 	insertaDatosTablaReportes() {
 		let pais = ''
@@ -547,6 +497,7 @@ export class DbService {
 		let cliente = ''
 		let producto = ''
 		let diireccion = ''
+		let direccion_anio = ''
 
 		pais = `insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por pais', '2062717473.00', '1330');`
 		this.db.executeSql(pais, {})
@@ -584,6 +535,13 @@ export class DbService {
 			(select sum(monto) from proyectos), (select count(*) from proyectos));`
 		this.db.executeSql(diireccion, {})
 			.then(() => console.log('regustros insertados en tabla reportes'))
+			.catch(e => console.log(e))
+
+		direccion_anio = `
+			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por dirección y años',
+			(select sum(monto) from proyectos), (select count(*) from proyectos));`
+		this.db.executeSql(direccion_anio, {})
+			.then(() => console.log('regustros insertados con datos direccion anios'))
 			.catch(e => console.log(e))
 	}
 
@@ -623,6 +581,13 @@ export class DbService {
 				reporte_id, nombre_columna) values(?, ?)`
 		this.db.executeSql(direccion, ['6', 'unidad_negocio'])
 			.then(() => console.log('regustros insertados en tabla reportes columnas'))
+			.catch(e => console.log(e))
+
+		/* insercion para el reporte de direccion con años*/
+		let direccion_anios = `insert into reportes_columnas(
+				reporte_id, nombre_columna) values(?, ?)`
+		this.db.executeSql(direccion_anios, ['7', 'unidad_negocio'])
+			.then(() => console.log('regustros insertados epara el reporte dicreccion con anios'))
 			.catch(e => console.log(e))
 
 	}
@@ -673,15 +638,13 @@ export class DbService {
 		this.db.executeSql(direccion, ['6', 'unidad_negocio', '1'])
 			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
 			.catch(e => console.log(e))
-	}
 
-	/* Funcion para insertar en la tabla de anios. */
-	// insertaAnios() {
-	// 	let direccion = `insert into anios('anio') select distinct(anio) from proyectos`
-	// 	this.db.executeSql(direccion, [])
-	// 		.then(() => console.log('regustros insertados en tabla anios'))
-	// 		.catch(e => console.log(e))
-	// }
+		let direccion_anios = `insert into reportes_agrupacion(
+				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
+		this.db.executeSql(direccion_anios, ['7', 'unidad_negocio', '1'])
+			.then(() => console.log('regustros insertados en tabla reportes agrupacion para el reporte direccion anios'))
+			.catch(e => console.log(e))
+	}
 
 	delete() {
 		let anio = `drop table reportes`
@@ -702,16 +665,6 @@ export class DbService {
 		let ra = `drop table reportes_agrupacion`
 		this.db.executeSql(ra, {})
 			.then(() => console.log('deleted'))
-			.catch(e => console.log(e))
-
-		let anios = `drop table direccion_anios`
-		this.db.executeSql(anios, {})
-			.then(() => console.log('deleted anios'))
-			.catch(e => console.log(e))
-
-		let direccionAnio = `drop table direccion_anios`
-		this.db.executeSql(direccionAnio, {})
-			.then(() => console.log('deleted direccion_anios'))
 			.catch(e => console.log(e))
 	}
 }

@@ -41,9 +41,6 @@ export class DetalleReportePage {
 		private reporteService : ReportesDbService, private dbService: DbService, public zone: NgZone,
 		public modalCtrl: ModalController) {
 		this.id = navParams.get('id')
-
-		if(this.id === undefined)
-			this.reporteDireccionAnios()
 	}
 
 	ionViewDidLoad() {
@@ -143,36 +140,42 @@ export class DetalleReportePage {
 			})
 		}
 		else {
-			this.reporteService.detalleReporte(this.campo_select, this.campo_agrupacion)
-			.then(response => {
-				// Para mostrar la informacion de la grafica.
-				this.xy.splice(0, this.xy.length)
-				response.forEach(item => {
-					this.xy.push({
-						name: item.campo,
-						y: parseFloat(item.porcentaje)
+			/* Opcion para seleccionar la opcion reporte de direccicon con años. */
+			if(this.id === 7)
+				this.reporteDireccionAnios()
+			else {
+				/* En caso de visualizar algun reporte que no sea de direccion con años. */
+				this.reporteService.detalleReporte(this.campo_select, this.campo_agrupacion)
+					.then(response => {
+						// Para mostrar la informacion de la grafica.
+						this.xy.splice(0, this.xy.length)
+						response.forEach(item => {
+							this.xy.push({
+								name: item.campo,
+								y: parseFloat(item.porcentaje)
+							})
+
+						})
+						this.options = this.reporteService.datosGrafica(this.xy, 2, '', 'Proyectos agrupados por ' + this.campo_agrupacion)
+
+						/* Para mostrar la tabla de informacion */
+						const collection = collect(response)
+						this.monto_total = account.formatNumber(collection.sum('monto'))
+						this.total_proyectos = collection.sum('numero_proyectos')
+
+						let proyectos = collection.map(function(item) {
+							return {
+								'campo': item.campo,
+								'porcentaje': item.porcentaje,
+								'monto': account.formatNumber(item.monto),
+								'numero_proyectos': item.numero_proyectos,
+								'group_by': item.group_by,
+							}
+						})
+						this.proyectos = proyectos
+						this.data_circular = response
 					})
-
-				})
-				this.options = this.reporteService.datosGrafica(this.xy, 2, '', 'Proyectos agrupados por ' + this.campo_agrupacion)
-
-				/* Para mostrar la tabla de informacion */
-				const collection = collect(response)
-				this.monto_total = account.formatNumber(collection.sum('monto'))
-				this.total_proyectos = collection.sum('numero_proyectos')
-
-				let proyectos = collection.map(function(item) {
-					return {
-						'campo': item.campo,
-						'porcentaje': item.porcentaje,
-						'monto': account.formatNumber(item.monto),
-						'numero_proyectos': item.numero_proyectos,
-						'group_by': item.group_by,
-					}
-				})
-				this.proyectos = proyectos
-				this.data_circular = response
-			})
+			}
 		}
 	}
 
@@ -329,8 +332,26 @@ export class DetalleReportePage {
 					data: [item.unidad_negocio1, item.unidad_negocio2, item.unidad_negocio3, item.unidad_negocio4, item.unidad_negocio5, item.unidad_negocio6]
 				})
 			})
-
 			this.options = this.reporteService.graficaDireccionAnios(categorias, series)
+			this.reporteService.detalleReporte(this.campo_select, this.campo_agrupacion)
+			.then(response => {
+				console.log(response)
+				/* Para mostrar la tabla de informacion */
+				const collection = collect(response)
+				this.monto_total = account.formatNumber(collection.sum('monto'))
+				this.total_proyectos = collection.sum('numero_proyectos')
+
+				let proyectos = collection.map(function(item) {
+					return {
+						'campo': item.campo,
+						'porcentaje': item.porcentaje,
+						'monto': account.formatNumber(item.monto),
+						'numero_proyectos': item.numero_proyectos,
+						'group_by': item.group_by,
+					}
+				})
+				this.proyectos = proyectos
+			})
 		})
 	}
 }

@@ -173,7 +173,6 @@ export class ReportesDbService {
 
 	/* Funcion para insertar en reportes agrupacion*/
 	insertarReporteAgrupado = (id: number, agrupacion: string): any => {
-
 		let insert_grupado = `insert into reportes_agrupacion(
 				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
 
@@ -259,7 +258,6 @@ export class ReportesDbService {
 				for (let index = 0; index < response.rows.length; index++) {
 					reportes.push({
 						'campo': response.rows.item(index).campo,
-						// 'monto': account.formatNumber(response.rows.item(index).monto),
 						'monto': response.rows.item(index).monto,
 						'monto_total': response.rows.item(index).monto_total,
 						'numero_proyectos': response.rows.item(index).numero_proyectos,

@@ -58,9 +58,9 @@ export class ReportePage {
 	}
 
 	/* Funcion para le reporte de direccion años. */
-	reporteDireccion() {
-		this.navCtrl.push(DetalleReportePage, {
-			'id': undefined
-		})
-	}
+	// reporteDireccion() {
+	// 	this.navCtrl.push(DetalleReportePage, {
+	// 		'id': undefined
+	// 	})
+	// }
 }
