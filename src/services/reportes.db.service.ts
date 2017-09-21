@@ -295,28 +295,113 @@ export class ReportesDbService {
 	/* Funcion para obtener el reporte de direccion. */
 	reportePorDireccion = () => {
 		let reportes = []
-		let sql = `select proyectos.anio,
-					 	 cast(count(case when proyectos.unidad_negocio = 'Consultoría' then proyectos.unidad_negocio end) as double)/1330*100 as unidad_negocio1,
-						 cast(count(case when proyectos.unidad_negocio = 'Desarrollo de sistemas' then proyectos.unidad_negocio end) as double)/1330*100 as unidad_negocio2,
-						 cast(count(case when proyectos.unidad_negocio = 'Ingeniería' then proyectos.unidad_negocio end) as double)/1330*100 as unidad_negocio3,
-						 cast(count(case when proyectos.unidad_negocio = 'Sin dato' then proyectos.unidad_negocio end) as double)/1330*100 as unidad_negocio4,
-						 cast(count(case when proyectos.unidad_negocio = 'Sin datobonus' then proyectos.unidad_negocio end) as double)/1330*100 as unidad_negocio5,
-						 cast(count(case when proyectos.unidad_negocio = 'Suramérica' then proyectos.unidad_negocio end) as double)/1330*100 as unidad_negocio6
+		let sql = `select proyectos.unidad_negocio,
+					 	 cast(count(case when proyectos.anio = 1985 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [1985],
+						 cast(count(case when proyectos.anio = 1986 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [1986],
+						 cast(count(case when proyectos.anio = 1987 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [1987],
+						 cast(count(case when proyectos.anio = 1988 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [1988],
+						 cast(count(case when proyectos.anio = 1989 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [1989],
+						 cast(count(case when proyectos.anio = 1990 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [1990],
+						 cast(count(case when proyectos.anio = 1991 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [1991],
+						 cast(count(case when proyectos.anio = 1992 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [1992],
+						 cast(count(case when proyectos.anio = 1993 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [1993],
+						 cast(count(case when proyectos.anio = 1994 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [1994],
+						 cast(count(case when proyectos.anio = 1995 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [1995],
+						 cast(count(case when proyectos.anio = 1996 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [1996],
+						 cast(count(case when proyectos.anio = 1997 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [1997],
+						 cast(count(case when proyectos.anio = 1998 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [1998],
+						 cast(count(case when proyectos.anio = 1999 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [1999],
+						 cast(count(case when proyectos.anio = 2000 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2000],
+						 cast(count(case when proyectos.anio = 2001 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2001],
+						 cast(count(case when proyectos.anio = 2002 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2002],
+						 cast(count(case when proyectos.anio = 2003 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2003],
+						 cast(count(case when proyectos.anio = 2004 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2004],
+						 cast(count(case when proyectos.anio = 2005 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2005],
+						 cast(count(case when proyectos.anio = 2006 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2006],
+						 cast(count(case when proyectos.anio = 2007 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2007],
+						 cast(count(case when proyectos.anio = 2008 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2008],
+						 cast(count(case when proyectos.anio = 2009 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2009],
+						 cast(count(case when proyectos.anio = 2010 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2010],
+						 cast(count(case when proyectos.anio = 2011 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2011],
+						 cast(count(case when proyectos.anio = 2012 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2012],
+						 cast(count(case when proyectos.anio = 2013 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2013],
+						 cast(count(case when proyectos.anio = 2014 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2014],
+						 cast(count(case when proyectos.anio = 2015 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2015],
+						 cast(count(case when proyectos.anio = 2016 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2016],
+						 cast(count(case when proyectos.anio = 2017 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2017]
 					 from proyectos
 					LEFT OUTER JOIN anios ON (proyectos.anio = anios.anio)
- 					group by proyectos.anio`
+ 					group by proyectos.unidad_negocio`
 
 		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
 					reportes.push({
+						'unidad_negocio': response.rows.item(index).unidad_negocio, 
+						'1985': response.rows.item(index)[1985], 
+						'1986': response.rows.item(index)[1986],
+						'1987': response.rows.item(index)[1987],
+						'1988': response.rows.item(index)[1988],
+						'1989': response.rows.item(index)[1989],
+						'1990': response.rows.item(index)[1990],
+						'1991': response.rows.item(index)[1991],
+						'1992': response.rows.item(index)[1992],
+						'1993': response.rows.item(index)[1993],
+						'1994': response.rows.item(index)[1994],
+						'1995': response.rows.item(index)[1995],
+						'1996': response.rows.item(index)[1996],
+						'1997': response.rows.item(index)[1997],
+						'1998': response.rows.item(index)[1998],
+						'1999': response.rows.item(index)[1999],
+						'2000': response.rows.item(index)[2000],
+						'2001': response.rows.item(index)[2001],
+						'2002': response.rows.item(index)[2002],
+						'2003': response.rows.item(index)[2003],
+						'2004': response.rows.item(index)[2004],
+						'2005': response.rows.item(index)[2005],
+						'2006': response.rows.item(index)[2006],
+						'2007': response.rows.item(index)[2007],
+						'2008': response.rows.item(index)[2008],
+						'2009': response.rows.item(index)[2009],
+						'2010': response.rows.item(index)[2010],
+						'2011': response.rows.item(index)[2011],
+						'2012': response.rows.item(index)[2012],
+						'2013': response.rows.item(index)[2013],
+						'2014': response.rows.item(index)[2014],
+						'2015': response.rows.item(index)[2015],
+						'2016': response.rows.item(index)[2016],
+						'2017': response.rows.item(index)[2017],
+					})
+				}
+				return Promise.resolve(reportes)
+			})
+			.catch(console.error.bind(console));
+	}
+
+	/* Funcion para obtener tabla informativa del reporte por direccion con años. */
+	reportePorDireccionTAbla = () => {
+		let reportes = []
+		let sql = `select proyectos.anio,
+					 	 cast(count(case when proyectos.unidad_negocio = 'Consultoría' then proyectos.unidad_negocio end) as double)/1330*100 as [Consultoría],
+						 cast(count(case when proyectos.unidad_negocio = 'Desarrollo de sistemas' then proyectos.unidad_negocio end) as double)/1330*100 as [Desarrollo de sistemas],
+						 cast(count(case when proyectos.unidad_negocio = 'Ingeniería' then proyectos.unidad_negocio end) as double)/1330*100 as [Ingeniería],
+						 cast(count(case when proyectos.unidad_negocio = 'Sin dato' then proyectos.unidad_negocio end) as double)/1330*100 as [Sin dato],
+						 cast(count(case when proyectos.unidad_negocio = 'Sin datobonus' then proyectos.unidad_negocio end) as double)/1330*100 as [Sin datobonus],
+						 cast(count(case when proyectos.unidad_negocio = 'Suramérica' then proyectos.unidad_negocio end) as double)/1330*100 as [Suramérica]
+					 from proyectos
+					LEFT OUTER JOIN anios ON (proyectos.anio = anios.anio)
+ 					group by proyectos.anio`
+ 		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					reportes.push({
 						'anio': response.rows.item(index).anio, 
-						'unidad_negocio1': response.rows.item(index).unidad_negocio1,
-						'unidad_negocio2': response.rows.item(index).unidad_negocio2,
-						'unidad_negocio3': response.rows.item(index).unidad_negocio3,
-						'unidad_negocio4': response.rows.item(index).unidad_negocio4,
-						'unidad_negocio5': response.rows.item(index).unidad_negocio5,
-						'unidad_negocio6': response.rows.item(index).unidad_negocio6,
+						'Consultoría': response.rows.item(index)['Suramérica'], 
+						'Desarrollo de sistemas': response.rows.item(index)['Desarrollo de sistemas'],
+						'Ingeniería': response.rows.item(index)['Ingeniería'],
+						'Sin dato': response.rows.item(index)['Sin dato'],
+						'Sin datobonus': response.rows.item(index)['Sin datobonus'],
+						'Suramérica': response.rows.item(index)['Suramérica'],
 					})
 				}
 				return Promise.resolve(reportes)
@@ -531,8 +616,6 @@ export class ReportesDbService {
 				},
 				series: serie
 				}
-			console.log(options)
-			
 		return options
 	}
 }

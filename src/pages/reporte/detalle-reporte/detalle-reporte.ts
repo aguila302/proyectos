@@ -322,36 +322,25 @@ export class DetalleReportePage {
 	reporteDireccionAnios() {
 		var series = []
 		var categorias = []
-
 		this.reporteService.reportePorDireccion()
 		.then(response => {
-			categorias = ['Consultoría', 'Desarrollo de sistemas', 'Ingeniería', 'Sin dato', 'Sin datobonus', 'Suramérica']
+			categorias = [1985, 1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017]
 			response.forEach(item => {
 				series.push({
-					name: item.anio,
-					data: [item.unidad_negocio1, item.unidad_negocio2, item.unidad_negocio3, item.unidad_negocio4, item.unidad_negocio5, item.unidad_negocio6]
+					name: item.unidad_negocio,
+					data: [item[1985], item[1986], item[1987], item[1988], item[1989], item[1990], item[1991], item[1992], item[1993], item[1994], item[1995]
+					, item[1996], item[1997], item[1998], item[1999], item[2000], item[2001], item[2002], item[2003], item[2004], item[2005], item[2006]
+					, item[2007], item[2008], item[2009], item[2010], item[2011], item[2012], item[2013], item[2014], item[2015], item[2016], item[2017]]
 				})
 			})
 			this.options = this.reporteService.graficaDireccionAnios(categorias, series)
-			this.reporteService.detalleReporte(this.campo_select, this.campo_agrupacion)
-			
+
+			/*Para obtener la informacion para visualizar la tabla informativa. */
+
+			this.reporteService.reportePorDireccionTAbla()
 			.then(response => {
 				console.log(response)
-				/* Para mostrar la tabla de informacion */
-				const collection = collect(response)
-				this.monto_total = account.formatNumber(collection.sum('monto'))
-				this.total_proyectos = collection.sum('numero_proyectos')
-
-				let proyectos = collection.map(function(item) {
-					return {
-						'campo': item.campo,
-						'porcentaje': item.porcentaje,
-						'monto': account.formatNumber(item.monto),
-						'numero_proyectos': item.numero_proyectos,
-						'group_by': item.group_by,
-					}
-				})
-				this.proyectos = proyectos
+				
 			})
 		})
 	}

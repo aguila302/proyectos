@@ -682,5 +682,10 @@ export class DbService {
 		this.db.executeSql(ra, {})
 			.then(() => console.log('deleted'))
 			.catch(e => console.log(e))
+
+		let anios = `drop table anios`
+		this.db.executeSql(anios, {})
+			.then(() => console.log('anios deleted'))
+			.catch(e => console.log(e))
 	}
 }
