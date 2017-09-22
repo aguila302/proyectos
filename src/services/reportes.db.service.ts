@@ -293,7 +293,9 @@ export class ReportesDbService {
 	}
 
 	/* Funcion para obtener el reporte de direccion. */
-	reportePorDireccion = () => {
+	reportePorDireccion = (where ? : [any]) => {
+		where !== undefined ? (this.filtrarReporteDireccionAnio(where)): ''
+
 		let reportes = []
 		let sql = `select proyectos.unidad_negocio,
 					 	 cast(count(case when proyectos.anio = 1985 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [1985],
@@ -337,8 +339,8 @@ export class ReportesDbService {
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
 					reportes.push({
-						'unidad_negocio': response.rows.item(index).unidad_negocio, 
-						'1985': response.rows.item(index)[1985], 
+						'unidad_negocio': response.rows.item(index).unidad_negocio,
+						'1985': response.rows.item(index)[1985],
 						'1986': response.rows.item(index)[1986],
 						'1987': response.rows.item(index)[1987],
 						'1988': response.rows.item(index)[1988],
@@ -375,7 +377,15 @@ export class ReportesDbService {
 				}
 				return Promise.resolve(reportes)
 			})
-			.catch(console.error.bind(console));
+			.catch(console.error.bind(console))
+	}
+
+	/* Funcion para filtrar el reporte de direccion con anios. */
+	filtrarReporteDireccionAnio = (where: [any]) => {
+		where.forEach(items => {
+			console.log(items)
+			
+		})
 	}
 
 	/* Funcion para obtener tabla informativa del reporte por direccion con años. */

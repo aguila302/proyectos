@@ -180,8 +180,9 @@ export class DetalleReportePage {
 	}
 
 	/* Funcion para filtrar la argrupacion de mi grafica. */
-	filtrar = (opciones: Object): void => {
-		/* HAcemos una consulta para obtener los distintos valores de la agrupacion. */
+	filtrar = (): void => {
+		this.id === 7 ? (this.campo_agrupacion= 'anio'): ''
+		/* Hacemos una consulta para obtener los distintos valores de la agrupacion. */
 		this.reporteService.selectDistinct(this.campo_agrupacion)
 		.then(response => {
 			let modal = this.modalCtrl.create(FiltrarAgrupacionPage, {
@@ -192,7 +193,14 @@ export class DetalleReportePage {
 				/* Una vez cerrada la ventana de filtros validamos que se haya seleccionado alguna opcion. */
 				this.resultado.splice(0, this.resultado.length)
 				/* En caso de que haya opciones seleccionadas nos vamos a graficar. */
-				data.length > 0 ? (this.paraGraficarFiltrado(data)) : ''
+				this.id !== 7 ? (
+					data.length > 0 ? (this.paraGraficarFiltrado(data)) : ''
+				):
+				(
+					this.reporteService.reportePorDireccion(data)
+					.then(response => {
+					})
+				)
 			})
 		})
 	}
