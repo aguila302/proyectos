@@ -381,7 +381,8 @@ export class ReportesDbService {
 	/* Funcion para obtener tabla informativa del reporte por direccion con años. */
 	reportePorDireccionTAbla = () => {
 		let reportes = []
-		let sql = `select proyectos.anio,
+		let sql = `select proyectos.anio, sum(proyectos.monto) as monto, count(*) as numero_proyectos,
+						 cast( count(*) as double )/(select count(*) from proyectos)*100 as porcentaje,
 					 	 cast(count(case when proyectos.unidad_negocio = 'Consultoría' then proyectos.unidad_negocio end) as double)/1330*100 as [Consultoría],
 						 cast(count(case when proyectos.unidad_negocio = 'Desarrollo de sistemas' then proyectos.unidad_negocio end) as double)/1330*100 as [Desarrollo de sistemas],
 						 cast(count(case when proyectos.unidad_negocio = 'Ingeniería' then proyectos.unidad_negocio end) as double)/1330*100 as [Ingeniería],
@@ -395,8 +396,11 @@ export class ReportesDbService {
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
 					reportes.push({
-						'anio': response.rows.item(index).anio, 
-						'Consultoría': response.rows.item(index)['Suramérica'], 
+						'anio': response.rows.item(index).anio,
+						'monto': response.rows.item(index).monto,
+						'numero_proyectos': response.rows.item(index).numero_proyectos,
+						'porcentaje': response.rows.item(index).porcentaje,
+						'Consultoría': response.rows.item(index)['Suramérica'],
 						'Desarrollo de sistemas': response.rows.item(index)['Desarrollo de sistemas'],
 						'Ingeniería': response.rows.item(index)['Ingeniería'],
 						'Sin dato': response.rows.item(index)['Sin dato'],

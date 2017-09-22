@@ -339,8 +339,22 @@ export class DetalleReportePage {
 
 			this.reporteService.reportePorDireccionTAbla()
 			.then(response => {
-				console.log(response)
+				let micollect = collect(response)
+				console.log(micollect)
 				
+				this.total_proyectos = micollect.sum('numero_proyectos')
+				this.monto_total = account.formatNumber(micollect.sum('monto'))
+
+				let proyectos = micollect.map(function(item) {
+					return {
+						'campo': item.anio,
+						'porcentaje': parseFloat(item.porcentaje).toFixed(2),
+						'monto': account.formatNumber(item.monto),
+						'numero_proyectos': item.numero_proyectos,
+						'group_by': item.anio,
+					}
+				})
+				this.proyectos = proyectos
 			})
 		})
 	}
