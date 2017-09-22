@@ -589,10 +589,10 @@ export class ReportesDbService {
 					type: 'column'
 				},
 				title: {
-					text: 'Monthly Average Rainfall'
+					text: 'Reporte de direcciones'
 				},
 				subtitle: {
-					text: 'Source: WorldClimate.com'
+					text: 'Direcciones agrupados por años'
 				},
 				xAxis: {
 					categories: categorias,
@@ -601,13 +601,13 @@ export class ReportesDbService {
 				yAxis: {
 					min: 0,
 					title: {
-						text: 'Rainfall (mm)'
+						text: 'Porcentaje total de participación'
 					}
 				},
 				tooltip: {
 					headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
 					pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-						'<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+						'<td style="padding:0"><b>{point.y:.1f} %</b></td></tr>',
 					footerFormat: '</table>',
 					shared: true,
 					useHTML: true
