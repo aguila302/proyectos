@@ -383,7 +383,12 @@ export class ReportesDbService {
 	/* Funcion para filtrar el reporte de direccion con anios. */
 	filtrarReporteDireccionAnio = (where: [any]) => {
 		where.forEach(items => {
-			console.log(items)
+			let sql = `select proyectos.unidad_negocio,
+					 	cast(count(case when proyectos.anio = `+ items + ` then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [`+items+`]
+				from proyectos
+				LEFT OUTER JOIN anios ON(proyectos.anio = anios.anio)
+				group by proyectos.unidad_negocio `
+			console.log(sql)
 			
 		})
 	}
