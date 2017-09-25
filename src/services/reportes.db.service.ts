@@ -13,6 +13,7 @@ import * as account from 'accounting-js'
 export class ReportesDbService {
 
 	db: SQLiteObject = null
+	resultado = []
 
 	constructor() {}
 
@@ -293,8 +294,8 @@ export class ReportesDbService {
 	}
 
 	/* Funcion para obtener el reporte de direccion. */
-	reportePorDireccion = (where ? : [any]) => {
-		where !== undefined ? (this.filtrarReporteDireccionAnio(where)): ''
+	reportePorDireccion = () => {
+
 
 		let reportes = []
 		let sql = `select proyectos.unidad_negocio,
@@ -381,16 +382,39 @@ export class ReportesDbService {
 	}
 
 	/* Funcion para filtrar el reporte de direccion con anios. */
-	filtrarReporteDireccionAnio = (where: [any]) => {
-		where.forEach(items => {
-			let sql = `select proyectos.unidad_negocio,
-					 	cast(count(case when proyectos.anio = `+ items + ` then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [`+items+`]
-				from proyectos
-				LEFT OUTER JOIN anios ON(proyectos.anio = anios.anio)
-				group by proyectos.unidad_negocio `
+	async filtrarReporteDireccionAnio(where) {
+		let cadena:string = ''
+		let con:number = 1;
+		// var resultado = []
+		for(let index in where) {
+			cadena += `cast(count(case when proyectos.anio = ` + where[index] + ` then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [`+ where[index] +`],`
+			con ++
+		}
+		cadena = cadena.slice(0, -1)
+		var miglobal = this
+		for(let index in where) {
+			console.log(where)
+			
+			let sql = `select proyectos.unidad_negocio, ` + cadena +
+					` from proyectos
+					LEFT OUTER JOIN anios ON(proyectos.anio = anios.anio)
+					group by proyectos.unidad_negocio`
+
 			console.log(sql)
 			
-		})
+			await this.db.executeSql(sql, {})
+			.then(response => {
+				for (var i = 0; i < response.rows.length; i++) {
+					miglobal.resultado.push({
+						name: response.rows.item(i).unidad_negocio,
+						[where[index]]: response.rows.item(i)[where[index]],
+					})
+				}
+				// console.log(resultado)
+			})
+		}
+		console.log(miglobal.resultado)
+		
 	}
 
 	/* Funcion para obtener tabla informativa del reporte por direccion con años. */

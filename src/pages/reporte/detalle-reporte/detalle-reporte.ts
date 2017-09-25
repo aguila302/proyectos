@@ -193,13 +193,12 @@ export class DetalleReportePage {
 				/* Una vez cerrada la ventana de filtros validamos que se haya seleccionado alguna opcion. */
 				this.resultado.splice(0, this.resultado.length)
 				/* En caso de que haya opciones seleccionadas nos vamos a graficar. */
+
 				this.id !== 7 ? (
 					data.length > 0 ? (this.paraGraficarFiltrado(data)) : ''
 				):
 				(
-					this.reporteService.reportePorDireccion(data)
-					.then(response => {
-					})
+					this.filtarReporteDireccionAnios(data)
 				)
 			})
 		})
@@ -341,14 +340,13 @@ export class DetalleReportePage {
 					, item[2007], item[2008], item[2009], item[2010], item[2011], item[2012], item[2013], item[2014], item[2015], item[2016], item[2017]]
 				})
 			})
+
 			this.options = this.reporteService.graficaDireccionAnios(categorias, series)
 
 			/*Para obtener la informacion para visualizar la tabla informativa. */
-
 			this.reporteService.reportePorDireccionTAbla()
 			.then(response => {
 				let micollect = collect(response)
-				console.log(micollect)
 				
 				this.total_proyectos = micollect.sum('numero_proyectos')
 				this.monto_total = account.formatNumber(micollect.sum('monto'))
@@ -365,5 +363,52 @@ export class DetalleReportePage {
 				this.proyectos = proyectos
 			})
 		})
+	}
+
+	/* Funcion para filtrar el reporte direccion con anios. */
+	async filtarReporteDireccionAnios(data) {
+		// var miglobal = this
+		// var series = []
+		// var categorias = []
+		this.reporteService.filtrarReporteDireccionAnio(data)
+		// .then(response => {
+		// 	console.log(response)
+			
+		// })
+		// for (let index in data) {
+		// 	categorias.push(data[index])
+		// 	await this.reporteService.filtrarReporteDireccionAnio(data[index])
+		// 	.then(response => {
+		// 		console.log(response)
+				
+		// 		 Recuperamos los registros de nuestra consulta. 
+		// 		for (var i = 0; i < response.rows.length; i++) {
+		// 			miglobal.resultado.push({
+		// 				name: response.rows.item(i).unidad_negocio,
+		// 				anio : response.rows.item(i).anio
+		// 			})
+		// 		}
+		// 	})
+		// }
+		/* Proparamos la informacion para graficarla. */
+		// miglobal.resultado.forEach(items => {
+		// 	var data = []
+		// 	data.push(items.anio)
+		// 	series.push({
+		// 		name: items.name,
+		// 		data: data
+		// 	})
+		// })
+
+		// console.log(series)
+		
+		// this.navCtrl.push(GraficaFiltradaPage, {
+		// 	'data_grafica': series,
+		// 	// 'monto_total': monto_total,
+		// 	// 'total_proyectos': numero_proyectos,
+		// 	'groupBy': this.campo_agrupacion,
+		// 	'categorias': categorias,
+		// 	'id': this.id
+		// })
 	}
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ReportesDbService } from '../../../../services/reportes.db.service'
 import * as collect from 'collect.js/dist'
-import * as account from 'accounting-js'
+// import * as account from 'accounting-js'
 import { DetalleReporteAgrupadoPage } from '../../../reporte/detalle-reporte/detalle-reporte-agrupado/detalle-reporte-agrupado'
 
 @IonicPage()
@@ -18,28 +18,31 @@ export class GraficaFiltradaPage {
 	monto_total: string = ''
 	total_proyectos: number
 	campo_agrupacion: string = ''
+	id: number = 0
+	categorias = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteService : ReportesDbService) {
 		this.reportes = navParams.get('data_grafica')
 		this.monto_total = navParams.get('monto_total')
 		this.total_proyectos = navParams.get('total_proyectos')
 		this.campo_agrupacion = navParams.get('groupBy')
+		this.categorias = navParams.get('categorias')
+		this.id = navParams.get('id')
 
+		/* PAra visualizar el titulo de la vista activa.*/
 		this.title = collect(this.reportes).implode('campo', ' , ')
 		
 	}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad GraficaFiltradaPage')
-		this.muestraGrafica()
+		this.id !== 7 ? (this.muestraGrafica()) : (this.graficaReporteDireccionAnios())
 	}
 
 	/* Funcion para visualizar la grafica con los filtros seleccionados. */
 	muestraGrafica = () => {
 		let data = []
 		this.reportes.forEach(items => {
-			console.log(items)
-
 			data.push({
 				name: items.campo,
 				y: parseFloat(items.porcentaje)
@@ -55,5 +58,13 @@ export class GraficaFiltradaPage {
 			'monto_total': monto_total,
 			'groupBy': this.campo_agrupacion
 		})
+	}
+
+	/**/
+	graficaReporteDireccionAnios = () => {
+		console.log(this.reportes)
+		console.log(this.categorias)
+		
+		this.options = this.reporteService.graficaDireccionAnios(this.categorias, this.reportes)
 	}
 }
