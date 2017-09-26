@@ -381,42 +381,6 @@ export class ReportesDbService {
 			.catch(console.error.bind(console))
 	}
 
-	/* Funcion para filtrar el reporte de direccion con anios. */
-	async filtrarReporteDireccionAnio(where) {
-		let cadena:string = ''
-		let con:number = 1;
-		// var resultado = []
-		for(let index in where) {
-			cadena += `cast(count(case when proyectos.anio = ` + where[index] + ` then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [`+ where[index] +`],`
-			con ++
-		}
-		cadena = cadena.slice(0, -1)
-		var miglobal = this
-		for(let index in where) {
-			console.log(where)
-			
-			let sql = `select proyectos.unidad_negocio, ` + cadena +
-					` from proyectos
-					LEFT OUTER JOIN anios ON(proyectos.anio = anios.anio)
-					group by proyectos.unidad_negocio`
-
-			console.log(sql)
-			
-			await this.db.executeSql(sql, {})
-			.then(response => {
-				for (var i = 0; i < response.rows.length; i++) {
-					miglobal.resultado.push({
-						name: response.rows.item(i).unidad_negocio,
-						[where[index]]: response.rows.item(i)[where[index]],
-					})
-				}
-				// console.log(resultado)
-			})
-		}
-		console.log(miglobal.resultado)
-		
-	}
-
 	/* Funcion para obtener tabla informativa del reporte por direccion con años. */
 	reportePorDireccionTAbla = () => {
 		let reportes = []
@@ -450,6 +414,41 @@ export class ReportesDbService {
 				return Promise.resolve(reportes)
 			})
 			.catch(console.error.bind(console));
+	}
+
+	/* Funcion para filtrar el reporte de direccion con anios. */
+	filtrarReporteDireccionAnio(where) {
+		let cadena:string = ''
+		
+		// var resultado = []
+		var con: number = 1
+		for(let index in where) {
+			cadena += `cast(count(case when proyectos.anio = ` + where[index] + ` then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [`+ con +`],`
+			con ++
+		}
+		cadena = cadena.slice(0, -1)
+		var miglobal = this
+
+			let sql = `select proyectos.unidad_negocio, ` + cadena +
+					` from proyectos
+					LEFT OUTER JOIN anios ON(proyectos.anio = anios.anio)
+					group by proyectos.unidad_negocio order by proyectos.unidad_negocio asc`
+
+			console.log(sql)
+			return this.db.executeSql(sql, {})
+			// .then(response => {
+			// 	// for(let index in where) {
+			// 		for (var i = 0; i < response.rows.length; i++) {
+			// 			// console.log(where[i])
+			// 			miglobal.resultado.push(response.rows.item(i))
+
+			// 		// }
+			// 	}
+			// })
+				
+		// // }
+		// console.log(miglobal.resultado)
+		// return miglobal.resultado
 	}
 
 	/* Objeto para construir  la grafica de barras. */

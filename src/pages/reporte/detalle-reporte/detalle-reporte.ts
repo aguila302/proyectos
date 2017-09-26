@@ -34,6 +34,7 @@ export class DetalleReportePage {
 	filtros = []
 	resultado = []
 	data_circular = []
+	con: number = 1
 
 	visible: boolean = false
 
@@ -366,49 +367,32 @@ export class DetalleReportePage {
 	}
 
 	/* Funcion para filtrar el reporte direccion con anios. */
-	async filtarReporteDireccionAnios(data) {
-		// var miglobal = this
-		// var series = []
-		// var categorias = []
-		this.reporteService.filtrarReporteDireccionAnio(data)
-		// .then(response => {
-		// 	console.log(response)
-			
-		// })
+	filtarReporteDireccionAnios(data) {
 		// for (let index in data) {
-		// 	categorias.push(data[index])
-		// 	await this.reporteService.filtrarReporteDireccionAnio(data[index])
-		// 	.then(response => {
-		// 		console.log(response)
-				
-		// 		 Recuperamos los registros de nuestra consulta. 
-		// 		for (var i = 0; i < response.rows.length; i++) {
-		// 			miglobal.resultado.push({
-		// 				name: response.rows.item(i).unidad_negocio,
-		// 				anio : response.rows.item(i).anio
-		// 			})
-		// 		}
-		// 	})
-		// }
-		/* Proparamos la informacion para graficarla. */
-		// miglobal.resultado.forEach(items => {
-		// 	var data = []
-		// 	data.push(items.anio)
-		// 	series.push({
-		// 		name: items.name,
-		// 		data: data
-		// 	})
-		// })
+			var miglobal = this
+		this.reporteService.filtrarReporteDireccionAnio(data)
+			.then(response => {
+				// console.log(response)
+				// Recuperamos los registros de nuestra consulta. 
+				// for(var index in data) {
+					
+					for (var i = 0; i < response.rows.length; i++) {
+						miglobal.resultado.push({
+							name: response.rows.item(i).unidad_negocio,
+							[miglobal.con] : response.rows.item(i)[miglobal.con],
+						})
+					// }
+				}
+				console.log(miglobal.resultado)
 
-		// console.log(series)
-		
-		// this.navCtrl.push(GraficaFiltradaPage, {
-		// 	'data_grafica': series,
-		// 	// 'monto_total': monto_total,
-		// 	// 'total_proyectos': numero_proyectos,
-		// 	'groupBy': this.campo_agrupacion,
-		// 	'categorias': categorias,
-		// 	'id': this.id
-		// })
+				// console.log(miglobal.resultado)
+				// let mi_collect = collect(miglobal.resultado)
+				// mi_collect.map(function (item, index) {
+				// 	console.log(item, index)
+					
+				// })
+
+			})
+		// console.log(my_collect)
 	}
 }
