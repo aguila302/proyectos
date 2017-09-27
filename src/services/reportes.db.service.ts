@@ -400,18 +400,16 @@ export class ReportesDbService {
 	/* Funcion para ver el reporte de direcciones con anios y con el grupo numero proyectos. */
 	reporteDireccionAnioGrupoNumeroProyectos = () => {
 		let reportes = []
-		let sql = `select proyectos.anio, sum(proyectos.monto) as monto, count(*) as numero_proyectos,
-						 cast( count(*) as double )/(select count(*) from proyectos)*100 as porcentaje,
-					 	 cast(count(case when proyectos.unidad_negocio = 'Consultoría' then proyectos.unidad_negocio end) as double) as [Consultoría],
-						 cast(count(case when proyectos.unidad_negocio = 'Desarrollo de sistemas' then proyectos.unidad_negocio end) as double) as [Desarrollo de sistemas],
-						 cast(count(case when proyectos.unidad_negocio = 'Ingeniería' then proyectos.unidad_negocio end) as double) as [Ingeniería],
-						 cast(count(case when proyectos.unidad_negocio = 'Sin dato' then proyectos.unidad_negocio end) as double) as [Sin dato],
-						 cast(count(case when proyectos.unidad_negocio = 'Sin datobonus' then proyectos.unidad_negocio end) as double) as [Sin datobonus],
-						 cast(count(case when proyectos.unidad_negocio = 'Suramérica' then proyectos.unidad_negocio end) as double) as [Suramérica]
-					 from proyectos
+		let sql = `select proyectos.unidad_negocio,
+						 cast(count(case when proyectos.anio = 2012 then proyectos.anio end) as double) as [2012],
+						 cast(count(case when proyectos.anio = 2013 then proyectos.anio end) as double) as [2013],
+						 cast(count(case when proyectos.anio = 2014 then proyectos.anio end) as double) as [2014],
+						 cast(count(case when proyectos.anio = 2015 then proyectos.anio end) as double) as [2015],
+						 cast(count(case when proyectos.anio = 2016 then proyectos.anio end) as double) as [2016],
+						 cast(count(case when proyectos.anio = 2017 then proyectos.anio end) as double) as [2017]
+						  from proyectos
 					LEFT OUTER JOIN anios ON (proyectos.anio = anios.anio)
-					where proyectos.anio > 2011
- 					group by proyectos.anio`
+ 					group by proyectos.unidad_negocio`
 
 		return this.db.executeSql(sql, {})
 			.then(response => {
