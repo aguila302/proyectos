@@ -398,7 +398,17 @@ export class DetalleReportePage {
 					
 				})
 				let datos = collect(values).groupBy('name').toArray()
-				console.log(datos)
+				let valores = datos.map(function(unidad_negocio, index) {
+					console.log(unidad_negocio.Length)
+					console.log(index)
+					
+					// return {
+					// 	'name': unidad_negocio[0].name,
+					// 	'data': [unidad_negocio.index.data]
+					// }
+				})
+				// console.log(valores)
+				
 				
 				
 				
