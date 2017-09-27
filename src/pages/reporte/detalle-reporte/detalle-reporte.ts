@@ -383,19 +383,36 @@ export class DetalleReportePage {
 					}
 				}
 				// console.log(miglobal.resultado)
-				var result = []
-				for (var i = 0; i < miglobal.resultado.length; i++) {
-					var arr = []
-					for (var key in  miglobal.resultado[i]) {
-						console.log(miglobal.resultado[i][key])
-						
-						arr.push( miglobal.resultado[i][key]);
+				var values = []
+				let mi_collect = collect(miglobal.resultado).groupBy('name').toArray()
+				mi_collect.map(function(unidad_negocio, anios) {
+					// console.log(unidad_negocio[0].name)
+					for(var i in data) {
+						values.push({
+							name: unidad_negocio[0].name,
+							data : unidad_negocio[i][data[i]]
+						})
+						// console.log(unidad_negocio[i][data[i]])
 					}
-					result.push(arr);
-				}
-				// console.log(result)
+					// console.log(unidad_negocio)
+					
+				})
+				let datos = collect(values).groupBy('name').toArray()
+				console.log(datos)
 				
+				
+				
+				// var result = []
+				// for (var i = 0; i < miglobal.resultado.length; i++) {
+				// 	var arr = []
+				// 	for (var key in  miglobal.resultado[i]) {
+				// 		// console.log(miglobal.resultado[i][key])
+				// 		arr.push( miglobal.resultado[i][key]);
+				// 	}
+				// 	result.push(arr);
+				// 	console.log(result)
+				// }
 			})
-		// console.log(my_collect)
+
 	}
 }
