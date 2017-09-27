@@ -421,13 +421,11 @@ export class ReportesDbService {
 		let cadena:string = ''
 		
 		// var resultado = []
-		var con: number = 1
 		for(let index in where) {
-			cadena += `cast(count(case when proyectos.anio = ` + where[index] + ` then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [`+ con +`],`
-			con ++
+			cadena += `cast(count(case when proyectos.anio = ` + where[index] + ` then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [`+ where[index] +`],`
 		}
 		cadena = cadena.slice(0, -1)
-		var miglobal = this
+		// var miglobal = this
 
 			let sql = `select proyectos.unidad_negocio, ` + cadena +
 					` from proyectos
@@ -438,17 +436,15 @@ export class ReportesDbService {
 			return this.db.executeSql(sql, {})
 			// .then(response => {
 			// 	// for(let index in where) {
-			// 		for (var i = 0; i < response.rows.length; i++) {
-			// 			// console.log(where[i])
-			// 			miglobal.resultado.push(response.rows.item(i))
-
-			// 		// }
+			// 	for (var i = 0; i < response.rows.length; i++) {
+			// 		miglobal.resultado.push({
+			// 			'name': response.rows.item(i).unidad_negocio,
+			// 			[where[i]]: response.rows.item(i)[where[i]]
+			// 		})
 			// 	}
-			// })
+			// 	console.log(miglobal.resultado)
 				
-		// // }
-		// console.log(miglobal.resultado)
-		// return miglobal.resultado
+			// })
 	}
 
 	/* Objeto para construir  la grafica de barras. */

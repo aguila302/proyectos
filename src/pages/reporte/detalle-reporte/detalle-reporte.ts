@@ -372,26 +372,29 @@ export class DetalleReportePage {
 			var miglobal = this
 		this.reporteService.filtrarReporteDireccionAnio(data)
 			.then(response => {
-				// console.log(response)
 				// Recuperamos los registros de nuestra consulta. 
-				// for(var index in data) {
-					
+				for(var index in data) {
 					for (var i = 0; i < response.rows.length; i++) {
+						miglobal.con ++
 						miglobal.resultado.push({
 							name: response.rows.item(i).unidad_negocio,
-							[miglobal.con] : response.rows.item(i)[miglobal.con],
+							[data[index]] : response.rows.item(i)[data[index]],
 						})
-					// }
+					}
 				}
-				console.log(miglobal.resultado)
-
 				// console.log(miglobal.resultado)
-				// let mi_collect = collect(miglobal.resultado)
-				// mi_collect.map(function (item, index) {
-				// 	console.log(item, index)
-					
-				// })
-
+				var result = []
+				for (var i = 0; i < miglobal.resultado.length; i++) {
+					var arr = []
+					for (var key in  miglobal.resultado[i]) {
+						console.log(miglobal.resultado[i][key])
+						
+						arr.push( miglobal.resultado[i][key]);
+					}
+					result.push(arr);
+				}
+				// console.log(result)
+				
 			})
 		// console.log(my_collect)
 	}
