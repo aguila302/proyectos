@@ -294,6 +294,24 @@ export class ReportesDbService {
 			})
 	}
 
+	distinctAnio() {
+		let reportes = []
+
+		let sql = `select distinct(anio) as anio from direccionAnio where anio > 2011  order by anio desc`
+		console.log(sql)
+		
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					console.log(response.rows.item(index))
+					
+					// reportes.push({
+					// 	'anios': response.rows.item(index).anio,
+					// })
+				}
+				return Promise.resolve(reportes)
+			})
+	}
 	/* Funcion para obtener el reporte de direccion. */
 	reportePorDireccion = () => {
 		let reportes = []
