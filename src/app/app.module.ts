@@ -33,6 +33,8 @@ import { FiltrarAgrupacionPage } from '../pages/reporte/detalle-reporte/filtrar-
 import { GraficaFiltradaPage } from '../pages/reporte/detalle-reporte/grafica-filtrada/grafica-filtrada'
 import { DetalleGrupoPage } from '../pages/reporte/detalle-reporte/detalle-grupo/detalle-grupo'
 import { GraficaCircularPage } from '../pages/reporte/detalle-reporte/grafica-circular/grafica-circular'
+import { ReporteDireccionAnioPage } from '../pages/reporte/detalle-reporte/reporte-direccion-anio/reporte-direccion-anio'
+import { ReporteDireccionAnioGrupoPage } from '../pages/reporte/detalle-reporte/reporte-direccion-anio-grupo/reporte-direccion-anio-grupo'
 
 import { ChartModule } from 'angular2-highcharts';
 import * as highcharts from 'highcharts';
@@ -73,7 +75,9 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter';
     FiltrarAgrupacionPage,
     GraficaFiltradaPage,
     DetalleGrupoPage,
-    GraficaCircularPage
+    GraficaCircularPage,
+    ReporteDireccionAnioPage,
+    ReporteDireccionAnioGrupoPage
   ],
   imports: [
     BrowserModule,
@@ -110,7 +114,9 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter';
     FiltrarAgrupacionPage,
     GraficaFiltradaPage,
     DetalleGrupoPage,
-    GraficaCircularPage
+    GraficaCircularPage,
+    ReporteDireccionAnioPage,
+    ReporteDireccionAnioGrupoPage
   ],
   providers: [
     StatusBar,

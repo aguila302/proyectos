@@ -15,6 +15,7 @@ import {
 import {
 	ReportesDbService
 } from '../../services/reportes.db.service'
+import { ReporteDireccionAnioPage } from '../reporte/detalle-reporte/reporte-direccion-anio/reporte-direccion-anio'
 
 @IonicPage()
 @Component({
@@ -38,9 +39,19 @@ export class ReportePage {
 	}
 		/* Funcion para mostrar el detalle de un reporte. */
 	detalleReporte = (id: number): void => {
-		console.log('show detalle')
-		this.navCtrl.push(DetalleReportePage, {
-			'id': id
+		if(id !== 7) {
+			this.navCtrl.push(DetalleReportePage, {
+				'id': id
+			})
+		}
+		else {
+			this.reporteDireccionAnios()
+		}
+	}
+
+	/* Funcion para consultar el reporte de direccion con anios. */
+	reporteDireccionAnios() {
+		this.navCtrl.push(ReporteDireccionAnioPage, {
 		})
 	}
 

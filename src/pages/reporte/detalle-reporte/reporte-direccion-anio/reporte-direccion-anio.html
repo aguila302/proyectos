@@ -1,0 +1,73 @@
+<ion-header>
+	<ion-navbar no-border-bottom color="twitter">
+		<ion-title>Detalle de reporte de direcciones y años</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content padding>
+	<div text-center>
+		<i class="fa fa-usd" aria-hidden="true" padding-right margin-right (click)="verDetalleGrupo('monto_total')"></i>
+		<!-- <i class="fa fa-percent" aria-hidden="true" padding-right margin-right></i> -->
+		<i class="fa fa-list-ol" aria-hidden="true" padding-right margin-right (click)="verDetalleGrupo('numero_proyectos')"></i>
+	</div>
+	<div id="container">
+		<chart [options]="options"></chart>
+	</div>
+	<div text-center margin-top>
+		<strong>Filtrar por:</strong>
+		<i class="fa fa-filter" aria-hidden="true" style="font-size: 20px" padding-top></i> Direcciones
+		<i class="fa fa-filter" aria-hidden="true" style="font-size: 20px" padding-top></i> Años
+
+	</div>
+	<hr>
+	<hr>
+	<ion-card>
+		<ion-grid>
+			<ion-row>
+				<ion-col text-wrap text-right>
+					<strong>Monto total USD: </strong>
+					<p class="medium">{{ monto_total }}</p>
+				</ion-col>
+				<ion-col text-wrap text-left>
+					<strong>Total de proyectos: </strong>
+					<p class="medium">{{ total_proyectos }}</p>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-card>
+	<ion-card *ngFor="let proyecto of proyectos">
+		<ion-grid>
+			<ion-row>
+				<ion-col col-2>
+					<h4>{{ proyecto.campo }}</h4>
+					<strong>{{ proyecto.porcentaje }} %</strong>
+				</ion-col>
+				<ion-col col-5 text-center>
+					<strong>Monto USD: </strong>
+					<p class="medium">{{ proyecto.monto }}</p>
+				</ion-col>
+				<ion-col col-3 text-wrap text-justify>
+					<strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}
+				</ion-col>
+				<ion-col col-2 class="right">
+					<button ion-button clear item-end (click)="verProyectosAgrupados(proyecto.group_by, proyecto.campo, proyecto.monto)">
+						<p style="text-transform: none; color: #3498DB;">Ver detalle</p>
+					</button>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-card>
+	<ion-card>
+		<ion-grid>
+			<ion-row>
+				<ion-col text-wrap text-right>
+					<strong>Monto total USD: </strong>
+					<p class="medium">{{ monto_total }}</p>
+				</ion-col>
+				<ion-col text-wrap text-left>
+					<strong>Total de proyectos: </strong>
+					<p class="medium">{{ total_proyectos }}</p>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-card>
+</ion-content>

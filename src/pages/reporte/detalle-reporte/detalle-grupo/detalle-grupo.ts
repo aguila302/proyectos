@@ -39,7 +39,7 @@ export class DetalleGrupoPage {
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad DetalleGrupoPage')
-		// this.verDetalle()
+		this.verDetalle()
 	}
 
 	/* Funcion para mostrar el detalle de un grupo selecccionado. */
@@ -50,6 +50,8 @@ export class DetalleGrupoPage {
 			/* Si el grupo es por monto total hacemos la consulta para obtener la informacion. */
 			await this.reporteService.detallePorMontoTotal(this.select, this.groupBy)
 			.then(response => {
+				console.log(response)
+				
 				/* Obtenemos la informacion para construir la grafica. */
 				response.forEach(items => {
 						global.xy.push({

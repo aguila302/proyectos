@@ -142,47 +142,44 @@ export class DetalleReportePage {
 		}
 		else {
 			/* Opcion para seleccionar la opcion reporte de direccicon con años. */
-			if(this.id === 7)
-				this.reporteDireccionAnios()
-			else {
-				/* En caso de visualizar algun reporte que no sea de direccion con años. */
-				this.reporteService.detalleReporte(this.campo_select, this.campo_agrupacion)
-					.then(response => {
-						// Para mostrar la informacion de la grafica.
-						this.xy.splice(0, this.xy.length)
-						response.forEach(item => {
-							this.xy.push({
-								name: item.campo,
-								y: parseFloat(item.porcentaje)
-							})
-
+			/* En caso de visualizar algun reporte que no sea de direccion con años. */
+			this.reporteService.detalleReporte(this.campo_select, this.campo_agrupacion)
+				.then(response => {
+					// Para mostrar la informacion de la grafica.
+					this.xy.splice(0, this.xy.length)
+					response.forEach(item => {
+						this.xy.push({
+							name: item.campo,
+							y: parseFloat(item.porcentaje)
 						})
-						this.options = this.reporteService.datosGrafica(this.xy, 2, '', 'Proyectos agrupados por ' + this.campo_agrupacion)
 
-						/* Para mostrar la tabla de informacion */
-						const collection = collect(response)
-						this.monto_total = account.formatNumber(collection.sum('monto'))
-						this.total_proyectos = collection.sum('numero_proyectos')
-
-						let proyectos = collection.map(function(item) {
-							return {
-								'campo': item.campo,
-								'porcentaje': item.porcentaje,
-								'monto': account.formatNumber(item.monto),
-								'numero_proyectos': item.numero_proyectos,
-								'group_by': item.group_by,
-							}
-						})
-						this.proyectos = proyectos
-						this.data_circular = response
 					})
-			}
+					this.options = this.reporteService.datosGrafica(this.xy, 2, '', 'Proyectos agrupados por ' + this.campo_agrupacion)
+
+					/* Para mostrar la tabla de informacion */
+					const collection = collect(response)
+					this.monto_total = account.formatNumber(collection.sum('monto'))
+					this.total_proyectos = collection.sum('numero_proyectos')
+
+					let proyectos = collection.map(function(item) {
+						return {
+							'campo': item.campo,
+							'porcentaje': item.porcentaje,
+							'monto': account.formatNumber(item.monto),
+							'numero_proyectos': item.numero_proyectos,
+							'group_by': item.group_by,
+						}
+					})
+					this.proyectos = proyectos
+					this.data_circular = response
+				})
+
 		}
 	}
 
 	/* Funcion para filtrar la argrupacion de mi grafica. */
 	filtrar = (): void => {
-		this.id === 7 ? (this.campo_agrupacion= 'anio'): ''
+		// this.id === 7 ? (this.campo_agrupacion= 'anio'): ''
 		/* Hacemos una consulta para obtener los distintos valores de la agrupacion. */
 		this.reporteService.selectDistinct(this.campo_agrupacion)
 		.then(response => {
@@ -195,12 +192,7 @@ export class DetalleReportePage {
 				this.resultado.splice(0, this.resultado.length)
 				/* En caso de que haya opciones seleccionadas nos vamos a graficar. */
 
-				this.id !== 7 ? (
-					data.length > 0 ? (this.paraGraficarFiltrado(data)) : ''
-				):
-				(
-					this.filtarReporteDireccionAnios(data)
-				)
+				data.length > 0 ? (this.paraGraficarFiltrado(data)) : ''
 			})
 		})
 	}
@@ -324,105 +316,5 @@ export class DetalleReportePage {
 			'datos_circular': this.data_circular,
 			'groupBy': this.campo_agrupacion
 		})
-	}
-
-	/* Funcion para obtener la informacion para construir el reporte de direccicon con años. */
-	reporteDireccionAnios() {
-		var series = []
-		var categorias = []
-		this.reporteService.reportePorDireccion()
-		.then(response => {
-			categorias = [1985, 1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017]
-			response.forEach(item => {
-				series.push({
-					name: item.unidad_negocio,
-					data: [item[1985], item[1986], item[1987], item[1988], item[1989], item[1990], item[1991], item[1992], item[1993], item[1994], item[1995]
-					, item[1996], item[1997], item[1998], item[1999], item[2000], item[2001], item[2002], item[2003], item[2004], item[2005], item[2006]
-					, item[2007], item[2008], item[2009], item[2010], item[2011], item[2012], item[2013], item[2014], item[2015], item[2016], item[2017]]
-				})
-			})
-
-			this.options = this.reporteService.graficaDireccionAnios(categorias, series)
-
-			/*Para obtener la informacion para visualizar la tabla informativa. */
-			this.reporteService.reportePorDireccionTAbla()
-			.then(response => {
-				let micollect = collect(response)
-				
-				this.total_proyectos = micollect.sum('numero_proyectos')
-				this.monto_total = account.formatNumber(micollect.sum('monto'))
-
-				let proyectos = micollect.map(function(item) {
-					return {
-						'campo': item.anio,
-						'porcentaje': parseFloat(item.porcentaje).toFixed(2),
-						'monto': account.formatNumber(item.monto),
-						'numero_proyectos': item.numero_proyectos,
-						'group_by': item.anio,
-					}
-				})
-				this.proyectos = proyectos
-			})
-		})
-	}
-
-	/* Funcion para filtrar el reporte direccion con anios. */
-	filtarReporteDireccionAnios(data) {
-		// for (let index in data) {
-			var miglobal = this
-		this.reporteService.filtrarReporteDireccionAnio(data)
-			.then(response => {
-				// Recuperamos los registros de nuestra consulta. 
-				for(var index in data) {
-					for (var i = 0; i < response.rows.length; i++) {
-						miglobal.con ++
-						miglobal.resultado.push({
-							name: response.rows.item(i).unidad_negocio,
-							[data[index]] : response.rows.item(i)[data[index]],
-						})
-					}
-				}
-				// console.log(miglobal.resultado)
-				var values = []
-				let mi_collect = collect(miglobal.resultado).groupBy('name').toArray()
-				mi_collect.map(function(unidad_negocio, anios) {
-					// console.log(unidad_negocio[0].name)
-					for(var i in data) {
-						values.push({
-							name: unidad_negocio[0].name,
-							data : unidad_negocio[i][data[i]]
-						})
-						// console.log(unidad_negocio[i][data[i]])
-					}
-					// console.log(unidad_negocio)
-					
-				})
-				let datos = collect(values).groupBy('name').toArray()
-				let valores = datos.map(function(unidad_negocio, index) {
-					console.log(unidad_negocio.Length)
-					console.log(index)
-					
-					// return {
-					// 	'name': unidad_negocio[0].name,
-					// 	'data': [unidad_negocio.index.data]
-					// }
-				})
-				// console.log(valores)
-				
-				
-				
-				
-				// var result = []
-				// for (var i = 0; i < miglobal.resultado.length; i++) {
-				// 	var arr = []
-				// 	for (var key in  miglobal.resultado[i]) {
-				// 		// console.log(miglobal.resultado[i][key])
-				// 		arr.push( miglobal.resultado[i][key]);
-				// 	}
-				// 	result.push(arr);
-				// 	console.log(result)
-				// }
-			})
-
 	}
 }
