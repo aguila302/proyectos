@@ -331,20 +331,16 @@ export class ReportesDbService {
 	/* Funcion para obtener los montos de las direcciones para el reporte de direcciones anios. */
 	getmontosDirecciones = (): any => {
 		let reportes = []
-		let sql = `select unidad_negocio, anio, montoUsd 
+		let sql = `select montoUsd 
 				from direccionAnio 
-				where anio > 2011
+				where anio > 2011 and direccionAnio.unidad_negocio = 'Consultoría'
 				group by unidad_negocio, anio
 				order by unidad_negocio, anio desc`
 
 		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
-					reportes.push({
-						'unidad_negocio': response.rows.item(index).unidad_negocio,
-						'anio': response.rows.item(index).anio,
-						'montoUsd': response.rows.item(index).montoUsd,
-					})
+					reportes.push(response.rows.item(index).montoUsd)
 				}
 				return Promise.resolve(reportes)
 			})

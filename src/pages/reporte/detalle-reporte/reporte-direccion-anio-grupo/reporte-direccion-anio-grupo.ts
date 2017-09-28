@@ -51,32 +51,15 @@ export class ReporteDireccionAnioGrupoPage {
 					})
 				})
 			// console.log(miglobal.categorias)
-			// console.log(miglobal.series)
+			console.log(miglobal.series)
 			this.reporteService.getmontosDirecciones()
 			.then(response => {
-				var arg = []
-				response.forEach(items => {
-					// console.log(items)
-					arg.push({
-						name: items.unidad_negocio,
-						data: items.montoUsd
-					})
-				})
-				// console.log(arg)
-				let data = collect(arg)
-				let agrupados = data.groupBy('name').toArray()
-				var arreglo = []
-				let datos = agrupados.map(function(items, index) {
-					// console.log(items)
-					items.reduce(function(index, proyecto) {
-						// console.log(index)
-						console.log(proyecto.data)
-						
-					})
-					// console.log(index)
-				})
-				// console.log(arreglo)
+				// console.log(response)
+				console.log(miglobal.series[0]['data'])
 				
+				// miglobal.series.forEach(function callback(items, index, array) {
+				// 	console.log(items[0])
+				// })
 			})
 		}
 		else {
