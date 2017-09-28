@@ -294,6 +294,7 @@ export class ReportesDbService {
 			})
 	}
 
+	/* Funcion para obtener los anios para el reporte de direccion  anio para el grupo monto total. */
 	distinctAnio() {
 		let reportes = []
 
@@ -303,15 +304,52 @@ export class ReportesDbService {
 		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
-					console.log(response.rows.item(index))
-					
-					// reportes.push({
-					// 	'anios': response.rows.item(index).anio,
-					// })
+					reportes.push(response.rows.item(index).anio)
 				}
 				return Promise.resolve(reportes)
 			})
 	}
+
+	/* Funcion para obtener los direcciones para el reporte de direccion  anio para el grupo monto total. */
+	distinctDirecciones() {
+		let reportes = []
+
+		let sql = `select distinct(unidad_negocio) as unidad_negocio from direccionAnio order by unidad_negocio asc`
+		console.log(sql)
+		
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					reportes.push({
+						'unidad_negocio': response.rows.item(index).unidad_negocio
+					})
+				}
+				return Promise.resolve(reportes)
+			})
+	}
+
+	/* Funcion para obtener los montos de las direcciones para el reporte de direcciones anios. */
+	getmontosDirecciones = (): any => {
+		let reportes = []
+		let sql = `select unidad_negocio, anio, montoUsd 
+				from direccionAnio 
+				where anio > 2011
+				group by unidad_negocio, anio
+				order by unidad_negocio, anio desc`
+
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					reportes.push({
+						'unidad_negocio': response.rows.item(index).unidad_negocio,
+						'anio': response.rows.item(index).anio,
+						'montoUsd': response.rows.item(index).montoUsd,
+					})
+				}
+				return Promise.resolve(reportes)
+			})
+	}
+
 	/* Funcion para obtener el reporte de direccion. */
 	reportePorDireccion = () => {
 		let reportes = []

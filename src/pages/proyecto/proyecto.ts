@@ -55,7 +55,7 @@ export class ProyectoPage {
 				this.zone.run(() => {
 					console.log('running zone')
 					this.proyectos = proyectos
-					if(this.proyectos.length == 1330)
+					if(this.proyectos.length > 1330)
 						loading.dismiss()
 				})
 			})

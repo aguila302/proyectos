@@ -17,6 +17,9 @@ export class ReporteDireccionAnioGrupoPage {
 	total_proyectos: number
 	proyectos = []
 
+	series = []
+	categorias = []
+
 	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteService: ReportesDbService) {
 		this.grupo = navParams.get('grupo')
 		console.log(this.grupo)
@@ -29,37 +32,65 @@ export class ReporteDireccionAnioGrupoPage {
 	}
 
 	/* Funcion para ver el detalle del reporte segun el grupo seleccionado. */
-	verReporteGrupo = () => {
-		var series = []
-		var categorias = []
-		if(this.grupo === 'monto_total') {
-			this.reporteService.reporteDireccionAnioGrupoMontoTotal()
-			.then(response => {
-				categorias = [2017, 2016, 2015, 2014, 2013, 2012]
-				response.forEach(item => {
-					series.push({
-						name: item.unidad_negocio,
-						data: [item[2017], item[2016], item[2015], item[2014], item[2013], item[2012]]
+	async verReporteGrupo() {
+		var miglobal = this
+		if (this.grupo === 'monto_total') {
+			this.reporteService.distinctAnio()
+				.then(response => {
+					miglobal.categorias = response
+					// this.options = this.reporteService.graficaDireccionAnios(categorias, series, 'Direcciones por monto total USD')
+					/*Para obtener la informacion para visualizar la tabla informativa. */
+				})
+			await this.reporteService.distinctDirecciones()
+				.then(response => {
+					response.forEach(item => {
+						miglobal.series.push({
+							name: item.unidad_negocio,
+							data: []
+						})
 					})
 				})
-
-				this.options = this.reporteService.graficaDireccionAnios(categorias, series, 'Direcciones por monto total USD')
-
-				/*Para obtener la informacion para visualizar la tabla informativa. */
+			// console.log(miglobal.categorias)
+			// console.log(miglobal.series)
+			this.reporteService.getmontosDirecciones()
+			.then(response => {
+				var arg = []
+				response.forEach(items => {
+					// console.log(items)
+					arg.push({
+						name: items.unidad_negocio,
+						data: items.montoUsd
+					})
+				})
+				// console.log(arg)
+				let data = collect(arg)
+				let agrupados = data.groupBy('name').toArray()
+				var arreglo = []
+				let datos = agrupados.map(function(items, index) {
+					// console.log(items)
+					items.reduce(function(index, proyecto) {
+						// console.log(index)
+						console.log(proyecto.data)
+						
+					})
+					// console.log(index)
+				})
+				// console.log(arreglo)
+				
 			})
 		}
 		else {
 			this.reporteService.reporteDireccionAnioGrupoNumeroProyectos()
 			.then(response => {
-				categorias = [2017, 2016, 2015, 2014, 2013, 2012]
+				miglobal.categorias = [2017, 2016, 2015, 2014, 2013, 2012]
 				response.forEach(item => {
-					series.push({
+					miglobal.series.push({
 						name: item.unidad_negocio,
 						data: [item[2017], item[2016], item[2015], item[2014], item[2013], item[2012]]
 					})
 				})
 
-				this.options = this.reporteService.graficaDireccionAnios(categorias, series, 'Direcciones por número de proyectos')
+				this.options = this.reporteService.graficaDireccionAnios(this.categorias, this.series, 'Direcciones por número de proyectos')
 
 				/*Para obtener la informacion para visualizar la tabla informativa. */
 				this.reporteService.reporteDireccionAnioGrupoNumeroProyectosTAbla()

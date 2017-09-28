@@ -35,7 +35,7 @@ export class DbService {
 	/* Creamos la base de datos. */
 	openDatabase() {
 		return this.sqlite.create({
-				name: 'proyectos.db',
+				name: 'developer.db',
 				location: 'default',
 				createFromLocation: 1
 			})
@@ -71,13 +71,14 @@ export class DbService {
 				fecha_fin text,
 				numero_propuesta text,
 				anticipo text)`
+				
 			// this.sqlitePorter.exportDbToSql(this.db)
 			// 	.then(r => {
 			// 		console.log(r)
 
-		// 		console.log('Exported')
-		// 	})
-		// 	.catch(e => console.error(e))
+			// 	console.log('Exported')
+			// })
+			// .catch(e => console.error(e))
 
 		return this.db.executeSql(sql, {})
 			.then(() => console.log('tabla creada'))
@@ -89,6 +90,7 @@ export class DbService {
 			let sql = 'select count(*) as contador from proyectos'
 			return this.db.executeSql(sql, {})
 				.then((response) => {
+
 					let filas = response.rows.item(0).contador
 						/* Si no hay registros insertamos los datos*/
 						// console.log(response.rows.item(0).contador)
@@ -96,7 +98,11 @@ export class DbService {
 						//console.log('insertamos registros')
 						this.insertaDatos()
 					} else {
+						// let sql = 'delete from proyectos'
+						// this.db.executeSql(sql, {})
+						// this.insertaDatos()
 						console.log('tenemos registros')
+						// console.log('actualizamos registros')
 					}
 					// console.log(response.rows.length)
 				})
@@ -684,29 +690,34 @@ export class DbService {
 	}
 
 	delete() {
-		let anio = `drop table reportes`
+		let anio = `drop table if exists reportes`
 		this.db.executeSql(anio, {})
 			.then(() => console.log('deleted'))
 			.catch(e => console.log(e))
 
-		let rc = `drop table reportes_columnas`
+		let rc = `drop table if exists reportes_columnas`
 		this.db.executeSql(rc, {})
-			.then(() => console.log('deleted'))
+			.then(() => console.log('deleted reportes_columnas'))
 			.catch(e => console.log(e))
 
-		let rf = `drop table reportes_filtros`
+		let rf = `drop table if exists reportes_filtros`
 		this.db.executeSql(rf, {})
 			.then(() => console.log('deleted'))
 			.catch(e => console.log(e))
 
-		let ra = `drop table reportes_agrupacion`
+		let ra = `drop table if exists reportes_agrupacion`
 		this.db.executeSql(ra, {})
 			.then(() => console.log('deleted'))
 			.catch(e => console.log(e))
 
-		let anios = `drop table anios`
+		let anios = `drop table if exists anios`
 		this.db.executeSql(anios, {})
 			.then(() => console.log('anios deleted'))
+			.catch(e => console.log(e))
+
+		let direccionAnio = `drop table if exists direccionAnio`
+		this.db.executeSql(direccionAnio, {})
+			.then(() => console.log('direccionAnio deleted'))
 			.catch(e => console.log(e))
 	}
 }

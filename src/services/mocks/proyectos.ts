@@ -35,7 +35,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'fin',
 	'TIPO DE CAMBIO DE MONEDA': '2,50 ',
 	'TIPO DE CAMBIO MX': '2,50 ',
-	'unidad_negocio': 'Sin datobonus',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '69200',
 	'anio': '1989',
 	'id': 0
@@ -70,7 +70,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/05/1986',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,50 ',
 	'TIPO DE CAMBIO MX': ' 2,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '426448,516',
 	'anio': '1986',
 	'id': 1
@@ -105,7 +105,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/01/1990',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,09 ',
 	'TIPO DE CAMBIO MX': ' 2,09 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '450000,002390081',
 	'anio': '1989',
 	'id': 2
@@ -140,7 +140,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/11/1989',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,50 ',
 	'TIPO DE CAMBIO MX': ' 2,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '33200',
 	'anio': '1989',
 	'id': 3
@@ -176,7 +176,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/06/1990',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,80 ',
 	'TIPO DE CAMBIO MX': ' 2,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '343465',
 	'anio': '1990',
 	'id': 4
@@ -211,7 +211,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/04/1990',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,80 ',
 	'TIPO DE CAMBIO MX': ' 2,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '35160357,1428571',
 	'anio': '1990',
 	'id': 5
@@ -246,7 +246,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/05/1990',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,80 ',
 	'TIPO DE CAMBIO MX': ' 2,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '24285,7142857143',
 	'anio': '1990',
 	'id': 6
@@ -281,7 +281,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '08/02/1991',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,94 ',
 	'TIPO DE CAMBIO MX': ' 1,94 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '65000',
 	'anio': '1990',
 	'id': 7
@@ -316,7 +316,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/05/1991',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,00 ',
 	'TIPO DE CAMBIO MX': ' 3,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '122986,060606061',
 	'anio': '1991',
 	'id': 8
@@ -351,7 +351,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '27/12/1990',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,80 ',
 	'TIPO DE CAMBIO MX': ' 2,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '173742,142857143',
 	'anio': '1990',
 	'id': 9
@@ -386,7 +386,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/12/1990',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,80 ',
 	'TIPO DE CAMBIO MX': ' 2,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '17670,1863354037',
 	'anio': '1990',
 	'id': 10
@@ -421,7 +421,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1990',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,80 ',
 	'TIPO DE CAMBIO MX': ' 2,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '30650',
 	'anio': '1990',
 	'id': 11
@@ -456,7 +456,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/07/1991',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,35 ',
 	'TIPO DE CAMBIO MX': ' 3,35 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '110265,002469431',
 	'anio': '1991',
 	'id': 12
@@ -491,7 +491,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/08/1989',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,00 ',
 	'TIPO DE CAMBIO MX': ' 3,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '56203',
 	'anio': '1989',
 	'id': 13
@@ -526,7 +526,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/10/1991',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,00 ',
 	'TIPO DE CAMBIO MX': ' 3,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '266044',
 	'anio': '1991',
 	'id': 14
@@ -561,7 +561,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/03/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 5,52 ',
 	'TIPO DE CAMBIO MX': ' 5,52 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '153515,000129783',
 	'anio': '1993',
 	'id': 15
@@ -596,7 +596,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '21/10/1985',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,50 ',
 	'TIPO DE CAMBIO MX': ' 2,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '2546680',
 	'anio': '1985',
 	'id': 16
@@ -631,7 +631,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '13/12/1991',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,00 ',
 	'TIPO DE CAMBIO MX': ' 3,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '259222',
 	'anio': '1991',
 	'id': 17
@@ -666,7 +666,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/08/1992',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,00 ',
 	'TIPO DE CAMBIO MX': ' 3,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '53000',
 	'anio': '1991',
 	'id': 18
@@ -701,7 +701,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/12/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,15 ',
 	'TIPO DE CAMBIO MX': ' 3,15 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '85000',
 	'anio': '1993',
 	'id': 19
@@ -736,7 +736,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/10/1991',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,00 ',
 	'TIPO DE CAMBIO MX': ' 3,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '6943271,66666667',
 	'anio': '1991',
 	'id': 20
@@ -771,7 +771,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/10/1991',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,00 ',
 	'TIPO DE CAMBIO MX': ' 3,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '12732598,6666667',
 	'anio': '1991',
 	'id': 21
@@ -806,7 +806,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/11/1991',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,00 ',
 	'TIPO DE CAMBIO MX': ' 3,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '25000',
 	'anio': '1991',
 	'id': 22
@@ -841,7 +841,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/09/1992',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,00 ',
 	'TIPO DE CAMBIO MX': ' 3,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '745137,5',
 	'anio': '1991',
 	'id': 23
@@ -876,7 +876,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/10/1992',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '231198,717948718',
 	'anio': '1992',
 	'id': 24
@@ -911,7 +911,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/06/1992',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8273023,71794872',
 	'anio': '1992',
 	'id': 25
@@ -946,7 +946,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '22/09/1992',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '207652980,769231',
 	'anio': '1992',
 	'id': 26
@@ -981,7 +981,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/03/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '65000',
 	'anio': '1992',
 	'id': 27
@@ -1016,7 +1016,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/02/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '20961538,4615385',
 	'anio': '1992',
 	'id': 28
@@ -1051,7 +1051,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1992',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '492197,532051282',
 	'anio': '1992',
 	'id': 29
@@ -1086,7 +1086,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/07/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '291375',
 	'anio': '1993',
 	'id': 30
@@ -1121,7 +1121,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/11/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1468182,05',
 	'anio': '1993',
 	'id': 31
@@ -1156,7 +1156,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/11/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1468182,05',
 	'anio': '1993',
 	'id': 32
@@ -1191,7 +1191,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/11/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '485520',
 	'anio': '1994',
 	'id': 33
@@ -1226,7 +1226,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,00 ',
 	'TIPO DE CAMBIO MX': ' 3,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '624092,333333333',
 	'anio': '1996',
 	'id': 34
@@ -1261,7 +1261,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '289860',
 	'anio': '1992',
 	'id': 35
@@ -1296,7 +1296,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/01/1992',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,00 ',
 	'TIPO DE CAMBIO MX': ' 3,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '135000',
 	'anio': '1991',
 	'id': 36
@@ -1331,7 +1331,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/04/1992',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,00 ',
 	'TIPO DE CAMBIO MX': ' 3,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '320000',
 	'anio': '1992',
 	'id': 37
@@ -1366,7 +1366,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '22/01/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '80000',
 	'anio': '1992',
 	'id': 38
@@ -1401,7 +1401,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/01/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '125000',
 	'anio': '1993',
 	'id': 39
@@ -1436,7 +1436,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/11/1991',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '25000',
 	'anio': '1991',
 	'id': 40
@@ -1471,7 +1471,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/05/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '4205000',
 	'anio': '1993',
 	'id': 41
@@ -1506,7 +1506,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/11/1992',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '87200',
 	'anio': '1992',
 	'id': 42
@@ -1541,7 +1541,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '22/04/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '155000',
 	'anio': '1993',
 	'id': 43
@@ -1576,7 +1576,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/12/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '352000',
 	'anio': '1994',
 	'id': 44
@@ -1611,7 +1611,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/03/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '43407,6923076923',
 	'anio': '1993',
 	'id': 45
@@ -1646,7 +1646,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1880450',
 	'anio': '1993',
 	'id': 46
@@ -1681,7 +1681,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/03/1992',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '175000',
 	'anio': '1992',
 	'id': 47
@@ -1716,7 +1716,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/03/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '173613,782051282',
 	'anio': '1993',
 	'id': 48
@@ -1751,7 +1751,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/12/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '192000',
 	'anio': '1992',
 	'id': 49
@@ -1786,7 +1786,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/10/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '225000',
 	'anio': '1993',
 	'id': 50
@@ -1821,7 +1821,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/05/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '43682,6923076923',
 	'anio': '1993',
 	'id': 51
@@ -1856,7 +1856,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/11/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '152394,871794872',
 	'anio': '1993',
 	'id': 52
@@ -1891,7 +1891,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/02/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '412705,769230769',
 	'anio': '1993',
 	'id': 53
@@ -1926,7 +1926,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '08/02/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '51000',
 	'anio': '1992',
 	'id': 54
@@ -1961,7 +1961,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/03/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1170000',
 	'anio': '1992',
 	'id': 55
@@ -1996,7 +1996,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/08/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '85035',
 	'anio': '1993',
 	'id': 56
@@ -2031,7 +2031,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/12/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '302640',
 	'anio': '1992',
 	'id': 57
@@ -2066,7 +2066,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '08/04/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1170000',
 	'anio': '1994',
 	'id': 58
@@ -2101,7 +2101,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/05/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '5625360',
 	'anio': '1993',
 	'id': 59
@@ -2136,7 +2136,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/11/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '203962,820512821',
 	'anio': '1993',
 	'id': 60
@@ -2171,7 +2171,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/11/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '70037,5',
 	'anio': '1993',
 	'id': 61
@@ -2206,7 +2206,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/06/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '216000',
 	'anio': '1994',
 	'id': 62
@@ -2241,7 +2241,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '29/10/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '70256,4102564103',
 	'anio': '1993',
 	'id': 63
@@ -2276,7 +2276,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '08/11/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '51346,1538461538',
 	'anio': '1993',
 	'id': 64
@@ -2311,7 +2311,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/12/1993',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '211408,653846154',
 	'anio': '1993',
 	'id': 65
@@ -2346,7 +2346,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/01/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '180000',
 	'anio': '1993',
 	'id': 66
@@ -2381,7 +2381,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/08/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '291000',
 	'anio': '1993',
 	'id': 67
@@ -2416,7 +2416,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/09/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '180000',
 	'anio': '1994',
 	'id': 68
@@ -2451,7 +2451,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 4,00 ',
 	'TIPO DE CAMBIO MX': ' 4,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '428000',
 	'anio': '1994',
 	'id': 69
@@ -2486,7 +2486,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,59 ',
 	'TIPO DE CAMBIO MX': ' 7,59 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '385000',
 	'anio': '1995',
 	'id': 70
@@ -2521,7 +2521,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/01/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,64 ',
 	'TIPO DE CAMBIO MX': ' 2,64 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '320000',
 	'anio': '1996',
 	'id': 71
@@ -2556,7 +2556,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31-Nov-94',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '39200',
 	'anio': '1994',
 	'id': 72
@@ -2591,7 +2591,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '18/12/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '289713,328571429',
 	'anio': '1994',
 	'id': 73
@@ -2626,7 +2626,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/12/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '300836',
 	'anio': '1994',
 	'id': 74
@@ -2661,7 +2661,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/07/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '54264,2857142857',
 	'anio': '1994',
 	'id': 75
@@ -2696,7 +2696,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '21/11/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 4,00 ',
 	'TIPO DE CAMBIO MX': ' 4,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '138000',
 	'anio': '1994',
 	'id': 76
@@ -2731,7 +2731,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/09/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,12 ',
 	'TIPO DE CAMBIO MX': ' 3,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '75000',
 	'anio': '1993',
 	'id': 77
@@ -2766,7 +2766,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/11/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '256950',
 	'anio': '1994',
 	'id': 78
@@ -2801,7 +2801,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/10/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,59 ',
 	'TIPO DE CAMBIO MX': ' 7,59 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '51000',
 	'anio': '1994',
 	'id': 79
@@ -2836,7 +2836,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/03/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '87000',
 	'anio': '1994',
 	'id': 80
@@ -2871,7 +2871,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/12/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 4,00 ',
 	'TIPO DE CAMBIO MX': ' 4,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '410000',
 	'anio': '1994',
 	'id': 81
@@ -2906,7 +2906,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '18/12/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '778409,02',
 	'anio': '1994',
 	'id': 82
@@ -2941,7 +2941,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '18/12/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '515500,685714286',
 	'anio': '1994',
 	'id': 83
@@ -2976,7 +2976,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '18/12/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '744977,142857143',
 	'anio': '1994',
 	'id': 84
@@ -3011,7 +3011,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '17/08/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1682857,14285714',
 	'anio': '1994',
 	'id': 85
@@ -3046,7 +3046,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/11/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,59 ',
 	'TIPO DE CAMBIO MX': ' 7,59 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '96000',
 	'anio': '1994',
 	'id': 86
@@ -3081,7 +3081,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/02/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '238000',
 	'anio': '1994',
 	'id': 87
@@ -3116,7 +3116,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/12/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '575000',
 	'anio': '1995',
 	'id': 88
@@ -3151,7 +3151,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/06/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '4277,06',
 	'anio': '1994',
 	'id': 89
@@ -3186,7 +3186,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/09/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,93 ',
 	'TIPO DE CAMBIO MX': ' 3,93 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '67999,7965981033',
 	'anio': '1994',
 	'id': 90
@@ -3221,7 +3221,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Indefinido',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,00 ',
 	'TIPO DE CAMBIO MX': ' 3,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '75000',
 	'anio': '1991',
 	'id': 91
@@ -3256,7 +3256,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/10/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '84918,8571428571',
 	'anio': '1994',
 	'id': 92
@@ -3291,7 +3291,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '18/11/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '111688,828571429',
 	'anio': '1994',
 	'id': 93
@@ -3326,7 +3326,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '22/10/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '34285,7142857143',
 	'anio': '1994',
 	'id': 94
@@ -3361,7 +3361,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/12/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '66456,2857142857',
 	'anio': '1994',
 	'id': 95
@@ -3396,7 +3396,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/10/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '419000',
 	'anio': '1994',
 	'id': 96
@@ -3431,7 +3431,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/12/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '54285,7142857143',
 	'anio': '1994',
 	'id': 97
@@ -3466,7 +3466,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '17/12/1994',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '205596,8',
 	'anio': '1994',
 	'id': 98
@@ -3501,7 +3501,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/02/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '155000',
 	'anio': '1994',
 	'id': 99
@@ -3536,7 +3536,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/02/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,86 ',
 	'TIPO DE CAMBIO MX': ' 6,86 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '319000,000053957',
 	'anio': '1994',
 	'id': 100
@@ -3571,7 +3571,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/04/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,30 ',
 	'TIPO DE CAMBIO MX': ' 6,30 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '61467,76',
 	'anio': '1994',
 	'id': 101
@@ -3606,7 +3606,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/09/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1968571,42857143',
 	'anio': '1994',
 	'id': 102
@@ -3641,7 +3641,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/12/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '750330',
 	'anio': '1995',
 	'id': 103
@@ -3676,7 +3676,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/02/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '19764,8923076923',
 	'anio': '1995',
 	'id': 104
@@ -3711,7 +3711,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/03/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '10000',
 	'anio': '1995',
 	'id': 105
@@ -3746,7 +3746,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/05/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '58438,4615384615',
 	'anio': '1995',
 	'id': 106
@@ -3781,7 +3781,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/03/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '17569,2307692308',
 	'anio': '1995',
 	'id': 107
@@ -3816,7 +3816,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/11/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '95696',
 	'anio': '1995',
 	'id': 108
@@ -3851,7 +3851,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/01/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '657000',
 	'anio': '1995',
 	'id': 109
@@ -3886,7 +3886,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/11/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '93264',
 	'anio': '1995',
 	'id': 110
@@ -3921,7 +3921,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/10/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '274347,852307692',
 	'anio': '1995',
 	'id': 111
@@ -3956,7 +3956,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,65 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '27546,0030381315',
 	'anio': '1995',
 	'id': 112
@@ -3991,7 +3991,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/01/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,65 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '111067,900299378',
 	'anio': '1996',
 	'id': 113
@@ -4026,7 +4026,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/09/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,92 ',
 	'TIPO DE CAMBIO MX': ' 7,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '93287,43',
 	'anio': '1996',
 	'id': 114
@@ -4061,7 +4061,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/09/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,92 ',
 	'TIPO DE CAMBIO MX': ' 7,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '30167,252769462',
 	'anio': '1997',
 	'id': 115
@@ -4096,7 +4096,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '29/02/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,59 ',
 	'TIPO DE CAMBIO MX': ' 7,59 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '431000',
 	'anio': '1995',
 	'id': 116
@@ -4131,7 +4131,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/05/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '29000',
 	'anio': '1995',
 	'id': 117
@@ -4166,7 +4166,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/11/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '184393,292307692',
 	'anio': '1995',
 	'id': 118
@@ -4201,7 +4201,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/12/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '671051,538461538',
 	'anio': '1995',
 	'id': 119
@@ -4236,7 +4236,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '310577,142857143',
 	'anio': '1996',
 	'id': 120
@@ -4271,7 +4271,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/11/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '107067,384615385',
 	'anio': '1996',
 	'id': 121
@@ -4306,7 +4306,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '29/02/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '165737,4',
 	'anio': '1996',
 	'id': 122
@@ -4341,7 +4341,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '255983,538461538',
 	'anio': '1996',
 	'id': 123
@@ -4376,7 +4376,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/10/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '40000',
 	'anio': '1995',
 	'id': 124
@@ -4411,7 +4411,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/07/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '62928,63',
 	'anio': '1997',
 	'id': 125
@@ -4446,7 +4446,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/08/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1538,46153846154',
 	'anio': '1995',
 	'id': 126
@@ -4481,7 +4481,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/10/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '200000',
 	'anio': '1995',
 	'id': 127
@@ -4516,7 +4516,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/07/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '18000',
 	'anio': '1995',
 	'id': 128
@@ -4551,7 +4551,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/12/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '21000',
 	'anio': '1995',
 	'id': 129
@@ -4586,7 +4586,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/08/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '40461,5384615385',
 	'anio': '1995',
 	'id': 130
@@ -4621,7 +4621,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/08/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 5,34 ',
 	'TIPO DE CAMBIO MX': ' 5,34 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '43908,0000487717',
 	'anio': '1995',
 	'id': 131
@@ -4656,7 +4656,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/10/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 5,34 ',
 	'TIPO DE CAMBIO MX': ' 5,34 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '33307,00001961',
 	'anio': '1995',
 	'id': 132
@@ -4691,7 +4691,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/11/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '121698,850769231',
 	'anio': '1995',
 	'id': 133
@@ -4726,7 +4726,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/11/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': 'Sin dato',
 	'anio': '1995',
 	'id': 134
@@ -4761,7 +4761,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '35034',
 	'TIPO DE CAMBIO DE MONEDA': '6,5',
 	'TIPO DE CAMBIO MX': '6,5',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '200000',
 	'anio': '1995',
 	'id': 135
@@ -4796,7 +4796,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/03/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '99212',
 	'anio': '1995',
 	'id': 136
@@ -4831,7 +4831,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Indefinido',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,50 ',
 	'TIPO DE CAMBIO MX': ' 3,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '27602,9571428571',
 	'anio': '1995',
 	'id': 137
@@ -4866,7 +4866,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/09/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '2280,81076923077',
 	'anio': '1995',
 	'id': 138
@@ -4901,7 +4901,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '13/11/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8960,19538461538',
 	'anio': '1995',
 	'id': 139
@@ -4936,7 +4936,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/12/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '240384,615384615',
 	'anio': '1995',
 	'id': 140
@@ -4971,7 +4971,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/02/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 5,65 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '12066,15',
 	'anio': '1995',
 	'id': 141
@@ -5006,7 +5006,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/02/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8404,15',
 	'anio': '1995',
 	'id': 142
@@ -5041,7 +5041,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/03/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8478,7',
 	'anio': '1995',
 	'id': 143
@@ -5076,7 +5076,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/07/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 6,50 ',
 	'TIPO DE CAMBIO MX': ' 6,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '67000',
 	'anio': '1995',
 	'id': 144
@@ -5111,7 +5111,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/12/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,50 ',
 	'TIPO DE CAMBIO MX': ' 7,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '405000',
 	'anio': '1996',
 	'id': 145
@@ -5146,7 +5146,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/05/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,50 ',
 	'TIPO DE CAMBIO MX': ' 7,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '240000',
 	'anio': '1996',
 	'id': 146
@@ -5181,7 +5181,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/08/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,50 ',
 	'TIPO DE CAMBIO MX': ' 7,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '266043,786666667',
 	'anio': '1996',
 	'id': 147
@@ -5216,7 +5216,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/04/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,50 ',
 	'TIPO DE CAMBIO MX': ' 7,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '625000',
 	'anio': '1997',
 	'id': 148
@@ -5251,7 +5251,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '29/02/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,50 ',
 	'TIPO DE CAMBIO MX': ' 7,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '31791,2',
 	'anio': '1996',
 	'id': 149
@@ -5286,7 +5286,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/08/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,50 ',
 	'TIPO DE CAMBIO MX': ' 7,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '88006,88',
 	'anio': '1996',
 	'id': 150
@@ -5321,7 +5321,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/12/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,50 ',
 	'TIPO DE CAMBIO MX': ' 7,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '102100',
 	'anio': '1996',
 	'id': 151
@@ -5356,7 +5356,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/07/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,50 ',
 	'TIPO DE CAMBIO MX': ' 7,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '29749,3333333333',
 	'anio': '1996',
 	'id': 152
@@ -5391,7 +5391,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/09/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,50 ',
 	'TIPO DE CAMBIO MX': ' 7,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '53286,0474666667',
 	'anio': '1996',
 	'id': 153
@@ -5426,7 +5426,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,50 ',
 	'TIPO DE CAMBIO MX': ' 7,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '856168',
 	'anio': '1996',
 	'id': 154
@@ -5461,7 +5461,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/05/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,50 ',
 	'TIPO DE CAMBIO MX': ' 7,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '20133,3333333333',
 	'anio': '1996',
 	'id': 155
@@ -5496,7 +5496,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '27/02/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 3,45 ',
 	'TIPO DE CAMBIO MX': ' 3,45 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '826000,000307521',
 	'anio': '1996',
 	'id': 156
@@ -5531,7 +5531,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/04/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,50 ',
 	'TIPO DE CAMBIO MX': ' 7,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '718000',
 	'anio': '1997',
 	'id': 157
@@ -5566,7 +5566,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/05/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,50 ',
 	'TIPO DE CAMBIO MX': ' 7,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '203947,2',
 	'anio': '1996',
 	'id': 158
@@ -5601,7 +5601,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,50 ',
 	'TIPO DE CAMBIO MX': ' 7,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '93014,2413333333',
 	'anio': '1996',
 	'id': 159
@@ -5636,7 +5636,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '29/08/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,061,48 ',
 	'TIPO DE CAMBIO MX': ' 7,61 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '163239,874579799',
 	'anio': '1996',
 	'id': 160
@@ -5671,7 +5671,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,50 ',
 	'TIPO DE CAMBIO MX': ' 7,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '55963,3333333333',
 	'anio': '1996',
 	'id': 161
@@ -5706,7 +5706,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/12/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,50 ',
 	'TIPO DE CAMBIO MX': ' 7,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '18666,6666666667',
 	'anio': '1996',
 	'id': 162
@@ -5742,7 +5742,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/12/1994',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '',
 	'anio': '1994',
 	'id': 163
@@ -5777,7 +5777,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/07/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,051,64 ',
 	'TIPO DE CAMBIO MX': ' 7,54 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '51812,3556441892',
 	'anio': '1996',
 	'id': 164
@@ -5813,7 +5813,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/03/1996',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': 'Sin dato',
 	'anio': '1996',
 	'id': 165
@@ -5848,7 +5848,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/01/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,50 ',
 	'TIPO DE CAMBIO MX': ' 7,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '192000',
 	'anio': '1995',
 	'id': 166
@@ -5883,7 +5883,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/11/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,50 ',
 	'TIPO DE CAMBIO MX': ' 7,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '12976,8',
 	'anio': '1996',
 	'id': 167
@@ -5918,7 +5918,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,50 ',
 	'TIPO DE CAMBIO MX': ' 7,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '68478,84',
 	'anio': '1996',
 	'id': 168
@@ -5953,7 +5953,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,50 ',
 	'TIPO DE CAMBIO MX': ' 7,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '97258,2026666667',
 	'anio': '1996',
 	'id': 169
@@ -5988,7 +5988,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Sin dato',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': 'Sin dato',
 	'anio': '1996',
 	'id': 170
@@ -6023,7 +6023,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/04/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,80 ',
 	'TIPO DE CAMBIO MX': ' 7,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '4771,79487179487',
 	'anio': '1997',
 	'id': 171
@@ -6058,7 +6058,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/03/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,80 ',
 	'TIPO DE CAMBIO MX': ' 7,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '41229,7692307692',
 	'anio': '1997',
 	'id': 172
@@ -6093,7 +6093,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Sin dato',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 6,75 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '101918',
 	'anio': '1997',
 	'id': 173
@@ -6128,7 +6128,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,80 ',
 	'TIPO DE CAMBIO MX': ' 7,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '252534,797435897',
 	'anio': '1997',
 	'id': 174
@@ -6163,7 +6163,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/06/1996',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,50 ',
 	'TIPO DE CAMBIO MX': ' 7,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '117200',
 	'anio': '1995',
 	'id': 175
@@ -6198,7 +6198,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/07/1997',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': 'Sin dato',
 	'anio': '1997',
 	'id': 176
@@ -6233,7 +6233,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/11/1995',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,061,48 ',
 	'TIPO DE CAMBIO MX': ' 1,061,48 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '983,532426423484',
 	'anio': '1996',
 	'id': 177
@@ -6268,7 +6268,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/09/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,077,09 ',
 	'TIPO DE CAMBIO MX': ' 7,91 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '114071,247528062',
 	'anio': '1997',
 	'id': 178
@@ -6303,7 +6303,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/06/1999',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,80 ',
 	'TIPO DE CAMBIO MX': ' 7,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '175288,205128205',
 	'anio': '1997',
 	'id': 179
@@ -6338,7 +6338,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,95 ',
 	'TIPO DE CAMBIO MX': ' 7,95 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '28407,0820282526',
 	'anio': '1997',
 	'id': 180
@@ -6373,7 +6373,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/08/1997',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': 'Sin dato',
 	'anio': '1997',
 	'id': 181
@@ -6408,7 +6408,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/10/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,098,46 ',
 	'TIPO DE CAMBIO MX': ' 7,87 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '39239,8888224078',
 	'anio': '1997',
 	'id': 182
@@ -6443,7 +6443,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/08/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,80 ',
 	'TIPO DE CAMBIO MX': ' 7,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '4487,17948717949',
 	'anio': '1997',
 	'id': 183
@@ -6478,7 +6478,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/05/1998',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 7,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '296985,72648',
 	'anio': '1997',
 	'id': 184
@@ -6513,7 +6513,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/08/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,80 ',
 	'TIPO DE CAMBIO MX': ' 7,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '15644,4602564103',
 	'anio': '1997',
 	'id': 185
@@ -6548,7 +6548,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/10/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,125,62 ',
 	'TIPO DE CAMBIO MX': ' 7,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '78079,1919120129',
 	'anio': '1997',
 	'id': 186
@@ -6583,7 +6583,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '13/03/1999',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,129,05 ',
 	'TIPO DE CAMBIO MX': ' 7,76 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '233285,284851928',
 	'anio': '1997',
 	'id': 187
@@ -6618,7 +6618,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/12/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,76 ',
 	'TIPO DE CAMBIO MX': ' 7,76 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '47880,0103126007',
 	'anio': '1997',
 	'id': 188
@@ -6653,7 +6653,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,79 ',
 	'TIPO DE CAMBIO MX': ' 7,79 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8297,46573670893',
 	'anio': '1997',
 	'id': 189
@@ -6688,7 +6688,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 8,06 ',
 	'TIPO DE CAMBIO MX': ' 8,06 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '308077,16',
 	'anio': '1997',
 	'id': 190
@@ -6723,7 +6723,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/12/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,172,82 ',
 	'TIPO DE CAMBIO MX': ' 7,79 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '89451,5444354868',
 	'anio': '1997',
 	'id': 191
@@ -6758,7 +6758,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/06/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 8,55 ',
 	'TIPO DE CAMBIO MX': ' 8,55 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '519789,1',
 	'anio': '1997',
 	'id': 192
@@ -6793,7 +6793,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/01/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,80 ',
 	'TIPO DE CAMBIO MX': ' 7,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '54665,3846153846',
 	'anio': '1997',
 	'id': 193
@@ -6828,7 +6828,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/11/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,74 ',
 	'TIPO DE CAMBIO MX': ' 7,74 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '50385,6439672881',
 	'anio': '1997',
 	'id': 194
@@ -6863,7 +6863,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Sin dato',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': 'Sin dato',
 	'anio': '1997',
 	'id': 195
@@ -6898,7 +6898,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/01/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,005,33 ',
 	'TIPO DE CAMBIO MX': ' 7,90 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '15434,9729733623',
 	'anio': '1997',
 	'id': 196
@@ -6933,7 +6933,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '17/12/1997',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,80 ',
 	'TIPO DE CAMBIO MX': ' 7,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '36137,9487179487',
 	'anio': '1997',
 	'id': 197
@@ -6968,7 +6968,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/01/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 8,18 ',
 	'TIPO DE CAMBIO MX': ' 8,18 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '23365,78088122',
 	'anio': '1997',
 	'id': 198
@@ -7003,7 +7003,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/02/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 8,07 ',
 	'TIPO DE CAMBIO MX': ' 8,07 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '23380,4910697686',
 	'anio': '1998',
 	'id': 199
@@ -7038,7 +7038,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/03/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,80 ',
 	'TIPO DE CAMBIO MX': ' 7,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '41943',
 	'anio': '1998',
 	'id': 200
@@ -7073,7 +7073,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/08/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,332,78 ',
 	'TIPO DE CAMBIO MX': ' 8,28 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '463812,199519697',
 	'anio': '1998',
 	'id': 201
@@ -7108,7 +7108,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/08/1999',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,582,90 ',
 	'TIPO DE CAMBIO MX': ' 10,09 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '609578,54706878',
 	'anio': '1998',
 	'id': 202
@@ -7143,7 +7143,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/10/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,361,86 ',
 	'TIPO DE CAMBIO MX': ' 8,54 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '51866,8653355426',
 	'anio': '1998',
 	'id': 203
@@ -7178,7 +7178,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '36099',
 	'TIPO DE CAMBIO DE MONEDA': '1361,86',
 	'TIPO DE CAMBIO MX': '8,541',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '51866,8653355426',
 	'anio': '1998',
 	'id': 204
@@ -7213,7 +7213,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '36099',
 	'TIPO DE CAMBIO DE MONEDA': '1361,86',
 	'TIPO DE CAMBIO MX': '8,541',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '51866,8653355426',
 	'anio': '1998',
 	'id': 205
@@ -7248,7 +7248,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '24/04/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 8,64 ',
 	'TIPO DE CAMBIO MX': ' 8,64 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '16102,4091503722',
 	'anio': '1998',
 	'id': 206
@@ -7283,7 +7283,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '08/06/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,00 ',
 	'TIPO DE CAMBIO MX': ' 9,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7777,78',
 	'anio': '1998',
 	'id': 207
@@ -7318,7 +7318,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '27/06/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 8,07 ',
 	'TIPO DE CAMBIO MX': ' 8,07 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '71767,6367422318',
 	'anio': '1998',
 	'id': 208
@@ -7353,7 +7353,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 8,49 ',
 	'TIPO DE CAMBIO MX': ' 8,49 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '32774,5518151193',
 	'anio': '1998',
 	'id': 209
@@ -7388,7 +7388,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '29/03/1999',
 	'TIPO DE CAMBIO DE MONEDA': ' 8,79 ',
 	'TIPO DE CAMBIO MX': ' 8,79 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '49897,2380594722',
 	'anio': '1998',
 	'id': 210
@@ -7423,7 +7423,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '17/08/1999',
 	'TIPO DE CAMBIO DE MONEDA': ' 8,84 ',
 	'TIPO DE CAMBIO MX': ' 8,84 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '52800,1358080579',
 	'anio': '1998',
 	'id': 211
@@ -7458,7 +7458,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/06/1999',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,368,24 ',
 	'TIPO DE CAMBIO MX': ' 9,01 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '467442,133898167',
 	'anio': '1998',
 	'id': 212
@@ -7493,7 +7493,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/11/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 8,99 ',
 	'TIPO DE CAMBIO MX': ' 8,99 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '21993,564973512',
 	'anio': '1998',
 	'id': 213
@@ -7528,7 +7528,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '11/07/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,95 ',
 	'TIPO DE CAMBIO MX': ' 9,95 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '5332,90050251256',
 	'anio': '1998',
 	'id': 214
@@ -7563,7 +7563,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/10/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 8,82 ',
 	'TIPO DE CAMBIO MX': ' 8,82 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '114455,09986624',
 	'anio': '1998',
 	'id': 215
@@ -7598,7 +7598,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/09/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 8,87 ',
 	'TIPO DE CAMBIO MX': ' 8,87 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '70413,8008794678',
 	'anio': '1998',
 	'id': 216
@@ -7633,7 +7633,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/05/1999',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': 'Sin dato',
 	'anio': '1998',
 	'id': 217
@@ -7668,7 +7668,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1998',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 8,95 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '201892,25',
 	'anio': '1998',
 	'id': 218
@@ -7703,7 +7703,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '27/10/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 8,07 ',
 	'TIPO DE CAMBIO MX': ' 8,07 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '55656,3118949939',
 	'anio': '1998',
 	'id': 219
@@ -7738,7 +7738,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/11/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,00 ',
 	'TIPO DE CAMBIO MX': ' 9,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '6888,89',
 	'anio': '1998',
 	'id': 220
@@ -7773,7 +7773,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/11/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,00 ',
 	'TIPO DE CAMBIO MX': ' 9,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '6888,89',
 	'anio': '1998',
 	'id': 221
@@ -7808,7 +7808,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/11/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,00 ',
 	'TIPO DE CAMBIO MX': ' 9,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '6888,89',
 	'anio': '1998',
 	'id': 222
@@ -7843,7 +7843,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '08/12/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,00 ',
 	'TIPO DE CAMBIO MX': ' 9,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '6888,89',
 	'anio': '1998',
 	'id': 223
@@ -7878,7 +7878,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/11/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,00 ',
 	'TIPO DE CAMBIO MX': ' 9,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '6888,89',
 	'anio': '1998',
 	'id': 224
@@ -7913,7 +7913,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,97 ',
 	'TIPO DE CAMBIO MX': ' 9,97 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '33497,5310127661',
 	'anio': '1998',
 	'id': 225
@@ -7948,7 +7948,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/02/1999',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '6894,74',
 	'anio': '1999',
 	'id': 226
@@ -7983,7 +7983,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/12/1999',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,589,64 ',
 	'TIPO DE CAMBIO MX': ' 10,20 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '288014,012348491',
 	'anio': '1999',
 	'id': 227
@@ -8018,7 +8018,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/07/1999',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,75 ',
 	'TIPO DE CAMBIO MX': ' 9,75 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '6623,32868366531',
 	'anio': '1999',
 	'id': 228
@@ -8053,7 +8053,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/07/1999',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,69 ',
 	'TIPO DE CAMBIO MX': ' 9,69 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '10168,0568172434',
 	'anio': '1999',
 	'id': 229
@@ -8088,7 +8088,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '17/08/1999',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9720,05',
 	'anio': '1999',
 	'id': 230
@@ -8123,7 +8123,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/09/1999',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,42 ',
 	'TIPO DE CAMBIO MX': ' 9,42 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '28775,827452645',
 	'anio': '1999',
 	'id': 231
@@ -8158,7 +8158,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '13/08/1999',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8957,89',
 	'anio': '1999',
 	'id': 232
@@ -8193,7 +8193,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/10/1999',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,736,03 ',
 	'TIPO DE CAMBIO MX': ' 9,38 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '44324,3999239644',
 	'anio': '1999',
 	'id': 233
@@ -8228,7 +8228,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/10/1999',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,40 ',
 	'TIPO DE CAMBIO MX': ' 9,40 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '5397,72364642059',
 	'anio': '1999',
 	'id': 234
@@ -8263,7 +8263,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '21/01/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,32 ',
 	'TIPO DE CAMBIO MX': ' 9,32 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '21134,1157287219',
 	'anio': '1999',
 	'id': 235
@@ -8298,7 +8298,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '08/10/1999',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '10440,24',
 	'anio': '1999',
 	'id': 236
@@ -8333,7 +8333,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/04/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,67 ',
 	'TIPO DE CAMBIO MX': ' 9,67 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1999053,08',
 	'anio': '1999',
 	'id': 237
@@ -8368,7 +8368,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/11/1999',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,65 ',
 	'TIPO DE CAMBIO MX': ' 9,65 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '6784,69286247202',
 	'anio': '1999',
 	'id': 238
@@ -8403,7 +8403,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/12/1999',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '10440,24',
 	'anio': '1999',
 	'id': 239
@@ -8438,7 +8438,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '13/03/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 8,00 ',
 	'TIPO DE CAMBIO MX': ' 8,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '204484,89',
 	'anio': '1999',
 	'id': 240
@@ -8473,7 +8473,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/11/1999',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,831,19 ',
 	'TIPO DE CAMBIO MX': ' 9,42 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '86776,6084349522',
 	'anio': '1999',
 	'id': 241
@@ -8508,7 +8508,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '22/11/1999',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,995,71 ',
 	'TIPO DE CAMBIO MX': ' 9,46 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '19438,2467634455',
 	'anio': '1999',
 	'id': 242
@@ -8543,7 +8543,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Indefinido',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,69 ',
 	'TIPO DE CAMBIO MX': ' 9,69 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '100326,244941779',
 	'anio': '1999',
 	'id': 243
@@ -8578,7 +8578,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/09/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,973,36 ',
 	'TIPO DE CAMBIO MX': ' 9,60 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '97638,7988000162',
 	'anio': '1999',
 	'id': 244
@@ -8613,7 +8613,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '17/02/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '10394,74',
 	'anio': '2000',
 	'id': 245
@@ -8648,7 +8648,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/01/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9479,57',
 	'anio': '2000',
 	'id': 246
@@ -8683,7 +8683,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/03/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,44 ',
 	'TIPO DE CAMBIO MX': ' 9,44 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '47678,0776199104',
 	'anio': '2000',
 	'id': 247
@@ -8718,7 +8718,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/08/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,00 ',
 	'TIPO DE CAMBIO MX': ' 9,44 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '364023,6',
 	'anio': '2000',
 	'id': 248
@@ -8753,7 +8753,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '11/04/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,53 ',
 	'TIPO DE CAMBIO MX': ' 9,53 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '5850,05457140458',
 	'anio': '2000',
 	'id': 249
@@ -8788,7 +8788,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/03/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,36 ',
 	'TIPO DE CAMBIO MX': ' 9,36 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '10526,32',
 	'anio': '2000',
 	'id': 250
@@ -8823,7 +8823,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/03/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,49 ',
 	'TIPO DE CAMBIO MX': ' 9,49 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '25263,16',
 	'anio': '2000',
 	'id': 251
@@ -8858,7 +8858,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/05/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,03 ',
 	'TIPO DE CAMBIO MX': ' 12,03 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '108931,837073982',
 	'anio': '2000',
 	'id': 252
@@ -8893,7 +8893,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/07/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,922,47 ',
 	'TIPO DE CAMBIO MX': ' 9,47 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '24580,4471195457',
 	'anio': '2000',
 	'id': 253
@@ -8928,7 +8928,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/07/2001',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 9,22 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '212424,087336245',
 	'anio': '2000',
 	'id': 254
@@ -8963,7 +8963,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/05/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,43 ',
 	'TIPO DE CAMBIO MX': ' 9,43 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '31804,9297641134',
 	'anio': '2000',
 	'id': 255
@@ -8998,7 +8998,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/12/2001',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 9,43 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '157585,974025974',
 	'anio': '2000',
 	'id': 256
@@ -9033,7 +9033,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/03/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,37 ',
 	'TIPO DE CAMBIO MX': ' 9,37 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1813,37201860306',
 	'anio': '2000',
 	'id': 257
@@ -9068,7 +9068,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/03/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,31 ',
 	'TIPO DE CAMBIO MX': ' 9,31 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '2040,48756913494',
 	'anio': '2000',
 	'id': 258
@@ -9103,7 +9103,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '22/03/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,31 ',
 	'TIPO DE CAMBIO MX': ' 9,31 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '805,351831370065',
 	'anio': '2000',
 	'id': 259
@@ -9138,7 +9138,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/04/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,39 ',
 	'TIPO DE CAMBIO MX': ' 9,39 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '19964,2241103942',
 	'anio': '2000',
 	'id': 260
@@ -9173,7 +9173,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/07/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,39 ',
 	'TIPO DE CAMBIO MX': ' 9,39 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '33965,7999531506',
 	'anio': '2000',
 	'id': 261
@@ -9208,7 +9208,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '17/06/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,48 ',
 	'TIPO DE CAMBIO MX': ' 9,48 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '51664,8742118471',
 	'anio': '2000',
 	'id': 262
@@ -9243,7 +9243,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '11/06/2002',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 9,39 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1322802,7012987',
 	'anio': '2000',
 	'id': 263
@@ -9278,7 +9278,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/12/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,57 ',
 	'TIPO DE CAMBIO MX': ' 9,57 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '181704,939316963',
 	'anio': '2000',
 	'id': 264
@@ -9313,7 +9313,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/04/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,53 ',
 	'TIPO DE CAMBIO MX': ' 9,53 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '2075921,99551296',
 	'anio': '2000',
 	'id': 265
@@ -9348,7 +9348,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/06/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,52 ',
 	'TIPO DE CAMBIO MX': ' 9,52 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '2627,15426649853',
 	'anio': '2000',
 	'id': 266
@@ -9383,7 +9383,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '27/06/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,76 ',
 	'TIPO DE CAMBIO MX': ' 9,76 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9677,914895796',
 	'anio': '2000',
 	'id': 267
@@ -9418,7 +9418,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/09/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,92 ',
 	'TIPO DE CAMBIO MX': ' 9,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '684273,9',
 	'anio': '2000',
 	'id': 268
@@ -9453,7 +9453,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/08/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,00 ',
 	'TIPO DE CAMBIO MX': ' 9,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '19957',
 	'anio': '2000',
 	'id': 269
@@ -9488,7 +9488,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/07/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '2105,2641221374',
 	'anio': '2000',
 	'id': 270
@@ -9523,7 +9523,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Sin dato',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,42 ',
 	'TIPO DE CAMBIO MX': ' 9,42 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '2124,22465799983',
 	'anio': '2000',
 	'id': 271
@@ -9558,7 +9558,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/10/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,36 ',
 	'TIPO DE CAMBIO MX': ' 9,36 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '64097,0857191693',
 	'anio': '2000',
 	'id': 272
@@ -9593,7 +9593,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/12/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,36 ',
 	'TIPO DE CAMBIO MX': ' 9,36 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '2319,45987522434',
 	'anio': '2000',
 	'id': 273
@@ -9628,7 +9628,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/12/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,00 ',
 	'TIPO DE CAMBIO MX': ' 1,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '80000',
 	'anio': '2000',
 	'id': 274
@@ -9663,7 +9663,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '17/12/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,43 ',
 	'TIPO DE CAMBIO MX': ' 9,43 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '264979,278620412',
 	'anio': '2000',
 	'id': 275
@@ -9698,7 +9698,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '11/09/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,20 ',
 	'TIPO DE CAMBIO MX': ' 9,20 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1087,01559867384',
 	'anio': '2000',
 	'id': 276
@@ -9733,7 +9733,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/10/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9947,37',
 	'anio': '2000',
 	'id': 277
@@ -9768,7 +9768,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 8,08 ',
 	'TIPO DE CAMBIO MX': ' 8,08 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '396012',
 	'anio': '2000',
 	'id': 278
@@ -9803,7 +9803,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '27/11/2000',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,64 ',
 	'TIPO DE CAMBIO MX': ' 9,64 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1705,75914058773',
 	'anio': '2000',
 	'id': 279
@@ -9838,7 +9838,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/01/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9421,05',
 	'anio': '2000',
 	'id': 280
@@ -9873,7 +9873,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '27/10/2000',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 9,18 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '235639,62',
 	'anio': '2000',
 	'id': 281
@@ -9908,7 +9908,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/04/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,175,02 ',
 	'TIPO DE CAMBIO MX': ' 9,35 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '341279,885179019',
 	'anio': '2000',
 	'id': 282
@@ -9943,7 +9943,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/03/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,41 ',
 	'TIPO DE CAMBIO MX': ' 9,41 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '57369,2989259192',
 	'anio': '2000',
 	'id': 283
@@ -9978,7 +9978,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/04/2001',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 9,60 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '177224,82',
 	'anio': '2000',
 	'id': 284
@@ -10013,7 +10013,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/11/2001',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 9,71 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '620867,9694',
 	'anio': '2001',
 	'id': 285
@@ -10048,7 +10048,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/12/2001',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 9,73 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '381899,52',
 	'anio': '2001',
 	'id': 286
@@ -10083,7 +10083,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/06/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,57 ',
 	'TIPO DE CAMBIO MX': ' 9,57 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '85471,1560560791',
 	'anio': '2001',
 	'id': 287
@@ -10118,7 +10118,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/05/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,68 ',
 	'TIPO DE CAMBIO MX': ' 9,68 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '57253,2889637568',
 	'anio': '2001',
 	'id': 288
@@ -10153,7 +10153,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/05/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,80 ',
 	'TIPO DE CAMBIO MX': ' 9,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '63295,6622053434',
 	'anio': '2001',
 	'id': 289
@@ -10188,7 +10188,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/05/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,80 ',
 	'TIPO DE CAMBIO MX': ' 9,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '65847,9066491072',
 	'anio': '2001',
 	'id': 290
@@ -10223,7 +10223,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/03/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,00 ',
 	'TIPO DE CAMBIO MX': ' 9,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '10500',
 	'anio': '2001',
 	'id': 291
@@ -10258,7 +10258,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '27/03/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,00 ',
 	'TIPO DE CAMBIO MX': ' 9,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '2222,22',
 	'anio': '2001',
 	'id': 292
@@ -10293,7 +10293,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '08/05/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,67 ',
 	'TIPO DE CAMBIO MX': ' 9,67 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '3981,26221523634',
 	'anio': '2001',
 	'id': 293
@@ -10328,7 +10328,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '21/05/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,00 ',
 	'TIPO DE CAMBIO MX': ' 9,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '28333,33',
 	'anio': '2001',
 	'id': 294
@@ -10363,7 +10363,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '21/06/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,31 ',
 	'TIPO DE CAMBIO MX': ' 9,31 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '22478,3673206404',
 	'anio': '2001',
 	'id': 295
@@ -10398,7 +10398,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/07/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,30 ',
 	'TIPO DE CAMBIO MX': ' 9,30 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '85976,206084966',
 	'anio': '2001',
 	'id': 296
@@ -10433,7 +10433,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '18/11/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,30 ',
 	'TIPO DE CAMBIO MX': ' 9,30 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '29068,8551193457',
 	'anio': '2001',
 	'id': 297
@@ -10468,7 +10468,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/07/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,03 ',
 	'TIPO DE CAMBIO MX': ' 9,03 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '63192,0418824988',
 	'anio': '2001',
 	'id': 298
@@ -10503,7 +10503,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '27/08/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,359,54 ',
 	'TIPO DE CAMBIO MX': ' 9,20 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '51988,307262111',
 	'anio': '2001',
 	'id': 299
@@ -10538,7 +10538,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '29/05/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 8,94 ',
 	'TIPO DE CAMBIO MX': ' 8,94 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '3628,84107885673',
 	'anio': '2001',
 	'id': 300
@@ -10573,7 +10573,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '13/07/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,00 ',
 	'TIPO DE CAMBIO MX': ' 9,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9444,44',
 	'anio': '2001',
 	'id': 301
@@ -10608,7 +10608,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/01/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,00 ',
 	'TIPO DE CAMBIO MX': ' 9,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9944,44',
 	'anio': '2001',
 	'id': 302
@@ -10643,7 +10643,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '27/07/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,03 ',
 	'TIPO DE CAMBIO MX': ' 9,03 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '19366,1971830986',
 	'anio': '2001',
 	'id': 303
@@ -10678,7 +10678,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '24/06/2004',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 9,13 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1880093,866',
 	'anio': '2001',
 	'id': 304
@@ -10714,7 +10714,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/07/2001',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '',
 	'anio': '2001',
 	'id': 305
@@ -10749,7 +10749,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/06/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 8,55 ',
 	'TIPO DE CAMBIO MX': ' 8,55 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9944,44',
 	'anio': '2001',
 	'id': 306
@@ -10784,7 +10784,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Indefinido',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,11 ',
 	'TIPO DE CAMBIO MX': ' 9,11 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '57065,724350603',
 	'anio': '2001',
 	'id': 307
@@ -10819,7 +10819,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/03/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,19 ',
 	'TIPO DE CAMBIO MX': ' 9,19 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '85377,4908833614',
 	'anio': '2001',
 	'id': 308
@@ -10854,7 +10854,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '29/11/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,16 ',
 	'TIPO DE CAMBIO MX': ' 9,16 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '59189,6909468166',
 	'anio': '2001',
 	'id': 309
@@ -10889,7 +10889,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/11/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,16 ',
 	'TIPO DE CAMBIO MX': ' 9,16 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '75898,2199410287',
 	'anio': '2001',
 	'id': 310
@@ -10924,7 +10924,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '21/07/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,00 ',
 	'TIPO DE CAMBIO MX': ' 9,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9944,44',
 	'anio': '2001',
 	'id': 311
@@ -10959,7 +10959,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/08/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,15 ',
 	'TIPO DE CAMBIO MX': ' 9,15 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '21336,95',
 	'anio': '2001',
 	'id': 312
@@ -10994,7 +10994,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Sin dato',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,03 ',
 	'TIPO DE CAMBIO MX': ' 9,03 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '56085',
 	'anio': '2001',
 	'id': 313
@@ -11029,7 +11029,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/12/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '36599,0172248703',
 	'anio': '2001',
 	'id': 314
@@ -11064,7 +11064,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/03/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,70 ',
 	'TIPO DE CAMBIO MX': ' 9,70 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1350000',
 	'anio': '2001',
 	'id': 315
@@ -11099,7 +11099,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/12/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,17 ',
 	'TIPO DE CAMBIO MX': ' 9,17 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '70889,4996291934',
 	'anio': '2001',
 	'id': 316
@@ -11134,7 +11134,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/12/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,26 ',
 	'TIPO DE CAMBIO MX': ' 9,26 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '271051,05',
 	'anio': '2001',
 	'id': 317
@@ -11169,7 +11169,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/01/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,58 ',
 	'TIPO DE CAMBIO MX': ' 9,58 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '77759,6860387442',
 	'anio': '2001',
 	'id': 318
@@ -11204,7 +11204,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/11/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,58 ',
 	'TIPO DE CAMBIO MX': ' 9,58 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '3700,1085504342',
 	'anio': '2001',
 	'id': 319
@@ -11239,7 +11239,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/12/2004',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 9,13 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '469641,537117904',
 	'anio': '2001',
 	'id': 320
@@ -11274,7 +11274,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/06/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,316,68 ',
 	'TIPO DE CAMBIO MX': ' 9,27 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '329310,910958786',
 	'anio': '2001',
 	'id': 321
@@ -11309,7 +11309,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/12/2001',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,32 ',
 	'TIPO DE CAMBIO MX': ' 9,32 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9549,36',
 	'anio': '2001',
 	'id': 322
@@ -11344,7 +11344,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/08/2002',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 9,53 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1031360,772',
 	'anio': '2001',
 	'id': 323
@@ -11379,7 +11379,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/11/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,28 ',
 	'TIPO DE CAMBIO MX': ' 9,28 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '198782,524376448',
 	'anio': '2001',
 	'id': 324
@@ -11414,7 +11414,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/07/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,04 ',
 	'TIPO DE CAMBIO MX': ' 9,04 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '43322,6604145009',
 	'anio': '2001',
 	'id': 325
@@ -11449,7 +11449,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,15 ',
 	'TIPO DE CAMBIO MX': ' 9,15 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '28761,4740386823',
 	'anio': '2002',
 	'id': 326
@@ -11484,7 +11484,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/12/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,44 ',
 	'TIPO DE CAMBIO MX': ' 10,44 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '25199,1100935887',
 	'anio': '2003',
 	'id': 327
@@ -11519,7 +11519,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/12/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,23 ',
 	'TIPO DE CAMBIO MX': ' 11,23 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '24705,7161939534',
 	'anio': '2004',
 	'id': 328
@@ -11554,7 +11554,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/12/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,24 ',
 	'TIPO DE CAMBIO MX': ' 11,24 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '24737,3717783333',
 	'anio': '2005',
 	'id': 329
@@ -11589,7 +11589,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/03/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,71 ',
 	'TIPO DE CAMBIO MX': ' 10,71 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '28220,7966832876',
 	'anio': '2006',
 	'id': 330
@@ -11624,7 +11624,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/03/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,12 ',
 	'TIPO DE CAMBIO MX': ' 11,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '28226,3783103278',
 	'anio': '2007',
 	'id': 331
@@ -11659,7 +11659,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/01/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,84 ',
 	'TIPO DE CAMBIO MX': ' 10,84 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '30050,2551138094',
 	'anio': '2008',
 	'id': 332
@@ -11694,7 +11694,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/07/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,93 ',
 	'TIPO DE CAMBIO MX': ' 13,93 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '24899,9956940477',
 	'anio': '2009',
 	'id': 333
@@ -11729,7 +11729,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,78 ',
 	'TIPO DE CAMBIO MX': ' 12,78 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '28119,100121288',
 	'anio': '2010',
 	'id': 334
@@ -11764,7 +11764,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,35 ',
 	'TIPO DE CAMBIO MX': ' 12,35 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '30378,2600246162',
 	'anio': '2011',
 	'id': 335
@@ -11904,7 +11904,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/12/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,15 ',
 	'TIPO DE CAMBIO MX': ' 9,15 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '28761,4740386823',
 	'anio': '2002',
 	'id': 339
@@ -11939,7 +11939,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/12/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,53 ',
 	'TIPO DE CAMBIO MX': ' 10,53 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '24988,2278625302',
 	'anio': '2003',
 	'id': 340
@@ -11974,7 +11974,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/02/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,02 ',
 	'TIPO DE CAMBIO MX': ' 11,02 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '25172,1959097755',
 	'anio': '2004',
 	'id': 341
@@ -12009,7 +12009,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,15 ',
 	'TIPO DE CAMBIO MX': ' 11,15 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '25928,44611866',
 	'anio': '2005',
 	'id': 342
@@ -12044,7 +12044,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,63 ',
 	'TIPO DE CAMBIO MX': ' 10,63 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '28419,8262243286',
 	'anio': '2006',
 	'id': 343
@@ -12079,7 +12079,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,81 ',
 	'TIPO DE CAMBIO MX': ' 10,81 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '29032,8388027674',
 	'anio': '2007',
 	'id': 344
@@ -12114,7 +12114,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,92 ',
 	'TIPO DE CAMBIO MX': ' 10,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '29837,1776432112',
 	'anio': '2008',
 	'id': 345
@@ -12149,7 +12149,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,83 ',
 	'TIPO DE CAMBIO MX': ' 13,83 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '25083,0666907645',
 	'anio': '2009',
 	'id': 346
@@ -12184,7 +12184,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,07 ',
 	'TIPO DE CAMBIO MX': ' 13,07 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '27502,7391913301',
 	'anio': '2010',
 	'id': 347
@@ -12219,7 +12219,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,35 ',
 	'TIPO DE CAMBIO MX': ' 12,35 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '30378,2600246162',
 	'anio': '2011',
 	'id': 348
@@ -12359,7 +12359,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '21/12/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,304,13 ',
 	'TIPO DE CAMBIO MX': ' 9,22 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '3313676,6025983',
 	'anio': '2001',
 	'id': 352
@@ -12394,7 +12394,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/01/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,17 ',
 	'TIPO DE CAMBIO MX': ' 9,17 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '3259,61066579421',
 	'anio': '2002',
 	'id': 353
@@ -12429,7 +12429,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/01/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9736,84',
 	'anio': '2002',
 	'id': 354
@@ -12464,7 +12464,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/01/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '4736,84',
 	'anio': '2002',
 	'id': 355
@@ -12499,7 +12499,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/04/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,27 ',
 	'TIPO DE CAMBIO MX': ' 9,27 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '75338,6449414454',
 	'anio': '2002',
 	'id': 356
@@ -12534,7 +12534,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/04/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,27 ',
 	'TIPO DE CAMBIO MX': ' 9,27 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '94948,2002286109',
 	'anio': '2002',
 	'id': 357
@@ -12569,7 +12569,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/07/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,04 ',
 	'TIPO DE CAMBIO MX': ' 9,04 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '50883,2671482141',
 	'anio': '2002',
 	'id': 358
@@ -12604,7 +12604,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '22/03/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,07 ',
 	'TIPO DE CAMBIO MX': ' 9,07 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '6475,39899479764',
 	'anio': '2002',
 	'id': 359
@@ -12639,7 +12639,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/06/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,08 ',
 	'TIPO DE CAMBIO MX': ' 9,08 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '212349,89533987',
 	'anio': '2002',
 	'id': 360
@@ -12674,7 +12674,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/06/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,08 ',
 	'TIPO DE CAMBIO MX': ' 9,08 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '108876,816224017',
 	'anio': '2002',
 	'id': 361
@@ -12709,7 +12709,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/04/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,03 ',
 	'TIPO DE CAMBIO MX': ' 9,03 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '17582,1239447854',
 	'anio': '2002',
 	'id': 362
@@ -12744,7 +12744,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/09/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,51 ',
 	'TIPO DE CAMBIO MX': ' 9,51 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '114104,960989254',
 	'anio': '2002',
 	'id': 363
@@ -12779,7 +12779,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/10/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,96 ',
 	'TIPO DE CAMBIO MX': ' 9,96 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '116636,118029889',
 	'anio': '2002',
 	'id': 364
@@ -12814,7 +12814,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/08/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,71 ',
 	'TIPO DE CAMBIO MX': ' 9,71 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '47865,1130234282',
 	'anio': '2002',
 	'id': 365
@@ -12849,7 +12849,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/08/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,71 ',
 	'TIPO DE CAMBIO MX': ' 9,71 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '19557,7881170997',
 	'anio': '2002',
 	'id': 366
@@ -12884,7 +12884,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/08/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,71 ',
 	'TIPO DE CAMBIO MX': ' 9,71 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '19557,7881170997',
 	'anio': '2002',
 	'id': 367
@@ -12919,7 +12919,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/08/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,47 ',
 	'TIPO DE CAMBIO MX': ' 9,47 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '241006,746412999',
 	'anio': '2002',
 	'id': 368
@@ -12954,7 +12954,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/11/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,52 ',
 	'TIPO DE CAMBIO MX': ' 9,52 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '112337,716902651',
 	'anio': '2002',
 	'id': 369
@@ -12989,7 +12989,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '18/06/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9473,68',
 	'anio': '2002',
 	'id': 370
@@ -13024,7 +13024,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/09/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '97624,39',
 	'anio': '2002',
 	'id': 371
@@ -13059,7 +13059,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/09/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '52842',
 	'anio': '2002',
 	'id': 372
@@ -13094,7 +13094,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/09/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '100000',
 	'anio': '2002',
 	'id': 373
@@ -13129,7 +13129,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/09/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '291578,95',
 	'anio': '2002',
 	'id': 374
@@ -13164,7 +13164,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '29/08/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,35 ',
 	'TIPO DE CAMBIO MX': ' 9,35 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '101558,658142866',
 	'anio': '2002',
 	'id': 375
@@ -13199,7 +13199,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/11/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '122380,25',
 	'anio': '2002',
 	'id': 376
@@ -13234,7 +13234,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/11/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '113991,04',
 	'anio': '2002',
 	'id': 377
@@ -13269,7 +13269,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/11/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '99237,18',
 	'anio': '2002',
 	'id': 378
@@ -13304,7 +13304,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/11/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,85 ',
 	'TIPO DE CAMBIO MX': ' 10,85 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '84658,5012948473',
 	'anio': '2002',
 	'id': 379
@@ -13339,7 +13339,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/11/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,85 ',
 	'TIPO DE CAMBIO MX': ' 10,85 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '67083,2296533864',
 	'anio': '2002',
 	'id': 380
@@ -13374,7 +13374,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/11/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,85 ',
 	'TIPO DE CAMBIO MX': ' 10,85 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '60149,2991235588',
 	'anio': '2002',
 	'id': 381
@@ -13409,7 +13409,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/04/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7894,74',
 	'anio': '2002',
 	'id': 382
@@ -13444,7 +13444,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '17/09/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,92 ',
 	'TIPO DE CAMBIO MX': ' 9,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '3831,88125201678',
 	'anio': '2002',
 	'id': 383
@@ -13479,7 +13479,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/10/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,92 ',
 	'TIPO DE CAMBIO MX': ' 9,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '21176,1858664085',
 	'anio': '2002',
 	'id': 384
@@ -13514,7 +13514,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/10/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 9,50 ',
 	'TIPO DE CAMBIO MX': ' 9,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '2947,37',
 	'anio': '2002',
 	'id': 385
@@ -13549,7 +13549,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/09/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,077,09 ',
 	'TIPO DE CAMBIO MX': ' 1,077,09 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '560,562506382939',
 	'anio': '2002',
 	'id': 386
@@ -13584,7 +13584,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/03/2003',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 10,21 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1165725,615',
 	'anio': '2002',
 	'id': 387
@@ -13619,7 +13619,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/01/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,00 ',
 	'TIPO DE CAMBIO MX': ' 10,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '305360',
 	'anio': '2002',
 	'id': 388
@@ -13654,7 +13654,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/12/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,16 ',
 	'TIPO DE CAMBIO MX': ' 10,16 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '80889,493067591',
 	'anio': '2002',
 	'id': 389
@@ -13689,7 +13689,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/11/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,098,46 ',
 	'TIPO DE CAMBIO MX': ' 1,098,46 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '155,809952114779',
 	'anio': '2002',
 	'id': 390
@@ -13724,7 +13724,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/02/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,21 ',
 	'TIPO DE CAMBIO MX': ' 10,21 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '278180,123320143',
 	'anio': '2002',
 	'id': 391
@@ -13759,7 +13759,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/03/2003',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 9,96 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '609600',
 	'anio': '2002',
 	'id': 392
@@ -13794,7 +13794,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/06/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,741,29 ',
 	'TIPO DE CAMBIO MX': ' 9,97 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '87221,7094871393',
 	'anio': '2002',
 	'id': 393
@@ -13829,7 +13829,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/08/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,958,86 ',
 	'TIPO DE CAMBIO MX': ' 10,87 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '29807,9327849239',
 	'anio': '2002',
 	'id': 394
@@ -13864,7 +13864,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/10/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,861,34 ',
 	'TIPO DE CAMBIO MX': ' 10,73 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1800,90447133161',
 	'anio': '2002',
 	'id': 395
@@ -13900,7 +13900,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/01/2004',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': 'N/A',
 	'anio': '2002',
 	'id': 396
@@ -13935,7 +13935,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/02/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,728,70 ',
 	'TIPO DE CAMBIO MX': ' 10,82 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7663,83133056919',
 	'anio': '2002',
 	'id': 397
@@ -13971,7 +13971,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/04/2004',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': 'N/A',
 	'anio': '2002',
 	'id': 398
@@ -14006,7 +14006,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'N/A',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': 'N/A',
 	'anio': '2002',
 	'id': 399
@@ -14041,7 +14041,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/04/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,00 ',
 	'TIPO DE CAMBIO MX': ' 10,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '6850',
 	'anio': '2003',
 	'id': 400
@@ -14076,7 +14076,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/11/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,39 ',
 	'TIPO DE CAMBIO MX': ' 10,39 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '98407,1350185788',
 	'anio': '2003',
 	'id': 401
@@ -14111,7 +14111,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '29/09/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,43 ',
 	'TIPO DE CAMBIO MX': ' 10,43 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '265612,440558368',
 	'anio': '2003',
 	'id': 402
@@ -14146,7 +14146,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/08/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,25 ',
 	'TIPO DE CAMBIO MX': ' 10,25 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '68310,6769588087',
 	'anio': '2003',
 	'id': 403
@@ -14181,7 +14181,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/08/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,32 ',
 	'TIPO DE CAMBIO MX': ' 10,32 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '44082,7673077855',
 	'anio': '2003',
 	'id': 404
@@ -14216,7 +14216,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/09/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,00 ',
 	'TIPO DE CAMBIO MX': ' 10,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '503107,65',
 	'anio': '2003',
 	'id': 405
@@ -14251,7 +14251,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '17/09/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,828,96 ',
 	'TIPO DE CAMBIO MX': ' 10,59 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '530520,040476676',
 	'anio': '2003',
 	'id': 406
@@ -14286,7 +14286,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/09/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,880,69 ',
 	'TIPO DE CAMBIO MX': ' 10,41 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1748002,59719864',
 	'anio': '2003',
 	'id': 407
@@ -14321,7 +14321,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/01/2004',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 10,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '299311,668141593',
 	'anio': '2003',
 	'id': 408
@@ -14356,7 +14356,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Suspendido',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,11 ',
 	'TIPO DE CAMBIO MX': ' 10,11 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '413829,006213638',
 	'anio': '2003',
 	'id': 409
@@ -14391,7 +14391,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/11/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,59 ',
 	'TIPO DE CAMBIO MX': ' 10,59 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '66301,1486435427',
 	'anio': '2003',
 	'id': 410
@@ -14426,7 +14426,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/11/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,59 ',
 	'TIPO DE CAMBIO MX': ' 10,59 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '53435,5852792262',
 	'anio': '2003',
 	'id': 411
@@ -14461,7 +14461,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/01/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,52 ',
 	'TIPO DE CAMBIO MX': ' 10,52 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '210698,572826696',
 	'anio': '2003',
 	'id': 412
@@ -14496,7 +14496,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/12/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,05 ',
 	'TIPO DE CAMBIO MX': ' 11,05 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '76940,4842724598',
 	'anio': '2003',
 	'id': 413
@@ -14531,7 +14531,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/09/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,05 ',
 	'TIPO DE CAMBIO MX': ' 11,05 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '980304,394659425',
 	'anio': '2003',
 	'id': 414
@@ -14566,7 +14566,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,44 ',
 	'TIPO DE CAMBIO MX': ' 10,44 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '57475,1180634717',
 	'anio': '2003',
 	'id': 415
@@ -14601,7 +14601,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/10/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,01 ',
 	'TIPO DE CAMBIO MX': ' 11,01 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '54925,335730435',
 	'anio': '2003',
 	'id': 416
@@ -14636,7 +14636,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/09/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,01 ',
 	'TIPO DE CAMBIO MX': ' 11,01 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '47761,1941924764',
 	'anio': '2004',
 	'id': 417
@@ -14671,7 +14671,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/05/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,88 ',
 	'TIPO DE CAMBIO MX': ' 10,88 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '64491,4464367816',
 	'anio': '2005',
 	'id': 418
@@ -14706,7 +14706,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/04/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,30 ',
 	'TIPO DE CAMBIO MX': ' 11,30 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '77605,6512579006',
 	'anio': '2006',
 	'id': 419
@@ -14741,7 +14741,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/09/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,93 ',
 	'TIPO DE CAMBIO MX': ' 10,93 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '142041,048874245',
 	'anio': '2007',
 	'id': 420
@@ -14776,7 +14776,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/10/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,93 ',
 	'TIPO DE CAMBIO MX': ' 10,93 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '96237,1129305219',
 	'anio': '2008',
 	'id': 421
@@ -14811,7 +14811,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/10/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,98 ',
 	'TIPO DE CAMBIO MX': ' 10,98 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '86298,832571439',
 	'anio': '2009',
 	'id': 422
@@ -14846,7 +14846,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/10/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,49 ',
 	'TIPO DE CAMBIO MX': ' 12,49 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '83944,2622425776',
 	'anio': '2010',
 	'id': 423
@@ -14881,7 +14881,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/10/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,60 ',
 	'TIPO DE CAMBIO MX': ' 12,60 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '86286,0839060937',
 	'anio': '2011',
 	'id': 424
@@ -14986,7 +14986,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/03/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,24 ',
 	'TIPO DE CAMBIO MX': ' 11,24 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '226067,143721742',
 	'anio': '2003',
 	'id': 427
@@ -15021,7 +15021,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '24/01/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,18 ',
 	'TIPO DE CAMBIO MX': ' 11,18 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '126259,994633754',
 	'anio': '2003',
 	'id': 428
@@ -15056,7 +15056,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/12/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,21 ',
 	'TIPO DE CAMBIO MX': ' 11,21 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '118717,89519713',
 	'anio': '2003',
 	'id': 429
@@ -15091,7 +15091,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '24/11/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,28 ',
 	'TIPO DE CAMBIO MX': ' 11,28 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '63799,4796191557',
 	'anio': '2003',
 	'id': 430
@@ -15126,7 +15126,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/01/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,19 ',
 	'TIPO DE CAMBIO MX': ' 11,19 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '17659,5725663005',
 	'anio': '2003',
 	'id': 431
@@ -15161,7 +15161,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/09/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,02 ',
 	'TIPO DE CAMBIO MX': ' 11,02 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1760,88195005125',
 	'anio': '2003',
 	'id': 432
@@ -15196,7 +15196,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '24/11/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,28 ',
 	'TIPO DE CAMBIO MX': ' 11,28 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '2706,22240740412',
 	'anio': '2003',
 	'id': 433
@@ -15231,7 +15231,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/03/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,18 ',
 	'TIPO DE CAMBIO MX': ' 11,18 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '227278,828171837',
 	'anio': '2003',
 	'id': 434
@@ -15266,7 +15266,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '24/02/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,35 ',
 	'TIPO DE CAMBIO MX': ' 11,35 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '101290,350993086',
 	'anio': '2003',
 	'id': 435
@@ -15301,7 +15301,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/05/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,25 ',
 	'TIPO DE CAMBIO MX': ' 11,25 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '38272,9163703598',
 	'anio': '2003',
 	'id': 436
@@ -15336,7 +15336,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/01/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,25 ',
 	'TIPO DE CAMBIO MX': ' 11,25 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '153091,843265538',
 	'anio': '2003',
 	'id': 437
@@ -15371,7 +15371,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/01/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,19 ',
 	'TIPO DE CAMBIO MX': ' 11,19 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '27410,9960045407',
 	'anio': '2003',
 	'id': 438
@@ -15406,7 +15406,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/01/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,27 ',
 	'TIPO DE CAMBIO MX': ' 11,27 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '10648,1152835948',
 	'anio': '2003',
 	'id': 439
@@ -15441,7 +15441,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2003',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,44 ',
 	'TIPO DE CAMBIO MX': ' 10,44 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '94241,8936135565',
 	'anio': '2003',
 	'id': 440
@@ -15476,7 +15476,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,24 ',
 	'TIPO DE CAMBIO MX': ' 11,24 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '108102,057452034',
 	'anio': '2004',
 	'id': 441
@@ -15511,7 +15511,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,15 ',
 	'TIPO DE CAMBIO MX': ' 11,15 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '113746,277411543',
 	'anio': '2005',
 	'id': 442
@@ -15546,7 +15546,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,63 ',
 	'TIPO DE CAMBIO MX': ' 10,63 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '123394,008124577',
 	'anio': '2006',
 	'id': 443
@@ -15581,7 +15581,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,81 ',
 	'TIPO DE CAMBIO MX': ' 10,81 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '125364,726774945',
 	'anio': '2007',
 	'id': 444
@@ -15616,7 +15616,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,92 ',
 	'TIPO DE CAMBIO MX': ' 10,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '129185,595060326',
 	'anio': '2008',
 	'id': 445
@@ -15651,7 +15651,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,83 ',
 	'TIPO DE CAMBIO MX': ' 13,83 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '106022,570034339',
 	'anio': '2009',
 	'id': 446
@@ -15686,7 +15686,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,07 ',
 	'TIPO DE CAMBIO MX': ' 13,07 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '116250,184832273',
 	'anio': '2010',
 	'id': 447
@@ -15721,7 +15721,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,35 ',
 	'TIPO DE CAMBIO MX': ' 12,35 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '128933,478007385',
 	'anio': '2011',
 	'id': 448
@@ -15826,7 +15826,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/06/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,82 ',
 	'TIPO DE CAMBIO MX': ' 10,82 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '4622,26823947047',
 	'anio': '2004',
 	'id': 451
@@ -15861,7 +15861,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/03/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,02 ',
 	'TIPO DE CAMBIO MX': ' 11,02 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '3493,20413014681',
 	'anio': '2004',
 	'id': 452
@@ -15896,7 +15896,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,777,96 ',
 	'TIPO DE CAMBIO MX': ' 10,98 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '382324,083729763',
 	'anio': '2004',
 	'id': 453
@@ -15931,7 +15931,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/04/2002',
 	'TIPO DE CAMBIO DE MONEDA': ' 8,87 ',
 	'TIPO DE CAMBIO MX': ' 8,87 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7894,74',
 	'anio': '2002',
 	'id': 454
@@ -15966,7 +15966,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,24 ',
 	'TIPO DE CAMBIO MX': ' 11,24 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '50163,4457968539',
 	'anio': '2004',
 	'id': 455
@@ -16001,7 +16001,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/02/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,08 ',
 	'TIPO DE CAMBIO MX': ' 11,08 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '498730,546809451',
 	'anio': '2004',
 	'id': 456
@@ -16036,7 +16036,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/02/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,08 ',
 	'TIPO DE CAMBIO MX': ' 11,08 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '395958,337468311',
 	'anio': '2004',
 	'id': 457
@@ -16071,7 +16071,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '18/06/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,06 ',
 	'TIPO DE CAMBIO MX': ' 11,06 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '67564,3346653888',
 	'anio': '2004',
 	'id': 458
@@ -16106,7 +16106,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/05/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,00 ',
 	'TIPO DE CAMBIO MX': ' 11,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '75030,6943749716',
 	'anio': '2004',
 	'id': 459
@@ -16141,7 +16141,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/09/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,00 ',
 	'TIPO DE CAMBIO MX': ' 11,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '525129,779091447',
 	'anio': '2004',
 	'id': 460
@@ -16176,7 +16176,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/06/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,75 ',
 	'TIPO DE CAMBIO MX': ' 10,75 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '74418,6',
 	'anio': '2004',
 	'id': 461
@@ -16211,7 +16211,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/06/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,15 ',
 	'TIPO DE CAMBIO MX': ' 11,15 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '92603,53',
 	'anio': '2004',
 	'id': 462
@@ -16246,7 +16246,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/06/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,44 ',
 	'TIPO DE CAMBIO MX': ' 11,44 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '93572,74',
 	'anio': '2004',
 	'id': 463
@@ -16281,7 +16281,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/06/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,28 ',
 	'TIPO DE CAMBIO MX': ' 11,28 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '70348',
 	'anio': '2004',
 	'id': 464
@@ -16316,7 +16316,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '24/05/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,99 ',
 	'TIPO DE CAMBIO MX': ' 10,99 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '24389,6489263901',
 	'anio': '2004',
 	'id': 465
@@ -16351,7 +16351,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/10/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,99 ',
 	'TIPO DE CAMBIO MX': ' 10,99 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '503941,061893281',
 	'anio': '2004',
 	'id': 466
@@ -16386,7 +16386,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '24/05/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,99 ',
 	'TIPO DE CAMBIO MX': ' 10,99 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '14556,7029067916',
 	'anio': '2004',
 	'id': 467
@@ -16421,7 +16421,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/08/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,16 ',
 	'TIPO DE CAMBIO MX': ' 11,16 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '173221,68408036',
 	'anio': '2004',
 	'id': 468
@@ -16456,7 +16456,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '11/08/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,50 ',
 	'TIPO DE CAMBIO MX': ' 11,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '3477,98867914685',
 	'anio': '2004',
 	'id': 469
@@ -16491,7 +16491,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/12/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,56 ',
 	'TIPO DE CAMBIO MX': ' 11,56 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '752166,805065393',
 	'anio': '2004',
 	'id': 470
@@ -16526,7 +16526,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '24/05/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,49 ',
 	'TIPO DE CAMBIO MX': ' 11,49 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8353,41924592988',
 	'anio': '2004',
 	'id': 471
@@ -16561,7 +16561,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/10/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,17 ',
 	'TIPO DE CAMBIO MX': ' 11,17 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '76772,470200809',
 	'anio': '2004',
 	'id': 472
@@ -16596,7 +16596,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/07/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,08 ',
 	'TIPO DE CAMBIO MX': ' 11,08 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '20120,5428035225',
 	'anio': '2005',
 	'id': 473
@@ -16631,7 +16631,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '11/06/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,33 ',
 	'TIPO DE CAMBIO MX': ' 11,33 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '14127,2868545596',
 	'anio': '2004',
 	'id': 474
@@ -16666,7 +16666,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/05/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,33 ',
 	'TIPO DE CAMBIO MX': ' 11,33 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '10996,768383132',
 	'anio': '2004',
 	'id': 475
@@ -16701,7 +16701,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '27/05/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,63 ',
 	'TIPO DE CAMBIO MX': ' 11,63 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8252,74016763378',
 	'anio': '2004',
 	'id': 476
@@ -16736,7 +16736,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/05/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,63 ',
 	'TIPO DE CAMBIO MX': ' 11,63 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8255,86295267499',
 	'anio': '2004',
 	'id': 477
@@ -16771,7 +16771,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/11/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,46 ',
 	'TIPO DE CAMBIO MX': ' 11,46 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '145567,078706614',
 	'anio': '2004',
 	'id': 478
@@ -16806,7 +16806,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/11/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,46 ',
 	'TIPO DE CAMBIO MX': ' 11,46 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '123030,588728263',
 	'anio': '2004',
 	'id': 479
@@ -16841,7 +16841,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/11/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,46 ',
 	'TIPO DE CAMBIO MX': ' 11,46 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '159198,442628675',
 	'anio': '2004',
 	'id': 480
@@ -16876,7 +16876,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/11/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,46 ',
 	'TIPO DE CAMBIO MX': ' 11,46 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '227620,556603115',
 	'anio': '2004',
 	'id': 481
@@ -16911,7 +16911,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '24/11/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,49 ',
 	'TIPO DE CAMBIO MX': ' 11,49 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '112692,453174886',
 	'anio': '2004',
 	'id': 482
@@ -16946,7 +16946,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/10/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,43 ',
 	'TIPO DE CAMBIO MX': ' 11,43 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '68216,7816368465',
 	'anio': '2004',
 	'id': 483
@@ -16981,7 +16981,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/02/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,45 ',
 	'TIPO DE CAMBIO MX': ' 11,45 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '68216,7816368465',
 	'anio': '2004',
 	'id': 484
@@ -17016,7 +17016,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/11/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,53 ',
 	'TIPO DE CAMBIO MX': ' 11,53 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '31228,5845644046',
 	'anio': '2004',
 	'id': 485
@@ -17051,7 +17051,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/10/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,53 ',
 	'TIPO DE CAMBIO MX': ' 11,53 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '39035,7307055058',
 	'anio': '2004',
 	'id': 486
@@ -17086,7 +17086,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/11/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,38 ',
 	'TIPO DE CAMBIO MX': ' 11,38 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '105299,40930347',
 	'anio': '2004',
 	'id': 487
@@ -17121,7 +17121,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/09/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,41 ',
 	'TIPO DE CAMBIO MX': ' 11,41 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '12491,3437179498',
 	'anio': '2004',
 	'id': 488
@@ -17156,7 +17156,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/10/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,523,08 ',
 	'TIPO DE CAMBIO MX': ' 11,60 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '17083,6629341369',
 	'anio': '2004',
 	'id': 489
@@ -17191,7 +17191,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/12/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,58 ',
 	'TIPO DE CAMBIO MX': ' 11,58 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '68240,5175913689',
 	'anio': '2004',
 	'id': 490
@@ -17226,7 +17226,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/02/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,38 ',
 	'TIPO DE CAMBIO MX': ' 11,38 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '374617,66407163',
 	'anio': '2004',
 	'id': 491
@@ -17261,7 +17261,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/02/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,38 ',
 	'TIPO DE CAMBIO MX': ' 11,38 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '74248,5084397269',
 	'anio': '2004',
 	'id': 492
@@ -17296,7 +17296,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/02/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,38 ',
 	'TIPO DE CAMBIO MX': ' 11,38 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '16694,9308917729',
 	'anio': '2004',
 	'id': 493
@@ -17331,7 +17331,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/02/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,38 ',
 	'TIPO DE CAMBIO MX': ' 11,38 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '118621,877388913',
 	'anio': '2004',
 	'id': 494
@@ -17366,7 +17366,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/02/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,58 ',
 	'TIPO DE CAMBIO MX': ' 10,58 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '17493,7589832816',
 	'anio': '2004',
 	'id': 495
@@ -17401,7 +17401,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/11/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,52 ',
 	'TIPO DE CAMBIO MX': ' 11,52 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '32129,7695340315',
 	'anio': '2004',
 	'id': 496
@@ -17436,7 +17436,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/12/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,38 ',
 	'TIPO DE CAMBIO MX': ' 11,38 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8435,11115016255',
 	'anio': '2004',
 	'id': 497
@@ -17471,7 +17471,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/11/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,54 ',
 	'TIPO DE CAMBIO MX': ' 11,54 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '6153,04619117775',
 	'anio': '2004',
 	'id': 498
@@ -17506,7 +17506,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/12/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,42 ',
 	'TIPO DE CAMBIO MX': ' 11,42 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '37315,1389958686',
 	'anio': '2004',
 	'id': 499
@@ -17541,7 +17541,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/11/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,60 ',
 	'TIPO DE CAMBIO MX': ' 11,60 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '36131,4460583596',
 	'anio': '2004',
 	'id': 500
@@ -17576,7 +17576,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '22/11/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,583,74 ',
 	'TIPO DE CAMBIO MX': ' 11,29 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '25614,8567580329',
 	'anio': '2004',
 	'id': 501
@@ -17611,7 +17611,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/11/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,603,34 ',
 	'TIPO DE CAMBIO MX': ' 11,29 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '14647,1167807509',
 	'anio': '2004',
 	'id': 502
@@ -17646,7 +17646,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/11/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,24 ',
 	'TIPO DE CAMBIO MX': ' 11,24 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '31137,1279113215',
 	'anio': '2004',
 	'id': 503
@@ -17681,7 +17681,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/11/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,54 ',
 	'TIPO DE CAMBIO MX': ' 11,54 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7366,3229049311',
 	'anio': '2004',
 	'id': 504
@@ -17716,7 +17716,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/11/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,38 ',
 	'TIPO DE CAMBIO MX': ' 11,38 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '5927,07143484755',
 	'anio': '2004',
 	'id': 505
@@ -17751,7 +17751,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,24 ',
 	'TIPO DE CAMBIO MX': ' 11,24 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '46809,5255045741',
 	'anio': '2004',
 	'id': 506
@@ -17786,7 +17786,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,24 ',
 	'TIPO DE CAMBIO MX': ' 11,24 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '46809,5255045741',
 	'anio': '2004',
 	'id': 507
@@ -17821,7 +17821,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/01/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,38 ',
 	'TIPO DE CAMBIO MX': ' 11,38 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '34706,967753273',
 	'anio': '2004',
 	'id': 508
@@ -17856,7 +17856,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/01/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,38 ',
 	'TIPO DE CAMBIO MX': ' 11,38 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '40800,8962305597',
 	'anio': '2004',
 	'id': 509
@@ -17891,7 +17891,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/09/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,318,12 ',
 	'TIPO DE CAMBIO MX': ' 11,04 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '87879,7087056872',
 	'anio': '2005',
 	'id': 510
@@ -17926,7 +17926,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/12/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,29 ',
 	'TIPO DE CAMBIO MX': ' 11,29 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '10166,2030228396',
 	'anio': '2004',
 	'id': 511
@@ -17961,7 +17961,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/12/2004',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,28 ',
 	'TIPO DE CAMBIO MX': ' 11,28 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '85510,368183551',
 	'anio': '2004',
 	'id': 512
@@ -17996,7 +17996,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/09/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,373,86 ',
 	'TIPO DE CAMBIO MX': ' 11,24 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '222244,608446537',
 	'anio': '2005',
 	'id': 513
@@ -18031,7 +18031,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/07/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,365,79 ',
 	'TIPO DE CAMBIO MX': ' 11,22 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '187236,060681633',
 	'anio': '2005',
 	'id': 514
@@ -18066,7 +18066,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/03/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,380,96 ',
 	'TIPO DE CAMBIO MX': ' 11,18 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '241916,953542645',
 	'anio': '2005',
 	'id': 515
@@ -18101,7 +18101,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/01/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,24 ',
 	'TIPO DE CAMBIO MX': ' 11,24 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '33815,952230518',
 	'anio': '2004',
 	'id': 516
@@ -18136,7 +18136,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/01/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,36 ',
 	'TIPO DE CAMBIO MX': ' 11,36 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9679,43472101229',
 	'anio': '2005',
 	'id': 517
@@ -18171,7 +18171,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/02/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,24 ',
 	'TIPO DE CAMBIO MX': ' 11,24 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '24031,4010306801',
 	'anio': '2005',
 	'id': 518
@@ -18206,7 +18206,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '27/03/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,24 ',
 	'TIPO DE CAMBIO MX': ' 11,24 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '86392,5093232935',
 	'anio': '2005',
 	'id': 519
@@ -18241,7 +18241,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '08/04/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,19 ',
 	'TIPO DE CAMBIO MX': ' 11,19 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '303956,802374439',
 	'anio': '2005',
 	'id': 520
@@ -18276,7 +18276,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '13/05/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,08 ',
 	'TIPO DE CAMBIO MX': ' 11,08 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '64960,2569539053',
 	'anio': '2005',
 	'id': 521
@@ -18311,7 +18311,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/05/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,19 ',
 	'TIPO DE CAMBIO MX': ' 11,19 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '64782,3311698761',
 	'anio': '2005',
 	'id': 522
@@ -18346,7 +18346,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/02/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,71 ',
 	'TIPO DE CAMBIO MX': ' 11,07 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '5006,66041482646',
 	'anio': '2005',
 	'id': 523
@@ -18381,7 +18381,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/03/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,16 ',
 	'TIPO DE CAMBIO MX': ' 11,16 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7888,27336452787',
 	'anio': '2005',
 	'id': 524
@@ -18416,7 +18416,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/03/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,19 ',
 	'TIPO DE CAMBIO MX': ' 11,19 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7773,47903394419',
 	'anio': '2005',
 	'id': 525
@@ -18451,7 +18451,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/03/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,04 ',
 	'TIPO DE CAMBIO MX': ' 11,04 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '40747,2133433541',
 	'anio': '2005',
 	'id': 526
@@ -18486,7 +18486,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/05/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,02 ',
 	'TIPO DE CAMBIO MX': ' 11,02 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '12387,8064053581',
 	'anio': '2005',
 	'id': 527
@@ -18521,7 +18521,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '22/04/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,95 ',
 	'TIPO DE CAMBIO MX': ' 10,95 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '39730,7442892764',
 	'anio': '2005',
 	'id': 528
@@ -18556,7 +18556,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/04/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,95 ',
 	'TIPO DE CAMBIO MX': ' 10,95 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7763,47876916894',
 	'anio': '2005',
 	'id': 529
@@ -18591,7 +18591,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/04/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,95 ',
 	'TIPO DE CAMBIO MX': ' 10,95 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7763,47876916894',
 	'anio': '2005',
 	'id': 530
@@ -18626,7 +18626,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/04/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,18 ',
 	'TIPO DE CAMBIO MX': ' 11,18 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7876,79642994482',
 	'anio': '2005',
 	'id': 531
@@ -18661,7 +18661,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/12/2005',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 11,02 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '387280,060869565',
 	'anio': '2005',
 	'id': 532
@@ -18696,7 +18696,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/09/2006',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 10,74 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '592501,922368421',
 	'anio': '2005',
 	'id': 533
@@ -18731,7 +18731,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,150,00 ',
 	'TIPO DE CAMBIO MX': ' 10,74 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '122800,5696',
 	'anio': '2005',
 	'id': 534
@@ -18766,7 +18766,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/01/2008',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 10,94 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '904429,138947368',
 	'anio': '2005',
 	'id': 535
@@ -18801,7 +18801,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/01/2009',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 10,90 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '908585,0421',
 	'anio': '2005',
 	'id': 536
@@ -18836,7 +18836,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '13/01/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,15 ',
 	'TIPO DE CAMBIO MX': ' 13,84 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1426831,81616',
 	'anio': '2005',
 	'id': 537
@@ -18871,7 +18871,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/12/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,15 ',
 	'TIPO DE CAMBIO MX': ' 12,60 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1012114,18672',
 	'anio': '2005',
 	'id': 538
@@ -18906,7 +18906,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Sin dato',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,15 ',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '763786,962',
 	'anio': '2005',
 	'id': 539
@@ -18941,7 +18941,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/05/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,19 ',
 	'TIPO DE CAMBIO MX': ' 11,19 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7596,54312602218',
 	'anio': '2005',
 	'id': 540
@@ -18976,7 +18976,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/05/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,19 ',
 	'TIPO DE CAMBIO MX': ' 11,19 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '6702,83217001957',
 	'anio': '2005',
 	'id': 541
@@ -19011,7 +19011,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '29/04/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,19 ',
 	'TIPO DE CAMBIO MX': ' 11,19 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8043,39860402349',
 	'anio': '2005',
 	'id': 542
@@ -19046,7 +19046,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/09/2006',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 10,79 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '135535,095784753',
 	'anio': '2005',
 	'id': 543
@@ -19081,7 +19081,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/05/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,19 ',
 	'TIPO DE CAMBIO MX': ' 11,19 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '222176,543662249',
 	'anio': '2005',
 	'id': 544
@@ -19116,7 +19116,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/05/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,19 ',
 	'TIPO DE CAMBIO MX': ' 11,19 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '102776,7599403',
 	'anio': '2005',
 	'id': 545
@@ -19151,7 +19151,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/05/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,19 ',
 	'TIPO DE CAMBIO MX': ' 11,19 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '177490,995862118',
 	'anio': '2005',
 	'id': 546
@@ -19186,7 +19186,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/05/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,08 ',
 	'TIPO DE CAMBIO MX': ' 11,08 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '20762,6200621073',
 	'anio': '2005',
 	'id': 547
@@ -19221,7 +19221,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/05/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,08 ',
 	'TIPO DE CAMBIO MX': ' 11,08 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7673,14219686575',
 	'anio': '2005',
 	'id': 548
@@ -19256,7 +19256,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/06/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,08 ',
 	'TIPO DE CAMBIO MX': ' 11,08 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '10381,3100310537',
 	'anio': '2005',
 	'id': 549
@@ -19291,7 +19291,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/07/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,08 ',
 	'TIPO DE CAMBIO MX': ' 11,08 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '141727,449989167',
 	'anio': '2005',
 	'id': 550
@@ -19326,7 +19326,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/06/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,08 ',
 	'TIPO DE CAMBIO MX': ' 11,08 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7037,6786487657',
 	'anio': '2005',
 	'id': 551
@@ -19361,7 +19361,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/06/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,08 ',
 	'TIPO DE CAMBIO MX': ' 11,08 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7218,131947452',
 	'anio': '2005',
 	'id': 552
@@ -19396,7 +19396,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/06/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,08 ',
 	'TIPO DE CAMBIO MX': ' 11,08 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7939,9451421972',
 	'anio': '2005',
 	'id': 553
@@ -19431,7 +19431,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'S/D',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,11 ',
 	'TIPO DE CAMBIO MX': ' 11,11 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '54016,0967968455',
 	'anio': '2003',
 	'id': 554
@@ -19466,7 +19466,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/07/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,08 ',
 	'TIPO DE CAMBIO MX': ' 11,08 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '40863,7735491555',
 	'anio': '2005',
 	'id': 555
@@ -19501,7 +19501,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '18/07/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,94 ',
 	'TIPO DE CAMBIO MX': ' 10,94 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '205848,692807471',
 	'anio': '2005',
 	'id': 556
@@ -19536,7 +19536,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/07/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,92 ',
 	'TIPO DE CAMBIO MX': ' 10,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '29314,2302266356',
 	'anio': '2005',
 	'id': 557
@@ -19571,7 +19571,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/10/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,84 ',
 	'TIPO DE CAMBIO MX': ' 10,84 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '162319,696019478',
 	'anio': '2005',
 	'id': 558
@@ -19606,7 +19606,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/06/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,08 ',
 	'TIPO DE CAMBIO MX': ' 11,08 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '45632,6280060663',
 	'anio': '2005',
 	'id': 559
@@ -19641,7 +19641,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '29/07/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,84 ',
 	'TIPO DE CAMBIO MX': ' 10,84 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '19621,3155273546',
 	'anio': '2005',
 	'id': 560
@@ -19676,7 +19676,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/12/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,84 ',
 	'TIPO DE CAMBIO MX': ' 10,84 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '36890,8400044269',
 	'anio': '2005',
 	'id': 561
@@ -19711,7 +19711,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/07/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,92 ',
 	'TIPO DE CAMBIO MX': ' 10,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '15161,2312202272',
 	'anio': '2005',
 	'id': 562
@@ -19746,7 +19746,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/08/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,78 ',
 	'TIPO DE CAMBIO MX': ' 10,78 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '10403,5191922192',
 	'anio': '2005',
 	'id': 563
@@ -19781,7 +19781,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/08/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,61 ',
 	'TIPO DE CAMBIO MX': ' 10,61 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8014,55820926483',
 	'anio': '2005',
 	'id': 564
@@ -19816,7 +19816,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/08/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,78 ',
 	'TIPO DE CAMBIO MX': ' 10,78 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '34338,109733462',
 	'anio': '2005',
 	'id': 565
@@ -19851,7 +19851,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/07/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,78 ',
 	'TIPO DE CAMBIO MX': ' 10,78 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '4222,65944019601',
 	'anio': '2005',
 	'id': 566
@@ -19886,7 +19886,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/07/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,78 ',
 	'TIPO DE CAMBIO MX': ' 10,78 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9094,95879426832',
 	'anio': '2005',
 	'id': 567
@@ -19921,7 +19921,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/07/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,78 ',
 	'TIPO DE CAMBIO MX': ' 10,78 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8166,90177444502',
 	'anio': '2005',
 	'id': 568
@@ -19956,7 +19956,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Sin dato',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,78 ',
 	'TIPO DE CAMBIO MX': ' 10,78 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '428437,523201426',
 	'anio': '2005',
 	'id': 569
@@ -19991,7 +19991,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '18/10/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,64 ',
 	'TIPO DE CAMBIO MX': ' 10,64 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '113081,977383605',
 	'anio': '2005',
 	'id': 570
@@ -20026,7 +20026,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '18/10/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,59 ',
 	'TIPO DE CAMBIO MX': ' 10,59 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '238633,22665005',
 	'anio': '2005',
 	'id': 571
@@ -20061,7 +20061,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/10/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,59 ',
 	'TIPO DE CAMBIO MX': ' 10,59 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '238633,22665005',
 	'anio': '2005',
 	'id': 572
@@ -20096,7 +20096,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/10/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,59 ',
 	'TIPO DE CAMBIO MX': ' 10,59 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '80269,3516866344',
 	'anio': '2005',
 	'id': 573
@@ -20131,7 +20131,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/10/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,63 ',
 	'TIPO DE CAMBIO MX': ' 10,63 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '74287,9173993587',
 	'anio': '2005',
 	'id': 574
@@ -20166,7 +20166,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '21/10/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,71 ',
 	'TIPO DE CAMBIO MX': ' 10,71 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '38739,428336725',
 	'anio': '2005',
 	'id': 575
@@ -20201,7 +20201,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/12/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,83 ',
 	'TIPO DE CAMBIO MX': ' 10,83 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '232598,923768472',
 	'anio': '2005',
 	'id': 576
@@ -20236,7 +20236,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/09/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,80 ',
 	'TIPO DE CAMBIO MX': ' 10,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9656,46557711005',
 	'anio': '2005',
 	'id': 577
@@ -20271,7 +20271,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/09/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,80 ',
 	'TIPO DE CAMBIO MX': ' 10,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '12553,4515486828',
 	'anio': '2005',
 	'id': 578
@@ -20306,7 +20306,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/09/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,80 ',
 	'TIPO DE CAMBIO MX': ' 10,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '17470,6236399833',
 	'anio': '2005',
 	'id': 579
@@ -20341,7 +20341,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/10/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,80 ',
 	'TIPO DE CAMBIO MX': ' 10,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7407,75035881291',
 	'anio': '2005',
 	'id': 580
@@ -20376,7 +20376,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '08/09/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,70 ',
 	'TIPO DE CAMBIO MX': ' 10,70 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '12951,4554034481',
 	'anio': '2005',
 	'id': 581
@@ -20411,7 +20411,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/12/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,70 ',
 	'TIPO DE CAMBIO MX': ' 10,70 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '80362,5659954212',
 	'anio': '2005',
 	'id': 582
@@ -20446,7 +20446,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/11/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,77 ',
 	'TIPO DE CAMBIO MX': ' 10,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8543,27820442579',
 	'anio': '2005',
 	'id': 583
@@ -20481,7 +20481,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/11/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,77 ',
 	'TIPO DE CAMBIO MX': ' 10,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7893,24616713252',
 	'anio': '2005',
 	'id': 584
@@ -20516,7 +20516,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/07/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,92 ',
 	'TIPO DE CAMBIO MX': ' 10,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '287893,711479975',
 	'anio': '2005',
 	'id': 585
@@ -20551,7 +20551,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/11/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,77 ',
 	'TIPO DE CAMBIO MX': ' 10,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '6964,62897099928',
 	'anio': '2005',
 	'id': 586
@@ -20586,7 +20586,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/11/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,77 ',
 	'TIPO DE CAMBIO MX': ' 10,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7336,07584945258',
 	'anio': '2005',
 	'id': 587
@@ -20621,7 +20621,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/11/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,77 ',
 	'TIPO DE CAMBIO MX': ' 10,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7893,24616713252',
 	'anio': '2005',
 	'id': 588
@@ -20656,7 +20656,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '13/03/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,75 ',
 	'TIPO DE CAMBIO MX': ' 10,75 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '258425,391878692',
 	'anio': '2005',
 	'id': 589
@@ -20691,7 +20691,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/12/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,58 ',
 	'TIPO DE CAMBIO MX': ' 10,58 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '5198,83168073502',
 	'anio': '2005',
 	'id': 590
@@ -20726,7 +20726,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,58 ',
 	'TIPO DE CAMBIO MX': ' 10,58 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8412,65490155303',
 	'anio': '2005',
 	'id': 591
@@ -20761,7 +20761,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,58 ',
 	'TIPO DE CAMBIO MX': ' 10,58 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8412,65490155303',
 	'anio': '2005',
 	'id': 592
@@ -20796,7 +20796,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/01/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,58 ',
 	'TIPO DE CAMBIO MX': ' 10,58 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '90056,5179170645',
 	'anio': '2005',
 	'id': 593
@@ -20831,7 +20831,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/09/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,80 ',
 	'TIPO DE CAMBIO MX': ' 10,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '86763,2760775962',
 	'anio': '2005',
 	'id': 594
@@ -20867,7 +20867,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Sin dato',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '',
 	'anio': '2005',
 	'id': 595
@@ -20902,7 +20902,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '08/02/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,69 ',
 	'TIPO DE CAMBIO MX': ' 10,69 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '717286,19390074',
 	'anio': '2005',
 	'id': 596
@@ -20937,7 +20937,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '18/04/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,69 ',
 	'TIPO DE CAMBIO MX': ' 10,69 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '717286,19390074',
 	'anio': '2005',
 	'id': 597
@@ -20972,7 +20972,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/02/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,63 ',
 	'TIPO DE CAMBIO MX': ' 10,63 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9779,58323929888',
 	'anio': '2006',
 	'id': 598
@@ -21007,7 +21007,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/02/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,63 ',
 	'TIPO DE CAMBIO MX': ' 10,63 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7475,7391108102',
 	'anio': '2006',
 	'id': 599
@@ -21042,7 +21042,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/03/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,92 ',
 	'TIPO DE CAMBIO MX': ' 10,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1393278,45149595',
 	'anio': '2006',
 	'id': 600
@@ -21077,7 +21077,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,46 ',
 	'TIPO DE CAMBIO MX': ' 10,46 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '591449,480680949',
 	'anio': '2007',
 	'id': 601
@@ -21112,7 +21112,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,92 ',
 	'TIPO DE CAMBIO MX': ' 10,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '798863,439816045',
 	'anio': '2008',
 	'id': 602
@@ -21147,7 +21147,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/03/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,83 ',
 	'TIPO DE CAMBIO MX': ' 13,83 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '99674,4789445147',
 	'anio': '2009',
 	'id': 603
@@ -21182,7 +21182,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/04/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,57 ',
 	'TIPO DE CAMBIO MX': ' 10,57 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '92195,3618582832',
 	'anio': '2006',
 	'id': 604
@@ -21217,7 +21217,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,63 ',
 	'TIPO DE CAMBIO MX': ' 10,63 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '93246,8024764795',
 	'anio': '2006',
 	'id': 605
@@ -21252,7 +21252,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,81 ',
 	'TIPO DE CAMBIO MX': ' 10,81 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '84426,8907280817',
 	'anio': '2006',
 	'id': 606
@@ -21287,7 +21287,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,77 ',
 	'TIPO DE CAMBIO MX': ' 13,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '38188,7206145',
 	'anio': '2006',
 	'id': 607
@@ -21322,7 +21322,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,04 ',
 	'TIPO DE CAMBIO MX': ' 13,04 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '43521,0101428276',
 	'anio': '2006',
 	'id': 608
@@ -21357,7 +21357,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,38 ',
 	'TIPO DE CAMBIO MX': ' 12,38 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '47617,6324737314',
 	'anio': '2006',
 	'id': 609
@@ -21392,7 +21392,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,98 ',
 	'TIPO DE CAMBIO MX': ' 13,98 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '43999,6108364869',
 	'anio': '2006',
 	'id': 610
@@ -21427,7 +21427,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2012',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,99 ',
 	'TIPO DE CAMBIO MX': ' 12,99 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '48482,8826609178',
 	'anio': '2006',
 	'id': 611
@@ -21462,7 +21462,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2013',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,07 ',
 	'TIPO DE CAMBIO MX': ' 13,07 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '50755,6317545847',
 	'anio': '2006',
 	'id': 612
@@ -21497,7 +21497,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2014',
 	'TIPO DE CAMBIO DE MONEDA': ' 14,73 ',
 	'TIPO DE CAMBIO MX': ' 14,73 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '46633,6753807313',
 	'anio': '2006',
 	'id': 613
@@ -21532,7 +21532,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2015',
 	'TIPO DE CAMBIO DE MONEDA': ' 14,74 ',
 	'TIPO DE CAMBIO MX': ' 14,74 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '48556,5468680044',
 	'anio': '2006',
 	'id': 614
@@ -21567,7 +21567,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/10/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,150,00 ',
 	'TIPO DE CAMBIO MX': ' 10,52 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '259476,410177193',
 	'anio': '2006',
 	'id': 615
@@ -21602,7 +21602,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/02/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,54 ',
 	'TIPO DE CAMBIO MX': ' 10,54 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '22301,9397942527',
 	'anio': '2006',
 	'id': 616
@@ -21637,7 +21637,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/03/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,54 ',
 	'TIPO DE CAMBIO MX': ' 10,54 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '39858,7860152602',
 	'anio': '2006',
 	'id': 617
@@ -21672,7 +21672,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '11/05/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,48 ',
 	'TIPO DE CAMBIO MX': ' 10,48 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '106485,501369236',
 	'anio': '2006',
 	'id': 618
@@ -21707,7 +21707,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/11/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,48 ',
 	'TIPO DE CAMBIO MX': ' 10,48 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '281480,49197065',
 	'anio': '2006',
 	'id': 619
@@ -21742,7 +21742,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '18/03/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,44 ',
 	'TIPO DE CAMBIO MX': ' 10,44 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '34950,6382082292',
 	'anio': '2006',
 	'id': 620
@@ -21777,7 +21777,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/08/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,44 ',
 	'TIPO DE CAMBIO MX': ' 10,44 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '12508,977047485',
 	'anio': '2006',
 	'id': 621
@@ -21812,7 +21812,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/04/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,44 ',
 	'TIPO DE CAMBIO MX': ' 10,44 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '45324,753669817',
 	'anio': '2006',
 	'id': 622
@@ -21847,7 +21847,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '17/04/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,44 ',
 	'TIPO DE CAMBIO MX': ' 10,44 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '12508,977047485',
 	'anio': '2006',
 	'id': 623
@@ -21882,7 +21882,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/03/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,52 ',
 	'TIPO DE CAMBIO MX': ' 10,52 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7503,15917490902',
 	'anio': '2006',
 	'id': 624
@@ -21917,7 +21917,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/05/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,49 ',
 	'TIPO DE CAMBIO MX': ' 10,49 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '99194,2404882235',
 	'anio': '2006',
 	'id': 625
@@ -21952,7 +21952,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '22/06/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,48 ',
 	'TIPO DE CAMBIO MX': ' 10,48 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '572140,557225323',
 	'anio': '2006',
 	'id': 626
@@ -21987,7 +21987,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/03/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,46 ',
 	'TIPO DE CAMBIO MX': ' 10,46 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '12853,8638102525',
 	'anio': '2006',
 	'id': 627
@@ -22022,7 +22022,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '29/07/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,46 ',
 	'TIPO DE CAMBIO MX': ' 10,46 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '270848,493687835',
 	'anio': '2006',
 	'id': 628
@@ -22057,7 +22057,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '29/07/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,46 ',
 	'TIPO DE CAMBIO MX': ' 10,46 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '270848,493687835',
 	'anio': '2006',
 	'id': 629
@@ -22092,7 +22092,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '08/07/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,71 ',
 	'TIPO DE CAMBIO MX': ' 10,71 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '90294,5076288121',
 	'anio': '2006',
 	'id': 630
@@ -22127,7 +22127,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/03/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,71 ',
 	'TIPO DE CAMBIO MX': ' 10,71 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '29309,9109193792',
 	'anio': '2006',
 	'id': 631
@@ -22162,7 +22162,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/04/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,71 ',
 	'TIPO DE CAMBIO MX': ' 10,71 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8310,45623470969',
 	'anio': '2006',
 	'id': 632
@@ -22197,7 +22197,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/04/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,69 ',
 	'TIPO DE CAMBIO MX': ' 10,69 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '97627,6860354211',
 	'anio': '2006',
 	'id': 633
@@ -22232,7 +22232,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/06/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,30 ',
 	'TIPO DE CAMBIO MX': ' 11,30 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '13393,410406671',
 	'anio': '2006',
 	'id': 634
@@ -22267,7 +22267,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/05/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,11 ',
 	'TIPO DE CAMBIO MX': ' 11,11 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '40491,2943717101',
 	'anio': '2006',
 	'id': 635
@@ -22302,7 +22302,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '22/05/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,07 ',
 	'TIPO DE CAMBIO MX': ' 11,07 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7590,33858331752',
 	'anio': '2006',
 	'id': 636
@@ -22337,7 +22337,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/05/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,89 ',
 	'TIPO DE CAMBIO MX': ' 10,89 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '336744,847845045',
 	'anio': '2006',
 	'id': 637
@@ -22372,7 +22372,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/06/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,09 ',
 	'TIPO DE CAMBIO MX': ' 11,09 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '34264,1768031523',
 	'anio': '2006',
 	'id': 638
@@ -22407,7 +22407,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '08/07/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,19 ',
 	'TIPO DE CAMBIO MX': ' 11,19 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '39755,2150801805',
 	'anio': '2006',
 	'id': 639
@@ -22442,7 +22442,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '22/08/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,30 ',
 	'TIPO DE CAMBIO MX': ' 11,30 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '419012,822873329',
 	'anio': '2006',
 	'id': 640
@@ -22477,7 +22477,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/09/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,30 ',
 	'TIPO DE CAMBIO MX': ' 11,30 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '258353,105249181',
 	'anio': '2006',
 	'id': 641
@@ -22512,7 +22512,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/09/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,30 ',
 	'TIPO DE CAMBIO MX': ' 11,30 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '13277,8613791272',
 	'anio': '2006',
 	'id': 642
@@ -22547,7 +22547,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/07/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,38 ',
 	'TIPO DE CAMBIO MX': ' 11,38 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '150222,892148677',
 	'anio': '2006',
 	'id': 643
@@ -22582,7 +22582,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/12/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,82 ',
 	'TIPO DE CAMBIO MX': ' 10,82 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '136598,890942699',
 	'anio': '2006',
 	'id': 644
@@ -22617,7 +22617,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/12/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,570,11 ',
 	'TIPO DE CAMBIO MX': ' 11,41 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '73166,1290761874',
 	'anio': '2006',
 	'id': 645
@@ -22652,7 +22652,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/12/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,450,80 ',
 	'TIPO DE CAMBIO MX': ' 11,29 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '51144,5242369838',
 	'anio': '2006',
 	'id': 646
@@ -22687,7 +22687,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/01/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,29 ',
 	'TIPO DE CAMBIO MX': ' 11,29 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9020556',
 	'anio': '2006',
 	'id': 647
@@ -22722,7 +22722,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/07/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,79 ',
 	'TIPO DE CAMBIO MX': ' 10,79 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9020556',
 	'anio': '2006',
 	'id': 648
@@ -22757,7 +22757,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/06/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,03 ',
 	'TIPO DE CAMBIO MX': ' 11,03 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '2347,60933605257',
 	'anio': '2006',
 	'id': 649
@@ -22792,7 +22792,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/07/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,28 ',
 	'TIPO DE CAMBIO MX': ' 11,28 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7000,87732513315',
 	'anio': '2006',
 	'id': 650
@@ -22827,7 +22827,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '08/08/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,42 ',
 	'TIPO DE CAMBIO MX': ' 11,42 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '19704,0021017602',
 	'anio': '2006',
 	'id': 651
@@ -22862,7 +22862,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/01/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,150,00 ',
 	'TIPO DE CAMBIO MX': ' 11,02 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '164387,759767568',
 	'anio': '2006',
 	'id': 652
@@ -22897,7 +22897,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/07/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,28 ',
 	'TIPO DE CAMBIO MX': ' 11,28 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8241,53912958712',
 	'anio': '2006',
 	'id': 653
@@ -22932,7 +22932,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/07/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,28 ',
 	'TIPO DE CAMBIO MX': ' 11,28 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8463,08588038248',
 	'anio': '2006',
 	'id': 654
@@ -22967,7 +22967,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/07/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,28 ',
 	'TIPO DE CAMBIO MX': ' 11,28 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7000,87732513315',
 	'anio': '2006',
 	'id': 655
@@ -23002,7 +23002,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/01/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,90 ',
 	'TIPO DE CAMBIO MX': ' 10,90 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '164729,624466963',
 	'anio': '2006',
 	'id': 656
@@ -23037,7 +23037,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/01/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,90 ',
 	'TIPO DE CAMBIO MX': ' 10,90 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '164729,624466963',
 	'anio': '2006',
 	'id': 657
@@ -23072,7 +23072,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '11/10/2006',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 10,96 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '109000',
 	'anio': '2006',
 	'id': 658
@@ -23107,7 +23107,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/08/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,44 ',
 	'TIPO DE CAMBIO MX': ' 11,44 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '59709,0451294784',
 	'anio': '2006',
 	'id': 659
@@ -23142,7 +23142,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/07/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,28 ',
 	'TIPO DE CAMBIO MX': ' 11,28 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8418,77653022341',
 	'anio': '2006',
 	'id': 660
@@ -23177,7 +23177,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/08/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,27 ',
 	'TIPO DE CAMBIO MX': ' 11,27 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '27444,3556328345',
 	'anio': '2006',
 	'id': 661
@@ -23212,7 +23212,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/08/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,87 ',
 	'TIPO DE CAMBIO MX': ' 10,87 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '13320,0868381352',
 	'anio': '2006',
 	'id': 662
@@ -23247,7 +23247,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/12/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,95 ',
 	'TIPO DE CAMBIO MX': ' 10,95 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '118358,988014762',
 	'anio': '2006',
 	'id': 663
@@ -23282,7 +23282,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/08/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,27 ',
 	'TIPO DE CAMBIO MX': ' 11,27 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '6919,61711451966',
 	'anio': '2006',
 	'id': 664
@@ -23317,7 +23317,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/08/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,13 ',
 	'TIPO DE CAMBIO MX': ' 11,13 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '39293,0944637113',
 	'anio': '2006',
 	'id': 665
@@ -23352,7 +23352,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/10/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,93 ',
 	'TIPO DE CAMBIO MX': ' 10,93 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '120544,737828914',
 	'anio': '2006',
 	'id': 666
@@ -23387,7 +23387,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Traducción del estudio realizado',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,93 ',
 	'TIPO DE CAMBIO MX': ' 10,93 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '120544,737828914',
 	'anio': '2006',
 	'id': 667
@@ -23422,7 +23422,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/10/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,82 ',
 	'TIPO DE CAMBIO MX': ' 10,82 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '21461,5078961716',
 	'anio': '2006',
 	'id': 668
@@ -23457,7 +23457,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/10/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,95 ',
 	'TIPO DE CAMBIO MX': ' 10,95 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '18260,1709151998',
 	'anio': '2006',
 	'id': 669
@@ -23492,7 +23492,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/09/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,82 ',
 	'TIPO DE CAMBIO MX': ' 10,82 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '24118,2069360636',
 	'anio': '2006',
 	'id': 670
@@ -23527,7 +23527,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/09/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,95 ',
 	'TIPO DE CAMBIO MX': ' 10,95 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '13695,1281863998',
 	'anio': '2006',
 	'id': 671
@@ -23562,7 +23562,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '11/11/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,81 ',
 	'TIPO DE CAMBIO MX': ' 10,81 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '304259,310013223',
 	'anio': '2006',
 	'id': 672
@@ -23597,7 +23597,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/10/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,95 ',
 	'TIPO DE CAMBIO MX': ' 10,95 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '62714,5570082536',
 	'anio': '2006',
 	'id': 673
@@ -23632,7 +23632,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '13/10/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,85 ',
 	'TIPO DE CAMBIO MX': ' 10,85 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '355597,833622184',
 	'anio': '2006',
 	'id': 674
@@ -23667,7 +23667,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '24/12/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,92 ',
 	'TIPO DE CAMBIO MX': ' 10,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '36827,3511790249',
 	'anio': '2006',
 	'id': 675
@@ -23702,7 +23702,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/12/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,92 ',
 	'TIPO DE CAMBIO MX': ' 10,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '44431,0082632514',
 	'anio': '2006',
 	'id': 676
@@ -23737,7 +23737,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '24/11/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,00 ',
 	'TIPO DE CAMBIO MX': ' 11,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '54096,8795758188',
 	'anio': '2006',
 	'id': 677
@@ -23772,7 +23772,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/01/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,05 ',
 	'TIPO DE CAMBIO MX': ' 11,05 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '147516,877522579',
 	'anio': '2006',
 	'id': 678
@@ -23807,7 +23807,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '27/10/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,92 ',
 	'TIPO DE CAMBIO MX': ' 10,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '15362,5019454897',
 	'anio': '2006',
 	'id': 679
@@ -23842,7 +23842,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/12/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,73 ',
 	'TIPO DE CAMBIO MX': ' 10,73 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9318,53549896098',
 	'anio': '2006',
 	'id': 680
@@ -23877,7 +23877,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/12/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,73 ',
 	'TIPO DE CAMBIO MX': ' 10,73 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '29353,3868217271',
 	'anio': '2006',
 	'id': 681
@@ -23912,7 +23912,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/08/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,02 ',
 	'TIPO DE CAMBIO MX': ' 11,02 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '2268,54078382621',
 	'anio': '2006',
 	'id': 682
@@ -23947,7 +23947,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/07/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,150,00 ',
 	'TIPO DE CAMBIO MX': ' 10,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '243966,386150877',
 	'anio': '2006',
 	'id': 683
@@ -23982,7 +23982,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/11/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,77 ',
 	'TIPO DE CAMBIO MX': ' 10,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '55689,6231668832',
 	'anio': '2006',
 	'id': 684
@@ -24017,7 +24017,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '17/12/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,74 ',
 	'TIPO DE CAMBIO MX': ' 10,74 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '148795,158633398',
 	'anio': '2006',
 	'id': 685
@@ -24052,7 +24052,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 8,07 ',
 	'TIPO DE CAMBIO MX': ' 8,07 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '52777,9939281289',
 	'anio': '1998',
 	'id': 686
@@ -24087,7 +24087,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '08/12/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,82 ',
 	'TIPO DE CAMBIO MX': ' 10,82 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8225,50831792976',
 	'anio': '2006',
 	'id': 687
@@ -24122,7 +24122,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '21/07/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,00 ',
 	'TIPO DE CAMBIO MX': ' 10,95 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1227790,9782',
 	'anio': '2006',
 	'id': 688
@@ -24157,7 +24157,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/12/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,00 ',
 	'TIPO DE CAMBIO MX': ' 11,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '84583,4140170197',
 	'anio': '2006',
 	'id': 689
@@ -24192,7 +24192,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/02/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,86 ',
 	'TIPO DE CAMBIO MX': ' 10,86 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '419812,189283741',
 	'anio': '2006',
 	'id': 690
@@ -24227,7 +24227,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,98 ',
 	'TIPO DE CAMBIO MX': ' 10,98 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '692154,96985483',
 	'anio': '2006',
 	'id': 691
@@ -24262,7 +24262,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '21/11/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,154,61 ',
 	'TIPO DE CAMBIO MX': ' 11,01 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '158603,515573424',
 	'anio': '2006',
 	'id': 692
@@ -24297,7 +24297,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/01/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,87 ',
 	'TIPO DE CAMBIO MX': ' 10,87 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '5517,39358327126',
 	'anio': '2006',
 	'id': 693
@@ -24332,7 +24332,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Sin dato',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '',
 	'anio': '2006',
 	'id': 694
@@ -24367,7 +24367,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Sin dato',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '',
 	'anio': '2006',
 	'id': 695
@@ -24402,7 +24402,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '18/08/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,77 ',
 	'TIPO DE CAMBIO MX': ' 10,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '602376,090588454',
 	'anio': '2006',
 	'id': 696
@@ -24437,7 +24437,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '18/08/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,77 ',
 	'TIPO DE CAMBIO MX': ' 10,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '12534,8189415042',
 	'anio': '2006',
 	'id': 697
@@ -24472,7 +24472,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/11/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,79 ',
 	'TIPO DE CAMBIO MX': ' 10,79 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '70232,5662831416',
 	'anio': '2006',
 	'id': 698
@@ -24507,7 +24507,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/06/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,206,38 ',
 	'TIPO DE CAMBIO MX': ' 11,19 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1249969,0767464',
 	'anio': '2007',
 	'id': 699
@@ -24542,7 +24542,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/04/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,259,43 ',
 	'TIPO DE CAMBIO MX': ' 11,09 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '90248,3981388654',
 	'anio': '2007',
 	'id': 700
@@ -24577,7 +24577,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/12/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,92 ',
 	'TIPO DE CAMBIO MX': ' 10,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '522068,858134657',
 	'anio': '2007',
 	'id': 701
@@ -24612,7 +24612,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/03/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,84 ',
 	'TIPO DE CAMBIO MX': ' 10,84 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '654537,34994233',
 	'anio': '2007',
 	'id': 702
@@ -24647,7 +24647,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/01/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,98 ',
 	'TIPO DE CAMBIO MX': ' 10,98 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '45531,5351412388',
 	'anio': '2008',
 	'id': 703
@@ -24682,7 +24682,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/02/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,81 ',
 	'TIPO DE CAMBIO MX': ' 10,81 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '155851,122868031',
 	'anio': '2007',
 	'id': 704
@@ -24717,7 +24717,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/03/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,85 ',
 	'TIPO DE CAMBIO MX': ' 10,85 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '163458,227334734',
 	'anio': '2007',
 	'id': 705
@@ -24752,7 +24752,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/02/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,81 ',
 	'TIPO DE CAMBIO MX': ' 10,81 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8231,89907136779',
 	'anio': '2007',
 	'id': 706
@@ -24787,7 +24787,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/03/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,81 ',
 	'TIPO DE CAMBIO MX': ' 10,81 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '212669,725110067',
 	'anio': '2007',
 	'id': 707
@@ -24822,7 +24822,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/10/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,93 ',
 	'TIPO DE CAMBIO MX': ' 10,93 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '86692,7686044916',
 	'anio': '2007',
 	'id': 708
@@ -24857,7 +24857,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/02/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,81 ',
 	'TIPO DE CAMBIO MX': ' 10,81 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7861,9260793962',
 	'anio': '2007',
 	'id': 709
@@ -24892,7 +24892,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/03/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,04 ',
 	'TIPO DE CAMBIO MX': ' 11,04 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '26725,3718903444',
 	'anio': '2007',
 	'id': 710
@@ -24927,7 +24927,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/02/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,98 ',
 	'TIPO DE CAMBIO MX': ' 10,98 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9507,51505653604',
 	'anio': '2007',
 	'id': 711
@@ -24962,7 +24962,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/05/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,98 ',
 	'TIPO DE CAMBIO MX': ' 10,98 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '95667,6233429001',
 	'anio': '2007',
 	'id': 712
@@ -24997,7 +24997,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/02/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,81 ',
 	'TIPO DE CAMBIO MX': ' 10,81 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '5087,12863960931',
 	'anio': '2007',
 	'id': 713
@@ -25032,7 +25032,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/04/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,04 ',
 	'TIPO DE CAMBIO MX': ' 11,04 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '29443,206319871',
 	'anio': '2007',
 	'id': 714
@@ -25067,7 +25067,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/04/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,81 ',
 	'TIPO DE CAMBIO MX': ' 10,81 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '110991,897591476',
 	'anio': '2007',
 	'id': 715
@@ -25102,7 +25102,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/03/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,00 ',
 	'TIPO DE CAMBIO MX': ' 11,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '4544,50433091263',
 	'anio': '2007',
 	'id': 716
@@ -25137,7 +25137,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/07/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,01 ',
 	'TIPO DE CAMBIO MX': ' 11,01 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '74081,6337649601',
 	'anio': '2007',
 	'id': 717
@@ -25172,7 +25172,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/07/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,01 ',
 	'TIPO DE CAMBIO MX': ' 11,01 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '49387,7558433068',
 	'anio': '2007',
 	'id': 718
@@ -25207,7 +25207,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'contrato SUSPENDIDO DESDE EL 16 DE ABRIL/07 HASTA NUEVO AVISO',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,15 ',
 	'TIPO DE CAMBIO MX': ' 11,15 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '155525,458997426',
 	'anio': '2007',
 	'id': 719
@@ -25242,7 +25242,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '08/06/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,02 ',
 	'TIPO DE CAMBIO MX': ' 11,02 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '63509,3449464707',
 	'anio': '2007',
 	'id': 720
@@ -25277,7 +25277,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/05/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,04 ',
 	'TIPO DE CAMBIO MX': ' 11,04 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '74691,1697559385',
 	'anio': '2007',
 	'id': 721
@@ -25312,7 +25312,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/05/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,04 ',
 	'TIPO DE CAMBIO MX': ' 11,04 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '255547,750539037',
 	'anio': '2007',
 	'id': 722
@@ -25347,7 +25347,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/11/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,27 ',
 	'TIPO DE CAMBIO MX': ' 11,27 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '67256,2351960115',
 	'anio': '2006',
 	'id': 723
@@ -25382,7 +25382,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/12/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,80 ',
 	'TIPO DE CAMBIO MX': ' 10,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '120795,268874957',
 	'anio': '2007',
 	'id': 724
@@ -25417,7 +25417,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,31 ',
 	'TIPO DE CAMBIO MX': ' 10,31 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '112558,035878877',
 	'anio': '2008',
 	'id': 725
@@ -25452,7 +25452,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/08/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,93 ',
 	'TIPO DE CAMBIO MX': ' 13,93 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '96085,2140775933',
 	'anio': '2009',
 	'id': 726
@@ -25487,7 +25487,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/05/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,18 ',
 	'TIPO DE CAMBIO MX': ' 13,18 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '48575,8001715331',
 	'anio': '2010',
 	'id': 727
@@ -25557,7 +25557,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/07/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,90 ',
 	'TIPO DE CAMBIO MX': ' 10,90 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '194459,732159237',
 	'anio': '2007',
 	'id': 729
@@ -25592,7 +25592,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/07/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,93 ',
 	'TIPO DE CAMBIO MX': ' 10,93 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '16931,7786604675',
 	'anio': '2007',
 	'id': 730
@@ -25627,7 +25627,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '27/06/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,03 ',
 	'TIPO DE CAMBIO MX': ' 11,03 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '40361,7135134645',
 	'anio': '2007',
 	'id': 731
@@ -25662,7 +25662,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/07/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,01 ',
 	'TIPO DE CAMBIO MX': ' 11,01 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '96151,0363188645',
 	'anio': '2007',
 	'id': 732
@@ -25697,7 +25697,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/06/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,01 ',
 	'TIPO DE CAMBIO MX': ' 11,01 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '53477,8697536641',
 	'anio': '2007',
 	'id': 733
@@ -25732,7 +25732,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/05/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,03 ',
 	'TIPO DE CAMBIO MX': ' 11,03 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '12236,9065100343',
 	'anio': '2007',
 	'id': 734
@@ -25767,7 +25767,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/06/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,03 ',
 	'TIPO DE CAMBIO MX': ' 11,03 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '26921,1943220754',
 	'anio': '2007',
 	'id': 735
@@ -25802,7 +25802,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/02/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,04 ',
 	'TIPO DE CAMBIO MX': ' 11,04 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '11777,2825279484',
 	'anio': '2007',
 	'id': 736
@@ -25837,7 +25837,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/04/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,15 ',
 	'TIPO DE CAMBIO MX': ' 11,15 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '28703,9279531408',
 	'anio': '2007',
 	'id': 737
@@ -25872,7 +25872,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/08/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,81 ',
 	'TIPO DE CAMBIO MX': ' 10,81 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '27294,5965951147',
 	'anio': '2007',
 	'id': 738
@@ -25907,7 +25907,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '22/06/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,00 ',
 	'TIPO DE CAMBIO MX': ' 11,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '123556,902442571',
 	'anio': '2007',
 	'id': 739
@@ -25942,7 +25942,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/05/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,99 ',
 	'TIPO DE CAMBIO MX': ' 10,99 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '6823,70281409504',
 	'anio': '2007',
 	'id': 740
@@ -25977,7 +25977,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '18/08/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,90 ',
 	'TIPO DE CAMBIO MX': ' 10,90 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '77743,7346347191',
 	'anio': '2007',
 	'id': 741
@@ -26012,7 +26012,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/05/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,111,52 ',
 	'TIPO DE CAMBIO MX': ' 10,93 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '4735,92483140108',
 	'anio': '2007',
 	'id': 742
@@ -26047,7 +26047,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/07/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,03 ',
 	'TIPO DE CAMBIO MX': ' 11,03 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '45548,4853429053',
 	'anio': '2007',
 	'id': 743
@@ -26082,7 +26082,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/08/2008',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 10,99 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '538485,191176471',
 	'anio': '2007',
 	'id': 744
@@ -26117,7 +26117,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,95 ',
 	'TIPO DE CAMBIO MX': ' 12,95 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '165021,432709017',
 	'anio': '2009',
 	'id': 745
@@ -26152,7 +26152,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '17/06/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,79 ',
 	'TIPO DE CAMBIO MX': ' 10,79 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '13901,1167230434',
 	'anio': '2007',
 	'id': 746
@@ -26187,7 +26187,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/10/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,77 ',
 	'TIPO DE CAMBIO MX': ' 10,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '189291,623722109',
 	'anio': '2007',
 	'id': 747
@@ -26222,7 +26222,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/06/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,80 ',
 	'TIPO DE CAMBIO MX': ' 10,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '18281,6202606635',
 	'anio': '2007',
 	'id': 748
@@ -26257,7 +26257,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/06/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,74 ',
 	'TIPO DE CAMBIO MX': ' 10,74 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '13029,9222858207',
 	'anio': '2007',
 	'id': 749
@@ -26292,7 +26292,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '11/10/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,78 ',
 	'TIPO DE CAMBIO MX': ' 10,78 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '629826,553122014',
 	'anio': '2007',
 	'id': 750
@@ -26327,7 +26327,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/11/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,84 ',
 	'TIPO DE CAMBIO MX': ' 10,84 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '203155,658175175',
 	'anio': '2007',
 	'id': 751
@@ -26362,7 +26362,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/09/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,150,00 ',
 	'TIPO DE CAMBIO MX': ' 11,03 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '35852,0593837838',
 	'anio': '2007',
 	'id': 752
@@ -26397,7 +26397,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '18/06/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,79 ',
 	'TIPO DE CAMBIO MX': ' 10,79 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7413,92891895649',
 	'anio': '2007',
 	'id': 753
@@ -26432,7 +26432,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/09/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,75 ',
 	'TIPO DE CAMBIO MX': ' 10,75 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '185917,353526708',
 	'anio': '2007',
 	'id': 754
@@ -26467,7 +26467,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/09/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,79 ',
 	'TIPO DE CAMBIO MX': ' 10,79 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '125559,220278684',
 	'anio': '2007',
 	'id': 755
@@ -26502,7 +26502,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/06/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,80 ',
 	'TIPO DE CAMBIO MX': ' 10,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '5094,33787501274',
 	'anio': '2007',
 	'id': 756
@@ -26537,7 +26537,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/07/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,81 ',
 	'TIPO DE CAMBIO MX': ' 10,81 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '60565,1514591116',
 	'anio': '2007',
 	'id': 757
@@ -26572,7 +26572,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/07/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,81 ',
 	'TIPO DE CAMBIO MX': ' 10,81 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '13869,882013537',
 	'anio': '2007',
 	'id': 758
@@ -26607,7 +26607,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/07/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,78 ',
 	'TIPO DE CAMBIO MX': ' 10,78 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '6491,82030641392',
 	'anio': '2007',
 	'id': 759
@@ -26642,7 +26642,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/10/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,78 ',
 	'TIPO DE CAMBIO MX': ' 10,78 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '165994,752754387',
 	'anio': '2007',
 	'id': 760
@@ -26677,7 +26677,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/09/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,99 ',
 	'TIPO DE CAMBIO MX': ' 10,99 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '15470,5785996396',
 	'anio': '2007',
 	'id': 761
@@ -26712,7 +26712,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/11/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,76 ',
 	'TIPO DE CAMBIO MX': ' 10,76 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '154263,623522415',
 	'anio': '2007',
 	'id': 762
@@ -26747,7 +26747,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/03/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,74 ',
 	'TIPO DE CAMBIO MX': ' 10,74 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '14168,6073591057',
 	'anio': '2007',
 	'id': 763
@@ -26782,7 +26782,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/06/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,56 ',
 	'TIPO DE CAMBIO MX': ' 10,56 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '153919,395179627',
 	'anio': '2007',
 	'id': 764
@@ -26817,7 +26817,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/10/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,03 ',
 	'TIPO DE CAMBIO MX': ' 11,03 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '15417,4035278647',
 	'anio': '2007',
 	'id': 765
@@ -26852,7 +26852,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Sin dato',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '',
 	'anio': '2007',
 	'id': 766
@@ -26887,7 +26887,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/09/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,97 ',
 	'TIPO DE CAMBIO MX': ' 10,97 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '593736,380462631',
 	'anio': '2007',
 	'id': 767
@@ -26923,7 +26923,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/10/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,06 ',
 	'TIPO DE CAMBIO MX': ' 13,06 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': 'Sin dato',
 	'anio': '2008',
 	'id': 768
@@ -26958,7 +26958,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/05/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,854,87 ',
 	'TIPO DE CAMBIO MX': ' 10,68 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '86259,4144064005',
 	'anio': '2008',
 	'id': 769
@@ -26993,7 +26993,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/07/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,71 ',
 	'TIPO DE CAMBIO MX': ' 12,71 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '127362,831858407',
 	'anio': '2007',
 	'id': 770
@@ -27028,7 +27028,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '22/08/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,12 ',
 	'TIPO DE CAMBIO MX': ' 11,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1349991,713199',
 	'anio': '2007',
 	'id': 771
@@ -27063,7 +27063,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/12/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,37 ',
 	'TIPO DE CAMBIO MX': ' 12,37 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '374289,550778882',
 	'anio': '2009',
 	'id': 772
@@ -27098,7 +27098,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/03/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,05 ',
 	'TIPO DE CAMBIO MX': ' 11,05 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '594849,342825353',
 	'anio': '2007',
 	'id': 773
@@ -27133,7 +27133,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/10/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,04 ',
 	'TIPO DE CAMBIO MX': ' 11,04 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '435535,489480405',
 	'anio': '2007',
 	'id': 774
@@ -27168,7 +27168,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/12/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,40 ',
 	'TIPO DE CAMBIO MX': ' 13,40 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '25633,678358209',
 	'anio': '2007',
 	'id': 775
@@ -27203,7 +27203,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/01/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,77 ',
 	'TIPO DE CAMBIO MX': ' 13,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '261080,20162989',
 	'anio': '2008',
 	'id': 776
@@ -27238,7 +27238,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/05/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,92 ',
 	'TIPO DE CAMBIO MX': ' 12,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '264873,585037067',
 	'anio': '2010',
 	'id': 777
@@ -27273,7 +27273,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/12/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,150,00 ',
 	'TIPO DE CAMBIO MX': ' 11,05 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '53004,5689238605',
 	'anio': '2007',
 	'id': 778
@@ -27308,7 +27308,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/09/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,08 ',
 	'TIPO DE CAMBIO MX': ' 11,08 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '12720,1212471132',
 	'anio': '2007',
 	'id': 779
@@ -27343,7 +27343,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/05/2008',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 11,07 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '402481,898',
 	'anio': '2007',
 	'id': 780
@@ -27378,7 +27378,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/02/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,95 ',
 	'TIPO DE CAMBIO MX': ' 10,95 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '290799,768985637',
 	'anio': '2007',
 	'id': 781
@@ -27413,7 +27413,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/11/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,93 ',
 	'TIPO DE CAMBIO MX': ' 10,93 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9150,97274840316',
 	'anio': '2007',
 	'id': 782
@@ -27448,7 +27448,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/01/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,92 ',
 	'TIPO DE CAMBIO MX': ' 10,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '261081,472120729',
 	'anio': '2007',
 	'id': 783
@@ -27483,7 +27483,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/12/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,90 ',
 	'TIPO DE CAMBIO MX': ' 10,90 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '82011,848976258',
 	'anio': '2007',
 	'id': 784
@@ -27518,7 +27518,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/10/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,92 ',
 	'TIPO DE CAMBIO MX': ' 10,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '6959,51576421893',
 	'anio': '2007',
 	'id': 785
@@ -27553,7 +27553,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/01/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,94 ',
 	'TIPO DE CAMBIO MX': ' 10,94 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '253628,543481639',
 	'anio': '2007',
 	'id': 786
@@ -27588,7 +27588,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'N/A',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 11,11 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '47240',
 	'anio': '2007',
 	'id': 787
@@ -27623,7 +27623,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/11/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,81 ',
 	'TIPO DE CAMBIO MX': ' 10,81 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '6935,90300833233',
 	'anio': '2007',
 	'id': 788
@@ -27658,7 +27658,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/11/2007',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,71 ',
 	'TIPO DE CAMBIO MX': ' 10,71 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '14937,6353723206',
 	'anio': '2007',
 	'id': 789
@@ -27693,7 +27693,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/01/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,90 ',
 	'TIPO DE CAMBIO MX': ' 10,90 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '23322,0404155348',
 	'anio': '2007',
 	'id': 790
@@ -27728,7 +27728,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Sin dato',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '',
 	'anio': '2007',
 	'id': 791
@@ -27763,7 +27763,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/02/2008',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 10,73 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '84025,2100840336',
 	'anio': '2007',
 	'id': 792
@@ -27798,7 +27798,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '22/01/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,94 ',
 	'TIPO DE CAMBIO MX': ' 10,94 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '332001,316836301',
 	'anio': '2007',
 	'id': 793
@@ -27833,7 +27833,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/06/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,98 ',
 	'TIPO DE CAMBIO MX': ' 10,98 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '167803,751935161',
 	'anio': '2007',
 	'id': 794
@@ -27868,7 +27868,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/12/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,90 ',
 	'TIPO DE CAMBIO MX': ' 10,90 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '646304,694956317',
 	'anio': '2007',
 	'id': 795
@@ -27903,7 +27903,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/07/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,094,74 ',
 	'TIPO DE CAMBIO MX': ' 10,93 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '104829,838564444',
 	'anio': '2007',
 	'id': 796
@@ -27938,7 +27938,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/01/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,98 ',
 	'TIPO DE CAMBIO MX': ' 10,98 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '51725,708041162',
 	'anio': '2007',
 	'id': 797
@@ -27973,7 +27973,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '11/06/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,96 ',
 	'TIPO DE CAMBIO MX': ' 10,96 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '219637,840871756',
 	'anio': '2007',
 	'id': 798
@@ -28008,7 +28008,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/02/2006',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,52 ',
 	'TIPO DE CAMBIO MX': ' 10,52 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7503,15917490902',
 	'anio': '2007',
 	'id': 799
@@ -28043,7 +28043,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/04/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,78 ',
 	'TIPO DE CAMBIO MX': ' 10,78 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '28762,8272931396',
 	'anio': '2007',
 	'id': 800
@@ -28078,7 +28078,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/02/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,12 ',
 	'TIPO DE CAMBIO MX': ' 11,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '3077560,61805231',
 	'anio': '2008',
 	'id': 801
@@ -28113,7 +28113,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/07/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,46 ',
 	'TIPO DE CAMBIO MX': ' 10,46 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '264846,205314471',
 	'anio': '2007',
 	'id': 802
@@ -28148,7 +28148,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/02/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,91 ',
 	'TIPO DE CAMBIO MX': ' 10,91 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '31427,5242807403',
 	'anio': '2008',
 	'id': 803
@@ -28183,7 +28183,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/07/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,917,26 ',
 	'TIPO DE CAMBIO MX': ' 10,83 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '53506,6745754628',
 	'anio': '2008',
 	'id': 804
@@ -28218,7 +28218,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/02/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,81 ',
 	'TIPO DE CAMBIO MX': ' 10,81 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '30516,5621705598',
 	'anio': '2008',
 	'id': 805
@@ -28253,7 +28253,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/03/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,77 ',
 	'TIPO DE CAMBIO MX': ' 10,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '11146,9257707635',
 	'anio': '2008',
 	'id': 806
@@ -28288,7 +28288,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '24/04/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,89 ',
 	'TIPO DE CAMBIO MX': ' 10,89 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '151759,301791456',
 	'anio': '2008',
 	'id': 807
@@ -28323,7 +28323,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Sin dato',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '',
 	'anio': '2008',
 	'id': 808
@@ -28358,7 +28358,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Sin dato',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '',
 	'anio': '2008',
 	'id': 809
@@ -28393,7 +28393,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Sin dato',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '',
 	'anio': '2008',
 	'id': 810
@@ -28428,7 +28428,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/02/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,95 ',
 	'TIPO DE CAMBIO MX': ' 10,95 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '55576,8422591314',
 	'anio': '2008',
 	'id': 811
@@ -28463,7 +28463,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/04/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,70 ',
 	'TIPO DE CAMBIO MX': ' 10,70 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '15090,7086673019',
 	'anio': '2008',
 	'id': 812
@@ -28498,7 +28498,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/07/2008',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 10,68 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '178000',
 	'anio': '2008',
 	'id': 813
@@ -28533,7 +28533,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Sin dato',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '',
 	'anio': '2008',
 	'id': 814
@@ -28568,7 +28568,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Sin dato',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '',
 	'anio': '2008',
 	'id': 815
@@ -28603,7 +28603,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/08/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,52 ',
 	'TIPO DE CAMBIO MX': ' 10,52 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '263433,604928647',
 	'anio': '2008',
 	'id': 816
@@ -28638,7 +28638,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/07/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,56 ',
 	'TIPO DE CAMBIO MX': ' 10,56 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '197890,434617934',
 	'anio': '2008',
 	'id': 817
@@ -28673,7 +28673,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/04/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,89 ',
 	'TIPO DE CAMBIO MX': ' 10,89 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '166449,409734335',
 	'anio': '2008',
 	'id': 818
@@ -28708,7 +28708,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/08/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,70 ',
 	'TIPO DE CAMBIO MX': ' 10,70 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '227612,142630093',
 	'anio': '2008',
 	'id': 819
@@ -28743,7 +28743,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '13 de Octubre',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,67 ',
 	'TIPO DE CAMBIO MX': ' 10,67 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '26699,1428169938',
 	'anio': '2008',
 	'id': 820
@@ -28778,7 +28778,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '21/04/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,85 ',
 	'TIPO DE CAMBIO MX': ' 10,85 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '12306,6428215859',
 	'anio': '2008',
 	'id': 821
@@ -28813,7 +28813,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '27/04/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,70 ',
 	'TIPO DE CAMBIO MX': ' 10,70 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '195966,603401367',
 	'anio': '2008',
 	'id': 822
@@ -28848,7 +28848,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'S/D',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,80 ',
 	'TIPO DE CAMBIO MX': ' 7,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '166405,769230769',
 	'anio': '1997',
 	'id': 823
@@ -28883,7 +28883,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/12/1998',
 	'TIPO DE CAMBIO DE MONEDA': ' 7,80 ',
 	'TIPO DE CAMBIO MX': ' 7,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '200000',
 	'anio': '1997',
 	'id': 824
@@ -28918,7 +28918,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/10/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,69 ',
 	'TIPO DE CAMBIO MX': ' 10,69 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '126559,553598145',
 	'anio': '2008',
 	'id': 825
@@ -28953,7 +28953,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/08/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,09 ',
 	'TIPO DE CAMBIO MX': ' 13,09 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '62961,989912884',
 	'anio': '2009',
 	'id': 826
@@ -28988,7 +28988,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/08/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,55 ',
 	'TIPO DE CAMBIO MX': ' 12,55 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '93472,6943207437',
 	'anio': '2010',
 	'id': 827
@@ -29058,7 +29058,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/06/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,46 ',
 	'TIPO DE CAMBIO MX': ' 10,46 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '45402,4087172625',
 	'anio': '2008',
 	'id': 829
@@ -29093,7 +29093,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '22/04/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,56 ',
 	'TIPO DE CAMBIO MX': ' 10,56 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '5400,18190086403',
 	'anio': '2008',
 	'id': 830
@@ -29128,7 +29128,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '24/07/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,49 ',
 	'TIPO DE CAMBIO MX': ' 10,49 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '247320,440935271',
 	'anio': '2008',
 	'id': 831
@@ -29163,7 +29163,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/09/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,32 ',
 	'TIPO DE CAMBIO MX': ' 10,32 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '312104,967234092',
 	'anio': '2008',
 	'id': 832
@@ -29198,7 +29198,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/12/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,51 ',
 	'TIPO DE CAMBIO MX': ' 10,51 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '173377,73549001',
 	'anio': '2008',
 	'id': 833
@@ -29233,7 +29233,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '11/08/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,40 ',
 	'TIPO DE CAMBIO MX': ' 10,40 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '141199,207707544',
 	'anio': '2008',
 	'id': 834
@@ -29268,7 +29268,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/09/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,49 ',
 	'TIPO DE CAMBIO MX': ' 10,49 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '410542,566492276',
 	'anio': '2008',
 	'id': 835
@@ -29303,7 +29303,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '17/11/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,798,89 ',
 	'TIPO DE CAMBIO MX': ' 10,48 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '105150,804662875',
 	'anio': '2008',
 	'id': 836
@@ -29338,7 +29338,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/05/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,68 ',
 	'TIPO DE CAMBIO MX': ' 10,68 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '99706,9645080655',
 	'anio': '2008',
 	'id': 837
@@ -29373,7 +29373,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/02/2010',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 1,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '56469,3744',
 	'anio': '2008',
 	'id': 838
@@ -29408,7 +29408,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/09/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,780,01 ',
 	'TIPO DE CAMBIO MX': ' 10,16 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '115264,753452567',
 	'anio': '2008',
 	'id': 839
@@ -29443,7 +29443,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/05/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,46 ',
 	'TIPO DE CAMBIO MX': ' 10,46 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '28594,2538954211',
 	'anio': '2008',
 	'id': 840
@@ -29478,7 +29478,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/05/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,46 ',
 	'TIPO DE CAMBIO MX': ' 10,46 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '19281,6824395373',
 	'anio': '2008',
 	'id': 841
@@ -29513,7 +29513,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/04/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,70 ',
 	'TIPO DE CAMBIO MX': ' 10,70 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '241936,388623997',
 	'anio': '2008',
 	'id': 842
@@ -29548,7 +29548,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/09/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,65 ',
 	'TIPO DE CAMBIO MX': ' 10,54 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1454573,67852986',
 	'anio': '2008',
 	'id': 843
@@ -29583,7 +29583,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/01/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,90 ',
 	'TIPO DE CAMBIO MX': ' 10,90 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '20647,5057813016',
 	'anio': '2008',
 	'id': 844
@@ -29618,7 +29618,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '21/11/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,40 ',
 	'TIPO DE CAMBIO MX': ' 10,40 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '429833,678846154',
 	'anio': '2008',
 	'id': 845
@@ -29653,7 +29653,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '17/O9/08',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,36 ',
 	'TIPO DE CAMBIO MX': ' 10,36 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '150164,060992086',
 	'anio': '2008',
 	'id': 846
@@ -29688,7 +29688,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/06/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,38 ',
 	'TIPO DE CAMBIO MX': ' 10,38 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '24283,2147293615',
 	'anio': '2008',
 	'id': 847
@@ -29723,7 +29723,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/07/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,43 ',
 	'TIPO DE CAMBIO MX': ' 10,43 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1918,13403920666',
 	'anio': '2008',
 	'id': 848
@@ -29758,7 +29758,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/07/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,32 ',
 	'TIPO DE CAMBIO MX': ' 10,32 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '16397,0606768586',
 	'anio': '2008',
 	'id': 849
@@ -29793,7 +29793,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/09/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,32 ',
 	'TIPO DE CAMBIO MX': ' 10,32 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '58124,6184999661',
 	'anio': '2008',
 	'id': 850
@@ -29828,7 +29828,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '18/08/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,32 ',
 	'TIPO DE CAMBIO MX': ' 10,32 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '124087,520479288',
 	'anio': '2008',
 	'id': 851
@@ -29863,7 +29863,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/07/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,28 ',
 	'TIPO DE CAMBIO MX': ' 10,28 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '22675,7369614512',
 	'anio': '2008',
 	'id': 852
@@ -29898,7 +29898,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/09/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,30 ',
 	'TIPO DE CAMBIO MX': ' 10,30 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '446052,711778865',
 	'anio': '2008',
 	'id': 853
@@ -29933,7 +29933,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/09/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,02 ',
 	'TIPO DE CAMBIO MX': ' 10,02 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '93322,6868948997',
 	'anio': '2008',
 	'id': 854
@@ -29968,7 +29968,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '11/10/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,04 ',
 	'TIPO DE CAMBIO MX': ' 10,04 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '86195,7290763605',
 	'anio': '2008',
 	'id': 855
@@ -30003,7 +30003,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '13/10/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,20 ',
 	'TIPO DE CAMBIO MX': ' 10,20 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '93931,9541942821',
 	'anio': '2008',
 	'id': 856
@@ -30038,7 +30038,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '24/01/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,22 ',
 	'TIPO DE CAMBIO MX': ' 13,22 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '11726,8772460753',
 	'anio': '2008',
 	'id': 857
@@ -30073,7 +30073,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/08/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,76 ',
 	'TIPO DE CAMBIO MX': ' 10,76 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '349218,623489303',
 	'anio': '2008',
 	'id': 858
@@ -30108,7 +30108,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '13/10/2012',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,26 ',
 	'TIPO DE CAMBIO MX': ' 10,26 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '3989410,7408779',
 	'anio': '2008',
 	'id': 859
@@ -30143,7 +30143,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '13/10/2012',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,07 ',
 	'TIPO DE CAMBIO MX': ' 13,07 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '488931,81341679',
 	'anio': '2010',
 	'id': 860
@@ -30178,7 +30178,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '21/11/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,13 ',
 	'TIPO DE CAMBIO MX': ' 10,13 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '122270,665876894',
 	'anio': '2008',
 	'id': 861
@@ -30213,7 +30213,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/05/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,70 ',
 	'TIPO DE CAMBIO MX': ' 10,70 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '66967,8391255605',
 	'anio': '2008',
 	'id': 862
@@ -30248,7 +30248,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/10/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,20 ',
 	'TIPO DE CAMBIO MX': ' 10,20 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9657,24146044943',
 	'anio': '2008',
 	'id': 863
@@ -30283,7 +30283,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/09/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,28 ',
 	'TIPO DE CAMBIO MX': ' 10,28 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '46612,9298861415',
 	'anio': '2009',
 	'id': 864
@@ -30318,7 +30318,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/09/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,26 ',
 	'TIPO DE CAMBIO MX': ' 13,26 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '37996,4790803974',
 	'anio': '2010',
 	'id': 865
@@ -30353,7 +30353,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,17 ',
 	'TIPO DE CAMBIO MX': ' 13,17 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '52894,6808833804',
 	'anio': '2011',
 	'id': 866
@@ -30493,7 +30493,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/12/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,16 ',
 	'TIPO DE CAMBIO MX': ' 10,16 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '167124,406906463',
 	'anio': '2008',
 	'id': 870
@@ -30528,7 +30528,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/08/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,82 ',
 	'TIPO DE CAMBIO MX': ' 10,16 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '46790,1927755942',
 	'anio': '2008',
 	'id': 871
@@ -30563,7 +30563,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/09/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,04 ',
 	'TIPO DE CAMBIO MX': ' 10,04 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '31688,1408627545',
 	'anio': '2008',
 	'id': 872
@@ -30598,7 +30598,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/12/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,04 ',
 	'TIPO DE CAMBIO MX': ' 10,04 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '254103,016352276',
 	'anio': '2008',
 	'id': 873
@@ -30633,7 +30633,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/12/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,836,25 ',
 	'TIPO DE CAMBIO MX': ' 10,20 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '81688,2232811436',
 	'anio': '2009',
 	'id': 874
@@ -30668,7 +30668,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/12/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,16 ',
 	'TIPO DE CAMBIO MX': ' 10,16 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '986380,012993917',
 	'anio': '2008',
 	'id': 875
@@ -30703,7 +30703,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '17/01/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,92 ',
 	'TIPO DE CAMBIO MX': ' 10,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1972617,64247827',
 	'anio': '2008',
 	'id': 876
@@ -30738,7 +30738,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/12/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,51 ',
 	'TIPO DE CAMBIO MX': ' 10,51 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '228736,102260731',
 	'anio': '2008',
 	'id': 877
@@ -30773,7 +30773,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '11/03/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,316,54 ',
 	'TIPO DE CAMBIO MX': ' 13,06 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '20116,2077926563',
 	'anio': '2008',
 	'id': 878
@@ -30808,7 +30808,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '18/01/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,87 ',
 	'TIPO DE CAMBIO MX': ' 10,87 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '79115,3796618277',
 	'anio': '2008',
 	'id': 879
@@ -30843,7 +30843,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/09/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,03 ',
 	'TIPO DE CAMBIO MX': ' 10,03 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '16406,6863480412',
 	'anio': '2008',
 	'id': 880
@@ -30878,7 +30878,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/02/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,50 ',
 	'TIPO DE CAMBIO MX': ' 13,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '29587,1134975005',
 	'anio': '2008',
 	'id': 881
@@ -30913,7 +30913,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/06/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,16 ',
 	'TIPO DE CAMBIO MX': ' 13,16 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9119,23398434531',
 	'anio': '2008',
 	'id': 882
@@ -30948,7 +30948,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/08/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,26 ',
 	'TIPO DE CAMBIO MX': ' 13,26 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '21868,8022683227',
 	'anio': '2008',
 	'id': 883
@@ -30983,7 +30983,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/02/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,70 ',
 	'TIPO DE CAMBIO MX': ' 12,70 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '3937,62797290912',
 	'anio': '2008',
 	'id': 884
@@ -31018,7 +31018,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/08/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,88 ',
 	'TIPO DE CAMBIO MX': ' 11,88 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '35368,1232158045',
 	'anio': '2011',
 	'id': 885
@@ -31053,7 +31053,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/10/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,53 ',
 	'TIPO DE CAMBIO MX': ' 13,53 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '3398,82223420841',
 	'anio': '2011',
 	'id': 886
@@ -31088,7 +31088,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/10/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,041,81 ',
 	'TIPO DE CAMBIO MX': ' 10,48 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '36830,0674401634',
 	'anio': '2008',
 	'id': 887
@@ -31123,7 +31123,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '22/12/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,40 ',
 	'TIPO DE CAMBIO MX': ' 13,40 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '36940,2985074627',
 	'anio': '2008',
 	'id': 888
@@ -31158,7 +31158,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/10/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,50 ',
 	'TIPO DE CAMBIO MX': ' 10,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '53977,60277299',
 	'anio': '2008',
 	'id': 889
@@ -31193,7 +31193,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '24/02/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,50 ',
 	'TIPO DE CAMBIO MX': ' 13,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '93908,535456397',
 	'anio': '2008',
 	'id': 890
@@ -31228,7 +31228,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/01/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,361,01 ',
 	'TIPO DE CAMBIO MX': ' 13,40 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '62261,4897861508',
 	'anio': '2008',
 	'id': 891
@@ -31263,7 +31263,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/02/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,71 ',
 	'TIPO DE CAMBIO MX': ' 12,71 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '56605,7030481809',
 	'anio': '2008',
 	'id': 892
@@ -31298,7 +31298,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/04/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 14,11 ',
 	'TIPO DE CAMBIO MX': ' 14,11 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '141760,523946897',
 	'anio': '2008',
 	'id': 893
@@ -31333,7 +31333,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/10/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,85 ',
 	'TIPO DE CAMBIO MX': ' 12,85 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '10507,0630812935',
 	'anio': '2008',
 	'id': 894
@@ -31368,7 +31368,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,969,01 ',
 	'TIPO DE CAMBIO MX': ' 12,87 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '251215,788645055',
 	'anio': '2008',
 	'id': 895
@@ -31403,7 +31403,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': '1969,01',
 	'TIPO DE CAMBIO MX': '12,866',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '135242,8220098',
 	'anio': '2008',
 	'id': 896
@@ -31438,7 +31438,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '11/06/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,333,54 ',
 	'TIPO DE CAMBIO MX': ' 13,49 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '20141,0732192292',
 	'anio': '2008',
 	'id': 897
@@ -31473,7 +31473,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/04/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,12 ',
 	'TIPO DE CAMBIO MX': ' 13,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '129528,223206323',
 	'anio': '2009',
 	'id': 898
@@ -31508,7 +31508,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/01/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,13 ',
 	'TIPO DE CAMBIO MX': ' 11,13 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '227217,616999111',
 	'anio': '2009',
 	'id': 899
@@ -31543,7 +31543,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/09/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,046,20 ',
 	'TIPO DE CAMBIO MX': ' 13,04 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '171790,233768061',
 	'anio': '2009',
 	'id': 900
@@ -31578,7 +31578,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '29/05/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 14,15 ',
 	'TIPO DE CAMBIO MX': ' 14,15 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '580158,713333757',
 	'anio': '2009',
 	'id': 901
@@ -31613,7 +31613,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/06/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,341,09 ',
 	'TIPO DE CAMBIO MX': ' 14,20 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1028948,7627779',
 	'anio': '2008',
 	'id': 902
@@ -31648,7 +31648,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/10/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,04 ',
 	'TIPO DE CAMBIO MX': ' 10,04 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '53780,1560491465',
 	'anio': '2009',
 	'id': 903
@@ -31683,7 +31683,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/09/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,15 ',
 	'TIPO DE CAMBIO MX': ' 10,29 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '26642,9465116279',
 	'anio': '2008',
 	'id': 904
@@ -31718,7 +31718,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/09/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,15 ',
 	'TIPO DE CAMBIO MX': ' 10,29 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '30253,6',
 	'anio': '2008',
 	'id': 905
@@ -31753,7 +31753,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/06/2012',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,13 ',
 	'TIPO DE CAMBIO MX': ' 13,13 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '2071780,9054433',
 	'anio': '2009',
 	'id': 906
@@ -31788,7 +31788,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/03/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 14,20 ',
 	'TIPO DE CAMBIO MX': ' 14,20 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '21834,8300757176',
 	'anio': '2009',
 	'id': 907
@@ -31823,7 +31823,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/12/2012',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,509,50 ',
 	'TIPO DE CAMBIO MX': ' 14,53 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '353992445,045018',
 	'anio': '2009',
 	'id': 908
@@ -31858,7 +31858,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/12/2012',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,509,50 ',
 	'TIPO DE CAMBIO MX': ' 14,53 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '30568582,784599',
 	'anio': '2009',
 	'id': 909
@@ -31893,7 +31893,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/12/2012',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,509,50 ',
 	'TIPO DE CAMBIO MX': ' 14,53 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '11207642,5390386',
 	'anio': '2009',
 	'id': 910
@@ -31928,7 +31928,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/12/2012',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,509,50 ',
 	'TIPO DE CAMBIO MX': ' 14,53 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '6364421,67536221',
 	'anio': '2009',
 	'id': 911
@@ -31963,7 +31963,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/04/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 14,27 ',
 	'TIPO DE CAMBIO MX': ' 14,27 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7008,54341442218',
 	'anio': '2009',
 	'id': 912
@@ -31998,7 +31998,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '03/04/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 14,22 ',
 	'TIPO DE CAMBIO MX': ' 14,22 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '4572,2163994851',
 	'anio': '2009',
 	'id': 913
@@ -32033,7 +32033,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/07/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,86 ',
 	'TIPO DE CAMBIO MX': ' 12,86 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '62984,5337978119',
 	'anio': '2010',
 	'id': 914
@@ -32103,7 +32103,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/06/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,280,77 ',
 	'TIPO DE CAMBIO MX': ' 13,93 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '15236,0825510683',
 	'anio': '2009',
 	'id': 916
@@ -32138,7 +32138,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/02/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,93 ',
 	'TIPO DE CAMBIO MX': ' 13,93 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7894,24581246143',
 	'anio': '2009',
 	'id': 917
@@ -32173,7 +32173,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/05/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 14,43 ',
 	'TIPO DE CAMBIO MX': ' 14,43 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '41035,5722461649',
 	'anio': '2009',
 	'id': 918
@@ -32208,7 +32208,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/01/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,509,50 ',
 	'TIPO DE CAMBIO MX': ' 14,53 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '508429,966128711',
 	'anio': '2008',
 	'id': 919
@@ -32243,7 +32243,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/04/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 14,56 ',
 	'TIPO DE CAMBIO MX': ' 14,56 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '16832,703538303',
 	'anio': '2009',
 	'id': 920
@@ -32278,7 +32278,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/09/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 14,54 ',
 	'TIPO DE CAMBIO MX': ' 14,54 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '361750,708371159',
 	'anio': '2009',
 	'id': 921
@@ -32313,7 +32313,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/04/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 14,53 ',
 	'TIPO DE CAMBIO MX': ' 14,53 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '24085,9386290284',
 	'anio': '2009',
 	'id': 922
@@ -32348,7 +32348,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/04/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 14,53 ',
 	'TIPO DE CAMBIO MX': ' 14,53 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '3854,09497591191',
 	'anio': '2009',
 	'id': 923
@@ -32383,7 +32383,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/05/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,83 ',
 	'TIPO DE CAMBIO MX': ' 12,83 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '98120,6463979056',
 	'anio': '2009',
 	'id': 924
@@ -32418,7 +32418,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,65 ',
 	'TIPO DE CAMBIO MX': ' 13,65 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '560589,075722607',
 	'anio': '2009',
 	'id': 925
@@ -32453,7 +32453,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/11/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,210,35 ',
 	'TIPO DE CAMBIO MX': ' 13,10 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '311978,074060669',
 	'anio': '2009',
 	'id': 926
@@ -32488,7 +32488,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/06/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,30 ',
 	'TIPO DE CAMBIO MX': ' 13,30 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '41358,6699051759',
 	'anio': '2009',
 	'id': 927
@@ -32523,7 +32523,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/08/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 14,15 ',
 	'TIPO DE CAMBIO MX': ' 14,15 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '383054,453528551',
 	'anio': '2009',
 	'id': 928
@@ -32558,7 +32558,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/06/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,10 ',
 	'TIPO DE CAMBIO MX': ' 13,10 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '14882,088071434',
 	'anio': '2009',
 	'id': 929
@@ -32593,7 +32593,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/08/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,48 ',
 	'TIPO DE CAMBIO MX': ' 13,48 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '23740,1051983412',
 	'anio': '2009',
 	'id': 930
@@ -32628,7 +32628,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/09/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,17 ',
 	'TIPO DE CAMBIO MX': ' 13,17 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '49366,9636279402',
 	'anio': '2009',
 	'id': 931
@@ -32663,7 +32663,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/11/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,091,10 ',
 	'TIPO DE CAMBIO MX': ' 13,48 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '49058,4892623747',
 	'anio': '2009',
 	'id': 932
@@ -32698,7 +32698,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2009',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 1,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '60743,2452',
 	'anio': '2008',
 	'id': 933
@@ -32733,7 +32733,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/08/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,26 ',
 	'TIPO DE CAMBIO MX': ' 13,26 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '49003,7167434392',
 	'anio': '2009',
 	'id': 934
@@ -32768,7 +32768,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/10/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,22 ',
 	'TIPO DE CAMBIO MX': ' 13,22 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '50662,7749589783',
 	'anio': '2009',
 	'id': 935
@@ -32803,7 +32803,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '08/10/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,32 ',
 	'TIPO DE CAMBIO MX': ' 10,32 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': 'Sin dato',
 	'anio': '2009',
 	'id': 936
@@ -32838,7 +32838,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/08/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,71 ',
 	'TIPO DE CAMBIO MX': ' 13,71 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '15322,6512564574',
 	'anio': '2009',
 	'id': 937
@@ -32873,7 +32873,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/09/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,085,74 ',
 	'TIPO DE CAMBIO MX': ' 13,76 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '28766,7686288799',
 	'anio': '2009',
 	'id': 938
@@ -32908,7 +32908,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/09/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,58 ',
 	'TIPO DE CAMBIO MX': ' 13,58 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '62611,4114821963',
 	'anio': '2009',
 	'id': 939
@@ -32943,7 +32943,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '08/06/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,21 ',
 	'TIPO DE CAMBIO MX': ' 13,21 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '11812,9912614154',
 	'anio': '2009',
 	'id': 940
@@ -32978,7 +32978,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/07/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,23 ',
 	'TIPO DE CAMBIO MX': ' 13,23 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '27188,1635521434',
 	'anio': '2009',
 	'id': 941
@@ -33013,7 +33013,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/12/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,35 ',
 	'TIPO DE CAMBIO MX': ' 12,35 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '127131,794248684',
 	'anio': '2009',
 	'id': 942
@@ -33048,7 +33048,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/05/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,09 ',
 	'TIPO DE CAMBIO MX': ' 13,09 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '17193,9477303989',
 	'anio': '2009',
 	'id': 943
@@ -33083,7 +33083,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/11/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,58 ',
 	'TIPO DE CAMBIO MX': ' 13,58 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '17089,2323104347',
 	'anio': '2009',
 	'id': 944
@@ -33118,7 +33118,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/10/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,31 ',
 	'TIPO DE CAMBIO MX': ' 13,31 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '33077,9630464173',
 	'anio': '2009',
 	'id': 945
@@ -33153,7 +33153,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/10/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,32 ',
 	'TIPO DE CAMBIO MX': ' 13,32 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '2401,91552763329',
 	'anio': '2009',
 	'id': 946
@@ -33188,7 +33188,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/02/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,981,61 ',
 	'TIPO DE CAMBIO MX': ' 13,30 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '18570,7581209219',
 	'anio': '2009',
 	'id': 947
@@ -33223,7 +33223,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/01/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,26 ',
 	'TIPO DE CAMBIO MX': ' 13,26 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '212703,369311882',
 	'anio': '2009',
 	'id': 948
@@ -33258,7 +33258,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/05/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,47 ',
 	'TIPO DE CAMBIO MX': ' 12,47 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '49587,5057123845',
 	'anio': '2009',
 	'id': 949
@@ -33293,7 +33293,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '17/03/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,70 ',
 	'TIPO DE CAMBIO MX': ' 12,70 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '94503,0713498189',
 	'anio': '2009',
 	'id': 950
@@ -33328,7 +33328,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/11/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,08 ',
 	'TIPO DE CAMBIO MX': ' 13,08 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '12228,6762457964',
 	'anio': '2009',
 	'id': 951
@@ -33363,7 +33363,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/01/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,05 ',
 	'TIPO DE CAMBIO MX': ' 13,05 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '15325,4356255077',
 	'anio': '2009',
 	'id': 952
@@ -33398,7 +33398,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/03/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,75 ',
 	'TIPO DE CAMBIO MX': ' 12,75 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '25884,5861211555',
 	'anio': '2009',
 	'id': 953
@@ -33433,7 +33433,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/01/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,95 ',
 	'TIPO DE CAMBIO MX': ' 12,95 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '27414,1858759025',
 	'anio': '2009',
 	'id': 954
@@ -33468,7 +33468,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/11/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,83 ',
 	'TIPO DE CAMBIO MX': ' 12,83 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '67745,6070598874',
 	'anio': '2009',
 	'id': 955
@@ -33503,7 +33503,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/12/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,05 ',
 	'TIPO DE CAMBIO MX': ' 13,05 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '12260,3485004061',
 	'anio': '2009',
 	'id': 956
@@ -33538,7 +33538,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/12/2009',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 13,23 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '72000',
 	'anio': '2009',
 	'id': 957
@@ -33573,7 +33573,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/09/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,32 ',
 	'TIPO DE CAMBIO MX': ' 13,32 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '590632,772213296',
 	'anio': '2009',
 	'id': 958
@@ -33608,7 +33608,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/04/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,77 ',
 	'TIPO DE CAMBIO MX': ' 13,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '296343,642412005',
 	'anio': '2009',
 	'id': 959
@@ -33643,7 +33643,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/03/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,72 ',
 	'TIPO DE CAMBIO MX': ' 12,72 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '75121,4290766486',
 	'anio': '2009',
 	'id': 960
@@ -33678,7 +33678,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/02/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 2,016,73 ',
 	'TIPO DE CAMBIO MX': ' 12,97 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '20945,4807090413',
 	'anio': '2009',
 	'id': 961
@@ -33713,7 +33713,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/04/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,06 ',
 	'TIPO DE CAMBIO MX': ' 13,06 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '130167,456604467',
 	'anio': '2010',
 	'id': 962
@@ -33748,7 +33748,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/12/2012',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,73 ',
 	'TIPO DE CAMBIO MX': ' 12,73 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '796926,316451121',
 	'anio': '2009',
 	'id': 963
@@ -33783,7 +33783,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/09/2010',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 13,52 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '700000',
 	'anio': '2009',
 	'id': 964
@@ -33818,7 +33818,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/06/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,71 ',
 	'TIPO DE CAMBIO MX': ' 12,71 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1256613,65502596',
 	'anio': '2010',
 	'id': 965
@@ -33853,7 +33853,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/02/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,90 ',
 	'TIPO DE CAMBIO MX': ' 12,90 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '635719,157907792',
 	'anio': '2010',
 	'id': 966
@@ -33888,7 +33888,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/09/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,25 ',
 	'TIPO DE CAMBIO MX': ' 12,25 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '114188,588576328',
 	'anio': '2010',
 	'id': 967
@@ -33923,7 +33923,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/07/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,71 ',
 	'TIPO DE CAMBIO MX': ' 12,71 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '127362,831858407',
 	'anio': '2009',
 	'id': 968
@@ -33958,7 +33958,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/06/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,78 ',
 	'TIPO DE CAMBIO MX': ' 12,78 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '53241,5429407759',
 	'anio': '2010',
 	'id': 969
@@ -33993,7 +33993,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/10/2013',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,45 ',
 	'TIPO DE CAMBIO MX': ' 12,45 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '530815,632100847',
 	'anio': '2011',
 	'id': 970
@@ -34028,7 +34028,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/11/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,08 ',
 	'TIPO DE CAMBIO MX': ' 13,08 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '557723,712',
 	'anio': '2009',
 	'id': 971
@@ -34063,7 +34063,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/05/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,19 ',
 	'TIPO DE CAMBIO MX': ' 12,19 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '18288,5823478275',
 	'anio': '2010',
 	'id': 972
@@ -34098,7 +34098,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/06/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,86 ',
 	'TIPO DE CAMBIO MX': ' 12,86 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '286440,070304237',
 	'anio': '2010',
 	'id': 973
@@ -34133,7 +34133,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/06/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,86 ',
 	'TIPO DE CAMBIO MX': ' 12,86 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1774474,81801779',
 	'anio': '2010',
 	'id': 974
@@ -34168,7 +34168,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/04/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,902,31 ',
 	'TIPO DE CAMBIO MX': ' 12,66 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '76748,7948862173',
 	'anio': '2010',
 	'id': 975
@@ -34203,7 +34203,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/06/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,894,30 ',
 	'TIPO DE CAMBIO MX': ' 12,60 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '58887,1878794278',
 	'anio': '2010',
 	'id': 976
@@ -34238,7 +34238,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/06/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,25 ',
 	'TIPO DE CAMBIO MX': ' 12,25 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '25884,9467194709',
 	'anio': '2010',
 	'id': 977
@@ -34273,7 +34273,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/11/2010',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 12,96 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '26452',
 	'anio': '2010',
 	'id': 978
@@ -34308,7 +34308,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/06/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,86 ',
 	'TIPO DE CAMBIO MX': ' 12,86 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '43938,4395243761',
 	'anio': '2010',
 	'id': 979
@@ -34343,7 +34343,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/06/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,86 ',
 	'TIPO DE CAMBIO MX': ' 12,86 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '82483,1890752708',
 	'anio': '2010',
 	'id': 980
@@ -34378,7 +34378,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/06/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,86 ',
 	'TIPO DE CAMBIO MX': ' 12,86 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '48935,0418776101',
 	'anio': '2010',
 	'id': 981
@@ -34413,7 +34413,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/08/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,943,41 ',
 	'TIPO DE CAMBIO MX': ' 12,74 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '26570,7859044066',
 	'anio': '2010',
 	'id': 982
@@ -34448,7 +34448,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/08/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,917,82 ',
 	'TIPO DE CAMBIO MX': ' 12,59 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '78636,3396082981',
 	'anio': '2010',
 	'id': 983
@@ -34483,7 +34483,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/06/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,21 ',
 	'TIPO DE CAMBIO MX': ' 12,21 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '162296,719673769',
 	'anio': '2010',
 	'id': 984
@@ -34518,7 +34518,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/10/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,981,40 ',
 	'TIPO DE CAMBIO MX': ' 13,06 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '300797,415968507',
 	'anio': '2010',
 	'id': 985
@@ -34553,7 +34553,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/10/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,981,40 ',
 	'TIPO DE CAMBIO MX': ' 13,06 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '33309,7809629555',
 	'anio': '2010',
 	'id': 986
@@ -34589,7 +34589,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/11/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,981,40 ',
 	'TIPO DE CAMBIO MX': ' 13,06 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': 'NO',
 	'anio': '2010',
 	'id': 987
@@ -34624,7 +34624,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/04/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,981,40 ',
 	'TIPO DE CAMBIO MX': ' 13,06 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '154436,257191885',
 	'anio': '2010',
 	'id': 988
@@ -34660,7 +34660,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/05/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,981,40 ',
 	'TIPO DE CAMBIO MX': ' 13,06 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': 'NO',
 	'anio': '2010',
 	'id': 989
@@ -34695,7 +34695,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/08/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,981,40 ',
 	'TIPO DE CAMBIO MX': ' 13,06 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '95286,1613000908',
 	'anio': '2010',
 	'id': 990
@@ -34731,7 +34731,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/10/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,981,40 ',
 	'TIPO DE CAMBIO MX': ' 13,06 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': 'NO',
 	'anio': '2010',
 	'id': 991
@@ -34766,7 +34766,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/10/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,06 ',
 	'TIPO DE CAMBIO MX': ' 13,06 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '196416,264645072',
 	'anio': '2010',
 	'id': 992
@@ -34801,7 +34801,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/12/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,92 ',
 	'TIPO DE CAMBIO MX': ' 12,92 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '170258,857094192',
 	'anio': '2010',
 	'id': 993
@@ -34836,7 +34836,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,79 ',
 	'TIPO DE CAMBIO MX': ' 11,79 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '168581,493547812',
 	'anio': '2011',
 	'id': 994
@@ -34906,7 +34906,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '08/10/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,10 ',
 	'TIPO DE CAMBIO MX': ' 13,10 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '204991,790947897',
 	'anio': '2010',
 	'id': 996
@@ -34941,7 +34941,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/05/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,50 ',
 	'TIPO DE CAMBIO MX': ' 12,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '12879,0727067651',
 	'anio': '2010',
 	'id': 997
@@ -34976,7 +34976,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '11/05/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,87 ',
 	'TIPO DE CAMBIO MX': ' 12,87 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '2052486,36804771',
 	'anio': '2010',
 	'id': 998
@@ -35011,7 +35011,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/01/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,77 ',
 	'TIPO DE CAMBIO MX': ' 12,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '537473,681202984',
 	'anio': '2010',
 	'id': 999
@@ -35046,7 +35046,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,03 ',
 	'TIPO DE CAMBIO MX': ' 13,03 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '412092,214847497',
 	'anio': '2010',
 	'id': 1000
@@ -35081,7 +35081,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/09/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,16 ',
 	'TIPO DE CAMBIO MX': ' 12,16 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '37014,1887723627',
 	'anio': '2010',
 	'id': 1001
@@ -35116,7 +35116,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/11/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,17 ',
 	'TIPO DE CAMBIO MX': ' 13,17 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '163672,378701745',
 	'anio': '2010',
 	'id': 1002
@@ -35152,7 +35152,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/09/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,17 ',
 	'TIPO DE CAMBIO MX': ' 13,17 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': 'Sin dato',
 	'anio': '2011',
 	'id': 1003
@@ -35187,7 +35187,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/11/2009',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,11 ',
 	'TIPO DE CAMBIO MX': ' 13,11 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '21235,035137383',
 	'anio': '2009',
 	'id': 1004
@@ -35222,7 +35222,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '12/10/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,78 ',
 	'TIPO DE CAMBIO MX': ' 12,78 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '68313,6009014578',
 	'anio': '2010',
 	'id': 1005
@@ -35257,7 +35257,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/02/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,24 ',
 	'TIPO DE CAMBIO MX': ' 12,24 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '25333,2134772696',
 	'anio': '2010',
 	'id': 1006
@@ -35292,7 +35292,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '21/02/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,24 ',
 	'TIPO DE CAMBIO MX': ' 12,24 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '26559,0141293955',
 	'anio': '2010',
 	'id': 1007
@@ -35327,7 +35327,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/02/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,02 ',
 	'TIPO DE CAMBIO MX': ' 12,02 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '18296,8920233868',
 	'anio': '2010',
 	'id': 1008
@@ -35362,7 +35362,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/09/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,37 ',
 	'TIPO DE CAMBIO MX': ' 12,37 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '30716,9994341605',
 	'anio': '2011',
 	'id': 1009
@@ -35397,7 +35397,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/07/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,86 ',
 	'TIPO DE CAMBIO MX': ' 12,86 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '349914,07665451',
 	'anio': '2010',
 	'id': 1010
@@ -35432,7 +35432,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/07/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,86 ',
 	'TIPO DE CAMBIO MX': ' 12,86 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '62984,5337978119',
 	'anio': '2010',
 	'id': 1011
@@ -35467,7 +35467,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/07/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,52 ',
 	'TIPO DE CAMBIO MX': ' 12,52 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '151518,797136648',
 	'anio': '2010',
 	'id': 1012
@@ -35502,7 +35502,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '23/11/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,54 ',
 	'TIPO DE CAMBIO MX': ' 12,54 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '93851,8706981122',
 	'anio': '2010',
 	'id': 1013
@@ -35537,7 +35537,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/04/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,50 ',
 	'TIPO DE CAMBIO MX': ' 12,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '14037,1925614877',
 	'anio': '2010',
 	'id': 1014
@@ -35572,7 +35572,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/07/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,86 ',
 	'TIPO DE CAMBIO MX': ' 12,86 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '225461,613216715',
 	'anio': '2010',
 	'id': 1015
@@ -35607,7 +35607,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '17/09/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,06 ',
 	'TIPO DE CAMBIO MX': ' 13,06 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '34469,5518958254',
 	'anio': '2010',
 	'id': 1016
@@ -35642,7 +35642,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/01/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,36 ',
 	'TIPO DE CAMBIO MX': ' 12,36 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '13997,1034895669',
 	'anio': '2010',
 	'id': 1017
@@ -35677,7 +35677,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '25/09/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,94 ',
 	'TIPO DE CAMBIO MX': ' 12,94 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '14687,6932591218',
 	'anio': '2010',
 	'id': 1018
@@ -35712,7 +35712,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,01 ',
 	'TIPO DE CAMBIO MX': ' 13,01 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8355,80869805839',
 	'anio': '2010',
 	'id': 1019
@@ -35747,7 +35747,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,15 ',
 	'TIPO DE CAMBIO MX': ' 12,15 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8945,71219315498',
 	'anio': '2011',
 	'id': 1020
@@ -35817,7 +35817,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '24/11/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,94 ',
 	'TIPO DE CAMBIO MX': ' 12,94 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '407563,40445269',
 	'anio': '2010',
 	'id': 1022
@@ -35852,7 +35852,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/08/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,88 ',
 	'TIPO DE CAMBIO MX': ' 12,88 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '63007,8698601431',
 	'anio': '2010',
 	'id': 1023
@@ -35887,7 +35887,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/08/2011',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 12,44 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '108501,48',
 	'anio': '2010',
 	'id': 1024
@@ -35922,7 +35922,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/06/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,875,78 ',
 	'TIPO DE CAMBIO MX': ' 12,29 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '73969,2288008189',
 	'anio': '2010',
 	'id': 1025
@@ -35957,7 +35957,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '07/06/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,889,75 ',
 	'TIPO DE CAMBIO MX': ' 12,41 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '89958,9892842969',
 	'anio': '2010',
 	'id': 1026
@@ -35992,7 +35992,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '27/03/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,39 ',
 	'TIPO DE CAMBIO MX': ' 12,39 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '143627,542000016',
 	'anio': '2010',
 	'id': 1027
@@ -36027,7 +36027,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/02/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,842,43 ',
 	'TIPO DE CAMBIO MX': ' 12,09 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '43420,9169412135',
 	'anio': '2011',
 	'id': 1028
@@ -36062,7 +36062,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '22/05/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,05 ',
 	'TIPO DE CAMBIO MX': ' 12,05 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '75149,2102620287',
 	'anio': '2011',
 	'id': 1029
@@ -36097,7 +36097,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/05/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,10 ',
 	'TIPO DE CAMBIO MX': ' 12,10 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '280894,857676695',
 	'anio': '2011',
 	'id': 1030
@@ -36132,7 +36132,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/08/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,98 ',
 	'TIPO DE CAMBIO MX': ' 11,98 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '568122,454177279',
 	'anio': '2011',
 	'id': 1031
@@ -36167,7 +36167,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '09/06/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,97 ',
 	'TIPO DE CAMBIO MX': ' 11,97 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '165356,393823426',
 	'anio': '2011',
 	'id': 1032
@@ -36202,7 +36202,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '08/07/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,07 ',
 	'TIPO DE CAMBIO MX': ' 12,07 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '330445,292850634',
 	'anio': '2011',
 	'id': 1033
@@ -36237,7 +36237,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/10/2017',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,10 ',
 	'TIPO DE CAMBIO MX': ' 12,10 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '8888618,10738011',
 	'anio': '2011',
 	'id': 1034
@@ -36272,7 +36272,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '01/09/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,58 ',
 	'TIPO DE CAMBIO MX': ' 11,58 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '82052,1679046467',
 	'anio': '2011',
 	'id': 1035
@@ -36307,7 +36307,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/11/2008',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,77 ',
 	'TIPO DE CAMBIO MX': ' 10,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '244094,451617698',
 	'anio': '2011',
 	'id': 1036
@@ -36342,7 +36342,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '17/06/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,811,10 ',
 	'TIPO DE CAMBIO MX': ' 11,71 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '55215,0626690961',
 	'anio': '2011',
 	'id': 1037
@@ -36377,7 +36377,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/05/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,871,97 ',
 	'TIPO DE CAMBIO MX': ' 11,94 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '56090,6424782448',
 	'anio': '2011',
 	'id': 1038
@@ -36412,7 +36412,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 11,69 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '310000',
 	'anio': '2011',
 	'id': 1039
@@ -36447,7 +36447,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,77 ',
 	'TIPO DE CAMBIO MX': ' 10,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '2334379,90580848',
 	'anio': '2011',
 	'id': 1040
@@ -36482,7 +36482,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '02/06/2012',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,98 ',
 	'TIPO DE CAMBIO MX': ' 11,98 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1399885,17538441',
 	'anio': '2011',
 	'id': 1041
@@ -36517,7 +36517,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '05/10/2014',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,53 ',
 	'TIPO DE CAMBIO MX': ' 13,53 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '2727910,44103413',
 	'anio': '2011',
 	'id': 1042
@@ -36552,7 +36552,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,902,47 ',
 	'TIPO DE CAMBIO MX': ' 13,37 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '108751,544951635',
 	'anio': '2011',
 	'id': 1043
@@ -36587,7 +36587,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '13/01/2013',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,64 ',
 	'TIPO DE CAMBIO MX': ' 13,64 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '554164,405',
 	'anio': '2011',
 	'id': 1044
@@ -36622,7 +36622,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 13,67 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '269000',
 	'anio': '2011',
 	'id': 1045
@@ -36657,7 +36657,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '22/01/2012',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,935,72 ',
 	'TIPO DE CAMBIO MX': ' 13,82 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '18391,0896203996',
 	'anio': '2011',
 	'id': 1046
@@ -36692,7 +36692,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/01/2012',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,895,33 ',
 	'TIPO DE CAMBIO MX': ' 13,44 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '6331,35126864451',
 	'anio': '2011',
 	'id': 1047
@@ -36727,7 +36727,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,895,33 ',
 	'TIPO DE CAMBIO MX': ' 13,44 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '84418,0169152601',
 	'anio': '2011',
 	'id': 1048
@@ -36762,7 +36762,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '31/07/2010',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,82 ',
 	'TIPO DE CAMBIO MX': ' 12,82 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '23785,0146609271',
 	'anio': '2010',
 	'id': 1049
@@ -36797,7 +36797,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Sin dato',
 	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
 	'TIPO DE CAMBIO MX': 'Sin dato',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '',
 	'anio': '2011',
 	'id': 1050
@@ -36832,7 +36832,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '22/10/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,24 ',
 	'TIPO DE CAMBIO MX': ' 12,24 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '30232,2161031491',
 	'anio': '2011',
 	'id': 1051
@@ -36867,7 +36867,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '21/07/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,63 ',
 	'TIPO DE CAMBIO MX': ' 11,63 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '52030,9261504855',
 	'anio': '2011',
 	'id': 1052
@@ -36902,7 +36902,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Pendiente fecha',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,67 ',
 	'TIPO DE CAMBIO MX': ' 11,67 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '18858,8670964202',
 	'anio': '2011',
 	'id': 1053
@@ -36937,7 +36937,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/04/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,11 ',
 	'TIPO DE CAMBIO MX': ' 12,11 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '29406,4198509854',
 	'anio': '2011',
 	'id': 1054
@@ -36972,7 +36972,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/08/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,77 ',
 	'TIPO DE CAMBIO MX': ' 11,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9341,98457723273',
 	'anio': '2011',
 	'id': 1055
@@ -37007,7 +37007,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '04/08/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,77 ',
 	'TIPO DE CAMBIO MX': ' 11,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '9341,98457723273',
 	'anio': '2011',
 	'id': 1056
@@ -37042,7 +37042,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '29/10/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,37 ',
 	'TIPO DE CAMBIO MX': ' 12,37 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '13124,8232108943',
 	'anio': '2011',
 	'id': 1057
@@ -37077,7 +37077,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'Pendiente fecha',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,63 ',
 	'TIPO DE CAMBIO MX': ' 12,63 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '15436,4966277192',
 	'anio': '2011',
 	'id': 1058
@@ -37112,7 +37112,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '18/11/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,46 ',
 	'TIPO DE CAMBIO MX': ' 13,46 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '20807,478802381',
 	'anio': '2011',
 	'id': 1059
@@ -37147,7 +37147,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '10/11/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,67 ',
 	'TIPO DE CAMBIO MX': ' 13,67 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '29266,5081397476',
 	'anio': '2011',
 	'id': 1060
@@ -37322,7 +37322,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/01/2012',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,36 ',
 	'TIPO DE CAMBIO MX': ' 13,36 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '157130,350849626',
 	'anio': '2011',
 	'id': 1065
@@ -37357,7 +37357,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/08/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,90 ',
 	'TIPO DE CAMBIO MX': ' 11,90 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '315281,32110986',
 	'anio': '2011',
 	'id': 1066
@@ -37392,7 +37392,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '27/06/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,53 ',
 	'TIPO DE CAMBIO MX': ' 11,53 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '42939,676260865',
 	'anio': '2011',
 	'id': 1067
@@ -37427,7 +37427,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '14/02/2012',
 	'TIPO DE CAMBIO DE MONEDA': ' 1,00 ',
 	'TIPO DE CAMBIO MX': ' 1,00 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '127120,71',
 	'anio': '2011',
 	'id': 1068
@@ -37462,7 +37462,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '29/05/2017',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,77 ',
 	'TIPO DE CAMBIO MX': ' 11,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '5917338,89322961',
 	'anio': '2011',
 	'id': 1069
@@ -37497,7 +37497,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '26/09/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,50 ',
 	'TIPO DE CAMBIO MX': ' 12,50 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '28010,531960017',
 	'anio': '2011',
 	'id': 1070
@@ -37532,7 +37532,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '18/04/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,84 ',
 	'TIPO DE CAMBIO MX': ' 11,84 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '5911,56301726176',
 	'anio': '2011',
 	'id': 1071
@@ -37567,7 +37567,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '19/01/2012',
 	'TIPO DE CAMBIO DE MONEDA': 'NO',
 	'TIPO DE CAMBIO MX': ' 13,94 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '126000',
 	'anio': '2011',
 	'id': 1072
@@ -38302,7 +38302,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/06/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,37 ',
 	'TIPO DE CAMBIO MX': ' 12,37 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7275,49048931715',
 	'anio': '2010',
 	'id': 1093
@@ -38337,7 +38337,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/06/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,37 ',
 	'TIPO DE CAMBIO MX': ' 12,37 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7275,49048931715',
 	'anio': '2010',
 	'id': 1094
@@ -38372,7 +38372,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/06/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,80 ',
 	'TIPO DE CAMBIO MX': ' 12,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7029,1632171699',
 	'anio': '2010',
 	'id': 1095
@@ -38407,7 +38407,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/06/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,80 ',
 	'TIPO DE CAMBIO MX': ' 12,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7029,1632171699',
 	'anio': '2010',
 	'id': 1096
@@ -38442,7 +38442,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/06/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 12,80 ',
 	'TIPO DE CAMBIO MX': ' 12,80 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7029,1632171699',
 	'anio': '2010',
 	'id': 1097
@@ -38477,7 +38477,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,90 ',
 	'TIPO DE CAMBIO MX': ' 11,90 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7562,64390030755',
 	'anio': '2011',
 	'id': 1098
@@ -38512,7 +38512,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,90 ',
 	'TIPO DE CAMBIO MX': ' 11,90 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7562,64390030755',
 	'anio': '2011',
 	'id': 1099
@@ -38547,7 +38547,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '20/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,90 ',
 	'TIPO DE CAMBIO MX': ' 11,90 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7562,64390030755',
 	'anio': '2011',
 	'id': 1100
@@ -38582,7 +38582,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,77 ',
 	'TIPO DE CAMBIO MX': ' 11,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7223,03894492645',
 	'anio': '2011',
 	'id': 1101
@@ -38617,7 +38617,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,77 ',
 	'TIPO DE CAMBIO MX': ' 11,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7223,03894492645',
 	'anio': '2011',
 	'id': 1102
@@ -38652,7 +38652,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,77 ',
 	'TIPO DE CAMBIO MX': ' 11,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7223,03894492645',
 	'anio': '2011',
 	'id': 1103
@@ -38687,7 +38687,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,77 ',
 	'TIPO DE CAMBIO MX': ' 11,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7223,03894492645',
 	'anio': '2011',
 	'id': 1104
@@ -38722,7 +38722,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,77 ',
 	'TIPO DE CAMBIO MX': ' 11,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7223,03894492645',
 	'anio': '2011',
 	'id': 1105
@@ -38757,7 +38757,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '15/12/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,77 ',
 	'TIPO DE CAMBIO MX': ' 11,77 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '7223,03894492645',
 	'anio': '2011',
 	'id': 1106
@@ -39072,7 +39072,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '16/11/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,33 ',
 	'TIPO DE CAMBIO MX': ' 13,33 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '28514,3997718848',
 	'anio': '2011',
 	'id': 1115
@@ -40472,7 +40472,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '28/12/2005',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,63 ',
 	'TIPO DE CAMBIO MX': ' 10,63 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '81795,2286469255',
 	'anio': '2005',
 	'id': 1155
@@ -42642,7 +42642,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '30/06/2011',
 	'TIPO DE CAMBIO DE MONEDA': ' 10,74 ',
 	'TIPO DE CAMBIO MX': ' 10,74 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '1773335,33302282',
 	'anio': '2007',
 	'id': 1217
@@ -42677,7 +42677,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': 'INDEFINIDO',
 	'TIPO DE CAMBIO DE MONEDA': ' 11,12 ',
 	'TIPO DE CAMBIO MX': ' 11,12 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '3144395,25650825',
 	'anio': '2007',
 	'id': 1218
@@ -42712,7 +42712,7 @@ export const PROYECTOS: Proyecto[] = [
 	'fecha_fin': '06/02/2014',
 	'TIPO DE CAMBIO DE MONEDA': ' 13,18 ',
 	'TIPO DE CAMBIO MX': ' 13,18 ',
-	'unidad_negocio': 'Sin dato',
+	'unidad_negocio': 'Sin referencia',
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': '304137,153262519',
 	'anio': '2007',
 	'id': 1219
@@ -46570,5 +46570,414 @@ export const PROYECTOS: Proyecto[] = [
 	'VALOR DEL contrato CORRESPONDIENTE A C&M': 'Sin dato',
 	'anio': '2015',
 	'id': 1329
-	}
+	}, {
+	'anticipo': '0',
+	'certificacion': 'No',
+	'contratante': 'Libramiento Elevado de Puebla S,A de C,V',
+	'contrato': 'COPIA SIMPLE',
+	'CYM': '1',
+	'datos_cliente': 'Sergio Hidalgo Monroy PortilloRepresentante LegalAvenida Paseo de la Reforma 222 Piso 25, Colonia Juárez, Delegación Cuauhtémoc, C,P, 06600, Ciudad de México',
+	'DOCUMENTOS AREA LEGAL': 'contrato ORIGINAL',
+	'ELECTRONICO': 'NO',
+	'ELECTRONICO 2': 'NO',
+	'ESTATUS PROYECTO': 'Sin dato',
+	'gerencia': 'Planeación',
+	'fecha_inicio': '17/01/2015',
+	'iva': '0,16',
+	'duracion': '4,2',
+	'moneda': 'MXN',
+	'monto': '2755000',
+	'monto_moneda_original': 'Sin dato',
+	'montoUsd': '0',
+	'numero_contrato': '1137',
+	// 'nombre_proyecto': 'Estudio de aforos e ingresos del Viaducto Elevado de la Ciudad de Puebla',
+	'nombre_proyecto': 'museo maya',
+	'NOMBRE': 'NO',
+	'nombre_corto': 'Sin dato',
+	'numero_propuesta': 'Propuesta adjunta al contrato ',
+	'OTROS DOCUMENTOS': 'NO',
+	'pais': 'México',
+	'producto': 'AFORO',
+	'SOCIO': '0',
+	'fecha_fin': '23/05/2015',
+	'TIPO DE CAMBIO DE MONEDA': 'Sin dato',
+	'TIPO DE CAMBIO MX': 'Sin dato',
+	'unidad_negocio': 'Consultoría',
+	'VALOR DEL contrato CORRESPONDIENTE A C&M': 'Sin dato',
+	'anio': '2017',
+	'id': 1330
+	},
+	{
+	'anticipo': '0',
+	'certificacion': 'No',
+	'contratante': 'Secretaría de Comunicaciones y Transportes (SCT)',
+	'contrato': 'COPIA',
+	'CYM': '1',
+	'datos_cliente': 'Ing, José San Martín RomeroDirector de Desarrollo CarreteroAv, Insurgentes Sur 1089 Piso 7 Col, Noche Buena, Del, Benito Juárez, México D,F, Tel, 54824346 y 54824200 Ext,11506',
+	'DOCUMENTOS AREA LEGAL': 'contrato original',
+	'ELECTRONICO': 'NO',
+	'ELECTRONICO 2': 'NO',
+	'ESTATUS PROYECTO': 'Sin dato',
+	'gerencia': 'Desarrollo Software',
+	'fecha_inicio': '09/07/2012',
+	'iva': '0,16',
+	'duracion': '3,8',
+	'moneda': 'MXN',
+	'monto': '1999913,03',
+	'monto_moneda_original': '1999913,03',
+	'montoUsd': '0',
+	'numero_contrato': '838',
+	'nombre_proyecto': 'Actualización de los sistemas de indicadores para seguimiento de las obras en Proceso de Construcción de autopistas de Cuota',
+	'NOMBRE': 'NO',
+	'nombre_corto': 'Sin dato',
+	'numero_propuesta': '1923',
+	'OTROS DOCUMENTOS': 'ACTA FINIQUITO',
+	'pais': 'México',
+	'producto': 'SOFTWARE',
+	'SOCIO': 'NO',
+	'fecha_fin': '31/10/2012',
+	'TIPO DE CAMBIO DE MONEDA': ' 13,49 ',
+	'TIPO DE CAMBIO MX': ' 13,49 ',
+	'unidad_negocio': 'Desarrollo de sistemas',
+	'VALOR DEL contrato CORRESPONDIENTE A C&M': '148224,052621827',
+	'anio': '2015',
+	'id': 1331
+},
+	{
+	'anticipo': '0',
+	'certificacion': 'No',
+	'contratante': 'Secretaría de Comunicaciones y Transportes (SCT)',
+	'contrato': 'COPIA',
+	'CYM': '1',
+	'datos_cliente': 'Ing, José San Martín RomeroDirector de Desarrollo CarreteroAv, Insurgentes Sur 1089 Piso 7 Col, Noche Buena, Del, Benito Juárez, México D,F, Tel, 54824346 y 54824200 Ext,11506',
+	'DOCUMENTOS AREA LEGAL': 'contrato original',
+	'ELECTRONICO': 'NO',
+	'ELECTRONICO 2': 'NO',
+	'ESTATUS PROYECTO': 'Sin dato',
+	'gerencia': 'Desarrollo Software',
+	'fecha_inicio': '09/07/2012',
+	'iva': '0,16',
+	'duracion': '3,8',
+	'moneda': 'MXN',
+	'monto': '1999913,03',
+	'monto_moneda_original': '1999913,03',
+	'montoUsd': '0',
+	'numero_contrato': '838',
+	'nombre_proyecto': 'Actualización de los sistemas de indicadores para seguimiento de las obras en Proceso de Construcción de autopistas de Cuota',
+	'NOMBRE': 'NO',
+	'nombre_corto': 'Sin dato',
+	'numero_propuesta': '1923',
+	'OTROS DOCUMENTOS': 'ACTA FINIQUITO',
+	'pais': 'México',
+	'producto': 'SOFTWARE',
+	'SOCIO': 'NO',
+	'fecha_fin': '31/10/2012',
+	'TIPO DE CAMBIO DE MONEDA': ' 13,49 ',
+	'TIPO DE CAMBIO MX': ' 13,49 ',
+	'unidad_negocio': 'Desarrollo de sistemas',
+	'VALOR DEL contrato CORRESPONDIENTE A C&M': '148224,052621827',
+	'anio': '2017',
+	'id': 1332
+},
+{
+	'anticipo': '0,5',
+	'certificacion': 'No',
+	'contratante': 'STRACIENTA LATINOAMERICA S,A, DE C,V,',
+	'contrato': 'COPIA SIMPLE',
+	'CYM': '1',
+	'datos_cliente': 'Ing, José de Passos Vieira LimaCalle Aristóteles 131 Col, Polanco, Del, Miguel Hidalgo C,P, 11550 México, D,F,',
+	'DOCUMENTOS AREA LEGAL': 'contrato ORIGINAL',
+	'ELECTRONICO': 'NO',
+	'ELECTRONICO 2': 'NO',
+	'ESTATUS PROYECTO': 'Sin dato',
+	'gerencia': 'Perú',
+	'fecha_inicio': '19/06/2012',
+	'iva': '0,16',
+	'duracion': '1,0',
+	'moneda': 'MXN',
+	'monto': '525000',
+	'monto_moneda_original': '525000',
+	'montoUsd': '0',
+	'numero_contrato': '920',
+	'nombre_proyecto': 'Estudios de prefactibilidad financiera a nivel Perfil, para el estacionamiento, subterráneo de Ecatepec y para el Teleférico de Naucalpan',
+	'NOMBRE': 'NO',
+	'nombre_corto': 'Sin dato',
+	'numero_propuesta': 'Sin dato',
+	'OTROS DOCUMENTOS': 'NO',
+	'pais': 'México',
+	'producto': 'FACT',
+	'SOCIO': 'NO',
+	'fecha_fin': '19/07/2012',
+	'TIPO DE CAMBIO DE MONEDA': ' 13,92 ',
+	'TIPO DE CAMBIO MX': ' 13,92 ',
+	'unidad_negocio': 'Suramérica',
+	'VALOR DEL contrato CORRESPONDIENTE A C&M': '37727,9848225707',
+	'anio': '2015',
+	'id': 1333
+},
+{
+	'anticipo': '0,5',
+	'certificacion': 'No',
+	'contratante': 'STRACIENTA LATINOAMERICA S,A, DE C,V,',
+	'contrato': 'COPIA SIMPLE',
+	'CYM': '1',
+	'datos_cliente': 'Ing, José de Passos Vieira LimaCalle Aristóteles 131 Col, Polanco, Del, Miguel Hidalgo C,P, 11550 México, D,F,',
+	'DOCUMENTOS AREA LEGAL': 'contrato ORIGINAL',
+	'ELECTRONICO': 'NO',
+	'ELECTRONICO 2': 'NO',
+	'ESTATUS PROYECTO': 'Sin dato',
+	'gerencia': 'Perú',
+	'fecha_inicio': '19/06/2012',
+	'iva': '0,16',
+	'duracion': '1,0',
+	'moneda': 'MXN',
+	'monto': '525000',
+	'monto_moneda_original': '525000',
+	'montoUsd': '0',
+	'numero_contrato': '920',
+	'nombre_proyecto': 'Estudios de prefactibilidad financiera a nivel Perfil, para el estacionamiento, subterráneo de Ecatepec y para el Teleférico de Naucalpan',
+	'NOMBRE': 'NO',
+	'nombre_corto': 'Sin dato',
+	'numero_propuesta': 'Sin dato',
+	'OTROS DOCUMENTOS': 'NO',
+	'pais': 'México',
+	'producto': 'FACT',
+	'SOCIO': 'NO',
+	'fecha_fin': '19/07/2012',
+	'TIPO DE CAMBIO DE MONEDA': ' 13,92 ',
+	'TIPO DE CAMBIO MX': ' 13,92 ',
+	'unidad_negocio': 'Suramérica',
+	'VALOR DEL contrato CORRESPONDIENTE A C&M': '37727,9848225707',
+	'anio': '2017',
+	'id': 1334
+},
+//
+{
+	'anticipo': '0',
+	'certificacion': 'NO',
+	'contratante': 'Coordinación General de Transporte del D.D.F.',
+	//'contratante': 'Alfonso hernandez',
+	'contrato': 'No',
+	'CYM': '1',
+	'datos_cliente': 'Lic, José Cuenca DardonDirector General de Servicios UrbanosPlaza de la Constitución 1, Col, Centro',
+	'DOCUMENTOS AREA LEGAL': 'NO SE SABE',
+	'ELECTRONICO': 'NO',
+	'ELECTRONICO 2': 'NO',
+	'ESTATUS PROYECTO': 'Sin dato',
+	'gerencia': 'Sin dato',
+	'fecha_inicio': '15/01/1989',
+	'iva': 'no indica el % de IVA',
+	'duracion': '3,0',
+	'moneda': 'MXN',
+	'monto': '173000',
+	'monto_moneda_original': '173000',
+	'montoUsd': '0',
+	'numero_contrato': '1',
+	'nombre_proyecto': 'Análisis integral de los medios de transporte colectivo del Distrito Federal y de la utilización del abono de transporte_origenDatos_1330_201705181520',
+	//'nombre_proyecto': 'Metrobus df ',
+	'NOMBRE': 'NO',
+	'nombre_corto': 'CGT DDF',
+	'numero_propuesta': 'S/D',
+	'OTROS DOCUMENTOS': 'NO',
+	'pais': 'México',
+	'producto': 'TPUBLIC',
+	'SOCIO': 'NO',
+	'fecha_fin': 'fin',
+	'TIPO DE CAMBIO DE MONEDA': '2,50 ',
+	'TIPO DE CAMBIO MX': '2,50 ',
+	'unidad_negocio': 'Sin referencia',
+	'VALOR DEL contrato CORRESPONDIENTE A C&M': '69200',
+	'anio': '2012',
+	'id': 1335
+},
+{
+	'anticipo': '0',
+	'certificacion': 'NO',
+	'contratante': 'Coordinación General de Transporte del D.D.F.',
+	//'contratante': 'Alfonso hernandez',
+	'contrato': 'No',
+	'CYM': '1',
+	'datos_cliente': 'Lic, José Cuenca DardonDirector General de Servicios UrbanosPlaza de la Constitución 1, Col, Centro',
+	'DOCUMENTOS AREA LEGAL': 'NO SE SABE',
+	'ELECTRONICO': 'NO',
+	'ELECTRONICO 2': 'NO',
+	'ESTATUS PROYECTO': 'Sin dato',
+	'gerencia': 'Sin dato',
+	'fecha_inicio': '15/01/1989',
+	'iva': 'no indica el % de IVA',
+	'duracion': '3,0',
+	'moneda': 'MXN',
+	'monto': '173000',
+	'monto_moneda_original': '173000',
+	'montoUsd': '0',
+	'numero_contrato': '1',
+	'nombre_proyecto': 'Análisis integral de los medios de transporte colectivo del Distrito Federal y de la utilización del abono de transporte_origenDatos_1330_201705181520',
+	//'nombre_proyecto': 'Metrobus df ',
+	'NOMBRE': 'NO',
+	'nombre_corto': 'CGT DDF',
+	'numero_propuesta': 'S/D',
+	'OTROS DOCUMENTOS': 'NO',
+	'pais': 'México',
+	'producto': 'TPUBLIC',
+	'SOCIO': 'NO',
+	'fecha_fin': 'fin',
+	'TIPO DE CAMBIO DE MONEDA': '2,50 ',
+	'TIPO DE CAMBIO MX': '2,50 ',
+	'unidad_negocio': 'Sin referencia',
+	'VALOR DEL contrato CORRESPONDIENTE A C&M': '69200',
+	'anio': '2013',
+	'id': 1336
+},
+{
+	'anticipo': '0',
+	'certificacion': 'NO',
+	'contratante': 'Coordinación General de Transporte del D.D.F.',
+	//'contratante': 'Alfonso hernandez',
+	'contrato': 'No',
+	'CYM': '1',
+	'datos_cliente': 'Lic, José Cuenca DardonDirector General de Servicios UrbanosPlaza de la Constitución 1, Col, Centro',
+	'DOCUMENTOS AREA LEGAL': 'NO SE SABE',
+	'ELECTRONICO': 'NO',
+	'ELECTRONICO 2': 'NO',
+	'ESTATUS PROYECTO': 'Sin dato',
+	'gerencia': 'Sin dato',
+	'fecha_inicio': '15/01/1989',
+	'iva': 'no indica el % de IVA',
+	'duracion': '3,0',
+	'moneda': 'MXN',
+	'monto': '173000',
+	'monto_moneda_original': '173000',
+	'montoUsd': '0',
+	'numero_contrato': '1',
+	'nombre_proyecto': 'Análisis integral de los medios de transporte colectivo del Distrito Federal y de la utilización del abono de transporte_origenDatos_1330_201705181520',
+	//'nombre_proyecto': 'Metrobus df ',
+	'NOMBRE': 'NO',
+	'nombre_corto': 'CGT DDF',
+	'numero_propuesta': 'S/D',
+	'OTROS DOCUMENTOS': 'NO',
+	'pais': 'México',
+	'producto': 'TPUBLIC',
+	'SOCIO': 'NO',
+	'fecha_fin': 'fin',
+	'TIPO DE CAMBIO DE MONEDA': '2,50 ',
+	'TIPO DE CAMBIO MX': '2,50 ',
+	'unidad_negocio': 'Sin referencia',
+	'VALOR DEL contrato CORRESPONDIENTE A C&M': '69200',
+	'anio': '2014',
+	'id': 1337
+},
+{
+	'anticipo': '0',
+	'certificacion': 'NO',
+	'contratante': 'Coordinación General de Transporte del D.D.F.',
+	//'contratante': 'Alfonso hernandez',
+	'contrato': 'No',
+	'CYM': '1',
+	'datos_cliente': 'Lic, José Cuenca DardonDirector General de Servicios UrbanosPlaza de la Constitución 1, Col, Centro',
+	'DOCUMENTOS AREA LEGAL': 'NO SE SABE',
+	'ELECTRONICO': 'NO',
+	'ELECTRONICO 2': 'NO',
+	'ESTATUS PROYECTO': 'Sin dato',
+	'gerencia': 'Sin dato',
+	'fecha_inicio': '15/01/1989',
+	'iva': 'no indica el % de IVA',
+	'duracion': '3,0',
+	'moneda': 'MXN',
+	'monto': '173000',
+	'monto_moneda_original': '173000',
+	'montoUsd': '0',
+	'numero_contrato': '1',
+	'nombre_proyecto': 'Análisis integral de los medios de transporte colectivo del Distrito Federal y de la utilización del abono de transporte_origenDatos_1330_201705181520',
+	//'nombre_proyecto': 'Metrobus df ',
+	'NOMBRE': 'NO',
+	'nombre_corto': 'CGT DDF',
+	'numero_propuesta': 'S/D',
+	'OTROS DOCUMENTOS': 'NO',
+	'pais': 'México',
+	'producto': 'TPUBLIC',
+	'SOCIO': 'NO',
+	'fecha_fin': 'fin',
+	'TIPO DE CAMBIO DE MONEDA': '2,50 ',
+	'TIPO DE CAMBIO MX': '2,50 ',
+	'unidad_negocio': 'Sin referencia',
+	'VALOR DEL contrato CORRESPONDIENTE A C&M': '69200',
+	'anio': '2015',
+	'id': 1338
+},
+{
+	'anticipo': '0',
+	'certificacion': 'NO',
+	'contratante': 'Coordinación General de Transporte del D.D.F.',
+	//'contratante': 'Alfonso hernandez',
+	'contrato': 'No',
+	'CYM': '1',
+	'datos_cliente': 'Lic, José Cuenca DardonDirector General de Servicios UrbanosPlaza de la Constitución 1, Col, Centro',
+	'DOCUMENTOS AREA LEGAL': 'NO SE SABE',
+	'ELECTRONICO': 'NO',
+	'ELECTRONICO 2': 'NO',
+	'ESTATUS PROYECTO': 'Sin dato',
+	'gerencia': 'Sin dato',
+	'fecha_inicio': '15/01/1989',
+	'iva': 'no indica el % de IVA',
+	'duracion': '3,0',
+	'moneda': 'MXN',
+	'monto': '173000',
+	'monto_moneda_original': '173000',
+	'montoUsd': '0',
+	'numero_contrato': '1',
+	'nombre_proyecto': 'Análisis integral de los medios de transporte colectivo del Distrito Federal y de la utilización del abono de transporte_origenDatos_1330_201705181520',
+	//'nombre_proyecto': 'Metrobus df ',
+	'NOMBRE': 'NO',
+	'nombre_corto': 'CGT DDF',
+	'numero_propuesta': 'S/D',
+	'OTROS DOCUMENTOS': 'NO',
+	'pais': 'México',
+	'producto': 'TPUBLIC',
+	'SOCIO': 'NO',
+	'fecha_fin': 'fin',
+	'TIPO DE CAMBIO DE MONEDA': '2,50 ',
+	'TIPO DE CAMBIO MX': '2,50 ',
+	'unidad_negocio': 'Sin referencia',
+	'VALOR DEL contrato CORRESPONDIENTE A C&M': '69200',
+	'anio': '2016',
+	'id': 1339
+},
+{
+	'anticipo': '0',
+	'certificacion': 'NO',
+	'contratante': 'Coordinación General de Transporte del D.D.F.',
+	//'contratante': 'Alfonso hernandez',
+	'contrato': 'No',
+	'CYM': '1',
+	'datos_cliente': 'Lic, José Cuenca DardonDirector General de Servicios UrbanosPlaza de la Constitución 1, Col, Centro',
+	'DOCUMENTOS AREA LEGAL': 'NO SE SABE',
+	'ELECTRONICO': 'NO',
+	'ELECTRONICO 2': 'NO',
+	'ESTATUS PROYECTO': 'Sin dato',
+	'gerencia': 'Sin dato',
+	'fecha_inicio': '15/01/1989',
+	'iva': 'no indica el % de IVA',
+	'duracion': '3,0',
+	'moneda': 'MXN',
+	'monto': '173000',
+	'monto_moneda_original': '173000',
+	'montoUsd': '0',
+	'numero_contrato': '1',
+	'nombre_proyecto': 'Análisis integral de los medios de transporte colectivo del Distrito Federal y de la utilización del abono de transporte_origenDatos_1330_201705181520',
+	//'nombre_proyecto': 'Metrobus df ',
+	'NOMBRE': 'NO',
+	'nombre_corto': 'CGT DDF',
+	'numero_propuesta': 'S/D',
+	'OTROS DOCUMENTOS': 'NO',
+	'pais': 'México',
+	'producto': 'TPUBLIC',
+	'SOCIO': 'NO',
+	'fecha_fin': 'fin',
+	'TIPO DE CAMBIO DE MONEDA': '2,50 ',
+	'TIPO DE CAMBIO MX': '2,50 ',
+	'unidad_negocio': 'Sin referencia',
+	'VALOR DEL contrato CORRESPONDIENTE A C&M': '69200',
+	'anio': '2017',
+	'id': 1340
+}, 
 ]
