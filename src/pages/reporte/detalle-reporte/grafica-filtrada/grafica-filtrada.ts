@@ -62,9 +62,11 @@ export class GraficaFiltradaPage {
 
 	/**/
 	graficaReporteDireccionAnios = () => {
+		console.log('graficaReporteDireccionAnios')
+		
 		console.log(this.reportes)
 		console.log(this.categorias)
 		
-		this.options = this.reporteService.graficaDireccionAnios(this.categorias, this.reportes)
+		this.options = this.reporteService.graficaDireccionAnios(this.categorias, this.reportes, '')
 	}
 }

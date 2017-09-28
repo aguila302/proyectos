@@ -498,6 +498,27 @@ export class DbService {
 			.then(() => console.log('tabla de anios creada'))
 			.catch(e => console.log(e))
 	}
+
+	createTableDireccionAnios() {
+		let sql = `CREATE TABLE direccionAnio (
+					id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+					anio INTEGER,
+					unidad_negocio INTEGER,
+					montoUsd INTEGER
+				);`
+		return this.db.executeSql(sql, {})
+			.then(() => console.log('tabla de direccionnanios creada'))
+			.catch(e => console.log(e))
+	}
+
+	insertDireccionAnios() {
+		let insertAnios = `insert into direccionAnio (anio, unidad_negocio, montoUsd)
+							select anio,  unidad_negocio, sum(monto)  as monto from proyectos group by unidad_negocio, anio order by anio desc`
+		this.db.executeSql(insertAnios, {})
+			.then(() => console.log('regustros insertados en tabla de direccion anios'))
+			.catch(e => console.log(e))
+	}
+
 	// inserta los anios
 	insertAnios() {
 		let insertAnios = ` insert into anios(anio) select distinct(anio) from proyectos`

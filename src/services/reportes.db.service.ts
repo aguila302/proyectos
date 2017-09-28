@@ -316,15 +316,15 @@ export class ReportesDbService {
 	reportePorDireccion = () => {
 		let reportes = []
 		let sql = `select proyectos.unidad_negocio,
-						 cast(count(case when proyectos.anio = 2012 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2012],
-						 cast(count(case when proyectos.anio = 2013 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2013],
-						 cast(count(case when proyectos.anio = 2014 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2014],
-						 cast(count(case when proyectos.anio = 2015 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2015],
+						 cast(count(case when proyectos.anio = 2017 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2017],
 						 cast(count(case when proyectos.anio = 2016 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2016],
-						 cast(count(case when proyectos.anio = 2017 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2017]
+						 cast(count(case when proyectos.anio = 2015 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2015],
+						 cast(count(case when proyectos.anio = 2014 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2014],
+						 cast(count(case when proyectos.anio = 2013 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2013],
+						 cast(count(case when proyectos.anio = 2012 then proyectos.anio end) as double)/(select count(*) from proyectos)*100 as [2012]
 					 from proyectos
 					LEFT OUTER JOIN anios ON (proyectos.anio = anios.anio)
- 					group by proyectos.unidad_negocio`
+ 					group by proyectos.unidad_negocio order by proyectos.anio desc`
 
 		return this.db.executeSql(sql, {})
 			.then(response => {
@@ -357,8 +357,7 @@ export class ReportesDbService {
 						 cast(count(case when proyectos.unidad_negocio = 'Suramérica' then proyectos.unidad_negocio end) as double)/1330*100 as [Suramérica]
 					 from proyectos
 					LEFT OUTER JOIN anios ON (proyectos.anio = anios.anio)
-					where proyectos.anio > 2011
- 					group by proyectos.anio`
+ 					group by proyectos.anio order by proyectos.anio desc`
  		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
@@ -392,7 +391,7 @@ export class ReportesDbService {
 						 cast(count(case when proyectos.anio = 2017 then proyectos.anio end) as double)/(select sum(monto) from proyectos)*100 as [2017]
 					 from proyectos
 					LEFT OUTER JOIN anios ON (proyectos.anio = anios.anio)
- 					group by proyectos.unidad_negocio`
+ 					group by proyectos.unidad_negocio order by proyectos.anio desc`
 
 		return this.db.executeSql(sql, {})
 			.then(response => {
@@ -419,15 +418,15 @@ export class ReportesDbService {
 	reporteDireccionAnioGrupoNumeroProyectos = () => {
 		let reportes = []
 		let sql = `select proyectos.unidad_negocio,
-						 cast(count(case when proyectos.anio = 2012 then proyectos.anio end) as double) as [2012],
-						 cast(count(case when proyectos.anio = 2013 then proyectos.anio end) as double) as [2013],
-						 cast(count(case when proyectos.anio = 2014 then proyectos.anio end) as double) as [2014],
-						 cast(count(case when proyectos.anio = 2015 then proyectos.anio end) as double) as [2015],
+						 cast(count(case when proyectos.anio = 2017 then proyectos.anio end) as double) as [2017],
 						 cast(count(case when proyectos.anio = 2016 then proyectos.anio end) as double) as [2016],
-						 cast(count(case when proyectos.anio = 2017 then proyectos.anio end) as double) as [2017]
+						 cast(count(case when proyectos.anio = 2015 then proyectos.anio end) as double) as [2015],
+						 cast(count(case when proyectos.anio = 2014 then proyectos.anio end) as double) as [2014],
+						 cast(count(case when proyectos.anio = 2013 then proyectos.anio end) as double) as [2013],
+						 cast(count(case when proyectos.anio = 2012 then proyectos.anio end) as double) as [2012]
 						  from proyectos
 					LEFT OUTER JOIN anios ON (proyectos.anio = anios.anio)
- 					group by proyectos.unidad_negocio`
+ 					group by proyectos.unidad_negocio order by proyectos.anio desc`
 
 		return this.db.executeSql(sql, {})
 			.then(response => {
@@ -460,8 +459,7 @@ export class ReportesDbService {
 						 cast(count(case when proyectos.unidad_negocio = 'Suramérica' then proyectos.unidad_negocio end) as double)/(select count(*) from proyectos)*100 as [Suramérica]
 					 from proyectos
 					LEFT OUTER JOIN anios ON (proyectos.anio = anios.anio)
-					where proyectos.anio > 2011
- 					group by proyectos.anio`
+ 					group by proyectos.anio order by proyectos.anio desc`
 
 		return this.db.executeSql(sql, {})
 			.then(response => {
@@ -654,17 +652,17 @@ export class ReportesDbService {
 		return options
 	}
 
-	graficaDireccionAnios = (categorias, serie): Object => {
+	graficaDireccionAnios = (categorias, serie, tittle): Object => {
 		let options = {
 				chart: {
 					type: 'column'
 				},
 				title: {
-					text: 'Reporte de direcciones'
+					text: tittle
 				},
-				subtitle: {
-					text: 'Direcciones agrupados por años'
-				},
+				// subtitle: {
+				// 	text: 'Direcciones agrupados por años'
+				// },
 				xAxis: {
 					categories: categorias,
 					crosshair: true

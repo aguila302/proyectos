@@ -30,15 +30,15 @@ export class ReporteDireccionAnioPage {
 		var categorias = []
 		this.reporteService.reportePorDireccion()
 		.then(response => {
-			categorias = [2012,2013,2014,2015,2016,2017]
+			categorias = [2017, 2016, 2015, 2014, 2013, 2012]
 			response.forEach(item => {
 				series.push({
 					name: item.unidad_negocio,
-					data: [item[2012], item[2013], item[2014], item[2015], item[2016], item[2017]]
+					data: [item[2017], item[2016], item[2015], item[2014], item[2013], item[2012]]
 				})
 			})
 
-			this.options = this.reporteService.graficaDireccionAnios(categorias, series)
+			this.options = this.reporteService.graficaDireccionAnios(categorias, series, 'Reporte de direcciones general')
 
 			/*Para obtener la informacion para visualizar la tabla informativa. */
 			this.reporteService.reportePorDireccionTAbla()
