@@ -6,9 +6,9 @@ import { SelectColumnasPage } from '../select-columnas/select-columnas'
 import { FiltrarColumnasPage } from './filtrar-columnas/filtrar-columnas'
 import { DbService } from '../../../services/db.service'
 
-// import {
-// 	SelectAgrupacionesPage
-// } from '../select-agrupaciones/select-agrupaciones'
+import {
+	SelectAgrupacionesPage
+} from '../select-agrupaciones/select-agrupaciones'
 
 @IonicPage()
 @Component({
@@ -125,7 +125,25 @@ export class NuevoReportePage {
 				})
 		}
 	}
+	/* Funcion para mostrar las agrupaciones y escoger*/
+	selectAgrupaciones = (columnas: Array < any > ): void => {
+		/* Pasamos las columnas antes seleccionadas para las agruapciones. */
+		let modal_agrupacion = this.modal.create(SelectAgrupacionesPage, {
+				'agrupaciones': columnas
+			})
+			/* Muestro el modal para seleccionar las agrupaciones. */
+		modal_agrupacion.present()
 
+		modal_agrupacion.onDidDismiss(data => {
+			/* Muestro las agruapciones seleccionadas en la vista. */
+			this.agrupacion_seleccionada.splice(0, this.agrupacion_seleccionada.length)
+			data.forEach(items => {
+				this.agrupacion_seleccionada.push({
+					items
+				})
+			})
+		})
+	}
 	/* Funcion para guardar un reporte. */
 	guardarReporte = (agrupacion: Array < any > , Object): void => {
 		let title = collect(agrupacion).implode('items', ',')
