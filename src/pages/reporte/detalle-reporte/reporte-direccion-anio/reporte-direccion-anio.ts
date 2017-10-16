@@ -14,7 +14,10 @@ import * as account from 'accounting-js'
 import {
 	ReporteDireccionAnioGrupoPage
 } from '../../../reporte/detalle-reporte/reporte-direccion-anio-grupo/reporte-direccion-anio-grupo'
-
+// import {
+// 	ReporteDireccionAnioDetallePage
+// } from '../../../reporte/detalle-reporte/reporte-direccion-anio/reporte-direccion-anio-detalle/reporte-direccion-anio-detalle'
+import { ProyectosAgrupadosAnioPage } from '../.././../../pages/estadistica/proyectos-agrupados/por-anio/proyectos-agrupados-anio'
 
 @IonicPage()
 @Component({
@@ -81,7 +84,14 @@ export class ReporteDireccionAnioPage {
 
 	/* Funcion para ver el detalle general. */
 	verDetalle = (group_by, campo, monto) => {
-		console.log(group_by, campo, monto)
-		
+		this.navCtrl.push(ProyectosAgrupadosAnioPage, {
+			'anio': group_by,
+			'monto_total': monto
+		})
+		// this.navCtrl.push(ReporteDireccionAnioDetallePage, {
+		// 	'group_by': group_by,
+		// 	'campo': campo,
+		// 	'monto': monto
+		// })
 	}
 }
