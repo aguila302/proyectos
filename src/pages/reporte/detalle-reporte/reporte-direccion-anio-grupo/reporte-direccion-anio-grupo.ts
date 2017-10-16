@@ -22,8 +22,7 @@ export class ReporteDireccionAnioGrupoPage {
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteService: ReportesDbService) {
 		this.grupo = navParams.get('grupo')
-		console.log(this.grupo)
-		
+
 	}
 
 	ionViewDidLoad() {
@@ -38,7 +37,6 @@ export class ReporteDireccionAnioGrupoPage {
 			this.reporteService.distinctAnio()
 				.then(response => {
 					miglobal.categorias = response
-					this.options = this.reporteService.graficaDireccionAnios(categorias, series, 'Direcciones por monto total USD')
 					/*Para obtener la informacion para visualizar la tabla informativa. */
 				})
 			await this.reporteService.distinctDirecciones()
@@ -50,11 +48,43 @@ export class ReporteDireccionAnioGrupoPage {
 						})
 					})
 				})
-
+			/*Obtener datos de la direccion de consultoria. */
 			this.reporteService.getmontosDireccionesConsultoria()
 			.then(response => {
 				miglobal.series[0]['data'] = response
+				// console.log(miglobal.series)
 			})
+			/*Obtener datos de la direccion de Desarrollo de sistemas */
+			this.reporteService.getmontosDireccionesSistemas()
+			.then(response => {
+				// console.log(response)
+				miglobal.series[1]['data'] = response
+				// console.log(miglobal.series)
+			})
+			/*Obtener datos de la direccion de Ingeniería */
+			this.reporteService.getmontosDireccionesIngenieria()
+			.then(response => {
+				// console.log(response)
+				miglobal.series[2]['data'] = response
+				// console.log(miglobal.series)
+			})
+			/*Obtener datos de la direccion de Sin referencia */
+			this.reporteService.getmontosDireccionesSinReferencia()
+			.then(response => {
+				// console.log(response)
+				miglobal.series[3]['data'] = response
+				// console.log(miglobal.series)
+			})
+			/*Obtener datos de la direccion de Sin Suramérica */
+			this.reporteService.getmontosDireccionesSuramerica()
+			.then(response => {
+
+				miglobal.series[4]['data'] = response
+
+				this.options = this.reporteService.graficaDireccionAniosMontoUSD(miglobal.categorias, miglobal.series, 'Direcciones por monto total USD')
+				console.log(this.options)
+			})
+
 		}
 		else {
 			this.reporteService.reporteDireccionAnioGrupoNumeroProyectos()
@@ -67,7 +97,7 @@ export class ReporteDireccionAnioGrupoPage {
 					})
 				})
 
-				this.options = this.reporteService.graficaDireccionAnios(this.categorias, this.series, 'Direcciones por número de proyectos')
+				this.options = this.reporteService.datosGraficaGrupoNumProyecto(this.categorias, this.series, 'Direcciones por número de proyectos')
 
 				/*Para obtener la informacion para visualizar la tabla informativa. */
 				this.reporteService.reporteDireccionAnioGrupoNumeroProyectosTAbla()

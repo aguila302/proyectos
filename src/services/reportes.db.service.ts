@@ -328,12 +328,80 @@ export class ReportesDbService {
 			})
 	}
 
-	/* Funcion para obtener los montos de las direcciones para el reporte de direcciones anios. */
+	/* Funcion para obtener los montos de la direccion consultoria. */
 	getmontosDireccionesConsultoria = (): any => {
 		let reportes = []
 		let sql = `select montoUsd 
 				from direccionAnio 
 				where anio > 2011 and direccionAnio.unidad_negocio = 'Consultoría'
+				group by unidad_negocio, anio
+				order by unidad_negocio, anio desc`
+
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					reportes.push(response.rows.item(index).montoUsd)
+				}
+				return Promise.resolve(reportes)
+			})
+	}
+	/* Funcion para obtener los montos de la direccion Sistemas. */
+	getmontosDireccionesSistemas = (): any => {
+		let reportes = []
+		let sql = `select montoUsd 
+				from direccionAnio 
+				where anio > 2011 and direccionAnio.unidad_negocio = 'Desarrollo de sistemas'
+				group by unidad_negocio, anio
+				order by unidad_negocio, anio desc`
+
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					reportes.push(response.rows.item(index).montoUsd)
+				}
+				return Promise.resolve(reportes)
+			})
+	}
+	/* Funcion para obtener los montos de la direccion Ingeniería. */
+	getmontosDireccionesIngenieria = (): any => {
+		let reportes = []
+		let sql = `select montoUsd 
+				from direccionAnio 
+				where anio > 2011 and direccionAnio.unidad_negocio = 'Ingeniería'
+				group by unidad_negocio, anio
+				order by unidad_negocio, anio desc`
+
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					reportes.push(response.rows.item(index).montoUsd)
+				}
+				return Promise.resolve(reportes)
+			})
+	}
+	/* Funcion para obtener los montos de la direccion Sin referencia. */
+	getmontosDireccionesSinReferencia = (): any => {
+		let reportes = []
+		let sql = `select montoUsd 
+				from direccionAnio 
+				where anio > 2011 and direccionAnio.unidad_negocio = 'Sin referencia'
+				group by unidad_negocio, anio
+				order by unidad_negocio, anio desc`
+
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					reportes.push(response.rows.item(index).montoUsd)
+				}
+				return Promise.resolve(reportes)
+			})
+	}
+	/* Funcion para obtener los montos de la direccion Suramérica. */
+	getmontosDireccionesSuramerica = (): any => {
+		let reportes = []
+		let sql = `select montoUsd 
+				from direccionAnio 
+				where anio > 2011 and direccionAnio.unidad_negocio = 'Suramérica'
 				group by unidad_negocio, anio
 				order by unidad_negocio, anio desc`
 
@@ -686,7 +754,8 @@ export class ReportesDbService {
 		return options
 	}
 
-	graficaDireccionAnios = (categorias, serie, tittle): Object => {
+	/* funcion para contruir la grafica en la opcion direccion anio general*/
+	graficaDireccionAniosGeneral = (categorias, serie, tittle): Object => {
 		let options = {
 				chart: {
 					type: 'column'
@@ -711,6 +780,87 @@ export class ReportesDbService {
 					headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
 					pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
 						'<td style="padding:0"><b>{point.y:.1f} %</b></td></tr>',
+					footerFormat: '</table>',
+					shared: true,
+					useHTML: true
+				},
+				plotOptions: {
+					column: {
+						pointPadding: 0.2,
+						borderWidth: 0
+					}
+				},
+				series: serie
+				}
+		return options
+	}
+
+	/* funcion para contruir grafica para la opcion montoUSD*/
+	graficaDireccionAniosMontoUSD = (categorias, serie, tittle): Object => {
+		let options = {
+				chart: {
+					type: 'column'
+				},
+				title: {
+					text: tittle
+				},
+				// subtitle: {
+				// 	text: 'Direcciones agrupados por años'
+				// },
+				xAxis: {
+					categories: categorias,
+					crosshair: true
+				},
+				yAxis: {
+					min: 0,
+					title: {
+						text: 'Monto USD'
+					}
+				},
+				tooltip: {
+					headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+					pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+						'<td style="padding:0"><b>{point.y:.1f} USD</b></td></tr>',
+					footerFormat: '</table>',
+					shared: true,
+					useHTML: true
+				},
+				plotOptions: {
+					column: {
+						pointPadding: 0.2,
+						borderWidth: 0
+					}
+				},
+				series: serie
+				}
+		return options
+	}
+		/* funcion para contruir grafica para la opcion numero de proyectos. */
+	datosGraficaGrupoNumProyecto = (categorias, serie, tittle): Object => {
+		let options = {
+				chart: {
+					type: 'column'
+				},
+				title: {
+					text: tittle
+				},
+				// subtitle: {
+				// 	text: 'Direcciones agrupados por años'
+				// },
+				xAxis: {
+					categories: categorias,
+					crosshair: true
+				},
+				yAxis: {
+					min: 0,
+					title: {
+						text: 'Número de proyectos'
+					}
+				},
+				tooltip: {
+					headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+					pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+						'<td style="padding:0"><b>{point.y:.1f} #</b></td></tr>',
 					footerFormat: '</table>',
 					shared: true,
 					useHTML: true
