@@ -329,7 +329,7 @@ export class ReportesDbService {
 	}
 
 	/* Funcion para obtener los montos de las direcciones para el reporte de direcciones anios. */
-	getmontosDirecciones = (): any => {
+	getmontosDireccionesConsultoria = (): any => {
 		let reportes = []
 		let sql = `select montoUsd 
 				from direccionAnio 

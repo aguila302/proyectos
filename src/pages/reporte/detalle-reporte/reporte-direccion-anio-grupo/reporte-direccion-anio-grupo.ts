@@ -38,7 +38,7 @@ export class ReporteDireccionAnioGrupoPage {
 			this.reporteService.distinctAnio()
 				.then(response => {
 					miglobal.categorias = response
-					// this.options = this.reporteService.graficaDireccionAnios(categorias, series, 'Direcciones por monto total USD')
+					this.options = this.reporteService.graficaDireccionAnios(categorias, series, 'Direcciones por monto total USD')
 					/*Para obtener la informacion para visualizar la tabla informativa. */
 				})
 			await this.reporteService.distinctDirecciones()
@@ -50,16 +50,10 @@ export class ReporteDireccionAnioGrupoPage {
 						})
 					})
 				})
-			// console.log(miglobal.categorias)
-			console.log(miglobal.series)
-			this.reporteService.getmontosDirecciones()
+
+			this.reporteService.getmontosDireccionesConsultoria()
 			.then(response => {
-				// console.log(response)
-				console.log(miglobal.series[0]['data'])
-				
-				// miglobal.series.forEach(function callback(items, index, array) {
-				// 	console.log(items[0])
-				// })
+				miglobal.series[0]['data'] = response
 			})
 		}
 		else {
