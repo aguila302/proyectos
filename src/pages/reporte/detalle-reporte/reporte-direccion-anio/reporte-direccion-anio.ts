@@ -4,7 +4,8 @@ import {
 import {
 	IonicPage,
 	NavController,
-	NavParams
+	NavParams,
+	ModalController
 } from 'ionic-angular';
 import {
 	ReportesDbService
@@ -14,10 +15,10 @@ import * as account from 'accounting-js'
 import {
 	ReporteDireccionAnioGrupoPage
 } from '../../../reporte/detalle-reporte/reporte-direccion-anio-grupo/reporte-direccion-anio-grupo'
-// import {
-// 	ReporteDireccionAnioDetallePage
-// } from '../../../reporte/detalle-reporte/reporte-direccion-anio/reporte-direccion-anio-detalle/reporte-direccion-anio-detalle'
 import { ProyectosAgrupadosAnioPage } from '../.././../../pages/estadistica/proyectos-agrupados/por-anio/proyectos-agrupados-anio'
+import {
+	ModalFiltrosPage
+} from '../../../reporte/detalle-reporte/reporte-direccion-anio/modal-filtros/modal-filtros'
 
 @IonicPage()
 @Component({
@@ -30,7 +31,8 @@ export class ReporteDireccionAnioPage {
 	total_proyectos: number
 	proyectos = []
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteService: ReportesDbService) {}
+	constructor(public navCtrl: NavController, public navParams: NavParams,
+		private reporteService: ReportesDbService, private modal: ModalController) {}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad ReporteDireccionAnioPage');
@@ -88,5 +90,13 @@ export class ReporteDireccionAnioPage {
 			'anio': group_by,
 			'monto_total': monto
 		})
+	}
+
+	/* Funcion para mostrar la ventana para filtrar las direcciones. */
+	filtrarDirecciones = (filtro: string) => {
+		let filtrarModal = this.modal.create(ModalFiltrosPage, {
+			'filtro': filtro
+		})
+		filtrarModal.present()
 	}
 }
