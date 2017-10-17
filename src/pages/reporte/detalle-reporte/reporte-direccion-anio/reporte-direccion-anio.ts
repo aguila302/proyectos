@@ -51,7 +51,7 @@ export class ReporteDireccionAnioPage {
 					})
 				})
 
-				this.options = this.reporteService.graficaDireccionAniosGeneral(categorias, series, 'Reporte de direcciones general')
+				this.options = this.reporteService.graficaDireccionAniosGeneral(categorias, series, 'Direcciones por porcentaje de participación')
 
 				/*Para obtener la informacion para visualizar la tabla informativa. */
 				this.reporteService.reportePorDireccionTAbla()
@@ -88,10 +88,5 @@ export class ReporteDireccionAnioPage {
 			'anio': group_by,
 			'monto_total': monto
 		})
-		// this.navCtrl.push(ReporteDireccionAnioDetallePage, {
-		// 	'group_by': group_by,
-		// 	'campo': campo,
-		// 	'monto': monto
-		// })
 	}
 }
