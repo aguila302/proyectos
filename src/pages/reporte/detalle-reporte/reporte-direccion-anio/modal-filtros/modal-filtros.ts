@@ -10,6 +10,7 @@ import { ReportesDbService } from '../../../../../services/reportes.db.service'
 export class ModalFiltrosPage {
 	filtro: string
 	opciones = []
+	opciones_send = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController,
 		private reporteService: ReportesDbService) {
@@ -17,7 +18,6 @@ export class ModalFiltrosPage {
 	}
 
 	ionViewDidLoad() {
-		console.log('ionViewDidLoad ModalFiltrosPage')
 		this.filtro === 'Direcciones' ? this.filtrarPorDireccion() : this.filtrarPorAnio()
 	}
 
@@ -26,13 +26,10 @@ export class ModalFiltrosPage {
 		this.reporteService.distinctAnio()
 		.then(response => {
 			response.forEach(item => {
-
 				this.opciones.push({
 					'item': item
 				})
 			})
-			console.log(this.opciones);
-			
 		})
 	}
 
@@ -45,8 +42,31 @@ export class ModalFiltrosPage {
 					'item': item.unidad_negocio
 				})
 			})
-			console.log(this.opciones);
 		})
+	}
+
+	/* Funcion para el manejo de nuestros filtros individuales. */
+	seleccionFiltros(event: any, opcion) {
+		let encontrado: number
+		/* Si se selecciono alguna opcion se almacena en un arreglo. */
+		if(event.value == true) {
+			this.opciones_send.push(opcion)
+		}
+		else {
+			/* En caso de que se desactive la opcion la removemos de la data. */
+			encontrado = this.opciones_send.indexOf(opcion)
+			if(encontrado !== -1) {
+				this.opciones_send.splice(encontrado, 1)
+			}
+			
+		}
+
+	}
+
+	/* Funcion para cerrar la ventana de filtros. */
+	cerrarFiltros() {
+		/* Enviamos nuestras opciones para realizar la busqueda. */
+		this.viewCtrl.dismiss(this.opciones_send)
 	}
 
 	/* Funcion para cancelar los filtros. */

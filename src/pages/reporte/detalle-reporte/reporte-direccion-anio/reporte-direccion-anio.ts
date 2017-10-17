@@ -19,6 +19,7 @@ import { ProyectosAgrupadosAnioPage } from '../.././../../pages/estadistica/proy
 import {
 	ModalFiltrosPage
 } from '../../../reporte/detalle-reporte/reporte-direccion-anio/modal-filtros/modal-filtros'
+import { DbService } from '../../../../services/db.service'
 
 @IonicPage()
 @Component({
@@ -30,9 +31,11 @@ export class ReporteDireccionAnioPage {
 	monto_total: string = ''
 	total_proyectos: number
 	proyectos = []
+	direccion_filtro = []
+	anio_filtro = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
-		private reporteService: ReportesDbService, private modal: ModalController) {}
+		private reporteService: ReportesDbService, private modal: ModalController, public dbService: DbService,) {}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad ReporteDireccionAnioPage');
@@ -93,10 +96,43 @@ export class ReporteDireccionAnioPage {
 	}
 
 	/* Funcion para mostrar la ventana para filtrar las direcciones. */
-	filtrarDirecciones = (filtro: string) => {
+	filtrarDireccion(filtro: string) {
+		/*Creamos un modal retornando un view. */
 		let filtrarModal = this.modal.create(ModalFiltrosPage, {
 			'filtro': filtro
 		})
+		/* Cierra la ventana modal y recuperamos las opciones que se seleccionaron. */
+		filtrarModal.onDidDismiss(data => {
+			// this.graficar(data, [])
+			this.direccion_filtro = data
+		})
+		/* Mostramos el modal. */
 		filtrarModal.present()
+	}
+
+	/* Funcion para mostrar la ventana para filtrar los anios. */
+	filtrarAnio = (filtro: string) => {
+		// Creamos un modal retornando un view. 
+		let filtrarModal = this.modal.create(ModalFiltrosPage, {
+			'filtro': filtro
+		})
+		/* Cierra la ventana modal y recuperamos las opciones que se seleccionaron. */
+		filtrarModal.onDidDismiss(data => {
+			this.anio_filtro = data
+			/* Funcion realizar la consulta necesaria al origen de datos y graficar*/
+			this.graficar(this.direccion_filtro, this.anio_filtro)
+		})
+		/* Mostramos el modal. */
+		filtrarModal.present()
+	}
+
+	/* Funcion para graficar. */
+	graficar(direccion: any[], anios: any[]) {
+		/* Funcion realizar la consulta necesaria al origen de datos y graficar*/
+		this.reporteService.obtenerDataFiltracion(direccion, anios)
+		.then(response => {
+			console.log(response)
+			
+		})
 	}
 }

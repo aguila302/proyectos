@@ -13,8 +13,8 @@
 	<ion-list>
 		<ion-item *ngFor="let opcion of opciones">
 			<ion-label>{{ opcion.item }}</ion-label>
-			<ion-checkbox></ion-checkbox>
+			<ion-checkbox (ionChange)="seleccionFiltros($event, opcion.item )"></ion-checkbox>
 		</ion-item>
-		<button ion-button block color="botton">Aceptar</button>
+		<button ion-button block color="botton" (click)="cerrarFiltros()">Aceptar</button>
 	</ion-list>
 </ion-content>

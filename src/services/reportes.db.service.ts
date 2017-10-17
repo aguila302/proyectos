@@ -584,6 +584,33 @@ export class ReportesDbService {
 			.catch(console.error.bind(console))
 	}
 
+	/* Funcion para conseguir la data del filtrado de reporte direccion anios. */
+	obtenerDataFiltracion = (direcciones, anios): any  => {
+		let stringdirecciones = collect(direcciones).implode(',')
+		console.log()
+		
+		let stringAnios = collect(anios).implode(',')
+		let direccionAnio = []
+
+		for(let index in direcciones) {
+			let sql = `select anio, unidad_negocio, count(*) as numero_proyectos
+					from proyectos where unidad_negocio in('Consultoría', 'Desarrollo de sistemas') 
+					and anio in (2016, 2015)
+					group by unidad_negocio, anio
+					order by anio desc;`
+			console.log(sql)
+			
+			return this.db.executeSql(sql, {})
+			// 	.then(response => {
+			// 		for (let index = 0; index < response.rows.length; index++) {
+			// 			direccionAnio.push(response.rows.item(index).montoUsd)
+			// 		}
+			// 			return Promise.resolve(direccionAnio)
+			// 	})
+			// console.log(direccionAnio)
+			// return direccionAnio
+		}
+	}
 	/* Objeto para construir  la grafica de barras. */
 	datosGrafica = (xy: Array < any > , intervalo: number, serie_name: string, title_name: string): Object => {
 		let options = {
