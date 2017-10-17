@@ -73,6 +73,8 @@ export class ReporteDireccionAnioGrupoPage {
 				.then(response => {
 					miglobal.series[4]['data'] = response
 					this.options = this.reporteService.graficaDireccionAniosMontoUSD(miglobal.categorias, miglobal.series, 'Direcciones por monto total USD')
+					console.log(this.options)
+					
 				})
 				/*Para obtener la informacion para visualizar la tabla informativa. */
 			this.reporteService.reportePorDireccionTAbla()
