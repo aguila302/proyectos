@@ -35,10 +35,10 @@ export class GraficaFiltrosDireccionAnioPage {
 		})
 		console.log(series);
 		
-		setTimeout(() => {
-			this.options = this.reporteService.graficaDireccionAniosGeneral(this.anios, series, 'Direcciones')
-			console.log(this.options)
-		},2000)
+		// setTimeout(() => {
+		// 	this.options = this.reporteService.graficaDireccionAniosGeneral(this.anios, series, 'Direcciones')
+		// 	console.log(this.options)
+		// }, 2000)
 	}
 	/* Funcion realizar la consulta necesaria al origen de datos para obtener la data de las direccciones selecionadas.*/
 	async dataDirecciones(direccion, anio) {
@@ -46,12 +46,13 @@ export class GraficaFiltrosDireccionAnioPage {
 		this.data_direcciones.splice(0, this.data_direcciones.length)
 		await this.reporteService.obtenerDataFiltracion(direccion, anio)
 		.then(response => {
+			// console.log(response)
 			miGlobal.data_direcciones = response
 			// response.forEach(item => {
-			// 	this.data_direcciones.push(parseInt(item))
+			// 	miGlobal.data_direcciones.push(parseInt(item))
 			// })
 		})
-		console.log('data')
+		// console.log('data')
 		console.log(miGlobal.data_direcciones)
 		
 		return miGlobal.data_direcciones

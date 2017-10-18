@@ -585,7 +585,7 @@ export class ReportesDbService {
 	}
 
 	/* Funcion para conseguir la data del filtrado de reporte direccion anios. */
-	obtenerDataFiltracion = (direcciones, anios): any  => {
+	obtenerDataFiltracion = (direcciones, anios) => {
 
 		let direccionAnio = []
 
@@ -596,14 +596,13 @@ export class ReportesDbService {
 					order by anio desc;`
 		console.log(sql)
 
-		this.db.executeSql(sql, {})
+		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
 					direccionAnio.push(account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2))
 				}
-				Promise.resolve(direccionAnio)
+				return Promise.resolve(direccionAnio)
 			}).catch(console.error.bind(console))
-		return direccionAnio
 	}
 	/* Objeto para construir  la grafica de barras. */
 	datosGrafica = (xy: Array < any > , intervalo: number, serie_name: string, title_name: string): Object => {
