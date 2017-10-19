@@ -23,7 +23,7 @@ export class ModalFiltrosPage {
 
 	/* Filtrar por anios. */
 	filtrarPorAnio = () => {
-		this.reporteService.distinctAnio()
+		this.reporteService.distinctAnioFiltros()
 		.then(response => {
 			response.forEach(item => {
 				this.opciones.push({

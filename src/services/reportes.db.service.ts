@@ -277,7 +277,6 @@ export class ReportesDbService {
 		let sql = `select ` + select + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
 						(select count(*) from proyectos) as total_proyectos
 						FROM proyectos group by ` + groupBY + ` order by ` + groupBY + ` asc`
-		console.log(sql)
 		
 		return this.db.executeSql(sql, {})
 			.then(response => {
@@ -299,8 +298,6 @@ export class ReportesDbService {
 		let reportes = []
 
 		let sql = `select distinct(anio) as anio from direccionAnio where anio > 2011  order by anio desc`
-		console.log(sql)
-		
 		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
@@ -315,8 +312,6 @@ export class ReportesDbService {
 		let reportes = []
 
 		let sql = `select distinct(unidad_negocio) as unidad_negocio from direccionAnio order by unidad_negocio asc`
-		console.log(sql)
-		
 		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
@@ -508,8 +503,6 @@ export class ReportesDbService {
 						'2017': response.rows.item(index)[2017],
 					})
 				}
-				console.log(reportes)
-				
 				return Promise.resolve(reportes)
 			})
 			.catch(console.error.bind(console))
@@ -584,6 +577,20 @@ export class ReportesDbService {
 			.catch(console.error.bind(console))
 	}
 
+	/* Funcion para obtener los anios para el reporte de direccion anio.*/
+	distinctAnioFiltros() {
+		let reportes = []
+
+		let sql = `select distinct(anio) as anio from direccionAnio order by anio desc`
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					reportes.push(response.rows.item(index).anio)
+				}
+				return Promise.resolve(reportes)
+			})
+	}
+
 	/* Funcion para conseguir la data del filtrado de reporte direccion anios. */
 	obtenerDataFiltracion = (direcciones, anios) => {
 
@@ -595,7 +602,6 @@ export class ReportesDbService {
 					and anio in (${anios})
 					group by unidad_negocio, anio
 					order by anio desc;`
-		console.log(sql)
 
 		return this.db.executeSql(sql, {})
 			.then(response => {
@@ -605,7 +611,35 @@ export class ReportesDbService {
 				return Promise.resolve(direccionAnio)
 			}).catch(console.error.bind(console))
 	}
-	
+	/* Funcion para conseguir la información del tablero de reporte direccion, anio filtrado. */
+	tableroDireccionAniosGeneral = (direcciones, anios) => {
+		let direccionAnio = []
+
+		let sql =  `select anio, unidad_negocio, sum(monto) as monto, count(*) as numero_proyectos, (select count(*) 
+					from proyectos where anio in (${anios})) as total
+					from proyectos where unidad_negocio in('${direcciones}') 
+					and anio in (${anios})
+					group by anio
+					order by anio desc;`
+
+		console.log(sql)
+		
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					direccionAnio.push({
+						'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2),
+						'anio': response.rows.item(index).anio,
+						'unidad_negocio': response.rows.item(index).unidad_negocio,
+						'monto': account.formatNumber(response.rows.item(index).monto),
+						'numero_proyectos': response.rows.item(index).numero_proyectos,
+						'total': response.rows.item(index).total,
+					})
+				}
+				return Promise.resolve(direccionAnio)
+			}).catch(console.error.bind(console))
+	}
+
 	/* Objeto para construir  la grafica de barras. */
 	datosGrafica = (xy: Array < any > , intervalo: number, serie_name: string, title_name: string): Object => {
 		let options = {

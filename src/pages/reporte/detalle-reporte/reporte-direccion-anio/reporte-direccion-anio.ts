@@ -68,8 +68,7 @@ export class ReporteDireccionAnioPage {
 				})
 
 				this.options = this.reporteService.graficaDireccionAniosGeneral(categorias, series, 'Direcciones por porcentaje de participación')
-				console.log(this.options)
-					/*Para obtener la informacion para visualizar la tabla informativa. */
+				/*Para obtener la informacion para visualizar la tabla informativa. */
 				this.reporteService.reportePorDireccionTAbla()
 					.then(response => {
 						let micollect = collect(response)
@@ -110,11 +109,10 @@ export class ReporteDireccionAnioPage {
 	filtrarDireccion(filtro: string) {
 		/*Creamos un modal retornando un view. */
 		let filtrarModal = this.modal.create(ModalFiltrosPage, {
-				'filtro': filtro
-			})
+			'filtro': filtro
+		})
 			/* Cierra la ventana modal y recuperamos las opciones que se seleccionaron. */
 		filtrarModal.onDidDismiss(data => {
-				// this.graficar(data, [])
 				this.direccion_filtro = data
 			})
 			/* Mostramos el modal. */
@@ -130,8 +128,6 @@ export class ReporteDireccionAnioPage {
 		/* Cierra la ventana modal y recuperamos las opciones que se seleccionaron. */
 		filtrarModal.onDidDismiss(data => {
 			this.anio_filtro = data
-			// Funcion realizar la consulta necesaria al origen de datos y graficar
-			// this.graficar(this.direccion_filtro, this.anio_filtro)
 		})
 			/* Mostramos el modal. */
 		filtrarModal.present()
