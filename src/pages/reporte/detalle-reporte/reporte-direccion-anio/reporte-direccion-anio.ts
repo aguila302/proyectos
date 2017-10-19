@@ -5,7 +5,8 @@ import {
 	IonicPage,
 	NavController,
 	NavParams,
-	ModalController
+	ModalController,
+	AlertController
 } from 'ionic-angular';
 import {
 	ReportesDbService
@@ -24,7 +25,9 @@ import {
 import {
 	DbService
 } from '../../../../services/db.service'
-import { GraficaFiltrosDireccionAnioPage } from '../../../reporte/detalle-reporte/reporte-direccion-anio/grafica-filtros-direccion-anio/grafica-filtros-direccion-anio'
+import {
+	GraficaFiltrosDireccionAnioPage
+} from '../../../reporte/detalle-reporte/reporte-direccion-anio/grafica-filtros-direccion-anio/grafica-filtros-direccion-anio'
 
 @IonicPage()
 @Component({
@@ -42,7 +45,8 @@ export class ReporteDireccionAnioPage {
 	data_direcciones = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
-		private reporteService: ReportesDbService, private modal: ModalController, public dbService: DbService, ) {}
+		private reporteService: ReportesDbService, private modal: ModalController, public dbService: DbService,
+		public alertCtrl: AlertController) {}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad ReporteDireccionAnioPage');
@@ -65,7 +69,7 @@ export class ReporteDireccionAnioPage {
 
 				this.options = this.reporteService.graficaDireccionAniosGeneral(categorias, series, 'Direcciones por porcentaje de participación')
 				console.log(this.options)
-				/*Para obtener la informacion para visualizar la tabla informativa. */
+					/*Para obtener la informacion para visualizar la tabla informativa. */
 				this.reporteService.reportePorDireccionTAbla()
 					.then(response => {
 						let micollect = collect(response)
@@ -121,53 +125,35 @@ export class ReporteDireccionAnioPage {
 	filtrarAnio = (filtro: string) => {
 		// Creamos un modal retornando un view. 
 		let filtrarModal = this.modal.create(ModalFiltrosPage, {
-				'filtro': filtro
-			})
-			/* Cierra la ventana modal y recuperamos las opciones que se seleccionaron. */
+			'filtro': filtro
+		})
+		/* Cierra la ventana modal y recuperamos las opciones que se seleccionaron. */
 		filtrarModal.onDidDismiss(data => {
-				this.anio_filtro = data
-					/* Funcion realizar la consulta necesaria al origen de datos y graficar*/
-				this.graficar(this.direccion_filtro, this.anio_filtro)
-			})
+			this.anio_filtro = data
+			// Funcion realizar la consulta necesaria al origen de datos y graficar
+			// this.graficar(this.direccion_filtro, this.anio_filtro)
+		})
 			/* Mostramos el modal. */
 		filtrarModal.present()
 	}
 
 	/* Funcion para graficar. */
 	graficar(direccion: any[], anios: any[]) {
-
-		// miGlobal.data_grafica.splice(0, miGlobal.data_grafica.length)
-		/* Contruimos los datos para graficar.*/
-		// direccion.forEach(function callback(item, index) {
-		// 	series.push({
-		// 		'name': item,
-		// 		'data': miGlobal.dataDirecciones(item, anios)
-		// 	})
-		// })
-		this.navCtrl.push(GraficaFiltrosDireccionAnioPage, {
-			'direccion': direccion,
-			'anios': anios,
-		})
-		// this.options = this.reporteService.graficaDireccionAniosGeneral(anios, series, 'Direcciones')
-		// console.log(this.options)
-		
-		// console.log(miGlobal.data_grafica)
+		let alert: any
+		this.direccion_filtro.length === 0 || this.anio_filtro.length === 0 ?
+		(
+			alert = this.alertCtrl.create({
+				title: 'Advertencia!',
+				subTitle: 'Por favor selecciona por lo menos una dirección y un año!',
+				buttons: ['OK']
+			}),
+			alert.present()
+		):(
+			/* Creamos una vista para visualizar la grafica. */
+			this.navCtrl.push(GraficaFiltrosDireccionAnioPage, {
+				'direccion': this.direccion_filtro,
+				'anios': this.anio_filtro,
+			})
+		)
 	}
-
-	/* Funcion realizar la consulta necesaria al origen de datos para obtener la data de las direccciones selecionadas.*/
-	// dataDirecciones(direccion, anio) {
-	// 	var miGlobal = this
-	// 	miGlobal.data_direcciones.splice(0, miGlobal.data_direcciones.length)
-	// 	this.reporteService.obtenerDataFiltracion(direccion, anio)
-	// 	.then(response => {
-	// 		response.forEach(item => {
-	// 			miGlobal.data_direcciones.push(parseInt(item))
-	// 		})
-	// 	})
-	// 	console.log('data')
-	// 	console.log(miGlobal.data_direcciones)
-		
-	// 	return miGlobal.data_direcciones
-		
-	// }
-}
+} 

@@ -589,7 +589,8 @@ export class ReportesDbService {
 
 		let direccionAnio = []
 
-		let sql =  `select anio, unidad_negocio, count(*) as numero_proyectos, (select count(*) from proyectos) as total
+		let sql =  `select anio, unidad_negocio, count(*) as numero_proyectos, (select count(*) 
+					from proyectos where anio in (${anios})) as total
 					from proyectos where unidad_negocio in('${direcciones}') 
 					and anio in (${anios})
 					group by unidad_negocio, anio
@@ -604,6 +605,7 @@ export class ReportesDbService {
 				return Promise.resolve(direccionAnio)
 			}).catch(console.error.bind(console))
 	}
+	
 	/* Objeto para construir  la grafica de barras. */
 	datosGrafica = (xy: Array < any > , intervalo: number, serie_name: string, title_name: string): Object => {
 		let options = {

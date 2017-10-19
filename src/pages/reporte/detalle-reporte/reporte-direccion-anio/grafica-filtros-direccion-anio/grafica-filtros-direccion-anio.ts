@@ -23,12 +23,15 @@ export class GraficaFiltrosDireccionAnioPage {
 		this.cargaGrafica()
 	}
 
+	/* Funcion que nos ayuda a obtener las datos para graficar. */
 	async cargaGrafica(){
 		var miGlobal = this
 		var series = []
 		series.splice(0, series.length)
+		/*Iteramos las direcciones seleccionadas y vamos obteniendo la informacion necesaria para graficar.*/
 		await this.direcciones.forEach(function callback(item, index) {
 			var res = []
+			/* Funcion para obtener la informacion por dirección selecconado. */
 			miGlobal.dataDirecciones(item, miGlobal.anios).then(x => {
 				x.forEach(item => {
 				console.log('res')
@@ -36,17 +39,14 @@ export class GraficaFiltrosDireccionAnioPage {
 					
 				})
 			})
-			// console.log(res)
-			
 			series.push({
 				'name': item,
 				'data': res
 			})
 		})
-		console.log(series);
-
+		/*Lamamos la funcion para graficar. */
 		setTimeout(() => {
-			this.options = this.reporteService.graficaDireccionAniosGeneral(this.anios, series, 'Direcciones')
+			this.options = this.reporteService.graficaDireccionAniosGeneral(this.anios.sort((function(a, b) { return b-a})), series, 'Direcciones')
 			console.log(this.options)
 		}, 2000)
 	}
@@ -54,19 +54,11 @@ export class GraficaFiltrosDireccionAnioPage {
 	async dataDirecciones(direccion, anio) {
 		var miGlobal = this
 		this.data_direcciones.splice(0, this.data_direcciones.length)
-
+		/* Funcion que nos ayudara a obtener la data por direccion y anio*/
 		await this.reporteService.obtenerDataFiltracion(direccion, anio)
 			.then(response => {
-				// console.log(response)
 				miGlobal.data_direcciones = response
-				// response.forEach(item => {
-				// 	miGlobal.data_direcciones.push(parseInt(item))
-				// })
 			})
-		// console.log('data')
-		// console.log(miGlobal.data_direcciones)
-		
 		return miGlobal.data_direcciones
-		
 	}
 }
