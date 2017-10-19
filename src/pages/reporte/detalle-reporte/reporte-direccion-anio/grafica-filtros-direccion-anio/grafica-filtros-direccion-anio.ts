@@ -10,6 +10,7 @@ import {
 	ReportesDbService
 } from '../../../../../services/reportes.db.service'
 import * as collect from 'collect.js/dist'
+import * as account from 'accounting-js'
 
 @IonicPage()
 @Component({
@@ -24,6 +25,8 @@ export class GraficaFiltrosDireccionAnioPage {
 	title: string = ''
 	proyectos = []
 	reporte_tablero = []
+	monto_total: string = ''
+	total_proyectos: number
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteService: ReportesDbService) {
 		this.direcciones = navParams.get('direccion')
@@ -57,8 +60,10 @@ export class GraficaFiltrosDireccionAnioPage {
 				/* Funcion para obtener la informacion del tablero informativo*/
 				miGlobal.tableroInfomativo(item, miGlobal.anios).then(response => {
 					miGlobal.proyectos = collect(response).sortByDesc('anio').all()
-					console.log(miGlobal.proyectos)
-					
+					/* Obtenemos el total de proyectos.*/
+					this.total_proyectos = collect(response).sum('numero_proyectos')
+					/* Obtenemos la suma total del monto en USD*/
+					this.monto_total = account.formatNumber(collect(response).sum('monto'))
 				})
 			})
 
@@ -66,7 +71,7 @@ export class GraficaFiltrosDireccionAnioPage {
 			setTimeout(() => {
 				this.options = this.reporteService.graficaDireccionAniosGeneral(this.anios.sort((function(a, b) {
 					return b - a
-				})), series, 'Direcciones')
+				})), series, 'Direcciones por porcentaje de participación')
 			}, 2000)
 		}
 	/* Funcion realizar la consulta necesaria al origen de datos para obtener la data de las direccciones selecionadas.*/
@@ -85,6 +90,7 @@ export class GraficaFiltrosDireccionAnioPage {
 	async tableroInfomativo(direcciones: string, anios: number[]) {
 		var miGlobal = this
 		this.reporte_tablero.splice(0, this.reporte_tablero.length)
+		/* Funcion para hacer la consulta al origen de datos y obtener la data para el tablero. */
 		await this.reporteService.tableroDireccionAniosGeneral(direcciones, anios)
 			.then(response => {
 				response.forEach(item => {
