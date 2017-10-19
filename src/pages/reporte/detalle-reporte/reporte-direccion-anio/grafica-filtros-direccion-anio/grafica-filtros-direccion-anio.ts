@@ -51,11 +51,15 @@ export class GraficaFiltrosDireccionAnioPage {
 					})
 				})
 				series.push({
-						'name': item,
-						'data': res
-					})
-					/* Funcion para obtener la informacion del tablero informativo*/
-				miGlobal.tableroInfomativo(item, miGlobal.anios)
+					'name': item,
+					'data': res
+				})
+				/* Funcion para obtener la informacion del tablero informativo*/
+				miGlobal.tableroInfomativo(item, miGlobal.anios).then(response => {
+					miGlobal.proyectos = collect(response).sortByDesc('anio').all()
+					console.log(miGlobal.proyectos)
+					
+				})
 			})
 
 			/*Lamamos la funcion para graficar. */
@@ -65,7 +69,7 @@ export class GraficaFiltrosDireccionAnioPage {
 				})), series, 'Direcciones')
 			}, 2000)
 		}
-		/* Funcion realizar la consulta necesaria al origen de datos para obtener la data de las direccciones selecionadas.*/
+	/* Funcion realizar la consulta necesaria al origen de datos para obtener la data de las direccciones selecionadas.*/
 	async dataDirecciones(direccion, anio) {
 		var miGlobal = this
 		this.data_direcciones.splice(0, this.data_direcciones.length)
@@ -78,21 +82,25 @@ export class GraficaFiltrosDireccionAnioPage {
 	}
 
 	/* Funcion para obtener la informacion del tablero informativo*/
-	async tableroInfomativo(direcciones: string, anios: number[]){
+	async tableroInfomativo(direcciones: string, anios: number[]) {
 		var miGlobal = this
 		this.reporte_tablero.splice(0, this.reporte_tablero.length)
 		await this.reporteService.tableroDireccionAniosGeneral(direcciones, anios)
-		.then(response => {
-			response.forEach(item => {
-				miGlobal.proyectos.push({
-					'porcentaje': item.porcentaje,
-					'anio': item.anio,
-					'unidad_negocio': item.unidad_negocio,
-					'monto': item.monto,
-					'numero_proyectos': item.numero_proyectos,
-					'total': item.total,
-				})
+			.then(response => {
+				// var data = []
+				response.forEach(item => {
+						miGlobal.reporte_tablero.push({
+							'porcentaje': item.porcentaje,
+							'anio': item.anio,
+							'unidad_negocio': item.unidad_negocio,
+							'monto': item.monto,
+							'numero_proyectos': item.numero_proyectos,
+							'total': item.total,
+						})
+					})
+					// miGlobal.this.proyectos = collect(data).sortByDesc('anio').all()
+					// console.log(this.proyectos)
 			})
-		})
+		return miGlobal.reporte_tablero
 	}
 }
