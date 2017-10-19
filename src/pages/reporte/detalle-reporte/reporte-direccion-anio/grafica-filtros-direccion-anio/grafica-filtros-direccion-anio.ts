@@ -87,19 +87,16 @@ export class GraficaFiltrosDireccionAnioPage {
 		this.reporte_tablero.splice(0, this.reporte_tablero.length)
 		await this.reporteService.tableroDireccionAniosGeneral(direcciones, anios)
 			.then(response => {
-				// var data = []
 				response.forEach(item => {
-						miGlobal.reporte_tablero.push({
-							'porcentaje': item.porcentaje,
-							'anio': item.anio,
-							'unidad_negocio': item.unidad_negocio,
-							'monto': item.monto,
-							'numero_proyectos': item.numero_proyectos,
-							'total': item.total,
-						})
+					miGlobal.reporte_tablero.push({
+						'porcentaje': item.porcentaje,
+						'anio': item.anio,
+						'unidad_negocio': item.unidad_negocio,
+						'monto': item.monto,
+						'numero_proyectos': item.numero_proyectos,
+						'total': item.total,
 					})
-					// miGlobal.this.proyectos = collect(data).sortByDesc('anio').all()
-					// console.log(this.proyectos)
+				})
 			})
 		return miGlobal.reporte_tablero
 	}
