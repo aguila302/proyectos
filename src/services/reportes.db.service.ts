@@ -592,17 +592,18 @@ export class ReportesDbService {
 	}
 
 	/* Funcion para conseguir la data del filtrado de reporte direccion anios. */
-	obtenerDataFiltracion = (direcciones, anios) => {
+	obtenerDataFiltracion = (direcciones, anios, cadena) => {
 
 		let direccionAnio = []
 
 		let sql =  `select anio, unidad_negocio, count(*) as numero_proyectos, (select count(*) 
-					from proyectos where anio in (${anios}) and unidad_negocio IN ('${direcciones}')) as total
+					from proyectos where anio in (${anios}) and unidad_negocio IN (${cadena})) as total
 					from proyectos where unidad_negocio in('${direcciones}') 
 					and anio in (${anios})
 					group by unidad_negocio, anio
 					order by anio desc;`
-
+		console.log(sql)
+		
 		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
@@ -622,7 +623,7 @@ export class ReportesDbService {
 					group by anio
 					order by anio desc;`
 
-		console.log(sql)
+		// console.log(sql)
 		
 		return this.db.executeSql(sql, {})
 			.then(response => {
