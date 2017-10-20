@@ -44,10 +44,10 @@ export class GraficaFiltrosDireccionAnioPage {
 		var miGlobal = this
 		var series = []
 		series.splice(0, series.length)
-			/*Iteramos las direcciones seleccionadas y vamos obteniendo la informacion necesaria para graficar.*/
+		/*Iteramos las direcciones seleccionadas y vamos obteniendo la informacion necesaria para graficar.*/
 		await this.direcciones.forEach(function callback(item, index) {
 			var res = []
-				/* Funcion para obtener la informacion por dirección selecconado. */
+			/* Funcion para obtener la informacion por dirección selecconado. */
 			miGlobal.dataDirecciones(item, miGlobal.anios).then(x => {
 				x.forEach(item => {
 					res.push(parseFloat(item))
@@ -57,11 +57,11 @@ export class GraficaFiltrosDireccionAnioPage {
 					'name': item,
 					'data': res
 				})
-				/* Funcion para obtener la informacion del tablero informativo*/
+			/* Funcion para obtener la informacion del tablero informativo*/
 			miGlobal.tableroInfomativo(item, miGlobal.anios).then(response => {
 				/* Obtenemos el total de proyectos.*/
 				miGlobal.total_proyectos = collect(response).sum('numero_proyectos')
-				/* Obtenemos la suma total del monto en USD*/
+					/* Obtenemos la suma total del monto en USD*/
 				miGlobal.monto_total = account.formatNumber(collect(response).sum('monto'))
 
 				let ordenados = collect(response).sortByDesc('anio').all()
@@ -103,7 +103,7 @@ export class GraficaFiltrosDireccionAnioPage {
 	async tableroInfomativo(direcciones: string, anios: number[]) {
 		var miGlobal = this
 		this.reporte_tablero.splice(0, this.reporte_tablero.length)
-		/* Funcion para hacer la consulta al origen de datos y obtener la data para el tablero. */
+			/* Funcion para hacer la consulta al origen de datos y obtener la data para el tablero. */
 		await this.reporteService.tableroDireccionAniosGeneral(direcciones, anios)
 			.then(response => {
 				response.forEach(item => {
