@@ -616,7 +616,7 @@ export class ReportesDbService {
 		let direccionAnio = []
 
 		let sql =  `select anio, unidad_negocio, sum(monto) as monto, count(*) as numero_proyectos, (select count(*) 
-					from proyectos where anio in (${anios})) as total
+					from proyectos where anio in (${anios}) and unidad_negocio IN ('${direcciones}')) as total
 					from proyectos where unidad_negocio in('${direcciones}') 
 					and anio in (${anios})
 					group by anio
