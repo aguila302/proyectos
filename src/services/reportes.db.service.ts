@@ -631,7 +631,7 @@ export class ReportesDbService {
 						'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2),
 						'anio': response.rows.item(index).anio,
 						'unidad_negocio': response.rows.item(index).unidad_negocio,
-						'monto': account.formatNumber(response.rows.item(index).monto),
+						'monto': response.rows.item(index).monto,
 						'numero_proyectos': response.rows.item(index).numero_proyectos,
 						'total': response.rows.item(index).total,
 					})

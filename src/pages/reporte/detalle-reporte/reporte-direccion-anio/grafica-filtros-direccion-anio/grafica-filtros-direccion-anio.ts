@@ -41,39 +41,52 @@ export class GraficaFiltrosDireccionAnioPage {
 
 	/* Funcion que nos ayuda a obtener las datos para graficar. */
 	async cargaGrafica() {
-			var miGlobal = this
-			var series = []
-			series.splice(0, series.length)
-				/*Iteramos las direcciones seleccionadas y vamos obteniendo la informacion necesaria para graficar.*/
-			await this.direcciones.forEach(function callback(item, index) {
-				var res = []
-					/* Funcion para obtener la informacion por dirección selecconado. */
-				miGlobal.dataDirecciones(item, miGlobal.anios).then(x => {
-					x.forEach(item => {
-						res.push(parseFloat(item))
-					})
+		var miGlobal = this
+		var series = []
+		series.splice(0, series.length)
+			/*Iteramos las direcciones seleccionadas y vamos obteniendo la informacion necesaria para graficar.*/
+		await this.direcciones.forEach(function callback(item, index) {
+			var res = []
+				/* Funcion para obtener la informacion por dirección selecconado. */
+			miGlobal.dataDirecciones(item, miGlobal.anios).then(x => {
+				x.forEach(item => {
+					res.push(parseFloat(item))
 				})
-				series.push({
+			})
+			series.push({
 					'name': item,
 					'data': res
 				})
 				/* Funcion para obtener la informacion del tablero informativo*/
-				miGlobal.tableroInfomativo(item, miGlobal.anios).then(response => {
-					miGlobal.proyectos = collect(response).sortByDesc('anio').all()
-					/* Obtenemos el total de proyectos.*/
-					miGlobal.total_proyectos = collect(response).sum('numero_proyectos')
+			miGlobal.tableroInfomativo(item, miGlobal.anios).then(response => {
+				/* Obtenemos el total de proyectos.*/
+				miGlobal.total_proyectos = collect(response).sum('numero_proyectos')
 					/* Obtenemos la suma total del monto en USD*/
-					miGlobal.monto_total = account.formatNumber(collect(response).sum('monto'))
-				})
-			})
+				miGlobal.monto_total = account.formatNumber(collect(response).sum('monto'))
 
-			/*Lamamos la funcion para graficar. */
-			setTimeout(() => {
-				this.options = this.reporteService.graficaDireccionAniosGeneral(this.anios.sort((function(a, b) {
-					return b - a
-				})), series, 'Direcciones por porcentaje de participación')
-			}, 2000)
-		}
+				let ordenados = collect(response).sortByDesc('anio').all()
+				let proyectos = ordenados.map(function(item) {
+					return {
+						'porcentaje': item.porcentaje,
+						'anio': item.anio,
+						'unidad_negocio': item.unidad_negocio,
+						'monto': account.formatNumber(item.monto),
+						'numero_proyectos': item.numero_proyectos,
+						'total': item.total,
+					}
+				})
+				miGlobal.proyectos = proyectos
+			})
+		})
+
+		/*Lamamos la funcion para graficar. */
+		setTimeout(() => {
+			this.options = this.reporteService.graficaDireccionAniosGeneral(this.anios.sort((function(a, b) {
+				return b - a
+			})), series, 'Direcciones por porcentaje de participación')
+		}, 2000)
+	}
+
 	/* Funcion realizar la consulta necesaria al origen de datos para obtener la data de las direccciones selecionadas.*/
 	async dataDirecciones(direccion, anio) {
 		var miGlobal = this
