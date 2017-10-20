@@ -11,10 +11,10 @@
 </ion-header>
 <ion-content padding>
 	<ion-list>
+		<button ion-button block color="botton" (click)="cerrarFiltros()">Aceptar</button>
 		<ion-item *ngFor="let opcion of opciones">
 			<ion-label>{{ opcion.item }}</ion-label>
 			<ion-checkbox (ionChange)="seleccionFiltros($event, opcion.item )"></ion-checkbox>
 		</ion-item>
-		<button ion-button block color="botton" (click)="cerrarFiltros()">Aceptar</button>
 	</ion-list>
 </ion-content>
