@@ -49,8 +49,7 @@ export class GraficaFiltrosDireccionAnioPage {
 			cadena += `'${item}',`
 		})
 		cadena = cadena.slice(0,-1)
-		// console.log(cadena)
-		
+
 		/*Iteramos las direcciones seleccionadas y vamos obteniendo la informacion necesaria para graficar.*/
 		await this.direcciones.forEach(function callback(item, index) {
 			var res = []
@@ -66,7 +65,7 @@ export class GraficaFiltrosDireccionAnioPage {
 					'data': res
 				})
 			/* Funcion para obtener la informacion del tablero informativo*/
-			miGlobal.tableroInfomativo(item, miGlobal.anios).then(response => {
+			miGlobal.tableroInfomativo(item, miGlobal.anios, cadena).then(response => {
 				/* Obtenemos el total de proyectos.*/
 				miGlobal.total_proyectos = collect(response).sum('numero_proyectos')
 				/* Obtenemos la suma total del monto en USD*/
@@ -98,8 +97,7 @@ export class GraficaFiltrosDireccionAnioPage {
 	/* Funcion realizar la consulta necesaria al origen de datos para obtener la data de las direccciones selecionadas.*/
 	async dataDirecciones(direccion, anio, cadena) {
 		var miGlobal = this
-		// console.log(direccion)
-		
+
 		this.data_direcciones.splice(0, this.data_direcciones.length)
 		/* Funcion que nos ayudara a obtener la data por direccion y anio*/
 		await this.reporteService.obtenerDataFiltracion(direccion, anio, cadena)
@@ -110,11 +108,11 @@ export class GraficaFiltrosDireccionAnioPage {
 	}
 
 	/* Funcion para obtener la informacion del tablero informativo*/
-	async tableroInfomativo(direcciones: string, anios: number[]) {
+	async tableroInfomativo(direcciones: string, anios: number[], cadena:string) {
 		var miGlobal = this
 		this.reporte_tablero.splice(0, this.reporte_tablero.length)
 		/* Funcion para hacer la consulta al origen de datos y obtener la data para el tablero. */
-		await this.reporteService.tableroDireccionAniosGeneral(direcciones, anios)
+		await this.reporteService.tableroDireccionAniosGeneral(direcciones, anios, cadena)
 			.then(response => {
 				response.forEach(item => {
 					miGlobal.reporte_tablero.push({

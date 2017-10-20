@@ -613,11 +613,11 @@ export class ReportesDbService {
 			}).catch(console.error.bind(console))
 	}
 	/* Funcion para conseguir la información del tablero de reporte direccion, anio filtrado. */
-	tableroDireccionAniosGeneral = (direcciones, anios) => {
+	tableroDireccionAniosGeneral = (direcciones, anios, cadena) => {
 		let direccionAnio = []
 
 		let sql =  `select anio, unidad_negocio, sum(monto) as monto, count(*) as numero_proyectos, (select count(*) 
-					from proyectos where anio in (${anios}) and unidad_negocio IN ('${direcciones}')) as total
+					from proyectos where anio in (${anios}) and unidad_negocio IN (${cadena})) as total
 					from proyectos where unidad_negocio in('${direcciones}') 
 					and anio in (${anios})
 					group by anio
