@@ -61,7 +61,7 @@ export class GraficaFiltrosDireccionAnioPage {
 			miGlobal.tableroInfomativo(item, miGlobal.anios).then(response => {
 				/* Obtenemos el total de proyectos.*/
 				miGlobal.total_proyectos = collect(response).sum('numero_proyectos')
-					/* Obtenemos la suma total del monto en USD*/
+				/* Obtenemos la suma total del monto en USD*/
 				miGlobal.monto_total = account.formatNumber(collect(response).sum('monto'))
 
 				let ordenados = collect(response).sortByDesc('anio').all()
