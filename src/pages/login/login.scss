@@ -2,5 +2,10 @@ page-login {
 	.container {
 		display: flex;
 		align-items: center;
+		width: 100%;
+		height: 100%;
 	}
+		ion-list {
+			width: 100%;
+		}
 }
