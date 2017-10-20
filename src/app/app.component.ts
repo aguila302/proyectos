@@ -21,9 +21,9 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-      // this.dbService.openDatabase()
-      // .then(() => this.dbService.createTable())
-      // .then(() => this.dbService.validaRegistros())
+      this.dbService.openDatabase()
+      .then(() => this.dbService.createTable())
+      .then(() => this.dbService.validaRegistros())
       // .then(() => this.dbService.delete())
       // .then(() => this.dbService.creaTablaReportes())
       //   .then(() => this.dbService.creaTablaReporteColumnas())
