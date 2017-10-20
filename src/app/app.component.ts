@@ -4,15 +4,15 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DbService } from '../services/db.service'
-// import { TabsPage } from '../pages/tabs/tabs';
-import { LoginPage } from '../pages/login/login'
+import { TabsPage } from '../pages/tabs/tabs';
+// import { LoginPage } from '../pages/login/login'
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  // rootPage:any = TabsPage;
-  rootPage:any = LoginPage
+  rootPage:any = TabsPage;
+  // rootPage:any = LoginPage
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
     public dbService: DbService) {
@@ -24,19 +24,19 @@ export class MyApp {
       this.dbService.openDatabase()
       .then(() => this.dbService.createTable())
       .then(() => this.dbService.validaRegistros())
-      // .then(() => this.dbService.delete())
-      // .then(() => this.dbService.creaTablaReportes())
-      //   .then(() => this.dbService.creaTablaReporteColumnas())
-      //   .then(() => this.dbService.creaTablaReporteFiltros())
-      //   .then(() => this.dbService.creaTablaReporteAgrupaciones())
-      //   .then(() => this.dbService.insertaDatosTablaReportes())
-      //   .then(() => this.dbService.insertaDatosTablaReportesColunas())
-      //   .then(() => this.dbService.insertaDatosTablaReportesFiltros())
-      //   .then(() => this.dbService.insertaDatosTablaReportesAgrupacion())
-      //   .then(() => this.dbService.createTableAnios())
-      //   .then(() => this.dbService.insertAnios())
-      //   .then(() => this.dbService.createTableDireccionAnios())
-      //   .then(() => this.dbService.insertDireccionAnios())
+      .then(() => this.dbService.delete())
+      .then(() => this.dbService.creaTablaReportes())
+        .then(() => this.dbService.creaTablaReporteColumnas())
+        .then(() => this.dbService.creaTablaReporteFiltros())
+        .then(() => this.dbService.creaTablaReporteAgrupaciones())
+        .then(() => this.dbService.insertaDatosTablaReportes())
+        .then(() => this.dbService.insertaDatosTablaReportesColunas())
+        .then(() => this.dbService.insertaDatosTablaReportesFiltros())
+        .then(() => this.dbService.insertaDatosTablaReportesAgrupacion())
+        .then(() => this.dbService.createTableAnios())
+        .then(() => this.dbService.insertAnios())
+        .then(() => this.dbService.createTableDireccionAnios())
+        .then(() => this.dbService.insertDireccionAnios())
     });
   }
 }
