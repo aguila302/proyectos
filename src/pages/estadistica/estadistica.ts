@@ -14,6 +14,7 @@ import { ProyectosAgrupadosClienteMenoresPage } from './proyectos-agrupados/por-
 
 import { ProyectosAgrupadosGerenciaPage } from './proyectos-agrupados/por-gerencia/proyectos-agrupados-gerencia'
 import { Platform, NavController, LoadingController } from 'ionic-angular'
+import { Bar } from '../../highcharts/modulo.estadisticas/bar'
 
 
 // @IonicPage()
@@ -60,7 +61,11 @@ export class EstadisticaPage {
 							y: parseFloat(item.porcentaje)
 						})
 					})
-					this.options = this.datosGrafica(this.xy, 15, 'Paises', 'Proyectos agrupados por país')
+				let bar: Bar
+				bar = new Bar(this.xy, 'Paises', 'Proyectos agrupados por país')
+				this.options = bar.greet()
+				// console.log(greeter.greet())
+					// this.options = this.datosGrafica(this.xy, 15, 'Paises', 'Proyectos agrupados por país')
 
 					/* Para mostrar la tabla de informacion */
 					const collection = collect(response)

@@ -675,7 +675,10 @@ export class ReportesDbService {
 						enabled: true,
 						format: '{point.y:.1f}%'
 					}
-				}
+				},
+				legend: {
+				enabled: true
+				},
 			},
 
 			tooltip: {
