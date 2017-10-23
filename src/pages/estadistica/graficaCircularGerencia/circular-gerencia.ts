@@ -3,6 +3,7 @@ import { NavParams, NavController } from 'ionic-angular'
 import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
 import { ProyectosAgrupadosGerenciaPage } from '../proyectos-agrupados/por-gerencia/proyectos-agrupados-gerencia'
+import { Bar } from '../../../highcharts/modulo.estadisticas/bar'
 
 @Component({
 	selector: 'page-circular-gerencia',
@@ -15,6 +16,7 @@ export class CircularGerenciaPage {
 	total_proyectos: number
 	data_grafica = []
 	options: Object
+	bar: Bar
 
 	constructor(private navParams: NavParams,
 		private navCrtl: NavController) {
@@ -30,7 +32,10 @@ export class CircularGerenciaPage {
 				y: parseFloat(item.porcentaje)
 			})
 		})
-		this.options = this.datosGrafica(this.data_grafica)
+	
+		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+		this.bar = new Bar(this.data_grafica, 'Gerencia', 'Proyectos agrupados por gerencia')
+		this.options = this.bar.graficaPie()
 
 		/* Para mostrar la tabla dinamica. */
 		const collection = collect(this.proyectos)
@@ -46,44 +51,6 @@ export class CircularGerenciaPage {
 			}
 		})
 		this.proyectos = proyectos
-	}
-
-	/* Funcion para dibujar la grafica circular.*/
-	datosGrafica = (xy): Object => {
-		let options = {
-			chart: {
-				plotBackgroundColor: null,
-				plotBorderWidth: null,
-				plotShadow: true,
-				type: 'pie',
-				width: 750,
-				height: 600
-			},
-			title: {
-				text: 'Proyectos agrupados por gerencia'
-			},
-			tooltip: {
-				pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-			},
-			plotOptions: {
-				pie: {
-					allowPointSelect: true,
-					cursor: 'pointer',
-					dataLabels: {
-						enabled: true,
-						format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-					},
-					showInLegend: true
-				}
-			},
-			series: [{
-				name: 'Gerencia',
-				colorByPoint: true,
-				data: []
-			}]
-		}
-		options['series'][0].data = xy
-		return options
 	}
 
 	/* Funcion para visualizar los proyectos agrupados por pais. */

@@ -4,7 +4,7 @@ import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
 import { ProyectosAgrupadosClientePage } from '../proyectos-agrupados/por-cliente/proyectos-agrupados-cliente'
 import { ProyectosAgrupadosClienteMenoresPage } from '../proyectos-agrupados/por-cliente/por-cliente-menores/proyectos-agrupados-cliente-menores'
-
+import { Bar } from '../../../highcharts/modulo.estadisticas/bar'
 
 @Component({
 	selector: 'page-circular-cliente',
@@ -18,9 +18,9 @@ export class CircularClientePage {
 	total_proyectos: number
 	proyectos_agrupados = []
 	proyectos_agrupados_detalle = []
-
 	data_grafica = []
 	options: Object
+	bar: Bar
 
 	constructor(private navParams: NavParams,
 		private navCrtl: NavController) {
@@ -75,7 +75,10 @@ export class CircularClientePage {
 		})
 
 		this.data_grafica = data_cliente
-		this.options = this.datosGrafica(this.data_grafica)
+
+		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+		this.bar = new Bar(this.data_grafica, 'Clientes', 'Proyectos agrupados por cliente')
+		this.options = this.bar.graficaPie()
 
 		/* Para mostrar la tabla de informacion */
 		this.monto_total = account.formatNumber(data.sum('monto'))
@@ -92,46 +95,6 @@ export class CircularClientePage {
 
 		this.proyectos = proyectos
 		this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno)
-	}
-
-	/* Funcion para dibujar la grafica circular.*/
-	datosGrafica = (xy): Object => {
-		let format = '<b>{point.name}</b>: {point.percentage:.1f} %'
-		let options = {
-			chart: {
-				plotBackgroundColor: null,
-				plotBorderWidth: null,
-				plotShadow: true,
-				type: 'pie',
-				width: 750,
-				height: 600
-			},
-			title: {
-				text: 'Proyectos agrupados por clientes'
-			},
-			tooltip: {
-				pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-			},
-			plotOptions: {
-				pie: {
-					allowPointSelect: true,
-					cursor: 'pointer',
-					dataLabels: {
-						enabled: true,
-						format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-						// format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-					},
-					showInLegend: true
-				}
-			},
-			series: [{
-				name: 'Clientes',
-				colorByPoint: true,
-				data: []
-			}]
-		}
-		options['series'][0].data = xy
-		return options
 	}
 
 	/* Funcion para los proyectos que tienen menos de 1 porcentaje. */

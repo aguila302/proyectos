@@ -16,8 +16,6 @@ import { ProyectosAgrupadosGerenciaPage } from './proyectos-agrupados/por-gerenc
 import { Platform, NavController, LoadingController } from 'ionic-angular'
 import { Bar } from '../../highcharts/modulo.estadisticas/bar'
 
-
-// @IonicPage()
 @Component({
 	selector: 'page-estadistica',
 	templateUrl: 'estadistica.html',
@@ -40,7 +38,7 @@ export class EstadisticaPage {
 	monto_total: string = ''
 	total_proyectos: number
 	dataCirular = []
-	data_grafica: {}
+	bar: Bar
 	
 	ionViewDidLoad(): void {
 		console.log('ionViewDidLoad')
@@ -61,34 +59,31 @@ export class EstadisticaPage {
 							y: parseFloat(item.porcentaje)
 						})
 					})
-				let bar: Bar
-				bar = new Bar(this.xy, 'Paises', 'Proyectos agrupados por país')
-				this.options = bar.greet()
-				// console.log(greeter.greet())
-					// this.options = this.datosGrafica(this.xy, 15, 'Paises', 'Proyectos agrupados por país')
+				/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+				this.bar = new Bar(this.xy, 'Paises', 'Proyectos agrupados por país')
+				this.options = this.bar.graficaBar()
 
-					/* Para mostrar la tabla de informacion */
-					const collection = collect(response)
-					this.monto_total = account.formatNumber(collection.sum('monto'))
-					this.total_proyectos = collection.sum('numero_proyectos')
+				/* Para mostrar la tabla de informacion */
+				const collection = collect(response)
+				this.monto_total = account.formatNumber(collection.sum('monto'))
+				this.total_proyectos = collection.sum('numero_proyectos')
 
-					let proyectos = collection.map(function(item) {
-						return {
-							'pais': item.pais,
-							'porcentaje': item.porcentaje,
-							'monto': account.formatNumber(item.monto),
-							'numero_proyectos': item.numero_proyectos
-						}
-					})
-					this.proyectos = proyectos
-					this.dataCirular = response
+				let proyectos = collection.map(function(item) {
+					return {
+						'pais': item.pais,
+						'porcentaje': item.porcentaje,
+						'monto': account.formatNumber(item.monto),
+						'numero_proyectos': item.numero_proyectos
+					}
 				})
+				this.proyectos = proyectos
+				this.dataCirular = response
 			})
-			.catch(console.error.bind(console))
+		})
+		.catch(console.error.bind(console))
 	}
 
-	
-/* Funcion para visualizar los proyectos agrupados por pais. */
+	/* Funcion para visualizar los proyectos agrupados por pais. */
 	verProyectosAgrupados = (pais: string, monto_total: string): void => {
 		this.navCtrl.push(ProyectosAgrupadosPage, {
 			'pais': pais,
@@ -116,7 +111,9 @@ export class EstadisticaPage {
 						y: parseFloat(item.porcentaje)
 					})
 				})
-				this.options = this.datosGrafica(this.xy, 2, 'Años', 'Proyectos agrupados por año')
+				/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+				this.bar = new Bar(this.xy, 'Años', 'Proyectos agrupados por año')
+				this.options = this.bar.graficaBar()
 
 				/* Para mostrar la tabla de informacion */
 				const collection = collect(response)
@@ -164,7 +161,9 @@ export class EstadisticaPage {
 							y: parseFloat(item.porcentaje)
 						})
 					})
-				this.options = this.datosGrafica(this.xy, 15, 'Gerencias', 'Proyectos agrupados por gerencia')
+				/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+				this.bar = new Bar(this.xy, 'Gerencias', 'Proyectos agrupados por gerencia')
+				this.options = this.bar.graficaBar()
 
 				/* Para mostrar la tabla de informacion */
 				const collection = collect(response)
@@ -249,7 +248,9 @@ export class EstadisticaPage {
 						})
 					})
 					this.xy = data_cliente
-					this.options = this.datosGrafica(this.xy, 10, 'Clientes', 'Proyectos agrupados por clientes')
+					/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+					this.bar = new Bar(this.xy, 'Gerencias', 'Proyectos agrupados por cliente')
+					this.options = this.bar.graficaBar()
 
 					/* Para mostrar la tabla de informacion */
 					this.monto_total = account.formatNumber(data.sum('monto'))
@@ -318,93 +319,5 @@ export class EstadisticaPage {
 		this.navCtrl.push(CircularClientePage, {
 			'datos_circular': this.dataCirular
 		})
-	}
-
-	datosGrafica = (xy: Array<any>, intervalo: number, serie_name: string, title_name: string): Object => {
-		let options = {
-			chart: {
-				type: 'column',
-				// width: 600,
-				// height: 350
-			},
-			title: {
-				text: title_name
-			},
-			xAxis: {
-				type: 'category'
-			},
-			yAxis: [{
-				className: 'highcharts-color-0',
-				tickInterval: intervalo,
-				labels: {
-					// x: -15,
-					formatter: function() {
-						return this.value + ' %';
-					}
-				},
-				title: {
-					text: 'Porcentaje total de participación'
-				}
-			}],
-			legend: {
-				enabled: false
-			},
-			plotOptions: {
-				series: {
-					borderWidth: 0,
-					dataLabels: {
-						enabled: true,
-						format: '{point.y:.1f}%'
-					}
-				}
-			},
-
-			tooltip: {
-				headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-				pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> del total<br/>'
-			},
-
-			series: [{
-				name: serie_name,
-				// colorByPoint: true,
-				data: [],
-			}],
-			responsive: {
-				rules: [{
-					condition: {
-						maxWidth: 500
-					},
-					title: {
-						text: 'responsive'
-					},
-					xAxis: {
-						type: 'category'
-					},
-					// Make the labels less space demanding on mobile
-					chartOptions: {
-						xAxis: {
-							labels: {
-								formatter: function() {
-									return this.value.charAt(0)
-								}
-							}
-						},
-						yAxis: {
-							className: 'highcharts-color-0',
-							labels: {
-								align: 'left',
-								x: 0,
-								y: -2
-							},
-							title: {
-								text: 'Porcentaje total de participación'
-							}
-						}
-					}
-				}]
-			}
-		}
-		options['series'][0].data = xy
-		return options
 	}
 }
