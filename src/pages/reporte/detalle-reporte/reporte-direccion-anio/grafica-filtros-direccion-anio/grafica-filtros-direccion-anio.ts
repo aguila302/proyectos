@@ -48,12 +48,12 @@ export class GraficaFiltrosDireccionAnioPage {
 		this.direcciones.forEach(item => {
 			cadena += `'${item}',`
 		})
-		cadena = cadena.slice(0,-1)
+		cadena = cadena.slice(0, -1)
 
 		/*Iteramos las direcciones seleccionadas y vamos obteniendo la informacion necesaria para graficar.*/
 		await this.direcciones.forEach(function callback(item, index) {
 			var res = []
-			
+
 			/* Funcion para obtener la informacion por dirección selecconado. */
 			miGlobal.dataDirecciones(item, miGlobal.anios, cadena).then(x => {
 				x.forEach(item => {
@@ -64,11 +64,11 @@ export class GraficaFiltrosDireccionAnioPage {
 					'name': item,
 					'data': res
 				})
-			/* Funcion para obtener la informacion del tablero informativo*/
+				/* Funcion para obtener la informacion del tablero informativo*/
 			miGlobal.tableroInfomativo(item, miGlobal.anios, cadena).then(response => {
 				/* Obtenemos el total de proyectos.*/
 				miGlobal.total_proyectos = collect(response).sum('numero_proyectos')
-				/* Obtenemos la suma total del monto en USD*/
+					/* Obtenemos la suma total del monto en USD*/
 				miGlobal.monto_total = account.formatNumber(collect(response).sum('monto'))
 
 				let ordenados = collect(response).sortByDesc('anio').all()
@@ -99,7 +99,7 @@ export class GraficaFiltrosDireccionAnioPage {
 		var miGlobal = this
 
 		this.data_direcciones.splice(0, this.data_direcciones.length)
-		/* Funcion que nos ayudara a obtener la data por direccion y anio*/
+			/* Funcion que nos ayudara a obtener la data por direccion y anio*/
 		await this.reporteService.obtenerDataFiltracion(direccion, anio, cadena)
 			.then(response => {
 				miGlobal.data_direcciones = response
@@ -108,10 +108,10 @@ export class GraficaFiltrosDireccionAnioPage {
 	}
 
 	/* Funcion para obtener la informacion del tablero informativo*/
-	async tableroInfomativo(direcciones: string, anios: number[], cadena:string) {
+	async tableroInfomativo(direcciones: string, anios: number[], cadena: string) {
 		var miGlobal = this
 		this.reporte_tablero.splice(0, this.reporte_tablero.length)
-		/* Funcion para hacer la consulta al origen de datos y obtener la data para el tablero. */
+			/* Funcion para hacer la consulta al origen de datos y obtener la data para el tablero. */
 		await this.reporteService.tableroDireccionAniosGeneral(direcciones, anios, cadena)
 			.then(response => {
 				response.forEach(item => {
