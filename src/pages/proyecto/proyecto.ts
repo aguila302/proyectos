@@ -21,7 +21,6 @@ export class ProyectoPage {
 		public loadingCtrl: LoadingController,
 		public platform: Platform,
 		public zone: NgZone) {
-		// this.getProyectos()
 	}
 	proyectos = []
 	items = []
@@ -60,7 +59,6 @@ export class ProyectoPage {
 				})
 			})
 			.catch(console.error.bind(console))
-			// .catch(e => console.log(e))
 		}, 0)
 	}
 

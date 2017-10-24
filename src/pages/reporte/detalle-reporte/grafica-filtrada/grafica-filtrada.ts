@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ReportesDbService } from '../../../../services/reportes.db.service'
 import * as collect from 'collect.js/dist'
-// import * as account from 'accounting-js'
 import { DetalleReporteAgrupadoPage } from '../../../reporte/detalle-reporte/detalle-reporte-agrupado/detalle-reporte-agrupado'
+import { Grafico } from '../../../../highcharts/modulo.reportes/Grafico'
 
 @IonicPage()
 @Component({
@@ -20,6 +20,7 @@ export class GraficaFiltradaPage {
 	campo_agrupacion: string = ''
 	id: number = 0
 	categorias = []
+	grafico: Grafico
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteService : ReportesDbService) {
 		this.reportes = navParams.get('data_grafica')
@@ -48,7 +49,10 @@ export class GraficaFiltradaPage {
 				y: parseFloat(items.porcentaje)
 			})
 		})
-		this.options = this.reporteService.datosGrafica(data , 5, '', '')
+		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+		this.grafico = new Grafico(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion)
+		this.options = this.grafico.graficaBar()
+		// this.options = this.reporteService.datosGrafica(data , 5, '', '')
 	}
 
 	/* Funcion para ver el detalle de los proyectos segun la opcion que se escoja. */

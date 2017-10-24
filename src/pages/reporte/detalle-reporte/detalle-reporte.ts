@@ -14,6 +14,7 @@ import { FiltrarAgrupacionPage } from '../../reporte/detalle-reporte/filtrar-agr
 import { GraficaFiltradaPage } from '../../reporte/detalle-reporte/grafica-filtrada/grafica-filtrada'
 import { DetalleGrupoPage } from '../../reporte/detalle-reporte/detalle-grupo/detalle-grupo'
 import { GraficaCircularPage } from '../../reporte/detalle-reporte/grafica-circular/grafica-circular'
+import { Grafico } from '../../../highcharts/modulo.reportes/Grafico'
 
 @IonicPage()
 @Component({
@@ -35,8 +36,8 @@ export class DetalleReportePage {
 	resultado = []
 	data_circular = []
 	con: number = 1
-
 	visible: boolean = false
+	grafico: Grafico
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private reporteService : ReportesDbService, private dbService: DbService, public zone: NgZone,
@@ -106,7 +107,6 @@ export class DetalleReportePage {
 					let menores_de_uno = ordenados.where('porcentaje', '<', 1)
 
 					/* Suma de los montos y porcentajes de porcentaje  menores de 1. */
-					// let suma_montos_menores_de_uno = menores_de_uno.sum('suma_monto')
 					let suma_porcentajes_menores_de_uno = menores_de_uno.sum('porcentaje').toFixed(2)
 					mayores_de_uno.toArray()
 
@@ -119,7 +119,9 @@ export class DetalleReportePage {
 						})
 					})
 					this.xy = data_cliente
-					this.options = this.reporteService.datosGrafica(this.xy, 10, 'Clientes', 'Proyectos agrupados por clientes')
+					/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+					this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes')
+					this.options = this.grafico.graficaBar()
 
 					/* Para mostrar la tabla de informacion */
 					this.monto_total = account.formatNumber(data.sum('monto'))
@@ -154,7 +156,10 @@ export class DetalleReportePage {
 						})
 
 					})
-					this.options = this.reporteService.datosGrafica(this.xy, 2, '', 'Proyectos agrupados por ' + this.campo_agrupacion)
+
+					/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+					this.grafico = new Grafico(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion)
+					this.options = this.grafico.graficaBar()
 
 					/* Para mostrar la tabla de informacion */
 					const collection = collect(response)

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { LoadingController, NavController, NavParams, Platform, AlertController } from 'ionic-angular';
+import { LoadingController, NavController, Platform, AlertController } from 'ionic-angular';
+import { TabsPage } from '../../pages/tabs/tabs';
 
 // @IonicPage()
 @Component({
@@ -14,7 +15,8 @@ export class LoginPage {
 	constructor(
 		public platform: Platform,
 		private alertCtrl: AlertController,
-		private loadinCtrl: LoadingController) {
+		private loadinCtrl: LoadingController,
+		private navCtrl: NavController) {
 
 	}
 
@@ -26,15 +28,29 @@ export class LoginPage {
 		if (this.email == '' || this.password == '') {
 			let alert = this.alertCtrl.create({
 				title: 'Login',
-				subTitle: 'Debe completar el usuario y contraseña',
+				subTitle: 'Debe completar el usuario y la clave de acceso',
 				buttons: ['Aceptar']
 			})
 			alert.present()
 		} else {
 			let loader = this.loadinCtrl.create({
-				content: 'Logging in...'
+				content: 'Espere por favor...'
 			})
-			loader.present()
+			if(this.email === 'developer@developer.com' && this.password === 'developer'){
+				loader.present()
+				setTimeout(() => {
+				loader.dismiss()
+				}, 3000)
+				this.navCtrl.push(TabsPage,{})
+			}
+			else {
+				let alert = this.alertCtrl.create({
+					title: 'Login',
+					subTitle: 'Usuario o clave de acceso incorrectos',
+					buttons: ['Aceptar']
+				})
+				alert.present()
+			}
 		}
 	}
 }

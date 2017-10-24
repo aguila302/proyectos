@@ -1,14 +1,11 @@
 page-grafica-filtrada {
 	#container {
-			display: flex;
-			justify-content: center;
-			height: 500px;
-			min-width: 100%;
-			max-width: 100%;
-			margin: 0 auto;
-		}
-		.highcharts-color-0 {
-			fill: #5D6D7E;
-			// stroke: #85929E;
-		}
+		display: flex;
+		justify-content: center;
+		height: 500px;
+		min-width: 100%;
+		max-width: 100%;
+		margin: 0 auto;
+	}
+
 }
