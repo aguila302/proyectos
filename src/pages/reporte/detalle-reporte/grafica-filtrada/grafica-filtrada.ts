@@ -52,7 +52,6 @@ export class GraficaFiltradaPage {
 		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 		this.grafico = new Grafico(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion)
 		this.options = this.grafico.graficaBar()
-		// this.options = this.reporteService.datosGrafica(data , 5, '', '')
 	}
 
 	/* Funcion para ver el detalle de los proyectos segun la opcion que se escoja. */
@@ -62,15 +61,5 @@ export class GraficaFiltradaPage {
 			'monto_total': monto_total,
 			'groupBy': this.campo_agrupacion
 		})
-	}
-
-	/**/
-	graficaReporteDireccionAnios = () => {
-		console.log('graficaReporteDireccionAnios')
-		
-		console.log(this.reportes)
-		console.log(this.categorias)
-		
-		// this.options = this.reporteService.graficaDireccionAnios(this.categorias, this.reportes, '')
 	}
 }

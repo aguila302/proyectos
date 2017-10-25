@@ -184,7 +184,6 @@ export class DetalleReportePage {
 
 	/* Funcion para filtrar la argrupacion de mi grafica. */
 	filtrar = (): void => {
-		// this.id === 7 ? (this.campo_agrupacion= 'anio'): ''
 		/* Hacemos una consulta para obtener los distintos valores de la agrupacion. */
 		this.reporteService.selectDistinct(this.campo_agrupacion)
 		.then(response => {
