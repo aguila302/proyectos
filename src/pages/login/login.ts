@@ -9,7 +9,7 @@ import { TabsPage } from '../../pages/tabs/tabs';
 })
 export class LoginPage {
 
-	email: string = ''
+	username: string = ''
 	password: string = ''
 
 	constructor(
@@ -25,7 +25,7 @@ export class LoginPage {
 	}
 
 	login = (): void => {
-		if (this.email == '' || this.password == '') {
+		if (this.username == '' || this.password == '') {
 			let alert = this.alertCtrl.create({
 				title: 'Login',
 				subTitle: 'Debe completar el usuario y la clave de acceso',
@@ -36,7 +36,7 @@ export class LoginPage {
 			let loader = this.loadinCtrl.create({
 				content: 'Espere por favor...'
 			})
-			if(this.email === 'developer@developer.com' && this.password === 'developer'){
+			if(this.username === 'developer' && this.password === 'developer'){
 				loader.present()
 				setTimeout(() => {
 				loader.dismiss()

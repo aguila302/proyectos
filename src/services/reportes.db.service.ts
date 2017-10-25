@@ -645,8 +645,7 @@ export class ReportesDbService {
 	reporteDireccionAnioDetalle = (anio: number, direccion: string): any => {
 		let proyectos = []
 		let sql = `select * from proyectos where anio = ${anio} and unidad_negocio = '${direccion}' order by unidad_negocio ASC`
-		console.log(sql)
-		
+
 		return this.db.executeSql(sql, {})
 			.then((response) => {
 				for (let index = 0; index < response.rows.length; index++) {
