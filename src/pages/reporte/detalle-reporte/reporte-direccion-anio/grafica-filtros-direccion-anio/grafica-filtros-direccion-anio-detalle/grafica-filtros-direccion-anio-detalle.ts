@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {
 	ReportesDbService
@@ -13,7 +13,10 @@ export class GraficaFiltrosDireccionAnioDetallePage {
 	direccion: string = ''
 	anio: number = 0
 	monto: string = ''
-	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteService: ReportesDbService) {
+	proyectos = []
+
+	constructor(public navCtrl: NavController, public navParams: NavParams,
+		private reporteService: ReportesDbService, private ngZone: NgZone) {
 		this.direccion = this.navParams.get('direccion')
 		this.anio = this.navParams.get('anio')
 		this.monto = this.navParams.get('monto')
@@ -28,7 +31,10 @@ export class GraficaFiltrosDireccionAnioDetallePage {
 	detalleReporte = () => {
 		this.reporteService.reporteDireccionAnioDetalle(this.anio, this.direccion)
 		.then(response => {
-			console.log(response)
+			this.ngZone.run(() => {
+				this.proyectos = response
+			})
 		})
+		.catch(console.error.bind(console))
 	}
 }
