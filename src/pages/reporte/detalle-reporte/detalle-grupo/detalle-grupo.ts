@@ -108,8 +108,7 @@ export class DetalleGrupoPage {
 			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 			this.grafico = new Grafico(this.xy, this.groupBy, 'Proyectos agrupados por ' + this.groupBy),
 			this.options = this.grafico.graficaBar()
-			
-			// this.options = this.reporteService.datosGraficaGrupoNumeroProyecto(global.xy, 10, this.groupBy, 'Proyectos agrupados por ' + this.groupBy)
+
 		)
 	}
 

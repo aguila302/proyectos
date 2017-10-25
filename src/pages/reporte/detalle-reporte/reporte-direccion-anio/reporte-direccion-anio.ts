@@ -28,6 +28,7 @@ import {
 import {
 	GraficaFiltrosDireccionAnioPage
 } from '../../../reporte/detalle-reporte/reporte-direccion-anio/grafica-filtros-direccion-anio/grafica-filtros-direccion-anio'
+import { GraficoGrupo } from '../../../../highcharts/modulo.reportes/GraficoGrupo'
 
 @IonicPage()
 @Component({
@@ -43,6 +44,7 @@ export class ReporteDireccionAnioPage {
 	anio_filtro = []
 	data_grafica = []
 	data_direcciones = []
+	graficoGrupo: GraficoGrupo
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private reporteService: ReportesDbService, private modal: ModalController, public dbService: DbService,
@@ -67,7 +69,8 @@ export class ReporteDireccionAnioPage {
 					})
 				})
 
-				this.options = this.reporteService.graficaDireccionAniosGeneral(categorias, series, 'Direcciones por porcentaje de participación')
+				this.graficoGrupo = new GraficoGrupo(categorias, series, 'Direcciones por porcentaje de participación')
+				this.options = this.graficoGrupo.graficaBasicColumn()
 				/*Para obtener la informacion para visualizar la tabla informativa. */
 				this.reporteService.reportePorDireccionTAbla()
 					.then(response => {
