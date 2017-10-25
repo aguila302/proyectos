@@ -119,7 +119,7 @@ export class NuevoReportePage {
 								y: parseFloat(((num_proyectos / total) * 100).toFixed(2)),
 							}
 						})
-						this.options = this.reporteService.datosGrafica(datos, 10, '', 'Proyectos agrupados por ' + title.charAt(0).toUpperCase() + title.slice(1))
+						// this.options = this.reporteService.datosGrafica(datos, 10, '', 'Proyectos agrupados por ' + title.charAt(0).toUpperCase() + title.slice(1))
 						this.visible_boton = !this.visible_boton
 					}
 				})
