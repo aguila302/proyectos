@@ -11,6 +11,7 @@ import {
 } from '../../../../../services/reportes.db.service'
 import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
+import { GraficoGrupo } from '../../../../../highcharts/modulo.reportes/GraficoGrupo'
 
 @IonicPage()
 @Component({
@@ -27,6 +28,7 @@ export class GraficaFiltrosDireccionAnioPage {
 	reporte_tablero = []
 	monto_total: string = ''
 	total_proyectos: number
+	graficoGrupo: GraficoGrupo
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteService: ReportesDbService) {
 		this.direcciones = navParams.get('direccion')
@@ -88,9 +90,10 @@ export class GraficaFiltrosDireccionAnioPage {
 
 		/*Lamamos la funcion para graficar. */
 		setTimeout(() => {
-			this.options = this.reporteService.graficaDireccionAniosGeneral(this.anios.sort((function(a, b) {
+			this.graficoGrupo = new GraficoGrupo(this.anios.sort((function(a, b) {
 				return b - a
 			})), series, 'Direcciones por porcentaje de participación')
+			this.options = this.graficoGrupo.graficaBasicColumn()
 		}, 2000)
 	}
 
