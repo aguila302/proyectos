@@ -15,6 +15,7 @@ import { ProyectosAgrupadosPage } from '../../../estadistica/proyectos-agrupados
 import { ProyectosAgrupadosAnioPage } from '../../../estadistica/proyectos-agrupados/por-anio/proyectos-agrupados-anio'
 import { ProyectosAgrupadosGerenciaPage } from '../../../estadistica/proyectos-agrupados/por-gerencia/proyectos-agrupados-gerencia'
 import { DetalleReporteAgrupadoPage } from '../../../reporte/detalle-reporte/detalle-reporte-agrupado/detalle-reporte-agrupado'
+import { Grafico } from '../../../../highcharts/modulo.reportes/Grafico'
 
 @IonicPage()
 @Component({
@@ -30,6 +31,7 @@ export class DetalleGrupoPage {
 	options = {}
 	monto_total: number = 0
 	total_proyectos: number = 0
+	grafico: Grafico
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteService: ReportesDbService) {
 		this.grupo = this.navParams.get('grupo')
@@ -74,7 +76,10 @@ export class DetalleGrupoPage {
 			}),
 
 			/*Mostramos la grafca con los datos necesarios. */
-			this.options = this.reporteService.datosGrafica(global.xy, 10, this.groupBy, 'Proyectos agrupados por ' + this.groupBy)
+			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+			this.grafico = new Grafico(this.xy, this.groupBy, 'Proyectos agrupados por ' + this.groupBy),
+			this.options = this.grafico.graficaBar()
+
 		) : (
 			/* Si el grupo es por numero de proyectos hacemos la consulta para obtener la informacion. */
 			await this.reporteService.detallePorNumeroProyectos(this.select, this.groupBy)
@@ -100,7 +105,11 @@ export class DetalleGrupoPage {
 				})
 			}),
 			/*Mostramos la grafca con los datos necesarios. */
-			this.options = this.reporteService.datosGraficaGrupoNumeroProyecto(global.xy, 10, this.groupBy, 'Proyectos agrupados por ' + this.groupBy)
+			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+			this.grafico = new Grafico(this.xy, this.groupBy, 'Proyectos agrupados por ' + this.groupBy),
+			this.options = this.grafico.graficaBar()
+			
+			// this.options = this.reporteService.datosGraficaGrupoNumeroProyecto(global.xy, 10, this.groupBy, 'Proyectos agrupados por ' + this.groupBy)
 		)
 	}
 
