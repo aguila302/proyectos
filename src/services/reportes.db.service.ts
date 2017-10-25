@@ -641,125 +641,44 @@ export class ReportesDbService {
 			}).catch(console.error.bind(console))
 	}
 
-	/* funcion para contruir la grafica en la opcion direccion anio general*/
-	graficaDireccionAniosGeneral = (categorias, serie, tittle): Object => {
-		let options = {
-				chart: {
-					type: 'column'
-				},
-				title: {
-					text: tittle
-				},
-				// subtitle: {
-				// 	text: 'Direcciones agrupados por años'
-				// },
-				xAxis: {
-					categories: categorias,
-					crosshair: true
-				},
-				yAxis: {
-					min: 0,
-					title: {
-						text: 'Porcentaje total de participación'
-					}
-				},
-				tooltip: {
-					headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-					pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-						'<td style="padding:0"><b>{point.y:.1f} %</b></td></tr>',
-					footerFormat: '</table>',
-					shared: true,
-					useHTML: true
-				},
-				plotOptions: {
-					column: {
-						pointPadding: 0.2,
-						borderWidth: 0
-					}
-				},
-				series: serie
-				}
-		return options
-	}
-
-	/* funcion para contruir grafica para la opcion montoUSD*/
-	graficaDireccionAniosMontoUSD = (categorias, serie, tittle): Object => {
-		let options = {
-				chart: {
-					type: 'column'
-				},
-				title: {
-					text: tittle
-				},
-				// subtitle: {
-				// 	text: 'Direcciones agrupados por años'
-				// },
-				xAxis: {
-					categories: categorias,
-					crosshair: true
-				},
-				yAxis: {
-					min: 0,
-					title: {
-						text: 'Monto USD'
-					}
-				},
-				tooltip: {
-					headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-					pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-						'<td style="padding:0"><b>{point.y:.1f} USD</b></td></tr>',
-					footerFormat: '</table>',
-					shared: true,
-					useHTML: true
-				},
-				plotOptions: {
-					column: {
-						pointPadding: 0.2,
-						borderWidth: 0
-					}
-				},
-				series: serie
-				}
-		return options
-	}
 		/* funcion para contruir grafica para la opcion numero de proyectos. */
-	datosGraficaGrupoNumProyecto = (categorias, serie, tittle): Object => {
-		let options = {
-				chart: {
-					type: 'column'
-				},
-				title: {
-					text: tittle
-				},
-				// subtitle: {
-				// 	text: 'Direcciones agrupados por años'
-				// },
-				xAxis: {
-					categories: categorias,
-					crosshair: true
-				},
-				yAxis: {
-					min: 0,
-					title: {
-						text: 'Número de proyectos'
-					}
-				},
-				tooltip: {
-					headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-					pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-						'<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
-					footerFormat: '</table>',
-					shared: true,
-					useHTML: true
-				},
-				plotOptions: {
-					column: {
-						pointPadding: 0.2,
-						borderWidth: 0
-					}
-				},
-				series: serie
-				}
-		return options
-	}
+	// datosGraficaGrupoNumProyecto = (categorias, serie, tittle): Object => {
+	// 	let options = {
+	// 			chart: {
+	// 				type: 'column'
+	// 			},
+	// 			title: {
+	// 				text: tittle
+	// 			},
+	// 			// subtitle: {
+	// 			// 	text: 'Direcciones agrupados por años'
+	// 			// },
+	// 			xAxis: {
+	// 				categories: categorias,
+	// 				crosshair: true
+	// 			},
+	// 			yAxis: {
+	// 				min: 0,
+	// 				title: {
+	// 					text: 'Número de proyectos'
+	// 				}
+	// 			},
+	// 			tooltip: {
+	// 				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+	// 				pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+	// 					'<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
+	// 				footerFormat: '</table>',
+	// 				shared: true,
+	// 				useHTML: true
+	// 			},
+	// 			plotOptions: {
+	// 				column: {
+	// 					pointPadding: 0.2,
+	// 					borderWidth: 0
+	// 				}
+	// 			},
+	// 			series: serie
+	// 			}
+	// 	return options
+	// }
 }

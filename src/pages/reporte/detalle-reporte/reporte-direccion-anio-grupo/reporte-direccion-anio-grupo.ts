@@ -1,9 +1,22 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ReportesDbService } from '../../../../services/reportes.db.service'
+import {
+	Component
+} from '@angular/core';
+import {
+	IonicPage,
+	NavController,
+	NavParams
+} from 'ionic-angular';
+import {
+	ReportesDbService
+} from '../../../../services/reportes.db.service'
 import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
-import { ProyectosAgrupadosAnioPage } from '../.././../../pages/estadistica/proyectos-agrupados/por-anio/proyectos-agrupados-anio'
+import {
+	ProyectosAgrupadosAnioPage
+} from '../.././../../pages/estadistica/proyectos-agrupados/por-anio/proyectos-agrupados-anio'
+import {
+	GraficoGrupo
+} from '../../../../highcharts/modulo.reportes/GraficoGrupo'
 
 @IonicPage()
 @Component({
@@ -17,9 +30,9 @@ export class ReporteDireccionAnioGrupoPage {
 	monto_total: string = ''
 	total_proyectos: number
 	proyectos = []
-
 	series = []
 	categorias = []
+	graficoGrupo: GraficoGrupo
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteService: ReportesDbService) {
 		this.grupo = navParams.get('grupo')
@@ -48,35 +61,34 @@ export class ReporteDireccionAnioGrupoPage {
 						})
 					})
 				})
-				/*Obtener datos de la direccion de consultoria. */
+			/*Obtener datos de la direccion de consultoria. */
 			this.reporteService.getmontosDireccionesConsultoria()
 				.then(response => {
 					miglobal.series[0]['data'] = response
 				})
-				/*Obtener datos de la direccion de Desarrollo de sistemas */
+			/*Obtener datos de la direccion de Desarrollo de sistemas */
 			this.reporteService.getmontosDireccionesSistemas()
 				.then(response => {
 					miglobal.series[1]['data'] = response
 				})
-				/*Obtener datos de la direccion de Ingeniería */
+			/*Obtener datos de la direccion de Ingeniería */
 			this.reporteService.getmontosDireccionesIngenieria()
 				.then(response => {
 					miglobal.series[2]['data'] = response
 				})
-				/*Obtener datos de la direccion de Sin referencia */
+			/*Obtener datos de la direccion de Sin referencia */
 			this.reporteService.getmontosDireccionesSinReferencia()
 				.then(response => {
 					miglobal.series[3]['data'] = response
 				})
-				/*Obtener datos de la direccion de Sin Suramérica */
+			/*Obtener datos de la direccion de Sin Suramérica */
 			this.reporteService.getmontosDireccionesSuramerica()
 				.then(response => {
 					miglobal.series[4]['data'] = response
-					this.options = this.reporteService.graficaDireccionAniosMontoUSD(miglobal.categorias, miglobal.series, 'Direcciones por monto total USD')
-					console.log(this.options)
-					
+					this.graficoGrupo = new GraficoGrupo(miglobal.categorias, miglobal.series, 'Direcciones por monto total USD')
+					this.options = this.graficoGrupo.graficaBasicColumn()
 				})
-				/*Para obtener la informacion para visualizar la tabla informativa. */
+			/*Para obtener la informacion para visualizar la tabla informativa. */
 			this.reporteService.reportePorDireccionTAbla()
 				.then(response => {
 					let micollect = collect(response)
@@ -106,7 +118,8 @@ export class ReporteDireccionAnioGrupoPage {
 						})
 					})
 
-					this.options = this.reporteService.datosGraficaGrupoNumProyecto(this.categorias, this.series, 'Direcciones por número de proyectos')
+					this.graficoGrupo = new GraficoGrupo(this.categorias, this.series, 'Direcciones por número de proyectos')
+					this.options = this.graficoGrupo.graficaBasicColumn()
 
 					/*Para obtener la informacion para visualizar la tabla informativa. */
 					this.reporteService.reporteDireccionAnioGrupoNumeroProyectosTAbla()
