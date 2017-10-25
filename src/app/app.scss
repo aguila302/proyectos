@@ -15,13 +15,12 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 @font-face{
-	font-family: Flamenco;
+	font-family: Inconsolata;
 	font-style: normal;
 	font-weight: 400;
-	font-size: 18px;
-	src: url('../assets/fonts/Flamenco.woff2') format('woff2');
+	src: url('../assets/fonts/Inconsolata.woff2') format('woff2');
 }
  
 *{
-	font-family: Flamenco;
+	font-family: Inconsolata;
 }

@@ -4,9 +4,9 @@ import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
 import { ProyectosAgrupadosPage } from '../../../estadistica/proyectos-agrupados/proyectos-agrupados'
 import { ProyectosAgrupadosAnioPage } from '../../../estadistica/proyectos-agrupados/por-anio/proyectos-agrupados-anio'
-import { ProyectosAgrupadosClientePage } from '../../../estadistica/proyectos-agrupados/por-cliente/proyectos-agrupados-cliente'
 import { ProyectosAgrupadosGerenciaPage } from '../../../estadistica/proyectos-agrupados/por-gerencia/proyectos-agrupados-gerencia'
 import { DetalleReporteAgrupadoPage } from '../../../reporte/detalle-reporte/detalle-reporte-agrupado/detalle-reporte-agrupado'
+import { Grafico } from '../../../../highcharts/modulo.reportes/Grafico'
 
 
 @IonicPage()
@@ -21,6 +21,7 @@ export class GraficaCircularPage {
 	monto_total: string = ''
 	total_proyectos: number
 	groupBy = ''
+	grafico: Grafico
 
 	constructor(public navCtrl: NavController, public navParams: NavParams) {
 		this.proyectos = this.navParams.get('datos_circular')
@@ -41,14 +42,16 @@ export class GraficaCircularPage {
 			})
 		})
 
-		this.options = this.datosGrafica(this.data_grafica)
+		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+		this.grafico = new Grafico(this.data_grafica, this.groupBy, 'Proyectos agrupados por '  + this.groupBy)
+		this.options = this.grafico.graficaPie()
+
+		// this.options = this.datosGrafica(this.data_grafica)
 
 		const collection = collect(this.proyectos)
 		this.monto_total = account.formatNumber(collection.sum('monto'))
 		this.total_proyectos = collection.sum('numero_proyectos')
 
-		console.log(collection)
-		
 		let proyectos = collection.map(function(item) {
 			return {
 				'campo': item.campo,
@@ -87,43 +90,4 @@ export class GraficaCircularPage {
 			})
 		}
 	}
-
-	/* Funcion para dibujar la grafica circular.*/
-	datosGrafica = (xy): Object => {
-		let options = {
-			chart: {
-				plotBackgroundColor: null,
-				plotBorderWidth: null,
-				plotShadow: true,
-				type: 'pie',
-				width: 750,
-				height: 600
-			},
-			title: {
-				text: 'Proyectos agrupados por país'
-			},
-			tooltip: {
-				pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-			},
-			plotOptions: {
-				pie: {
-					allowPointSelect: true,
-					cursor: 'pointer',
-					dataLabels: {
-						enabled: true,
-						format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-					},
-					showInLegend: true
-				}
-			},
-			series: [{
-				name: 'Paises',
-				colorByPoint: true,
-				data: []
-			}]
-		}
-		options['series'][0].data = xy
-		return options
-	}
-
 }
