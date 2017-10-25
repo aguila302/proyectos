@@ -15,8 +15,8 @@ import {
 	GraficoGrupo
 } from '../../../../../highcharts/modulo.reportes/GraficoGrupo'
 import {
-	ProyectosAgrupadosAnioPage
-} from '../.././../../../pages/estadistica/proyectos-agrupados/por-anio/proyectos-agrupados-anio'
+	GraficaFiltrosDireccionAnioDetallePage
+} from '../.././../../../pages/reporte/detalle-reporte/reporte-direccion-anio/grafica-filtros-direccion-anio/grafica-filtros-direccion-anio-detalle/grafica-filtros-direccion-anio-detalle'
 
 @IonicPage()
 @Component({
@@ -136,11 +136,12 @@ export class GraficaFiltrosDireccionAnioPage {
 		return miGlobal.reporte_tablero
 	}
 
-	/* Funcion para ver el detalle general. */
-	verDetalle = (group_by, campo, monto) => {
-		this.navCtrl.push(ProyectosAgrupadosAnioPage, {
-			'anio': group_by,
-			'monto_total': monto
+	/* Funcion para ver el detalle general del reporte direccion anio filtrado(direccion, anio). */
+	verDetalle = (direccion, anio, monto) => {
+		this.navCtrl.push(GraficaFiltrosDireccionAnioDetallePage, {
+			'direccion': direccion,
+			'anio': anio,
+			'monto': monto
 		})
 	}
 }
