@@ -20,7 +20,8 @@ export class GraficaFiltrosDireccionAnioDetallePage {
 	}
 
 	ionViewDidLoad() {
-		console.log('ionViewDidLoad GraficaFiltrosDireccionAnioDetallePage');
+		console.log('ionViewDidLoad GraficaFiltrosDireccionAnioDetallePage')
+		this.detalleReporte()
 	}
 
 	/* Funcion para obtener los proyectos de una direccion y un ano de acuerdo al filtro. */
@@ -28,7 +29,6 @@ export class GraficaFiltrosDireccionAnioDetallePage {
 		this.reporteService.reporteDireccionAnioDetalle(this.anio, this.direccion)
 		.then(response => {
 			console.log(response)
-			
 		})
 	}
 }
