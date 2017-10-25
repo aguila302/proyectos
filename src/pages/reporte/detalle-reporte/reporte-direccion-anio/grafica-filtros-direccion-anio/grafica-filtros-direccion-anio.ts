@@ -11,7 +11,9 @@ import {
 } from '../../../../../services/reportes.db.service'
 import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
-import { GraficoGrupo } from '../../../../../highcharts/modulo.reportes/GraficoGrupo'
+import {
+	GraficoGrupo
+} from '../../../../../highcharts/modulo.reportes/GraficoGrupo'
 import {
 	ProyectosAgrupadosAnioPage
 } from '../.././../../../pages/estadistica/proyectos-agrupados/por-anio/proyectos-agrupados-anio'
@@ -105,7 +107,7 @@ export class GraficaFiltrosDireccionAnioPage {
 		var miGlobal = this
 
 		this.data_direcciones.splice(0, this.data_direcciones.length)
-			/* Funcion que nos ayudara a obtener la data por direccion y anio*/
+		/* Funcion que nos ayudara a obtener la data por direccion y anio*/
 		await this.reporteService.obtenerDataFiltracion(direccion, anio, cadena)
 			.then(response => {
 				miGlobal.data_direcciones = response
@@ -117,7 +119,7 @@ export class GraficaFiltrosDireccionAnioPage {
 	async tableroInfomativo(direcciones: string, anios: number[], cadena: string) {
 		var miGlobal = this
 		this.reporte_tablero.splice(0, this.reporte_tablero.length)
-			/* Funcion para hacer la consulta al origen de datos y obtener la data para el tablero. */
+		/* Funcion para hacer la consulta al origen de datos y obtener la data para el tablero. */
 		await this.reporteService.tableroDireccionAniosGeneral(direcciones, anios, cadena)
 			.then(response => {
 				response.forEach(item => {
