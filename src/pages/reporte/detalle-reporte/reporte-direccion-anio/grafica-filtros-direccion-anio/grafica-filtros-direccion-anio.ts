@@ -12,6 +12,9 @@ import {
 import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
 import { GraficoGrupo } from '../../../../../highcharts/modulo.reportes/GraficoGrupo'
+import {
+	ProyectosAgrupadosAnioPage
+} from '../.././../../../pages/estadistica/proyectos-agrupados/por-anio/proyectos-agrupados-anio'
 
 @IonicPage()
 @Component({
@@ -129,5 +132,13 @@ export class GraficaFiltrosDireccionAnioPage {
 				})
 			})
 		return miGlobal.reporte_tablero
+	}
+
+	/* Funcion para ver el detalle general. */
+	verDetalle = (group_by, campo, monto) => {
+		this.navCtrl.push(ProyectosAgrupadosAnioPage, {
+			'anio': group_by,
+			'monto_total': monto
+		})
 	}
 }
