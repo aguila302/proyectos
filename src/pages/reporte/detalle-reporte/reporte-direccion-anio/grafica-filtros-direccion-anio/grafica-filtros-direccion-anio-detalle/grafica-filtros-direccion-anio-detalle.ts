@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {
 	ReportesDbService
 } from '../../../../../../services/reportes.db.service'
+import { DetalleProyectoPage } from '../../../../../proyecto/DetalleProyecto'
+import { Proyecto } from '../../../../../../interfaces/proyecto'
 
 @IonicPage()
 @Component({
@@ -36,5 +38,12 @@ export class GraficaFiltrosDireccionAnioDetallePage {
 			})
 		})
 		.catch(console.error.bind(console))
+	}
+
+	/* Funcion para ver el detalle de un proyecto. */
+	detalleProyecto = (_proyecto: Proyecto): void => {
+		this.navCtrl.push(DetalleProyectoPage, {
+			id: _proyecto
+		})
 	}
 }
