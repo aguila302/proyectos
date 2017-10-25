@@ -37,7 +37,7 @@ export class GraficaFiltradaPage {
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad GraficaFiltradaPage')
-		this.id !== 7 ? (this.muestraGrafica()) : (this.graficaReporteDireccionAnios())
+		this.muestraGrafica()
 	}
 
 	/* Funcion para visualizar la grafica con los filtros seleccionados. */
