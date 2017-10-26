@@ -36,7 +36,7 @@ export class LoginPage {
 			let loader = this.loadinCtrl.create({
 				content: 'Espere por favor...'
 			})
-			if(this.username === 'developer' && this.password === 'developer'){
+			if(this.username === 'caguilar' && this.password === 'caguilar'){
 				loader.present()
 				setTimeout(() => {
 				loader.dismiss()
