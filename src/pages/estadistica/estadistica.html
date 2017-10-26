@@ -3,6 +3,13 @@
         <ion-title>
             Estadísticas
         </ion-title>
+        <ion-buttons end>
+            <button>
+                <button ion-button icon-only (click)="logout()">
+                    <ion-icon ios="ios-log-out" md="md-log-out"></ion-icon>
+                </button>
+            </button>
+        </ion-buttons>
     </ion-navbar>
     <ion-toolbar no-border-top>
         <ion-segment [(ngModel)]="pais">

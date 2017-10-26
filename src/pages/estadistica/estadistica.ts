@@ -15,6 +15,7 @@ import { ProyectosAgrupadosClienteMenoresPage } from './proyectos-agrupados/por-
 import { ProyectosAgrupadosGerenciaPage } from './proyectos-agrupados/por-gerencia/proyectos-agrupados-gerencia'
 import { Platform, NavController, LoadingController } from 'ionic-angular'
 import { Bar } from '../../highcharts/modulo.estadisticas/bar'
+import { LoginPage } from '../../pages/login/login'
 
 @Component({
 	selector: 'page-estadistica',
@@ -235,7 +236,6 @@ export class EstadisticaPage {
 					let menores_de_uno = ordenados.where('porcentaje', '<', 1)
 
 					/* Suma de los montos y porcentajes de porcentaje  menores de 1. */
-					let suma_montos_menores_de_uno = menores_de_uno.sum('suma_monto')
 					let suma_porcentajes_menores_de_uno = menores_de_uno.sum('porcentaje').toFixed(2)
 					mayores_de_uno.toArray()
 
@@ -319,5 +319,10 @@ export class EstadisticaPage {
 		this.navCtrl.push(CircularClientePage, {
 			'datos_circular': this.dataCirular
 		})
+	}
+
+	/* Funcion para cerrar sesion. */
+	logout = () => {
+		this.navCtrl.setRoot(LoginPage)
 	}
 }

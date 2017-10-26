@@ -16,6 +16,7 @@ import {
 	ReportesDbService
 } from '../../services/reportes.db.service'
 import { ReporteDireccionAnioPage } from '../reporte/detalle-reporte/reporte-direccion-anio/reporte-direccion-anio'
+import { LoginPage } from '../../pages/login/login'
 
 @IonicPage()
 @Component({
@@ -66,5 +67,10 @@ export class ReportePage {
 			.then(response => {
 				this.reportes = response
 			})
+	}
+	
+	/* Funcion para cerrar sesion. */
+	logout = () => {
+		this.navCtrl.setRoot(LoginPage)
 	}
 }
