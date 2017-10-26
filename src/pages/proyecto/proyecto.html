@@ -1,8 +1,14 @@
 <ion-header>
     <ion-navbar color="twitter">
         <ion-title>Proyectos</ion-title>
+        <ion-buttons end>
+            <button>
+                <button ion-button icon-only (click)="uncheckItems()">
+                    <ion-icon ios="ios-log-out" md="md-log-out"></ion-icon>
+                </button>
+            </button>
+        </ion-buttons>
     </ion-navbar>
-     <ion-icon ios="ios-log-out" md="md-log-out"></ion-icon>
 </ion-header>
 <ion-content padding>
     <ion-searchbar (ionInput)="buscaProyectos($event)" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)"></ion-searchbar>
@@ -23,10 +29,12 @@
                     <ion-col col-1>
                     </ion-col>
                     <ion-col class="inline">
-                        <strong><p margin-right>Monto USD: </p></strong><p class="medium">{{ proyecto.monto }}</p>
+                        <strong><p margin-right>Monto USD: </p></strong>
+                        <p class="medium">{{ proyecto.monto }}</p>
                     </ion-col>
                     <ion-col class="inline">
-                        <strong><p margin-right>Monto original: </p></strong><p class="medium">{{ proyecto.monto_moneda_original }} {{ proyecto.moneda }}</p>
+                        <strong><p margin-right>Monto original: </p></strong>
+                        <p class="medium">{{ proyecto.monto_moneda_original }} {{ proyecto.moneda }}</p>
                     </ion-col>
                     <ion-col class="right">
                         <button ion-button clear item-end (click)="detalleProyecto(proyecto)">
