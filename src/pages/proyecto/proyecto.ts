@@ -5,6 +5,7 @@ import { DetalleProyectoPage } from './DetalleProyecto'
 import { ModalController, LoadingController, NavController, Platform } from 'ionic-angular'
 import { FiltrosPage } from './filtros/filtros'
 import { DbService } from '../../services/db.service'
+import { LoginPage } from '../../pages/login/login'
 
 @Component({
 	selector: 'page-proyecto',
@@ -100,5 +101,10 @@ export class ProyectoPage {
 		filterModal.onDidDismiss(data => {
 			this.opciones = data
 		})
+	}
+
+	/* Funcion para cerrar sesion. */
+	logout = () => {
+		this.navCtrl.setRoot(LoginPage)
 	}
 }
