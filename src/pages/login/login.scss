@@ -1,3 +1,4 @@
+
 page-login {
 	.container {
 		display: inline-block;
@@ -6,13 +7,10 @@ page-login {
 		width: 100%;
 		height: 100%;
 	}
-		.top {
-			width: 120px;
+		.logo {
+			width: 100%;
 		}
-		.down {
-			width: 250px;
-		}
-		ion-list {
+		.icon {
 			width: 100%;
 		}
 }
