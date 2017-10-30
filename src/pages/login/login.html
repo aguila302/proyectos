@@ -4,8 +4,9 @@
 	</ion-navbar>
 </ion-header>
 <ion-content padding>
-	<div class="container">
+	<div class="container" text-center>
 		<ion-list text-center>
+			<img margin-top class="top" src="assets/img/icon.png">
 			<ion-item>
 				<ion-label stacked>Username</ion-label>
 				<ion-input type="text" [(ngModel)]="username"></ion-input>
@@ -15,6 +16,7 @@
 				<ion-input type="password" [(ngModel)]="password"></ion-input>
 			</ion-item>
 			<button ion-button full (click)="login()">Sing in</button>
+			<img margin-top class="down" src="assets/img/logo.png">
 		</ion-list>
 	</div>
 </ion-content>

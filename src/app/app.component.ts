@@ -21,22 +21,22 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-      this.dbService.openDatabase()
-      .then(() => this.dbService.createTable())
-      .then(() => this.dbService.validaRegistros())
-      .then(() => this.dbService.delete())
-      .then(() => this.dbService.creaTablaReportes())
-        .then(() => this.dbService.creaTablaReporteColumnas())
-        .then(() => this.dbService.creaTablaReporteFiltros())
-        .then(() => this.dbService.creaTablaReporteAgrupaciones())
-        .then(() => this.dbService.insertaDatosTablaReportes())
-        .then(() => this.dbService.insertaDatosTablaReportesColunas())
-        .then(() => this.dbService.insertaDatosTablaReportesFiltros())
-        .then(() => this.dbService.insertaDatosTablaReportesAgrupacion())
-        .then(() => this.dbService.createTableAnios())
-        .then(() => this.dbService.insertAnios())
-        .then(() => this.dbService.createTableDireccionAnios())
-        .then(() => this.dbService.insertDireccionAnios())
+      // this.dbService.openDatabase()
+      // .then(() => this.dbService.createTable())
+      // .then(() => this.dbService.validaRegistros())
+      // .then(() => this.dbService.delete())
+      // .then(() => this.dbService.creaTablaReportes())
+      //   .then(() => this.dbService.creaTablaReporteColumnas())
+      //   .then(() => this.dbService.creaTablaReporteFiltros())
+      //   .then(() => this.dbService.creaTablaReporteAgrupaciones())
+      //   .then(() => this.dbService.insertaDatosTablaReportes())
+      //   .then(() => this.dbService.insertaDatosTablaReportesColunas())
+      //   .then(() => this.dbService.insertaDatosTablaReportesFiltros())
+      //   .then(() => this.dbService.insertaDatosTablaReportesAgrupacion())
+      //   .then(() => this.dbService.createTableAnios())
+      //   .then(() => this.dbService.insertAnios())
+      //   .then(() => this.dbService.createTableDireccionAnios())
+      //   .then(() => this.dbService.insertDireccionAnios())
     });
   }
 }
