@@ -48,8 +48,9 @@ import { SQLite } from '@ionic-native/sqlite';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Ng2SmartTableModule } from 'ng2-smart-table';
+// import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { SQLitePorter } from '@ionic-native/sqlite-porter';
+import { HTTP } from '@ionic-native/http';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,6 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter';
     IonicModule.forRoot(MyApp),
     ChartsModule,
     ChartModule.forRoot(highcharts),
-    Ng2SmartTableModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -137,7 +137,8 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter';
     SQLite,
     DbService,
     ReportesDbService,
-    SQLitePorter
+    SQLitePorter,
+    HTTP
   ]
 })
 export class AppModule {}
