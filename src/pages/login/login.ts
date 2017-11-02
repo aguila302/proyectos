@@ -19,7 +19,6 @@ export class LoginPage {
 		private loadinCtrl: LoadingController,
 		private navCtrl: NavController,
 		private http: HTTP) {
-
 	}
 
 	ionViewDidLoad() {
