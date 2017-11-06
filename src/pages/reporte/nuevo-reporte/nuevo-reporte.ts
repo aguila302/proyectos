@@ -2,13 +2,10 @@ import { Component, NgZone } from '@angular/core'
 import { IonicPage, NavController, NavParams, ModalController, AlertController, LoadingController } from 'ionic-angular'
 import { ReportesDbService } from '../../../services/reportes.db.service'
 import * as collect from 'collect.js/dist'
-import { SelectColumnasPage } from '../select-columnas/select-columnas'
-import { FiltrarColumnasPage } from './filtrar-columnas/filtrar-columnas'
+import { SelectColumnasPage } from '../nuevo-reporte/select-columnas/select-columnas'
+import { SelectAgrupacionesPage } from '../nuevo-reporte/select-agrupaciones/select-agrupaciones'
+import { FiltrarColumnasPage } from '../nuevo-reporte/filtrar-columnas/filtrar-columnas'
 import { DbService } from '../../../services/db.service'
-
-// import {
-// 	SelectAgrupacionesPage
-// } from '../select-agrupaciones/select-agrupaciones'
 
 @IonicPage()
 @Component({
@@ -36,7 +33,6 @@ export class NuevoReportePage {
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad NuevoReportePage')
-			// this.getColumnas()
 	}
 
 	/* Funcion para mostrar las comunas y escoger*/
