@@ -16,7 +16,7 @@ import * as collect from 'collect.js/dist'
 })
 export class SelectColumnasPage {
 	columnas_seleccionadas = []
-	title = []
+	titles_segleccionadas = []
 
 	columnas = [{
 		'opcion': 'nombre_proyecto',
@@ -125,17 +125,33 @@ export class SelectColumnasPage {
 	}
 
 	seleccionColumnas = (event, columna: string, title: string): void => {
+		let columnaEncontrado
+		let titleEncontrado
+		let columnas = []
+		let titles = []
+		event.value ? (
+			this.columnas_seleccionadas.push(columna),
+			this.titles_segleccionadas.push(title)
+		): (
+			columnaEncontrado = this.columnas_seleccionadas.indexOf(columna),
+			columnaEncontrado !== -1 ? (
+				this.columnas_seleccionadas.splice(columnaEncontrado, 1)
+			): '',
 
-		this.columnas_seleccionadas.push({
-				columna: columna,
-				title: title
-			})
+			titleEncontrado = this.titles_segleccionadas.indexOf(title),
+
+			titleEncontrado !== -1 ? (
+				this.titles_segleccionadas.splice(titleEncontrado, 1)
+			) : ''
+		)
 	}
 
 	/* Funcion para enviar columnas seleccionadas. */
 	aceptar() {
-		this.view.dismiss(this.columnas_seleccionadas)
-			// this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
+		this.view.dismiss({
+			columnas: this.columnas_seleccionadas,
+			title: this.titles_segleccionadas
+		})
 	}
 
 	/* Funcion para cancelar los filtros. */

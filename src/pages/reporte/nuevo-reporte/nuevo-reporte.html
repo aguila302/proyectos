@@ -5,8 +5,6 @@
 </ion-header>
 <ion-content padding>
 	<button ion-button full (click)="selectColumnas()">Seleccionar columnas</button>
-	<hr>
-	<hr>
 	<button ion-button full (click)="filtrarColumnas()">Filtrar columnas</button>
 	<ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
 	<button ion-button full (click)="selectAgrupaciones(columnas_seleccionadas)">Seleccionar agrupaciones</button>

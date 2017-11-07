@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ViewController } from 'ionic-angular'
+import { SelectFilterPage } from '../select-filter/select-filter'
 
 @IonicPage()
 @Component({
@@ -8,15 +9,37 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FiltrarColumnasPage {
 
-	columnas_seleccionadas = []
+	filtros_seleccionadas = []
+	prueba = []
 
-	constructor(public navCtrl: NavController, public navParams: NavParams) {
+	constructor(public navCtrl: NavController, public navParams: NavParams, public modal: ModalController,
+		public view: ViewController) {
 		/* Recuperamos las columnas para mostralas en la vista. */
-		this.columnas_seleccionadas = navParams.get('columnas-seleccionadas')
+		this.filtros_seleccionadas = navParams.get('filtros_seleccionadas')
 	}
 
+	/* Cuando cargue la vista mostramos los filtros seleccionados. */
 	ionViewDidLoad() {
-		console.log('ionViewDidLoad FiltrarColumnasPage')
-		console.log(this.columnas_seleccionadas)
+		// console.log(this.filtros_seleccionadas)
+	}
+
+	/* Funcion para seleccionas las opsiones del filtro.*/
+	obtenerDataFiltrado = (item: {}) => {
+		let misFiltros = []
+		/* Creamos el modal para ver las opciones de un filtro. */
+		let modalSelectFilter = this.modal.create(SelectFilterPage, {
+			filtro: item
+		})
+		/* mostramos el modal. */
+		modalSelectFilter.present()
+
+		modalSelectFilter.onDidDismiss(data => {
+			this.prueba.push(data)
+			// console.log(this.prueba.length)
+		})
+	}
+
+	regresar = () => {
+		this.view.dismiss(this.prueba)
 	}
 }

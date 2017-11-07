@@ -29,6 +29,7 @@ import { SelectColumnasPage } from '../pages/reporte/nuevo-reporte/select-column
 import { SelectAgrupacionesPage } from '../pages/reporte/nuevo-reporte/select-agrupaciones/select-agrupaciones'
 import { DetalleReporteAgrupadoPage } from '../pages/reporte/detalle-reporte/detalle-reporte-agrupado/detalle-reporte-agrupado'
 import { FiltrarColumnasPage } from '../pages/reporte/nuevo-reporte/filtrar-columnas/filtrar-columnas'
+import { SelectFilterPage } from '../pages/reporte/nuevo-reporte/select-filter/select-filter'
 import { FiltrarAgrupacionPage } from '../pages/reporte/detalle-reporte/filtrar-agrupacion/filtrar-agrupacion'
 import { GraficaFiltradaPage } from '../pages/reporte/detalle-reporte/grafica-filtrada/grafica-filtrada'
 import { DetalleGrupoPage } from '../pages/reporte/detalle-reporte/detalle-grupo/detalle-grupo'
@@ -48,7 +49,9 @@ import { SQLite } from '@ionic-native/sqlite';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-// import { Ng2SmartTableModule } from 'ng2-smart-table';
+
+import { Ng2SmartTableModule } from 'ng2-smart-table'
+
 import { SQLitePorter } from '@ionic-native/sqlite-porter';
 import { HTTP } from '@ionic-native/http';
 
@@ -85,13 +88,15 @@ import { HTTP } from '@ionic-native/http';
     ReporteDireccionAnioGrupoPage,
     ModalFiltrosPage,
     GraficaFiltrosDireccionAnioPage,
-    GraficaFiltrosDireccionAnioDetallePage
+    GraficaFiltrosDireccionAnioDetallePage,
+    SelectFilterPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     ChartsModule,
     ChartModule.forRoot(highcharts),
+    Ng2SmartTableModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -126,7 +131,8 @@ import { HTTP } from '@ionic-native/http';
     ReporteDireccionAnioGrupoPage,
     ModalFiltrosPage,
     GraficaFiltrosDireccionAnioPage,
-    GraficaFiltrosDireccionAnioDetallePage
+    GraficaFiltrosDireccionAnioDetallePage,
+    SelectFilterPage
   ],
   providers: [
     StatusBar,

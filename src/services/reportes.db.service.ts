@@ -672,4 +672,22 @@ export class ReportesDbService {
 				return Promise.resolve(proyectos)
 			})
 	}
+	getFilterData = (filtro) => {
+		console.log(filtro)
+		
+		let filtrado = []
+		let sql = `select distinct(${filtro.columna}) as campo from proyectos order by ${filtro.columna} ASC`
+		console.log(sql)
+		
+
+		return this.db.executeSql(sql, {})
+			.then((response) => {
+				for (let index = 0; index < response.rows.length; index++) {
+					filtrado.push({
+						'campo': response.rows.item(index).campo,
+					})
+				}
+				return Promise.resolve(filtrado)
+			})
+	}
 }
