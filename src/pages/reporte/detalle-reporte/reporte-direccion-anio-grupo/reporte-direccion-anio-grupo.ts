@@ -85,7 +85,7 @@ export class ReporteDireccionAnioGrupoPage {
 			this.reporteService.getmontosDireccionesSuramerica()
 				.then(response => {
 					miglobal.series[4]['data'] = response
-					this.graficoGrupo = new GraficoGrupo(miglobal.categorias, miglobal.series, 'Direcciones por monto total USD')
+					this.graficoGrupo = new GraficoGrupo(miglobal.categorias, miglobal.series, 'USD', 'Direcciones por monto total USD')
 					this.options = this.graficoGrupo.graficaBasicColumn()
 				})
 			/*Para obtener la informacion para visualizar la tabla informativa. */
@@ -118,7 +118,7 @@ export class ReporteDireccionAnioGrupoPage {
 						})
 					})
 
-					this.graficoGrupo = new GraficoGrupo(this.categorias, this.series, 'Direcciones por número de proyectos')
+					this.graficoGrupo = new GraficoGrupo(this.categorias, this.series, '#', 'Direcciones por número de proyectos')
 					this.options = this.graficoGrupo.graficaBasicColumn()
 
 					/*Para obtener la informacion para visualizar la tabla informativa. */

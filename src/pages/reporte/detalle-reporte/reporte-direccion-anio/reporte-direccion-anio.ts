@@ -70,7 +70,7 @@ export class ReporteDireccionAnioPage {
 					})
 				})
 
-				this.graficoGrupo = new GraficoGrupo(categorias, series, 'Direcciones por porcentaje de participación')
+				this.graficoGrupo = new GraficoGrupo(categorias, series, '%', 'Direcciones por porcentaje de participación')
 				this.options = this.graficoGrupo.graficaBasicColumn()
 				/*Para obtener la informacion para visualizar la tabla informativa. */
 				this.reporteService.reportePorDireccionTAbla()

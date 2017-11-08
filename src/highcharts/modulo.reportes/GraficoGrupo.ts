@@ -4,15 +4,17 @@
 export class GraficoGrupo {
 	categorias = []
 	serie = []
+	indicador: string
 	title: string = ''
 	/**
 	 * @param {any[]}  categorias
 	 * @param {any[]}  serie
 	 * @param {string} title
 	 */
-	constructor(categorias: any[], serie: any[], title: string) {
+	constructor(categorias: any[], serie: any[], indicador: string, title: string) {
 		this.categorias = categorias
 		this.serie = serie
+		this.indicador = indicador
 		this.title = title
 	}
 	/**
@@ -39,7 +41,7 @@ export class GraficoGrupo {
 			tooltip: {
 				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
 				pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-					'<td style="padding:0"><b>{point.y:.1f} %</b></td></tr>',
+					'<td style="padding:0"><b>{point.y:.1f} '+this.indicador+'</b></td></tr>',
 				footerFormat: '</table>',
 				shared: true,
 				useHTML: true

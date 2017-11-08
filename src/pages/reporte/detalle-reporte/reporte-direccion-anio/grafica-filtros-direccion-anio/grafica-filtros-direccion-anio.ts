@@ -97,7 +97,7 @@ export class GraficaFiltrosDireccionAnioPage {
 		setTimeout(() => {
 			this.graficoGrupo = new GraficoGrupo(this.anios.sort((function(a, b) {
 				return b - a
-			})), series, 'Direcciones por porcentaje de participación')
+			})), series, '%', 'Direcciones por porcentaje de participación')
 			this.options = this.graficoGrupo.graficaBasicColumn()
 		}, 2000)
 	}

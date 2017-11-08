@@ -71,16 +71,32 @@ export class NuevoReportePage {
 		/* Cuando cierro mi modal recupero mis columnas que seleccione. */
 		modalFilter.onDidDismiss(data => {
 			let misCampos = []
-			let cadena = 'select '
+			let cadena: string = `select `
+			let nuevaCadena: string = ``
+
 			this.filtrar_seleccionadas.forEach(items => {
 				misCampos.push(items.columna)
-				cadena += `${items.columna}`
+				cadena += `${items.columna},`
+				nuevaCadena = cadena.slice(0, -1)
+				nuevaCadena += ` from proyectos where `
 			})
-			console.log(cadena)
-			
+
 			data.forEach(function(items, index){
-				console.log(items[misCampos[index]])
+				let keys = Object.keys(items)
+				// console.log(Object.keys(items))
+				console.log(items[`${keys}`])
+				items[`${keys}`].forEach(item => {
+					nuevaCadena += `${Object.keys(items)} in ('${item}') and `
+				})
+				// console.log(items)
+				
+					// nuevaCadena += `${Object.keys(items)} in ('${items[`${keys}`]}') and `
+					
+				// })
+				
 			})
+			console.log(nuevaCadena)
+			
 		})
 	}
 

@@ -602,7 +602,6 @@ export class ReportesDbService {
 					and anio in (${anios})
 					group by unidad_negocio, anio
 					order by anio desc;`
-		console.log(sql)
 		
 		return this.db.executeSql(sql, {})
 			.then(response => {
@@ -623,8 +622,6 @@ export class ReportesDbService {
 					group by anio
 					order by anio desc;`
 
-		// console.log(sql)
-		
 		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
