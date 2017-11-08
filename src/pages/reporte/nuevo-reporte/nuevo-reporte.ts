@@ -61,7 +61,7 @@ export class NuevoReportePage {
 	}
 
 	/* Funcion para filtar mis columnas seleccionadas.*/
-	filtrarColumnas = () => {
+	filtrarColumnas() {
 		/* Creamos la vista para mostrar los filtros*/
 		let modalFilter = this.modal.create(FiltrarColumnasPage, {
 			'filtros_seleccionadas' : this.filtrar_seleccionadas
@@ -73,6 +73,9 @@ export class NuevoReportePage {
 			let misCampos = []
 			let cadena: string = `select `
 			let nuevaCadena: string = ``
+			let valoresIn: string = ''
+			let values: string = ''
+			let nuevoValues: string = ''
 
 			this.filtrar_seleccionadas.forEach(items => {
 				misCampos.push(items.columna)
@@ -83,11 +86,19 @@ export class NuevoReportePage {
 
 			data.forEach(function(items, index){
 				let keys = Object.keys(items)
-				// console.log(Object.keys(items))
+
 				console.log(items[`${keys}`])
+				// nuevaCadena += `${Object.keys(items)} in ('${items[`${keys}`][contador ++]}') and `
 				items[`${keys}`].forEach(item => {
-					nuevaCadena += `${Object.keys(items)} in ('${item}') or `
+					// nuevaCadena += `${Object.keys(items)} in ('${valoresIn}') and `
+					// nuevaCadena += `${Object.keys(items)} in ('${item}') or `
+					console.log(`'${item}'`)
+					values += `'${item}',`
+					nuevoValues = values.slice(0, -1)
+					console.log(nuevoValues);
+					
 				})
+				nuevaCadena += `${Object.keys(items)} in (${nuevoValues}) and `
 			})
 			console.log(nuevaCadena)
 			
