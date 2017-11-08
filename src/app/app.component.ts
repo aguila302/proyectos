@@ -13,17 +13,17 @@ import {
 import {
     DbService
 } from '../services/db.service'
-import { TabsPage } from '../pages/tabs/tabs';
-// import {
-//     LoginPage
-// } from '../pages/login/login'
+// import { TabsPage } from '../pages/tabs/tabs';
+import {
+    LoginPage
+} from '../pages/login/login'
 
 @Component({
     templateUrl: 'app.html'
 })
 export class MyApp {
-    rootPage:any = TabsPage;
-    // rootPage: any = LoginPage
+    // rootPage:any = TabsPage;
+    rootPage: any = LoginPage
 
     constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
         public dbService: DbService) {
