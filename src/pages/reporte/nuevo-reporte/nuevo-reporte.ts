@@ -86,14 +86,8 @@ export class NuevoReportePage {
 				// console.log(Object.keys(items))
 				console.log(items[`${keys}`])
 				items[`${keys}`].forEach(item => {
-					nuevaCadena += `${Object.keys(items)} in ('${item}') and `
+					nuevaCadena += `${Object.keys(items)} in ('${item}') or `
 				})
-				// console.log(items)
-				
-					// nuevaCadena += `${Object.keys(items)} in ('${items[`${keys}`]}') and `
-					
-				// })
-				
 			})
 			console.log(nuevaCadena)
 			
