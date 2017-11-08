@@ -669,6 +669,8 @@ export class ReportesDbService {
 				return Promise.resolve(proyectos)
 			})
 	}
+
+	/* Funcion para obtener la informacion de acuerdo a un filtro en la seccion de nuevo reporte. */
 	getFilterData = (filtro) => {
 		console.log(filtro)
 		
@@ -686,5 +688,18 @@ export class ReportesDbService {
 				}
 				return Promise.resolve(filtrado)
 			})
+	}
+
+	getDataGrid = (consulta: string, filtros: string[]) => {
+		let proyectos = []
+
+		return this.db.executeSql(consulta, {})
+		.then(response => {
+			for (let index = 0; index < response.rows.length; index++) {
+				proyectos.push(response.rows.item(index))
+			}
+			return Promise.resolve(proyectos)
+		})
+		.catch(console.error.bind(console))
 	}
 }

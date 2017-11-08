@@ -47,7 +47,7 @@ export class NuevoReportePage {
 			this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
 			miGlobal.filtrar_seleccionadas.splice(0, this.filtrar_seleccionadas.length)
 
-			/* Mostrarlas en el grid. */ 
+			/* Mostrarmos la grid. */ 
 			this.manageGrid(data.columnas, data.title, [])
 
 			/* Hacemos una copia de data para filtrar las columnas */
@@ -87,26 +87,44 @@ export class NuevoReportePage {
 			data.forEach(function(items, index){
 				let keys = Object.keys(items)
 
-				console.log(items[`${keys}`])
-				// nuevaCadena += `${Object.keys(items)} in ('${items[`${keys}`][contador ++]}') and `
 				items[`${keys}`].forEach(item => {
-					// nuevaCadena += `${Object.keys(items)} in ('${valoresIn}') and `
-					// nuevaCadena += `${Object.keys(items)} in ('${item}') or `
-					console.log(`'${item}'`)
+
 					values += `'${item}',`
 					nuevoValues = values.slice(0, -1)
-					console.log(nuevoValues);
-					
+
 				})
 				nuevaCadena += `${Object.keys(items)} in (${nuevoValues}) and `
 			})
-			console.log(nuevaCadena)
-			
+
+			/* Llamar a la funcion que nos ayudara a realizar la consulta para llenar la grid. */
+			this.llenarGrid(nuevaCadena.slice(0, -5), this.filtrar_seleccionadas)
+		})
+	}
+
+	/* Funcion para realizar la consulta y obtener los datos para llegar nuestra grid. */
+	llenarGrid = (consulta: string, filtros) => {
+		let filtrosNew = []
+		let titleNew = []
+		filtros.forEach(item => {
+			filtrosNew.push(item.columna)
+		})
+
+		filtros.forEach(item => {
+			titleNew.push(item.title)
+		})
+
+		this.reporteService.getDataGrid(consulta, filtrosNew)
+		.then(response => {
+			console.log(response)
+			this.data = response
+
+			/* Mostrarmos la grid. */ 
+			this.manageGrid(filtrosNew, titleNew, response)
 		})
 	}
 
 	/* Funcion para administrar el grid.  */
-	manageGrid = (columnas: Array < any > , title: Array < any >, data: Array < any > ): Object => {
+	manageGrid = (columnas?: Array < any > , title?: Array < any >, data?: Array < any > ): Object => {
 		this.settings = {
 			columns: {}
 		}
