@@ -1,5 +1,5 @@
 <ion-header>
-	<ion-navbar no-border-bottom color="twitter">
+	<ion-navbar padding-top color="twitter">
 		<ion-title>Selecciona columnas</ion-title>
 		<ion-buttons start>
 			<button ion-button (click)="cancelar()">
@@ -8,7 +8,7 @@
 			</button>
 		</ion-buttons>
 	</ion-navbar>
-	<ion-grid>
+<!-- 	<ion-grid>
 		<ion-row>
 			<ion-col>
 				<ion-item>
@@ -18,14 +18,14 @@
 				</ion-item>
 			</ion-col>
 		</ion-row>
-	</ion-grid>
+	</ion-grid> -->
 </ion-header>
 <ion-content>
 	<ion-list>
+		<button ion-button block color="botton" (click)="aceptar()">Aceptar</button>
 		<ion-item *ngFor="let item of columnas">
 			<ion-label>{{ item.texto }}</ion-label>
 			<ion-checkbox checked="{{ item.checked }}" (ionChange)="seleccionColumnas($event, item.opcion, item.title)"></ion-checkbox>
 		</ion-item>
-		<button ion-button block color="botton" (click)="aceptar()">Aceptar</button>
 	</ion-list>
 </ion-content>

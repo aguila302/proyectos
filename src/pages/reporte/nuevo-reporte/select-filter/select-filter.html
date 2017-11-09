@@ -11,10 +11,10 @@
 </ion-header>
 <ion-content>
 	<ion-list>
+		<button ion-button block color="botton" (click)="aceptar()">Aceptar</button>
 		<ion-item *ngFor="let item of opciones">
 			<ion-label>{{ item.campo }}</ion-label>
 			<ion-checkbox (ionChange)="selectOpcion($event, item.campo)"></ion-checkbox>
 		</ion-item>
-		<button ion-button block color="botton" (click)="aceptar()">Aceptar</button>
 	</ion-list>
 </ion-content>
