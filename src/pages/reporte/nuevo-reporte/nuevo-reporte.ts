@@ -174,6 +174,8 @@ export class NuevoReportePage {
 
 			/* Cuando cerramos la vista de agrapaciones recuperamos la agruapacion seleccionada. */
 			modalAgrupaciones.onDidDismiss(response => {
+				console.log('mis agrupaciones' + response.length)
+				
 				this.visible = false
 				console.log('normal' + this.visible)
 				console.log('!' + !this.visible)
@@ -244,9 +246,6 @@ export class NuevoReportePage {
 			}, {
 				text: 'Guardar',
 				handler: data => {
-					console.log(data['title'])
-					
-					console.log('Agree clicked')
 					/* Consigo el total del monto y numero de proyectos para registrar el reporte. */
 					this.reporteService.paraGuardarReporte(title)
 						.then(response => {
