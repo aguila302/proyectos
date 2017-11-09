@@ -9,7 +9,7 @@ import { FiltrarColumnasPage } from '../nuevo-reporte/filtrar-columnas/filtrar-c
 import { DbService } from '../../../services/db.service'
 import { Bar } from '../../../highcharts/modulo.estadisticas/bar'
 
-@IonicPage()
+// @IonicPage()
 @Component({
 	selector: 'page-nuevo-reporte',
 	templateUrl: 'nuevo-reporte.html',
@@ -65,7 +65,6 @@ export class NuevoReportePage {
 
 	/* Funcion para filtar mis columnas seleccionadas.*/
 	filtrarColumnas() {
-
 		/* Creamos la vista para mostrar los filtros*/
 		let modalFilter = this.modal.create(FiltrarColumnasPage, {
 			'filtros_seleccionadas' : this.filtrar_seleccionadas
@@ -146,67 +145,62 @@ export class NuevoReportePage {
 		this.filtrar_seleccionadas.forEach(items => {
 			this.columnas_seleccionadas.push(items.columna)
 		})
-
 		let modalAgrupaciones =  this.modal.create(SelectAgrupacionesPage, {
 			agrupaciones: this.filtrar_seleccionadas
 		})
-
 		/* Activamos la vista para seleccionar nuestra agrupacion. */
 		modalAgrupaciones.present()
 
 		/* Cuando cerramos la vista de agrapaciones recuperamos la agruapacion seleccionada. */
-		modalAgrupaciones.onDidDismiss(data => {
-			this.agrupacion_seleccionada = data
+		modalAgrupaciones.onDidDismiss(response => {
+			this.visible = false
+			console.log('normal'+ this.visible)
+			console.log('!'+ !this.visible)
+			this.agrupacion_seleccionada = response
+			
 			/* Llamar a la funcion que se encarga de graficar. */
-			this.agrupacion_seleccionada.length !== 0 ? (this.graficar(this.columnas_seleccionadas, data)) : ''
+			this.graficar(this.columnas_seleccionadas, response)
 		})
 	}
 
 	/* Funcion que nos servira para graficar la informacion. */
 	graficar(columnas: Array < any > , agrupacion: Array < any > ) {
-		if (columnas.length === 0 || agrupacion.length === 0) {
-			let alert = this.alertCtrl.create({
-				title: 'Aviso!',
-				subTitle: 'Por favor seleccione los columnas y la agrupación para visualizar la grafica!',
-				buttons: ['OK']
-			});
-			alert.present();
-		} else {
-			this.visible = !this.visible
-			this.agrupacion_seleccionada = agrupacion
-			this.reporteService.paraGraficar(columnas, agrupacion)
-				.then(res => {
-					/* refrescamos el arreglo de la grafica. */
-					this.xy.splice(0, this.xy.length)
+		this.visible = !this.visible
+		this.agrupacion_seleccionada = agrupacion
+		this.reporteService.paraGraficar(columnas, agrupacion)
+			.then(res => {
+				/* refrescamos el arreglo de la grafica. */
+				this.xy.splice(0, this.xy.length)
 
-					let resultado = []
+				let resultado = []
 					/* Refactorizamos la data obtenida por la consulta. */
-					for (var i = 0; i < res.rows.length; i++) {
-						resultado.push({
-							'campo': res.rows.item(i).campo,
-							'monto':  account.formatNumber(parseInt(res.rows.item(i).monto)),
-							'total': res.rows.item(i).total,
-							'numero_proyectos': res.rows.item(i).numero_proyectos,
-							'monto_filtrado': res.rows.item(i).monto_filtrado,
-							'porcentaje': account.toFixed((res.rows.item(i).numero_proyectos / res.rows.item(i).total) * 100, 2)
-						})
-					}
-					/* Obtenemos la data final para construir la grafica */
-					resultado.forEach(item => {
-						this.xy.push({
-							name: item.campo,
-							y: parseFloat(item.porcentaje)
-						})
+				for (var i = 0; i < res.rows.length; i++) {
+					resultado.push({
+						'campo': res.rows.item(i).campo,
+						'monto': account.formatNumber(parseInt(res.rows.item(i).monto)),
+						'total': res.rows.item(i).total,
+						'numero_proyectos': res.rows.item(i).numero_proyectos,
+						'monto_filtrado': res.rows.item(i).monto_filtrado,
+						'porcentaje': account.toFixed((res.rows.item(i).numero_proyectos / res.rows.item(i).total) * 100, 2)
 					})
+				}
+				/* Obtenemos la data final para construir la grafica */
+				resultado.forEach(item => {
+					this.xy.push({
+						name: item.campo,
+						y: parseFloat(item.porcentaje)
+					})
+				})
+				this.zone.run(() => {
 					/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 					this.bar = new Bar(this.xy, this.agrupacion_seleccionada[0], 'Proyectos agrupados por ' + this.agrupacion_seleccionada[0])
 					this.options = this.bar.graficaBar()
 					console.log(this.options)
-					
-					// this.visible_boton = !this.visible_boton
+
+					this.visible_boton = !this.visible_boton
 				})
-			
-		}
+			})
+
 	}
 	/* Funcion para guardar un reporte. */
 	guardarReporte = (): void => {
