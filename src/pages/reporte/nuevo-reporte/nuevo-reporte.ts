@@ -141,11 +141,12 @@ export class NuevoReportePage {
 	}
 
 	/* Funcion para mostrar las opciones para agrupar la grafica. */
-	selectAgrupaciones = () => {
+	selectAgrupaciones() {
 		/* Preparamos nuestras columnas para construir la grafica. */
 		this.filtrar_seleccionadas.forEach(items => {
 			this.columnas_seleccionadas.push(items.columna)
 		})
+
 		let modalAgrupaciones =  this.modal.create(SelectAgrupacionesPage, {
 			agrupaciones: this.filtrar_seleccionadas
 		})
@@ -162,7 +163,7 @@ export class NuevoReportePage {
 	}
 
 	/* Funcion que nos servira para graficar la informacion. */
-	async graficar(columnas: Array < any > , agrupacion: Array < any > ) {
+	graficar(columnas: Array < any > , agrupacion: Array < any > ) {
 		if (columnas.length === 0 || agrupacion.length === 0) {
 			let alert = this.alertCtrl.create({
 				title: 'Aviso!',
@@ -202,8 +203,7 @@ export class NuevoReportePage {
 					this.options = this.bar.graficaBar()
 					console.log(this.options)
 					
-
-					this.visible_boton = !this.visible_boton
+					// this.visible_boton = !this.visible_boton
 				})
 			
 		}
@@ -212,8 +212,6 @@ export class NuevoReportePage {
 	guardarReporte = (): void => {
 		let title = this.agrupacion_seleccionada[0]
 		console.log(this.agrupacion_seleccionada[0])
-		
-
 		let confirmacion = this.alertCtrl.create({
 			title: 'Registro de reporte',
 			message: 'Introduce un nombre para este nuevo reporte',
