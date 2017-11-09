@@ -131,6 +131,7 @@ export class NuevoReportePage {
 	/* Funcion para administrar el grid.  */
 	manageGrid = (columnas?: Array < any > , title?: Array < any >, data?: Array < any > ): Object => {
 		this.settings = {
+			noDataMessage: 'Datos no encontrados',
 			columns: {}
 		}
 		var miGlobal = this
