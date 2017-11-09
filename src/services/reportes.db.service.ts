@@ -676,9 +676,6 @@ export class ReportesDbService {
 		
 		let filtrado = []
 		let sql = `select distinct(${filtro.columna}) as campo from proyectos order by ${filtro.columna} ASC`
-		console.log(sql)
-		
-
 		return this.db.executeSql(sql, {})
 			.then((response) => {
 				for (let index = 0; index < response.rows.length; index++) {
@@ -690,6 +687,7 @@ export class ReportesDbService {
 			})
 	}
 
+	/* Funcion para obtener la informacion para llenar la grid de acuerdo a los filtros seleccoinados. */
 	getDataGrid = (consulta: string, filtros: string[]) => {
 		let proyectos = []
 

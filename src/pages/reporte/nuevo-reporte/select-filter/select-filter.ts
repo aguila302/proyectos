@@ -22,8 +22,6 @@ export class SelectFilterPage {
 	ionViewDidLoad() {
 		this.getDataFilter(this.filtro)
 	}
-
-
 	/* Funcion para obtener la data del filtro seleccionado. */
 	getDataFilter = (filtro: {}) => {
 		this.reporteDb.getFilterData(filtro)
@@ -35,7 +33,6 @@ export class SelectFilterPage {
 
 	selectOpcion = (event, campo) => {
 		let opcionEncontrado
-
 		let columnas = []
 		let titles = []
 
@@ -47,14 +44,10 @@ export class SelectFilterPage {
 				this.opcionesSelected.splice(opcionEncontrado, 1)
 			) : ''
 		)
-		
 	}
 
 	/* Funcion para enviar columnas seleccionadas. */
 	aceptar() {
-		// let misFiltros = []
-		// misFiltros.push({[this.filtro['columna']]: this.opcionesSelected})
-		// console.log(misFiltros)
 		this.view.dismiss({[this.filtro['columna']]: this.opcionesSelected})
 	}
 

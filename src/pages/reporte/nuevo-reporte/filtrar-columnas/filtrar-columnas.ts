@@ -33,9 +33,9 @@ export class FiltrarColumnasPage {
 		/* mostramos el modal. */
 		modalSelectFilter.present()
 
+		/* Cuando cerramos la vista de los filtros recuperamos las opciones seleccionadas. */
 		modalSelectFilter.onDidDismiss(data => {
 			this.prueba.push(data)
-			// console.log(this.prueba.length)
 		})
 	}
 

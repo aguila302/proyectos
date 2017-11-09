@@ -62,6 +62,7 @@ export class NuevoReportePage {
 
 	/* Funcion para filtar mis columnas seleccionadas.*/
 	filtrarColumnas() {
+
 		/* Creamos la vista para mostrar los filtros*/
 		let modalFilter = this.modal.create(FiltrarColumnasPage, {
 			'filtros_seleccionadas' : this.filtrar_seleccionadas
@@ -86,12 +87,9 @@ export class NuevoReportePage {
 
 			data.forEach(function(items, index){
 				let keys = Object.keys(items)
-
 				items[`${keys}`].forEach(item => {
-
 					values += `'${item}',`
 					nuevoValues = values.slice(0, -1)
-
 				})
 				nuevaCadena += `${Object.keys(items)} in (${nuevoValues}) and `
 			})
@@ -108,16 +106,12 @@ export class NuevoReportePage {
 		filtros.forEach(item => {
 			filtrosNew.push(item.columna)
 		})
-
 		filtros.forEach(item => {
 			titleNew.push(item.title)
 		})
-
 		this.reporteService.getDataGrid(consulta, filtrosNew)
 		.then(response => {
-			console.log(response)
 			this.data = response
-
 			/* Mostrarmos la grid. */ 
 			this.manageGrid(filtrosNew, titleNew, response)
 		})
@@ -142,5 +136,14 @@ export class NuevoReportePage {
 			contador ++
 		}
 		return miGlobal.settings
+	}
+
+	/* Funcion para mostrar las opciones para agrupar la grafica. */
+	selectAgrupaciones = () => {
+		console.log(this.filtrar_seleccionadas)
+		let modalAgrupaciones =  this.modal.create(SelectAgrupacionesPage, {
+			agrupaciones: this.filtrar_seleccionadas
+		})
+		modalAgrupaciones.present()
 	}
 }
