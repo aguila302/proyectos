@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { Component, NgZone } from '@angular/core';
+import { IonicPage, NavController, NavParams, ViewController, LoadingController } from 'ionic-angular';
 import { ReportesDbService } from '../../../../services/reportes.db.service'
 
 @IonicPage()
@@ -13,7 +13,7 @@ export class SelectFilterPage {
 	opcionesSelected = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteDb: ReportesDbService,
-		public view: ViewController) {
+		public view: ViewController, public loadingCtrl: LoadingController, public zone: NgZone) {
 		/* Recuperamos los filtros. */
 		this.filtro = navParams.get('filtro')
 	}
@@ -24,11 +24,19 @@ export class SelectFilterPage {
 	}
 	/* Funcion para obtener la data del filtro seleccionado. */
 	getDataFilter = (filtro: {}) => {
-		this.reporteDb.getFilterData(filtro)
-		.then(response => {
-			this.opciones = response
-			
+		let loading = this.loadingCtrl.create({
+			content: 'Por favor espere...'
 		})
+		loading.present()
+		setTimeout(() => {
+			this.reporteDb.getFilterData(filtro)
+			.then(response => {
+				this.zone.run(() => {
+					this.opciones = response
+					loading.dismiss()
+				})
+			})
+		}, 4000)
 	}
 
 	selectOpcion = (event, campo) => {
