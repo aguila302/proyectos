@@ -65,39 +65,49 @@ export class NuevoReportePage {
 
 	/* Funcion para filtar mis columnas seleccionadas.*/
 	filtrarColumnas() {
-		/* Creamos la vista para mostrar los filtros*/
-		let modalFilter = this.modal.create(FiltrarColumnasPage, {
-			'filtros_seleccionadas' : this.filtrar_seleccionadas
-		})
-		/* Muestro el modal para seleccionar las filtros. */
-		modalFilter.present()
-		/* Cuando cierro mi modal recupero mis columnas que seleccione. */
-		modalFilter.onDidDismiss(data => {
-			let misCampos = []
-			let cadena: string = `select `
-			let nuevaCadena: string = ``
-			let valoresIn: string = ''
-			let values: string = ''
-			let nuevoValues: string = ''
-
-			this.filtrar_seleccionadas.forEach(items => {
-				misCampos.push(items.columna)
-				cadena += `${items.columna},`
-				nuevaCadena = cadena.slice(0, -1)
-				nuevaCadena += ` from proyectos where `
-			})
-
-			data.forEach(function(items, index){
-				let keys = Object.keys(items)
-				items[`${keys}`].forEach(item => {
-					values += `'${item}',`
-					nuevoValues = values.slice(0, -1)
+		if(this.filtrar_seleccionadas.length === 0) {
+			let alert = this.alertCtrl.create({
+				title: 'Aviso!',
+				subTitle: 'Por favor seleccione los columnas para visualizar la grafica!',
+				buttons: ['OK']
+			});
+			alert.present();
+		}
+		else {
+			/* Creamos la vista para mostrar los filtros*/
+			let modalFilter = this.modal.create(FiltrarColumnasPage, {
+					'filtros_seleccionadas': this.filtrar_seleccionadas
 				})
-				nuevaCadena += `${Object.keys(items)} in (${nuevoValues}) and `
+				/* Muestro el modal para seleccionar las filtros. */
+			modalFilter.present()
+				/* Cuando cierro mi modal recupero mis columnas que seleccione. */
+			modalFilter.onDidDismiss(data => {
+				let misCampos = []
+				let cadena: string = `select `
+				let nuevaCadena: string = ``
+				let valoresIn: string = ''
+				let values: string = ''
+				let nuevoValues: string = ''
+
+				this.filtrar_seleccionadas.forEach(items => {
+					misCampos.push(items.columna)
+					cadena += `${items.columna},`
+					nuevaCadena = cadena.slice(0, -1)
+					nuevaCadena += ` from proyectos where `
+				})
+
+				data.forEach(function(items, index) {
+						let keys = Object.keys(items)
+						items[`${keys}`].forEach(item => {
+							values += `'${item}',`
+							nuevoValues = values.slice(0, -1)
+						})
+						nuevaCadena += `${Object.keys(items)} in (${nuevoValues}) and `
+					})
+					/* Llamar a la funcion que nos ayudara a realizar la consulta para llenar la grid. */
+				this.llenarGrid(nuevaCadena.slice(0, -5), this.filtrar_seleccionadas)
 			})
-			/* Llamar a la funcion que nos ayudara a realizar la consulta para llenar la grid. */
-			this.llenarGrid(nuevaCadena.slice(0, -5), this.filtrar_seleccionadas)
-		})
+		}
 	}
 
 	/* Funcion para realizar la consulta y obtener los datos para llegar nuestra grid. */
@@ -141,26 +151,37 @@ export class NuevoReportePage {
 
 	/* Funcion para mostrar las opciones para agrupar la grafica. */
 	selectAgrupaciones() {
-		/* Preparamos nuestras columnas para construir la grafica. */
-		this.filtrar_seleccionadas.forEach(items => {
-			this.columnas_seleccionadas.push(items.columna)
-		})
-		let modalAgrupaciones =  this.modal.create(SelectAgrupacionesPage, {
-			agrupaciones: this.filtrar_seleccionadas
-		})
-		/* Activamos la vista para seleccionar nuestra agrupacion. */
-		modalAgrupaciones.present()
+		console.log(this.filtrar_seleccionadas)
+		if(this.filtrar_seleccionadas.length === 0) {
+			let alert = this.alertCtrl.create({
+				title: 'Aviso!',
+				subTitle: 'Por favor seleccione los columnas y los filtros para visualizar la grafica!',
+				buttons: ['OK']
+			});
+			alert.present();
+		}
+		else {
+			/* Preparamos nuestras columnas para construir la grafica. */
+			this.filtrar_seleccionadas.forEach(items => {
+				this.columnas_seleccionadas.push(items.columna)
+			})
+			let modalAgrupaciones = this.modal.create(SelectAgrupacionesPage, {
+					agrupaciones: this.filtrar_seleccionadas
+				})
+				/* Activamos la vista para seleccionar nuestra agrupacion. */
+			modalAgrupaciones.present()
 
-		/* Cuando cerramos la vista de agrapaciones recuperamos la agruapacion seleccionada. */
-		modalAgrupaciones.onDidDismiss(response => {
-			this.visible = false
-			console.log('normal'+ this.visible)
-			console.log('!'+ !this.visible)
-			this.agrupacion_seleccionada = response
-			
-			/* Llamar a la funcion que se encarga de graficar. */
-			this.graficar(this.columnas_seleccionadas, response)
-		})
+			/* Cuando cerramos la vista de agrapaciones recuperamos la agruapacion seleccionada. */
+			modalAgrupaciones.onDidDismiss(response => {
+				this.visible = false
+				console.log('normal' + this.visible)
+				console.log('!' + !this.visible)
+				this.agrupacion_seleccionada = response
+
+				/* Llamar a la funcion que se encarga de graficar. */
+				this.graficar(this.columnas_seleccionadas, response)
+			})
+		}
 	}
 
 	/* Funcion que nos servira para graficar la informacion. */

@@ -1,6 +1,16 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, ViewController } from 'ionic-angular'
-import { SelectFilterPage } from '../select-filter/select-filter'
+import {
+	Component
+} from '@angular/core';
+import {
+	IonicPage,
+	NavController,
+	NavParams,
+	ModalController,
+	ViewController
+} from 'ionic-angular'
+import {
+	SelectFilterPage
+} from '../select-filter/select-filter'
 
 @IonicPage()
 @Component({
@@ -26,11 +36,11 @@ export class FiltrarColumnasPage {
 	/* Funcion para seleccionas las opsiones del filtro.*/
 	obtenerDataFiltrado = (item: {}) => {
 		let misFiltros = []
-		/* Creamos el modal para ver las opciones de un filtro. */
+			/* Creamos el modal para ver las opciones de un filtro. */
 		let modalSelectFilter = this.modal.create(SelectFilterPage, {
-			filtro: item
-		})
-		/* mostramos el modal. */
+				filtro: item
+			})
+			/* mostramos el modal. */
 		modalSelectFilter.present()
 
 		/* Cuando cerramos la vista de los filtros recuperamos las opciones seleccionadas. */
@@ -41,5 +51,10 @@ export class FiltrarColumnasPage {
 
 	regresar = () => {
 		this.view.dismiss(this.prueba)
+	}
+
+	// Funcion para cancelar los filtros. 
+	cancelar() {
+		this.view.dismiss()
 	}
 }

@@ -7,7 +7,7 @@
 	<button ion-button full (click)="selectColumnas()">Seleccionar columnas</button>
 	<button ion-button full (click)="filtrarColumnas()">Filtrar columnas</button>
 	<ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
-	<button ion-button full (click)="selectAgrupaciones(columnas_seleccionadas)">Seleccionar agrupaciones</button>
+	<button ion-button full (click)="selectAgrupaciones()">Seleccionar agrupaciones</button>
 	<div id="container" [hidden]="!visible">
 		<chart [options]="options"></chart>
 	</div>
