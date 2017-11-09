@@ -33,7 +33,6 @@ export class SelectAgrupacionesPage {
 				this.agrupacion_seleccionada.splice(encontrado, 1)
 			}
 		}
-		console.log(this.agrupacion_seleccionada)
 	}
 
 	/* Funcion para enviar agrupaciones seleccionadas. */
