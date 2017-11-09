@@ -20,9 +20,9 @@
 		</ion-row>
 	</ion-grid> -->
 </ion-header>
-<ion-content>
+<ion-content padding>
+	<button ion-button block color="botton" (click)="aceptar()">Aceptar</button>
 	<ion-list>
-		<button ion-button block color="botton" (click)="aceptar()">Aceptar</button>
 		<ion-item *ngFor="let item of columnas">
 			<ion-label>{{ item.texto }}</ion-label>
 			<ion-checkbox checked="{{ item.checked }}" (ionChange)="seleccionColumnas($event, item.opcion, item.title)"></ion-checkbox>
