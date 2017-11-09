@@ -1,5 +1,5 @@
 <ion-header>
-	<ion-navbar no-border-bottom color="twitter">
+	<ion-navbar padding-top color="twitter">
 		<ion-title>Selecciona el filtro</ion-title><ion-buttons start>
 			<button ion-button (click)="cancelar()">
 				<span ion-text color="primary" showWhen="ios">Cancelar</span>
@@ -9,8 +9,8 @@
 	</ion-navbar>
 </ion-header>
 <ion-content padding>
+	<button ion-button block color="botton" (click)="regresar()">Aceptar</button>
 	<ion-list>
-		<button ion-button block color="botton" (click)="regresar()">Aceptar</button>
 		<button ion-item *ngFor="let item of filtros_seleccionadas" (click)="obtenerDataFiltrado(item)" icon-start>
 			<ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
 			{{ item.title }}

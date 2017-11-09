@@ -1,5 +1,5 @@
 <ion-header>
-	<ion-navbar no-border-bottom color="twitter">
+	<ion-navbar padding-top color="twitter">
 		<ion-title>Selecciona agrupación</ion-title>
 		<ion-buttons start>
 			<button ion-button (click)="cancelar()">
@@ -10,8 +10,8 @@
 	</ion-navbar>
 </ion-header>
 <ion-content padding>
+	<button ion-button block color="botton" (click)="aceptar()">Aceptar</button>
 	<ion-list>
-		<button ion-button block color="botton" (click)="aceptar()">Aceptar</button>
 		<ion-item *ngFor="let item of agrupaciones">
 			<ion-label>{{ item.title }}</ion-label>
 			<ion-checkbox (ionChange)="seleccionAgrupacion($event, item.columna)"></ion-checkbox>
