@@ -175,14 +175,23 @@ export class NuevoReportePage {
 			/* Cuando cerramos la vista de agrapaciones recuperamos la agruapacion seleccionada. */
 			modalAgrupaciones.onDidDismiss(response => {
 				console.log('mis agrupaciones' + response.length)
-				
-				this.visible = false
-				console.log('normal' + this.visible)
-				console.log('!' + !this.visible)
-				this.agrupacion_seleccionada = response
+				if (response.length === 0) {
+					let alert = this.alertCtrl.create({
+						title: 'Aviso!',
+						subTitle: 'Por favor seleccione una agruapción para visualizar la grafica!',
+						buttons: ['OK']
+					});
+					alert.present();
+				}
+				else {
+					this.visible = false
+					console.log('normal' + this.visible)
+					console.log('!' + !this.visible)
+					this.agrupacion_seleccionada = response
 
-				/* Llamar a la funcion que se encarga de graficar. */
-				this.graficar(this.columnas_seleccionadas, response)
+					/* Llamar a la funcion que se encarga de graficar. */
+					this.graficar(this.columnas_seleccionadas, response)
+				}
 			})
 		}
 	}
