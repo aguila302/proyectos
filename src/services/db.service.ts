@@ -72,13 +72,13 @@ export class DbService {
 				numero_propuesta text,
 				anticipo text)`
 				
-			// this.sqlitePorter.exportDbToSql(this.db)
-			// 	.then(r => {
-			// 		console.log(r)
+			this.sqlitePorter.exportDbToSql(this.db)
+				.then(r => {
+					console.log(r)
 
-			// 	console.log('Exported')
-			// })
-			// .catch(e => console.error(e))
+				console.log('Exported')
+			})
+			.catch(e => console.error(e))
 
 		return this.db.executeSql(sql, {})
 			.then(() => console.log('tabla creada'))
@@ -90,21 +90,13 @@ export class DbService {
 			let sql = 'select count(*) as contador from proyectos'
 			return this.db.executeSql(sql, {})
 				.then((response) => {
-
 					let filas = response.rows.item(0).contador
 						/* Si no hay registros insertamos los datos*/
-						// console.log(response.rows.item(0).contador)
 					if (filas === 0) {
-						//console.log('insertamos registros')
 						this.insertaDatos()
 					} else {
-						// let sql = 'delete from proyectos'
-						// this.db.executeSql(sql, {})
-						// this.insertaDatos()
 						console.log('tenemos registros')
-						// console.log('actualizamos registros')
 					}
-					// console.log(response.rows.length)
 				})
 		}
 		/* Insertamos los datos. */

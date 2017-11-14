@@ -93,39 +93,64 @@ export class ReportesDbService {
 
 	/* Funcion para la consulta del detalle de reportes. */
 	detalleReporte = (campo: string, group_by: string, filtros: any[]): any => {
-		console.log('mi agrupacion')
-		console.log(group_by)
+
+		console.log('filtros')
+		console.log(filtros)
 		
 		let sql: string = ''
 		let reportes = []
 		if(filtros.length === 0) {
-			sql = `select ` + campo + ` as campo, count(*) as numero_proyectos, sum(monto) as monto,
+			sql = `select  ` + campo + ` as campo, count(*) as numero_proyectos, sum(monto) as monto,
 					(select count(*) from proyectos) as total
 					FROM proyectos
 					group by ` + group_by + ` order by ` + campo + ` asc`
-			console.log()
 			
 		}
 		else {
+		
+			let opciones = []
 			let columnas = []
-			let sql: string = ''
-			let sqlFinal: string = ''
-			let misFiltros = collect(filtros).groupBy('nombre_columna').toArray()
-			misFiltros.map(function(item, index) {
-				console.log(item[0])
+			let misNuevasColumnas = []
+			let values: string = ''
+			let nuevoValues: string = ''
+			let cadena: string = ''
+
+			filtros.map(function(item, index) {
+				columnas.push(item.nombre_columna)
 			})
+			opciones.push(collect(filtros).groupBy('nombre_columna').all())
+			misNuevasColumnas = collect(columnas).unique().toArray()
+
 			
-			// filtros.forEach(items => {
-			// 	columnas.push(items.nombre_columna)
-			// })
-			// console.log(collect(columnas).unique().implode(','))
-			// filtros.forEach(items => {
-			// 	sqlFinal += `select ${collect(columnas).unique().implode(',')}, count(*) as numero_proyectos, sum(monto) as monto,
-			// 		(select count(*) from proyectos) as total from proyectos where ${items.nombre_columna} = '${items.valor}' union `
-				
-			// })
-			// console.log(sqlFinal)
+			cadena = `select ${collect(columnas).unique().implode(',')}, ` + campo + ` as campo, count(*) as numero_proyectos, sum(monto) as monto,
+					(select count(*) from proyectos) as total
+					FROM proyectos where `
+
 			
+			var g = []
+			opciones.forEach(function(item) {
+				g.push(item)
+			})
+			var h = []
+			g.forEach(function(item) {
+				for (var i in misNuevasColumnas) {
+					// console.log(cols[i])
+					h.push({
+						[misNuevasColumnas[i]]: item[misNuevasColumnas[i]],
+					})
+				}
+			})
+
+			h.forEach(item => {
+				let keys = Object.keys(item)
+				item[`${keys}`].forEach(items => {
+					values += `'${items.valor}',`
+					nuevoValues = values.slice(0, -1)
+				})
+				cadena += `${Object.keys(item)} in (${nuevoValues}) and `
+			})
+			sql =  cadena.slice(0, -5) + ` group by ` + group_by + ` order by ` + group_by + ` ASC`
+			console.log(sql)
 		}
 		return this.db.executeSql(sql, {})
 			.then(response => {

@@ -8,7 +8,8 @@ import {
 	NavParams,
 	ModalController,
 	AlertController,
-	LoadingController
+	LoadingController,
+	ToastController
 } from 'ionic-angular'
 import {
 	ReportesDbService
@@ -53,7 +54,7 @@ export class NuevoReportePage {
 	camposGuardarReporte = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
-		private reporteService: ReportesDbService, private modal: ModalController,
+		private reporteService: ReportesDbService, private modal: ModalController, public toastCtrl: ToastController,
 		public zone: NgZone, public alertCtrl: AlertController, public loadingCtrl: LoadingController, private dbService: DbService) {}
 
 	ionViewDidLoad() {
@@ -132,9 +133,7 @@ export class NuevoReportePage {
 					nuevaCadenaWhere += `${Object.keys(items)} in (${nuevoValues}) and `
 				})
 				/* Obtenemos los campos de select para guardar el reporte en la table reportes_filtros */
-				console.log('ponchito');
-				console.log(this.camposGuardarReporte = data)
-
+				this.camposGuardarReporte = data
 				miGlobal.whereGlobal = nuevaCadenaWhere
 				this.reporteService.whereNuevoReporte = miGlobal.whereGlobal
 
@@ -234,7 +233,7 @@ export class NuevoReportePage {
 					this.xy.splice(0, this.xy.length)
 
 					let resultado = []
-						/* Refactorizamos la data obtenida por la consulta. */
+					/* Refactorizamos la data obtenida por la consulta. */
 					for (var i = 0; i < res.rows.length; i++) {
 						resultado.push({
 							'campo': res.rows.item(i).campo,
@@ -280,39 +279,51 @@ export class NuevoReportePage {
 			}, {
 				text: 'Guardar',
 				handler: data => {
-					/* Consigo el total del monto y numero de proyectos para registrar el reporte. */
-					this.reporteService.paraGuardarReporte(title, this.whereGlobal)
-						.then(response => {
-							let mi_collect = collect(response)
-							let monto_total = mi_collect.sum('monto')
-							
-							let numero_proyectos = mi_collect.sum('numero_proyectos')
-							/* Registramos el reporte */
-							this.reporteService.saveReporte(data['title'], monto_total, numero_proyectos)
-								.then(response => {
-									/* Obtenemos el id del reporte registrado*/
-									let last_id = response[0]['id']
-									/* Registramos en la tabla reporte agrupado.*/
-									this.reporteService.insertarReporteAgrupado(last_id, title)
-										.then(response => {
-											/* Registramos en reportes columnas*/
-											this.reporteService.insertReporteColumnas(response.insertId, title)
-												.then(response => {
-													/* Registramos los filtros del reporte y sus campos de seleccion. */
-													this.reporteService.insertReporteFiltros(this.camposGuardarReporte, last_id)
-													this.navCtrl.pop()
-													// .then(response => {
-													// 	if (response.insertId !== 0) {
-													// 		this.navCtrl.pop()
-													// 	}
-													// })
-												})
-										})
-								})
-						})
+					console.log('data')
+					console.log(data)
+					if(data.title === '') {
+						this.verToast('middle')
+					}
+					else {
+						/* Consigo el total del monto y numero de proyectos para registrar el reporte. */
+						this.reporteService.paraGuardarReporte(title, this.whereGlobal)
+							.then(response => {
+								let mi_collect = collect(response)
+								let monto_total = mi_collect.sum('monto')
+								
+								let numero_proyectos = mi_collect.sum('numero_proyectos')
+								/* Registramos el reporte */
+								this.reporteService.saveReporte(data['title'], monto_total, numero_proyectos)
+									.then(response => {
+										/* Obtenemos el id del reporte registrado*/
+										let last_id = response[0]['id']
+										/* Registramos en la tabla reporte agrupado.*/
+										this.reporteService.insertarReporteAgrupado(last_id, title)
+											.then(response => {
+												/* Registramos en reportes columnas*/
+												this.reporteService.insertReporteColumnas(response.insertId, title)
+													.then(response => {
+														/* Registramos los filtros del reporte y sus campos de seleccion. */
+														this.reporteService.insertReporteFiltros(this.camposGuardarReporte, last_id)
+														this.navCtrl.pop()
+													})
+											})
+									})
+							})
+					}
+					
 				}
 			}]
 		})
 		confirmacion.present()
+	}
+	/* Funcion para ver la advertencia en caso de que al guardar un reporte no se introduzca un titulo*/
+	verToast(position: string) {
+		let toast = this.toastCtrl.create({
+			message: 'Por favor introduce un título para el reporte!',
+			duration: 3000,
+			position: position
+		});
+		toast.present();
 	}
 }
