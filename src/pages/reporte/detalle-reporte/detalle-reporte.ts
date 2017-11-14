@@ -53,16 +53,21 @@ export class DetalleReportePage {
 	/* Funcion para obtener la agrupacion y campos del select del reporte a consultar. */
 	getAgrupacion = (): void => {
 		this.reporteService.obtenerAgrupacionDetalle(this.id)
-		.then(response => {
-			let agrupacion = collect(response)
-			this.campo_agrupacion = agrupacion.implode('nombre_columna', ',')
-		})
-		.then(() => this.reporteService.obtenerCamposDetalle(this.id)
 			.then(response => {
-				let campos = collect(response)
-				this.campo_select = campos.implode('nombre_columna', ',')
+				let agrupacion = collect(response)
+				this.campo_agrupacion = agrupacion.implode('nombre_columna', ',')
 			})
-		).then(() => this.getReporteDetalle())
+			.then(() => this.reporteService.obtenerCamposDetalle(this.id)
+				.then(response => {
+					let campos = collect(response)
+					this.campo_select = campos.implode('nombre_columna', ',')
+				})
+				.then(() => this.reporteService.obtenerFiltros(this.id)
+					.then(response => {
+						this.filtros = response
+					}))
+			)
+			.then(() => this.getReporteDetalle())
 	}
 
 	/* Funcion para reporte por año. */
@@ -145,7 +150,7 @@ export class DetalleReportePage {
 		else {
 			/* Opcion para seleccionar la opcion reporte de direccicon con años. */
 			/* En caso de visualizar algun reporte que no sea de direccion con años. */
-			this.reporteService.detalleReporte(this.campo_select, this.campo_agrupacion)
+			this.reporteService.detalleReporte(this.campo_select, this.campo_agrupacion, this.filtros)
 				.then(response => {
 					// Para mostrar la informacion de la grafica.
 					this.xy.splice(0, this.xy.length)

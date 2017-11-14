@@ -636,13 +636,13 @@ export class DbService {
 	}
 
 	/* Funcion para insertar datos en la tabla de reportes_filtros */
-	insertaDatosTablaReportesFiltros() {
-		let sql = `insert into reportes_filtros(
-				reporte_id, nombre_columna, valor) values(?, ?, ?)`
-		return this.db.executeSql(sql, ['1', 'anio', '2017'])
-			.then(() => console.log('regustros insertados en tabla reportes filtros'))
-			.catch(e => console.log(e))
-	}
+	// insertaDatosTablaReportesFiltros() {
+	// 	let sql = `insert into reportes_filtros(
+	// 			reporte_id, nombre_columna, valor) values(?, ?, ?)`
+	// 	return this.db.executeSql(sql, ['1', 'anio', '2017'])
+	// 		.then(() => console.log('regustros insertados en tabla reportes filtros'))
+	// 		.catch(e => console.log(e))
+	// }
 
 	/* Funcion para insertar datos en la tabla de reportes_agrupacion */
 	insertaDatosTablaReportesAgrupacion() {

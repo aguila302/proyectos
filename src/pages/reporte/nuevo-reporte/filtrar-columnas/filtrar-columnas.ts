@@ -30,7 +30,6 @@ export class FiltrarColumnasPage {
 
 	/* Cuando cargue la vista mostramos los filtros seleccionados. */
 	ionViewDidLoad() {
-		// console.log(this.filtros_seleccionadas)
 	}
 
 	/* Funcion para seleccionas las opsiones del filtro.*/

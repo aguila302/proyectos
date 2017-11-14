@@ -14,8 +14,10 @@ export class ReportesDbService {
 
 	db: SQLiteObject = null
 	resultado = []
+	whereNuevoReporte: string = ''
 
-	constructor() {}
+	constructor() {
+	}
 
 	/* Funcion que inisializa la base de datos para los reportes. */
 	initDb(db: SQLiteObject) {
@@ -71,14 +73,60 @@ export class ReportesDbService {
 			})
 	}
 
+	/* Funcion para obtener los filtros y columnas del reporte. */
+	obtenerFiltros = (id: number): any => {
+		let campos_filter = []
+		let select = `select reporte_id, nombre_columna, valor from reportes_filtros where reporte_id = ${id}`
+
+		return this.db.executeSql(select, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					campos_filter.push({
+						'reporte_id': response.rows.item(index).reporte_id,
+						'nombre_columna': response.rows.item(index).nombre_columna,
+						'valor': response.rows.item(index).valor,
+					})
+				}
+				return Promise.resolve(campos_filter)
+			})
+	}
+
 	/* Funcion para la consulta del detalle de reportes. */
-	detalleReporte = (campo: string, group_by: string): any => {
+	detalleReporte = (campo: string, group_by: string, filtros: any[]): any => {
+		console.log('mi agrupacion')
+		console.log(group_by)
+		
+		let sql: string = ''
 		let reportes = []
-		let sql = `select ` + campo + ` as campo, count(*) as numero_proyectos, sum(monto) as monto,
+		if(filtros.length === 0) {
+			sql = `select ` + campo + ` as campo, count(*) as numero_proyectos, sum(monto) as monto,
 					(select count(*) from proyectos) as total
 					FROM proyectos
 					group by ` + group_by + ` order by ` + campo + ` asc`
-
+			console.log()
+			
+		}
+		else {
+			let columnas = []
+			let sql: string = ''
+			let sqlFinal: string = ''
+			let misFiltros = collect(filtros).groupBy('nombre_columna').toArray()
+			misFiltros.map(function(item, index) {
+				console.log(item[0])
+			})
+			
+			// filtros.forEach(items => {
+			// 	columnas.push(items.nombre_columna)
+			// })
+			// console.log(collect(columnas).unique().implode(','))
+			// filtros.forEach(items => {
+			// 	sqlFinal += `select ${collect(columnas).unique().implode(',')}, count(*) as numero_proyectos, sum(monto) as monto,
+			// 		(select count(*) from proyectos) as total from proyectos where ${items.nombre_columna} = '${items.valor}' union `
+				
+			// })
+			// console.log(sqlFinal)
+			
+		}
 		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
@@ -131,13 +179,14 @@ export class ReportesDbService {
 	}
 
 	/* Funcion para obtener la data para registrar un reporte. */
-	paraGuardarReporte = (agrupacion: string) => {
+	paraGuardarReporte = (agrupacion: string, where: string) => {
 		let data = []
 		let sql = `select sum(monto) as monto,
 					count(*) as numero_proyectos
-					FROM proyectos
+					FROM proyectos ${this.whereNuevoReporte.slice(0, -4)}
 					group by ` + agrupacion + ``
-
+		console.log(sql);
+		
 		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
@@ -177,6 +226,8 @@ export class ReportesDbService {
 		let insert_grupado = `insert into reportes_agrupacion(
 				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
 
+		// console.log(insert_grupado);
+		
 		return this.db.executeSql(insert_grupado, [id, agrupacion, '1'])
 	}
 
@@ -185,9 +236,35 @@ export class ReportesDbService {
 		let insert_grupado = `insert into reportes_columnas(
 				reporte_id, nombre_columna) values(?, ?)`
 
+		// console.log(insert_grupado)
+		
 		return this.db.executeSql(insert_grupado, [id, agrupacion])
 	}
 
+	/* Funcion para guardar los campos y los valores en la tabla reportes_filtros en la seccion nuevo reporte*/
+	insertReporteFiltros = (campos: any[], id: number) => {
+		console.log(campos)
+		
+		let  insert = 'insert into reportes_filtros (reporte_id, nombre_columna, valor) values('
+		/* Recorremos el array de las opciones seleccionadas para insertar en el origen de datos. */
+		for (var i in campos) { /* otenemos los campos de filtracion. */
+			for (var rel in campos[i]) { /* Obtenemos array de los valores de la filtracion. */
+				for (var t in campos[i][rel]) { /* Obtenemos Valores de los filtros, */
+					let insertColumas = insert + `${id}, '${Object.keys(campos[i]).toString()}'` + ','
+					// console.log(insertColumas)
+					
+					// console.log(campos[i][rel][t])
+					
+					
+					let queryFinal = insertColumas + `'${campos[i][rel][t]}'` + ')'
+					console.log(queryFinal)
+					
+					/* Registramos las opciones en el origen de datos */
+					this.db.executeSql(queryFinal, {})
+				}
+			}
+		}
+	}
 	/* Funcion consultar el detalle de un reporte dado a un campo. */
 	consultaXCampoAgrupado = (campo: string, groupBy: string): any => {
 		let proyectos = []
@@ -237,19 +314,14 @@ export class ReportesDbService {
 	}
 
 	/*Funcion para conseguir la informacion para construir la grafica. */
-	paraGraficar = (columnas, agrupacion, where?): any => {
-		let sql: string = ''
-		where === undefined ? (
-			sql = `select ` + columnas + `, ${agrupacion} as campo , count(*) as numero_proyectos, sum(monto) as monto,
-						(select count(*) from proyectos) as total, sum(monto) as monto_filtrado
-						FROM proyectos group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
-		):(
-			sql = `select ` + columnas + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
+	paraGraficar = (columnas, agrupacion, where ? ): any => {
+
+		let sql = `select ` + columnas + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
 							(select count(*) from proyectos) as total, sum(monto) as monto_filtrado
 							FROM proyectos
 							where ` + agrupacion + ` in ('` + where + `')` + ` group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
-		)
-		console.log(sql)
+
+		
 		return this.db.executeSql(sql, {})
 	}
 
@@ -706,5 +778,15 @@ export class ReportesDbService {
 			return Promise.resolve(proyectos)
 		})
 		.catch(console.error.bind(console))
+	}
+
+	/*Funcion para conseguir la informacion para construir la grafica. */
+	paraGraficarNuevoReporte = (columnas, agrupacion): any => {
+		let sql = `select ` + columnas + `, ${agrupacion} as campo , count(*) as numero_proyectos, sum(monto) as monto,
+						(select count(*) from proyectos) as total, sum(monto) as monto_filtrado
+						FROM proyectos ${this.whereNuevoReporte.slice(0, -4)} group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
+
+		console.log(sql)
+		return this.db.executeSql(sql, {})
 	}
 }
