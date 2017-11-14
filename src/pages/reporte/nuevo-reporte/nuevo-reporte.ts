@@ -273,14 +273,11 @@ export class NuevoReportePage {
 			buttons: [{
 				text: 'Cancelar',
 				handler: () => {
-					console.log('Disagree clicked')
 					confirmacion.dismiss()
 				}
 			}, {
 				text: 'Guardar',
 				handler: data => {
-					console.log('data')
-					console.log(data)
 					if(data.title === '') {
 						this.verToast('middle')
 					}
