@@ -49,7 +49,14 @@ export class DbService {
 
 	/* Creamos la tabla. */
 	createTable() {
-		let sql = `
+		let drop = ''
+		let sql = ''
+		drop = 'drop table proyectos'
+		this.db.executeSql(drop, {})
+			.then(() => console.log('tabla proyectos elimianada'))
+			.catch(e => console.log(e));
+
+		sql = `
 			create table if not exists proyectos(
 				id integer primary key autoincrement,
 				nombre_proyecto text,
@@ -70,7 +77,8 @@ export class DbService {
 				fecha_inicio text,
 				fecha_fin text,
 				numero_propuesta text,
-				anticipo text)`
+				anticipo text,
+				fecha_sincronisacion text)`
 				
 		// 	this.sqlitePorter.exportDbToSql(this.db)
 		// 		.then(r => {
@@ -80,9 +88,9 @@ export class DbService {
 		// 	})
 		// 	.catch(e => console.error(e))
 
-		// return this.db.executeSql(sql, {})
-		// 	.then(() => console.log('tabla creada'))
-		// 	.catch(e => console.log(e))
+		return this.db.executeSql(sql, {})
+			.then(() => console.log('tabla creada'))
+			.catch(e => console.log(e))
 	}
 
 	/* Validamos que la tabla proyectos tenga informacion. */

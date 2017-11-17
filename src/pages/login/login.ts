@@ -43,15 +43,17 @@ export class LoginPage {
 	/* Funcion para resolver al api y loguear al usuario */
 	resolveApi = (usuario: string, password: string) => {
 		let token = {}
-
-		this.http.post(`http://qa.calymayor.com.mx/biprows/public/api/login`, {
+		
+		// this.http.post(`http://qa.calymayor.com.mx/biprows/public/api/login`, {
+			this.http.post(`http://11.11.1.157/laravel5.5/public/api/login`, {
 			'username': usuario,
 			'password': password
 		}, {})
 		.then(data => {
 			/* Obtenemos el token de accseso. */
 			let token = JSON.parse(data.data)
-
+			console.log(token)
+			
 			let loader = this.loadinCtrl.create({
 				content: 'Espere por favor...'
 			})
