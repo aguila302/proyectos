@@ -10,6 +10,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login'
 
 import { DbService } from '../services/db.service'
+import { ApiService } from '../services/api'
+
 import { ReportesDbService } from '../services/reportes.db.service'
 import { DetalleProyectoPage } from '../pages/proyecto/DetalleProyecto';
 import { FiltrosPage } from '../pages/proyecto/filtros/filtros';
@@ -144,7 +146,8 @@ import { HTTP } from '@ionic-native/http';
     DbService,
     ReportesDbService,
     SQLitePorter,
-    HTTP
+    HTTP,
+    ApiService
   ]
 })
 export class AppModule {}

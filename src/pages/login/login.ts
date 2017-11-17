@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { LoadingController, NavController, Platform, AlertController } from 'ionic-angular';
 import { TabsPage } from '../../pages/tabs/tabs';
-import { HTTP } from '@ionic-native/http';
+import { ApiService } from '../../services/api'
 
-// @IonicPage()
 @Component({
 	selector: 'page-login',
 	templateUrl: 'login.html',
 })
+/**
+ * Componenete para el manejo de sesion.
+ */
 export class LoginPage {
 
 	username: string = ''
@@ -18,11 +20,12 @@ export class LoginPage {
 		private alertCtrl: AlertController,
 		private loadinCtrl: LoadingController,
 		private navCtrl: NavController,
-		private http: HTTP) {
+		private apiService: ApiService) {
 	}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad LoginPage');
+		this.sincronizar()
 	}
 
 	/* Funcion para loguar al usuario */
@@ -36,43 +39,47 @@ export class LoginPage {
 			alert.present()
 		} else {
 			/* Resolvemos el api para loguer al usuario y obtener el token. */
-			this.resolveApi(this.username, this.password)
+			this.apiService.resolveApi(this.username, this.password)
+			.then(response => {
+				if(response === undefined ) {
+					/* En caso de error */
+					let alert = this.alertCtrl.create({
+						title: 'Login',
+						subTitle: 'Usuario o clave de acceso incorrectos',
+						buttons: ['Aceptar']
+					})
+					alert.present()
+				}
+				else {
+					/* Funcion para resolver el endpoint para cargar el excel. */
+					this.cargarExcel()
+				}
+			})
+			.catch(error => {
+				console.error.bind(console)
+			})
 		}
 	}
-
-	/* Funcion para resolver al api y loguear al usuario */
-	resolveApi = (usuario: string, password: string) => {
-		let token = {}
-		
-		// this.http.post(`http://qa.calymayor.com.mx/biprows/public/api/login`, {
-			this.http.post(`http://11.11.1.157/laravel5.5/public/api/login`, {
-			'username': usuario,
-			'password': password
-		}, {})
-		.then(data => {
-			/* Obtenemos el token de accseso. */
-			let token = JSON.parse(data.data)
-			console.log(token)
-			
-			let loader = this.loadinCtrl.create({
+	/* Funcion para resolver el endpoint para cargar el archivo excel al origen de datos. */
+	cargarExcel = () => {
+		let loader = this.loadinCtrl.create({
 				content: 'Espere por favor...'
-			})
+		})
+		loader.present()
 
-			/* Entramos a la pantalla de inicio de la aplicacion. */
-			setTimeout(() => {
-				loader.dismiss()
-			}, 3000)
-			this.navCtrl.push(TabsPage, {})
+		this.apiService.readerArchivoExcel()
+		.then(response => {
+			loader.dismiss()
+			/* Sincronizamos la informacion del excel con la aplicacion movil. */
+			this.sincronizar()
 		})
 		.catch(error => {
-			/* En caso de error */
-			// console.log(JSON.parse(error.error))
-			let alert = this.alertCtrl.create({
-				title: 'Login',
-				subTitle: 'Usuario o clave de acceso incorrectos',
-				buttons: ['Aceptar']
-			})
-			alert.present()
-		});
+			console.error.bind(console)
+		})
+	}
+
+	/* Funcion para sincronizar la informacion con la aplicacion movil. */
+	sincronizar = () => {
+		this.apiService.sincronizar()
 	}
 }

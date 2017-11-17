@@ -51,10 +51,10 @@ export class DbService {
 	createTable() {
 		let drop = ''
 		let sql = ''
-		drop = 'drop table proyectos'
-		this.db.executeSql(drop, {})
-			.then(() => console.log('tabla proyectos elimianada'))
-			.catch(e => console.log(e));
+		// drop = 'drop table proyectos'
+		// this.db.executeSql(drop, {})
+		// 	.then(() => console.log('tabla proyectos elimianada'))
+		// 	.catch(e => console.log(e));
 
 		sql = `
 			create table if not exists proyectos(
