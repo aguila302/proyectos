@@ -44,22 +44,24 @@ export class ProyectoPage {
 
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
 	getProyectos() {
-		let loading = this.loadingCtrl.create({
-			content: 'Por favor espere...'
-		})
-		loading.present()
+		// let loading = this.loadingCtrl.create({
+		// 	content: 'Por favor espere...'
+		// })
+		// loading.present()
 		setTimeout(() => {
 			this.dbService.openDatabase()
-			.then(() => this.dbService.getProyectos())
-			.then(proyectos => {
-				this.zone.run(() => {
-					console.log('running zone')
-					this.proyectos = proyectos
-					if(this.proyectos.length > 1330)
-						loading.dismiss()
+				.then(() => this.dbService.getProyectos())
+				.then(proyectos => {
+					console.log('mis proyectos')
+					console.log(proyectos)
+					this.zone.run(() => {
+						console.log('running zone')
+						this.proyectos = proyectos
+						// if (this.proyectos.length > 1330)
+						// loading.dismiss()
+					})
 				})
-			})
-			.catch(console.error.bind(console))
+				.catch(console.error.bind(console))
 		}, 0)
 	}
 

@@ -26,6 +26,7 @@ import {
 export class DbService {
 	db: SQLiteObject = null
 	sqlite: SQLite = null;
+	fetchData = {}
 
 	constructor(public reporteService: ReportesDbService,
 		private sqlitePorter: SQLitePorter) {
@@ -95,37 +96,44 @@ export class DbService {
 
 	/* Validamos que la tabla proyectos tenga informacion. */
 	validaRegistros() {
-			let sql = 'select count(*) as contador from proyectos'
-			return this.db.executeSql(sql, {})
-				.then((response) => {
-					let filas = response.rows.item(0).contador
-						/* Si no hay registros insertamos los datos*/
-					if (filas === 0) {
-						this.insertaDatos()
-					} else {
-						console.log('tenemos registros')
-					}
-				})
-		}
-		/* Insertamos los datos. */
+		let deleteTodo = 'delete from proyectos'
+		this.db.executeSql(deleteTodo, {})
+
+		let sql = 'select count(*) as contador from proyectos'
+		return this.db.executeSql(sql, {})
+			.then((response) => {
+				let filas = response.rows.item(0).contador
+					/* Si no hay registros insertamos los datos*/
+				if (filas === 0) {
+					console.log('no hay datos registramos')
+					
+					this.insertaDatos()
+				} else {
+					console.log('tenemos registros')
+				}
+			})
+	}
+
+	/* Insertamos los datos. */
 	insertaDatos() {
-		let origen = collect(PROYECTOS)
-		origen.each(item => {
+		console.log('insert data del api')
+		let miData = collect(this.fetchData)
+		miData.each(item => {
 			let sql = `insert into proyectos(
 				nombre_proyecto, nombre_corto, contrato,
-				monto, monto_moneda_original, moneda, pais,
-				gerencia, unidad_negocio,
-				numero_contrato, producto,
-				anio, duracion, contratante,
-				datos_cliente, fecha_inicio,
-				fecha_fin, numero_propuesta,
-				anticipo) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+		 		monto, monto_moneda_original, moneda, pais,
+		 		gerencia, unidad_negocio,
+		 		numero_contrato, producto,
+		 		anio, duracion, contratante,
+		 		datos_cliente, fecha_inicio,
+		 		fecha_fin, numero_propuesta,
+		 		anticipo) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
 			return this.db.executeSql(sql, [
 					item.nombre_proyecto,
 					item.nombre_corto,
 					item.contrato,
 					parseInt(item.montoUsd),
-					parseInt(item.monto_moneda_original),
+					parseInt(item.monto),
 					item.moneda,
 					item.pais,
 					item.gerencia,
@@ -143,6 +151,7 @@ export class DbService {
 				]).then(() => console.log('regustros insertados'))
 				.catch(e => console.log(e))
 		})
+
 	}
 
 	/* Obtenemos las datos de los proyectos. */

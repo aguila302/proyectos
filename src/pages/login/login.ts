@@ -25,7 +25,7 @@ export class LoginPage {
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad LoginPage');
-		this.sincronizar()
+		// this.sincronizar()
 	}
 
 	/* Funcion para loguar al usuario */
@@ -51,7 +51,7 @@ export class LoginPage {
 					alert.present()
 				}
 				else {
-					/* Funcion para resolver el endpoint para cargar el excel. */
+					/* Funcion para resolver el endpoint para cargar el excel al origen de datos. */
 					this.cargarExcel()
 				}
 			})
@@ -69,9 +69,11 @@ export class LoginPage {
 
 		this.apiService.readerArchivoExcel()
 		.then(response => {
-			loader.dismiss()
 			/* Sincronizamos la informacion del excel con la aplicacion movil. */
 			this.sincronizar()
+			setTimeout(() => {
+				loader.dismiss()
+			}, 4000)
 		})
 		.catch(error => {
 			console.error.bind(console)
@@ -80,6 +82,11 @@ export class LoginPage {
 
 	/* Funcion para sincronizar la informacion con la aplicacion movil. */
 	sincronizar = () => {
-		this.apiService.sincronizar()
+		this.apiService.fetch()
+		.then(response => {
+			this.navCtrl.push(TabsPage, {})
+			/* LLamar a la funcion que nos ayudara a registrar la informacion del endpoint a nuestra aplicacion movil. */
+			this.apiService.regitrarData(response)
+		})
 	}
 }

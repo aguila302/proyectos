@@ -34,7 +34,7 @@ export class MyApp {
             splashScreen.hide();
             this.dbService.openDatabase()
                 .then(() => this.dbService.createTable())
-                .then(() => this.dbService.validaRegistros())
+                // .then(() => this.dbService.validaRegistros())
                 // .then(() => this.dbService.delete())
                 // .then(() => this.dbService.creaTablaReportes())
                 //   .then(() => this.dbService.creaTablaReporteColumnas())

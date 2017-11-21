@@ -4,12 +4,13 @@ import {
 import {
 	HTTP
 } from '@ionic-native/http';
+import { DbService } from './db.service'
 
 @Injectable()
 /* Clase para el manejo de la api. */
 export class ApiService {
 	
-	constructor(private http: HTTP) {}
+	constructor(private http: HTTP, public dbService: DbService,) {}
 	/* Funcion para resolver al api y loguear al usuario */
 	resolveApi(usuario: string, password: string) {
 		let token = {}
@@ -39,16 +40,21 @@ export class ApiService {
 			})
 	}
 
-	/* Funcion para obtener los proyectos en el api. */
-	sincronizar = () => {
+	/* Funcion para obtener los proyectos del api. */
+	fetch = () => {
 		let proyectos = []
-		this.http.get('http://11.11.1.157/laravel5.5/public/api/proyectos', {}, {})
+		return this.http.get('http://11.11.1.157/laravel5.5/public/api/proyectos', {}, {})
 			.then(response => {
-				proyectos.push(JSON.parse(response.data))
-				console.log(proyectos)
+				return proyectos = JSON.parse(response.data)
 			})
 			.catch(error => {
 				console.log(error.error)
 			})
+	}
+
+	/* Funcion para registrar la data del endpoint a nuestra aplicacion movil.*/
+	regitrarData = (proyectos: {}) => {
+		this.dbService.fetchData = proyectos
+		this.dbService.validaRegistros()
 	}
 }
