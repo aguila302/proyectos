@@ -81,15 +81,7 @@ export class DbService {
 				anticipo text,
 				fecha_sincronisacion text)`
 				
-			// this.sqlitePorter.exportDbToSql(this.db)
-			// 	.then(r => {
-			// 		console.log(r)
-
-			// 	console.log('Exported')
-			// })
-			// .catch(e => console.error(e))
-
-		return this.db.executeSql(sql, {})
+		this.db.executeSql(sql, {})
 			.then(() => console.log('tabla creada'))
 			.catch(e => console.log(e))
 	}

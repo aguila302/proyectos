@@ -63,8 +63,9 @@ export class LoginPage {
 			})
 		}
 	}
+
 	/* Funcion para resolver el endpoint para cargar el archivo excel al origen de datos. */
-	cargarExcel = () => {
+	cargarExcel(){
 		this.loader.present()
 
 		this.apiService.readerArchivoExcel()
@@ -80,14 +81,14 @@ export class LoginPage {
 	}
 
 	/* Funcion para sincronizar la informacion con la aplicacion movil. */
-	sincronizar = () => {
+	sincronizar() {
 		this.apiService.fetch()
 		.then(response => {
 			/* LLamar a la funcion que nos ayudara a registrar la informacion del endpoint a nuestra aplicacion movil. */
 			this.apiService.regitrarData(response)
-			// this.navCtrl.push(TabsPage, {})
+			this.navCtrl.push(TabsPage, {})
 			setTimeout(() => {
-				this.navCtrl.push(TabsPage, {})
+				// this.navCtrl.push(TabsPage, {})
 				this.loader.dismiss()
 			}, 25000)
 		})
