@@ -14,6 +14,9 @@ export class LoginPage {
 
 	username: string = ''
 	password: string = ''
+	loader = this.loadinCtrl.create({
+		content: 'Espere por favor...'
+	})
 
 	constructor(
 		public platform: Platform,
@@ -62,18 +65,14 @@ export class LoginPage {
 	}
 	/* Funcion para resolver el endpoint para cargar el archivo excel al origen de datos. */
 	cargarExcel = () => {
-		let loader = this.loadinCtrl.create({
-				content: 'Espere por favor...'
-		})
-		loader.present()
+		this.loader.present()
 
 		this.apiService.readerArchivoExcel()
 		.then(response => {
 			/* Sincronizamos la informacion del excel con la aplicacion movil. */
-			this.sincronizar()
-			setTimeout(() => {
-				loader.dismiss()
-			}, 4000)
+			// setTimeout(() => {
+				this.sincronizar()
+			// }, 9000)
 		})
 		.catch(error => {
 			console.error.bind(console)
@@ -84,9 +83,13 @@ export class LoginPage {
 	sincronizar = () => {
 		this.apiService.fetch()
 		.then(response => {
-			this.navCtrl.push(TabsPage, {})
 			/* LLamar a la funcion que nos ayudara a registrar la informacion del endpoint a nuestra aplicacion movil. */
 			this.apiService.regitrarData(response)
+			// this.navCtrl.push(TabsPage, {})
+			setTimeout(() => {
+				this.navCtrl.push(TabsPage, {})
+				this.loader.dismiss()
+			}, 25000)
 		})
 	}
 }

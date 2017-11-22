@@ -54,7 +54,6 @@ export class ApiService {
 
 	/* Funcion para registrar la data del endpoint a nuestra aplicacion movil.*/
 	regitrarData = (proyectos: {}) => {
-		this.dbService.fetchData = proyectos
-		this.dbService.validaRegistros()
+		this.dbService.insertaDatos(proyectos)
 	}
 }

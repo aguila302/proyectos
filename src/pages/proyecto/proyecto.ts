@@ -33,14 +33,15 @@ export class ProyectoPage {
 	}
 
 	ionViewDidLoad() {
-		this.platform.ready().then(() => {
-			this.getProyectos()
-		})
-	}
-	ionViewWillEnter() {
-		console.log('volviste')
 		this.getProyectos()
+		// this.platform.ready().then(() => {
+		// 	this.getProyectos()
+		// })
 	}
+	// ionViewWillEnter() {
+	// 	console.log('volviste')
+	// 	this.getProyectos()
+	// }
 
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
 	getProyectos() {
@@ -48,7 +49,7 @@ export class ProyectoPage {
 		// 	content: 'Por favor espere...'
 		// })
 		// loading.present()
-		setTimeout(() => {
+		// setTimeout(() => {
 			this.dbService.openDatabase()
 				.then(() => this.dbService.getProyectos())
 				.then(proyectos => {
@@ -62,7 +63,7 @@ export class ProyectoPage {
 					})
 				})
 				.catch(console.error.bind(console))
-		}, 0)
+		// }, 0)
 	}
 
 	/* Funcion para ver el detalle de un proyecto. */

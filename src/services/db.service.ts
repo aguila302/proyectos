@@ -52,10 +52,10 @@ export class DbService {
 	createTable() {
 		let drop = ''
 		let sql = ''
-		// drop = 'drop table proyectos'
-		// this.db.executeSql(drop, {})
-		// 	.then(() => console.log('tabla proyectos elimianada'))
-		// 	.catch(e => console.log(e));
+		drop = 'drop table proyectos'
+		this.db.executeSql(drop, {})
+			.then(() => console.log('tabla proyectos elimianada'))
+			.catch(e => console.log(e));
 
 		sql = `
 			create table if not exists proyectos(
@@ -81,81 +81,65 @@ export class DbService {
 				anticipo text,
 				fecha_sincronisacion text)`
 				
-		// 	this.sqlitePorter.exportDbToSql(this.db)
-		// 		.then(r => {
-		// 			console.log(r)
+			// this.sqlitePorter.exportDbToSql(this.db)
+			// 	.then(r => {
+			// 		console.log(r)
 
-		// 		console.log('Exported')
-		// 	})
-		// 	.catch(e => console.error(e))
+			// 	console.log('Exported')
+			// })
+			// .catch(e => console.error(e))
 
 		return this.db.executeSql(sql, {})
 			.then(() => console.log('tabla creada'))
 			.catch(e => console.log(e))
 	}
 
-	/* Validamos que la tabla proyectos tenga informacion. */
-	validaRegistros() {
-		let deleteTodo = 'delete from proyectos'
-		this.db.executeSql(deleteTodo, {})
-
-		let sql = 'select count(*) as contador from proyectos'
-		return this.db.executeSql(sql, {})
-			.then((response) => {
-				let filas = response.rows.item(0).contador
-					/* Si no hay registros insertamos los datos*/
-				if (filas === 0) {
-					console.log('no hay datos registramos')
-					
-					this.insertaDatos()
-				} else {
-					console.log('tenemos registros')
-				}
-			})
-	}
-
 	/* Insertamos los datos. */
-	insertaDatos() {
-		console.log('insert data del api')
-		let miData = collect(this.fetchData)
-		miData.each(item => {
-			let sql = `insert into proyectos(
-				nombre_proyecto, nombre_corto, contrato,
-		 		monto, monto_moneda_original, moneda, pais,
-		 		gerencia, unidad_negocio,
-		 		numero_contrato, producto,
-		 		anio, duracion, contratante,
-		 		datos_cliente, fecha_inicio,
-		 		fecha_fin, numero_propuesta,
-		 		anticipo) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
-			return this.db.executeSql(sql, [
-					item.nombre_proyecto,
-					item.nombre_corto,
-					item.contrato,
-					parseInt(item.montoUsd),
-					parseInt(item.monto),
-					item.moneda,
-					item.pais,
-					item.gerencia,
-					item.unidad_negocio,
-					item.numero_contrato,
-					item.producto,
-					item.anio,
-					item.duracion,
-					item.contratante,
-					item.datos_cliente,
-					item.fecha_inicio,
-					item.fecha_fin,
-					item.numero_propuesta,
-					item.anticipo
-				]).then(() => console.log('regustros insertados'))
-				.catch(e => console.log(e))
-		})
+	insertaDatos(proyectos) {
+		// let deleteTodo = 'delete from proyectos'
+		// this.db.executeSql(deleteTodo, {})
 
+		console.log('insert data del api')
+		proyectos.data.forEach(item => {
+
+				let sql = `insert into proyectos(
+					nombre_proyecto, nombre_corto, contrato,
+			 		monto, monto_moneda_original, moneda, pais,
+			 		gerencia, unidad_negocio,
+			 		numero_contrato, producto,
+			 		anio, duracion, contratante,
+			 		datos_cliente, fecha_inicio,
+			 		fecha_fin, numero_propuesta,
+			 		anticipo) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+
+				return this.db.executeSql(sql, [
+						item.nombre_proyecto,
+						item.nombre_corto,
+						item.contrato,
+						parseInt(item.montoUsd),
+						parseInt(item.monto),
+						item.moneda,
+						item.pais,
+						item.gerencia,
+						item.unidad_negocio,
+						item.numero_contrato,
+						item.producto,
+						item.anio,
+						item.duracion,
+						item.contratante,
+						item.datos_cliente,
+						item.fecha_inicio,
+						item.fecha_fin,
+						item.numero_propuesta,
+						item.anticipo
+					]).then(() => console.log('regustros insertados'))
+					.catch(e => console.log(e))
+			})
+		
 	}
 
 	/* Obtenemos las datos de los proyectos. */
-	getProyectos(): Promise < Proyecto[] > {
+	getProyectos() {
 		let proyectos = []
 		let sql = 'select * from proyectos'
 
