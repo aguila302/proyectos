@@ -42,17 +42,7 @@ export class ProyectoPage {
 			this.dbService.openDatabase()
 				.then(() => this.dbService.getProyectos())
 				.then(proyectos => {
-				this.dbService.creaTablaReportes()
-					// .then(() => this.dbService.creaTablaReporteColumnas())
-					// .then(() => this.dbService.creaTablaReporteFiltros())
-					// .then(() => this.dbService.creaTablaReporteAgrupaciones())
-					.then(() => this.dbService.insertaDatosTablaReportes())
-					.then(() => this.dbService.insertaDatosTablaReportesColunas())
-					.then(() => this.dbService.insertaDatosTablaReportesAgrupacion())
-					// .then(() => this.dbService.createTableAnios())
-					.then(() => this.dbService.insertAnios())
-					// .then(() => this.dbService.createTableDireccionAnios())
-					.then(() => this.dbService.insertDireccionAnios())
+				
 
 					this.zone.run(() => {
 						this.proyectos = proyectos

@@ -66,8 +66,12 @@ export class ApiService {
 		this.reporteService.registraLog(proyectos)
 		.then(response => {
 			console.log(response)
+			this.dbService.creaTablaReportes()
+				.then(() => this.dbService.insertaDatosTablaReportes())
+				.then(() => this.dbService.insertaDatosTablaReportesColunas())
+				.then(() => this.dbService.insertaDatosTablaReportesAgrupacion())
+				.then(() => this.dbService.insertAnios())
+				.then(() => this.dbService.insertDireccionAnios())
 		})
-		console.log('sincrnizaciones insetrado')
-		
 	}
 }
