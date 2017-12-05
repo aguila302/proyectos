@@ -68,7 +68,7 @@ export class ApiService {
 			/*
 				Una vez registrado el log de la sincronizacion registramos la informacion necesaria para los demas modulos.
 			 */
-			this.dbService.creaTablaReportes()
+			this.dbService.openDatabase()
 				.then(() => this.dbService.insertaDatosTablaReportes())
 				.then(() => this.dbService.insertaDatosTablaReportesColunas())
 				.then(() => this.dbService.insertaDatosTablaReportesAgrupacion())
