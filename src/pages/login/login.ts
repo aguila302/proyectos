@@ -98,8 +98,8 @@ export class LoginPage {
 		.then(response => {
 			/* LLamar a la funcion que nos ayudara a registrar la informacion del endpoint a nuestra aplicacion movil. */
 			this.apiService.regitrarData(response)
+			this.navCtrl.setRoot(TabsPage, {})
 			setTimeout(() => {
-				this.navCtrl.setRoot(TabsPage, {})
 				this.loader.dismiss()
 			}, 20000)
 		})
