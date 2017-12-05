@@ -98,7 +98,7 @@ import { HTTP } from '@ionic-native/http';
     IonicModule.forRoot(MyApp),
     ChartsModule,
     ChartModule.forRoot(highcharts),
-    Ng2SmartTableModule
+    Ng2SmartTableModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

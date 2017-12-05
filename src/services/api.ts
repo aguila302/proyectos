@@ -5,12 +5,14 @@ import {
 	HTTP
 } from '@ionic-native/http';
 import { DbService } from './db.service'
+import {
+	ReportesDbService
+} from '../services/reportes.db.service'
 
 @Injectable()
 /* Clase para el manejo de la api. */
 export class ApiService {
-	
-	constructor(private http: HTTP, public dbService: DbService,) {}
+	constructor(private http: HTTP, public dbService: DbService, private reporteService: ReportesDbService) {}
 	/* Funcion para resolver al api y loguear al usuario */
 	resolveApi(usuario: string, password: string) {
 		let token = {}
@@ -29,7 +31,7 @@ export class ApiService {
 	}
 
 	/* Funcion para cargar el archivo excel al origen de datos en el servidor. */
-	readerArchivoExcel = () => {
+	readerArchivoExcel = (lastFecha) => {
 		let status = {}
 		this.http.setRequestTimeout(15000)
 		return this.http.post(`http://qa.calymayor.com.mx/biprows/public/api/proyectos`, {}, {})
@@ -55,7 +57,17 @@ export class ApiService {
 	}
 
 	/* Funcion para registrar la data del endpoint a nuestra aplicacion movil.*/
-	regitrarData = (proyectos: {}) => {
-		this.dbService.insertaDatos(proyectos)
+	regitrarData = (proyectos: {}): any => {
+		return this.dbService.insertaDatos(proyectos)
+	}
+
+	/* Funcion para registrar un log de la sincronizacion. */
+	regitraSincronizacion = (proyectos: number) => {
+		this.reporteService.registraLog(proyectos)
+		.then(response => {
+			console.log(response)
+		})
+		console.log('sincrnizaciones insetrado')
+		
 	}
 }

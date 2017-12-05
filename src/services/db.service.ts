@@ -48,7 +48,7 @@ export class DbService {
 
 	}
 
-	/* Creamos la tabla. */
+	/* Creamos la tabla para almacenar los proyectos. */
 	createTable() {
 		let drop = ''
 		let sql = ''
@@ -60,6 +60,7 @@ export class DbService {
 		sql = `
 			create table if not exists proyectos(
 				id integer primary key autoincrement,
+				numero integer,
 				nombre_proyecto text,
 				nombre_corto text,
 				contrato text,
@@ -79,22 +80,26 @@ export class DbService {
 				fecha_fin text,
 				numero_propuesta text,
 				anticipo text,
-				fecha_sincronisacion text)`
-				
+				created_at numeric)`
+
 		this.db.executeSql(sql, {})
 			.then(() => console.log('tabla creada'))
 			.catch(e => console.log(e))
+
+		this.sqlitePorter.exportDbToSql(this.db)
+			.then(res => {
+				console.log(res)
+
+			})
+			.catch(e => console.error(e))
 	}
 
 	/* Insertamos los datos. */
 	insertaDatos(proyectos) {
-		// let deleteTodo = 'delete from proyectos'
-		// this.db.executeSql(deleteTodo, {})
-
 		console.log('insert data del api')
 		proyectos.data.forEach(item => {
 
-				let sql = `insert into proyectos(
+			let sql = `insert into proyectos(numero,
 					nombre_proyecto, nombre_corto, contrato,
 			 		monto, monto_moneda_original, moneda, pais,
 			 		gerencia, unidad_negocio,
@@ -102,32 +107,33 @@ export class DbService {
 			 		anio, duracion, contratante,
 			 		datos_cliente, fecha_inicio,
 			 		fecha_fin, numero_propuesta,
-			 		anticipo) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+			 		anticipo, created_at) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
 
-				return this.db.executeSql(sql, [
-						item.nombre_proyecto,
-						item.nombre_corto,
-						item.contrato,
-						parseInt(item.montoUsd),
-						parseInt(item.monto),
-						item.moneda,
-						item.pais,
-						item.gerencia,
-						item.unidad_negocio,
-						item.numero_contrato,
-						item.producto,
-						item.anio,
-						item.duracion,
-						item.contratante,
-						item.datos_cliente,
-						item.fecha_inicio,
-						item.fecha_fin,
-						item.numero_propuesta,
-						item.anticipo
-					]).then(() => console.log('regustros insertados'))
-					.catch(e => console.log(e))
-			})
-		
+			return this.db.executeSql(sql, [
+					item.numero,
+					item.nombre_proyecto,
+					item.nombre_corto,
+					item.contrato,
+					parseInt(item.montoUsd),
+					parseInt(item.monto),
+					item.moneda,
+					item.pais,
+					item.gerencia,
+					item.unidad_negocio,
+					item.numero_contrato,
+					item.producto,
+					item.anio,
+					item.duracion,
+					item.contratante,
+					item.datos_cliente,
+					item.fecha_inicio,
+					item.fecha_fin,
+					item.numero_propuesta,
+					item.anticipo,
+					item.created_at,
+				]).then(() => console.log('regustros insertados'))
+				.catch(e => console.log(e))
+		})
 	}
 
 	/* Obtenemos las datos de los proyectos. */
@@ -156,6 +162,7 @@ export class DbService {
 						'fecha_fin': response.rows.item(index).fecha_fin,
 						'numero_propuesta': response.rows.item(index).numero_propuesta,
 						'anticipo': response.rows.item(index).anticipo,
+						'created_at': response.rows.item(index).created_at,
 					})
 				}
 				return proyectos
@@ -512,12 +519,12 @@ export class DbService {
 
 	// inserta los anios
 	insertAnios() {
-		let insertAnios = ` insert into anios(anio) select distinct(anio) from proyectos`
-		this.db.executeSql(insertAnios, {})
-			.then(() => console.log('regustros insertados en tabla de anios'))
-			.catch(e => console.log(e))
-	}
-	/* Funcion para insertar datos en la tabla de reportes */
+			let insertAnios = ` insert into anios(anio) select distinct(anio) from proyectos`
+			this.db.executeSql(insertAnios, {})
+				.then(() => console.log('regustros insertados en tabla de anios'))
+				.catch(e => console.log(e))
+		}
+		/* Funcion para insertar datos en la tabla de reportes */
 	insertaDatosTablaReportes() {
 		let pais = ''
 		let anio = ''
@@ -703,6 +710,21 @@ export class DbService {
 		let direccionAnio = `drop table if exists direccionAnio`
 		this.db.executeSql(direccionAnio, {})
 			.then(() => console.log('direccionAnio deleted'))
+			.catch(e => console.log(e))
+
+		// let sincronizaciones = `drop table if exists sincronizaciones`
+		// this.db.executeSql(sincronizaciones, {})
+		// 	.then(() => console.log('sincronizaciones eleiminadasd'))
+		// 	.catch(e => console.log(e))
+	}
+
+	/* Creamos la tabla para almacenar un log de las sincronizaciones. */
+	createTableSincronixzaciones() {
+
+		let sql = 'create table if not exists sincronizaciones(id integer PRIMARY KEY AUTOINCREMENT, sincronizados integer, fecha_registro numeric)'
+
+		return this.db.executeSql(sql, {})
+			.then(() => console.log('tabla creada sincronizaciones'))
 			.catch(e => console.log(e))
 	}
 }

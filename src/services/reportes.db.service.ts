@@ -814,4 +814,28 @@ export class ReportesDbService {
 		console.log(sql)
 		return this.db.executeSql(sql, {})
 	}
+
+	/* Funcion para registrar log de la sincronizacion */
+	registraLog = (proyectos: number) => {
+		let sql = `insert into sincronizaciones(sincronizados, fecha_registro) values(${proyectos}, (SELECT DATE("now")))`
+		return this.db.executeSql(sql, {})
+	}
+
+	/* Obtenemos la ultima fecha de sincronizacion movil. */
+	getLastDateSincronizacion = () => {
+		let sincronizacion = []
+		let sql = 'select * from sincronizaciones order by id DESC limit 1'
+		return this.db.executeSql(sql, {})
+		.then(response => {
+			for (let index = 0; index < response.rows.length; index++) {
+				sincronizacion.push({
+					'fecha_registro': response.rows.item(index).fecha_registro
+				})
+			}
+			console.log(sincronizacion)
+			
+			return Promise.resolve(sincronizacion)
+		})
+		.catch(console.error.bind(console))
+	}
 }

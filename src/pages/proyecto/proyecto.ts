@@ -6,6 +6,7 @@ import { ModalController, LoadingController, NavController, Platform } from 'ion
 import { FiltrosPage } from './filtros/filtros'
 import { DbService } from '../../services/db.service'
 import { LoginPage } from '../../pages/login/login'
+import { ApiService } from '../../services/api'
 
 @Component({
 	selector: 'page-proyecto',
@@ -21,49 +22,43 @@ export class ProyectoPage {
 		public dbService: DbService,
 		public loadingCtrl: LoadingController,
 		public platform: Platform,
-		public zone: NgZone) {
+		public zone: NgZone, private apiService: ApiService) {
 	}
 	proyectos = []
 	items = []
 	opciones = []
 
-
-	ngOnInit(): void {
-		console.log('iniciando aplicacion')
-	}
-
 	ionViewDidLoad() {
 		this.getProyectos()
-		// this.platform.ready().then(() => {
-		// 	this.getProyectos()
-		// })
 	}
-	// ionViewWillEnter() {
-	// 	console.log('volviste')
-	// 	this.getProyectos()
-	// }
-
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
 	getProyectos() {
-		// let loading = this.loadingCtrl.create({
-		// 	content: 'Por favor espere...'
-		// })
-		// loading.present()
-		// setTimeout(() => {
+		setTimeout(() => {
+			// Cuando mostramos la primera pantalla creaammos las tablas faltantes con registros para el manejo de los reportes.
 			this.dbService.openDatabase()
 				.then(() => this.dbService.getProyectos())
 				.then(proyectos => {
-					console.log('mis proyectos')
-					console.log(proyectos)
+				this.dbService.creaTablaReportes()
+					// .then(() => this.dbService.creaTablaReporteColumnas())
+					// .then(() => this.dbService.creaTablaReporteFiltros())
+					// .then(() => this.dbService.creaTablaReporteAgrupaciones())
+					.then(() => this.dbService.insertaDatosTablaReportes())
+					.then(() => this.dbService.insertaDatosTablaReportesColunas())
+					.then(() => this.dbService.insertaDatosTablaReportesAgrupacion())
+					// .then(() => this.dbService.createTableAnios())
+					.then(() => this.dbService.insertAnios())
+					// .then(() => this.dbService.createTableDireccionAnios())
+					.then(() => this.dbService.insertDireccionAnios())
+
 					this.zone.run(() => {
-						console.log('running zone')
 						this.proyectos = proyectos
-						// if (this.proyectos.length > 1330)
-						// loading.dismiss()
 					})
+
+					/* Funcion para registrar un log de la sincronizacion. */
+					this.apiService.regitraSincronizacion(proyectos.length)
 				})
 				.catch(console.error.bind(console))
-		// }, 0)
+		}, 0)
 	}
 
 	/* Funcion para ver el detalle de un proyecto. */
