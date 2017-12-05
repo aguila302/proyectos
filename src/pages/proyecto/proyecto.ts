@@ -33,6 +33,10 @@ export class ProyectoPage {
 	}
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
 	getProyectos() {
+		let loading = this.loadingCtrl.create({
+			content: 'Actualizando proyectos...'
+		})
+		loading.present()
 		setTimeout(() => {
 			// Cuando mostramos la primera pantalla creaammos las tablas faltantes con registros para el manejo de los reportes.
 			this.dbService.openDatabase()
@@ -56,9 +60,10 @@ export class ProyectoPage {
 
 					/* Funcion para registrar un log de la sincronizacion. */
 					this.apiService.regitraSincronizacion(proyectos.length)
+					loading.dismiss()
 				})
 				.catch(console.error.bind(console))
-		}, 0)
+		}, 15000)
 	}
 
 	/* Funcion para ver el detalle de un proyecto. */
