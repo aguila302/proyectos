@@ -42,15 +42,10 @@ export class ProyectoPage {
 			this.dbService.openDatabase()
 				.then(() => this.dbService.getProyectos())
 				.then(proyectos => {
-				
-
 					this.zone.run(() => {
 						this.proyectos = proyectos
 						loading.dismiss()
 					})
-
-					/* Funcion para registrar un log de la sincronizacion. */
-					// this.apiService.regitraSincronizacion(proyectos.length)
 				})
 				.catch(console.error.bind(console))
 		}, 0)

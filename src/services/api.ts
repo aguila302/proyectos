@@ -65,7 +65,9 @@ export class ApiService {
 	regitraSincronizacion = () => {
 		this.reporteService.registraLog()
 		.then(response => {
-			console.log(response)
+			/*
+				Una vez registrado el log de la sincronizacion registramos la informacion necesaria para los demas modulos.
+			 */
 			this.dbService.creaTablaReportes()
 				.then(() => this.dbService.insertaDatosTablaReportes())
 				.then(() => this.dbService.insertaDatosTablaReportesColunas())

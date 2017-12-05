@@ -720,9 +720,7 @@ export class DbService {
 
 	/* Creamos la tabla para almacenar un log de las sincronizaciones. */
 	createTableSincronixzaciones() {
-
 		let sql = 'create table if not exists sincronizaciones(id integer PRIMARY KEY AUTOINCREMENT, fecha_registro numeric)'
-
 		return this.db.executeSql(sql, {})
 			.then(() => console.log('tabla creada sincronizaciones'))
 			.catch(e => console.log(e))
