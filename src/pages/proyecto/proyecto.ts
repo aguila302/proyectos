@@ -63,7 +63,7 @@ export class ProyectoPage {
 					loading.dismiss()
 				})
 				.catch(console.error.bind(console))
-		}, 15000)
+		}, 18000)
 	}
 
 	/* Funcion para ver el detalle de un proyecto. */
