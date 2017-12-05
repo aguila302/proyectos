@@ -56,14 +56,14 @@ export class ProyectoPage {
 
 					this.zone.run(() => {
 						this.proyectos = proyectos
+						loading.dismiss()
 					})
 
 					/* Funcion para registrar un log de la sincronizacion. */
 					this.apiService.regitraSincronizacion(proyectos.length)
-					loading.dismiss()
 				})
 				.catch(console.error.bind(console))
-		}, 18000)
+		}, 0)
 	}
 
 	/* Funcion para ver el detalle de un proyecto. */
