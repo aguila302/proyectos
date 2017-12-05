@@ -62,8 +62,8 @@ export class ApiService {
 	}
 
 	/* Funcion para registrar un log de la sincronizacion. */
-	regitraSincronizacion = (proyectos: number) => {
-		this.reporteService.registraLog(proyectos)
+	regitraSincronizacion = () => {
+		this.reporteService.registraLog()
 		.then(response => {
 			console.log(response)
 			this.dbService.creaTablaReportes()

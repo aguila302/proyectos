@@ -712,16 +712,16 @@ export class DbService {
 			.then(() => console.log('direccionAnio deleted'))
 			.catch(e => console.log(e))
 
-		// let sincronizaciones = `drop table sincronizaciones`
-		// this.db.executeSql(sincronizaciones, {})
-		// 	.then(() => console.log('sincronizaciones eleiminadasd'))
-		// 	.catch(e => console.log(e))
+		let sincronizaciones = `drop table sincronizaciones`
+		this.db.executeSql(sincronizaciones, {})
+			.then(() => console.log('sincronizaciones eleiminadasd'))
+			.catch(e => console.log(e))
 	}
 
 	/* Creamos la tabla para almacenar un log de las sincronizaciones. */
 	createTableSincronixzaciones() {
 
-		let sql = 'create table if not exists sincronizaciones(id integer PRIMARY KEY AUTOINCREMENT, sincronizados integer, fecha_registro numeric)'
+		let sql = 'create table if not exists sincronizaciones(id integer PRIMARY KEY AUTOINCREMENT, fecha_registro numeric)'
 
 		return this.db.executeSql(sql, {})
 			.then(() => console.log('tabla creada sincronizaciones'))

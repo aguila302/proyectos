@@ -50,7 +50,7 @@ export class ProyectoPage {
 					})
 
 					/* Funcion para registrar un log de la sincronizacion. */
-					this.apiService.regitraSincronizacion(proyectos.length)
+					// this.apiService.regitraSincronizacion(proyectos.length)
 				})
 				.catch(console.error.bind(console))
 		}, 0)
