@@ -64,12 +64,12 @@ export class LoginPage {
 					this.reporteService.getLastDateSincronizacion()
 					.then(response => {
 						response.length === 0 ? lastFecha = this.fechaActual: lastFecha = response[0].fecha_registro
+						this.loader.present()
+						console.log(lastFecha);
+						
+						/* Funcion para resolver el endpoint para cargar el excel al origen de datos. */
+						this.cargarExcel(lastFecha)
 					})
-					this.loader.present()
-					console.log(lastFecha);
-					
-					/* Funcion para resolver el endpoint para cargar el excel al origen de datos. */
-					this.cargarExcel(lastFecha)
 				}
 			})
 			.catch(error => {
