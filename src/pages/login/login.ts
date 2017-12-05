@@ -63,11 +63,11 @@ export class LoginPage {
 					/* Si hay un token valido obtenemos la ultima fecha de sincronizacion. */
 					this.reporteService.getLastDateSincronizacion()
 					.then(response => {
-						response.length === 0 ? lastFecha = this.fechaActual: ''
+						response.length === 0 ? lastFecha = this.fechaActual: lastFecha = response[0].fecha_registro
 						console.log('fecha actual')
 						console.log(lastFecha)
 						
-						lastFecha = response[0].fecha_registro
+						//lastFecha = response[0].fecha_registro
 					})
 					this.loader.present()
 					/* Funcion para resolver el endpoint para cargar el excel al origen de datos. */
