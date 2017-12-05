@@ -29,7 +29,7 @@ export class LoginPage {
 		private navCtrl: NavController,
 		private apiService: ApiService,
 		private reporteService: ReportesDbService) {
-		//this.fechaActual = moment().format('YYYY-MM-DD')
+		this.fechaActual = moment().format('YYYY-MM-DD')
 	}
 
 	ionViewDidLoad() {
@@ -63,9 +63,9 @@ export class LoginPage {
 					/* Si hay un token valido obtenemos la ultima fecha de sincronizacion. */
 					this.reporteService.getLastDateSincronizacion()
 					.then(response => {
-						console.log('mi ultoma fecha de sincro')
-						
-						console.log(response.length)
+						response.length === 0 ? lastFecha = this.fechaActual: ''
+						console.log('fecha actual')
+						console.log(lastFecha)
 						
 						lastFecha = response[0].fecha_registro
 					})
