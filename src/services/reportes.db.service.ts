@@ -817,7 +817,7 @@ export class ReportesDbService {
 
 	/* Funcion para registrar log de la sincronizacion */
 	registraLog = () => {
-		let sql = `insert into sincronizaciones(sincronizados, fecha_registro) values((SELECT DATE("now")))`
+		let sql = `insert into sincronizaciones(fecha_registro) values((SELECT DATE("now")))`
 		console.log(sql)
 		
 		return this.db.executeSql(sql, {})
