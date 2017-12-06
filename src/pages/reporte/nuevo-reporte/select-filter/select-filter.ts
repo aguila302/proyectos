@@ -31,6 +31,8 @@ export class SelectFilterPage {
 		setTimeout(() => {
 			this.reporteDb.getFilterData(filtro)
 			.then(response => {
+				console.log(response)
+				
 				this.zone.run(() => {
 					this.opciones = response
 					loading.dismiss()
