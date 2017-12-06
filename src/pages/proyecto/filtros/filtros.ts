@@ -6,7 +6,9 @@ import { ViewController, NavParams } from 'ionic-angular'
 	templateUrl: 'filtros.html',
 	
 })
-
+/*
+	Clase para el manejo de los filtros de busqueda de proyectos.
+ */
 export class FiltrosPage {
 
 	data_send = []

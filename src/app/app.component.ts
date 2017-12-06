@@ -22,7 +22,6 @@ import {
     templateUrl: 'app.html'
 })
 export class MyApp {
-    // rootPage:any = TabsPage;
     rootPage: any = LoginPage
 
     constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
@@ -34,20 +33,14 @@ export class MyApp {
             splashScreen.hide();
             this.dbService.openDatabase()
                 .then(() => this.dbService.createTable())
-                // .then(() => this.dbService.validaRegistros())
                 .then(() => this.dbService.delete())
                 .then(() => this.dbService.creaTablaReportes())
                   .then(() => this.dbService.creaTablaReporteColumnas())
                   .then(() => this.dbService.creaTablaReporteFiltros())
                   .then(() => this.dbService.creaTablaReporteAgrupaciones())
-                //   .then(() => this.dbService.insertaDatosTablaReportes())
-                //   .then(() => this.dbService.insertaDatosTablaReportesColunas())
-                //   .then(() => this.dbService.insertaDatosTablaReportesAgrupacion())
                   .then(() => this.dbService.createTableAnios())
-                //   .then(() => this.dbService.insertAnios())
                   .then(() => this.dbService.createTableDireccionAnios())
                   .then(() => this.dbService.createTableSincronixzaciones())
-                //   .then(() => this.dbService.insertDireccionAnios())
         });
     }
 }

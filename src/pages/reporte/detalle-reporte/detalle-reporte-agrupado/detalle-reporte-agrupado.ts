@@ -38,8 +38,6 @@ export class DetalleReporteAgrupadoPage {
 		loading.present()
 
 		setTimeout(() => {
-			console.log(this.campo)
-			
 			this.reporteService.consultaXCampoAgrupado(this.campo, this.groupBy)
 			.then(proyectos => {
 				this.zone.run(() => {

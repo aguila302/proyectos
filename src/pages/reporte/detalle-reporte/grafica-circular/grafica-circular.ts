@@ -45,9 +45,7 @@ export class GraficaCircularPage {
 		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 		this.grafico = new Grafico(this.data_grafica, this.groupBy, 'Proyectos agrupados por '  + this.groupBy)
 		this.options = this.grafico.graficaPie()
-
-		// this.options = this.datosGrafica(this.data_grafica)
-
+		
 		const collection = collect(this.proyectos)
 		this.monto_total = account.formatNumber(collection.sum('monto'))
 		this.total_proyectos = collection.sum('numero_proyectos')

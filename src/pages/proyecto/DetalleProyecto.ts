@@ -8,8 +8,6 @@ import { NavParams, NavController, ViewController } from 'ionic-angular'
 
 /* Clase para el detalle de un proyecto. */
 export class DetalleProyectoPage {
-
-	
 	proyecto = {}
 	constructor(private navParams: NavParams,
 		private navCtrl: NavController,
