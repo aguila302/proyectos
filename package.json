@@ -36,6 +36,7 @@
     "collect.js": "^3.0.43",
     "cordova-android": "^6.2.3",
     "cordova-ios": "^4.4.0",
+    "cordova-plugin-advanced-http-2": "^1.6.1",
     "cordova-plugin-compat": "^1.1.0",
     "cordova-plugin-console": "^1.0.7",
     "cordova-plugin-dbcopy": "git+https://github.com/an-rahulpandey/cordova-plugin-dbcopy.git",
