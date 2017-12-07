@@ -92,7 +92,9 @@ export class DetalleReportePage {
 
 					let datos = agrupados.map(function(contratante, monto) {
 						let num_proyectos = contratante.length
+						
 						let suma_montos = contratante.reduce(function(index, proyecto) {
+							console.log(index +'---' +parseInt(proyecto.monto))
 							return index + parseInt(proyecto.monto)
 						}, 0)
 
@@ -104,6 +106,8 @@ export class DetalleReportePage {
 							numero_proyectos: num_proyectos
 						}
 					})
+					// console.log(datos)
+					
 					/* Ordeno por porcentaje de mayor a menor. */
 					let ordenados = collect(datos).sortByDesc('porcentaje')
 
@@ -126,6 +130,7 @@ export class DetalleReportePage {
 					this.xy = data_cliente
 					/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 					this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes')
+					
 					this.options = this.grafico.graficaBar()
 
 					/* Para mostrar la tabla de informacion */

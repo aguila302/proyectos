@@ -388,6 +388,7 @@ export class DbService {
 						'monto': parseInt(response.rows.item(index).monto),
 					})
 				}
+
 				return Promise.resolve(proyectos)
 			})
 	}
