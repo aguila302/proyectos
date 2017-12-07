@@ -11,10 +11,10 @@
 </ion-header>
 <ion-content padding>
 	<button ion-button block color="botton" (click)="aceptar()">Aceptar</button>
-	<ion-list>
+	<ion-list radio-group>
 		<ion-item *ngFor="let item of agrupaciones">
 			<ion-label>{{ item.title }}</ion-label>
-			<ion-checkbox (ionChange)="seleccionAgrupacion($event, item.columna)"></ion-checkbox>
+			<ion-radio (click)="seleccionAgrupacion(item.columna)"></ion-radio>
 		</ion-item>
 	</ion-list>
 </ion-content>

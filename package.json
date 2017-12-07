@@ -87,8 +87,8 @@
             "uk.co.workingedge.cordova.plugin.sqliteporter": {}
         },
         "platforms": [
-      "ios"
-    ]
+            "ios"
+        ]
     },
     "config": {
         "ionic_copy": "./scripts/copy-custom-libs.js"

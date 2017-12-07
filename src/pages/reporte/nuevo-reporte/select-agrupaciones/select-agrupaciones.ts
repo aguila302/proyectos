@@ -10,6 +10,7 @@ import * as collect from 'collect.js/dist'
 export class SelectAgrupacionesPage {
 	agrupaciones = []
 	agrupacion_seleccionada = []
+	active: boolean = false
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
 		this.agrupaciones = navParams.get('agrupaciones')
@@ -19,20 +20,10 @@ export class SelectAgrupacionesPage {
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad SelectAgrupacionesPage');
 	}
-
-	seleccionAgrupacion = (event, agruacion: string): void => {
-		if(event.value == true) {
-			this.agrupacion_seleccionada.push(agruacion)
-		}
-		/* En caso de que la agrupacion este seleccionado y lo quiero desactivar lo
-		quito de mi arreglo.
-		*/
-		else {
-			let encontrado = this.agrupacion_seleccionada.indexOf(agruacion)
-			if(encontrado !== -1) {
-				this.agrupacion_seleccionada.splice(encontrado, 1)
-			}
-		}
+	/* Funcion para el manejo de la agrupacion seleccionado.*/
+	seleccionAgrupacion = (agruacion: string): void => {
+		this.agrupacion_seleccionada.splice(0, this.agrupacion_seleccionada.length)
+		this.agrupacion_seleccionada.push(agruacion)
 	}
 
 	/* Funcion para enviar agrupaciones seleccionadas. */

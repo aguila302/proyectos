@@ -779,7 +779,7 @@ export class ReportesDbService {
 		console.log(filtro)
 		
 		let filtrado = []
-		let sql = `select distinct(${filtro.columna}) as campo from proyectos order by ${filtro.columna} ASC`
+		let sql = `select distinct(${filtro.columna}) as campo from proyectos order by ${filtro.columna} DESC`
 		return this.db.executeSql(sql, {})
 			.then((response) => {
 				for (let index = 0; index < response.rows.length; index++) {
