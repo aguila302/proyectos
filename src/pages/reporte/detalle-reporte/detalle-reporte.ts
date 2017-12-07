@@ -81,6 +81,9 @@ export class DetalleReportePage {
 			this.dbService.openDatabase()
 			.then(() => this.dbService.consultaXCliente())
 			.then(response => {
+				console.log(response)
+				
+				
 				this.zone.run(() => {
 					let data = collect(response)
 
@@ -94,7 +97,7 @@ export class DetalleReportePage {
 						let num_proyectos = contratante.length
 						
 						let suma_montos = contratante.reduce(function(index, proyecto) {
-							console.log(index +'---' +parseInt(proyecto.monto))
+							// console.log(index +'---' + parseInt(proyecto.monto))
 							return index + parseInt(proyecto.monto)
 						}, 0)
 

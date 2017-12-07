@@ -97,8 +97,10 @@ export class DbService {
 	/* Insertamos los datos. */
 	insertaDatos(proyectos) {
 		console.log('insert data del api')
-		proyectos.data.forEach(item => {
+		//console.log(proyectos)
+		
 
+		proyectos.data.forEach(item => {			
 			let sql = `insert into proyectos(numero,
 					nombre_proyecto, nombre_corto, contrato,
 			 		monto, monto_moneda_original, moneda, pais,
