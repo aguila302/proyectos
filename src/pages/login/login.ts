@@ -97,6 +97,7 @@ export class LoginPage {
 			content: 'Verificando información',
 		})
 		loader.present()
+
 		this.apiService.readerArchivoExcel(lastFecha)
 			.then(response => {
 				console.log(response)
@@ -133,10 +134,7 @@ export class LoginPage {
 				this.apiService.regitrarData(response)
 					/* Funcion para registrar un historial de la sincronizacion. */
 				this.apiService.regitraSincronizacion()
-				setTimeout(() => {
-				// 	loaderSincronizacion.dismiss()
 				this.navCtrl.setRoot(TabsPage, {})
-				}, 0)
 			})
 	}
 }
