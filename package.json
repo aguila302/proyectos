@@ -5,13 +5,11 @@
     "homepage": "http://ionicframework.com/",
     "private": true,
     "scripts": {
+        "clean": "ionic-app-scripts clean",
         "build": "ionic-app-scripts build",
-        "watch": "ionic-app-scripts watch",
-        "serve:before": "watch",
-        "emulate:before": "build",
-        "deploy:before": "build",
-        "build:before": "build",
-        "run:before": "build"
+        "lint": "ionic-app-scripts lint",
+        "ionic:build": "ionic-app-scripts build",
+        "ionic:serve": "ionic-app-scripts serve"
     },
     "dependencies": {
         "@angular/animations": "^4.2.5",

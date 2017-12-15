@@ -39,16 +39,21 @@ export class ProyectoPage {
 		loading.present()
 		setTimeout(() => {
 			// Cuando mostramos la primera pantalla creaammos las tablas faltantes con registros para el manejo de los reportes.
-			this.dbService.openDatabase()
-				.then(() => this.dbService.getProyectos())
+			this.dbService.getProyectos()
 				.then(proyectos => {
+					this.dbService.insertaDatosTablaReportes()
+					this.dbService.insertaDatosTablaReportesColunas()
+					this.dbService.insertaDatosTablaReportesAgrupacion()
+					this.dbService.insertAnios()
+					this.dbService.insertDireccionAnios()
+
 					this.zone.run(() => {
 						this.proyectos = proyectos
 						loading.dismiss()
 					})
 				})
 				.catch(console.error.bind(console))
-		}, 0)
+		}, 2000)
 	}
 
 	/* Funcion para ver el detalle de un proyecto. */

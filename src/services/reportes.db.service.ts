@@ -811,15 +811,12 @@ export class ReportesDbService {
 						(select count(*) from proyectos) as total, sum(monto) as monto_filtrado
 						FROM proyectos ${this.whereNuevoReporte.slice(0, -4)} group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
 
-		console.log(sql)
 		return this.db.executeSql(sql, {})
 	}
 
 	/* Funcion para registrar log de la sincronizacion */
 	registraLog = () => {
-		let sql = `insert into sincronizaciones(fecha_registro) values((SELECT DATE("now")))`
-		console.log(sql)
-		
+		let sql = `insert into sincronizaciones(fecha_registro) values((select DATETIME('now', 'localtime')))`
 		return this.db.executeSql(sql, {})
 	}
 
@@ -834,8 +831,6 @@ export class ReportesDbService {
 					'fecha_registro': response.rows.item(index).fecha_registro
 				})
 			}
-			console.log(sincronizacion)
-			
 			return Promise.resolve(sincronizacion)
 		})
 		.catch(console.error.bind(console))

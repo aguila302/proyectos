@@ -50,12 +50,9 @@ export class DbService {
 
 	/* Creamos la tabla para almacenar los proyectos. */
 	createTable() {
-		let drop = ''
+		// let drop = ''
 		let sql = ''
-		drop = 'drop table proyectos'
-		this.db.executeSql(drop, {})
-			.then(() => console.log('tabla proyectos elimianada'))
-			.catch(e => console.log(e));
+
 
 		sql = `
 			create table if not exists proyectos(
@@ -86,16 +83,21 @@ export class DbService {
 			.then(() => console.log('tabla creada'))
 			.catch(e => console.log(e))
 
-		this.sqlitePorter.exportDbToSql(this.db)
-			.then(res => {
-				console.log(res)
+		// this.sqlitePorter.exportDbToSql(this.db)
+		// 	.then(res => {
+		// 		console.log(res)
 
-			})
-			.catch(e => console.error(e))
+		// 	})
+		// 	.catch(e => console.error(e))
 	}
 
 	/* Insertamos los datos. */
 	insertaDatos(proyectos) {
+		let drop = 'delete from proyectos'
+		this.db.executeSql(drop, {})
+			.then(() => console.log('tabla proyectos elimianada'))
+			.catch(e => console.log(e));
+
 		console.log('insert data del api')
 		//console.log(proyectos)
 		
@@ -141,7 +143,7 @@ export class DbService {
 	/* Obtenemos las datos de los proyectos. */
 	getProyectos() {
 		let proyectos = []
-		let sql = 'select * from proyectos'
+		let sql = 'select * from proyectos order by nombre_proyecto ASC'
 
 		return this.db.executeSql(sql, {})
 			.then((response) => {
@@ -167,6 +169,8 @@ export class DbService {
 						'created_at': response.rows.item(index).created_at,
 					})
 				}
+				console.log(proyectos)
+				
 				return proyectos
 			})
 	}
@@ -537,19 +541,19 @@ export class DbService {
 		let diireccion = ''
 		let direccion_anio = ''
 
-		pais = `insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por pais', '2062717473.00', '1330');`
+		pais = `insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por pais', (select sum(monto) from proyectos), (select count(*) from proyectos));`
 		this.db.executeSql(pais, {})
 			.then(() => console.log('regustros insertados en tabla reportes'))
 			.catch(e => console.log(e))
 
 		anio = `
-			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por año', '2062717473.00', '1330');`
+			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por año', (select sum(monto) from proyectos), (select count(*) from proyectos));`
 		this.db.executeSql(anio, {})
 			.then(() => console.log('regustros insertados en tabla reportes'))
 			.catch(e => console.log(e))
 
 		gerencia = `
-			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por gerencia', '2062717473.00', '1330');`
+			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por gerencia', (select sum(monto) from proyectos), (select count(*) from proyectos));`
 		this.db.executeSql(gerencia, {})
 			.then(() => console.log('regustros insertados en tabla reportes'))
 			.catch(e => console.log(e))

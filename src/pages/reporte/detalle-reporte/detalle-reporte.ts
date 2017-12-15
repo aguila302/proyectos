@@ -172,6 +172,8 @@ export class DetalleReportePage {
 
 					/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 					this.grafico = new Grafico(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion)
+					console.log(this.grafico)
+					
 					this.options = this.grafico.graficaBar()
 
 					/* Para mostrar la tabla de informacion */

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { LoadingController, NavController, Platform, AlertController } from 'ionic-angular';
 import { TabsPage } from '../../pages/tabs/tabs';
 import { ApiService } from '../../services/api'
+import { DbService } from '../../services/db.service'
 import * as collect from 'collect.js/dist'
 import { ReportesDbService } from '../../services/reportes.db.service'
 import * as moment from 'moment'
@@ -15,7 +16,7 @@ import * as moment from 'moment'
  */
 export class LoginPage {
 	loader = this.loadinCtrl.create({
-		content: 'Actualizando la base de datos por favor espere...'
+		content: 'Espere por favor...'
 	})
 
 	username: string = ''
@@ -28,8 +29,9 @@ export class LoginPage {
 		private loadinCtrl: LoadingController,
 		private navCtrl: NavController,
 		private apiService: ApiService,
-		private reporteService: ReportesDbService) {
-		this.fechaActual = moment().format('YYYY-MM-DD')
+		private reporteService: ReportesDbService,
+		public dbService: DbService) {
+		this.fechaActual = moment().format('YYYY-MM-DD h:mm:ss')
 	}
 
 	ionViewDidLoad() {
@@ -63,11 +65,8 @@ export class LoginPage {
 					/* Si hay un token valido obtenemos la ultima fecha de sincronizacion. */
 					this.reporteService.getLastDateSincronizacion()
 					.then(response => {
-						// console.log(response[0].fecha_registro)
-						
 						response.length === 0 ? lastFecha = this.fechaActual: lastFecha = response[0].fecha_registro
-						this.loader.present()
-						// console.log(lastFecha);
+						console.log('Ultima sincronizacion   ' +lastFecha)
 						
 						/* Funcion para resolver el endpoint para cargar el excel al origen de datos. */
 						this.cargarExcel(lastFecha)
@@ -81,11 +80,23 @@ export class LoginPage {
 	}
 
 	/* Funcion para resolver el endpoint para cargar el archivo excel al origen de datos. */
-	cargarExcel(lastFecha: string){
-		this.apiService.readerArchivoExcel(lastFecha)
+	async cargarExcel(lastFecha: string){
+		this.loader.present()
+		await this.apiService.readerArchivoExcel(lastFecha)
 		.then(response => {
-			/* Sincronizamos la informacion del excel con la aplicacion movil. */
-			this.sincronizar()
+			console.log(response)
+			/*
+			Si el status 200 no hay sincronisacion, en caso contrario sincronizamos
+			 */
+			response.status === 200 ? (
+				setTimeout(() => {
+					this.navCtrl.setRoot(TabsPage, {})
+				}, 2000)
+			) : 
+			(
+				this.sincronizar()
+			)
+			this.loader.dismiss()
 		})
 		.catch(error => {
 			console.error.bind(console)

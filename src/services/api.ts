@@ -34,7 +34,7 @@ export class ApiService {
 	readerArchivoExcel = (lastFecha) => {
 		let status = {}
 		this.http.setRequestTimeout(15000)
-		return this.http.post(`http://qa.calymayor.com.mx/biprows/public/api/proyectos`, {}, {})
+		return this.http.post(`http://qa.calymayor.com.mx/biprows/public/api/proyectos`, {'last_fecha': lastFecha}, {})
 		// return this.http.post('http://11.11.1.157/laravel5.5/public/api/proyectos', {}, {})
 			.then(response => {
 				return JSON.parse(response.data)
@@ -68,12 +68,12 @@ export class ApiService {
 			/*
 				Una vez registrado el log de la sincronizacion registramos la informacion necesaria para los demas modulos.
 			 */
-			this.dbService.openDatabase()
-				.then(() => this.dbService.insertaDatosTablaReportes())
-				.then(() => this.dbService.insertaDatosTablaReportesColunas())
-				.then(() => this.dbService.insertaDatosTablaReportesAgrupacion())
-				.then(() => this.dbService.insertAnios())
-				.then(() => this.dbService.insertDireccionAnios())
+			// this.dbService.openDatabase()
+			// 	.then(() => this.dbService.insertaDatosTablaReportes())
+			// 	.then(() => this.dbService.insertaDatosTablaReportesColunas())
+			// 	.then(() => this.dbService.insertaDatosTablaReportesAgrupacion())
+			// 	.then(() => this.dbService.insertAnios())
+			// 	.then(() => this.dbService.insertDireccionAnios())
 		})
 	}
 }
