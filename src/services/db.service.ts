@@ -680,17 +680,17 @@ export class DbService {
 	}
 
 	delete() {
-		let anio = `drop reportes`
+		let anio = `drop table reportes`
 		this.db.executeSql(anio, {})
 			.then(() => console.log('deleted'))
 			.catch(e => console.log(e))
 
-		let rc = `drop reportes_columnas`
+		let rc = `drop table reportes_columnas`
 		this.db.executeSql(rc, {})
 			.then(() => console.log('deleted reportes_columnas'))
 			.catch(e => console.log(e))
 
-		let rf = `drop reportes_filtros`
+		let rf = `drop table reportes_filtros`
 		this.db.executeSql(rf, {})
 			.then(() => console.log('deleted'))
 			.catch(e => console.log(e))
