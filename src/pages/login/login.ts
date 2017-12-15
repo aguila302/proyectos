@@ -100,9 +100,6 @@ export class LoginPage {
 		this.apiService.readerArchivoExcel(lastFecha)
 			.then(response => {
 				console.log(response)
-				setTimeout(() => {
-					loader.dismiss()
-				}, 1000)
 					/*
 					Si el status 200 no hay sincronisacion, en caso contrario sincronizamos
 					 */
