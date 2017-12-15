@@ -2,7 +2,7 @@
 import { Component, NgZone } from '@angular/core'
 import { Proyecto } from '../../interfaces/proyecto'
 import { DetalleProyectoPage } from './DetalleProyecto'
-import { ModalController, LoadingController, NavController, Platform } from 'ionic-angular'
+import { ModalController, LoadingController, NavController, Platform, NavParams } from 'ionic-angular'
 import { FiltrosPage } from './filtros/filtros'
 import { DbService } from '../../services/db.service'
 import { LoginPage } from '../../pages/login/login'
@@ -22,7 +22,9 @@ export class ProyectoPage {
 		public dbService: DbService,
 		public loadingCtrl: LoadingController,
 		public platform: Platform,
-		public zone: NgZone, private apiService: ApiService) {
+		public zone: NgZone, private apiService: ApiService,
+		private navParams: NavParams,) {
+		let lastFechaSincronizacion = navParams('lastFecha')
 	}
 	proyectos = []
 	items = []
