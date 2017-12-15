@@ -15,7 +15,7 @@ import { ApiService } from '../../services/api'
 
 /* Clase de mi componente proyecto.html */
 export class ProyectoPage {
-
+	lastFechaSincronizacion: string = '' 
 	constructor(
 		public navCtrl: NavController,
 		public modalCtrl: ModalController,
@@ -24,7 +24,7 @@ export class ProyectoPage {
 		public platform: Platform,
 		public zone: NgZone, private apiService: ApiService,
 		private navParams: NavParams) {
-		let lastFechaSincronizacion = navParams('lastFecha')
+		this.lastFechaSincronizacion = navParams('lastFecha')
 	}
 	proyectos = []
 	items = []
