@@ -127,9 +127,9 @@ export class LoginPage {
 		// 	content: 'Sincronizando información...',
 		// })
 		// loaderSincronizacion.present()
-		this.navCtrl.setRoot(TabsPage, {})
 		this.apiService.fetch()
 			.then(response => {
+				this.navCtrl.setRoot(TabsPage, {})
 				/* LLamar a la funcion que nos ayudara a registrar la informacion del endpoint a nuestra aplicacion movil. */
 				this.apiService.regitrarData(response)
 				/* Funcion para registrar un historial de la sincronizacion. */

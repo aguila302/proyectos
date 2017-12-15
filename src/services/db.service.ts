@@ -169,8 +169,6 @@ export class DbService {
 						'created_at': response.rows.item(index).created_at,
 					})
 				}
-				console.log(proyectos)
-				
 				return proyectos
 			})
 	}
