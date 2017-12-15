@@ -111,6 +111,14 @@ export class LoginPage {
 							this.navCtrl.setRoot(TabsPage)
 							this.loader.dismiss(),
 							this.dbService.delete()
+							this.dbService.creaTablaReportes()
+							this.dbService.creaTablaReporteColumnas()
+							this.dbService.creaTablaReporteFiltros()
+							this.dbService.creaTablaReporteAgrupaciones()
+							this.dbService.createTableAnios()
+							this.dbService.createTableDireccionAnios()
+							this.dbService.createTableSincronixzaciones()
+
 							this.dbService.insertaDatosTablaReportes(),
 							this.dbService.insertaDatosTablaReportesColunas(),
 							this.dbService.insertaDatosTablaReportesAgrupacion(),
