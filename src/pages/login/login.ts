@@ -31,6 +31,10 @@ import * as moment from 'moment'
 	 */
 export class LoginPage {
 
+	loader = this.loadinCtrl.create({
+		content: 'Verificando información',
+	})
+
 	username: string = ''
 	password: string = ''
 	fechaActual = ''
@@ -93,10 +97,8 @@ export class LoginPage {
 
 	/* Funcion para resolver el endpoint para cargar el archivo excel al origen de datos. */
 	validarRecursos(lastFecha: string) {
-		let loader = this.loadinCtrl.create({
-			content: 'Verificando información',
-		})
-		loader.present()
+		
+		this.loader.present()
 
 		this.apiService.readerArchivoExcel(lastFecha)
 			.then(response => {
@@ -107,12 +109,11 @@ export class LoginPage {
 				response.status === 200 ? (
 						setTimeout(() => {
 							this.navCtrl.setRoot(TabsPage)
-							loader.dismiss()
+							this.loader.dismiss()
 						}, 1000)
 					) :
 					(
 						this.sincronizar(),
-						loader.dismiss()
 					)
 
 			})
@@ -130,7 +131,7 @@ export class LoginPage {
 				this.apiService.regitrarData(response)
 				/* Funcion para registrar un historial de la sincronizacion. */
 				this.apiService.regitraSincronizacion()
-
+				this.loader.dismiss()
 			})
 	}
 }
