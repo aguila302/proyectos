@@ -51,13 +51,14 @@ export class ProyectoPage {
 
 					this.zone.run(() => {
 						this.proyectos = proyectos
+						loading.dismiss()
 					})
 				})
 				.catch(console.error.bind(console))
 		// }, 2000)
-		setTimeout(() => {
-			loading.dismiss()
-		}, 20000)
+		// setTimeout(() => {
+		// 	loading.dismiss()
+		// }, 27000)
 	}
 
 	/* Funcion para ver el detalle de un proyecto. */
