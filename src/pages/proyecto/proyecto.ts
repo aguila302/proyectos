@@ -52,12 +52,12 @@ export class ProyectoPage {
 					this.zone.run(() => {
 						this.proyectos = proyectos
 					})
-					setTimeout(() => {
-						loading.dismiss()
-					}, 10000)
 				})
 				.catch(console.error.bind(console))
 		}, 2000)
+		setTimeout(() => {
+			loading.dismiss()
+		}, 20000)
 	}
 
 	/* Funcion para ver el detalle de un proyecto. */
