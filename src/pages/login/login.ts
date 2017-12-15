@@ -131,6 +131,12 @@ export class LoginPage {
 				this.apiService.regitrarData(response)
 				/* Funcion para registrar un historial de la sincronizacion. */
 				this.apiService.regitraSincronizacion()
+				this.dbService.insertaDatosTablaReportes()
+				this.dbService.insertaDatosTablaReportesColunas()
+				this.dbService.insertaDatosTablaReportesAgrupacion()
+				this.dbService.insertAnios()
+				this.dbService.insertDireccionAnios()
+					
 				this.loader.dismiss()
 			})
 	}

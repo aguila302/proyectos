@@ -43,12 +43,6 @@ export class ProyectoPage {
 			// Cuando mostramos la primera pantalla creaammos las tablas faltantes con registros para el manejo de los reportes.
 			this.dbService.getProyectos()
 				.then(proyectos => {
-					this.dbService.insertaDatosTablaReportes()
-					this.dbService.insertaDatosTablaReportesColunas()
-					this.dbService.insertaDatosTablaReportesAgrupacion()
-					this.dbService.insertAnios()
-					this.dbService.insertDireccionAnios()
-
 					this.zone.run(() => {
 						this.proyectos = proyectos
 						loading.dismiss()
