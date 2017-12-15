@@ -122,10 +122,10 @@ export class LoginPage {
 
 	/* Funcion para sincronizar la informacion con la aplicacion movil. */
 	sincronizar() {
-		let loaderSincronizacion = this.loadinCtrl.create({
-			content: 'Sincronizando información...',
-		})
-		loaderSincronizacion.present()
+		// let loaderSincronizacion = this.loadinCtrl.create({
+		// 	content: 'Sincronizando información...',
+		// })
+		// loaderSincronizacion.present()
 
 		this.apiService.fetch()
 			.then(response => {
@@ -133,13 +133,10 @@ export class LoginPage {
 				this.apiService.regitrarData(response)
 					/* Funcion para registrar un historial de la sincronizacion. */
 				this.apiService.regitraSincronizacion()
-				setTimeout(() => {
-					this.navCtrl.setRoot(TabsPage, {})
-				}, 1000)
-				
-				setTimeout(() => {
-					loaderSincronizacion.dismiss()
-				}, 10000)
+				this.navCtrl.setRoot(TabsPage, {})
+				// setTimeout(() => {
+				// 	loaderSincronizacion.dismiss()
+				// }, 10000)
 			})
 	}
 }
