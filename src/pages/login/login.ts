@@ -138,8 +138,8 @@ export class LoginPage {
 				
 				setTimeout(() => {
 					this.navCtrl.setRoot(TabsPage, {})
+					loaderSincronizacion.dismiss()
 				}, 10000)
-				loaderSincronizacion.dismiss()
 			})
 	}
 }
