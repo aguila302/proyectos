@@ -111,8 +111,8 @@ export class LoginPage {
 						}, 1000)
 					) :
 					(
-						loader.dismiss(),
-						this.sincronizar()
+						this.sincronizar(),
+						loader.dismiss()
 					)
 
 			})
@@ -123,10 +123,6 @@ export class LoginPage {
 
 	/* Funcion para sincronizar la informacion con la aplicacion movil. */
 	sincronizar() {
-		// let loaderSincronizacion = this.loadinCtrl.create({
-		// 	content: 'Sincronizando información...',
-		// })
-		// loaderSincronizacion.present()
 		this.apiService.fetch()
 			.then(response => {
 				this.navCtrl.setRoot(TabsPage, {})
