@@ -39,7 +39,7 @@ export class ProyectoPage {
 			content: 'Sincronizando información...'
 		})
 		loading.present()
-		setTimeout(() => {
+		// setTimeout(() => {
 			// Cuando mostramos la primera pantalla creaammos las tablas faltantes con registros para el manejo de los reportes.
 			this.dbService.getProyectos()
 				.then(proyectos => {
@@ -54,7 +54,7 @@ export class ProyectoPage {
 					})
 				})
 				.catch(console.error.bind(console))
-		}, 2000)
+		// }, 2000)
 		setTimeout(() => {
 			loading.dismiss()
 		}, 20000)
