@@ -103,13 +103,18 @@ export class LoginPage {
 		this.apiService.readerArchivoExcel(lastFecha)
 			.then(response => {
 				console.log(response)
-					/*
-					Si el status 200 no hay sincronisacion, en caso contrario sincronizamos
-					 */
+				/*
+				Si el status 200 no hay sincronisacion, en caso contrario sincronizamos
+				 */
 				response.status === 200 ? (
 						setTimeout(() => {
 							this.navCtrl.setRoot(TabsPage)
-							this.loader.dismiss()
+							this.loader.dismiss(),
+							this.dbService.insertaDatosTablaReportes(),
+							this.dbService.insertaDatosTablaReportesColunas(),
+							this.dbService.insertaDatosTablaReportesAgrupacion(),
+							this.dbService.insertAnios(),
+							this.dbService.insertDireccionAnios()
 						}, 1000)
 					) :
 					(
@@ -136,7 +141,7 @@ export class LoginPage {
 				this.dbService.insertaDatosTablaReportesAgrupacion()
 				this.dbService.insertAnios()
 				this.dbService.insertDireccionAnios()
-					
+
 				this.loader.dismiss()
 			})
 	}
