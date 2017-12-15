@@ -130,11 +130,12 @@ export class LoginPage {
 
 		this.apiService.fetch()
 			.then(response => {
-					/* LLamar a la funcion que nos ayudara a registrar la informacion del endpoint a nuestra aplicacion movil. */
-				this.apiService.regitrarData(response)
-					/* Funcion para registrar un historial de la sincronizacion. */
-				this.apiService.regitraSincronizacion()
 				this.navCtrl.setRoot(TabsPage, {})
+				/* LLamar a la funcion que nos ayudara a registrar la informacion del endpoint a nuestra aplicacion movil. */
+				this.apiService.regitrarData(response)
+				/* Funcion para registrar un historial de la sincronizacion. */
+				this.apiService.regitraSincronizacion()
+
 			})
 	}
 }
