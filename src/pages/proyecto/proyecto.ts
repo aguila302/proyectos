@@ -52,7 +52,9 @@ export class ProyectoPage {
 					this.zone.run(() => {
 						this.proyectos = proyectos
 					})
-					loading.dismiss()
+					setTimeout(() => {
+						loading.dismiss()
+					}, 10000)
 				})
 				.catch(console.error.bind(console))
 		}, 2000)
