@@ -134,10 +134,11 @@ export class LoginPage {
 				this.apiService.regitrarData(response)
 					/* Funcion para registrar un historial de la sincronizacion. */
 				this.apiService.regitraSincronizacion()
-				loader.dismiss()
+				
 				setTimeout(() => {
 					this.navCtrl.setRoot(TabsPage, {})
 				}, 10000)
+				loader.dismiss()
 			})
 	}
 }
