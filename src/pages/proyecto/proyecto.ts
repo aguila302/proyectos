@@ -35,10 +35,10 @@ export class ProyectoPage {
 	}
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
 	getProyectos() {
-		let loading = this.loadingCtrl.create({
-			content: 'Cargando proyectos...'
-		})
-		loading.present()
+		// let loading = this.loadingCtrl.create({
+		// 	content: 'Cargando proyectos...'
+		// })
+		// loading.present()
 		setTimeout(() => {
 			// Cuando mostramos la primera pantalla creaammos las tablas faltantes con registros para el manejo de los reportes.
 			this.dbService.getProyectos()
@@ -51,7 +51,7 @@ export class ProyectoPage {
 
 					this.zone.run(() => {
 						this.proyectos = proyectos
-						loading.dismiss()
+						// loading.dismiss()
 					})
 				})
 				.catch(console.error.bind(console))

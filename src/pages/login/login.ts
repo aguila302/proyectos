@@ -101,13 +101,13 @@ export class LoginPage {
 		this.apiService.readerArchivoExcel(lastFecha)
 			.then(response => {
 				console.log(response)
+				loader.dismiss()
 					/*
 					Si el status 200 no hay sincronisacion, en caso contrario sincronizamos
 					 */
 				response.status === 200 ? (
 						setTimeout(() => {
 							this.navCtrl.setRoot(TabsPage)
-							loader.dismiss()
 						}, 3000)
 					) :
 					(
@@ -135,9 +135,9 @@ export class LoginPage {
 					/* Funcion para registrar un historial de la sincronizacion. */
 				this.apiService.regitraSincronizacion()
 				loader.dismiss()
-				// setTimeout(() => {
+				setTimeout(() => {
 					this.navCtrl.setRoot(TabsPage, {})
-				// }, 6000)
+				}, 10000)
 			})
 	}
 }
