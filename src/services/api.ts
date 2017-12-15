@@ -63,17 +63,6 @@ export class ApiService {
 
 	/* Funcion para registrar un log de la sincronizacion. */
 	regitraSincronizacion = () => {
-		this.reporteService.registraLog()
-		.then(response => {
-			/*
-				Una vez registrado el log de la sincronizacion registramos la informacion necesaria para los demas modulos.
-			 */
-			// this.dbService.openDatabase()
-			// 	.then(() => this.dbService.insertaDatosTablaReportes())
-			// 	.then(() => this.dbService.insertaDatosTablaReportesColunas())
-			// 	.then(() => this.dbService.insertaDatosTablaReportesAgrupacion())
-			// 	.then(() => this.dbService.insertAnios())
-			// 	.then(() => this.dbService.insertDireccionAnios())
-		})
+		return this.reporteService.registraLog()
 	}
 }

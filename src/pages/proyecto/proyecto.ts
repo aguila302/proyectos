@@ -36,7 +36,7 @@ export class ProyectoPage {
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
 	getProyectos() {
 		let loading = this.loadingCtrl.create({
-			content: 'Actualizando proyectos...'
+			content: 'Cargando proyectos...'
 		})
 		loading.present()
 		setTimeout(() => {
