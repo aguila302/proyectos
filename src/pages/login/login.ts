@@ -17,7 +17,6 @@ import * as moment from 'moment'
 export class LoginPage {
 	loader = this.loadinCtrl.create({
 		content: 'Espere por favor...',
-		duration: 5000
 	})
 
 	username: string = ''
