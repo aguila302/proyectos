@@ -80,7 +80,6 @@ export class LoginPage {
 								response.length === 0 ? lastFecha = this.fechaActual : lastFecha = response[0].fecha_registro
 								console.log('Ultima sincronizacion   ' + lastFecha)
 
-
 								/* Funcion para resolver el endpoint del api y para validar las fechas de modificaciones. */
 								this.validarRecursos(lastFecha)
 							})
@@ -101,7 +100,9 @@ export class LoginPage {
 		this.apiService.readerArchivoExcel(lastFecha)
 			.then(response => {
 				console.log(response)
-				loader.dismiss()
+				setTimeout(() => {
+					loader.dismiss()
+				}, 1000)
 					/*
 					Si el status 200 no hay sincronisacion, en caso contrario sincronizamos
 					 */
@@ -123,10 +124,10 @@ export class LoginPage {
 
 	/* Funcion para sincronizar la informacion con la aplicacion movil. */
 	sincronizar() {
-		let loader = this.loadinCtrl.create({
+		let loaderSincronizacion = this.loadinCtrl.create({
 			content: 'Sincronizando información...',
 		})
-		loader.present()
+		loaderSincronizacion.present()
 
 		this.apiService.fetch()
 			.then(response => {
@@ -138,7 +139,7 @@ export class LoginPage {
 				setTimeout(() => {
 					this.navCtrl.setRoot(TabsPage, {})
 				}, 10000)
-				loader.dismiss()
+				loaderSincronizacion.dismiss()
 			})
 	}
 }
