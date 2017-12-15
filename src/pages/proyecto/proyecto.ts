@@ -24,7 +24,7 @@ export class ProyectoPage {
 		public platform: Platform,
 		public zone: NgZone, private apiService: ApiService,
 		private navParams: NavParams) {
-		this.lastFechaSincronizacion = navParams('lastFecha')
+			this.lastFechaSincronizacion = navParams.get('lastFecha')
 	}
 	proyectos = []
 	items = []
