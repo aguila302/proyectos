@@ -106,7 +106,8 @@ export class LoginPage {
 				response.status === 200 ? (
 						setTimeout(() => {
 							this.navCtrl.setRoot(TabsPage)
-						}, 3000)
+						}, 1000),
+						loader.present()
 					) :
 					(
 						loader.dismiss(),
