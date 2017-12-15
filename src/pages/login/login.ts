@@ -91,7 +91,7 @@ export class LoginPage {
 			 */
 			response.status === 200 ? (
 				setTimeout(() => {
-					this.navCtrl.push(TabsPage, {'lastFecha': lastFecha})
+					this.navCtrl.setRoot(TabsPage)
 				}, 2000)
 			) : 
 			(
