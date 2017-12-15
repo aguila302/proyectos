@@ -113,7 +113,7 @@ export class LoginPage {
 						}, 1000)
 					) :
 					(
-						this.sincronizar(),
+						this.sincronizar()
 					)
 
 			})
