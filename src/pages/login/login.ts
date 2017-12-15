@@ -110,6 +110,7 @@ export class LoginPage {
 						setTimeout(() => {
 							this.navCtrl.setRoot(TabsPage)
 							this.loader.dismiss(),
+							this.dbService.delete()
 							this.dbService.insertaDatosTablaReportes(),
 							this.dbService.insertaDatosTablaReportesColunas(),
 							this.dbService.insertaDatosTablaReportesAgrupacion(),
