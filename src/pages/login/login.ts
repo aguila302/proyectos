@@ -137,9 +137,9 @@ export class LoginPage {
 				this.apiService.regitraSincronizacion()
 				
 				setTimeout(() => {
-					this.navCtrl.setRoot(TabsPage, {})
 					loaderSincronizacion.dismiss()
 				}, 10000)
+				this.navCtrl.setRoot(TabsPage, {})
 			})
 	}
 }
