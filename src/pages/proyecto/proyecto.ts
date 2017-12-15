@@ -23,7 +23,7 @@ export class ProyectoPage {
 		public loadingCtrl: LoadingController,
 		public platform: Platform,
 		public zone: NgZone, private apiService: ApiService,
-		private navParams: NavParams,) {
+		private navParams: NavParams) {
 		let lastFechaSincronizacion = navParams('lastFecha')
 	}
 	proyectos = []
