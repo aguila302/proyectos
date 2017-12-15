@@ -106,8 +106,9 @@ export class LoginPage {
 				response.status === 200 ? (
 						setTimeout(() => {
 							this.navCtrl.setRoot(TabsPage)
+							loader.dismiss()
 						}, 1000),
-						loader.present()
+						
 					) :
 					(
 						loader.dismiss(),
@@ -133,10 +134,10 @@ export class LoginPage {
 				this.apiService.regitrarData(response)
 					/* Funcion para registrar un historial de la sincronizacion. */
 				this.apiService.regitraSincronizacion()
-				this.navCtrl.setRoot(TabsPage, {})
-				// setTimeout(() => {
+				setTimeout(() => {
 				// 	loaderSincronizacion.dismiss()
-				// }, 10000)
+				this.navCtrl.setRoot(TabsPage, {})
+				}, 0)
 			})
 	}
 }
