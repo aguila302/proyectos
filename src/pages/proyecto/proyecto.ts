@@ -51,8 +51,8 @@ export class ProyectoPage {
 
 					this.zone.run(() => {
 						this.proyectos = proyectos
-						loading.dismiss()
 					})
+					loading.dismiss()
 				})
 				.catch(console.error.bind(console))
 		}, 2000)
