@@ -680,32 +680,32 @@ export class DbService {
 	}
 
 	delete() {
-		let anio = `drop table reportes`
+		let anio = `drop table if exists reportes`
 		this.db.executeSql(anio, {})
 			.then(() => console.log('deleted'))
 			.catch(e => console.log(e))
 
-		let rc = `drop table reportes_columnas`
+		let rc = `drop table if exists reportes_columnas`
 		this.db.executeSql(rc, {})
 			.then(() => console.log('deleted reportes_columnas'))
 			.catch(e => console.log(e))
 
-		let rf = `drop table reportes_filtros`
+		let rf = `drop table if exists reportes_filtros`
 		this.db.executeSql(rf, {})
 			.then(() => console.log('deleted'))
 			.catch(e => console.log(e))
 
-		let ra = `drop table reportes_agrupacion`
+		let ra = `drop table if exists reportes_agrupacion`
 		this.db.executeSql(ra, {})
 			.then(() => console.log('deleted'))
 			.catch(e => console.log(e))
 
-		let anios = `drop exists anios`
+		let anios = `drop table if exists anios`
 		this.db.executeSql(anios, {})
 			.then(() => console.log('anios deleted'))
 			.catch(e => console.log(e))
 
-		let direccionAnio = `drop table direccionAnio`
+		let direccionAnio = `drop table if exists direccionAnio`
 		this.db.executeSql(direccionAnio, {})
 			.then(() => console.log('direccionAnio deleted'))
 			.catch(e => console.log(e))
