@@ -107,8 +107,7 @@ export class LoginPage {
 						setTimeout(() => {
 							this.navCtrl.setRoot(TabsPage)
 							loader.dismiss()
-						}, 1000),
-						
+						}, 1000)
 					) :
 					(
 						loader.dismiss(),
