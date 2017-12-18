@@ -68,8 +68,8 @@ export class DbService {
 				duracion text,
 				contratante text,
 				datos_cliente text,
-				fecha_inicio text,
-				fecha_fin text,
+				fecha_inicio date,
+				fecha_fin date,
 				numero_propuesta text,
 				anticipo text,
 				created_at numeric)`
@@ -672,6 +672,11 @@ export class DbService {
 	}
 
 	delete() {
+		let proyectos = `drop table if exists proyectos`
+		this.db.executeSql(proyectos, {})
+			.then(() => console.log('proyectos eliminados'))
+			.catch(e => console.log(e))
+
 		let anio = `drop table if exists reportes`
 		this.db.executeSql(anio, {})
 			.then(() => console.log('deleted'))
