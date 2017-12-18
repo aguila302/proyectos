@@ -95,7 +95,11 @@ import { HTTP } from '@ionic-native/http';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+        backButtonText: 'Atras',
+        iconMode: 'ios',
+        pageTransition: 'ios-transition'
+    }),
     ChartsModule,
     ChartModule.forRoot(highcharts),
     Ng2SmartTableModule,
