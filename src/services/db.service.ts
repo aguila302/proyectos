@@ -172,8 +172,8 @@ export class DbService {
 	buscaProyecto = (val, filtros): any => {
 		let proyectos = []
 		for (let i in filtros) {
-			let sql = 'select * from proyectos where ' + i + ' like ' + "'%" + val + "%'"
-
+			let sql = 'select * from proyectos where ' + i + ' like ' + "'%" + val + "%' order by nombre_proyecto ASC" 
+			console.log(sql);
 			this.db.executeSql(sql, {})
 				.then((response) => {
 					for (let index = 0; index < response.rows.length; index++) {
