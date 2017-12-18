@@ -157,8 +157,8 @@ export class DbService {
 						'duracion': response.rows.item(index).duracion,
 						'contratante': response.rows.item(index).contratante,
 						'datos_cliente': response.rows.item(index).datos_cliente,
-						'fecha_inicio': response.rows.item(index).fecha_inicio,
-						'fecha_fin': response.rows.item(index).fecha_fin,
+						'fecha_inicio': moment(response.rows.item(index).fecha_inicio).format('YYYY-MM-DD'),
+						'fecha_fin': moment(response.rows.item(index).fecha_fin).format('YYYY-MM-DD'),
 						'numero_propuesta': response.rows.item(index).numero_propuesta,
 						'anticipo': response.rows.item(index).anticipo,
 						'created_at': response.rows.item(index).created_at,
@@ -672,10 +672,10 @@ export class DbService {
 	}
 
 	delete() {
-		let proyectos = `drop table if exists proyectos`
-		this.db.executeSql(proyectos, {})
-			.then(() => console.log('proyectos eliminados'))
-			.catch(e => console.log(e))
+		// let proyectos = `drop table if exists proyectos`
+		// this.db.executeSql(proyectos, {})
+		// 	.then(() => console.log('proyectos eliminados'))
+		// 	.catch(e => console.log(e))
 
 		let anio = `drop table if exists reportes`
 		this.db.executeSql(anio, {})
