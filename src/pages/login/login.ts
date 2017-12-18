@@ -81,9 +81,10 @@ export class LoginPage {
 							/* Si hay un token valido obtenemos la ultima fecha de sincronizacion. */
 						this.reporteService.getLastDateSincronizacion()
 							.then(response => {
+								// Si la ultima fecha de sincronizacion es vacio se la asigna la fecha actual, en caso
+								// contrario obtenemos la ultima fecha de sincronizacion registrado en el origen de datos.
 								response.length === 0 ? lastFecha = this.fechaActual : lastFecha = response[0].fecha_registro
 								console.log('Ultima sincronizacion   ' + lastFecha)
-
 								/* Funcion para resolver el endpoint del api y para validar las fechas de modificaciones. */
 								this.validarRecursos(lastFecha)
 							})
@@ -108,6 +109,7 @@ export class LoginPage {
 				 */
 				response.status === 200 ? (
 						setTimeout(() => {
+							// construimos el origen de datos faltante para el modulo de reportes.
 							this.navCtrl.setRoot(TabsPage)
 							this.loader.dismiss(),
 							this.dbService.delete()
@@ -117,7 +119,6 @@ export class LoginPage {
 							this.dbService.creaTablaReporteAgrupaciones()
 							this.dbService.createTableAnios()
 							this.dbService.createTableDireccionAnios()
-							this.dbService.createTableSincronixzaciones()
 
 							this.dbService.insertaDatosTablaReportes(),
 							this.dbService.insertaDatosTablaReportesColunas(),
@@ -145,13 +146,19 @@ export class LoginPage {
 				this.apiService.regitrarData(response)
 				/* Funcion para registrar un historial de la sincronizacion. */
 				this.apiService.regitraSincronizacion()
+				// construimos el origen de datos faltante para el modulo de reportes.
 				this.dbService.delete()
+				this.dbService.creaTablaReportes()
+				this.dbService.creaTablaReporteColumnas()
+				this.dbService.creaTablaReporteFiltros()
+				this.dbService.creaTablaReporteAgrupaciones()
+				this.dbService.createTableAnios()
+				this.dbService.createTableDireccionAnios()
 				this.dbService.insertaDatosTablaReportes()
 				this.dbService.insertaDatosTablaReportesColunas()
 				this.dbService.insertaDatosTablaReportesAgrupacion()
 				this.dbService.insertAnios()
 				this.dbService.insertDireccionAnios()
-
 				this.loader.dismiss()
 			})
 	}

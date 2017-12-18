@@ -33,13 +33,13 @@ export class MyApp {
             splashScreen.hide();
             this.dbService.openDatabase()
                 .then(() => this.dbService.createTable())
-                .then(() => this.dbService.delete())
-                .then(() => this.dbService.creaTablaReportes())
-                  .then(() => this.dbService.creaTablaReporteColumnas())
-                  .then(() => this.dbService.creaTablaReporteFiltros())
-                  .then(() => this.dbService.creaTablaReporteAgrupaciones())
-                  .then(() => this.dbService.createTableAnios())
-                  .then(() => this.dbService.createTableDireccionAnios())
+                // .then(() => this.dbService.delete())
+                // .then(() => this.dbService.creaTablaReportes())
+                //   .then(() => this.dbService.creaTablaReporteColumnas())
+                //   .then(() => this.dbService.creaTablaReporteFiltros())
+                //   .then(() => this.dbService.creaTablaReporteAgrupaciones())
+                //   .then(() => this.dbService.createTableAnios())
+                //   .then(() => this.dbService.createTableDireccionAnios())
                   .then(() => this.dbService.createTableSincronixzaciones())
         });
     }
