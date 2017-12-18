@@ -672,10 +672,10 @@ export class DbService {
 	}
 
 	delete() {
-		// let proyectos = `drop table if exists proyectos`
-		// this.db.executeSql(proyectos, {})
-		// 	.then(() => console.log('proyectos eliminados'))
-		// 	.catch(e => console.log(e))
+		let proyectos = `drop table if exists proyectos`
+		this.db.executeSql(proyectos, {})
+			.then(() => console.log('proyectos eliminados'))
+			.catch(e => console.log(e))
 
 		let anio = `drop table if exists reportes`
 		this.db.executeSql(anio, {})
