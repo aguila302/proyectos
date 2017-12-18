@@ -6,9 +6,6 @@ import {
 	SQLiteObject
 } from '@ionic-native/sqlite'
 import {
-	PROYECTOS
-} from '../services/mocks/proyectos'
-import {
 	Proyecto
 } from '../interfaces/proyecto'
 import * as collect from 'collect.js/dist'
@@ -178,7 +175,6 @@ export class DbService {
 		let proyectos = []
 		for (let i in filtros) {
 			let sql = 'select * from proyectos where ' + i + ' like ' + "'%" + val + "%'"
-			console.log(sql)
 
 			this.db.executeSql(sql, {})
 				.then((response) => {

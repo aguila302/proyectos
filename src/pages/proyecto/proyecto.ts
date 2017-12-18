@@ -39,20 +39,15 @@ export class ProyectoPage {
 			content: 'Sincronizando información...'
 		})
 		loading.present()
-		// setTimeout(() => {
 			// Cuando mostramos la primera pantalla creaammos las tablas faltantes con registros para el manejo de los reportes.
-			this.dbService.getProyectos()
-				.then(proyectos => {
-					this.zone.run(() => {
-						this.proyectos = proyectos
-						loading.dismiss()
-					})
+		this.dbService.getProyectos()
+			.then(proyectos => {
+				this.zone.run(() => {
+					this.proyectos = proyectos
+					loading.dismiss()
 				})
-				.catch(console.error.bind(console))
-		// }, 2000)
-		// setTimeout(() => {
-		// 	loading.dismiss()
-		// }, 27000)
+			})
+			.catch(console.error.bind(console))
 	}
 
 	/* Funcion para ver el detalle de un proyecto. */
