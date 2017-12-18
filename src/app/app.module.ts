@@ -96,7 +96,7 @@ import { HTTP } from '@ionic-native/http';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp, {
-        backButtonText: 'Atras',
+        backButtonText: 'Atrás',
         iconMode: 'ios',
         pageTransition: 'ios-transition'
     }),

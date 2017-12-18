@@ -5,9 +5,6 @@ import {
 	SQLite,
 	SQLiteObject
 } from '@ionic-native/sqlite'
-import {
-	Proyecto
-} from '../interfaces/proyecto'
 import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
 import {
@@ -16,6 +13,7 @@ import {
 import {
 	SQLitePorter
 } from '@ionic-native/sqlite-porter';
+import * as moment from 'moment'
 
 @Injectable()
 
@@ -99,7 +97,7 @@ export class DbService {
 		//console.log(proyectos)
 		
 
-		proyectos.data.forEach(item => {			
+		proyectos.data.forEach(item => {
 			let sql = `insert into proyectos(numero,
 					nombre_proyecto, nombre_corto, contrato,
 			 		monto, monto_moneda_original, moneda, pais,
@@ -159,8 +157,8 @@ export class DbService {
 						'duracion': response.rows.item(index).duracion,
 						'contratante': response.rows.item(index).contratante,
 						'datos_cliente': response.rows.item(index).datos_cliente,
-						'fecha_inicio': response.rows.item(index).fecha_inicio,
-						'fecha_fin': response.rows.item(index).fecha_fin,
+						'fecha_inicio': moment(response.rows.item(index).fecha_inicio, 'YYYY-MM-DD'),
+						'fecha_fin': moment(response.rows.item(index).fecha_fin, 'YYYY-MM-DD'),
 						'numero_propuesta': response.rows.item(index).numero_propuesta,
 						'anticipo': response.rows.item(index).anticipo,
 						'created_at': response.rows.item(index).created_at,
