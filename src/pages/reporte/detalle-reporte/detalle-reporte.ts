@@ -46,7 +46,6 @@ export class DetalleReportePage {
 	}
 
 	ionViewDidLoad() {
-		console.log('ionViewDidLoad DetalleReportePage')
 		this.getAgrupacion()
 	}
 
@@ -81,9 +80,6 @@ export class DetalleReportePage {
 			this.dbService.openDatabase()
 			.then(() => this.dbService.consultaXCliente())
 			.then(response => {
-				console.log(response)
-				
-				
 				this.zone.run(() => {
 					let data = collect(response)
 
@@ -97,7 +93,6 @@ export class DetalleReportePage {
 						let num_proyectos = contratante.length
 						
 						let suma_montos = contratante.reduce(function(index, proyecto) {
-							// console.log(index +'---' + parseInt(proyecto.monto))
 							return index + parseInt(proyecto.monto)
 						}, 0)
 
@@ -109,8 +104,6 @@ export class DetalleReportePage {
 							numero_proyectos: num_proyectos
 						}
 					})
-					// console.log(datos)
-					
 					/* Ordeno por porcentaje de mayor a menor. */
 					let ordenados = collect(datos).sortByDesc('porcentaje')
 
@@ -172,8 +165,6 @@ export class DetalleReportePage {
 
 					/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 					this.grafico = new Grafico(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion)
-					console.log(this.grafico)
-					
 					this.options = this.grafico.graficaBar()
 
 					/* Para mostrar la tabla de informacion */
@@ -309,7 +300,6 @@ export class DetalleReportePage {
 				'monto_total': monto_total
 			})
 		} else if (group_by === 'contratante') {
-			console.log(group_by)
 			this.verProyectosAgrupadosCliente(campo, monto_total)
 		} else {
 			this.navCtrl.push(DetalleReporteAgrupadoPage, {

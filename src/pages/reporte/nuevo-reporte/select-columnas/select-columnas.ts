@@ -118,6 +118,8 @@ export class SelectColumnasPage {
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private view: ViewController) {
 		this.columnas = collect(this.columnas).sortBy('texto').all()
+		console.log(this.columnas)
+		
 	}
 
 	ionViewDidLoad() {
@@ -125,25 +127,40 @@ export class SelectColumnasPage {
 	}
 
 	seleccionColumnas = (event, columna: string, title: string): void => {
-		let columnaEncontrado
-		let titleEncontrado
-		let columnas = []
-		let titles = []
 		event.value ? (
-			this.columnas_seleccionadas.push(columna),
-			this.titles_segleccionadas.push(title)
+			this.columnas.forEach(item => {
+				if(item.opcion === columna) {
+					item.checked =  true
+				}
+			})
 		): (
-			columnaEncontrado = this.columnas_seleccionadas.indexOf(columna),
-			columnaEncontrado !== -1 ? (
-				this.columnas_seleccionadas.splice(columnaEncontrado, 1)
-			): '',
-
-			titleEncontrado = this.titles_segleccionadas.indexOf(title),
-
-			titleEncontrado !== -1 ? (
-				this.titles_segleccionadas.splice(titleEncontrado, 1)
-			) : ''
+			this.columnas.forEach(item => {
+				if(item.opcion === columna) {
+					item.checked =  false
+				}
+			})
 		)
+		console.log(this.columnas)
+		
+		// let columnaEncontrado
+		// let titleEncontrado
+		// let columnas = []
+		// let titles = []
+		// event.value ? (
+		// 	this.columnas_seleccionadas.push(columna),
+		// 	this.titles_segleccionadas.push(title)
+		// ): (
+		// 	columnaEncontrado = this.columnas_seleccionadas.indexOf(columna),
+		// 	columnaEncontrado !== -1 ? (
+		// 		this.columnas_seleccionadas.splice(columnaEncontrado, 1)
+		// 	): '',
+
+		// 	titleEncontrado = this.titles_segleccionadas.indexOf(title),
+
+		// 	titleEncontrado !== -1 ? (
+		// 		this.titles_segleccionadas.splice(titleEncontrado, 1)
+		// 	) : ''
+		// )
 	}
 
 	/* Funcion para enviar columnas seleccionadas. */
