@@ -126,7 +126,7 @@ export class LoginPage {
 				response.status === 200 ? (
 						setTimeout(() => {
 							// construimos el origen de datos faltante para el modulo de reportes.
-							this.navCtrl.push(TabsPage)
+							this.navCtrl.setRoot(TabsPage)
 							this.loader.dismiss(),
 							this.dbService.delete()
 							this.dbService.creaTablaReportes()
