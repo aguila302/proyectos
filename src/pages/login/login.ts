@@ -58,13 +58,14 @@ export class LoginPage {
 
 	/* Funcion para loguar al usuario */
 	login = (): void => {
+		// En caso de que no se introduzca datos mostramos un mensaje.
 		if (this.username == '' || this.password == '') {
-			let alert = this.alertCtrl.create({
-				title: 'Login',
-				subTitle: 'Debe completar el usuario y la clave de acceso',
-				buttons: ['Aceptar']
+			let msj = this.toast.create({
+				message: 'Debe completar el usuario y la clave de acceso',
+				duration: 4000,
+				position: 'middle'
 			})
-			alert.present()
+			msj.present()
 		} else {
 
 			/* Resolvemos el api para loguer al usuario y obtener el token. */
@@ -80,15 +81,10 @@ export class LoginPage {
 						setTimeout(() => {
 							let msj = this.toast.create({
 								message: 'Usuario o clave de acceso incorrectos',
-								duration: 3000
+								duration: 4000,
+								position: 'middle'
 							})
 							msj.present()
-							// let alert = this.alertCtrl.create({
-							// 	title: 'Login',
-							// 	subTitle: 'Usuario o clave de acceso incorrectos',
-							// 	buttons: ['Aceptar']
-							// })
-							// alert.present()
 							loading.dismiss()
 						}, 5000)
 					} else {
