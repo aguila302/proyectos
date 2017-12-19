@@ -118,8 +118,6 @@ export class SelectColumnasPage {
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private view: ViewController) {
 		this.columnas = collect(this.columnas).sortBy('texto').all()
-		console.log(this.columnas)
-		
 	}
 
 	ionViewDidLoad() {
