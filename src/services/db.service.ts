@@ -532,7 +532,7 @@ export class DbService {
 		let diireccion = ''
 		let direccion_anio = ''
 
-		pais = `insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por pais', (select sum(monto) from proyectos), (select count(*) from proyectos));`
+		pais = `insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por país', (select sum(monto) from proyectos), (select count(*) from proyectos));`
 		this.db.executeSql(pais, {})
 			.then(() => console.log('regustros insertados en tabla reportes'))
 			.catch(e => console.log(e))

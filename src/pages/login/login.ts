@@ -64,17 +64,25 @@ export class LoginPage {
 			})
 			alert.present()
 		} else {
+
 			/* Resolvemos el api para loguer al usuario y obtener el token. */
 			this.apiService.resolveApi(this.username, this.password)
 				.then(response => {
 					if (response === undefined) {
-						/* En caso de error */
-						let alert = this.alertCtrl.create({
-							title: 'Login',
-							subTitle: 'Usuario o clave de acceso incorrectos',
-							buttons: ['Aceptar']
+						/* En caso de error no autorizado mostramos una advertencia  */
+						 let loading  = this.loadinCtrl.create({
+							content: 'Conectando ...'
 						})
-						alert.present()
+						loading.present()
+						setTimeout(() => {
+							let alert = this.alertCtrl.create({
+								title: 'Login',
+								subTitle: 'Usuario o clave de acceso incorrectos',
+								buttons: ['Aceptar']
+							})
+							alert.present()
+							
+						}, 3000)
 					} else {
 
 						let lastFecha: string = ''
