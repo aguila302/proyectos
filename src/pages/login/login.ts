@@ -12,6 +12,10 @@ import {
 	TabsPage
 } from '../../pages/tabs/tabs';
 import {
+	ProyectoPage
+} from '../../pages/proyecto/proyecto';
+
+import {
 	ApiService
 } from '../../services/api'
 import {
@@ -122,7 +126,7 @@ export class LoginPage {
 				response.status === 200 ? (
 						setTimeout(() => {
 							// construimos el origen de datos faltante para el modulo de reportes.
-							this.navCtrl.setRoot(TabsPage)
+							this.navCtrl.setRoot(ProyectoPage)
 							this.loader.dismiss(),
 							this.dbService.delete()
 							this.dbService.creaTablaReportes()
@@ -153,7 +157,7 @@ export class LoginPage {
 	sincronizar() {
 		this.apiService.fetch()
 			.then(response => {
-				this.navCtrl.setRoot(TabsPage, {})
+				this.navCtrl.setRoot(ProyectoPage, {})
 				/* LLamar a la funcion que nos ayudara a registrar la informacion del endpoint a nuestra aplicacion movil. */
 				this.apiService.regitrarData(response)
 				/* Funcion para registrar un historial de la sincronizacion. */
