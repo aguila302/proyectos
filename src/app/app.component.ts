@@ -1,8 +1,9 @@
 import {
-    Component
+    Component, ViewChild
 } from '@angular/core';
 import {
-    Platform
+    Platform,
+    NavController
 } from 'ionic-angular';
 import {
     StatusBar
@@ -22,7 +23,11 @@ import {
     templateUrl: 'app.html'
 })
 export class MyApp {
-    rootPage: any = LoginPage
+    @ViewChild('myNav') nav: NavController
+    rootPage: any = TabsPage
+    ngOnInit() {
+        this.nav.push(LoginPage)
+    }
 
     constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
         public dbService: DbService) {
