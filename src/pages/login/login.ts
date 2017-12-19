@@ -5,7 +5,8 @@ import {
 	LoadingController,
 	NavController,
 	Platform,
-	AlertController
+	AlertController,
+	ToastController
 } from 'ionic-angular';
 import {
 	TabsPage
@@ -46,7 +47,8 @@ export class LoginPage {
 		private navCtrl: NavController,
 		private apiService: ApiService,
 		private reporteService: ReportesDbService,
-		public dbService: DbService) {
+		public dbService: DbService,
+		private toast : ToastController) {
 		this.fechaActual = moment().format('YYYY-MM-DD h:mm:ss')
 	}
 
@@ -76,12 +78,17 @@ export class LoginPage {
 						})
 						loading.present()
 						setTimeout(() => {
-							let alert = this.alertCtrl.create({
-								title: 'Login',
-								subTitle: 'Usuario o clave de acceso incorrectos',
-								buttons: ['Aceptar']
+							let msj = this.toast.create({
+								message: 'Usuario o clave de acceso incorrectos',
+								duration: 3000
 							})
-							alert.present()
+							msj.present()
+							// let alert = this.alertCtrl.create({
+							// 	title: 'Login',
+							// 	subTitle: 'Usuario o clave de acceso incorrectos',
+							// 	buttons: ['Aceptar']
+							// })
+							// alert.present()
 							loading.dismiss()
 						}, 5000)
 					} else {
