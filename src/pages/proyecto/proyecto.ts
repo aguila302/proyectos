@@ -98,8 +98,8 @@ export class ProyectoPage {
 		// this.navCtrl.pop()
 		// this.app.getRootNav().setRoot(LoginPage)
 		//this.navCtrl.popToRoot()
-		//this.navCtrl.setRoot(LoginPage)
-		let rootPage: any = LoginPage;
+		this.navCtrl.setRoot(LoginPage)
+		// let rootPage: any = LoginPage;
 
 	}
 }
