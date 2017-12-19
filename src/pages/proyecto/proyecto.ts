@@ -1,5 +1,5 @@
 // https://github.com/ionic-team/cordova-plugin-wkwebview-engine
-import { Component, NgZone , Output, EventEmitter} from '@angular/core'
+import { Component, NgZone , Output, EventEmitter, Input} from '@angular/core'
 import { Proyecto } from '../../interfaces/proyecto'
 import { DetalleProyectoPage } from './DetalleProyecto'
 import { ModalController, LoadingController, NavController, Platform, NavParams } from 'ionic-angular'
@@ -29,6 +29,7 @@ export class ProyectoPage {
 	items = []
 	opciones = []
 	@Output() ionCancel: EventEmitter<UIEvent> = new EventEmitter<UIEvent>()
+	@Input() cancelButtonText: string = 'Cancel';
 
 	ionViewDidLoad() {
 		this.getProyectos()
