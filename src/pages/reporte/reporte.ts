@@ -4,7 +4,8 @@ import {
 import {
 	IonicPage,
 	NavController,
-	NavParams
+	NavParams,
+	App, ViewController
 } from 'ionic-angular';
 import {
 	DetalleReportePage
@@ -27,7 +28,8 @@ export class ReportePage {
 	reportes = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
-		private reporteService: ReportesDbService) {}
+		private reporteService: ReportesDbService, public viewCtrl: ViewController,
+		public app: App) {}
 
 	/* Cargamos los proyectos cuando la vista esta activa. */
 	ionViewDidLoad() {
@@ -71,6 +73,7 @@ export class ReportePage {
 	
 	/* Funcion para cerrar sesion. */
 	logout = () => {
-		this.navCtrl.setRoot(LoginPage)
+		this.viewCtrl.dismiss()
+		this.app.getRootNav().setRoot(LoginPage)
 	}
 }

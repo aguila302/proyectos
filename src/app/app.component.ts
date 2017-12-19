@@ -1,9 +1,8 @@
 import {
-    Component, ViewChild
+    Component
 } from '@angular/core';
 import {
-    Platform,
-    NavController
+    Platform
 } from 'ionic-angular';
 import {
     StatusBar
@@ -23,11 +22,7 @@ import {
     templateUrl: 'app.html'
 })
 export class MyApp {
-    @ViewChild('myNav') nav: NavController
-    rootPage: any = TabsPage
-    ngOnInit() {
-        this.nav.push(LoginPage)
-    }
+    rootPage:any = LoginPage;
 
     constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
         public dbService: DbService) {
@@ -38,13 +33,6 @@ export class MyApp {
             splashScreen.hide();
             this.dbService.openDatabase()
                 .then(() => this.dbService.createTable())
-                // .then(() => this.dbService.delete())
-                // .then(() => this.dbService.creaTablaReportes())
-                //   .then(() => this.dbService.creaTablaReporteColumnas())
-                //   .then(() => this.dbService.creaTablaReporteFiltros())
-                //   .then(() => this.dbService.creaTablaReporteAgrupaciones())
-                //   .then(() => this.dbService.createTableAnios())
-                //   .then(() => this.dbService.createTableDireccionAnios())
                   .then(() => this.dbService.createTableSincronixzaciones())
         });
     }

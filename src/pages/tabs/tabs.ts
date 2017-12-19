@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, Tabs } from 'ionic-angular'
+
 
 import { ReportePage } from '../reporte/reporte';
 import { ProyectoPage } from '../proyecto/proyecto';
@@ -8,7 +10,6 @@ import { EstadisticaPage } from '../estadistica/estadistica';
 	templateUrl: 'tabs.html'
 })
 export class TabsPage {
-
 	tab1Root = ProyectoPage;
 	tab2Root = EstadisticaPage;
 	tab3Root = ReportePage;

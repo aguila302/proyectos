@@ -2,7 +2,7 @@
 import { Component, NgZone , Output, EventEmitter, Input} from '@angular/core'
 import { Proyecto } from '../../interfaces/proyecto'
 import { DetalleProyectoPage } from './DetalleProyecto'
-import { ModalController, LoadingController, NavController, Platform, NavParams } from 'ionic-angular'
+import { ModalController, LoadingController, NavController, Platform, NavParams, App, ViewController } from 'ionic-angular'
 import { FiltrosPage } from './filtros/filtros'
 import { DbService } from '../../services/db.service'
 import { LoginPage } from '../../pages/login/login'
@@ -23,7 +23,9 @@ export class ProyectoPage {
 		public loadingCtrl: LoadingController,
 		public platform: Platform,
 		public zone: NgZone, private apiService: ApiService,
-		private navParams: NavParams) {
+		private navParams: NavParams,
+		public viewCtrl: ViewController,
+		public app: App) {
 	}
 	proyectos = []
 	items = []
@@ -93,6 +95,7 @@ export class ProyectoPage {
 
 	/* Funcion para cerrar sesion. */
 	logout = () => {
-		this.navCtrl.setRoot(LoginPage)
+		this.viewCtrl.dismiss()
+		this.app.getRootNav().setRoot(LoginPage)
 	}
 }
