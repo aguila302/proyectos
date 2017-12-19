@@ -95,8 +95,11 @@ export class ProyectoPage {
 
 	/* Funcion para cerrar sesion. */
 	logout = () => {
-		this.viewCtrl.dismiss()
+		// this.navCtrl.pop()
 		// this.app.getRootNav().setRoot(LoginPage)
-		this.navCtrl.setRoot(LoginPage)
+		//this.navCtrl.popToRoot()
+		//this.navCtrl.setRoot(LoginPage)
+		let rootPage: any = LoginPage;
+
 	}
 }
