@@ -1,5 +1,5 @@
 // https://github.com/ionic-team/cordova-plugin-wkwebview-engine
-import { Component, NgZone } from '@angular/core'
+import { Component, NgZone , Output, EventEmitter} from '@angular/core'
 import { Proyecto } from '../../interfaces/proyecto'
 import { DetalleProyectoPage } from './DetalleProyecto'
 import { ModalController, LoadingController, NavController, Platform, NavParams } from 'ionic-angular'
@@ -15,7 +15,7 @@ import { ApiService } from '../../services/api'
 
 /* Clase de mi componente proyecto.html */
 export class ProyectoPage {
-	lastFechaSincronizacion: string = '' 
+
 	constructor(
 		public navCtrl: NavController,
 		public modalCtrl: ModalController,
@@ -24,11 +24,11 @@ export class ProyectoPage {
 		public platform: Platform,
 		public zone: NgZone, private apiService: ApiService,
 		private navParams: NavParams) {
-			this.lastFechaSincronizacion = navParams.get('lastFecha')
 	}
 	proyectos = []
 	items = []
 	opciones = []
+	@Output() ionCancel: EventEmitter<UIEvent> = new EventEmitter<UIEvent>()
 
 	ionViewDidLoad() {
 		this.getProyectos()
