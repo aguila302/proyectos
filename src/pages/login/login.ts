@@ -71,6 +71,7 @@ export class LoginPage {
 					if (response === undefined) {
 						/* En caso de error no autorizado mostramos una advertencia  */
 						 let loading  = this.loadinCtrl.create({
+						 	spinner: 'crescent'
 							content: 'Conectando ...'
 						})
 						loading.present()
@@ -81,8 +82,8 @@ export class LoginPage {
 								buttons: ['Aceptar']
 							})
 							alert.present()
-							
-						}, 3000)
+							loading.dismiss()
+						}, 5000)
 					} else {
 
 						let lastFecha: string = ''
