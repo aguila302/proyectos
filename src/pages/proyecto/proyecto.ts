@@ -7,7 +7,9 @@ import { FiltrosPage } from './filtros/filtros'
 import { DbService } from '../../services/db.service'
 import { LoginPage } from '../../pages/login/login'
 import { ApiService } from '../../services/api'
+import { IonicPage } from 'ionic-angular';
 
+@IonicPage()
 @Component({
 	selector: 'page-proyecto',
 	templateUrl: 'proyecto.html'
@@ -95,10 +97,11 @@ export class ProyectoPage {
 
 	/* Funcion para cerrar sesion. */
 	logout = () => {
+		let root = LoginPage
 		// this.navCtrl.pop()
 		// this.app.getRootNav().setRoot(LoginPage)
 		//this.navCtrl.popToRoot()
-		this.navCtrl.setRoot(LoginPage)
+		// this.navCtrl.setRoot(LoginPage)
 		// let rootPage: any = LoginPage;
 
 	}
