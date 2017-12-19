@@ -93,6 +93,6 @@ export class ProyectoPage {
 
 	/* Funcion para cerrar sesion. */
 	logout = () => {
-		this.navCtrl.setRoot(LoginPage)
+		this.navCtrl.push(LoginPage)
 	}
 }
