@@ -71,7 +71,7 @@ export class LoginPage {
 					if (response === undefined) {
 						/* En caso de error no autorizado mostramos una advertencia  */
 						 let loading  = this.loadinCtrl.create({
-						 	spinner: 'crescent'
+						 	spinner: 'crescent',
 							content: 'Conectando ...'
 						})
 						loading.present()
