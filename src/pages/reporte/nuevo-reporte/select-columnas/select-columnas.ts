@@ -6,7 +6,7 @@ import {
 	NavController,
 	NavParams,
 	ViewController
-} from 'ionic-angular';
+} from 'ionic-angular'; 
 import * as collect from 'collect.js/dist'
 
 @IonicPage()
@@ -138,8 +138,6 @@ export class SelectColumnasPage {
 				}
 			})
 		)
-		console.log(this.columnas)
-		
 		// let columnaEncontrado
 		// let titleEncontrado
 		// let columnas = []
@@ -163,6 +161,14 @@ export class SelectColumnasPage {
 
 	/* Funcion para enviar columnas seleccionadas. */
 	aceptar() {
+		// Extraemos las columnas seleccionadas
+		let filtrado = this.columnas.filter(function(value, key) {
+			return value.checked === true
+		}).map(item => {
+			this.columnas_seleccionadas.push(item.opcion)
+			this.titles_segleccionadas.push(item.texto)
+		})
+
 		this.view.dismiss({
 			columnas: this.columnas_seleccionadas,
 			title: this.titles_segleccionadas

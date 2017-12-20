@@ -153,6 +153,7 @@ export class DetalleReportePage {
 			/* En caso de visualizar algun reporte que no sea de direccion con años. */
 			this.reporteService.detalleReporte(this.campo_select, this.campo_agrupacion, this.filtros)
 				.then(response => {
+					this.campo_agrupacion === 'anio' ? this.campo_agrupacion = 'año' : this.campo_agrupacion === 'unidad_negocio' ? this.campo_agrupacion = 'dirección': ''
 					// Para mostrar la informacion de la grafica.
 					this.xy.splice(0, this.xy.length)
 					response.forEach(item => {

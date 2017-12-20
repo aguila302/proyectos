@@ -44,7 +44,7 @@ export class ProyectoPage {
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
 	getProyectos() {
 		let loading = this.loadingCtrl.create({
-			content: 'Sincronizando información...'
+			content: 'Cargando proyectos, por favor espere...'
 		})
 		loading.present()
 			// Cuando mostramos la primera pantalla creaammos las tablas faltantes con registros para el manejo de los reportes.
