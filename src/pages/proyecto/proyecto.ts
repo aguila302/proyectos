@@ -8,8 +8,9 @@ import { DbService } from '../../services/db.service'
 import { LoginPage } from '../../pages/login/login'
 import { ApiService } from '../../services/api'
 import { IonicPage } from 'ionic-angular';
+import { TabsPage } from '../../pages/tabs/tabs';
 
-@IonicPage()
+// @IonicPage()
 @Component({
 	selector: 'page-proyecto',
 	templateUrl: 'proyecto.html'
@@ -28,7 +29,9 @@ export class ProyectoPage {
 		private navParams: NavParams,
 		public viewCtrl: ViewController,
 		public app: App) {
+
 	}
+
 	proyectos = []
 	items = []
 	opciones = []
@@ -97,12 +100,6 @@ export class ProyectoPage {
 
 	/* Funcion para cerrar sesion. */
 	logout = () => {
-		let root = LoginPage
-		// this.navCtrl.pop()
-		// this.app.getRootNav().setRoot(LoginPage)
-		//this.navCtrl.popToRoot()
-		// this.navCtrl.setRoot(LoginPage)
-		// let rootPage: any = LoginPage;
-
+		this.app.getRootNav().setRoot(LoginPage, {}, {animate: true, animation: 'ios-transition', direction: 'forward'})
 	}
 }

@@ -1,5 +1,5 @@
 import {
-    Component
+    Component, ViewChild
 } from '@angular/core';
 import {
     Platform
@@ -22,6 +22,7 @@ import {
     templateUrl: 'app.html'
 })
 export class MyApp {
+    @ViewChild('myNav') nav
     rootPage:any = LoginPage;
 
     constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
