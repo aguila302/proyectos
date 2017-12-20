@@ -73,7 +73,6 @@ export class ReportePage {
 	
 	/* Funcion para cerrar sesion. */
 	logout = () => {
-		this.viewCtrl.dismiss()
-		this.app.getRootNav().setRoot(LoginPage)
+		this.app.getRootNav().setRoot(LoginPage, {}, {animate: true, animation: 'ios-transition', direction: 'forward'})
 	}
 }
