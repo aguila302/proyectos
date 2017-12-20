@@ -197,6 +197,7 @@ export class DetalleReportePage {
 		.then(response => {
 			let modal = this.modalCtrl.create(FiltrarAgrupacionPage, {
 				'registros': response,
+				'agrupacion': this.campo_agrupacion
 			})
 			modal.present()
 			modal.onDidDismiss(data => {

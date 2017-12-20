@@ -42,7 +42,6 @@ import { ModalFiltrosPage } from '../pages/reporte/detalle-reporte/reporte-direc
 import { GraficaFiltrosDireccionAnioPage } from '../pages/reporte/detalle-reporte/reporte-direccion-anio/grafica-filtros-direccion-anio/grafica-filtros-direccion-anio'
 import { GraficaFiltrosDireccionAnioDetallePage } from '../pages/reporte/detalle-reporte/reporte-direccion-anio/grafica-filtros-direccion-anio/grafica-filtros-direccion-anio-detalle/grafica-filtros-direccion-anio-detalle'
 
-
 import { ChartModule } from 'angular2-highcharts';
 import * as highcharts from 'highcharts';
 
