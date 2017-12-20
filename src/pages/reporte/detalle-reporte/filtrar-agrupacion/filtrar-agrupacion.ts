@@ -1,5 +1,5 @@
 import {
-	Component
+	Component, NgZone
 } from '@angular/core';
 import {
 	IonicPage,
@@ -25,7 +25,8 @@ export class FiltrarAgrupacionPage {
 	columnas = []
 	filter_menores_uno = []
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController, private dbService: DbService) {
+	constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController, private dbService: DbService,
+		public zone: NgZone) {
 		this.agrupacion = navParams.get('agrupacion')
 		// this.agrupacion !== 'contratante' ? 
 		this.columnas = navParams.get('registros')
@@ -47,14 +48,15 @@ export class FiltrarAgrupacionPage {
 			this.dbService.openDatabase()
 			.then(() => this.dbService.consultaXCliente())
 			.then(response => {
-				let data = collect(response)
+				this.zone.run(() => {
+					let data = collect(response)
 
-				/* monto total de todos los proyectos. */
-				let monto_total = data.sum('monto')
+					/* monto total de todos los proyectos. */
+					let monto_total = data.sum('monto')
 
-				/* Agrupo mi data por contratante. */
-				let agrupados = data.groupBy('contratante').toArray()
-				let datos = agrupados.map(function(contratante, monto) {
+					/* Agrupo mi data por contratante. */
+					let agrupados = data.groupBy('contratante').toArray()
+					let datos = agrupados.map(function(contratante, monto) {
 						let suma_montos = contratante.reduce(function(index, proyecto) {
 							return index + parseInt(proyecto.monto)
 						}, 0)
@@ -68,21 +70,21 @@ export class FiltrarAgrupacionPage {
 					})
 
 					/* Ordeno por porcentaje de mayor a menor. */
-				let ordenados = collect(datos).sortByDesc('porcentaje')
+					let ordenados = collect(datos).sortByDesc('porcentaje')
 
-				/* Clasifico los proyectos por porcentaje mayor a 1 y menores de 1. */
-				let mayores_de_uno = ordenados.where('porcentaje', '>', 1)
-				let menores_de_uno = ordenados.where('porcentaje', '<', 1)
-				
-				mayores_de_uno.toArray()
-				mayores_de_uno.map(item => {
-					this.registros.push({
-						'registros': item.contratante
+					/* Clasifico los proyectos por porcentaje mayor a 1 y menores de 1. */
+					let mayores_de_uno = ordenados.where('porcentaje', '>', 1)
+					let menores_de_uno = ordenados.where('porcentaje', '<', 1)
+
+					mayores_de_uno.toArray()
+					mayores_de_uno.map(item => {
+						this.registros.push({
+							'registros': item.contratante
+						})
 					})
+					this.filter_menores_uno = menores_de_uno.toArray()
+					console.log(this.filter_menores_uno)
 				})
-				this.filter_menores_uno = menores_de_uno.toArray()
-				console.log(this.filter_menores_uno)
-				
 			})
 		}
 	}
