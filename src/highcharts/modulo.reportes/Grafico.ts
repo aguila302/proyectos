@@ -45,7 +45,7 @@ export class Grafico {
 				}
 			}],
 			legend: {
-				enabled: true
+				enabled: false
 			},
 			plotOptions: {
 				series: {
