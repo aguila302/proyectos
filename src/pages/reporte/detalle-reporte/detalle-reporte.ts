@@ -191,6 +191,7 @@ export class DetalleReportePage {
 
 	/* Funcion para filtrar la argrupacion de mi grafica. */
 	filtrar = (): void => {
+		this.campo_agrupacion === 'año' ? this.campo_agrupacion = 'anio' : this.campo_agrupacion === 'dirección' ? this.campo_agrupacion = 'unidad_negocio': ''
 		/* Hacemos una consulta para obtener los distintos valores de la agrupacion. */
 		this.reporteService.selectDistinct(this.campo_agrupacion)
 		.then(response => {
