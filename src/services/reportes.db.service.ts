@@ -36,7 +36,7 @@ export class ReportesDbService {
 						'id': response.rows.item(index).id,
 						'nombre_reporte': response.rows.item(index).nombre_reporte,
 						'total_proyectos': parseInt(response.rows.item(index).total_proyectos),
-						'total_usd': response.rows.item(index).total_usd,
+						'total_usd': account.formatNumber(response.rows.item(index).total_usd),
 					})
 				}
 				return Promise.resolve(reportes)

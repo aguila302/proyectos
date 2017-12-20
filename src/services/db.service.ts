@@ -133,6 +133,12 @@ export class DbService {
 				]).then(() => console.log('regustros insertados'))
 				.catch(e => console.log(e))
 		})
+		this.sqlitePorter.exportDbToSql(this.db)
+			.then(res => {
+				console.log(res)
+
+			})
+			.catch(e => console.error(e))
 	}
 
 	/* Obtenemos las datos de los proyectos. */
