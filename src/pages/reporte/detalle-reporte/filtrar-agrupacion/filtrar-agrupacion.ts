@@ -33,8 +33,6 @@ export class FiltrarAgrupacionPage {
 	}
 
 	ionViewDidLoad() {
-		console.log('ionViewDidLoad FiltrarAgrupacionPage');
-		console.log('mi campo' + this.agrupacion)
 		this.loadOpciones()
 	}
 
@@ -77,13 +75,14 @@ export class FiltrarAgrupacionPage {
 					let menores_de_uno = ordenados.where('porcentaje', '<', 1)
 
 					mayores_de_uno.toArray()
+					/* Para visualizar los contratantes mayores de 1% */
 					mayores_de_uno.map(item => {
 						this.registros.push({
 							'registros': item.contratante
 						})
 					})
+					/* Para visualizar los contratantes menores de 1% */
 					this.filter_menores_uno = menores_de_uno.toArray()
-					console.log(this.filter_menores_uno)
 				})
 			})
 		}
