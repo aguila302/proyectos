@@ -38,7 +38,7 @@ export class Grafico {
 			},
 			yAxis: [{
 				labels: {
-					format: `{value}${this.grupo}`
+					format: `{value} ${this.grupo}`
 					// formatter: function() {
 					// 	return this.value + ' %';
 					// }
