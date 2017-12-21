@@ -16,9 +16,7 @@ export class Grafico {
 	constructor(data: any[], serieName: string, titleName: string) {
 		this.data = data
 		this.serieName = serieName
-		// this.titleName = titleName
-		console.log(titleName)
-		titleName === 'Proyectos agrupados por pais' ? this.titleName = 'Proyectos agrupados por país' : ''
+		titleName === 'Proyectos agrupados por pais' ? this.titleName = 'Proyectos agrupados por país' : this.titleName = titleName
 	}
 
 	/**
