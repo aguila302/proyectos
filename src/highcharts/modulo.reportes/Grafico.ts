@@ -16,14 +16,15 @@ export class Grafico {
 	constructor(data: any[], serieName: string, titleName: string) {
 		this.data = data
 		this.serieName = serieName
-		this.titleName = titleName
+		// this.titleName = titleName
+		console.log(titleName)
+		titleName === 'pais' ? this.titleName = 'país' : ''
 	}
 
 	/**
 	 * Funcion que retorna un objeto para graficar de tipo bar
 	 */
 	graficaBar = (): Object => {
-		this.titleName === 'pais' ? this.titleName = 'país' : ''
 		let options = {
 			chart: {
 				type: 'column',
