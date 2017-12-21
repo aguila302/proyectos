@@ -23,7 +23,7 @@ export class Grafico {
 	 * Funcion que retorna un objeto para graficar de tipo bar
 	 */
 	graficaBar = (): Object => {
-
+		this.titleName === 'pais' ? this.titleName = 'país' : ''
 		let options = {
 			chart: {
 				type: 'column',
