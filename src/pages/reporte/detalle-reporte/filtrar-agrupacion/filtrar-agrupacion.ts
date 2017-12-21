@@ -42,9 +42,8 @@ export class FiltrarAgrupacionPage {
 			this.registros = this.columnas
 		}
 		else {
-			setTimeout(() => {
-				// para la opcion de contratante agrupamos por aquellos que tienen mayor a 1 % de participacion aplica el mismo proceso para graficar.
-				this.dbService.openDatabase()
+			// para la opcion de contratante agrupamos por aquellos que tienen mayor a 1 % de participacion aplica el mismo proceso para graficar.
+			this.dbService.openDatabase()
 				.then(() => this.dbService.consultaXCliente())
 				.then(response => {
 					this.zone.run(() => {
@@ -76,17 +75,16 @@ export class FiltrarAgrupacionPage {
 						let menores_de_uno = ordenados.where('porcentaje', '<', 1)
 
 						mayores_de_uno.toArray()
-						/* Para visualizar los contratantes mayores de 1% */
+							/* Para visualizar los contratantes mayores de 1% */
 						mayores_de_uno.map(item => {
-							this.registros.push({
-								'registros': item.contratante
+								this.registros.push({
+									'registros': item.contratante
+								})
 							})
-						})
-						/* Para visualizar los contratantes menores de 1% */
+							/* Para visualizar los contratantes menores de 1% */
 						this.filter_menores_uno = menores_de_uno.toArray()
 					})
 				})
-			}, 1000)
 		}
 	}
 
