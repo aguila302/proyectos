@@ -22,8 +22,9 @@
 	</div> -->
 	<ion-list [virtualScroll]="filter_menores_uno" [approxItemHeight]="'45px'" virtualTrackBy>
 		<ion-item *virtualItem="let item">
-			<ion-label>{{ item.contratante }}</ion-label>
+			<!-- <ion-label>{{ item.contratante }}</ion-label> -->
 			<ion-checkbox (ionChange)="seleccionFiltros($event, item.contratante)"></ion-checkbox>
+			{{ item.contratante }}
 		</ion-item>
 	</ion-list>
 </ion-content>
