@@ -18,10 +18,9 @@
 			<ion-checkbox (ionChange)="seleccionFiltros($event, item.registros)"></ion-checkbox>
 		</ion-item>
 	</ion-list>
-	<button ion-button color="light" full>Proyectos agrupados</button>
-
-	<ion-list [hidden]="!visible">
-		<ion-item *ngFor="let item of filter_menores_uno">
+	<button ion-button color="light" full (click)="verProyectosAgrupados()">Proyectos agrupados</button>
+	<ion-list >
+		<ion-item *ngFor="let item of filter_menores_uno" [hidden]="!visible">
 			<ion-label>{{ item.contratante }}</ion-label>
 			<ion-checkbox (ionChange)="seleccionFiltros($event, item.contratante)"></ion-checkbox>
 		</ion-item>

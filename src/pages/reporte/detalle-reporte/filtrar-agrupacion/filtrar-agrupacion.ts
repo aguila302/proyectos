@@ -29,7 +29,6 @@ export class FiltrarAgrupacionPage {
 	constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController, private dbService: DbService,
 		public zone: NgZone) {
 		this.agrupacion = navParams.get('agrupacion')
-		// this.agrupacion !== 'contratante' ? 
 		this.columnas = navParams.get('registros')
 	}
 
@@ -101,6 +100,10 @@ export class FiltrarAgrupacionPage {
 					this.filtros_seleccionadas.splice(encontrado, 1)
 				) : ''
 			);
+		}
+
+		verProyectosAgrupados = () => {
+			this.visible = !this.visible
 		}
 		/* Funcion para enviar columnas seleccionadas. */
 	aceptar() {
