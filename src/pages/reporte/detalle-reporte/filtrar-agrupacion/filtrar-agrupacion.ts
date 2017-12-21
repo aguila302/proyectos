@@ -42,49 +42,52 @@ export class FiltrarAgrupacionPage {
 			this.registros = this.columnas
 		}
 		else {
-			// para la opcion de contratante agrupamos por aquellos que tienen mayor a 1 % de participacion aplica el mismo proceso para graficar.
-			this.dbService.openDatabase()
-			.then(() => this.dbService.consultaXCliente())
-			.then(response => {
-				this.zone.run(() => {
-					let data = collect(response)
+			setTimeout(() => {
+				// para la opcion de contratante agrupamos por aquellos que tienen mayor a 1 % de participacion aplica el mismo proceso para graficar.
+				this.dbService.openDatabase()
+					.then(() => this.dbService.consultaXCliente())
+					.then(response => {
+						this.zone.run(() => {
+							let data = collect(response)
 
-					/* monto total de todos los proyectos. */
-					let monto_total = data.sum('monto')
+							/* monto total de todos los proyectos. */
+							let monto_total = data.sum('monto')
 
-					/* Agrupo mi data por contratante. */
-					let agrupados = data.groupBy('contratante').toArray()
-					let datos = agrupados.map(function(contratante, monto) {
-						let suma_montos = contratante.reduce(function(index, proyecto) {
-							return index + parseInt(proyecto.monto)
-						}, 0)
+							/* Agrupo mi data por contratante. */
+							let agrupados = data.groupBy('contratante').toArray()
+							let datos = agrupados.map(function(contratante, monto) {
+								let suma_montos = contratante.reduce(function(index, proyecto) {
+									return index + parseInt(proyecto.monto)
+								}, 0)
 
-						return {
-							id: contratante[0].id,
-							contratante: contratante[0].contratante,
-							suma_monto: suma_montos,
-							porcentaje: parseFloat(((suma_montos / monto_total) * 100).toFixed(2)),
-						}
-					})
+								return {
+									id: contratante[0].id,
+									contratante: contratante[0].contratante,
+									suma_monto: suma_montos,
+									porcentaje: parseFloat(((suma_montos / monto_total) * 100).toFixed(2)),
+								}
+							})
 
-					/* Ordeno por porcentaje de mayor a menor. */
-					let ordenados = collect(datos).sortByDesc('porcentaje')
+							/* Ordeno por porcentaje de mayor a menor. */
+							let ordenados = collect(datos).sortByDesc('porcentaje')
 
-					/* Clasifico los proyectos por porcentaje mayor a 1 y menores de 1. */
-					let mayores_de_uno = ordenados.where('porcentaje', '>', 1)
-					let menores_de_uno = ordenados.where('porcentaje', '<', 1)
+							/* Clasifico los proyectos por porcentaje mayor a 1 y menores de 1. */
+							let mayores_de_uno = ordenados.where('porcentaje', '>', 1)
+							let menores_de_uno = ordenados.where('porcentaje', '<', 1)
 
-					mayores_de_uno.toArray()
-					/* Para visualizar los contratantes mayores de 1% */
-					mayores_de_uno.map(item => {
-						this.registros.push({
-							'registros': item.contratante
+							mayores_de_uno.toArray()
+								/* Para visualizar los contratantes mayores de 1% */
+							mayores_de_uno.map(item => {
+									this.registros.push({
+										'registros': item.contratante
+									})
+								})
+								/* Para visualizar los contratantes menores de 1% */
+							this.filter_menores_uno = menores_de_uno.toArray()
 						})
 					})
-					/* Para visualizar los contratantes menores de 1% */
-					this.filter_menores_uno = menores_de_uno.toArray()
-				})
-			})
+				}, 1000)
+			
 		}
 	}
 
