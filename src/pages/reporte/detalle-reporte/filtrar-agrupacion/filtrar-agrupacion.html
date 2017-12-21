@@ -21,7 +21,7 @@
 		<h3>Proyectos agrupados</h3>
 	</div> -->
 	<ion-list [virtualScroll]="filter_menores_uno" [approxItemHeight]="'45px'" virtualTrackBy>
-		<ion-item *virtualItem="let item">
+		<ion-item *virtualItem="let item" virtualTrackBy>
 			<ion-label>{{ item.contratante }}</ion-label>
 			<ion-checkbox (ionChange)="seleccionFiltros($event, item.contratante)"></ion-checkbox>
 		</ion-item>
