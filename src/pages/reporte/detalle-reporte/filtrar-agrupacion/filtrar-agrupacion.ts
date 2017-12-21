@@ -24,6 +24,7 @@ export class FiltrarAgrupacionPage {
 	filtros_seleccionadas = []
 	columnas = []
 	filter_menores_uno = []
+	visible: boolean = false
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController, private dbService: DbService,
 		public zone: NgZone) {
