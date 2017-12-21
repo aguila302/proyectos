@@ -20,7 +20,7 @@
 	<div padding-top text-center style="border-bottom: 3px double #2E86C1;">
 		<h3>Proyectos agrupados</h3>
 	</div> -->
-	<ion-list [virtualScroll]="filter_menores_uno" radio-group [approxItemHeight]="'45px'" virtualTrackBy>
+	<ion-list [virtualScroll]="filter_menores_uno" radio-group [approxItemHeight]="'45px'" virtualTrackBy no-lines>
 		<ion-item *virtualItem="let item">
 			<ion-label>{{ item.contratante }}</ion-label>
 			<ion-checkbox (ionChange)="seleccionFiltros($event, item.contratante)"></ion-checkbox>
