@@ -20,97 +20,97 @@ export class SelectColumnasPage {
 
 	columnas = [{
 		'opcion': 'nombre_proyecto',
-		'texto': 'Por nombre de proyecto',
+		'texto': 'Nombre de proyecto',
 		'checked': false,
 		'title': 'Nombre de proyecto'
 	}, {
 		'opcion': 'nombre_corto',
-		'texto': 'Por nombre corto',
+		'texto': 'Nombre corto',
 		'checked': false,
 		'title': 'Nombre corto'
 	}, {
 		'opcion': 'contrato',
-		'texto': 'Por contrato',
+		'texto': 'Contrato',
 		'checked': false,
 		'title': 'Contrato'
 	}, {
 		'opcion': 'monto',
-		'texto': 'Por monto USD',
+		'texto': 'Monto USD',
 		'checked': false,
 		'title': 'Monto USD'
 	}, {
 		'opcion': 'monto_moneda_original',
-		'texto': 'Por monto moneda original',
+		'texto': 'Monto moneda original',
 		'checked': false,
 		'title': 'Monto moneda original'
 	}, {
 		'opcion': 'moneda',
-		'texto': 'Por moneda',
+		'texto': 'Moneda',
 		'checked': false,
 		'title': 'Moneda'
 	}, {
 		'opcion': 'pais',
-		'texto': 'Por país',
+		'texto': 'País',
 		'checked': false,
 		'title': 'País'
 	}, {
 		'opcion': 'gerencia',
-		'texto': 'Por gerencia',
+		'texto': 'Grencia',
 		'checked': false,
 		'title': 'Gerencia'
 	}, {
 		'opcion': 'unidad_negocio',
-		'texto': 'Por unidad de negocio',
+		'texto': 'Unidad de negocio',
 		'checked': false,
 		'title': 'Unidad de negocio'
 	}, {
 		'opcion': 'numero_contrato',
-		'texto': 'Por numero de contrato',
+		'texto': 'Numero de contrato',
 		'checked': false,
 		'title': 'Numero de contrato'
 	}, {
 		'opcion': 'producto',
-		'texto': 'Por producto',
+		'texto': 'Producto',
 		'checked': false,
 		'title': 'Producto'
 	}, {
 		'opcion': 'anio',
-		'texto': 'Por año',
+		'texto': 'Año',
 		'checked': false,
 		'title': 'Año'
 	}, {
 		'opcion': 'duracion',
-		'texto': 'Por duracion',
+		'texto': 'Duración',
 		'checked': false,
 		'title': 'Duracion'
 	}, {
 		'opcion': 'contratante',
-		'texto': 'Por contratante',
+		'texto': 'Contratante',
 		'checked': false,
 		'title': 'Contratante'
 	}, {
 		'opcion': 'datos_cliente',
-		'texto': 'Por datos de cliente',
+		'texto': 'Datos de cliente',
 		'checked': false,
 		'title': 'Datos de cliente'
 	}, {
 		'opcion': 'fecha_inicio',
-		'texto': 'Por fecha de inicio',
+		'texto': 'Fecha de inicio',
 		'checked': false,
 		'title': 'Fecha de inicio'
 	}, {
 		'opcion': 'fecha_fin',
-		'texto': 'Por fecha de termino',
+		'texto': 'Fecha de término',
 		'checked': false,
 		'title': 'Fecha de termino'
 	}, {
 		'opcion': 'numero_propuesta',
-		'texto': 'Por numero de propuesta',
+		'texto': 'Numero de propuesta',
 		'checked': false,
 		'title': 'Propuesta'
 	}, {
 		'opcion': 'anticipo',
-		'texto': 'Por anticipo',
+		'texto': 'Anticipo',
 		'checked': false,
 		'title': 'Anticipo'
 	}, ]
