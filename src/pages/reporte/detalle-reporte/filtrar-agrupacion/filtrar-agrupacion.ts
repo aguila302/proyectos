@@ -33,11 +33,11 @@ export class FiltrarAgrupacionPage {
 	}
 
 	ionViewDidLoad() {
-		this.loadOpciones(event)
+		this.loadOpciones()
 	}
 
 	/* Funcion para visualizar los valores de los filtros. */
-	loadOpciones ($event) {
+	loadOpciones () {
 		if(this.agrupacion !== 'contratante'){
 			this.registros = this.columnas
 		}

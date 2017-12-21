@@ -11,28 +11,20 @@
 </ion-header>
 <ion-content>
 	<button ion-button block color="botton" (click)="aceptar()">Aceptar</button>
+
 	<ion-list>
-		<ion-item *ngFor="let item of filter_menores_uno">
-			<ion-label>{{ item.contratante }}</ion-label>
-			<ion-checkbox (ionChange)="seleccionFiltros($event, item.contratante)"></ion-checkbox>
-		</ion-item>
-	</ion-list>
-	<ion-infinite-scroll (ionInfinite)="loadOpciones($event)">
-		
-	</ion-infinite-scroll>
-	<!-- <ion-list>
 		<ion-item *ngFor="let item of registros">
 			<ion-label>{{ item.registros }}</ion-label>
 			<ion-checkbox (ionChange)="seleccionFiltros($event, item.registros)"></ion-checkbox>
 		</ion-item>
 	</ion-list>
-	<div padding-top text-center style="border-bottom: 3px double #2E86C1;">
+	<div padding-top text-center style="border-bottom: 3px double #2E86C1; background-color: red; color:white;">
 		<h3>Proyectos agrupados</h3>
-	</div> -->
-	<!-- <ion-list [virtualScroll]="filter_menores_uno" bufferRatio="3" [approxItemHeight]="'45px'" virtualTrackBy>
+	</div>
+	<ion-list [virtualScroll]="filter_menores_uno" bufferRatio="3" [approxItemHeight]="'45px'" virtualTrackBy>
 		<ion-item *virtualItem="let item">
 			<ion-label>{{ item.contratante }}</ion-label>
 			<ion-checkbox (ionChange)="seleccionFiltros($event, item.contratante)"></ion-checkbox>
 		</ion-item>
-	</ion-list> -->
+	</ion-list>
 </ion-content>
