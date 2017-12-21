@@ -6,6 +6,7 @@ export class Grafico {
 	data = []
 	serieName: string = ''
 	titleName: string = ''
+	grupo: string = ''
 
 	/**
 	 * Parametros de entrada a nuestra clase para la construccion de las graficas.
@@ -13,16 +14,18 @@ export class Grafico {
 	 * @param {string} serieName
 	 * @param {string} titleName
 	 */
-	constructor(data: any[], serieName: string, titleName: string) {
+	constructor(data: any[], serieName: string, titleName: string, grupo: string) {
 		this.data = data
 		this.serieName = serieName
 		titleName === 'Proyectos agrupados por pais' ? this.titleName = 'Proyectos agrupados por país' : this.titleName = titleName
+		grupo === '' ? this.grupo = '%' : this.grupo = grupo
 	}
 
 	/**
 	 * Funcion que retorna un objeto para graficar de tipo bar
 	 */
 	graficaBar = (): Object => {
+		var global = this
 		let options = {
 			chart: {
 				type: 'column',
@@ -35,9 +38,10 @@ export class Grafico {
 			},
 			yAxis: [{
 				labels: {
-					formatter: function() {
-						return this.value + ' %';
-					}
+					format: `{value}${this.grupo}`
+					// formatter: function() {
+					// 	return this.value + ' %';
+					// }
 				},
 				title: {
 					text: 'Porcentaje total de participación'
@@ -51,14 +55,14 @@ export class Grafico {
 					borderWidth: 0,
 					dataLabels: {
 						enabled: true,
-						format: '{point.y:.1f}%'
+						format:  `{point.y:.1f}${this.grupo}`
 					}
 				}
 			},
 
 			tooltip: {
 				headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-				pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> del total<br/>'
+				pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}'+ this.grupo+'</b> del total<br/>'
 			},
 
 			series: [{

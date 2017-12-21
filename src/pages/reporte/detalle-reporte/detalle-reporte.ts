@@ -125,7 +125,7 @@ export class DetalleReportePage {
 					})
 					this.xy = data_cliente
 					/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-					this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes')
+					this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '')
 					
 					this.options = this.grafico.graficaBar()
 
@@ -165,7 +165,7 @@ export class DetalleReportePage {
 					})
 
 					/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-					this.grafico = new Grafico(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion)
+					this.grafico = new Grafico(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion, '')
 					this.options = this.grafico.graficaBar()
 
 					/* Para mostrar la tabla de informacion */

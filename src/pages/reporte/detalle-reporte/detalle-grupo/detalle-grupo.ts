@@ -32,6 +32,7 @@ export class DetalleGrupoPage {
 	monto_total: number = 0
 	total_proyectos: number = 0
 	grafico: Grafico
+	// indicador: string = ''
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteService: ReportesDbService) {
 		this.grupo = this.navParams.get('grupo')
@@ -77,7 +78,7 @@ export class DetalleGrupoPage {
 
 			/*Mostramos la grafca con los datos necesarios. */
 			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-			this.grafico = new Grafico(this.xy, this.groupBy, 'Proyectos agrupados por ' + this.groupBy),
+			this.grafico = new Grafico(this.xy, this.groupBy, 'Proyectos agrupados por ' + this.groupBy , 'USD'),
 			this.options = this.grafico.graficaBar()
 
 		) : (
@@ -106,7 +107,7 @@ export class DetalleGrupoPage {
 			}),
 			/*Mostramos la grafca con los datos necesarios. */
 			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-			this.grafico = new Grafico(this.xy, this.groupBy, 'Proyectos agrupados por ' + this.groupBy),
+			this.grafico = new Grafico(this.xy, this.groupBy, 'Proyectos agrupados por ' + this.groupBy, '#'),
 			this.options = this.grafico.graficaBar()
 
 		)

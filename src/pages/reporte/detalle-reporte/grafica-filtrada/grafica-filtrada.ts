@@ -50,7 +50,7 @@ export class GraficaFiltradaPage {
 			})
 		})
 		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-		this.grafico = new Grafico(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion)
+		this.grafico = new Grafico(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion , '')
 		this.options = this.grafico.graficaBar()
 	}
 
