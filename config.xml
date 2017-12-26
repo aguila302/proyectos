@@ -29,7 +29,6 @@
     <preference name="AutoHideSplashScreen" value="false" />
     <preference name="ShowSplashScreenSpinner" value="false" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
-<preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
     <platform name="android">
         <preference name="loadUrlTimeoutValue" value="700000" />
         <allow-intent href="market:*" />
@@ -100,10 +99,4 @@
     <plugin name="cordova-plugin-statusbar" spec="^2.3.0" />
     <engine name="ios" spec="~4.4.0" />
     <plugin name="cordova-plugin-http" spec="^1.2.0" />
-    <allow-navigation href="http://localhost:8080/*"/>
-<feature name="CDVWKWebViewEngine">
-  <param name="ios-package" value="CDVWKWebViewEngine" />
-</feature>
-
-
 </widget>
