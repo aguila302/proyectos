@@ -5,7 +5,7 @@ import {
 	IonicPage,
 	NavController,
 	NavParams,
-	ViewController
+	ViewController, LoadingController
 } from 'ionic-angular';
 import * as collect from 'collect.js/dist'
 import { DbService } from '../../../../services/db.service'
@@ -26,10 +26,10 @@ export class FiltrarAgrupacionPage {
 	columnas = []
 	filter_menores_uno = []
 	visible: boolean = false
-	// filter_menores_uno: Observable<Array<any>>
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController, private dbService: DbService,
-		public zone: NgZone) {
+	constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController,
+		private dbService: DbService,
+		public zone: NgZone, public loading: LoadingController) {
 		this.agrupacion = navParams.get('agrupacion')
 		this.columnas = navParams.get('registros')
 	}
@@ -105,7 +105,14 @@ export class FiltrarAgrupacionPage {
 		}
 
 		verProyectosAgrupados = () => {
-			this.visible = !this.visible
+			let loader = this.loading.create({
+				content: 'Por favor espere ...',
+			})
+			loader.present()
+			setTimeout(() => {
+				this.visible = !this.visible
+				loader.dismiss()
+			}, 6000)
 		}
 		/* Funcion para enviar columnas seleccionadas. */
 	aceptar() {
