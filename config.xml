@@ -30,9 +30,6 @@
     <preference name="ShowSplashScreenSpinner" value="false" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <allow-navigation href="http://localhost:8080/*" />
-    <feature name="CDVWKWebViewEngine">
-        <param name="ios-package" value="CDVWKWebViewEngine" />
-    </feature>
     <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
     <platform name="android">
         <preference name="loadUrlTimeoutValue" value="700000" />
