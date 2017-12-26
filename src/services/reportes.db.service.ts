@@ -276,14 +276,8 @@ export class ReportesDbService {
 			for (var rel in campos[i]) { /* Obtenemos array de los valores de la filtracion. */
 				for (var t in campos[i][rel]) { /* Obtenemos Valores de los filtros, */
 					let insertColumas = insert + `${id}, '${Object.keys(campos[i]).toString()}'` + ','
-					// console.log(insertColumas)
-					
-					// console.log(campos[i][rel][t])
-					
-					
+	
 					let queryFinal = insertColumas + `'${campos[i][rel][t]}'` + ')'
-					console.log(queryFinal)
-					
 					/* Registramos las opciones en el origen de datos */
 					this.db.executeSql(queryFinal, {})
 				}
