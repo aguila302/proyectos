@@ -119,11 +119,6 @@ export class SelectColumnasPage {
 		private view: ViewController) {
 		this.columnas = collect(this.columnas).sortBy('texto').all()
 	}
-
-	ionViewDidLoad() {
-		console.log('ionViewDidLoad SelectColumnasPage');
-	}
-
 	seleccionColumnas = (event, columna: string, title: string): void => {
 		event.value ? (
 			this.columnas.forEach(item => {
