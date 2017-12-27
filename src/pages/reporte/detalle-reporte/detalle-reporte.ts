@@ -318,7 +318,9 @@ export class DetalleReportePage {
 		this.navCtrl.push(DetalleGrupoPage, {
 			'select': this.campo_select,
 			'grupo': grupo,
-			'groupBy': this.campo_agrupacion
+			'groupBy': this.campo_agrupacion,
+			'id': this.id,
+			'filtros': this.filtros
 		})
 	}
 

@@ -33,7 +33,6 @@ export class ReportePage {
 
 	/* Cargamos los proyectos cuando la vista esta activa. */
 	ionViewDidLoad() {
-		console.log('ionViewDidLoad ReportePage');
 		this.getReportes()
 	}
 

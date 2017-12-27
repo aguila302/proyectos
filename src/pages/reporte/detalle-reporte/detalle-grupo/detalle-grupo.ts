@@ -32,16 +32,18 @@ export class DetalleGrupoPage {
 	monto_total: number = 0
 	total_proyectos: number = 0
 	grafico: Grafico
-	// indicador: string = ''
+	id: number = 0
+	filtros: any
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteService: ReportesDbService) {
 		this.grupo = this.navParams.get('grupo')
 		this.select = this.navParams.get('select')
 		this.groupBy = this.navParams.get('groupBy')
+		this.id = this.navParams.get('id')
+		this.filtros = this.navParams.get('filtros')
 	}
 
 	ionViewDidLoad() {
-		console.log('ionViewDidLoad DetalleGrupoPage')
 		this.verDetalle()
 	}
 
@@ -51,10 +53,9 @@ export class DetalleGrupoPage {
 
 		this.grupo === 'monto_total' ? (
 			/* Si el grupo es por monto total hacemos la consulta para obtener la informacion. */
-			await this.reporteService.detallePorMontoTotal(this.select, this.groupBy)
+			await this.reporteService.detallePorMontoTotal(this.select, this.groupBy, this.id, this.filtros)
 			.then(response => {
-				console.log(response)
-				
+
 				/* Obtenemos la informacion para construir la grafica. */
 				response.forEach(items => {
 						global.xy.push({
@@ -62,7 +63,7 @@ export class DetalleGrupoPage {
 							'y': parseFloat(items.porcentaje)
 						})
 					})
-					/* Obtenemos la informacion para la tabla informativa. */
+				/* Obtenemos la informacion para la tabla informativa. */
 				this.monto_total = account.formatNumber(collect(response).sum('monto'))
 				this.total_proyectos = collect(response).sum('numero_proyectos')
 
@@ -83,7 +84,7 @@ export class DetalleGrupoPage {
 
 		) : (
 			/* Si el grupo es por numero de proyectos hacemos la consulta para obtener la informacion. */
-			await this.reporteService.detallePorNumeroProyectos(this.select, this.groupBy)
+			await this.reporteService.detallePorNumeroProyectos(this.select, this.groupBy, this.id, this.filtros)
 			.then(response =>{
 				/* Obtenemos la informacion para construir la grafica. */
 				response.forEach(items => {
