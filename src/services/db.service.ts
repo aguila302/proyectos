@@ -56,7 +56,7 @@ export class DbService {
 				nombre_proyecto text,
 				nombre_corto text,
 				contrato text,
-				monto integer,
+				monto double(30,2),
 				monto_moneda_original integer,
 				moneda text,
 				pais text,
@@ -113,8 +113,8 @@ export class DbService {
 					item.nombre_proyecto,
 					item.nombre_corto,
 					item.contrato,
-					parseInt(item.montoUsd),
-					parseInt(item.monto),
+					parseFloat(item.montoUsd),
+					parseFloat(item.monto),
 					item.moneda,
 					item.pais,
 					item.gerencia,
@@ -133,7 +133,12 @@ export class DbService {
 				]).then(() => console.log('regustros insertados'))
 				.catch(e => console.log(e))
 		})
-		
+			this.sqlitePorter.exportDbToSql(this.db)
+			.then(res => {
+				console.log(res)
+
+			})
+			.catch(e => console.error(e))
 	}
 
 	/* Obtenemos las datos de los proyectos. */

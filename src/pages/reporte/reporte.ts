@@ -66,6 +66,8 @@ export class ReportePage {
 	getReportes = (): void => {
 		this.reporteService.getReportes()
 			.then(response => {
+				console.log(response)
+				
 				this.reportes = response
 			})
 	}

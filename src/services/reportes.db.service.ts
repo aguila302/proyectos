@@ -150,7 +150,7 @@ export class ReportesDbService {
 					reportes.push({
 						'campo': response.rows.item(index).campo,
 						'numero_proyectos': response.rows.item(index).numero_proyectos,
-						'monto': parseInt(response.rows.item(index).monto),
+						'monto': parseFloat(response.rows.item(index).monto),
 						'total': response.rows.item(index).total,
 						'id': response.rows.item(index).id,
 						'group_by': group_by,
