@@ -364,6 +364,10 @@ export class ReportesDbService {
 			sql = `select ` + select + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
 						(select sum(monto) from proyectos) as monto_total
 						FROM proyectos where ${groupBY} in (${nuevaCadena}) group by ` + groupBY + ` order by ` + groupBY + ` asc`
+			console.log('select')
+			console.log(select)
+			console.log('group by')
+			console.log(groupBY)
 
 			console.log(sql)
 			
