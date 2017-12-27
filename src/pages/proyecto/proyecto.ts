@@ -95,6 +95,8 @@ export class ProyectoPage {
 		/* Cierra la ventana modal y recuperamos las opciones que se seleccionaron. */
 		filterModal.onDidDismiss(data => {
 			this.opciones = data
+			console.log(this.opciones)
+			
 		})
 	}
 

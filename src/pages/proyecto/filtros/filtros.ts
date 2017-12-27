@@ -23,14 +23,14 @@ export class FiltrosPage {
 	items = [
 		{'opcion': 'unidad_negocio', 'texto': 'Unidad de negocio', 'checked': false},
 		{'opcion': 'gerencia', 'texto': 'Gerencia', 'checked': false},
-		{'opcion': 'producto', 'texto': 'Producto', 'checked': false},
+		{'opcion': 'producto', 'texto': 'Producto', 'checked': true},
 		{'opcion': 'numero_propuesta', 'texto': 'Numero de propuesta', 'checked': false},
 		{'opcion': 'contrato', 'texto': 'Contrato', 'checked': false},
-		{'opcion': 'anio', 'texto': 'Año', 'checked': false},
-		{'opcion': 'nombre_proyecto', 'texto': 'Nombre de proyecto', 'checked': false},
+		{'opcion': 'anio', 'texto': 'Año', 'checked': true},
+		{'opcion': 'nombre_proyecto', 'texto': 'Nombre de proyecto', 'checked': true},
 		{'opcion': 'nombre_corto', 'texto': 'Nombre corto', 'checked': false},
-		{'opcion': 'contratante', 'texto': 'Contratante', 'checked': false},
-		{'opcion': 'datos_cliente', 'texto': 'Datos de cliente', 'checked': false},
+		{'opcion': 'contratante', 'texto': 'Contratante', 'checked': true},
+		{'opcion': 'datos_cliente', 'texto': 'Datos de cliente', 'checked': true},
 		{'opcion': 'fecha_inicio', 'texto': 'Fecha de inicio', 'checked': false},
 		{'opcion': 'fecha_fin', 'texto': 'Fecha de término', 'checked': false},
 		{'opcion': 'duracion', 'texto': 'Duración', 'checked': false},
@@ -39,26 +39,30 @@ export class FiltrosPage {
 
 	/* Funcion para el manejo de nuestros filtros individuales. */
 	seleccionFiltros(event: any, opcion) {
+		// console.log(this.items)
+		
 		/* Cuando activamos y desactivamos un opncion actualizamos el evento checkhed. */
-		this.items.forEach(
-			(arg) => {
-				if(arg.opcion == opcion) {
-					arg.checked = event.value
-				}
-			}
-		)
+		// this.items.forEach(
+		// 	(arg) => {
+		// 		if(arg.opcion == opcion) {
+		// 			arg.checked = event.value
+		// 		}
+		// 	}
+		// )
 
 		/* Filtramos las opciones que esten activas */
-		let data_filter = this.items.filter(function(item) {
-			return item.checked == true
-		})
+		// let data_filter = this.items.filter(function(item) {
+		// 	return item.checked == true
+		// })
+		// console.log(data_filter)
+		
 
 		/* Almacenamos en un nuevo array las opciones activas para enviarlas y realizar la busqueda. */
-		data_filter.forEach(
-			(arg) => {
-				return this.data_send[arg.opcion] = arg.opcion
-			}
-		)
+		// data_filter.forEach(
+		// 	(arg) => {
+		// 		return this.data_send[arg.opcion] = arg.opcion
+		// 	}
+		// )
 	}
 
 	/* Funcion para la opcion de que en caso seleccione todas las opciones. */
@@ -130,6 +134,19 @@ export class FiltrosPage {
 
 	/* Funcion para cerrar la ventana de filtros. */
 	cerrarFiltros() {
+		let data_filter = this.items.filter(function(item) {
+			return item.checked == true
+		})
+
+		data_filter.forEach(
+			(arg) => {
+				return this.data_send[arg.opcion] = arg.opcion
+		})
+			
+		// data_filter.forEach(item => {
+		// 	this.data_send.push(item.opcion)
+		// })
+
 		/* Enviamos nuestras opciones para realizar la busqueda. */
 		this.viewCtrl.dismiss(this.data_send)
 	}

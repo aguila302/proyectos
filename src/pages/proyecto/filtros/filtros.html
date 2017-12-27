@@ -31,7 +31,8 @@
 	<ion-list>
 		<ion-item *ngFor="let item of items">
 			<ion-label>{{ item.texto }}</ion-label>
-			<ion-checkbox checked="{{ item.checked }}" (ionChange)="seleccionFiltros($event, item.opcion)"></ion-checkbox>
+			<ion-checkbox  [(ngModel)]="item.checked" (ionChange)="seleccionFiltros()"></ion-checkbox>
+			<!-- <ion-checkbox  checked="{{ item.checked }}" (ionChange)="seleccionFiltros($event, item.opcion)"></ion-checkbox> -->
 		</ion-item>
 		<button ion-button block color="botton" (click)="cerrarFiltros()">Aceptar</button>
 	</ion-list>
