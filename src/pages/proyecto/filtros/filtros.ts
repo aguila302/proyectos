@@ -136,6 +136,6 @@ export class FiltrosPage {
 
 	/* Funcion para cancelar los filtros. */
 	cancelar() {
-		this.viewCtrl.dismiss(this.data_send)
+		this.viewCtrl.dismiss()
 	}
 }

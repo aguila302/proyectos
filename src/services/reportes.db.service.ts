@@ -344,10 +344,13 @@ export class ReportesDbService {
 		let sql: string = ''
 		let cadena: string = ''
 		let nuevaCadena: string = ''
+		let campo = []
 
 		groupBY === 'año' ? groupBY = 'anio': groupBY === 'dirección' ? groupBY = 'unidad_negocio': 
 		// Recuperamos nuestros filtros
 		filters = filtros.map(item => item.valor)
+		campo = filtros.map(item => item.nombre_columna)
+
 		if(filters.length === 0){
 				sql = `select ` + select + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
 						(select sum(monto) from proyectos) as monto_total
@@ -363,7 +366,10 @@ export class ReportesDbService {
 
 			sql = `select ` + select + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
 						(select sum(monto) from proyectos) as monto_total
-						FROM proyectos where ${groupBY} in (${nuevaCadena}) group by ` + groupBY + ` order by ` + groupBY + ` asc`
+						FROM proyectos where ${campo[0]} in (${nuevaCadena}) group by ` + groupBY + ` order by ` + groupBY + ` asc`
+			console.log('filtro');
+			console.log(filtros)
+			
 			console.log('select')
 			console.log(select)
 			console.log('group by')
