@@ -23,10 +23,11 @@ export class DetalleReporteAgrupadoPage {
 		this.campo = navParams.get('campo')
 		this.monto_total = navParams.get('monto_total')
 		this.groupBy = navParams.get('groupBy')
+		this.groupBy === 'año' ? this.groupBy = 'anio' : this.groupBy === 'dirección' ? this.groupBy = 'unidad_negocio': ''
+		
 	}
 
 	ionViewDidLoad() {
-		console.log('ionViewDidLoad DetalleReporteAgrupadoPage')
 		this.detallePorCampo()
 	}
 
