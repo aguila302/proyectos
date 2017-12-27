@@ -48,7 +48,7 @@ export class FiltrarAgrupacionPage {
 			this.dbService.openDatabase()
 				.then(() => this.dbService.consultaXCliente())
 				.then(response => {
-					this.zone.run(() => {
+					this.zone.runOutsideAngular(() => {
 						let data = collect(response)
 
 						/* monto total de todos los proyectos. */
@@ -83,7 +83,7 @@ export class FiltrarAgrupacionPage {
 									'registros': item.contratante
 								})
 							})
-							/* Para visualizar los contratantes menores de 1% */
+						/* Para visualizar los contratantes menores de 1% */
 						this.filter_menores_uno = menores_de_uno.toArray()
 					})
 				})
