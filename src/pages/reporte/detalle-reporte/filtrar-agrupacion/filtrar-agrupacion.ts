@@ -48,7 +48,7 @@ export class FiltrarAgrupacionPage {
 			this.dbService.openDatabase()
 				.then(() => this.dbService.consultaXCliente())
 				.then(response => {
-					this.zone.runOutsideAngular(() => {
+					this.zone.run(() => {
 						let data = collect(response)
 
 						/* monto total de todos los proyectos. */
