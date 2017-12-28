@@ -49,7 +49,7 @@ export class OpcionesPage {
 		}
 
 		if(this.platform.is('ios')) {
-			path = 'appname.app/www/'
+			path = 'file:///var/containers/Bundle/Application/8AA21939-CA81-462A-92E9-94A25E5D7897/bipro.app/www'
 		}
 		
 		const options: DocumentViewerOptions = {
