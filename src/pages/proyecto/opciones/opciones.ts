@@ -40,7 +40,7 @@ export class OpcionesPage {
 		const options: DocumentViewerOptions = {
 			title: 'My PDF'
 		}
-		this.document.viewDocument('file:///android_asset/www/BIPRO.pdf', 'application/pdf', options)
+		this.document.viewDocument('file:///assets/BIPRO.pdf', 'application/pdf', options)
 	}
 
 	/* Funcion para cerrar la ventana de opciones */
