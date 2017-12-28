@@ -1,22 +1,17 @@
 <ion-header>
     <ion-navbar color="twitter">
         <ion-title text-center>Proyectos</ion-title>
-        
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-
         <ion-buttons left>
-                <button ion-button icon-only menuToggle>
-                    <ion-icon ios="ios-menu" md="md-menu"></ion-icon>
-                </button>
+            <button ion-button icon-only>
+                <ion-icon name="ios-help-circle-outline"></ion-icon>
+            </button>
         </ion-buttons>
-
         <ion-buttons right>
-            <button>
-                <button ion-button icon-only (click)="logout()">
-                    <ion-icon ios="ios-log-out" md="md-log-out"></ion-icon>
-                </button>
+            <button ion-button icon-only (click)="logout()">
+                <ion-icon ios="ios-log-out" md="md-log-out"></ion-icon>
             </button>
         </ion-buttons>
     </ion-navbar>
