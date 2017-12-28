@@ -40,6 +40,6 @@ export class OpcionesPage {
 		const options: DocumentViewerOptions = {
 			title: 'My PDF'
 		}
-		this.document.viewDocument('../../../../www/assets/BIPRO.pdf', 'application/pdf', options)
+		this.document.viewDocument('file:///android_asset/www/BIPRO.pdf', 'application/pdf', options)
 	}
 }
