@@ -41,17 +41,17 @@ export class OpcionesPage {
 		let path: string = ''
 
 		if(this.platform.is('android')) {
-			path = 'file:///android_asset/'
+			path = 'file:///android_asset/assets/'
 		}
 
 		if(this.platform.is('ios')) {
-			path = '/var/mobile/Applications/<UUID>/'
+			path = 'appname.app/bundle/'
 		}
 		
 		const options: DocumentViewerOptions = {
 			title: 'My PDF'
 		}
-		this.document.viewDocument(path + 'assets/BIPRO.pdf', 'application/pdf', options)
+		this.document.viewDocument(path + 'BIPRO.pdf', 'application/pdf', options)
 	}
 
 	/* Funcion para cerrar la ventana de opciones */
