@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, Platform } from 'ionic-angular';
 import { AppVersion } from '@ionic-native/app-version';
 import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-viewer';
+import { File } from '@ionic-native/file';
 
 @IonicPage()
 @Component({
@@ -13,7 +14,8 @@ export class OpcionesPage {
 	nombreApp: string = ''
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
-		private appVersion: AppVersion, private document: DocumentViewer, public viewCtrl: ViewController, public platform: Platform) {
+		private appVersion: AppVersion, private document: DocumentViewer, public viewCtrl: ViewController, public platform: Platform,
+		private file: File) {
 	}
 
 	// options: DocumentViewerOptions = {
@@ -38,6 +40,8 @@ export class OpcionesPage {
 	/* Funcion para ver archivo pdf*/
 	muestraPdf = () => {
 		console.log('pdf')
+		console.log(this.file.applicationDirectory)
+		
 		let path: string = ''
 
 		if(this.platform.is('android')) {

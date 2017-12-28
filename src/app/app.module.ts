@@ -58,6 +58,7 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter';
 import { HTTP } from '@ionic-native/http';
 import { AppVersion } from '@ionic-native/app-version';
 import { DocumentViewer } from '@ionic-native/document-viewer';
+import { File } from '@ionic-native/file';
 
 @NgModule({
   declarations: [
@@ -157,7 +158,8 @@ import { DocumentViewer } from '@ionic-native/document-viewer';
     HTTP,
     ApiService,
     AppVersion,
-    DocumentViewer
+    DocumentViewer,
+    File
   ]
 })
 export class AppModule {}
