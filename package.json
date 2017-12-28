@@ -42,9 +42,10 @@
     "cordova-plugin-app-version": "^0.1.9",
     "cordova-plugin-compat": "^1.1.0",
     "cordova-plugin-console": "^1.1.0",
+    "cordova-plugin-crosswalk-webview": "^2.3.0",
     "cordova-plugin-dbcopy": "git+https://github.com/an-rahulpandey/cordova-plugin-dbcopy.git",
     "cordova-plugin-device": "^1.1.7",
-    "cordova-plugin-document-viewer": "^0.9.7",
+    "cordova-plugin-document-viewer": "git+https://github.com/sitewaerts/cordova-plugin-document-viewer.git",
     "cordova-plugin-file": "^5.0.0",
     "cordova-plugin-http": "^1.2.0",
     "cordova-plugin-ionic-webview": "file:node_modules\\cordova-plugin-ionic-webview",
@@ -93,7 +94,14 @@
       "cordova-plugin-advanced-http": {},
       "cordova-plugin-wkwebview-engine": {},
       "cordova-plugin-app-version": {},
-      "cordova-plugin-document-viewer": {}
+      "cordova-plugin-document-viewer": {},
+      "cordova-plugin-crosswalk-webview": {
+        "XWALK_VERSION": "23+",
+        "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
+        "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
+        "XWALK_MODE": "embedded",
+        "XWALK_MULTIPLEAPK": "true"
+      }
     },
     "platforms": []
   },
