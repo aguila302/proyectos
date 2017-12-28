@@ -56,6 +56,8 @@ import { Ng2SmartTableModule } from 'ng2-smart-table'
 
 import { SQLitePorter } from '@ionic-native/sqlite-porter';
 import { HTTP } from '@ionic-native/http';
+import { AppVersion } from '@ionic-native/app-version';
+import { DocumentViewer } from '@ionic-native/document-viewer';
 
 @NgModule({
   declarations: [
@@ -153,7 +155,9 @@ import { HTTP } from '@ionic-native/http';
     ReportesDbService,
     SQLitePorter,
     HTTP,
-    ApiService
+    ApiService,
+    AppVersion,
+    DocumentViewer
   ]
 })
 export class AppModule {}
