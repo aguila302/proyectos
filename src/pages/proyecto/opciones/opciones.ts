@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { AppVersion } from '@ionic-native/app-version';
 import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-viewer';
 
@@ -13,7 +13,7 @@ export class OpcionesPage {
 	nombreApp: string = ''
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
-		private appVersion: AppVersion, private document: DocumentViewer) {
+		private appVersion: AppVersion, private document: DocumentViewer, public viewCtrl: ViewController) {
 	}
 
 	// options: DocumentViewerOptions = {
@@ -41,5 +41,10 @@ export class OpcionesPage {
 			title: 'My PDF'
 		}
 		this.document.viewDocument('file:///android_asset/www/BIPRO.pdf', 'application/pdf', options)
+	}
+
+	/* Funcion para cerrar la ventana de opciones */
+	cerrarOpciones = () => {
+		this.viewCtrl.dismiss()
 	}
 }

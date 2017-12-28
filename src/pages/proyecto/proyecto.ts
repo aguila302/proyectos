@@ -18,6 +18,7 @@ import { OpcionesPage } from '../../pages/proyecto/opciones/opciones'
 
 /* Clase de mi componente proyecto.html */
 export class ProyectoPage {
+	lastFechaSincronizacion: string = ''
 
 	constructor(
 		public navCtrl: NavController,
@@ -30,7 +31,9 @@ export class ProyectoPage {
 		public viewCtrl: ViewController,
 		public app: App,
 		private alert: AlertController) {
-
+		this.lastFechaSincronizacion = navParams.get('lastFecha')
+		console.log(this.lastFechaSincronizacion)
+		
 	}
 
 	proyectos = []
@@ -97,7 +100,6 @@ export class ProyectoPage {
 		filterModal.onDidDismiss(data => {
 			this.opciones = data
 			console.log(this.opciones)
-			
 		})
 	}
 
