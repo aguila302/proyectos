@@ -59,6 +59,7 @@ import { HTTP } from '@ionic-native/http';
 import { AppVersion } from '@ionic-native/app-version';
 import { DocumentViewer } from '@ionic-native/document-viewer';
 import { File } from '@ionic-native/file';
+import { Device } from '@ionic-native/device';
 
 @NgModule({
   declarations: [
@@ -159,7 +160,8 @@ import { File } from '@ionic-native/file';
     ApiService,
     AppVersion,
     DocumentViewer,
-    File
+    File,
+    Device
   ]
 })
 export class AppModule {}

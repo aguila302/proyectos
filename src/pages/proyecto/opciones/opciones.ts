@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ViewController, Platform } from 'i
 import { AppVersion } from '@ionic-native/app-version';
 import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-viewer';
 import { File } from '@ionic-native/file';
+import { Device } from '@ionic-native/device';
 
 @IonicPage()
 @Component({
@@ -15,7 +16,7 @@ export class OpcionesPage {
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private appVersion: AppVersion, private document: DocumentViewer, public viewCtrl: ViewController, public platform: Platform,
-		private file: File) {
+		private file: File, private device: Device) {
 	}
 
 	// options: DocumentViewerOptions = {
@@ -49,7 +50,8 @@ export class OpcionesPage {
 		}
 
 		if(this.platform.is('ios')) {
-			path = 'file:///var/containers/Bundle/Application/<UUID>/bipro.app/www/'
+			console.log('Device UUID is: ' + this.device.uuid);
+			path = `file:///var/containers/Bundle/Application/<${this.device.uuid}>/bipro.app/www/`
 		}
 		
 		const options: DocumentViewerOptions = {

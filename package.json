@@ -24,6 +24,7 @@
     "@ionic-native/app-version": "^4.5.2",
     "@ionic-native/camera": "^3.14.0",
     "@ionic-native/core": "3.10.2",
+    "@ionic-native/device": "^4.5.2",
     "@ionic-native/document-viewer": "^4.5.2",
     "@ionic-native/file": "^4.5.2",
     "@ionic-native/http": "^4.5.2",
