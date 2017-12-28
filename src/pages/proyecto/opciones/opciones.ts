@@ -41,11 +41,11 @@ export class OpcionesPage {
 		let path: string = ''
 
 		if(this.platform.is('android')) {
-			path = 'file:///android_asset/assets/'
+			path = 'file:///android_asset/www/'
 		}
 
 		if(this.platform.is('ios')) {
-			path = 'appname.app/bundle/'
+			path = 'appname.app/www/'
 		}
 		
 		const options: DocumentViewerOptions = {
