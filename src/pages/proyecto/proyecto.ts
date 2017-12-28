@@ -2,15 +2,15 @@
 import { Component, NgZone , Output, EventEmitter, Input} from '@angular/core'
 import { Proyecto } from '../../interfaces/proyecto'
 import { DetalleProyectoPage } from './DetalleProyecto'
-import { ModalController, LoadingController, NavController, Platform, NavParams, App, ViewController } from 'ionic-angular'
+import { ModalController, LoadingController, NavController, Platform, NavParams, App, ViewController, AlertController } from 'ionic-angular'
 import { FiltrosPage } from './filtros/filtros'
 import { DbService } from '../../services/db.service'
 import { LoginPage } from '../../pages/login/login'
 import { ApiService } from '../../services/api'
 import { IonicPage } from 'ionic-angular';
 import { TabsPage } from '../../pages/tabs/tabs';
+import { OpcionesPage } from '../../pages/proyecto/opciones/opciones'
 
-// @IonicPage()
 @Component({
 	selector: 'page-proyecto',
 	templateUrl: 'proyecto.html'
@@ -28,7 +28,8 @@ export class ProyectoPage {
 		public zone: NgZone, private apiService: ApiService,
 		private navParams: NavParams,
 		public viewCtrl: ViewController,
-		public app: App) {
+		public app: App,
+		private alert: AlertController) {
 
 	}
 
@@ -103,5 +104,11 @@ export class ProyectoPage {
 	/* Funcion para cerrar sesion. */
 	logout = () => {
 		this.app.getRootNav().setRoot(LoginPage, {}, {animate: true, animation: 'ios-transition', direction: 'forward'})
+	}
+
+	/* Funcion para mostrar las opciones de ayuda */
+	mostrarOpciones = () => {
+		let ventana = this.modalCtrl.create(OpcionesPage)
+		ventana.present()
 	}
 }

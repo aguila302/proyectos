@@ -41,6 +41,7 @@ import { ReporteDireccionAnioGrupoPage } from '../pages/reporte/detalle-reporte/
 import { ModalFiltrosPage } from '../pages/reporte/detalle-reporte/reporte-direccion-anio/modal-filtros/modal-filtros'
 import { GraficaFiltrosDireccionAnioPage } from '../pages/reporte/detalle-reporte/reporte-direccion-anio/grafica-filtros-direccion-anio/grafica-filtros-direccion-anio'
 import { GraficaFiltrosDireccionAnioDetallePage } from '../pages/reporte/detalle-reporte/reporte-direccion-anio/grafica-filtros-direccion-anio/grafica-filtros-direccion-anio-detalle/grafica-filtros-direccion-anio-detalle'
+import { OpcionesPage } from '../pages/proyecto/opciones/opciones'
 
 import { ChartModule } from 'angular2-highcharts';
 import * as highcharts from 'highcharts';
@@ -90,7 +91,8 @@ import { HTTP } from '@ionic-native/http';
     ModalFiltrosPage,
     GraficaFiltrosDireccionAnioPage,
     GraficaFiltrosDireccionAnioDetallePage,
-    SelectFilterPage
+    SelectFilterPage,
+    OpcionesPage
   ],
   imports: [
     BrowserModule,
@@ -137,7 +139,8 @@ import { HTTP } from '@ionic-native/http';
     ModalFiltrosPage,
     GraficaFiltrosDireccionAnioPage,
     GraficaFiltrosDireccionAnioDetallePage,
-    SelectFilterPage
+    SelectFilterPage,
+    OpcionesPage
   ],
   providers: [
     StatusBar,
