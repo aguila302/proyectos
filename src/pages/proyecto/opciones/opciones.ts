@@ -51,7 +51,7 @@ export class OpcionesPage {
 		const options: DocumentViewerOptions = {
 			title: 'My PDF'
 		}
-		this.document.viewDocument(path + 'BIPRO.pdf', 'application/pdf', options)
+		this.document.viewDocument(path + 'assets/BIPRO.pdf', 'application/pdf', options)
 	}
 
 	/* Funcion para cerrar la ventana de opciones */
