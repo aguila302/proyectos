@@ -41,7 +41,7 @@ export class OpcionesPage {
 	/* Funcion para ver archivo pdf*/
 	muestraPdf = () => {
 		console.log('pdf')
-		console.log(this.file.applicationDirectory)
+		// console.log(this.file.applicationDirectory)
 		
 		let path: string = ''
 
@@ -51,7 +51,9 @@ export class OpcionesPage {
 
 		if(this.platform.is('ios')) {
 			console.log('Device UUID is: ' + this.device.uuid);
-			path = `file:///var/containers/Bundle/Application/<${this.device.uuid}>/bipro.app/www/`
+			path = `file:///var/containers/Bundle/Application/<${this.device.uuid}>/bipro.app/www/assets/`
+			console.log(path)
+			
 		}
 		
 		const options: DocumentViewerOptions = {
