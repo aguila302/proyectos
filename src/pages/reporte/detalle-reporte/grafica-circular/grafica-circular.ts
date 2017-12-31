@@ -43,7 +43,7 @@ export class GraficaCircularPage {
 		})
 
 		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-		this.grafico = new Grafico(this.data_grafica, this.groupBy, 'Proyectos agrupados por '  + this.groupBy, '')
+		this.grafico = new Grafico(this.data_grafica, this.groupBy, 'Proyectos agrupados por '  + this.groupBy, '', '')
 		this.options = this.grafico.graficaPie()
 		
 		const collection = collect(this.proyectos)

@@ -1,12 +1,6 @@
 <ion-header margin-bottom>
 	<ion-navbar padding-top color="twitter">
 		<ion-title margin-top>Selecciona tus opciones</ion-title>
-		<ion-buttons start>
-			<button ion-button (click)="cancelar()">
-				<span ion-text color="primary" showWhen="ios">Cancelar</span>
-				<ion-icon name="md-close" showWhen="android,windows"></ion-icon>
-			</button>
-		</ion-buttons>
 	</ion-navbar>
 	<ion-grid>
 		<ion-row>
@@ -21,7 +15,7 @@
 				<ion-item>
 					<ion-label color="twitter">
 						<strong>Seleccion por default</strong></ion-label>
-					<ion-checkbox (ionChange)="seleccionDefault($event)"></ion-checkbox>
+					<ion-checkbox [(ngModel)]="select" (ionChange)="seleccionDefault($event)"></ion-checkbox>
 				</ion-item>
 			</ion-col>
 		</ion-row>
@@ -31,9 +25,19 @@
 	<ion-list>
 		<ion-item *ngFor="let item of items">
 			<ion-label>{{ item.texto }}</ion-label>
-			<ion-checkbox  [(ngModel)]="item.checked" (ionChange)="seleccionFiltros()"></ion-checkbox>
-			<!-- <ion-checkbox  checked="{{ item.checked }}" (ionChange)="seleccionFiltros($event, item.opcion)"></ion-checkbox> -->
+			<ion-checkbox [(ngModel)]="item.checked" (ionChange)="seleccionFiltros()"></ion-checkbox>
 		</ion-item>
-		<button ion-button block color="botton" (click)="cerrarFiltros()">Aceptar</button>
 	</ion-list>
+		<ion-item>
+			<ion-grid>
+				<ion-row>
+					<ion-col>
+						<button ion-button block color="botton" (click)="cerrarFiltros()">Aceptar</button>
+					</ion-col>
+					<ion-col>
+						<button ion-button block color="botton" (click)="cancelar()">Cancelar</button>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-item>
 </ion-content>

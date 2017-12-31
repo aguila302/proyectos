@@ -252,6 +252,7 @@ export class NuevoReportePage {
 						})
 					})
 					this.zone.run(() => {
+						this.agrupacion_seleccionada[0] === 'anio' ? this.agrupacion_seleccionada[0] = 'año' : this.agrupacion_seleccionada[0] === 'unidad_negocio' ? this.agrupacion_seleccionada[0] = 'dirección': this.agrupacion_seleccionada[0] === 'pais' ? this.agrupacion_seleccionada[0] = 'país': ''
 						/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 						this.bar = new Bar(this.xy, this.agrupacion_seleccionada[0], 'Proyectos agrupados por ' + this.agrupacion_seleccionada[0])
 						this.options = this.bar.graficaBar()

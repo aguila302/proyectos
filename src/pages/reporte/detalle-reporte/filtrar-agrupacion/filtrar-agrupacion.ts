@@ -36,6 +36,7 @@ export class FiltrarAgrupacionPage {
 
 	ionViewDidLoad() {
 		this.loadOpciones()
+		this.agrupacion === 'contratante' ? (this.visible = !this.visible): ''
 	}
 
 	/* Funcion para visualizar los valores de los filtros. */
@@ -104,17 +105,17 @@ export class FiltrarAgrupacionPage {
 			);
 		}
 
-		verProyectosAgrupados = () => {
-			let loader = this.loading.create({
-				content: 'Por favor espere ...',
-			})
-			loader.present()
-			setTimeout(() => {
-				this.visible = !this.visible
-				loader.dismiss()
-			}, 6000)
-		}
-		/* Funcion para enviar columnas seleccionadas. */
+		// verProyectosAgrupados = () => {
+		// 	let loader = this.loading.create({
+		// 		content: 'Por favor espere ...',
+		// 	})
+		// 	loader.present()
+		// 	setTimeout(() => {
+		// 		this.visible = !this.visible
+		// 		loader.dismiss()
+		// 	}, 6000)
+		// }
+	/* Funcion para enviar columnas seleccionadas. */
 	aceptar() {
 		this.view.dismiss(this.filtros_seleccionadas)
 	}

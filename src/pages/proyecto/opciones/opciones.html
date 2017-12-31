@@ -32,11 +32,28 @@
 						{{ nombreApp }}
 					</ion-col>
 				</ion-row>
+				<ion-row>
+					<ion-col col-12 text-center>
+						<strong>Ultima fecha de sincronización</strong>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-12 text-center>
+						{{ lastFechaSincronizacion }}
+					</ion-col>
+				</ion-row>
 				<hr>
 				<hr>
 				<ion-row>
 					<ion-col col-12 text-center>
-						<button ion-button full (click)="muestraPdf()">Ver PDF</button>
+						<button ion-button full (click)="muestraPdf()">Ayuda</button>
+					</ion-col>
+				</ion-row>
+				<hr>
+				<hr>
+				<ion-row>
+					<ion-col col-12 text-center>
+						<button ion-button full (click)="sincronizar()">Sincronizar</button>
 					</ion-col>
 				</ion-row>
 			</ion-grid>

@@ -7,18 +7,19 @@ export class Grafico {
 	serieName: string = ''
 	titleName: string = ''
 	grupo: string = ''
-
+	indicador: string = ''
 	/**
 	 * Parametros de entrada a nuestra clase para la construccion de las graficas.
 	 * @param {any[]}  data
 	 * @param {string} serieName
 	 * @param {string} titleName
 	 */
-	constructor(data: any[], serieName: string, titleName: string, grupo: string) {
+	constructor(data: any[], serieName: string, titleName: string, grupo: string, indicador) {
 		this.data = data
 		this.serieName = serieName
 		titleName === 'Proyectos agrupados por pais' ? this.titleName = 'Proyectos agrupados por país' : this.titleName = titleName
 		grupo === '' ? this.grupo = '%' : this.grupo = grupo
+		this.indicador = indicador
 	}
 
 	/**
@@ -44,7 +45,7 @@ export class Grafico {
 					// }
 				},
 				title: {
-					text: 'Porcentaje total de participación'
+					text: this.indicador
 				}
 			}],
 			legend: {

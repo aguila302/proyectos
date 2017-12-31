@@ -45,7 +45,7 @@ export class Bar {
 				}
 			}],
 			legend: {
-				enabled: true
+				enabled: false
 			},
 			plotOptions: {
 				series: {
