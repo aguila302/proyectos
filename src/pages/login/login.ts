@@ -18,7 +18,6 @@ import {
 import {
 	DbService
 } from '../../services/db.service'
-import * as collect from 'collect.js/dist'
 import {
 	ReportesDbService
 } from '../../services/reportes.db.service'
@@ -97,7 +96,6 @@ export class LoginPage {
 								// Si la ultima fecha de sincronizacion es vacio se la asigna la fecha actual, en caso
 								// contrario obtenemos la ultima fecha de sincronizacion registrado en el origen de datos.
 								response.length === 0 ? lastFecha = this.fechaActual : lastFecha = response[0].fecha_registro
-								lastFecha = '2018-10-02 9:16:07'
 								console.log('Ultima sincronizacion   ' + lastFecha)
 								/* Funcion para resolver el endpoint del api y para validar las fechas de modificaciones. */
 								this.validarRecursos(lastFecha)
