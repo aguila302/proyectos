@@ -9,9 +9,7 @@ import * as account from 'accounting-js'
 import {
 	ReportesDbService
 } from './reportes.db.service'
-import {
-	SQLitePorter
-} from '@ionic-native/sqlite-porter';
+import { SQLitePorter } from '@ionic-native/sqlite-porter';
 import * as moment from 'moment'
 
 @Injectable()
