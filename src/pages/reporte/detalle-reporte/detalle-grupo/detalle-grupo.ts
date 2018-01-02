@@ -60,7 +60,7 @@ export class DetalleGrupoPage {
 				response.forEach(items => {
 						global.xy.push({
 							'name': items.campo,
-							'y': parseFloat(items.porcentaje)
+							'y': parseFloat(items.monto)
 						})
 					})
 				/* Obtenemos la informacion para la tabla informativa. */
@@ -79,13 +79,14 @@ export class DetalleGrupoPage {
 
 			/*Mostramos la grafca con los datos necesarios. */
 			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-			this.grafico = new Grafico(this.xy, this.groupBy, 'Proyectos agrupados por ' + this.groupBy , 'USD'),
+			this.grafico = new Grafico(this.xy, this.groupBy, 'Proyectos agrupados por ' + this.groupBy , 'USD', 'Monto total USD'),
 			this.options = this.grafico.graficaBar()
 
 		) : (
 			/* Si el grupo es por numero de proyectos hacemos la consulta para obtener la informacion. */
 			await this.reporteService.detallePorNumeroProyectos(this.select, this.groupBy, this.id, this.filtros)
 			.then(response =>{
+				console.log(response)
 				/* Obtenemos la informacion para construir la grafica. */
 				response.forEach(items => {
 						global.xy.push({
@@ -108,7 +109,7 @@ export class DetalleGrupoPage {
 			}),
 			/*Mostramos la grafca con los datos necesarios. */
 			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-			this.grafico = new Grafico(this.xy, this.groupBy, 'Proyectos agrupados por ' + this.groupBy, '#'),
+			this.grafico = new Grafico(this.xy, this.groupBy, 'Proyectos agrupados por ' + this.groupBy, '#', 'Numero de proyectos'),
 			this.options = this.grafico.graficaBar()
 
 		)

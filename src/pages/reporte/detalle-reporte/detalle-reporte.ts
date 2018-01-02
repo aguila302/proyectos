@@ -22,6 +22,7 @@ import { Grafico } from '../../../highcharts/modulo.reportes/Grafico'
 	templateUrl: 'detalle-reporte.html',
 })
 export class DetalleReportePage {
+	porcentaje: string = 'porcentaje'
 	campo_agrupacion: string = ''
 	campo_select: string = ''
 	xy = []
@@ -53,16 +54,19 @@ export class DetalleReportePage {
 	getAgrupacion = (): void => {
 		this.reporteService.obtenerAgrupacionDetalle(this.id)
 			.then(response => {
+				console.log(response)
 				let agrupacion = collect(response)
 				this.campo_agrupacion = agrupacion.implode('nombre_columna', ',')
 			})
 			.then(() => this.reporteService.obtenerCamposDetalle(this.id)
 				.then(response => {
+					console.log(response)
 					let campos = collect(response)
 					this.campo_select = campos.implode('nombre_columna', ',')
 				})
 				.then(() => this.reporteService.obtenerFiltros(this.id)
 					.then(response => {
+						console.log(response)
 						this.filtros = response
 					}))
 			)
@@ -71,7 +75,6 @@ export class DetalleReportePage {
 
 	/* Funcion para reporte por año. */
 	getReporteDetalle = (): void => {
-
 		if(this.campo_agrupacion === 'contratante') {
 			this.visible = !this.visible
 
@@ -125,7 +128,7 @@ export class DetalleReportePage {
 					})
 					this.xy = data_cliente
 					/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-					this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '')
+					this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '', 'Porcentaje total de participación')
 					
 					this.options = this.grafico.graficaBar()
 
@@ -153,6 +156,7 @@ export class DetalleReportePage {
 			/* En caso de visualizar algun reporte que no sea de direccion con años. */
 			this.reporteService.detalleReporte(this.campo_select, this.campo_agrupacion, this.filtros)
 				.then(response => {
+					console.log(this.campo_select, this.campo_agrupacion, this.filtros)
 					this.campo_agrupacion === 'anio' ? this.campo_agrupacion = 'año' : this.campo_agrupacion === 'unidad_negocio' ? this.campo_agrupacion = 'dirección': ''
 					// Para mostrar la informacion de la grafica.
 					this.xy.splice(0, this.xy.length)
@@ -165,7 +169,7 @@ export class DetalleReportePage {
 					})
 
 					/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-					this.grafico = new Grafico(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion, '')
+					this.grafico = new Grafico(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion, '', 'Porcentaje total de participación')
 					this.options = this.grafico.graficaBar()
 
 					/* Para mostrar la tabla de informacion */

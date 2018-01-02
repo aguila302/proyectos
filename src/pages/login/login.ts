@@ -97,7 +97,11 @@ export class LoginPage {
 								// Si la ultima fecha de sincronizacion es vacio se la asigna la fecha actual, en caso
 								// contrario obtenemos la ultima fecha de sincronizacion registrado en el origen de datos.
 								response.length === 0 ? lastFecha = this.fechaActual : lastFecha = response[0].fecha_registro
+<<<<<<< HEAD
 								lastFecha = '2018-10-02 9:16:07'
+=======
+								// lastFecha = '2017-10-29 18:10:21'
+>>>>>>> 55ca8881095ff96dbda83918351b7450a745fdc9
 								console.log('Ultima sincronizacion   ' + lastFecha)
 								/* Funcion para resolver el endpoint del api y para validar las fechas de modificaciones. */
 								this.validarRecursos(lastFecha)
@@ -124,7 +128,7 @@ export class LoginPage {
 				response.status === 200 ? (
 						setTimeout(() => {
 							// construimos el origen de datos faltante para el modulo de reportes.
-							this.navCtrl.setRoot(TabsPage, {'lastFecha': lastFecha}, {animate: true, animation: 'ios-transition', direction: 'forward'})
+							this.navCtrl.setRoot(TabsPage, {}, {animate: true, animation: 'ios-transition', direction: 'forward'})
 							this.loader.dismiss(),
 							this.dbService.delete()
 							this.dbService.creaTablaReportes()
@@ -142,7 +146,7 @@ export class LoginPage {
 						}, 1000)
 					) :
 					(
-						this.sincronizar(lastFecha)
+						this.sincronizar()
 					)
 
 			})
@@ -152,10 +156,10 @@ export class LoginPage {
 	}
 
 	/* Funcion para sincronizar la informacion con la aplicacion movil. */
-	sincronizar(lastFecha) {
+	sincronizar() {
 		this.apiService.fetch()
 			.then(response => {
-				this.navCtrl.setRoot(TabsPage, {'lastFecha': lastFecha}, {animate: true, animation: 'ios-transition', direction: 'forward'})
+				this.navCtrl.setRoot(TabsPage, {}, {animate: true, animation: 'ios-transition', direction: 'forward'})
 				/* LLamar a la funcion que nos ayudara a registrar la informacion del endpoint a nuestra aplicacion movil. */
 				this.apiService.regitrarData(response)
 				/* Funcion para registrar un historial de la sincronizacion. */

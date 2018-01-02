@@ -99,7 +99,7 @@ export class ReportesDbService {
 					(select count(*) from proyectos) as total, id
 					FROM proyectos
 					group by ` + group_by + ` order by ` + campo + ` asc`
-
+			console.log(sql)
 		} else {
 
 			let opciones = []
@@ -143,6 +143,7 @@ export class ReportesDbService {
 				cadena += `${Object.keys(item)} in (${nuevoValues}) and `
 			})
 			sql = cadena.slice(0, -5) + ` group by ` + group_by + ` order by ` + group_by + ` ASC`
+			console.log(sql)
 		}
 		return this.db.executeSql(sql, {})
 			.then(response => {
@@ -198,6 +199,7 @@ export class ReportesDbService {
 
 	/* Funcion para obtener la data para registrar un reporte. */
 	paraGuardarReporte = (agrupacion: string, where: string) => {
+		agrupacion === 'año' ? agrupacion = 'anio' : agrupacion === 'dirección' ? agrupacion = 'unidad_negocio': agrupacion === 'país' ? agrupacion = 'pais': ''
 		let data = []
 		let sql = `select sum(monto) as monto,
 					count(*) as numero_proyectos
@@ -241,6 +243,7 @@ export class ReportesDbService {
 
 	/* Funcion para insertar en reportes agrupacion*/
 	insertarReporteAgrupado = (id: number, agrupacion: string): any => {
+		agrupacion === 'año' ? agrupacion = 'anio' : agrupacion === 'dirección' ? agrupacion = 'unidad_negocio': agrupacion === 'país' ? agrupacion = 'pais': ''
 		let insert_grupado = `insert into reportes_agrupacion(
 				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
 
@@ -251,6 +254,7 @@ export class ReportesDbService {
 
 	/* Funcion para insertar e reportes columans*/
 	insertReporteColumnas = (id: number, agrupacion: string): any => {
+		agrupacion === 'año' ? agrupacion = 'anio' : agrupacion === 'dirección' ? agrupacion = 'unidad_negocio': agrupacion === 'país' ? agrupacion = 'pais': ''
 		let insert_grupado = `insert into reportes_columnas(
 				reporte_id, nombre_columna) values(?, ?)`
 
@@ -367,16 +371,8 @@ export class ReportesDbService {
 			sql = `select ` + select + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
 						(select sum(monto) from proyectos) as monto_total
 						FROM proyectos where ${campo[0]} in (${nuevaCadena}) group by ` + groupBY + ` order by ` + groupBY + ` asc`
-			console.log('filtro');
-			console.log(filtros)
-			
-			console.log('select')
-			console.log(select)
-			console.log('group by')
-			console.log(groupBY)
 
 			console.log(sql)
-			
 		}
 
 		return this.db.executeSql(sql, {})
@@ -404,10 +400,11 @@ export class ReportesDbService {
 		groupBY === 'año' ? groupBY = 'anio': groupBY === 'dirección' ? groupBY = 'unidad_negocio': 
 		// Recuperamos nuestros filtros
 		filters = filtros.map(item => item.valor)
-		if(filters.length === 0){
-				sql = `select ` + select + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
-						(select sum(monto) from proyectos) as monto_total
+		if(filters.length === 0) {
+			sql = `select ` + select + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
+						(select sum(monto) from proyectos) as monto_total, (select count(*) from proyectos) as total_proyectos
 						FROM proyectos group by ` + groupBY + ` order by ` + groupBY + ` asc`
+			console.log(sql)
 		}
 		else {
 			filters.forEach(item => {
@@ -416,7 +413,7 @@ export class ReportesDbService {
 			})
 
 			sql = `select ` + select + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
-						(select sum(monto) from proyectos) as monto_total
+						(select sum(monto) from proyectos) as monto_total, (select count(*) from proyectos) as total_proyectos
 						FROM proyectos where ${groupBY} in (${nuevaCadena}) group by ` + groupBY + ` order by ` + groupBY + ` asc`
 			console.log(sql)
 		}

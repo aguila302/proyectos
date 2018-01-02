@@ -105,7 +105,7 @@ export class DbService {
 			 		fecha_fin, numero_propuesta,
 			 		anticipo, created_at) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
 
-			return this.db.executeSql(sql, [
+			this.db.executeSql(sql, [
 					item.numero,
 					item.nombre_proyecto,
 					item.nombre_corto,
@@ -130,12 +130,12 @@ export class DbService {
 				]).then(() => console.log('regustros insertados'))
 				.catch(e => console.log(e))
 		})
-			this.sqlitePorter.exportDbToSql(this.db)
-			.then(res => {
-				console.log(res)
+			// this.sqlitePorter.exportDbToSql(this.db)
+			// .then(res => {
+			// 	console.log(res)
 
-			})
-			.catch(e => console.error(e))
+			// })
+			// .catch(e => console.error(e))
 	}
 
 	/* Obtenemos las datos de los proyectos. */
@@ -546,16 +546,16 @@ export class DbService {
 			.then(() => console.log('regustros insertados en tabla reportes'))
 			.catch(e => console.log(e))
 
-		gerencia = `
-			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por gerencia', (select sum(monto) from proyectos), (select count(*) from proyectos));`
-		this.db.executeSql(gerencia, {})
+		diireccion = `
+			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por dirección',
+			(select sum(monto) from proyectos), (select count(*) from proyectos));`
+		this.db.executeSql(diireccion, {})
 			.then(() => console.log('regustros insertados en tabla reportes'))
 			.catch(e => console.log(e))
 
-		cliente = `
-			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por cliente',
-			(select sum(monto) from proyectos), (select count(*) from proyectos));`
-		this.db.executeSql(cliente, {})
+		gerencia = `
+			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por gerencia', (select sum(monto) from proyectos), (select count(*) from proyectos));`
+		this.db.executeSql(gerencia, {})
 			.then(() => console.log('regustros insertados en tabla reportes'))
 			.catch(e => console.log(e))
 
@@ -566,13 +566,13 @@ export class DbService {
 			.then(() => console.log('regustros insertados en tabla reportes'))
 			.catch(e => console.log(e))
 
-		diireccion = `
-			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por dirección',
+		cliente = `
+			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por cliente',
 			(select sum(monto) from proyectos), (select count(*) from proyectos));`
-		this.db.executeSql(diireccion, {})
+		this.db.executeSql(cliente, {})
 			.then(() => console.log('regustros insertados en tabla reportes'))
 			.catch(e => console.log(e))
-
+			
 		direccion_anio = `
 			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por dirección y años',
 			(select sum(monto) from proyectos), (select count(*) from proyectos));`

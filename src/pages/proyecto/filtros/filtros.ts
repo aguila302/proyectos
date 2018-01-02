@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core'
+import { Component } from '@angular/core'
 import { ViewController, NavParams } from 'ionic-angular'
 
 @Component({
@@ -12,9 +12,7 @@ import { ViewController, NavParams } from 'ionic-angular'
 export class FiltrosPage {
 
 	data_send = []
-	visible: boolean = true
-	@Output() open: EventEmitter < any > = new EventEmitter();
-	@Output() close: EventEmitter < any > = new EventEmitter();
+	select: boolean = true
 
 	constructor(public navParams: NavParams, public viewCtrl: ViewController) {
 	}

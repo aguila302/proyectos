@@ -10,6 +10,7 @@ import { ApiService } from '../../services/api'
 import { IonicPage } from 'ionic-angular';
 import { TabsPage } from '../../pages/tabs/tabs';
 import { OpcionesPage } from '../../pages/proyecto/opciones/opciones'
+import { ReportesDbService } from '../../services/reportes.db.service'
 
 @Component({
 	selector: 'page-proyecto',
@@ -30,10 +31,8 @@ export class ProyectoPage {
 		private navParams: NavParams,
 		public viewCtrl: ViewController,
 		public app: App,
-		private alert: AlertController) {
-		this.lastFechaSincronizacion = navParams.get('lastFecha')
-		console.log(this.lastFechaSincronizacion)
-		
+		private alert: AlertController,
+		private reporteService: ReportesDbService,) {
 	}
 
 	proyectos = []
@@ -44,6 +43,7 @@ export class ProyectoPage {
 
 	ionViewDidLoad() {
 		this.getProyectos()
+		this.obtenerUltimaFechaSincronizacion()
 	}
 	/* Obtenemos los proyectos del servicio db.service de proyectos. */
 	getProyectos() {
@@ -110,7 +110,15 @@ export class ProyectoPage {
 
 	/* Funcion para mostrar las opciones de ayuda */
 	mostrarOpciones = () => {
-		let ventana = this.modalCtrl.create(OpcionesPage)
+		let ventana = this.modalCtrl.create(OpcionesPage, {lastFechaSincronizacion: this.lastFechaSincronizacion})
 		ventana.present()
+	}
+	/* Funcion para obtener la ultima fecha de sincronizacion. */
+	obtenerUltimaFechaSincronizacion = () => {
+		this.reporteService.getLastDateSincronizacion()
+		.then(response => {
+			console.log(response[0].fecha_registro)
+			this.lastFechaSincronizacion = response[0].fecha_registro
+		})
 	}
 }

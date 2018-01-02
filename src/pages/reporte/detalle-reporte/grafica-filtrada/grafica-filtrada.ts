@@ -32,6 +32,7 @@ export class GraficaFiltradaPage {
 
 		/* PAra visualizar el titulo de la vista activa.*/
 		this.title = collect(this.reportes).implode('campo', ' , ')
+		this.campo_agrupacion === 'anio' ? this.campo_agrupacion = 'año' : this.campo_agrupacion === 'unidad_negocio' ? this.campo_agrupacion = 'dirección': this.campo_agrupacion === 'pais' ? this.campo_agrupacion = 'país': ''
 		
 	}
 
@@ -50,7 +51,7 @@ export class GraficaFiltradaPage {
 			})
 		})
 		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-		this.grafico = new Grafico(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion , '')
+		this.grafico = new Grafico(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion , '', '')
 		this.options = this.grafico.graficaBar()
 	}
 

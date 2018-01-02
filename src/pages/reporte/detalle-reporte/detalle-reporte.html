@@ -2,10 +2,23 @@
 	<ion-navbar no-border-bottom color="twitter">
 		<ion-title>Detalle de reporte</ion-title>
 	</ion-navbar>
+	<ion-toolbar no-border-top>
+		<ion-segment [(ngModel)]="porcentaje">
+			<ion-segment-button value="porcentaje">
+				<!-- <strong style="text-transform: capitalize;">Porcentaje</strong> -->
+				<i class="fa fa-percent" aria-hidden="true" padding-right margin-right></i>
+			</ion-segment-button>
+			<ion-segment-button value="monto_usd">
+				<i class="fa fa-usd" aria-hidden="true" padding-right margin-right></i>
+			</ion-segment-button>
+			<ion-segment-button value="numero_proyectos" (ionSelect)="getDatosNumeroProyectos()">
+				<i class="fa fa-list-ol" aria-hidden="true" padding-right margin-right></i>
+			</ion-segment-button>
+		</ion-segment>
+	</ion-toolbar>
 </ion-header>
 <ion-content padding>
 	<div text-right>
-		<!-- <button ion-button>Editar</button> -->
 		<div text-right>
 			<button ion-button clear (click)="modoCircular(campo_select, campo_agrupacion)">Ver modo circular</button>
 		</div>
