@@ -38,6 +38,7 @@ export class DetalleReportePage {
 	data_circular = []
 	con: number = 1
 	visible: boolean = false
+	reportes = []
 	grafico: Grafico
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -334,5 +335,114 @@ export class DetalleReportePage {
 			'datos_circular': this.data_circular,
 			'groupBy': this.campo_agrupacion
 		})
+	}
+
+	/* Funcion para obtener los datos por nuemero de proyectos. */
+	async getDatosNumeroProyectos() {
+		var miglobal = this
+		/* Si el grupo es por numero de proyectos hacemos la consulta para obtener la informacion. */
+		await this.reporteService.detallePorNumeroProyectos(this.campo_select, this.campo_agrupacion, this.id, this.filtros)
+			.then(response => {
+				miglobal.xy.splice(0, miglobal.xy.length)
+				miglobal.reportes.splice(0, miglobal.reportes.length)
+				/* Obtenemos la informacion para construir la grafica. */
+				response.forEach(items => {
+					miglobal.xy.push({
+						'name': items.campo,
+						'y': parseInt(items.numero_proyectos)
+					})
+				})
+				/* Obtenemos la informacion para la tabla informativa. */
+				this.monto_total = account.formatNumber(collect(response).sum('monto'))
+				this.total_proyectos = collect(response).sum('numero_proyectos')
+
+				response.forEach(items => {
+					miglobal.reportes.push({
+						'campo': items.campo,
+						'porcentaje': items.porcentaje,
+						'monto': account.formatNumber(items.monto),
+						'numero_proyectos': items.numero_proyectos,
+					})
+				})
+			}),
+		/*Mostramos la grafca con los datos necesarios. */
+		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+		this.grafico = new Grafico(this.xy, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, '#', 'Numero de proyectos'),
+		this.options = this.grafico.graficaBar()
+	}
+
+	/* Funcion para obtener la informacion agrupados por total usd*/
+	async getDatosPorUsd () {
+		var miglobal = this
+		miglobal.xy.splice(0, miglobal.xy.length)
+		miglobal.reportes.splice(0, miglobal.reportes.length)
+		/* Si el grupo es por monto total hacemos la consulta para obtener la informacion. */
+			await this.reporteService.detallePorMontoTotal(this.campo_select, this.campo_agrupacion, this.id, this.filtros)
+			.then(response => {
+				/* Obtenemos la informacion para construir la grafica. */
+				response.forEach(items => {
+						miglobal.xy.push({
+							'name': items.campo,
+							'y': parseFloat(items.monto)
+						})
+					})
+				/* Obtenemos la informacion para la tabla informativa. */
+				this.monto_total = account.formatNumber(collect(response).sum('monto'))
+				this.total_proyectos = collect(response).sum('numero_proyectos')
+
+				response.forEach(items => {
+					miglobal.reportes.push({
+						'campo': items.campo,
+						'porcentaje': items.porcentaje,
+						'monto': account.formatNumber(items.monto),
+						'numero_proyectos': items.numero_proyectos,
+					})
+				})
+			}),
+
+			/*Mostramos la grafca con los datos necesarios. */
+			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+			this.grafico = new Grafico(this.xy, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion , 'USD', 'Monto total USD'),
+			this.options = this.grafico.graficaBar()
+	}
+
+	/* Funcion para obtener la informacion agrupados por porcentaje de participacion*/
+	async getDatosPorPorcentaje() {
+ 		var miglobal = this
+		miglobal.xy.splice(0, miglobal.xy.length)
+		miglobal.reportes.splice(0, miglobal.reportes.length)
+		await this.reporteService.detalleReporte(this.campo_select, this.campo_agrupacion, this.filtros)
+			.then(response => {
+				this.campo_agrupacion === 'anio' ? this.campo_agrupacion = 'año' : this.campo_agrupacion === 'unidad_negocio' ? this.campo_agrupacion = 'dirección' : ''
+				// Para mostrar la informacion de la grafica.
+				response.forEach(item => {
+					miglobal.xy.push({
+						name: item.campo,
+						y: parseFloat(item.porcentaje)
+					})
+
+				})
+
+				/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+				this.grafico = new Grafico(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion, '', 'Porcentaje total de participación')
+				this.options = this.grafico.graficaBar()
+
+				/* Para mostrar la tabla de informacion */
+				const collection = collect(response)
+				this.monto_total = account.formatNumber(collection.sum('monto'))
+				this.total_proyectos = collection.sum('numero_proyectos')
+
+				let proyectos = collection.map(function(item) {
+					return {
+						'campo': item.campo,
+						'porcentaje': item.porcentaje,
+						'monto': account.formatNumber(item.monto),
+						'numero_proyectos': item.numero_proyectos,
+						'group_by': item.group_by,
+					}
+				})
+				this.proyectos = proyectos
+				// this.data_circular = response
+			})
 	}
 }
