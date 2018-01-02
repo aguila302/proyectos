@@ -597,13 +597,13 @@ export class DbService {
 
 		let direccion = `insert into reportes_columnas(
 				reporte_id, nombre_columna) values(?, ?)`
-		this.db.executeSql(direccion, ['6', 'unidad_negocio'])
+		this.db.executeSql(direccion, ['3', 'unidad_negocio'])
 			.then(() => console.log('regustros insertados en tabla reportes columnas'))
 			.catch(e => console.log(e))
 
 		let gerencia = `insert into reportes_columnas(
 				reporte_id, nombre_columna) values(?, ?)`
-		this.db.executeSql(gerencia, ['3', 'gerencia'])
+		this.db.executeSql(gerencia, ['4', 'gerencia'])
 			.then(() => console.log('regustros insertados en tabla reportes columnas'))
 			.catch(e => console.log(e))
 
@@ -615,7 +615,7 @@ export class DbService {
 
 		let cliente = `insert into reportes_columnas(
 				reporte_id, nombre_columna) values(?, ?)`
-		this.db.executeSql(cliente, ['4', 'contratante'])
+		this.db.executeSql(cliente, ['6', 'contratante'])
 			.then(() => console.log('regustros insertados en tabla reportes columnas'))
 			.catch(e => console.log(e))
 
@@ -644,13 +644,13 @@ export class DbService {
 
 		let direccion = `insert into reportes_agrupacion(
 				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
-		this.db.executeSql(direccion, ['6', 'unidad_negocio', '1'])
+		this.db.executeSql(direccion, ['3', 'unidad_negocio', '1'])
 			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
 			.catch(e => console.log(e))
 
 		let gerencia = `insert into reportes_agrupacion(
 				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
-		this.db.executeSql(gerencia, ['3', 'gerencia', '1'])
+		this.db.executeSql(gerencia, ['4', 'gerencia', '1'])
 			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
 			.catch(e => console.log(e))
 
@@ -662,7 +662,7 @@ export class DbService {
 
 		let cliente = `insert into reportes_agrupacion(
 				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
-		this.db.executeSql(cliente, ['4', 'contratante', '1'])
+		this.db.executeSql(cliente, ['6', 'contratante', '1'])
 			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
 			.catch(e => console.log(e))
 
