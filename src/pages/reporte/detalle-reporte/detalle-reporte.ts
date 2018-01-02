@@ -22,6 +22,7 @@ import { Grafico } from '../../../highcharts/modulo.reportes/Grafico'
 	templateUrl: 'detalle-reporte.html',
 })
 export class DetalleReportePage {
+	porcentaje: string = 'porcentaje'
 	campo_agrupacion: string = ''
 	campo_select: string = ''
 	xy = []
