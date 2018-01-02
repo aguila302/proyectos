@@ -5,7 +5,6 @@ import {
 	SQLite,
 	SQLiteObject
 } from '@ionic-native/sqlite'
-import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
 import {
 	ReportesDbService
@@ -598,15 +597,15 @@ export class DbService {
 			.then(() => console.log('regustros insertados en tabla reportes columnas'))
 			.catch(e => console.log(e))
 
-		let gerencia = `insert into reportes_columnas(
+		let direccion = `insert into reportes_columnas(
 				reporte_id, nombre_columna) values(?, ?)`
-		this.db.executeSql(gerencia, ['3', 'gerencia'])
+		this.db.executeSql(direccion, ['6', 'unidad_negocio'])
 			.then(() => console.log('regustros insertados en tabla reportes columnas'))
 			.catch(e => console.log(e))
 
-		let cliente = `insert into reportes_columnas(
+		let gerencia = `insert into reportes_columnas(
 				reporte_id, nombre_columna) values(?, ?)`
-		this.db.executeSql(cliente, ['4', 'contratante'])
+		this.db.executeSql(gerencia, ['3', 'gerencia'])
 			.then(() => console.log('regustros insertados en tabla reportes columnas'))
 			.catch(e => console.log(e))
 
@@ -616,9 +615,9 @@ export class DbService {
 			.then(() => console.log('regustros insertados en tabla reportes columnas'))
 			.catch(e => console.log(e))
 
-		let direccion = `insert into reportes_columnas(
+		let cliente = `insert into reportes_columnas(
 				reporte_id, nombre_columna) values(?, ?)`
-		this.db.executeSql(direccion, ['6', 'unidad_negocio'])
+		this.db.executeSql(cliente, ['4', 'contratante'])
 			.then(() => console.log('regustros insertados en tabla reportes columnas'))
 			.catch(e => console.log(e))
 
@@ -645,15 +644,15 @@ export class DbService {
 			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
 			.catch(e => console.log(e))
 
-		let gerencia = `insert into reportes_agrupacion(
+		let direccion = `insert into reportes_agrupacion(
 				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
-		this.db.executeSql(gerencia, ['3', 'gerencia', '1'])
+		this.db.executeSql(direccion, ['6', 'unidad_negocio', '1'])
 			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
 			.catch(e => console.log(e))
 
-		let cliente = `insert into reportes_agrupacion(
+		let gerencia = `insert into reportes_agrupacion(
 				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
-		this.db.executeSql(cliente, ['4', 'contratante', '1'])
+		this.db.executeSql(gerencia, ['3', 'gerencia', '1'])
 			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
 			.catch(e => console.log(e))
 
@@ -663,9 +662,9 @@ export class DbService {
 			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
 			.catch(e => console.log(e))
 
-		let direccion = `insert into reportes_agrupacion(
+		let cliente = `insert into reportes_agrupacion(
 				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
-		this.db.executeSql(direccion, ['6', 'unidad_negocio', '1'])
+		this.db.executeSql(cliente, ['4', 'contratante', '1'])
 			.then(() => console.log('regustros insertados en tabla reportes agrupacion'))
 			.catch(e => console.log(e))
 
