@@ -97,11 +97,7 @@ export class LoginPage {
 								// Si la ultima fecha de sincronizacion es vacio se la asigna la fecha actual, en caso
 								// contrario obtenemos la ultima fecha de sincronizacion registrado en el origen de datos.
 								response.length === 0 ? lastFecha = this.fechaActual : lastFecha = response[0].fecha_registro
-<<<<<<< HEAD
 								lastFecha = '2018-10-02 9:16:07'
-=======
-								// lastFecha = '2017-10-29 18:10:21'
->>>>>>> 55ca8881095ff96dbda83918351b7450a745fdc9
 								console.log('Ultima sincronizacion   ' + lastFecha)
 								/* Funcion para resolver el endpoint del api y para validar las fechas de modificaciones. */
 								this.validarRecursos(lastFecha)
