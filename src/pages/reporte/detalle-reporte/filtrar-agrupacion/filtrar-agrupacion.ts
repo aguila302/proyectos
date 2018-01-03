@@ -87,19 +87,20 @@ export class FiltrarAgrupacionPage {
 						})
 						/* Para visualizar los contratantes menores de 1% */
 						this.filter_menores_uno = menores_de_uno.toArray()
-						// this.retornaData(this.filter_menores_uno)
+						this.retornaData(Promise.resolve(this.filter_menores_uno))
 				})
 			})
 	}
 
-	// retornaData(): Promise<any> {
-	// 	let promise = new Promise(resolve => {
-	// 		resolve(this.filter_menores_uno)
-	// 	})
-	// 	return promise
-	// }
+	retornaData(data) {
+		return new Promise(resolve => {
+			resolve(data)
+		})
+		// return data
+	}
 
 	doInfinite(event: any, start: number = 0) {
+
 		let promise = new Promise(resolve => {
 			resolve(this.filter_menores_uno)
 		})
