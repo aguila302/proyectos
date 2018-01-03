@@ -725,8 +725,8 @@ export class DbService {
 
 	busquedaProyectos = (busqueda: string) => {
 		let proyectos = []
-			let sql = `select * from proyectos where producto like '${busqueda}' or anio like '${busqueda}' or nombre_proyecto like '${busqueda}'
-						or contratante like '${busqueda}' or datos_cliente like '${busqueda}'`
+			let sql = `select * from proyectos where producto like '%${busqueda}%' or anio like '%${busqueda}%' or nombre_proyecto like '%${busqueda}%'
+						or contratante like '%${busqueda}%' or datos_cliente like '%${busqueda}%'`
 			console.log(sql)
 
 			return this.db.executeSql(sql, {})
