@@ -1,5 +1,5 @@
 // https://github.com/ionic-team/cordova-plugin-wkwebview-engine
-import { Component, NgZone , Output, EventEmitter, Input} from '@angular/core'
+import { Component, NgZone } from '@angular/core'
 import { Proyecto } from '../../interfaces/proyecto'
 import { DetalleProyectoPage } from './DetalleProyecto'
 import { ModalController, LoadingController, NavController, Platform, NavParams, App, ViewController, AlertController } from 'ionic-angular'
@@ -98,7 +98,6 @@ export class ProyectoPage {
 		/* Cierra la ventana modal y recuperamos las opciones que se seleccionaron. */
 		filterModal.onDidDismiss(data => {
 			this.opciones = data
-			console.log(this.opciones)
 		})
 	}
 
@@ -133,7 +132,9 @@ export class ProyectoPage {
 			this.dbService.busquedaProyectos(this.textoBusqueda)
 			.then(response => {
 				console.log(response)
+				this.proyectos = response
 			})
+			.catch(console.error.bind(console))
 		)
 	}
 }
