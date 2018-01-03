@@ -39,13 +39,13 @@ export class FiltrarAgrupacionPage {
 	}
 
 	/* Funcion para visualizar los valores de los filtros. */
-	async loadOpciones() {
+	loadOpciones() {
 		if(this.agrupacion !== 'contratante'){
 			this.registros = this.columnas
 		}
 	}
 
-	async cargaOpcionesContratante() {
+	cargaOpcionesContratante() {
 		// para la opcion de contratante agrupamos por aquellos que tienen mayor a 1 % de participacion aplica el mismo proceso para graficar.
 		this.dbService.openDatabase()
 			.then(() => this.dbService.consultaXCliente())
