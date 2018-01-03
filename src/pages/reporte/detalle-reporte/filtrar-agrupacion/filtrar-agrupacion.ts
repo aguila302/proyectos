@@ -108,7 +108,7 @@ export class FiltrarAgrupacionPage {
 		setTimeout(() => {
 			for (var i = 0; i < this.filter_menores_uno.length; i++) {
 				this.items.push({
-					'contratante': this.filter_menores_uno['contratante']
+					'contratante': this.filter_menores_uno[i].contratante
 				});
 			}
 			console.log('Async operation has ended');
