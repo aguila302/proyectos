@@ -45,7 +45,7 @@ export class FiltrarAgrupacionPage {
 		}
 	}
 
-	cargaOpcionesContratante() {
+	cargaOpcionesContratante(): any {
 		// para la opcion de contratante agrupamos por aquellos que tienen mayor a 1 % de participacion aplica el mismo proceso para graficar.
 		this.dbService.openDatabase()
 			.then(() => this.dbService.consultaXCliente())
@@ -86,11 +86,30 @@ export class FiltrarAgrupacionPage {
 							})
 						})
 						/* Para visualizar los contratantes menores de 1% */
-					this.filter_menores_uno = menores_de_uno.toArray()
+						this.filter_menores_uno = menores_de_uno.toArray()
+						// this.retornaData(this.filter_menores_uno)
 				})
 			})
 	}
-	
+
+	// retornaData(): Promise<any> {
+	// 	let promise = new Promise(resolve => {
+	// 		resolve(this.filter_menores_uno)
+	// 	})
+	// 	return promise
+	// }
+
+	doInfinite(event: any, start: number = 0) {
+		let promise = new Promise(resolve => {
+			resolve(this.filter_menores_uno)
+		})
+		console.log('do infinitive currently '+ start)
+		start += 50
+		promise.then(() => {
+			event.complete()
+		})
+	}
+
 	/* Funcion para controlar los filtros seleccionados. */
 	seleccionFiltros = (event: any, filtros: string) => {
 			let encontrado
