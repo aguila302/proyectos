@@ -25,6 +25,7 @@ export class FiltrarAgrupacionPage {
 	columnas = []
 	filter_menores_uno = []
 	visible: boolean = false
+	items = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController,
 		private dbService: DbService,
@@ -99,17 +100,19 @@ export class FiltrarAgrupacionPage {
 		// return data
 	}
 
-	doInfinite(infiniteScroll) {
+	doInfinite(infiniteScroll): Promise<any> {
 		console.log('Begin async operation');
-
-		setTimeout(() => {
-			// for (let i = 0; i < 30; i++) {
-			// 	this.items.push(this.items.length);
-			// }
-
-			console.log('Async operation has ended');
-			infiniteScroll.complete();
-		}, 500);
+		return new Promise((resolve) => {
+			setTimeout(() => {
+				this.filter_menores_uno.forEach(item => {
+					this.items.push({
+						'contratante': item.contratante
+					})
+				})
+				console.log('Async operation has ended');
+				infiniteScroll.complete();
+			}, 500);
+		})
 	}
 
 	/* Funcion para controlar los filtros seleccionados. */
