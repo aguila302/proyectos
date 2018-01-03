@@ -616,6 +616,7 @@ export class DetalleReportePage {
 
 	/* Funcion para obtener la informacion agrupados por porcentaje de participacion*/
 	async getDatosPorPorcentaje() {
+		this.segmento = 1
 		if (this.campo_agrupacion === 'contratante') {
 			this.visible = true
 			console.log(this.visible)

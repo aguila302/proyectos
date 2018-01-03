@@ -26,7 +26,6 @@ export class Grafico {
 	 * Funcion que retorna un objeto para graficar de tipo bar
 	 */
 	graficaBar = (): Object => {
-		var global = this
 		let options = {
 			chart: {
 				type: 'column',
@@ -56,7 +55,7 @@ export class Grafico {
 					borderWidth: 0,
 					dataLabels: {
 						enabled: true,
-						format:  `{point.y:.1f}${this.grupo}`
+						format:  `{point.y:.2f}${this.grupo}`
 					}
 				}
 			},
@@ -137,7 +136,7 @@ export class Grafico {
 				text: this.titleName
 			},
 			tooltip: {
-				pointFormat: '{series.name}: <b>{point.y:.1f} '+this.grupo+'</b>'
+				pointFormat: '{series.name}: <b>{point.y} '+this.grupo+'</b>'
 			},
 			plotOptions: {
 				pie: {
@@ -145,7 +144,7 @@ export class Grafico {
 					cursor: 'pointer',
 					dataLabels: {
 						enabled: true,
-						format: '<b>{point.name}</b>: {point.y:.1f} '+ this.grupo,
+						format: '<b>{point.name}</b>: {point.y} '+ this.grupo,
 					},
 					showInLegend: true
 				}
