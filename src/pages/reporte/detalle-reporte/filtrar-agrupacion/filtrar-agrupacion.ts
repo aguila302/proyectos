@@ -32,13 +32,11 @@ export class FiltrarAgrupacionPage {
 		public zone: NgZone, public loading: LoadingController) {
 		this.agrupacion = navParams.get('agrupacion')
 		this.columnas = navParams.get('registros')
-		this.agrupacion === 'contratante' ? (this.visible = !this.visible): ''
-		this.agrupacion === 'contratante' ? (this.cargaOpcionesContratante()): this.loadOpciones()
 	}
 
 	ionViewDidLoad() {
-		// this.agrupacion === 'contratante' ? (this.visible = !this.visible): ''
-		// this.agrupacion === 'contratante' ? (this.cargaOpcionesContratante()): this.loadOpciones()
+		this.agrupacion === 'contratante' ? (this.visible = !this.visible): ''
+		this.agrupacion === 'contratante' ? (this.cargaOpcionesContratante()): this.loadOpciones()
 	}
 
 	/* Funcion para visualizar los valores de los filtros. */
@@ -104,15 +102,17 @@ export class FiltrarAgrupacionPage {
 
 	doInfinite(infiniteScroll) {
 		console.log('Begin async operation');
-		setTimeout(() => {
-			for (var i = 0; i < this.filter_menores_uno.length; i++) {
-				this.items.push({
-					'contratante': this.filter_menores_uno[i].contratante
-				});
-			}
-			console.log('Async operation has ended');
-			infiniteScroll.complete()
-		}, 1000);
+		this.zone.run(() => {
+			setTimeout(() => {
+				for (var i = 0; i < this.filter_menores_uno.length; i++) {
+					this.items.push({
+						'contratante': this.filter_menores_uno[i].contratante
+					});
+				}
+				console.log('Async operation has ended');
+				infiniteScroll.complete()
+			}, 1000)
+		})
 	}
 
 	/* Funcion para controlar los filtros seleccionados. */
