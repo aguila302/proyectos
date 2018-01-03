@@ -101,19 +101,19 @@ export class FiltrarAgrupacionPage {
 	// 	return data
 	// }
 
-	doInfinite(infiniteScroll) {
+	async doInfinite(infiniteScroll) {
 		console.log('Begin async operation');
-		this.zone.run(() => {
-			setTimeout(() => {
-				for (var i = 0; i < this.filter_menores_uno.length; i++) {
-					this.items.push({
-						'contratante': this.filter_menores_uno[i].contratante
-					});
-				}
-				console.log('Async operation has ended');
-				infiniteScroll.complete()
-			}, 1000)
-		})
+
+		setTimeout(() => {
+			for (var i=0; i<this.filter_menores_uno.length; i++) {
+				this.items.push({
+					'contratante': this.filter_menores_uno[i].contratante
+				});
+			}
+			console.log('Async operation has ended');
+			infiniteScroll.complete()
+		}, 500)
+
 	}
 
 	/* Funcion para controlar los filtros seleccionados. */
