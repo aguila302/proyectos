@@ -99,16 +99,17 @@ export class FiltrarAgrupacionPage {
 		// return data
 	}
 
-	doInfinite(event: any) {
-		let  start: number = 0
-		let promise = new Promise(resolve => {
-			resolve(this.filter_menores_uno)
-		})
-		console.log('do infinitive currently ' + start)
-		start += 50
-		promise.then(() => {
-			event.complete()
-		})
+	doInfinite(infiniteScroll) {
+		console.log('Begin async operation');
+
+		setTimeout(() => {
+			// for (let i = 0; i < 30; i++) {
+			// 	this.items.push(this.items.length);
+			// }
+
+			console.log('Async operation has ended');
+			infiniteScroll.complete();
+		}, 500);
 	}
 
 	/* Funcion para controlar los filtros seleccionados. */
