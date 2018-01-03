@@ -32,6 +32,9 @@ export class FiltrarAgrupacionPage {
 		public zone: NgZone, public loading: LoadingController) {
 		this.agrupacion = navParams.get('agrupacion')
 		this.columnas = navParams.get('registros')
+		for (var i = 0; i < 30; i++) {
+			this.items.push(this.items.length);
+		}
 	}
 
 	ionViewDidLoad() {
@@ -100,17 +103,17 @@ export class FiltrarAgrupacionPage {
 		// return data
 	}
 
-	doInfinite(infiniteScroll): Promise<any> {
+	doInfinite(infiniteScroll): Promise < any > {
 		console.log('Begin async operation');
+
 		return new Promise((resolve) => {
 			setTimeout(() => {
-				// this.filter_menores_uno.forEach(item => {
-				// 	this.items.push({
-				// 		'contratante': item.contratante
-				// 	})
-				// })
+				for (var i = 0; i < 30; i++) {
+					this.items.push(this.items.length);
+				}
+
 				console.log('Async operation has ended');
-				infiniteScroll.complete();
+				resolve();
 			}, 500);
 		})
 	}
