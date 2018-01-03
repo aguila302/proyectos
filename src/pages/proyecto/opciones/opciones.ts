@@ -78,7 +78,8 @@ export class OpcionesPage {
 
 		if (this.platform.is('ios')) {
 			console.log('Device UUID is: ' + this.device.uuid);
-			path = `file:///var/containers/Bundle/Application/${this.device.uuid}/bipro.app/www/assets/`
+			path = `bipro.app/www/bundle/`
+			// path = `file:///var/containers/Bundle/Application/${this.device.uuid}/bipro.app/www/assets/`
 			console.log(path)
 		}
 
