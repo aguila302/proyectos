@@ -92,19 +92,19 @@ export class FiltrarAgrupacionPage {
 			})
 	}
 
-	retornaData(data) {
+	retornaData(data): Object {
 		return new Promise(resolve => {
 			resolve(data)
 		})
 		// return data
 	}
 
-	doInfinite(event: any, start: number = 0) {
-
+	doInfinite(event: any) {
+		let  start: number = 0
 		let promise = new Promise(resolve => {
 			resolve(this.filter_menores_uno)
 		})
-		console.log('do infinitive currently '+ start)
+		console.log('do infinitive currently ' + start)
 		start += 50
 		promise.then(() => {
 			event.complete()
