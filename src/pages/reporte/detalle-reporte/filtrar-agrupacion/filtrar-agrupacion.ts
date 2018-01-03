@@ -32,14 +32,13 @@ export class FiltrarAgrupacionPage {
 		public zone: NgZone, public loading: LoadingController) {
 		this.agrupacion = navParams.get('agrupacion')
 		this.columnas = navParams.get('registros')
-		for (var i = 0; i < 30; i++) {
-			this.items.push(this.items.length);
-		}
+		this.agrupacion === 'contratante' ? (this.visible = !this.visible): ''
+		this.agrupacion === 'contratante' ? (this.cargaOpcionesContratante()): this.loadOpciones()
 	}
 
 	ionViewDidLoad() {
-		this.agrupacion === 'contratante' ? (this.visible = !this.visible): ''
-		this.agrupacion === 'contratante' ? (this.cargaOpcionesContratante()): this.loadOpciones()
+		// this.agrupacion === 'contratante' ? (this.visible = !this.visible): ''
+		// this.agrupacion === 'contratante' ? (this.cargaOpcionesContratante()): this.loadOpciones()
 	}
 
 	/* Funcion para visualizar los valores de los filtros. */
