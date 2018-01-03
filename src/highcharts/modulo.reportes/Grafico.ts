@@ -137,7 +137,7 @@ export class Grafico {
 				text: this.titleName
 			},
 			tooltip: {
-				pointFormat: '{series.name}: <b>{point.percentage:.1f}% del total</b>'
+				pointFormat: '{series.name}: <b>{point.y:.1f} '+this.grupo+'</b>'
 			},
 			plotOptions: {
 				pie: {
@@ -145,7 +145,7 @@ export class Grafico {
 					cursor: 'pointer',
 					dataLabels: {
 						enabled: true,
-						format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+						format: '<b>{point.name}</b>: {point.y:.1f} '+ this.grupo,
 					},
 					showInLegend: true
 				}
