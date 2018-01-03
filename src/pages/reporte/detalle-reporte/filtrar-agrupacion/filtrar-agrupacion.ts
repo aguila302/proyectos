@@ -32,10 +32,10 @@ export class FiltrarAgrupacionPage {
 		public zone: NgZone, public loading: LoadingController) {
 		this.agrupacion = navParams.get('agrupacion')
 		this.columnas = navParams.get('registros')
-		this.agrupacion === 'contratante' ? (this.cargaOpcionesContratante()): this.loadOpciones()
 	}
 
 	ionViewDidLoad() {
+		this.agrupacion === 'contratante' ? (this.cargaOpcionesContratante()): this.loadOpciones()
 		this.agrupacion === 'contratante' ? (this.visible = !this.visible): ''
 	}
 
@@ -101,7 +101,7 @@ export class FiltrarAgrupacionPage {
 	// 	return data
 	// }
 
-	async doInfinite(infiniteScroll) {
+	doInfinite(infiniteScroll) {
 		console.log('Begin async operation');
 
 		setTimeout(() => {
