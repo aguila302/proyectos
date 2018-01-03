@@ -12,7 +12,7 @@
 <ion-content>
 	<button ion-button block color="botton" (click)="aceptar()">Aceptar</button>
 	<ion-list>
-		<ion-item *ngFor="let item of registros">
+		<ion-item  *ngFor="let item of registros">
 			<ion-label>{{ item.registros }}</ion-label>
 			<ion-checkbox (ionChange)="seleccionFiltros($event, item.registros)"></ion-checkbox>
 		</ion-item>
@@ -29,7 +29,7 @@
 <!-- 	<div [hidden]="!visible" padding-top text-center style="border-bottom: 3px double #2E86C1; background-color: red; color:white;">
 		<h3>Proyectos agrupados</h3>
 	</div> -->
-	<button ion-button clear full>Proyectos agrupados</button>
+	<button [hidden]="!visible" ion-button clear full>Proyectos agrupados</button>
 	<ion-list [hidden]="!visible">
 		<ion-item *ngFor="let item of items">
 			<ion-label>{{ item.contratante }}</ion-label>
