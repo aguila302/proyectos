@@ -88,6 +88,7 @@ export class FiltrarAgrupacionPage {
 						})
 						/* Para visualizar los contratantes menores de 1% */
 						this.filter_menores_uno = menores_de_uno.toArray()
+						this.items = menores_de_uno.toArray()
 						// this.retornaData(Promise.resolve(this.filter_menores_uno))
 				})
 			})
