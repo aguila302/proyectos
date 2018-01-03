@@ -14,8 +14,23 @@
     </ion-navbar>
 </ion-header>
 <ion-content padding>
-    <ion-searchbar (ionInput)="buscaProyectos($event)" [animated]="true" [showCancelButton]="false" [cancelButtonText]="Cancelar" (ionCancel)="onCancel($event)" placeholder="Buscar">
-    </ion-searchbar>
+    <ion-list>
+        <ion-item>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <ion-searchbar (ionInput)="buscaProyectos($event)" [animated]="true" [showCancelButton]="false" [cancelButtonText]="Cancelar" (ionCancel)="onCancel($event)" placeholder="Buscar">
+                        </ion-searchbar>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <button ion-button>Buscar</button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+    </ion-list>
     <button ion-button full (click)="muestraFiltros()">Busqueda avanzada</button>
     <ion-list [virtualScroll]="proyectos" [bufferRatio]="3.1" [approxItemHeight]="'300px'">
         <ion-item *virtualItem="let proyecto">

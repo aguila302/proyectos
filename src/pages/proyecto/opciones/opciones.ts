@@ -67,26 +67,13 @@ export class OpcionesPage {
 
 	/* Funcion para ver archivo pdf*/
 	muestraPdf = () => {
-		console.log('pdf')
-		// console.log(this.file.applicationDirectory)
-
+		/* Obtenemos el path absoluto */
 		let path: string = this.file.applicationDirectory + 'www/assets/'
-		console.log(path)
-		
-		// if (this.platform.is('android')) {
-		// 	path = 'file:///android_asset/www/assets/'
-		// }
-
-		// if (this.platform.is('ios')) {
-		// 	console.log('Device UUID is: ' + this.device.uuid);
-		// 	path = `bipro.app/www/assets/`
-		// 	path = `file:///var/containers/Bundle/Application/${this.device.uuid}/bipro.app/www/assets/`
-		// 	console.log(path)
-		// }
 
 		const options: DocumentViewerOptions = {
-			title: 'My PDF'
+			title: 'Manual de usuario'
 		}
+		/* Visualizamos el pdf en pantalla */
 		this.document.viewDocument(path + 'BIPRO.pdf', 'application/pdf', options)
 	}
 
