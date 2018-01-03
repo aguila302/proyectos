@@ -31,7 +31,7 @@
 	</div> -->
 
 	<ion-list [hidden]="!visible">
-		<ion-item *ngFor="let item of filter_menores_uno">
+		<ion-item *ngFor="let item of items">
 			<ion-label>{{ item.contratante }}</ion-label>
 			<ion-checkbox (ionChange)="seleccionFiltros($event, item.contratante)"></ion-checkbox>
 		</ion-item>
