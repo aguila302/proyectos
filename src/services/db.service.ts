@@ -729,7 +729,7 @@ export class DbService {
 						or contratante like '${busqueda}' or datos_cliente like '${busqueda}'`
 			console.log(sql)
 
-			this.db.executeSql(sql, {})
+			return this.db.executeSql(sql, {})
 				.then((response) => {
 					for (let index = 0; index < response.rows.length; index++) {
 						proyectos.push({
@@ -754,6 +754,6 @@ export class DbService {
 					}
 					return Promise.resolve(proyectos)
 				})
-		return proyectos
+		// return proyectos
 	}
 }

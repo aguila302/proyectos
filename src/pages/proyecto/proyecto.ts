@@ -131,6 +131,9 @@ export class ProyectoPage {
 		this.textoBusqueda === '' ? (alert.present()):
 		(
 			this.dbService.busquedaProyectos(this.textoBusqueda)
+			.then(response => {
+				console.log(response)
+			})
 		)
 	}
 }
