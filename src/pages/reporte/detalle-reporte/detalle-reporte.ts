@@ -671,7 +671,7 @@ export class DetalleReportePage {
 							})
 						})
 						this.xy = data_cliente
-							/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+						/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 						this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '', 'Porcentaje total de participación')
 
 						this.options = this.grafico.graficaBar()
@@ -701,7 +701,7 @@ export class DetalleReportePage {
 			await this.reporteService.detalleReporte(this.campo_select, this.campo_agrupacion, this.filtros)
 				.then(response => {
 					this.campo_agrupacion === 'anio' ? this.campo_agrupacion = 'año' : this.campo_agrupacion === 'unidad_negocio' ? this.campo_agrupacion = 'dirección' : ''
-						// Para mostrar la informacion de la grafica.
+					// Para mostrar la informacion de la grafica.
 					response.forEach(item => {
 						miglobal.xy.push({
 							name: item.campo,
