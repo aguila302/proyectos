@@ -9,7 +9,6 @@ import {
 } from 'ionic-angular';
 import * as collect from 'collect.js/dist'
 import { DbService } from '../../../../services/db.service'
-import { Observable } from 'rxjs/Observable'
 
 @IonicPage()
 @Component({
@@ -40,7 +39,7 @@ export class FiltrarAgrupacionPage {
 	}
 
 	/* Funcion para visualizar los valores de los filtros. */
-	loadOpciones () {
+	async loadOpciones() {
 		if(this.agrupacion !== 'contratante'){
 			this.registros = this.columnas
 		}
