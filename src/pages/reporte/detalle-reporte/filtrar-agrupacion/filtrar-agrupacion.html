@@ -31,14 +31,14 @@
 	</div> -->
 
 	<ion-list [hidden]="!visible">
-		<ion-item *ngFor="let item of items">
-			<ion-label>1</ion-label>
+		<ion-item *ngFor="let item of filter_menores_uno">
+			<ion-label>{{ item.contratante }}</ion-label>
 			<ion-checkbox (ionChange)="seleccionFiltros($event, item.contratante)"></ion-checkbox>
 		</ion-item>
 	</ion-list>
 
-	<ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())">
-		<ion-infinite-scroll-content>
+	<ion-infinite-scroll (ionInfinite)="doInfinite()">
+		<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Cargando mas datos">
 		
 		</ion-infinite-scroll-content>
 	</ion-infinite-scroll>

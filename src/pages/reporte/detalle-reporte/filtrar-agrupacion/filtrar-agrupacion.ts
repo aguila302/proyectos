@@ -91,31 +91,29 @@ export class FiltrarAgrupacionPage {
 						})
 						/* Para visualizar los contratantes menores de 1% */
 						this.filter_menores_uno = menores_de_uno.toArray()
-						this.retornaData(Promise.resolve(this.filter_menores_uno))
+						// this.retornaData(Promise.resolve(this.filter_menores_uno))
 				})
 			})
 	}
 
-	retornaData(data): Object {
-		return new Promise(resolve => {
-			resolve(data)
-		})
-		// return data
-	}
+	// retornaData(data): Object {
+	// 	return new Promise(resolve => {
+	// 		resolve(data)
+	// 	})
+	// 	return data
+	// }
 
-	doInfinite(infiniteScroll): Promise < any > {
+	doInfinite(infiniteScroll) {
 		console.log('Begin async operation');
-
-		return new Promise((resolve) => {
-			setTimeout(() => {
-				for (var i = 0; i < 30; i++) {
-					this.items.push(this.items.length);
-				}
-
-				console.log('Async operation has ended');
-				resolve();
-			}, 500);
-		})
+		setTimeout(() => {
+			for (var i = 0; i < this.filter_menores_uno.length; i++) {
+				this.items.push({
+					'contratante': this.filter_menores_uno['contratante']
+				});
+			}
+			console.log('Async operation has ended');
+			infiniteScroll.complete()
+		}, 1000);
 	}
 
 	/* Funcion para controlar los filtros seleccionados. */
