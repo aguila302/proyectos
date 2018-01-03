@@ -727,8 +727,7 @@ export class DbService {
 		let proyectos = []
 			let sql = `select * from proyectos where producto like '%${busqueda}%' or anio like '%${busqueda}%' or nombre_proyecto like '%${busqueda}%'
 						or contratante like '%${busqueda}%' or datos_cliente like '%${busqueda}%'`
-			console.log(sql)
-
+						
 			return this.db.executeSql(sql, {})
 				.then((response) => {
 					for (let index = 0; index < response.rows.length; index++) {
@@ -754,6 +753,5 @@ export class DbService {
 					}
 					return Promise.resolve(proyectos)
 				})
-		// return proyectos
 	}
 }
