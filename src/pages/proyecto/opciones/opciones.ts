@@ -70,8 +70,9 @@ export class OpcionesPage {
 		console.log('pdf')
 		// console.log(this.file.applicationDirectory)
 
-		let path: string = 'file:///assets/`'
-
+		let path: string = this.file.applicationDirectory + 'www/assets/'
+		console.log(path)
+		
 		// if (this.platform.is('android')) {
 		// 	path = 'file:///android_asset/www/assets/'
 		// }
