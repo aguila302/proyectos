@@ -33,13 +33,6 @@ export class FiltrarAgrupacionPage {
 		this.agrupacion = navParams.get('agrupacion')
 		this.columnas = navParams.get('registros')
 		this.cargaOpcionesContratante()
-		console.log('mis item')
-		for (let i = 0; i < 1200 ; i++) {
-			this.items.push(this.items.length);
-		}
-		console.log(this.items)
-		
-		
 	}
 
 	ionViewDidLoad() {
@@ -97,6 +90,8 @@ export class FiltrarAgrupacionPage {
 						/* Para visualizar los contratantes menores de 1% */
 						this.filter_menores_uno = menores_de_uno.toArray()
 						this.items = menores_de_uno.toArray()
+						console.log(this.filter_menores_uno.length);
+						
 						// this.retornaData(Promise.resolve(this.filter_menores_uno))
 				})
 			})
@@ -110,27 +105,17 @@ export class FiltrarAgrupacionPage {
 	// }
 
 	doInfinite(infiniteScroll) {
-		 console.log('Begin async operation');
+		console.log('Begin async operation');
 
 		setTimeout(() => {
-			for (let i = 0; i < 1200; i++) {
-				this.items.push(this.items.length);
+			for (var i=0; i<this.filter_menores_uno.length; i++) {
+				this.items.push({
+					'contratante': this.filter_menores_uno[i].contratante
+				});
 			}
-
 			console.log('Async operation has ended');
-			infiniteScroll.complete();
-		}, 500);
-		// console.log('Begin async operation');
-
-		// setTimeout(() => {
-		// 	for (var i=0; i<this.filter_menores_uno.length; i++) {
-		// 		this.items.push({
-		// 			'contratante': this.filter_menores_uno[i].contratante
-		// 		});
-		// 	}
-		// 	console.log('Async operation has ended');
-		// 	infiniteScroll.complete()
-		// }, 500)
+			infiniteScroll.complete()
+		}, 500)
 
 	}
 
