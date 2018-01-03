@@ -90,7 +90,7 @@ export class FiltrarAgrupacionPage {
 				})
 			})
 	}
-
+	
 	/* Funcion para controlar los filtros seleccionados. */
 	seleccionFiltros = (event: any, filtros: string) => {
 			let encontrado
