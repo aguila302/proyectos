@@ -104,11 +104,11 @@ export class FiltrarAgrupacionPage {
 		console.log('Begin async operation');
 		return new Promise((resolve) => {
 			setTimeout(() => {
-				this.filter_menores_uno.forEach(item => {
-					this.items.push({
-						'contratante': item.contratante
-					})
-				})
+				// this.filter_menores_uno.forEach(item => {
+				// 	this.items.push({
+				// 		'contratante': item.contratante
+				// 	})
+				// })
 				console.log('Async operation has ended');
 				infiniteScroll.complete();
 			}, 500);
