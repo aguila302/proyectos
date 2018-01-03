@@ -36,7 +36,7 @@ export class FiltrarAgrupacionPage {
 	}
 
 	ionViewDidLoad() {
-		this.agrupacion === 'contratante' ? (this.visible = !this.visible): ''
+		this.agrupacion === 'contratante' ? (this.visible = true): ''
 		this.agrupacion === 'contratante' ? (this.cargaOpcionesContratante()): this.loadOpciones()
 	}
 
@@ -96,13 +96,6 @@ export class FiltrarAgrupacionPage {
 				})
 			})
 	}
-
-	// retornaData(data): Object {
-	// 	return new Promise(resolve => {
-	// 		resolve(data)
-	// 	})
-	// 	return data
-	// }
 
 	doInfinite(infiniteScroll) {
 		console.log('Begin async operation');
