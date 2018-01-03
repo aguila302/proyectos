@@ -70,18 +70,18 @@ export class OpcionesPage {
 		console.log('pdf')
 		// console.log(this.file.applicationDirectory)
 
-		let path: string = ''
+		let path: string = 'file:///assets/`'
 
-		if (this.platform.is('android')) {
-			path = 'file:///android_asset/www/assets/'
-		}
+		// if (this.platform.is('android')) {
+		// 	path = 'file:///android_asset/www/assets/'
+		// }
 
-		if (this.platform.is('ios')) {
-			console.log('Device UUID is: ' + this.device.uuid);
-			path = `bipro.app/www/assets/`
-			// path = `file:///var/containers/Bundle/Application/${this.device.uuid}/bipro.app/www/assets/`
-			console.log(path)
-		}
+		// if (this.platform.is('ios')) {
+		// 	console.log('Device UUID is: ' + this.device.uuid);
+		// 	path = `bipro.app/www/assets/`
+		// 	path = `file:///var/containers/Bundle/Application/${this.device.uuid}/bipro.app/www/assets/`
+		// 	console.log(path)
+		// }
 
 		const options: DocumentViewerOptions = {
 			title: 'My PDF'

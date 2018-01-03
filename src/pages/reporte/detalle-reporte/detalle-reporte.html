@@ -6,13 +6,16 @@
 		<ion-segment [(ngModel)]="porcentaje">
 			<ion-segment-button value="porcentaje" (ionSelect)="getDatosPorPorcentaje()">
 				<!-- <strong style="text-transform: capitalize;">Porcentaje</strong> -->
-				<i class="fa fa-percent" aria-hidden="true" padding-right margin-right></i>
+				<!-- <i class="fa fa-percent" aria-hidden="true" padding-right margin-right></i> -->
+				%
 			</ion-segment-button>
 			<ion-segment-button value="monto_usd" (ionSelect)="getDatosPorUsd()">
-				<i class="fa fa-usd" aria-hidden="true" padding-right margin-right></i>
+				$
+				<!-- <i class="fa fa-usd" aria-hidden="true" padding-right margin-right></i> -->
 			</ion-segment-button>
 			<ion-segment-button value="numero_proyectos" (ionSelect)="getDatosNumeroProyectos()">
-				<i class="fa fa-list-ol" aria-hidden="true" padding-right margin-right></i>
+				#
+				<!-- <i class="fa fa-list-ol" aria-hidden="true" padding-right margin-right></i> -->
 			</ion-segment-button>
 		</ion-segment>
 	</ion-toolbar>
