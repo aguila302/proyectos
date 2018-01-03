@@ -37,7 +37,7 @@
 		</ion-item>
 	</ion-list>
 
-<ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())">
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
     <ion-infinite-scroll-content
       loadingSpinner="bubbles"
       loadingText="Loading more data...">
