@@ -38,8 +38,7 @@ export class ProyectoPage {
 	proyectos = []
 	items = []
 	opciones = []
-	@Output() ionCancel: EventEmitter<UIEvent> = new EventEmitter<UIEvent>()
-	@Input() cancelButtonText: string = 'Cancel';
+	textoBusqueda: string = ''
 
 	ionViewDidLoad() {
 		this.getProyectos()
@@ -120,5 +119,18 @@ export class ProyectoPage {
 			console.log(response[0].fecha_registro)
 			this.lastFechaSincronizacion = response[0].fecha_registro
 		})
+	}
+
+	/*Funcion para buscar proyectos relacionados en texto que se tecleo. */
+	busquedaProyectos = () => {
+		let alert = this.alert.create({
+			title: 'Advertencia',
+			subTitle: 'El valor de la búsqueda no puede ser vacío, por favor introduce un valor',
+			buttons: ['OK']
+		})
+		this.textoBusqueda === '' ? (alert.present()):
+		(
+			this.dbService.busquedaProyectos(this.textoBusqueda)
+		)
 	}
 }
