@@ -6,7 +6,8 @@ import {
 	IonicPage,
 	NavController,
 	NavParams,
-	ModalController
+	ModalController,
+	AlertController
 } from 'ionic-angular'
 import {
 	ReportesDbService
@@ -75,10 +76,11 @@ export class DetalleReportePage {
 	reportes = []
 	grafico: Grafico
 	segmento: number = 0
+	filtrosSeleccionados = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private reporteService: ReportesDbService, private dbService: DbService, public zone: NgZone,
-		public modalCtrl: ModalController) {
+		public modalCtrl: ModalController, public alert: AlertController) {
 		this.id = navParams.get('id')
 	}
 
@@ -243,15 +245,33 @@ export class DetalleReportePage {
 				modal.onDidDismiss(data => {
 					/* Una vez cerrada la ventana de filtros validamos que se haya seleccionado alguna opcion. */
 					this.resultado.splice(0, this.resultado.length)
-						/* En caso de que haya opciones seleccionadas nos vamos a graficar. */
+					this.filtrosSeleccionados = data.map(item => item)
 
-					data.length > 0 ? (this.paraGraficarFiltrado(data)) : ''
+					// data.length > 0 ? (this.paraGraficarFiltrado(data)) : ''
 				})
 			})
 	}
 
+	/* Funcion para validar los filtros selecccionados*/
+	aplicarFiltro = () => {
+		let alert: any
+		/*Validamos si hay filtros seleccionados */
+		/* Filtros no seleccionados */
+		this.filtrosSeleccionados.length === 0 ? (
+			alert = this.alert.create({
+				title: 'Advertencia!',
+				subTitle: 'Por favor selecciona por lo menos un filtro para visualizar la grafica!',
+				buttons: ['OK']
+			}),
+			alert.present()
+		): (
+			/* En caso de que haya opciones seleccionadas nos vamos a graficar. */
+			this.paraGraficarFiltrado(this.filtrosSeleccionados, this.segmento)
+		)
+	}
+
 	/* Funcion para graficar los filtros seleccionados. */
-	async paraGraficarFiltrado(data) {
+	async paraGraficarFiltrado(data, segmento: number) {
 		var numero_proyectos: number = 0
 		var monto_total: string = ''
 
@@ -262,7 +282,8 @@ export class DetalleReportePage {
 					for (var i = 0; i < res.rows.length; i++) {
 						miglobal.resultado.push({
 							'campo': res.rows.item(i).campo,
-							'monto': account.formatNumber(parseInt(res.rows.item(i).monto)),
+							'monto': account.formatNumber(res.rows.item(i).monto),
+
 							'total': res.rows.item(i).total,
 							'numero_proyectos': res.rows.item(i).numero_proyectos,
 							'monto_filtrado': res.rows.item(i).monto_filtrado,
@@ -278,8 +299,10 @@ export class DetalleReportePage {
 			'data_grafica': miglobal.resultado,
 			'monto_total': monto_total,
 			'total_proyectos': numero_proyectos,
-			'groupBy': this.campo_agrupacion
+			'groupBy': this.campo_agrupacion,
+			'segmento': segmento
 		})
+		this.filtrosSeleccionados.splice(0, this.filtrosSeleccionados.length)
 	}
 
 	/* Funcion para ver detalle de los proyectos agrupados que tienen menos de 1 %. */
@@ -488,11 +511,11 @@ export class DetalleReportePage {
 							'numero_proyectos': items.numero_proyectos,
 						})
 					})
-				}),
-				/*Mostramos la grafca con los datos necesarios. */
-				/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-				this.grafico = new Grafico(this.xy, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, '#', 'Número de proyectos'),
-				this.options = this.grafico.graficaBar()
+				})
+			/*Mostramos la grafca con los datos necesarios. */
+			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+			this.grafico = new Grafico(this.xy, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, '#', 'Número de proyectos'),
+			this.options = this.grafico.graficaBar()
 		}
 	}
 

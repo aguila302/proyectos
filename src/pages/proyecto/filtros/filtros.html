@@ -1,13 +1,15 @@
 <ion-header margin-bottom>
-	<ion-navbar padding-top color="twitter">
-		<ion-title margin-top>Selecciona tus opciones</ion-title>
+	<ion-navbar color="twitter">
+		<ion-title margin-top>Seleccione columnas</ion-title>
 	</ion-navbar>
+</ion-header>
+<ion-content padding>
 	<ion-grid>
 		<ion-row>
 			<ion-col>
 				<ion-item>
 					<ion-label color="twitter">
-						<strong>Selecciona todos</strong></ion-label>
+						<strong>Seleccionar todos</strong></ion-label>
 					<ion-checkbox (ionChange)="seleccionAll($event)"></ion-checkbox>
 				</ion-item>
 			</ion-col>
@@ -20,8 +22,6 @@
 			</ion-col>
 		</ion-row>
 	</ion-grid>
-</ion-header>
-<ion-content padding>
 	<ion-list>
 		<ion-item *ngFor="let item of items">
 			<ion-label>{{ item.texto }}</ion-label>

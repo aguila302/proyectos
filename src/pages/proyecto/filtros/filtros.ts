@@ -110,7 +110,8 @@ export class FiltrosPage {
 					item.opcion == 'anio' ||
 					item.opcion == 'nombre_proyecto' ||
 					item.opcion == 'contratante' ||
-					item.opcion == 'datos_cliente'
+					item.opcion == 'datos_cliente' ||
+					item.opcion == 'pais'
 				)
 				
 			}).map((map) => {
@@ -140,10 +141,6 @@ export class FiltrosPage {
 			(arg) => {
 				return this.data_send[arg.opcion] = arg.opcion
 		})
-			
-		// data_filter.forEach(item => {
-		// 	this.data_send.push(item.opcion)
-		// })
 
 		/* Enviamos nuestras opciones para realizar la busqueda. */
 		this.viewCtrl.dismiss(this.data_send)
