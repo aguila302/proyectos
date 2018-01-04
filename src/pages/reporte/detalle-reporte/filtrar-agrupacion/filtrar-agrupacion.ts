@@ -32,6 +32,9 @@ export class FiltrarAgrupacionPage {
 		public zone: NgZone, public loading: LoadingController) {
 		this.agrupacion = navParams.get('agrupacion')
 		this.columnas = navParams.get('registros')
+
+
+		
 	}
 
 	ionViewDidLoad() {

@@ -70,50 +70,50 @@ export class Grafico {
 				colorByPoint: false,
 				// data: [],
 			}],
-			responsive: {
-				rules: [{
-					condition: {
-						maxWidth: 300
-					},
-					title: {
-						text: 'responsive'
-					},
-					xAxis: {
-						type: 'category'
-					},
-					// Make the labels less space demanding on mobile
-					chartOptions: {
-						legend: {
-							align: 'center',
-							verticalAlign: 'bottom',
-							layout: 'horizontal'
-						},
-						xAxis: {
-							labels: {
-								formatter: function() {
-									return this.value.charAt(0)
-								}
-							}
-						},
-						yAxis: {
-							labels: {
-								align: 'left',
-								x: 0,
-								y: -5
-							},
-							title: {
-								text: null
-							},
-							subtitle: {
-								text: null
-							},
-							credits: {
-								enabled: false
-							}
-						}
-					}
-				}]
-			}
+			// responsive: {
+			// 	rules: [{
+			// 		condition: {
+			// 			maxWidth: 300
+			// 		},
+			// 		title: {
+			// 			text: 'responsive'
+			// 		},
+			// 		xAxis: {
+			// 			type: 'category'
+			// 		},
+			// 		// Make the labels less space demanding on mobile
+			// 		chartOptions: {
+			// 			legend: {
+			// 				align: 'center',
+			// 				verticalAlign: 'bottom',
+			// 				layout: 'horizontal'
+			// 			},
+			// 			xAxis: {
+			// 				labels: {
+			// 					formatter: function() {
+			// 						return this.value.charAt(0)
+			// 					}
+			// 				}
+			// 			},
+			// 			yAxis: {
+			// 				labels: {
+			// 					align: 'left',
+			// 					x: 0,
+			// 					y: -5
+			// 				},
+			// 				title: {
+			// 					text: null
+			// 				},
+			// 				subtitle: {
+			// 					text: null
+			// 				},
+			// 				credits: {
+			// 					enabled: false
+			// 				}
+			// 			}
+			// 		}
+			// 	}]
+			// }
 		}
 		options['series'][0]['data'] = this.data
 		return options

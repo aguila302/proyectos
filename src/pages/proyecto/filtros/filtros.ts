@@ -32,7 +32,7 @@ export class FiltrosPage {
 		{'opcion': 'fecha_inicio', 'texto': 'Fecha de inicio', 'checked': false},
 		{'opcion': 'fecha_fin', 'texto': 'Fecha de término', 'checked': false},
 		{'opcion': 'duracion', 'texto': 'Duración', 'checked': false},
-		{'opcion': 'pais', 'texto': 'País', 'checked': false},
+		{'opcion': 'pais', 'texto': 'País', 'checked': true},
 	]
 
 	/* Funcion para el manejo de nuestros filtros individuales. */

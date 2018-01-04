@@ -491,7 +491,7 @@ export class DetalleReportePage {
 				}),
 				/*Mostramos la grafca con los datos necesarios. */
 				/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-				this.grafico = new Grafico(this.xy, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, '#', 'Numero de proyectos'),
+				this.grafico = new Grafico(this.xy, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, '#', 'Número de proyectos'),
 				this.options = this.grafico.graficaBar()
 		}
 	}
