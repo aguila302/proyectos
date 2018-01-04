@@ -1,6 +1,11 @@
 <ion-header>
 	<ion-navbar color="twitter">
 		<ion-title text-center>Seleccione columnas</ion-title>
+		<ion-buttons left [hidden]="true">
+            <button ion-button icon-only (click)="mostrarOpciones()">
+                <ion-icon name="ios-help-circle-outline"></ion-icon>
+            </button>
+        </ion-buttons>
 	</ion-navbar>
 </ion-header>
 <ion-content padding>
