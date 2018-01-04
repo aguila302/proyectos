@@ -140,7 +140,7 @@ export class Grafico {
 				text: this.titleName
 			},
 			tooltip: {
-				pointFormat: '{series.name}: <b>{point.y} '+this.grupo+'</b>'
+				pointFormat: '{series.name}: <b>{point.y:.2f} '+this.grupo+'</b>'
 			},
 			plotOptions: {
 				pie: {
@@ -148,7 +148,7 @@ export class Grafico {
 					cursor: 'pointer',
 					dataLabels: {
 						enabled: true,
-						format: '<b>{point.name}</b>: {point.y} '+ this.grupo,
+						format: '<b>{point.name}</b>: {point.y:.2f} '+ this.grupo,
 					},
 					showInLegend: true
 				}
