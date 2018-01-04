@@ -86,7 +86,9 @@ export class DetalleReportePage {
 
 	ionViewDidLoad() {
 		this.getAgrupacion()
-		this.getDatosPorPorcentaje()
+		setTimeout(() => {
+			this.getDatosPorPorcentaje()
+		}, 500)
 	}
 
 	/* Funcion para obtener la agrupacion y campos del select del reporte a consultar. */
