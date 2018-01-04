@@ -45,6 +45,10 @@ export class Grafico {
 				},
 				title: {
 					text: this.indicador
+				},
+				scrollbar: {
+					enable: true,
+					showFull: false
 				}
 			}],
 			legend: {
