@@ -88,7 +88,7 @@ export class DetalleReportePage {
 		this.getAgrupacion()
 		setTimeout(() => {
 			this.getDatosPorPorcentaje()
-		}, 100)
+		}, 1000)
 	}
 
 	/* Funcion para obtener la agrupacion y campos del select del reporte a consultar. */
@@ -111,7 +111,7 @@ export class DetalleReportePage {
 						this.filtros = response
 					}))
 			)
-			.then(() => this.getReporteDetalle())
+			// .then(() => this.getReporteDetalle())
 	}
 
 	/* Funcion para reporte por año. */
