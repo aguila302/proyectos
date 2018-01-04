@@ -721,6 +721,7 @@ export class DetalleReportePage {
 			var miglobal = this
 			miglobal.xy.splice(0, miglobal.xy.length)
 			miglobal.reportes.splice(0, miglobal.reportes.length)
+			this.campo_agrupacion === 'año' ? this.campo_agrupacion = 'anio' : this.campo_agrupacion === 'dirección' ? this.campo_agrupacion = 'unidad_negocio' :  this.campo_agrupacion === 'país' ? this.campo_agrupacion = 'pais' : ''
 			await this.reporteService.detalleReporte(this.campo_select, this.campo_agrupacion, this.filtros)
 				.then(response => {
 					this.campo_agrupacion === 'anio' ? this.campo_agrupacion = 'año' : this.campo_agrupacion === 'unidad_negocio' ? this.campo_agrupacion = 'dirección' : ''
