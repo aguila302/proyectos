@@ -88,7 +88,7 @@ export class DetalleReportePage {
 		this.getAgrupacion()
 		setTimeout(() => {
 			this.getDatosPorPorcentaje()
-		}, 500)
+		}, 0)
 	}
 
 	/* Funcion para obtener la agrupacion y campos del select del reporte a consultar. */
