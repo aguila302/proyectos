@@ -60,6 +60,7 @@ import { AppVersion } from '@ionic-native/app-version';
 import { DocumentViewer } from '@ionic-native/document-viewer';
 import { File } from '@ionic-native/file';
 import { Device } from '@ionic-native/device';
+import { AccordionModule } from "ng2-accordion";
 
 @NgModule({
   declarations: [
@@ -108,6 +109,7 @@ import { Device } from '@ionic-native/device';
     ChartsModule,
     ChartModule.forRoot(highcharts),
     Ng2SmartTableModule,
+    AccordionModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
