@@ -9,6 +9,10 @@ import {
 } from 'ionic-angular';
 import * as collect from 'collect.js/dist'
 import { DbService } from '../../../../services/db.service'
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/delay';
 
 @IonicPage()
 @Component({
@@ -26,7 +30,7 @@ export class FiltrarAgrupacionPage {
 	filter_menores_uno = []
 	visible: boolean = false
 	items = []
-	clientes = []
+	clientes$
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController,
 		private dbService: DbService,
@@ -87,20 +91,21 @@ export class FiltrarAgrupacionPage {
 						})
 						/* Para visualizar los contratantes menores de 1% */
 					this.filter_menores_uno = menores_de_uno.toArray()
-					this.items = this.filter_menores_uno.map(res => res.json())
-					this.midata(this.items)
+					this.clientes$ = Observable.of(this.filter_menores_uno).delay(1000)
+					// this.items = this.filter_menores_uno.map(res => res.toJSON())
+					// this.midata(this.items)
 				})
 			})
 	}
-	midata(mydata) {
-		mydata.subscribe(data => {
-			this.clientes = data
-			console.log(this.clientes)
-		},
-		err => {
-			console.error.bind(console)
-		})
-	}
+	// midata(mydata) {
+	// 	mydata.subscribe(data => {
+	// 		this.clientes = data
+	// 		console.log(this.clientes)
+	// 	},
+	// 	err => {
+	// 		console.error.bind(console)
+	// 	})
+	// }
 
 	// doInfinite(infiniteScroll) {
 	// 	console.log('Begin async operation');

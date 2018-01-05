@@ -19,7 +19,7 @@
 	<accordion [hidden]="!visible">
         <accordion-group heading="About me" [hidden]="!visible">
         	<!-- <ion-list> -->
-		<ion-item *ngFor="let item of clientes">
+		<ion-item *ngFor="let item of clientes$ | async">
 			<ion-label>{{ item.contratante }}</ion-label>
 			<ion-checkbox (ionChange)="seleccionFiltros($event, item.contratante)"></ion-checkbox>
 		</ion-item>
