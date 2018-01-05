@@ -32,13 +32,16 @@ export class FiltrarAgrupacionPage {
 		public zone: NgZone, public loading: LoadingController) {
 		this.agrupacion = navParams.get('agrupacion')
 		this.columnas = navParams.get('registros')
-
-
-		
 	}
 
 	ionViewDidLoad() {
+		console.log('ionViewDidLoad')
+		
 		this.agrupacion === 'contratante' ? (this.visible = true): ''
+	}
+	ionViewWillEnter() {
+		console.log('ionViewWillEnter')
+		
 		this.agrupacion === 'contratante' ? (this.cargaOpcionesContratante()): this.loadOpciones()
 	}
 
@@ -81,36 +84,34 @@ export class FiltrarAgrupacionPage {
 					let menores_de_uno = ordenados.where('porcentaje', '<', 1)
 
 					mayores_de_uno.toArray()
-						/* Para visualizar los contratantes mayores de 1% */
+					/* Para visualizar los contratantes mayores de 1% */
 					mayores_de_uno.map(item => {
 							this.registros.push({
 								'registros': item.contratante
 							})
 						})
 						/* Para visualizar los contratantes menores de 1% */
-						this.filter_menores_uno = menores_de_uno.toArray()
-						this.items = menores_de_uno.toArray()
-						console.log(this.filter_menores_uno.length);
-						
-						// this.retornaData(Promise.resolve(this.filter_menores_uno))
+					this.filter_menores_uno = menores_de_uno.toArray()
+					this.items = menores_de_uno.toArray()
+					console.log(this.filter_menores_uno.length);
 				})
 			})
 	}
 
-	doInfinite(infiniteScroll) {
-		console.log('Begin async operation');
+	// doInfinite(infiniteScroll) {
+	// 	console.log('Begin async operation');
 
-		setTimeout(() => {
-			for (var i=0; i<this.filter_menores_uno.length; i++) {
-				this.items.push({
-					'contratante': this.filter_menores_uno[i].contratante
-				});
-			}
-			console.log('Async operation has ended');
-			infiniteScroll.complete()
-		}, 500)
+	// 	setTimeout(() => {
+	// 		for (var i=0; i<this.filter_menores_uno.length; i++) {
+	// 			this.items.push({
+	// 				'contratante': this.filter_menores_uno[i].contratante
+	// 			});
+	// 		}
+	// 		console.log('Async operation has ended');
+	// 		infiniteScroll.complete()
+	// 	}, 500)
 
-	}
+	// }
 
 	/* Funcion para controlar los filtros seleccionados. */
 	seleccionFiltros = (event: any, filtros: string) => {
