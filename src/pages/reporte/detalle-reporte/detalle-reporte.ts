@@ -462,7 +462,7 @@ export class DetalleReportePage {
 						
 
 						/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-						this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '#', 'Numero de proyectos agrupados por cliente'),
+						this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '#', 'Numero de proyectos por cliente'),
 
 						this.options = this.grafico.graficaBar()
 
@@ -516,7 +516,7 @@ export class DetalleReportePage {
 				})
 			/*Mostramos la grafca con los datos necesarios. */
 			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-			this.grafico = new Grafico(this.xy, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, '#', 'Número de proyectos agrupados por '+this.campo_agrupacion),
+			this.grafico = new Grafico(this.xy, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, '#', 'Número de proyectos por '+this.campo_agrupacion),
 			this.options = this.grafico.graficaBar()
 		}
 	}
@@ -580,7 +580,7 @@ export class DetalleReportePage {
 
 						this.xy = data_cliente
 							/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-						this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes', 'USD', 'Monto total USD agrupados por cliente'),
+						this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes', 'USD', 'Monto total USD por cliente'),
 
 						this.options = this.grafico.graficaBar()
 
@@ -634,7 +634,7 @@ export class DetalleReportePage {
 
 				/*Mostramos la grafca con los datos necesarios. */
 				/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-				this.grafico = new Grafico(this.xy, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, 'USD', 'Monto total USD agrupados por ' +this.campo_agrupacion),
+				this.grafico = new Grafico(this.xy, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, 'USD', 'Monto total USD por ' +this.campo_agrupacion),
 				this.options = this.grafico.graficaBar()
 		}
 	}
@@ -697,7 +697,7 @@ export class DetalleReportePage {
 						})
 						this.xy = data_cliente
 						/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-						this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '', 'Porcentaje total de participación agrupados por cliente')
+						this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '', 'Porcentaje total de participación por cliente')
 
 						this.options = this.grafico.graficaBar()
 
@@ -742,7 +742,7 @@ export class DetalleReportePage {
 					miglobal.data_circular = response
 					/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 
-					this.grafico = new Grafico(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion, '', 'Porcentaje total de participación agrupados por ' + this.campo_agrupacion)
+					this.grafico = new Grafico(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion, '', 'Porcentaje total de participación por ' + this.campo_agrupacion)
 					this.options = this.grafico.graficaBar()
 
 					/* Para mostrar la tabla de informacion */
