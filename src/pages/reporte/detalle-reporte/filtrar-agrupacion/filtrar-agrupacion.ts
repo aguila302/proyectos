@@ -44,9 +44,7 @@ export class FiltrarAgrupacionPage {
 
 	/* Funcion para visualizar los valores de los filtros. */
 	loadOpciones() {
-		if(this.agrupacion !== 'contratante'){
-			this.registros = this.columnas
-		}
+		this.registros = this.columnas
 	}
 
 	cargaOpcionesContratante(): any {

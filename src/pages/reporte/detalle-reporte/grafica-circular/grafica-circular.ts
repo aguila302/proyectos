@@ -82,7 +82,6 @@ export class GraficaCircularPage {
 			let mayores_de_uno = ordenados.where('porcentaje', '>', 1)
 			let menores_de_uno = ordenados.where('porcentaje', '<', 1)
 
-
 			/* Suma de los montos y porcentajes de porcentaje  menores de 1. */
 			let suma_porcentajes_menores_de_uno = menores_de_uno.sum('porcentaje').toFixed(2)
 			let numero_proyectos = menores_de_uno.sum('numero_proyectos')
@@ -91,7 +90,6 @@ export class GraficaCircularPage {
 			/* Consigo el porcentaje y cliente para formar mi grafica. */
 			this.data_grafica.splice(0, this.data_grafica.length)
 			mayores_de_uno.map(function(contratante, monto) {
-				
 				miglobal.data_grafica.push({
 					name: contratante.contratante,
 					y: parseInt(contratante.numero_proyectos)
