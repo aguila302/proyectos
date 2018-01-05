@@ -462,7 +462,7 @@ export class DetalleReportePage {
 						
 
 						/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-						this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '#', 'Numero de proyectos por cliente'),
+						this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '#', 'Número de proyectos por cliente'),
 
 						this.options = this.grafico.graficaBar()
 
