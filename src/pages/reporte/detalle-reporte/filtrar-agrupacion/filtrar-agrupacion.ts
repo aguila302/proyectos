@@ -26,6 +26,7 @@ export class FiltrarAgrupacionPage {
 	filter_menores_uno = []
 	visible: boolean = false
 	items = []
+	clientes = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController,
 		private dbService: DbService,
@@ -36,15 +37,9 @@ export class FiltrarAgrupacionPage {
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad')
-		
 		this.agrupacion === 'contratante' ? (this.visible = true): ''
-	}
-	ionViewWillEnter() {
-		console.log('ionViewWillEnter')
-		
 		this.agrupacion === 'contratante' ? (this.cargaOpcionesContratante()): this.loadOpciones()
 	}
-
 	/* Funcion para visualizar los valores de los filtros. */
 	loadOpciones() {
 		this.registros = this.columnas
@@ -92,11 +87,19 @@ export class FiltrarAgrupacionPage {
 						})
 						/* Para visualizar los contratantes menores de 1% */
 					this.filter_menores_uno = menores_de_uno.toArray()
-					setTimeout(() => {
-						this.items = menores_de_uno.toArray()
-					}, 1000)
+					this.items = this.filter_menores_uno.map(res => res.json())
+					this.midata(this.items)
 				})
 			})
+	}
+	midata(mydata) {
+		mydata.subscribe(data => {
+			this.clientes = data
+			console.log(this.clientes)
+		},
+		err => {
+			console.error.bind(console)
+		})
 	}
 
 	// doInfinite(infiniteScroll) {
