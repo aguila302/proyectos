@@ -30,6 +30,8 @@ export class GraficaCircularPage {
 		this.proyectos = this.navParams.get('datos_circular')
 		this.groupBy = this.navParams.get('groupBy')
 		this.segmento = this.navParams.get('segmento')
+		console.log(this.proyectos)
+		
 	
 		if(this.groupBy === 'contratante') {
 			this.verGraficaContratante()

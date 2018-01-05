@@ -716,6 +716,10 @@ export class DetalleReportePage {
 						})
 
 						this.proyectos = proyectos
+						this.data_circular = response
+						console.log('data circular')
+						console.log(this.data_circular);
+						
 						this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno, suma_porcentajes_menores_de_uno)
 					})
 				})
@@ -735,7 +739,7 @@ export class DetalleReportePage {
 						})
 
 					})
-
+					miglobal.data_circular = response
 					/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 
 					this.grafico = new Grafico(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion, '', 'Porcentaje total de participación agrupados por ' + this.campo_agrupacion)
@@ -756,7 +760,7 @@ export class DetalleReportePage {
 						}
 					})
 					this.proyectos = proyectos
-					this.data_circular = response
+					miglobal.data_circular = response
 				})
 		}
 	}
