@@ -3,7 +3,6 @@ import {
 	NgZone
 } from '@angular/core'
 import {
-	IonicPage,
 	NavController,
 	NavParams,
 	ModalController,
@@ -65,11 +64,16 @@ export class NuevoReportePage {
 	selectColumnas = (): void => {
 		var miGlobal = this
 			/* Pasamos las columnas a la vista de seleeccion de columnas. */
-		let modal_columnas = this.modal.create(SelectColumnasPage, {})
+		let modal_columnas = this.modal.create(SelectColumnasPage, {
+			'columnas_preselecccionadas': miGlobal.filtrar_seleccionadas
+		})
 			/* Muestro el modal para seleccionar las columnas. */
 		modal_columnas.present()
 			/* Cuando cierro mi modal recupero mis columnas que seleccione. */
 		modal_columnas.onDidDismiss(data => {
+			// console.log('mis columasn seleccionadas')
+			// console.log(data);
+			
 			/* Reseteamos los arreglos para actualizar las opciones seleccionadas. */
 			this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
 			miGlobal.filtrar_seleccionadas.splice(0, this.filtrar_seleccionadas.length)
@@ -84,6 +88,9 @@ export class NuevoReportePage {
 					title: data.title[index]
 				})
 			})
+			// console.log('fioltros')
+			// console.log(miGlobal.filtrar_seleccionadas)
+			
 		})
 	}
 
@@ -109,7 +116,6 @@ export class NuevoReportePage {
 				let misCampos = []
 				let cadena: string = `select `
 				let nuevaCadena: string = ``
-				let valoresIn: string = ''
 				let values: string = ''
 				let nuevoValues: string = ''
 				let nuevaCadenaWhere: string = ''
@@ -208,7 +214,7 @@ export class NuevoReportePage {
 				if (response.length === 0) {
 					let alert = this.alertCtrl.create({
 						title: 'Aviso!',
-						subTitle: 'Por favor seleccione una agruapción para visualizar la grafica!',
+						subTitle: 'Por favor seleccione una agrupación para visualizar la grafica!',
 						buttons: ['OK']
 					});
 					alert.present();
