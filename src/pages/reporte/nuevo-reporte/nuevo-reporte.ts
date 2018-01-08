@@ -90,7 +90,7 @@ export class NuevoReportePage {
 				})
 			})
 			console.log('fioltros seleccionados')
-			console.log(miGlobal.filtrar_seleccionadas)
+			console.log(miGlobal._seleccionadas)
 
 			console.log('preseleccionados')
 			console.log(miGlobal.columnas_preseleccionadas = data.preseleccion)
