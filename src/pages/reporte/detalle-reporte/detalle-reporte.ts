@@ -743,6 +743,8 @@ export class DetalleReportePage {
 					})
 					miglobal.data_circular = response
 					/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+					console.log(this.xy)
+					
 
 					this.grafico = new Grafico(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion, '', 'Porcentaje total de participación por ' + this.campo_agrupacion)
 					this.options = this.grafico.graficaBar()
