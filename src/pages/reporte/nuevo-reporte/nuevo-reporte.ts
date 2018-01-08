@@ -51,6 +51,7 @@ export class NuevoReportePage {
 	bar: Bar
 	whereGlobal
 	camposGuardarReporte = []
+	columnas_preseleccionadas = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private reporteService: ReportesDbService, private modal: ModalController, public toastCtrl: ToastController,
@@ -65,7 +66,7 @@ export class NuevoReportePage {
 		var miGlobal = this
 			/* Pasamos las columnas a la vista de seleeccion de columnas. */
 		let modal_columnas = this.modal.create(SelectColumnasPage, {
-			'columnas_preselecccionadas': miGlobal.filtrar_seleccionadas
+			'columnas_preselecccionadas': miGlobal.columnas_preseleccionadas
 		})
 			/* Muestro el modal para seleccionar las columnas. */
 		modal_columnas.present()
@@ -88,9 +89,11 @@ export class NuevoReportePage {
 					title: data.title[index]
 				})
 			})
-			// console.log('fioltros')
-			// console.log(miGlobal.filtrar_seleccionadas)
-			
+			console.log('fioltros seleccionados')
+			console.log(miGlobal.filtrar_seleccionadas)
+
+			console.log('preseleccionados')
+			console.log(miGlobal.columnas_preseleccionadas = data.preseleccion)
 		})
 	}
 

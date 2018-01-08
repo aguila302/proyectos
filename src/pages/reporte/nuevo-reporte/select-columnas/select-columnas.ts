@@ -117,7 +117,8 @@ export class SelectColumnasPage {
 		'title': 'Anticipo'
 	}, ]
 	ionViewDidLoad() {
-		this.columnas_preselecccionadas.length !== 0 ? this.validaSeleccionInit() : ''
+		this.validaSeleccionInit()
+		// this.columnas_preselecccionadas.length !== 0 ? this.validaSeleccionInit() : ''
 	}
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private view: ViewController) {
@@ -127,13 +128,16 @@ export class SelectColumnasPage {
 
 	/* Funcion para validar si hay columnas preseleccionadas anteriormente. */
 	validaSeleccionInit() {
-		for (var i=0; i<this.columnas.length; i++) {
-			if(this.columnas[i].opcion === this.columnas_preselecccionadas[i]['columna']) {
-				console.log('son iguales')
-				
-			}
-			// console.log(this.columnas_preselecccionadas[i])
-		}
+		this.columnas_preselecccionadas.length !== 0 ? (
+			this.columnas.splice(0, this.columnas.length),
+			this.columnas = this.columnas_preselecccionadas
+		) : ''
+		
+		// for (var i=0; i<this.columnas.length; i++) {
+		// 	if(this.columnas[i].opcion === this.columnas_preselecccionadas[i]['columna']) {
+		// 		console.log('son iguales')
+		// 	}
+		// }
 		
 		// console.log(this.columnas_preselecccionadas)
 		
@@ -197,7 +201,8 @@ export class SelectColumnasPage {
 
 		this.view.dismiss({
 			columnas: this.columnas_seleccionadas,
-			title: this.titles_segleccionadas
+			title: this.titles_segleccionadas,
+			preseleccion: this.columnas
 		})
 	}
 
