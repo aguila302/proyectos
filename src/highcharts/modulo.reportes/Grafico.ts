@@ -15,7 +15,6 @@ export class Grafico {
 	 * @param {string} titleName
 	 */
 	constructor(data: any[], serieName: string, titleName: string, grupo: string, indicador) {
-		console.log(titleName)
 		this.data = data
 		this.serieName = serieName
 		titleName === 'Proyectos agrupados por pais' ? this.titleName = 'Proyectos agrupados por país' : this.titleName = titleName
@@ -53,7 +52,7 @@ export class Grafico {
 				}
 			}],
 			legend: {
-				enabled: false
+				enabled: true
 			},
 			plotOptions: {
 				series: {
