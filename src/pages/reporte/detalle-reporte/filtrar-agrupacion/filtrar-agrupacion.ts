@@ -43,15 +43,38 @@ export class FiltrarAgrupacionPage {
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad')
+		this.columnas.forEach(item => {
+			this.registros.push({
+				'registros': item.registros,
+				'checked': false
+			})
+		})
 		this.agrupacion === 'contratante' ? (this.visible = true): ''
-		this.agrupacion === 'contratante' ? (this.cargaOpcionesContratante()): this.loadOpciones()
+		this.agrupacion === 'contratante' ? (this.cargaOpcionesContratante()): (this.loadOpciones())
 		console.log(this.filtroPreseleccionado)
 		
 	}
 	/* Funcion para visualizar los valores de los filtros. */
 	loadOpciones() {
-		this.registros = this.columnas
-		console.log(this.registros)
+		var miglobal = this
+		if(this.filtroPreseleccionado.length === 0) {
+			console.log('if')
+			this.registros
+			console.log(this.registros)
+			
+		}
+		else {
+			console.log(' else')
+			this.filtroPreseleccionado.forEach(item => {
+				this.registros.push({
+					'registros': item,
+					'checked': true
+				})
+			})
+			this.registros = collect(this.registros).unique('registros')
+			console.log(this.registros)
+		}
+		
 		
 	}
 
@@ -103,30 +126,6 @@ export class FiltrarAgrupacionPage {
 				})
 			})
 	}
-	// midata(mydata) {
-	// 	mydata.subscribe(data => {
-	// 		this.clientes = data
-	// 		console.log(this.clientes)
-	// 	},
-	// 	err => {
-	// 		console.error.bind(console)
-	// 	})
-	// }
-
-	// doInfinite(infiniteScroll) {
-	// 	console.log('Begin async operation');
-
-	// 	setTimeout(() => {
-	// 		for (var i=0; i<this.filter_menores_uno.length; i++) {
-	// 			this.items.push({
-	// 				'contratante': this.filter_menores_uno[i].contratante
-	// 			});
-	// 		}
-	// 		console.log('Async operation has ended');
-	// 		infiniteScroll.complete()
-	// 	}, 500)
-
-	// }
 
 	/* Funcion para controlar los filtros seleccionados. */
 	seleccionFiltros = (event: any, filtros: string) => {
@@ -154,6 +153,8 @@ export class FiltrarAgrupacionPage {
 		// }
 	/* Funcion para enviar columnas seleccionadas. */
 	aceptar() {
+		console.log(this.registros)
+		
 		this.view.dismiss(this.filtros_seleccionadas)
 	}
 
