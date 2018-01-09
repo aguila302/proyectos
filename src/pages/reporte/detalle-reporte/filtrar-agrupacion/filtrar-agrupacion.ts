@@ -31,18 +31,22 @@ export class FiltrarAgrupacionPage {
 	visible: boolean = false
 	items = []
 	clientes$
+	filtroPreseleccionado = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController,
 		private dbService: DbService,
 		public zone: NgZone, public loading: LoadingController) {
 		this.agrupacion = navParams.get('agrupacion')
 		this.columnas = navParams.get('registros')
+		this.filtroPreseleccionado = navParams.get('filtroPreseleccionado')
 	}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad')
 		this.agrupacion === 'contratante' ? (this.visible = true): ''
 		this.agrupacion === 'contratante' ? (this.cargaOpcionesContratante()): this.loadOpciones()
+		console.log(this.filtroPreseleccionado)
+		
 	}
 	/* Funcion para visualizar los valores de los filtros. */
 	loadOpciones() {

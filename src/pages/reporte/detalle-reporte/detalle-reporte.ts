@@ -77,6 +77,7 @@ export class DetalleReportePage {
 	grafico: Grafico
 	segmento: number = 0
 	filtrosSeleccionados = []
+	filtroPreseleccionado = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private reporteService: ReportesDbService, private dbService: DbService, public zone: NgZone,
@@ -241,7 +242,8 @@ export class DetalleReportePage {
 			.then(response => {
 				let modal = this.modalCtrl.create(FiltrarAgrupacionPage, {
 					'registros': response,
-					'agrupacion': this.campo_agrupacion
+					'agrupacion': this.campo_agrupacion,
+					'filtroPreseleccionado': this.filtroPreseleccionado
 				})
 				modal.present()
 				modal.onDidDismiss(data => {
@@ -250,6 +252,7 @@ export class DetalleReportePage {
 					/* Una vez cerrada la ventana de filtros validamos que se haya seleccionado alguna opcion. */
 					this.resultado.splice(0, this.resultado.length)
 					this.filtrosSeleccionados = data.map(item => item)
+					this.filtroPreseleccionado = data
 
 					// data.length > 0 ? (this.paraGraficarFiltrado(data)) : ''
 				})
