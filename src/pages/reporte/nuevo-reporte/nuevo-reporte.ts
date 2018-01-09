@@ -103,7 +103,7 @@ export class NuevoReportePage {
 		if (this.filtrar_seleccionadas.length === 0) {
 			let alert = this.alertCtrl.create({
 				title: 'Aviso!',
-				subTitle: 'Por favor seleccione los columnas para visualizar la grafica!',
+				subTitle: 'Por favor seleccione las columnas para visualizar la grafica!',
 				buttons: ['OK']
 			});
 			alert.present();
@@ -197,7 +197,7 @@ export class NuevoReportePage {
 		if (this.filtrar_seleccionadas.length === 0) {
 			let alert = this.alertCtrl.create({
 				title: 'Aviso!',
-				subTitle: 'Por favor seleccione los columnas y los filtros para visualizar la grafica!',
+				subTitle: 'Por favor seleccione las columnas y los filtros para visualizar la grafica!',
 				buttons: ['OK']
 			});
 			alert.present();
