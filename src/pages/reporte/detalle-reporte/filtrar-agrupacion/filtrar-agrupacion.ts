@@ -47,6 +47,8 @@ export class FiltrarAgrupacionPage {
 	/* Funcion para visualizar los valores de los filtros. */
 	loadOpciones() {
 		this.registros = this.columnas
+		console.log(this.registros)
+		
 	}
 
 	cargaOpcionesContratante(): any {
