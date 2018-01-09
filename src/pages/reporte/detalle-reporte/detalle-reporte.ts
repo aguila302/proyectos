@@ -245,6 +245,8 @@ export class DetalleReportePage {
 				})
 				modal.present()
 				modal.onDidDismiss(data => {
+					console.log(data)
+					
 					/* Una vez cerrada la ventana de filtros validamos que se haya seleccionado alguna opcion. */
 					this.resultado.splice(0, this.resultado.length)
 					this.filtrosSeleccionados = data.map(item => item)

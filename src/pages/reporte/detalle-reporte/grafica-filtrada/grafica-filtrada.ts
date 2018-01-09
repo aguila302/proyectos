@@ -61,7 +61,7 @@ export class GraficaFiltradaPage {
 		})
 
 		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-		this.grafico = new Grafico(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, ' %', 'Porcentaje total de participación'),
+		this.grafico = new Grafico(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, ' %', 'Porcentaje total de participación por '+ this.campo_agrupacion),
 		this.options = this.grafico.graficaBar()
 	}
 
@@ -78,7 +78,7 @@ export class GraficaFiltradaPage {
 		})
 
 		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-		this.grafico = new Grafico(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, ' USD', 'Monto total USD'),
+		this.grafico = new Grafico(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, ' USD', 'Monto total USD por ' + this.campo_agrupacion),
 		this.options = this.grafico.graficaBar()
 	}
 
@@ -94,7 +94,7 @@ export class GraficaFiltradaPage {
 		})
 
 		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-		this.grafico = new Grafico(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, ' #', 'Numero de proyectos'),
+		this.grafico = new Grafico(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, ' #', 'Numero de proyectos por ' + this.campo_agrupacion),
 		this.options = this.grafico.graficaBar()
 	}
 
