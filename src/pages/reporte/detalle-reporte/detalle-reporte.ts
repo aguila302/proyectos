@@ -492,7 +492,7 @@ export class DetalleReportePage {
 		else {
 			var miglobal = this
 				/* Si el grupo es por numero de proyectos hacemos la consulta para obtener la informacion. */
-			await this.reporteService.detallePorNumeroProyectos(this.campo_select, this.campo_agrupacion, this.id, this.filtros)
+			await this.reporteService.detallePorNumeroProyectos(this.campo_agrupacion, this.campo_agrupacion, this.id, this.filtros)
 				.then(response => {
 					miglobal.xy.splice(0, miglobal.xy.length)
 					miglobal.reportes.splice(0, miglobal.reportes.length)
@@ -612,7 +612,9 @@ export class DetalleReportePage {
 			miglobal.reportes.splice(0, miglobal.reportes.length)
 			this.campo_agrupacion === 'año' ? this.campo_agrupacion = 'anio' : this.campo_agrupacion === 'dirección' ? this.campo_agrupacion = 'unidad_negocio' :  this.campo_agrupacion === 'país' ? this.campo_agrupacion = 'pais' : ''
 				/* Si el grupo es por monto total hacemos la consulta para obtener la informacion. */
-			await this.reporteService.detallePorMontoTotal(this.campo_select, this.campo_agrupacion, this.id, this.filtros)
+				console.log('mi select' + this.campo_select)
+				
+			await this.reporteService.detallePorMontoTotal(this.campo_agrupacion, this.campo_agrupacion, this.id, this.filtros)
 				.then(response => {
 					this.campo_agrupacion === 'anio' ? this.campo_agrupacion = 'año' : this.campo_agrupacion === 'unidad_negocio' ? this.campo_agrupacion = 'dirección' : this.campo_agrupacion === 'pais' ? this.campo_agrupacion = 'país' : ''
 					/* Obtenemos la informacion para construir la grafica. */
@@ -732,7 +734,7 @@ export class DetalleReportePage {
 			miglobal.xy.splice(0, miglobal.xy.length)
 			miglobal.reportes.splice(0, miglobal.reportes.length)
 			this.campo_agrupacion === 'año' ? this.campo_agrupacion = 'anio' : this.campo_agrupacion === 'dirección' ? this.campo_agrupacion = 'unidad_negocio' :  this.campo_agrupacion === 'país' ? this.campo_agrupacion = 'pais' : ''
-			 await this.reporteService.detalleReporte(this.campo_select, this.campo_agrupacion, this.filtros)
+			 await this.reporteService.detalleReporte(this.campo_agrupacion, this.campo_agrupacion, this.filtros)
 				.then(response => {
 					this.campo_agrupacion === 'anio' ? this.campo_agrupacion = 'año' : this.campo_agrupacion === 'unidad_negocio' ? this.campo_agrupacion = 'dirección' : this.campo_agrupacion === 'pais' ? this.campo_agrupacion = 'país' : ''
 					// Para mostrar la informacion de la grafica.

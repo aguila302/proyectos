@@ -92,11 +92,11 @@ export class ReportesDbService {
 
 	/* Funcion para la consulta del detalle de reportes. */
 	detalleReporte = (campo: string, group_by: string, filtros: any[]): any => {
-		campo === 'año' ? campo = 'anio' : campo === 'dirección' ? campo = 'unidad_negocio' :  campo === 'país' ? campo = 'pais' : ''
+		// campo === 'año' ? campo = 'anio' : campo === 'dirección' ? campo = 'unidad_negocio' :  campo === 'país' ? campo = 'pais' : ''
 		let sql: string = ''
 		let reportes = []
 		if (filtros.length === 0) {
-			sql = `select  ` + campo + ` as campo, count(*) as numero_proyectos, sum(monto) as monto,
+			sql = `select  ` + group_by + ` as campo, count(*) as numero_proyectos, sum(monto) as monto,
 					(select count(*) from proyectos) as total, id
 					FROM proyectos
 					group by ` + group_by + ` order by ` + campo + ` asc`
@@ -360,6 +360,8 @@ export class ReportesDbService {
 				sql = `select ` + select + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
 						(select sum(monto) from proyectos) as monto_total
 						FROM proyectos group by ` + groupBY + ` order by ` + groupBY + ` asc`
+				console.log('mi query')
+				
 				console.log(sql)
 				
 		}
