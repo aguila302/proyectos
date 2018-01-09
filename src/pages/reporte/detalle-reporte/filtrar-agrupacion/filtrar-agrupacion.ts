@@ -51,28 +51,31 @@ export class FiltrarAgrupacionPage {
 		})
 		this.agrupacion === 'contratante' ? (this.visible = true): ''
 		this.agrupacion === 'contratante' ? (this.cargaOpcionesContratante()): (this.loadOpciones())
-		console.log(this.filtroPreseleccionado)
+		// console.log(this.filtroPreseleccionado)
 		
 	}
 	/* Funcion para visualizar los valores de los filtros. */
 	loadOpciones() {
 		var miglobal = this
 		if(this.filtroPreseleccionado.length === 0) {
-			console.log('if')
+		// 	console.log('if')
 			this.registros
-			console.log(this.registros)
+		// 	console.log(this.registros)
 			
 		}
 		else {
 			console.log(' else')
-			this.filtroPreseleccionado.forEach(item => {
-				this.registros.push({
-					'registros': item,
-					'checked': true
-				})
-			})
-			this.registros = collect(this.registros).unique('registros')
-			console.log(this.registros)
+			this.registros = this.filtroPreseleccionado
+			console.log(this.filtroPreseleccionado)
+			
+			// this.filtroPreseleccionado.forEach(item => {
+			// 	this.registros.push({
+			// 		'registros': item,
+			// 		'checked': true
+			// 	})
+			// })
+			// let r = collect(this.registros).unique('registros')
+			// console.log(r)
 		}
 		
 		
@@ -129,16 +132,29 @@ export class FiltrarAgrupacionPage {
 
 	/* Funcion para controlar los filtros seleccionados. */
 	seleccionFiltros = (event: any, filtros: string) => {
-			let encontrado
+		event.value ? (
+			this.registros.forEach(item => {
+				if(item.registros === filtros) {
+					item.checked =  true
+				}
+			})
+		): (
+			this.registros.forEach(item => {
+				if(item.registros === filtros) {
+					item.checked =  false
+				}
+			})
+		)
+			// let encontrado
 
-			event.value ? (
-				this.filtros_seleccionadas.push(filtros)
-			) : (
-				encontrado = this.filtros_seleccionadas.indexOf(filtros),
-				encontrado !== -1 ? (
-					this.filtros_seleccionadas.splice(encontrado, 1)
-				) : ''
-			);
+			// event.value ? (
+			// 	this.filtros_seleccionadas.push(filtros)
+			// ) : (
+			// 	encontrado = this.filtros_seleccionadas.indexOf(filtros),
+			// 	encontrado !== -1 ? (
+			// 		this.filtros_seleccionadas.splice(encontrado, 1)
+			// 	) : ''
+			// );
 		}
 
 		// verProyectosAgrupados = () => {
@@ -153,9 +169,17 @@ export class FiltrarAgrupacionPage {
 		// }
 	/* Funcion para enviar columnas seleccionadas. */
 	aceptar() {
-		console.log(this.registros)
+		// console.log(this.registros)
+		this.registros.filter(function(value, key) {
+			return value.checked === true
+		}).map(item => {
+			this.filtros_seleccionadas.push(item.registros)
+		})
 		
-		this.view.dismiss(this.filtros_seleccionadas)
+		this.view.dismiss({
+			'filtros_seleccionadas': this.filtros_seleccionadas,
+			'filtros_preseleccionadas': this.registros
+		})
 	}
 
 	/* Funcion para cancelar los filtros. */

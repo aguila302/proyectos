@@ -251,10 +251,10 @@ export class DetalleReportePage {
 					
 					/* Una vez cerrada la ventana de filtros validamos que se haya seleccionado alguna opcion. */
 					this.resultado.splice(0, this.resultado.length)
-					this.filtrosSeleccionados = data.map(item => item)
-					this.filtroPreseleccionado = data
-
-					// data.length > 0 ? (this.paraGraficarFiltrado(data)) : ''
+					this.filtrosSeleccionados = data.filtros_seleccionadas.map(item => item)
+					this.filtroPreseleccionado = data.filtros_preseleccionadas
+					console.log();
+					
 				})
 			})
 	}

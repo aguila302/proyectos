@@ -118,7 +118,6 @@ export class SelectColumnasPage {
 	}, ]
 	ionViewDidLoad() {
 		this.validaSeleccionInit()
-		// this.columnas_preselecccionadas.length !== 0 ? this.validaSeleccionInit() : ''
 	}
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private view: ViewController) {
@@ -132,24 +131,6 @@ export class SelectColumnasPage {
 			this.columnas.splice(0, this.columnas.length),
 			this.columnas = this.columnas_preselecccionadas
 		) : ''
-		
-		// for (var i=0; i<this.columnas.length; i++) {
-		// 	if(this.columnas[i].opcion === this.columnas_preselecccionadas[i]['columna']) {
-		// 		console.log('son iguales')
-		// 	}
-		// }
-		
-		// console.log(this.columnas_preselecccionadas)
-		
-		// var miGlobal = this
-		// this.preseleccion = this.columnas.filter(item => )
-		// this.preseleccion = this.columnas.filter(function(item, index) {
-			// let valorColuman = miGlobal.columnas_preselecccionadas[index]. columna
-			// console.log(miGlobal.columnas_preselecccionadas[index]['columna'])
-
-			// return item.opcion === valorColuman
-		// })
-		// console.log(miGlobal.preseleccion)
 	}
 
 	/* Funcion para seleccionar las columnas. */
@@ -167,25 +148,6 @@ export class SelectColumnasPage {
 				}
 			})
 		)
-		// let columnaEncontrado
-		// let titleEncontrado
-		// let columnas = []
-		// let titles = []
-		// event.value ? (
-		// 	this.columnas_seleccionadas.push(columna),
-		// 	this.titles_segleccionadas.push(title)
-		// ): (
-		// 	columnaEncontrado = this.columnas_seleccionadas.indexOf(columna),
-		// 	columnaEncontrado !== -1 ? (
-		// 		this.columnas_seleccionadas.splice(columnaEncontrado, 1)
-		// 	): '',
-
-		// 	titleEncontrado = this.titles_segleccionadas.indexOf(title),
-
-		// 	titleEncontrado !== -1 ? (
-		// 		this.titles_segleccionadas.splice(titleEncontrado, 1)
-		// 	) : ''
-		// )
 	}
 
 	/* Funcion para enviar columnas seleccionadas. */
@@ -197,8 +159,6 @@ export class SelectColumnasPage {
 			this.columnas_seleccionadas.push(item.opcion)
 			this.titles_segleccionadas.push(item.texto)
 		})
-		// this.columnas_preselecccionadas = this.columnas
-
 		this.view.dismiss({
 			columnas: this.columnas_seleccionadas,
 			title: this.titles_segleccionadas,
