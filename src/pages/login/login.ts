@@ -110,9 +110,7 @@ export class LoginPage {
 
 	/* Funcion para resolver el endpoint para cargar el archivo excel al origen de datos. */
 	validarRecursos(lastFecha: string) {
-		
 		this.loader.present()
-
 		this.apiService.readerArchivoExcel(lastFecha)
 			.then(response => {
 				console.log(response)
@@ -122,7 +120,7 @@ export class LoginPage {
 				response.status === 200 ? (
 						setTimeout(() => {
 							// construimos el origen de datos faltante para el modulo de reportes.
-							this.navCtrl.setRoot(TabsPage, {}, {animate: true, animation: 'ios-transition', direction: 'forward'})
+							this.navCtrl.push(TabsPage, {}, {animate: true, animation: 'ios-transition', direction: 'forward'})
 							this.loader.dismiss(),
 							this.dbService.delete()
 							this.dbService.creaTablaReportes()
@@ -153,7 +151,7 @@ export class LoginPage {
 	sincronizar() {
 		this.apiService.fetch()
 			.then(response => {
-				this.navCtrl.setRoot(TabsPage, {}, {animate: true, animation: 'ios-transition', direction: 'forward'})
+				this.navCtrl.push(TabsPage, {}, {animate: true, animation: 'ios-transition', direction: 'forward'})
 				/* LLamar a la funcion que nos ayudara a registrar la informacion del endpoint a nuestra aplicacion movil. */
 				this.apiService.regitrarData(response)
 				/* Funcion para registrar un historial de la sincronizacion. */

@@ -268,6 +268,8 @@ export class DetalleReportePage {
 			alert.present()
 		): (
 			/* En caso de que haya opciones seleccionadas nos vamos a graficar. */
+			console.log(this.filtrosSeleccionados),
+			
 			this.paraGraficarFiltrado(this.filtrosSeleccionados, this.segmento)
 		)
 	}
@@ -744,10 +746,11 @@ export class DetalleReportePage {
 					miglobal.data_circular = response
 					/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 					console.log(this.xy)
-					
-
+					this.campo_select = this.campo_agrupacion
 					this.grafico = new Grafico(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion, '', 'Porcentaje total de participación por ' + this.campo_agrupacion)
 					this.options = this.grafico.graficaBar()
+					console.log(this.options)
+					
 
 					/* Para mostrar la tabla de informacion */
 					const collection = collect(response)

@@ -331,12 +331,12 @@ export class ReportesDbService {
 
 	/*Funcion para conseguir la informacion para construir la grafica. */
 	paraGraficar = (columnas, agrupacion, where ? ): any => {
-
+		columnas === 'año' ? columnas = 'anio' : columnas === 'dirección' ? columnas = 'unidad_negocio' :  columnas === 'país' ? columnas= 'pais' : ''
 		let sql = `select ` + columnas + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
 							(select count(*) from proyectos) as total, sum(monto) as monto_filtrado
 							FROM proyectos
 							where ` + agrupacion + ` in ('` + where + `')` + ` group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
-
+		console.log(sql)
 
 		return this.db.executeSql(sql, {})
 	}

@@ -11,6 +11,7 @@ import { IonicPage } from 'ionic-angular';
 import { TabsPage } from '../../pages/tabs/tabs';
 import { OpcionesPage } from '../../pages/proyecto/opciones/opciones'
 import { ReportesDbService } from '../../services/reportes.db.service'
+import * as collect from 'collect.js/dist'
 
 @Component({
 	selector: 'page-proyecto',
@@ -54,6 +55,11 @@ export class ProyectoPage {
 		this.dbService.getProyectos()
 			.then(proyectos => {
 				this.zone.run(() => {
+					let order = collect(proyectos).sortBy(function(item, key) {
+						return item['nombre_proyecto']
+					})
+					console.log(order.all())
+					
 					this.proyectos = proyectos
 					loading.dismiss()
 				})
@@ -70,6 +76,18 @@ export class ProyectoPage {
 
 	/* Funcion para filtar los proyectos. */
 	buscaProyectos = (event: any, filtros = this.opciones): void => {
+		// Cuando inicia la aplicacion establecemos valores definidos para la busqueda.
+		this.opciones.length === 0 ? (
+			this.opciones['anio'] = 'anio',
+			this.opciones['contratante'] = 'contratante',
+			this.opciones['datos_cliente'] = 'datos_cliente',
+			this.opciones['nombre_proyecto'] = 'nombre_proyecto',
+			this.opciones['pais'] = 'pais',
+			this.opciones['producto'] = 'producto'
+			
+		): ''
+		console.log(this.opciones)
+		
 		// Obtenemos el valor del input.
 		let val = event.target.value
 
