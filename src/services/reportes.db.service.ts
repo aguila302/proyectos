@@ -92,6 +92,7 @@ export class ReportesDbService {
 
 	/* Funcion para la consulta del detalle de reportes. */
 	detalleReporte = (campo: string, group_by: string, filtros: any[]): any => {
+		campo === 'año' ? campo = 'anio' : campo === 'dirección' ? campo = 'unidad_negocio' :  campo === 'país' ? campo = 'pais' : ''
 		let sql: string = ''
 		let reportes = []
 		if (filtros.length === 0) {
