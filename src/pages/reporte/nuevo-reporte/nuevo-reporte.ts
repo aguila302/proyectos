@@ -89,11 +89,11 @@ export class NuevoReportePage {
 					title: data.title[index]
 				})
 			})
-			console.log('fioltros seleccionados')
-			console.log(miGlobal.filtrar_seleccionadas)
+			// console.log('fioltros seleccionados')
+			// console.log(miGlobal.filtrar_seleccionadas)
 
-			console.log('preseleccionados')
-			console.log(miGlobal.columnas_preseleccionadas = data.preseleccion)
+			// console.log('preseleccionados')
+			// console.log(miGlobal.columnas_preseleccionadas = data.preseleccion)
 		})
 	}
 
