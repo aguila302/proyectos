@@ -16,7 +16,7 @@ page-nuevo-reporte {
 		max-width: 100%;
 		margin: 0 auto;
 	}
-	.ng2-smart-pagination {
-		color: red;
+	:host /deep/ ng2-smart-table {
+		font-size: 22px;
 	}
 }
