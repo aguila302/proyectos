@@ -835,8 +835,7 @@ export class ReportesDbService {
 		if(filtros.length === 0) {
 			consulta = 'select * from proyectos'
 		}
-		console.log(consulta)
-		
+
 		let proyectos = []
 		return this.db.executeSql(consulta, {})
 			.then(response => {

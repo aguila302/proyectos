@@ -156,7 +156,6 @@ export class NuevoReportePage {
 		public zone: NgZone, public alertCtrl: AlertController, public loadingCtrl: LoadingController, private dbService: DbService) {}
 
 	ionViewDidLoad() {
-		console.log('ionViewDidLoad NuevoReportePage')
 		this.muestraColumnasInit()
 	}
 
@@ -184,12 +183,10 @@ export class NuevoReportePage {
 		modal_columnas.present()
 			/* Cuando cierro mi modal recupero mis columnas que seleccione. */
 		modal_columnas.onDidDismiss(data => {
-			console.log('mis columnas sel')
-			console.log(data)
-			
 			/* Reseteamos los arreglos para actualizar las opciones seleccionadas. */
 			this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
 			miGlobal.filtrar_seleccionadas.splice(0, this.filtrar_seleccionadas.length)
+			this.columnas_preseleccionadas = data.preseleccion
 
 			/* Mostrarmos la grid. */
 			this.manageGrid(data.columnas, data.title, [])
@@ -201,11 +198,6 @@ export class NuevoReportePage {
 					title: data.title[index]
 				})
 			})
-			// console.log('fioltros seleccionados')
-			// console.log(miGlobal.filtrar_seleccionadas)
-
-			// console.log('preseleccionados')
-			// console.log(miGlobal.columnas_preseleccionadas = data.preseleccion)
 		})
 	}
 
@@ -278,24 +270,19 @@ export class NuevoReportePage {
 			.then(response => {
 				this.data = response
 				/* Mostrarmos la grid. */
+				/* En caso de que la gris carga por primera vez*/
 				if(filtrosNew.length === 0 && titleNew.length === 0){
-					console.log('if')
-					
 					this.manageGrid(this.columnasInit, this.titleInit, response)
 				}
+				/* En caso de que la gris tenga filtros seleccionados. */
 				else {
 					this.manageGrid(filtrosNew, titleNew, response)
-					
 				}
 			})
 	}
 
 	/* Funcion para administrar el grid.  */
 	manageGrid = (columnas ? : Array < any > , title ? : Array < any > , data ? : Array < any > ): Object => {
-		console.log(columnas)
-		console.log(title)
-		console.log(data)
-		
 		this.settings = {
 			noDataMessage: 'Datos no encontrados',
 			columns: {}

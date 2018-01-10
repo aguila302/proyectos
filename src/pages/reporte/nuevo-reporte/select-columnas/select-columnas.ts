@@ -123,6 +123,7 @@ export class SelectColumnasPage {
 		private view: ViewController) {
 		this.columnas = collect(this.columnas).sortBy('texto').all()
 		this.columnas_preselecccionadas = this.navParams.get('columnas_preselecccionadas')
+		console.log(this.columnas_preselecccionadas);
 	}
 
 	/* Funcion para validar si hay columnas preseleccionadas anteriormente. */
