@@ -166,9 +166,11 @@ export class NuevoReportePage {
 			this.columnasInit.push(item.opcion)
 			this.titleInit.push(item.title)
 		})
-		this.llenarGrid('select * from proyectos', [])
 		/* Llamamos a la funcion para mostrar la grid. */
 		this.manageGrid(this.columnasInit, this.titleInit)
+
+		this.llenarGrid('select * from proyectos', [])
+		
 	}
 
 	/* Funcion para mostrar las comunas y escoger*/
@@ -274,14 +276,17 @@ export class NuevoReportePage {
 		})
 		this.reporteService.getDataGrid(consulta, filtrosNew)
 			.then(response => {
-				console.log('mi response')
-				console.log(response);
 				this.data = response
 				/* Mostrarmos la grid. */
 				if(filtrosNew.length === 0 && titleNew.length === 0){
+					console.log('if')
+					
 					this.manageGrid(this.columnasInit, this.titleInit, response)
 				}
-				this.manageGrid(filtrosNew, titleNew, response)
+				else {
+					this.manageGrid(filtrosNew, titleNew, response)
+					
+				}
 			})
 	}
 
