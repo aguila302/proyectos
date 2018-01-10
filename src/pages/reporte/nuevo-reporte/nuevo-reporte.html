@@ -6,10 +6,9 @@
 <ion-content padding>
 	<button ion-button full (click)="selectColumnas()">Seleccionar columnas</button>
 	<button ion-button full (click)="filtrarColumnas()">Filtrar columnas</button>
-	<ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
-	<!-- <ion-scroll scrollX scrollY style="width: 100%; height: 500px" zoom="true">
+	<ion-scroll scrollX scrollY style="width: 100%; height: 500px" zoom="true">
 		<ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
-	</ion-scroll> -->
+	</ion-scroll>
 	<button ion-button full (click)="selectAgrupaciones()">Seleccionar agrupaciones</button>
 	<div id="container" [hidden]="!visible">
 		<chart [options]="options"></chart>
