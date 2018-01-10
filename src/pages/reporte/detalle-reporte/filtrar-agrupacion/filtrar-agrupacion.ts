@@ -152,6 +152,7 @@ export class FiltrarAgrupacionPage {
 
 	/* Funcion para cancelar los filtros. */
 	cancelar() {
+		this.filtroPreseleccionado.length = 0
 		this.navCtrl.pop()
 	}
 }
