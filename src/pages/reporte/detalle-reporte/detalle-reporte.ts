@@ -248,20 +248,30 @@ export class DetalleReportePage {
 				modal.present()
 				modal.onDidDismiss(data => {
 					console.log(data)
-					
+
 					/* Una vez cerrada la ventana de filtros validamos que se haya seleccionado alguna opcion. */
 					this.resultado.splice(0, this.resultado.length)
 					this.filtrosSeleccionados = data.filtros_seleccionadas.map(item => item)
 					this.filtroPreseleccionado = data.filtros_preseleccionadas
-					console.log();
-					
+
 				})
 			})
 	}
 
 	/* Funcion para validar los filtros selecccionados*/
-	aplicarFiltro = () => {
+	aplicarFiltro() {
+		console.log(this.filtroPreseleccionado)
 		let alert: any
+		if(this.filtroPreseleccionado.length !== 0) {
+			let y = collect(this.filtroPreseleccionado).filter(function(item, key){
+				return item.checked === true
+			}).map(value => {
+				// console.log(value.registros);
+				this.filtrosSeleccionados.push(value.registros)
+			})
+			console.log(this.filtrosSeleccionados)
+			
+		}
 		/*Validamos si hay filtros seleccionados */
 		/* Filtros no seleccionados */
 		this.filtrosSeleccionados.length === 0 ? (
@@ -273,8 +283,6 @@ export class DetalleReportePage {
 			alert.present()
 		): (
 			/* En caso de que haya opciones seleccionadas nos vamos a graficar. */
-			console.log(this.filtrosSeleccionados),
-			
 			this.paraGraficarFiltrado(this.filtrosSeleccionados, this.segmento)
 		)
 	}
@@ -411,6 +419,7 @@ export class DetalleReportePage {
 
 	/* Funcion para obtener los datos por nuemero de proyectos. */
 	async getDatosNumeroProyectos() {
+
 		this.segmento = 3
 		if (this.campo_agrupacion === 'contratante') {
 			this.visible = true

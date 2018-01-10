@@ -134,39 +134,18 @@ export class FiltrarAgrupacionPage {
 	seleccionFiltros = (event: any, filtros: string) => {
 		event.value ? (
 			this.registros.forEach(item => {
-				if(item.registros === filtros) {
-					item.checked =  true
+				if (item.registros === filtros) {
+					item.checked = true
 				}
 			})
-		): (
+		) : (
 			this.registros.forEach(item => {
-				if(item.registros === filtros) {
-					item.checked =  false
+				if (item.registros === filtros) {
+					item.checked = false
 				}
 			})
 		)
-			// let encontrado
-
-			// event.value ? (
-			// 	this.filtros_seleccionadas.push(filtros)
-			// ) : (
-			// 	encontrado = this.filtros_seleccionadas.indexOf(filtros),
-			// 	encontrado !== -1 ? (
-			// 		this.filtros_seleccionadas.splice(encontrado, 1)
-			// 	) : ''
-			// );
-		}
-
-		// verProyectosAgrupados = () => {
-		// 	let loader = this.loading.create({
-		// 		content: 'Por favor espere ...',
-		// 	})
-		// 	loader.present()
-		// 	setTimeout(() => {
-		// 		this.visible = !this.visible
-		// 		loader.dismiss()
-		// 	}, 6000)
-		// }
+	}
 	/* Funcion para enviar columnas seleccionadas. */
 	aceptar() {
 		// console.log(this.registros)
