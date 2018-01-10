@@ -832,8 +832,12 @@ export class ReportesDbService {
 
 	/* Funcion para obtener la informacion para llenar la grid de acuerdo a los filtros seleccoinados. */
 	getDataGrid = (consulta: string, filtros: string[]) => {
+		if(filtros.length === 0) {
+			consulta = 'select * from proyectos'
+		}
+		console.log(consulta)
+		
 		let proyectos = []
-
 		return this.db.executeSql(consulta, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {

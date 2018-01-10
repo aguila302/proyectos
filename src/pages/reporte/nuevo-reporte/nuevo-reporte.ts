@@ -52,6 +52,8 @@ export class NuevoReportePage {
 	whereGlobal
 	camposGuardarReporte = []
 	columnas_preseleccionadas = []
+	columnasInit = []
+	titleInit = []
 	columnas = [{
 		'opcion': 'nombre_proyecto',
 		'texto': 'Nombre de proyecto',
@@ -160,13 +162,13 @@ export class NuevoReportePage {
 
 	/* Carga las columnas cuando presentamos la pantalla. */
 	muestraColumnasInit = () => {
-		let columnas = []
-		let title = []
 		this.columnas.forEach(item => {
-			columnas.push(item.opcion)
-			title.push(item.title)
+			this.columnasInit.push(item.opcion)
+			this.titleInit.push(item.title)
 		})
-		this.manageGrid(columnas, title)
+		this.llenarGrid('select * from proyectos', [])
+		/* Llamamos a la funcion para mostrar la grid. */
+		this.manageGrid(this.columnasInit, this.titleInit)
 	}
 
 	/* Funcion para mostrar las comunas y escoger*/
@@ -272,14 +274,23 @@ export class NuevoReportePage {
 		})
 		this.reporteService.getDataGrid(consulta, filtrosNew)
 			.then(response => {
+				console.log('mi response')
+				console.log(response);
 				this.data = response
-					/* Mostrarmos la grid. */
+				/* Mostrarmos la grid. */
+				if(filtrosNew.length === 0 && titleNew.length === 0){
+					this.manageGrid(this.columnasInit, this.titleInit, response)
+				}
 				this.manageGrid(filtrosNew, titleNew, response)
 			})
 	}
 
 	/* Funcion para administrar el grid.  */
 	manageGrid = (columnas ? : Array < any > , title ? : Array < any > , data ? : Array < any > ): Object => {
+		console.log(columnas)
+		console.log(title)
+		console.log(data)
+		
 		this.settings = {
 			noDataMessage: 'Datos no encontrados',
 			columns: {}
