@@ -33,10 +33,6 @@
 				<i (click)="filtrar()" class="fa fa-filter" aria-hidden="true" style="font-size: 30px" padding-top></i>
 				<button ion-button clear margin-left (click)="aplicarFiltro()">Aplicar filtro</button>
 			</div>
-			<!-- <div text-center margin-top>
-				<strong>Seleccionar filtro:</strong>
-				<i class="fa fa-filter" aria-hidden="true" style="font-size: 20px" padding-top (click)="filtrar()"></i>
-			</div> -->
 			<hr>
 			<hr>
 			<ion-card>
@@ -225,22 +221,20 @@
 				<i (click)="filtrar()" class="fa fa-filter" aria-hidden="true" style="font-size: 30px" padding-top></i>
 				<button ion-button clear margin-left (click)="aplicarFiltro()">Aplicar filtro</button>
 			</div>
-			<!-- <div text-center margin-top>
-				<strong>Seleccionar filtro:</strong>
-				<i class="fa fa-filter" aria-hidden="true" style="font-size: 20px" padding-top (click)="filtrar()"></i>
-			</div> -->
 			<hr>
 			<hr>
 			<ion-card>
 				<ion-grid>
 					<ion-row>
-						<ion-col text-wrap text-right>
-							<strong>Monto total USD: </strong>
-							<p class="medium">{{ monto_total }}</p>
+						<ion-col text-center>
+							<!-- <strong>Monto total USD: </strong>
+							<p class="medium">{{ monto_total }}</p> -->
+							<strong>Monto total USD: </strong>{{ monto_total }}
 						</ion-col>
-						<ion-col text-wrap text-left>
-							<strong>Total de proyectos: </strong>
-							<p class="medium">{{ total_proyectos }}</p>
+						<ion-col text-center>
+							<!-- <strong>Total de proyectos: </strong>
+							<p class="medium">{{ total_proyectos }}</p> -->
+							<strong>Total de proyectos: </strong>{{ total_proyectos }}
 						</ion-col>
 					</ion-row>
 				</ion-grid>
