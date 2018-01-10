@@ -336,7 +336,7 @@ export class ReportesDbService {
 		let sql = `select ` + columnas + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
 							(select count(*) from proyectos) as total, sum(monto) as monto_filtrado
 							FROM proyectos
-							where ` + agrupacion + ` in ('` + where + `')` + ` group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
+							where ` + columnas + ` in ('` + where + `')` + ` group by ` + columnas + ` order by ` + columnas + ` asc`
 		console.log(sql)
 
 		return this.db.executeSql(sql, {})
@@ -351,7 +351,7 @@ export class ReportesDbService {
 		let nuevaCadena: string = ''
 		let campo = []
 
-		groupBY === 'año' ? groupBY = 'anio': groupBY === 'dirección' ? groupBY = 'unidad_negocio': 
+		groupBY === 'año' ? groupBY = 'anio': groupBY === 'dirección' ? groupBY = 'unidad_negocio': groupBY === 'país' ? groupBY = 'pais' : ''
 		// Recuperamos nuestros filtros
 		filters = filtros.map(item => item.valor)
 		campo = filtros.map(item => item.nombre_columna)
