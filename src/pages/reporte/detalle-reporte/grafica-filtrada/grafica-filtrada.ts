@@ -33,7 +33,9 @@ export class GraficaFiltradaPage {
 		this.segmento = navParams.get('segmento')
 
 		/* PAra visualizar el titulo de la vista activa.*/
-		this.title = collect(this.reportes).implode('campo', ' , ')
+		let titulo = collect(this.reportes).unique('campo').toArray()
+		this.title = collect(titulo).implode('campo', ',')
+		
 		this.campo_agrupacion === 'anio' ? this.campo_agrupacion = 'año' : this.campo_agrupacion === 'unidad_negocio' ? this.campo_agrupacion = 'dirección': this.campo_agrupacion === 'pais' ? this.campo_agrupacion = 'país': ''
 		
 	}
@@ -42,9 +44,11 @@ export class GraficaFiltradaPage {
 		console.log('ionViewDidLoad GraficaFiltradaPage')
 		this.muestraGrafica()
 	}
-	ionViewWillLeave() {
+	ionViewDidLeave() {
 		console.log('me dejas');
 		this.title = ''
+		console.log('title' + this.title);
+		
 	}
 
 	/* Funcion para visualizar la grafica con los filtros seleccionados. */
@@ -55,8 +59,6 @@ export class GraficaFiltradaPage {
 	/* Funcion para graficar por porcentajes. */
 	filtraPorcentajes = () => {
 		let data = []
-		console.log(this.reportes)
-		
 		this.reportes.forEach(items => {
 			data.push({
 				name: items.campo,
@@ -72,8 +74,6 @@ export class GraficaFiltradaPage {
 	/* Funcion para graficar por monto usd. */
 	filtraMontoUsd = () => {
 		let data = []
-		console.log(this.reportes)
-		
 		this.reportes.forEach(items => {
 			data.push({
 				name: items.campo,

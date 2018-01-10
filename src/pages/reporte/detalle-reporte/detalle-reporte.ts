@@ -288,7 +288,6 @@ export class DetalleReportePage {
 						miglobal.resultado.push({
 							'campo': res.rows.item(i).campo,
 							'monto': account.formatNumber(res.rows.item(i).monto),
-
 							'total': res.rows.item(i).total,
 							'numero_proyectos': res.rows.item(i).numero_proyectos,
 							'monto_filtrado': res.rows.item(i).monto_filtrado,
