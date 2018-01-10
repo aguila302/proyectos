@@ -262,6 +262,7 @@ export class DetalleReportePage {
 	aplicarFiltro() {
 		console.log(this.filtroPreseleccionado)
 		let alert: any
+		/* Verificamos si al cambiar de segmento al filtros seleccionados */
 		if(this.filtroPreseleccionado.length !== 0) {
 			let y = collect(this.filtroPreseleccionado).filter(function(item, key){
 				return item.checked === true
