@@ -72,9 +72,6 @@ export class NuevoReportePage {
 		modal_columnas.present()
 			/* Cuando cierro mi modal recupero mis columnas que seleccione. */
 		modal_columnas.onDidDismiss(data => {
-			// console.log('mis columasn seleccionadas')
-			// console.log(data);
-			
 			/* Reseteamos los arreglos para actualizar las opciones seleccionadas. */
 			this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
 			miGlobal.filtrar_seleccionadas.splice(0, this.filtrar_seleccionadas.length)
