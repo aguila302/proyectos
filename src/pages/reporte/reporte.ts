@@ -40,10 +40,11 @@ export class ReportePage {
 		this.getReportes()
 	}
 	/* Funcion para mostrar el detalle de un reporte. */
-	detalleReporte = (id: number): void => {
+	detalleReporte = (id: number, nombreReporte: string): void => {
 		if(id !== 7) {
 			this.navCtrl.push(DetalleReportePage, {
-				'id': id
+				'id': id,
+				'nombre_reporte': nombreReporte
 			})
 		}
 		else {

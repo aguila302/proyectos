@@ -78,11 +78,13 @@ export class DetalleReportePage {
 	segmento: number = 0
 	filtrosSeleccionados = []
 	filtroPreseleccionado = []
+	nombreReporte: string = ''
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private reporteService: ReportesDbService, private dbService: DbService, public zone: NgZone,
 		public modalCtrl: ModalController, public alert: AlertController) {
 		this.id = navParams.get('id')
+		this.nombreReporte = navParams.get('nombre_reporte')
 	}
 
 	ionViewDidLoad() {

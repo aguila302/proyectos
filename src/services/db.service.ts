@@ -42,10 +42,7 @@ export class DbService {
 
 	/* Creamos la tabla para almacenar los proyectos. */
 	createTable() {
-		// let drop = ''
 		let sql = ''
-
-
 		sql = `
 			create table if not exists proyectos(
 				id integer primary key autoincrement,
@@ -91,9 +88,6 @@ export class DbService {
 			.catch(e => console.log(e));
 
 		console.log('insert data del api')
-		//console.log(proyectos)
-		
-
 		proyectos.data.forEach(item => {
 			let sql = `insert into proyectos(numero,
 					nombre_proyecto, nombre_corto, contrato,
