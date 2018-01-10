@@ -42,6 +42,10 @@ export class GraficaFiltradaPage {
 		console.log('ionViewDidLoad GraficaFiltradaPage')
 		this.muestraGrafica()
 	}
+	ionViewWillLeave() {
+		console.log('me dejas');
+		this.title = ''
+	}
 
 	/* Funcion para visualizar la grafica con los filtros seleccionados. */
 	muestraGrafica = () => {
