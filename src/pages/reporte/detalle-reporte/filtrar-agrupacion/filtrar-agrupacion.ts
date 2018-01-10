@@ -1,15 +1,21 @@
 import {
-	Component, NgZone
+	Component,
+	NgZone
 } from '@angular/core';
 import {
 	IonicPage,
 	NavController,
 	NavParams,
-	ViewController, LoadingController
+	ViewController,
+	LoadingController
 } from 'ionic-angular';
 import * as collect from 'collect.js/dist'
-import { DbService } from '../../../../services/db.service'
-import { Observable } from 'rxjs/Observable';
+import {
+	DbService
+} from '../../../../services/db.service'
+import {
+	Observable
+} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/delay';
@@ -42,43 +48,28 @@ export class FiltrarAgrupacionPage {
 	}
 
 	ionViewDidLoad() {
-		console.log('ionViewDidLoad')
-		this.columnas.forEach(item => {
-			this.registros.push({
-				'registros': item.registros,
-				'checked': false
+			console.log('ionViewDidLoad')
+			this.columnas.forEach(item => {
+				this.registros.push({
+					'registros': item.registros,
+					'checked': false
+				})
 			})
-		})
-		this.agrupacion === 'contratante' ? (this.visible = true): ''
-		this.agrupacion === 'contratante' ? (this.cargaOpcionesContratante()): (this.loadOpciones())
-		// console.log(this.filtroPreseleccionado)
-		
-	}
-	/* Funcion para visualizar los valores de los filtros. */
+			this.agrupacion === 'contratante' ? (this.visible = true) : ''
+			this.agrupacion === 'contratante' ? (this.cargaOpcionesContratante()) : (this.loadOpciones())
+				// console.log(this.filtroPreseleccionado)
+
+		}
+		/* Funcion para visualizar los valores de los filtros. */
 	loadOpciones() {
 		var miglobal = this
-		if(this.filtroPreseleccionado.length === 0) {
-		// 	console.log('if')
+		if (this.filtroPreseleccionado.length === 0) {
 			this.registros
-		// 	console.log(this.registros)
-			
-		}
-		else {
-			console.log(' else')
+		} else {
 			this.registros = this.filtroPreseleccionado
-			console.log(this.filtroPreseleccionado)
-			
-			// this.filtroPreseleccionado.forEach(item => {
-			// 	this.registros.push({
-			// 		'registros': item,
-			// 		'checked': true
-			// 	})
-			// })
-			// let r = collect(this.registros).unique('registros')
-			// console.log(r)
 		}
-		
-		
+
+
 	}
 
 	cargaOpcionesContratante(): any {
@@ -115,7 +106,7 @@ export class FiltrarAgrupacionPage {
 					let menores_de_uno = ordenados.where('porcentaje', '<', 1)
 
 					mayores_de_uno.toArray()
-					/* Para visualizar los contratantes mayores de 1% */
+						/* Para visualizar los contratantes mayores de 1% */
 					mayores_de_uno.map(item => {
 							this.registros.push({
 								'registros': item.contratante
@@ -124,29 +115,27 @@ export class FiltrarAgrupacionPage {
 						/* Para visualizar los contratantes menores de 1% */
 					this.filter_menores_uno = menores_de_uno.toArray()
 					this.clientes$ = Observable.of(this.filter_menores_uno).delay(1000)
-					// this.items = this.filter_menores_uno.map(res => res.toJSON())
-					// this.midata(this.items)
 				})
 			})
 	}
 
 	/* Funcion para controlar los filtros seleccionados. */
 	seleccionFiltros = (event: any, filtros: string) => {
-		event.value ? (
-			this.registros.forEach(item => {
-				if (item.registros === filtros) {
-					item.checked = true
-				}
-			})
-		) : (
-			this.registros.forEach(item => {
-				if (item.registros === filtros) {
-					item.checked = false
-				}
-			})
-		)
-	}
-	/* Funcion para enviar columnas seleccionadas. */
+			event.value ? (
+				this.registros.forEach(item => {
+					if (item.registros === filtros) {
+						item.checked = true
+					}
+				})
+			) : (
+				this.registros.forEach(item => {
+					if (item.registros === filtros) {
+						item.checked = false
+					}
+				})
+			)
+		}
+		/* Funcion para enviar columnas seleccionadas. */
 	aceptar() {
 		// console.log(this.registros)
 		this.registros.filter(function(value, key) {
@@ -154,7 +143,7 @@ export class FiltrarAgrupacionPage {
 		}).map(item => {
 			this.filtros_seleccionadas.push(item.registros)
 		})
-		
+
 		this.view.dismiss({
 			'filtros_seleccionadas': this.filtros_seleccionadas,
 			'filtros_preseleccionadas': this.registros

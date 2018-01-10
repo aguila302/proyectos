@@ -96,19 +96,16 @@ export class DetalleReportePage {
 	getAgrupacion = (): void => {
 		this.reporteService.obtenerAgrupacionDetalle(this.id)
 			.then(response => {
-				console.log(response)
 				let agrupacion = collect(response)
 				this.campo_agrupacion = agrupacion.implode('nombre_columna', ',')
 			})
 			.then(() => this.reporteService.obtenerCamposDetalle(this.id)
 				.then(response => {
-					console.log(response)
 					let campos = collect(response)
 					this.campo_select = campos.implode('nombre_columna', ',')
 				})
 				.then(() => this.reporteService.obtenerFiltros(this.id)
 					.then(response => {
-						console.log(response)
 						this.filtros = response
 					}))
 			)
@@ -171,9 +168,7 @@ export class DetalleReportePage {
 						this.xy = data_cliente
 							/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 						this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '', 'Porcentaje total de participación por clientes')
-
 						this.options = this.grafico.graficaBar()
-
 						/* Para mostrar la tabla de informacion */
 						this.monto_total = account.formatNumber(data.sum('monto'))
 						this.total_proyectos = response.length
@@ -189,7 +184,6 @@ export class DetalleReportePage {
 						})
 
 						this.proyectos = proyectos
-						// this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno)
 					})
 				})
 		} else {
@@ -197,7 +191,6 @@ export class DetalleReportePage {
 			/* En caso de visualizar algun reporte que no sea de direccion con años. */
 			this.reporteService.detalleReporte(this.campo_select, this.campo_agrupacion, this.filtros)
 				.then(response => {
-					console.log(this.campo_select, this.campo_agrupacion, this.filtros)
 					this.campo_agrupacion === 'anio' ? this.campo_agrupacion = 'año' : this.campo_agrupacion === 'unidad_negocio' ? this.campo_agrupacion = 'dirección' : ''
 						// Para mostrar la informacion de la grafica.
 					this.xy.splice(0, this.xy.length)
@@ -247,20 +240,16 @@ export class DetalleReportePage {
 				})
 				modal.present()
 				modal.onDidDismiss(data => {
-					console.log(data)
-
 					/* Una vez cerrada la ventana de filtros validamos que se haya seleccionado alguna opcion. */
 					this.resultado.splice(0, this.resultado.length)
 					this.filtrosSeleccionados = data.filtros_seleccionadas.map(item => item)
 					this.filtroPreseleccionado = data.filtros_preseleccionadas
-
 				})
 			})
 	}
 
 	/* Funcion para validar los filtros selecccionados*/
 	aplicarFiltro() {
-		console.log(this.filtroPreseleccionado)
 		let alert: any
 		/* Verificamos si al cambiar de segmento al filtros seleccionados */
 		if(this.filtroPreseleccionado.length !== 0) {
@@ -270,8 +259,6 @@ export class DetalleReportePage {
 				// console.log(value.registros);
 				this.filtrosSeleccionados.push(value.registros)
 			})
-			console.log(this.filtrosSeleccionados)
-			
 		}
 		/*Validamos si hay filtros seleccionados */
 		/* Filtros no seleccionados */
@@ -361,12 +348,8 @@ export class DetalleReportePage {
 		/* Construyo la informacion para mi tablero. */
 		this.proyectos_agrupados['suma_montos_menores_de_uno'] = account.formatNumber(menores_de_uno.sum('suma_monto'))
 		this.proyectos_agrupados['porcentaje'] = suma_porcentajes
-		// this.proyectos_agrupados['numero_proyectos'] = menores_de_uno.count()
 		this.proyectos_agrupados['numero_proyectos'] = menores_de_uno.sum('numero_proyectos')
-		// this.proyectos_agrupados['numero_proyectos'] = numero_proyectos
-
 		this.proyectos_agrupados_detalle = menores_de_uno
-
 	}
 
 	/* Funcion para ver el detalle de los proyectos segun la opcion que se escoja. */
@@ -420,7 +403,6 @@ export class DetalleReportePage {
 
 	/* Funcion para obtener los datos por nuemero de proyectos. */
 	async getDatosNumeroProyectos() {
-
 		this.segmento = 3
 		if (this.campo_agrupacion === 'contratante') {
 			this.visible = true
@@ -627,8 +609,6 @@ export class DetalleReportePage {
 			miglobal.reportes.splice(0, miglobal.reportes.length)
 			this.campo_agrupacion === 'año' ? this.campo_agrupacion = 'anio' : this.campo_agrupacion === 'dirección' ? this.campo_agrupacion = 'unidad_negocio' :  this.campo_agrupacion === 'país' ? this.campo_agrupacion = 'pais' : ''
 				/* Si el grupo es por monto total hacemos la consulta para obtener la informacion. */
-				console.log('mi select' + this.campo_select)
-				
 			await this.reporteService.detallePorMontoTotal(this.campo_agrupacion, this.campo_agrupacion, this.id, this.filtros)
 				.then(response => {
 					this.campo_agrupacion === 'anio' ? this.campo_agrupacion = 'año' : this.campo_agrupacion === 'unidad_negocio' ? this.campo_agrupacion = 'dirección' : this.campo_agrupacion === 'pais' ? this.campo_agrupacion = 'país' : ''
@@ -665,8 +645,6 @@ export class DetalleReportePage {
 		this.segmento = 1
 		if (this.campo_agrupacion === 'contratante') {
 			this.visible = true
-			console.log(this.visible)
-			
 
 			let data_cliente = []
 
@@ -738,9 +716,6 @@ export class DetalleReportePage {
 
 						this.proyectos = proyectos
 						this.data_circular = response
-						console.log('data circular')
-						console.log(this.data_circular);
-						
 						this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno, suma_porcentajes_menores_de_uno)
 					})
 				})
@@ -762,12 +737,10 @@ export class DetalleReportePage {
 					})
 					miglobal.data_circular = response
 					/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-					console.log(this.xy)
+
 					this.campo_select = this.campo_agrupacion
 					this.grafico = new Grafico(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion, '', 'Porcentaje total de participación por ' + this.campo_agrupacion)
 					this.options = this.grafico.graficaBar()
-					console.log(this.options)
-					
 
 					/* Para mostrar la tabla de informacion */
 					const collection = collect(response)
