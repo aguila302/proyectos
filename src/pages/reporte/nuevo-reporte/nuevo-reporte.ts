@@ -37,7 +37,7 @@ import {
 	templateUrl: 'nuevo-reporte.html',
 })
 export class NuevoReportePage {
-	columnas = []
+	// columnas = []
 	columnas_seleccionadas = []
 	filtrar_seleccionadas = []
 	agrupacion_seleccionada = []
@@ -52,6 +52,102 @@ export class NuevoReportePage {
 	whereGlobal
 	camposGuardarReporte = []
 	columnas_preseleccionadas = []
+	columnas = [{
+		'opcion': 'nombre_proyecto',
+		'texto': 'Nombre de proyecto',
+		'checked': false,
+		'title': 'Nombre de proyecto'
+	}, {
+		'opcion': 'nombre_corto',
+		'texto': 'Nombre corto',
+		'checked': false,
+		'title': 'Nombre corto'
+	}, {
+		'opcion': 'contrato',
+		'texto': 'Contrato',
+		'checked': false,
+		'title': 'Contrato'
+	}, {
+		'opcion': 'monto',
+		'texto': 'Monto USD',
+		'checked': false,
+		'title': 'Monto USD'
+	}, {
+		'opcion': 'monto_moneda_original',
+		'texto': 'Monto moneda original',
+		'checked': false,
+		'title': 'Monto moneda original'
+	}, {
+		'opcion': 'moneda',
+		'texto': 'Moneda',
+		'checked': false,
+		'title': 'Moneda'
+	}, {
+		'opcion': 'pais',
+		'texto': 'País',
+		'checked': false,
+		'title': 'País'
+	}, {
+		'opcion': 'gerencia',
+		'texto': 'Grencia',
+		'checked': false,
+		'title': 'Gerencia'
+	}, {
+		'opcion': 'unidad_negocio',
+		'texto': 'Unidad de negocio',
+		'checked': false,
+		'title': 'Unidad de negocio'
+	}, {
+		'opcion': 'numero_contrato',
+		'texto': 'Numero de contrato',
+		'checked': false,
+		'title': 'Numero de contrato'
+	}, {
+		'opcion': 'producto',
+		'texto': 'Producto',
+		'checked': false,
+		'title': 'Producto'
+	}, {
+		'opcion': 'anio',
+		'texto': 'Año',
+		'checked': false,
+		'title': 'Año'
+	}, {
+		'opcion': 'duracion',
+		'texto': 'Duración',
+		'checked': false,
+		'title': 'Duracion'
+	}, {
+		'opcion': 'contratante',
+		'texto': 'Contratante',
+		'checked': false,
+		'title': 'Contratante'
+	}, {
+		'opcion': 'datos_cliente',
+		'texto': 'Datos de cliente',
+		'checked': false,
+		'title': 'Datos de cliente'
+	}, {
+		'opcion': 'fecha_inicio',
+		'texto': 'Fecha de inicio',
+		'checked': false,
+		'title': 'Fecha de inicio'
+	}, {
+		'opcion': 'fecha_fin',
+		'texto': 'Fecha de término',
+		'checked': false,
+		'title': 'Fecha de termino'
+	}, {
+		'opcion': 'numero_propuesta',
+		'texto': 'Numero de propuesta',
+		'checked': false,
+		'title': 'Propuesta'
+	}, {
+		'opcion': 'anticipo',
+		'texto': 'Anticipo',
+		'checked': false,
+		'title': 'Anticipo'
+	}, ]
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private reporteService: ReportesDbService, private modal: ModalController, public toastCtrl: ToastController,
@@ -59,6 +155,18 @@ export class NuevoReportePage {
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad NuevoReportePage')
+		this.muestraColumnasInit()
+	}
+
+	/* Carga las columnas cuando presentamos la pantalla. */
+	muestraColumnasInit = () => {
+		let columnas = []
+		let title = []
+		this.columnas.forEach(item => {
+			columnas.push(item.opcion)
+			title.push(item.title)
+		})
+		this.manageGrid(columnas, title)
 	}
 
 	/* Funcion para mostrar las comunas y escoger*/

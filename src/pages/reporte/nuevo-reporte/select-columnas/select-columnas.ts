@@ -23,97 +23,97 @@ export class SelectColumnasPage {
 	columnas = [{
 		'opcion': 'nombre_proyecto',
 		'texto': 'Nombre de proyecto',
-		'checked': true,
+		'checked': false,
 		'title': 'Nombre de proyecto'
 	}, {
 		'opcion': 'nombre_corto',
 		'texto': 'Nombre corto',
-		'checked': true,
+		'checked': false,
 		'title': 'Nombre corto'
 	}, {
 		'opcion': 'contrato',
 		'texto': 'Contrato',
-		'checked': true,
+		'checked': false,
 		'title': 'Contrato'
 	}, {
 		'opcion': 'monto',
 		'texto': 'Monto USD',
-		'checked': true,
+		'checked': false,
 		'title': 'Monto USD'
 	}, {
 		'opcion': 'monto_moneda_original',
 		'texto': 'Monto moneda original',
-		'checked': true,
+		'checked': false,
 		'title': 'Monto moneda original'
 	}, {
 		'opcion': 'moneda',
 		'texto': 'Moneda',
-		'checked': true,
+		'checked': false,
 		'title': 'Moneda'
 	}, {
 		'opcion': 'pais',
 		'texto': 'País',
-		'checked': true,
+		'checked': false,
 		'title': 'País'
 	}, {
 		'opcion': 'gerencia',
 		'texto': 'Grencia',
-		'checked': true,
+		'checked': false,
 		'title': 'Gerencia'
 	}, {
 		'opcion': 'unidad_negocio',
 		'texto': 'Unidad de negocio',
-		'checked': true,
+		'checked': false,
 		'title': 'Unidad de negocio'
 	}, {
 		'opcion': 'numero_contrato',
 		'texto': 'Numero de contrato',
-		'checked': true,
+		'checked': false,
 		'title': 'Numero de contrato'
 	}, {
 		'opcion': 'producto',
 		'texto': 'Producto',
-		'checked': true,
+		'checked': false,
 		'title': 'Producto'
 	}, {
 		'opcion': 'anio',
 		'texto': 'Año',
-		'checked': true,
+		'checked': false,
 		'title': 'Año'
 	}, {
 		'opcion': 'duracion',
 		'texto': 'Duración',
-		'checked': true,
+		'checked': false,
 		'title': 'Duracion'
 	}, {
 		'opcion': 'contratante',
 		'texto': 'Contratante',
-		'checked': true,
+		'checked': false,
 		'title': 'Contratante'
 	}, {
 		'opcion': 'datos_cliente',
 		'texto': 'Datos de cliente',
-		'checked': true,
+		'checked': false,
 		'title': 'Datos de cliente'
 	}, {
 		'opcion': 'fecha_inicio',
 		'texto': 'Fecha de inicio',
-		'checked': true,
+		'checked': false,
 		'title': 'Fecha de inicio'
 	}, {
 		'opcion': 'fecha_fin',
 		'texto': 'Fecha de término',
-		'checked': true,
+		'checked': false,
 		'title': 'Fecha de termino'
 	}, {
 		'opcion': 'numero_propuesta',
 		'texto': 'Numero de propuesta',
-		'checked': true,
+		'checked': false,
 		'title': 'Propuesta'
 	}, {
 		'opcion': 'anticipo',
 		'texto': 'Anticipo',
-		'checked': true,
+		'checked': false,
 		'title': 'Anticipo'
 	}, ]
 	ionViewDidLoad() {
