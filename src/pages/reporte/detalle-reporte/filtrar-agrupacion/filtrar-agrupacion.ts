@@ -68,8 +68,6 @@ export class FiltrarAgrupacionPage {
 		} else {
 			this.registros = this.filtroPreseleccionado
 		}
-
-
 	}
 
 	cargaOpcionesContratante(): any {
@@ -137,7 +135,6 @@ export class FiltrarAgrupacionPage {
 		}
 		/* Funcion para enviar columnas seleccionadas. */
 	aceptar() {
-		// console.log(this.registros)
 		this.registros.filter(function(value, key) {
 			return value.checked === true
 		}).map(item => {
