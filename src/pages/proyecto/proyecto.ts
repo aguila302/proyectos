@@ -37,6 +37,7 @@ export class ProyectoPage {
 	}
 
 	proyectos = []
+	proyectosBusqueda = []
 	items = []
 	opciones = []
 	textoBusqueda: string = ''
@@ -54,13 +55,14 @@ export class ProyectoPage {
 			// Cuando mostramos la primera pantalla creaammos las tablas faltantes con registros para el manejo de los reportes.
 		this.dbService.getProyectos()
 			.then(proyectos => {
+				console.log(proyectos)
+				
 				this.zone.run(() => {
 					let order = collect(proyectos).sortBy(function(item, key) {
 						return item['nombre_proyecto']
 					})
-					console.log(order.all())
-					
 					this.proyectos = proyectos
+					this.proyectosBusqueda = proyectos
 					loading.dismiss()
 				})
 			})
@@ -75,36 +77,38 @@ export class ProyectoPage {
 	}
 
 	/* Funcion para filtar los proyectos. */
-	buscaProyectos = (event: any, filtros = this.opciones): void => {
-		// Cuando inicia la aplicacion establecemos valores definidos para la busqueda.
-		this.opciones.length === 0 ? (
-			this.opciones['anio'] = 'anio',
-			this.opciones['contratante'] = 'contratante',
-			this.opciones['datos_cliente'] = 'datos_cliente',
-			this.opciones['nombre_proyecto'] = 'nombre_proyecto',
-			this.opciones['pais'] = 'pais',
-			this.opciones['producto'] = 'producto'
-			
-		): ''
-		console.log(this.opciones)
-		
+	buscaProyectos(event: any, filtros = this.opciones){
 		// Obtenemos el valor del input.
 		let val = event.target.value
+		let proyectosBusquedaFilter = []
+		// Cuando inicia la aplicacion establecemos valores definidos para la busqueda.
+		// this.opciones.length === 0 ? (
+		// 	this.opciones['anio'] = 'anio',
+		// 	this.opciones['contratante'] = 'contratante',
+		// 	this.opciones['datos_cliente'] = 'datos_cliente',
+		// 	this.opciones['nombre_proyecto'] = 'nombre_proyecto',
+		// 	this.opciones['pais'] = 'pais',
+		// 	this.opciones['producto'] = 'producto'
+			
+		// ): ''
 
 		// Si el valor no es vacio filtra los proyectos.
-		val && val.trim() != '' ? (
-			setTimeout(() => {
-				this.dbService.openDatabase()
-					.then(() => this.dbService.buscaProyecto(val, filtros))
-					.then(proyectos => {
-						this.proyectos = proyectos
-					})
-					.catch(e => console.log(e))
-			}, 0)
-		) : (
+		// this.proyectos.splice(0, this.proyectos.length),
+		if(val && val.trim() != '' ) {
+			if(this.opciones.length === 0) {
+				proyectosBusquedaFilter = this.proyectosBusqueda.filter(function(item) {
+					console.log(item)
+					
+					return item.contratante.match(val) || item.datos_cliente.match(val) || item.nombre_proyecto.match(val) || item.pais.match(val) || item.producto.match(val)
+				})
+				this.proyectos = proyectosBusquedaFilter
+			}
+			console.log(proyectosBusquedaFilter)
+			
+		} else {
 			/* Si no hay ningun valor en el campo muestra el listado de los proyectos. */
 			this.getProyectos()
-		)
+		}
 	}
 
 	/* Funcion que muestra los filtros de busqueda. */
