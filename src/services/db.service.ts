@@ -150,7 +150,7 @@ export class DbService {
 						'unidad_negocio': response.rows.item(index).unidad_negocio,
 						'numero_contrato': response.rows.item(index).numero_contrato,
 						'producto': response.rows.item(index).producto,
-						'anio': response.rows.item(index).anio,
+						'anio': response.rows.item(index).anio.toString(),
 						'duracion': response.rows.item(index).duracion,
 						'contratante': response.rows.item(index).contratante,
 						'datos_cliente': response.rows.item(index).datos_cliente,

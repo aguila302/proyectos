@@ -81,30 +81,22 @@ export class ProyectoPage {
 		// Obtenemos el valor del input.
 		let val = event.target.value
 		let proyectosBusquedaFilter = []
-		// Cuando inicia la aplicacion establecemos valores definidos para la busqueda.
-		// this.opciones.length === 0 ? (
-		// 	this.opciones['anio'] = 'anio',
-		// 	this.opciones['contratante'] = 'contratante',
-		// 	this.opciones['datos_cliente'] = 'datos_cliente',
-		// 	this.opciones['nombre_proyecto'] = 'nombre_proyecto',
-		// 	this.opciones['pais'] = 'pais',
-		// 	this.opciones['producto'] = 'producto'
-			
-		// ): ''
-
-		// Si el valor no es vacio filtra los proyectos.
-		// this.proyectos.splice(0, this.proyectos.length),
 		if(val && val.trim() != '' ) {
-			if(this.opciones.length === 0) {
+			if(filtros.length === 0) {
 				proyectosBusquedaFilter = this.proyectosBusqueda.filter(function(item) {
-					console.log(item)
-					
-					return item.contratante.match(val) || item.datos_cliente.match(val) || item.nombre_proyecto.match(val) || item.pais.match(val) || item.producto.match(val)
+					return item.anio.match(val) || item.contratante.match(val) || item.datos_cliente.match(val) || item.nombre_proyecto.match(val) || item.pais.match(val) || item.producto.match(val)
 				})
-				this.proyectos = proyectosBusquedaFilter
 			}
-			console.log(proyectosBusquedaFilter)
-			
+			else {
+				filtros.forEach(filtros => {
+					console.log(filtros.opcion)
+					
+					proyectosBusquedaFilter = this.proyectosBusqueda.filter(function(item) {
+						return item[filtros.opcion].match(val)
+					})
+				})
+			}
+			this.proyectos = proyectosBusquedaFilter
 		} else {
 			/* Si no hay ningun valor en el campo muestra el listado de los proyectos. */
 			this.getProyectos()

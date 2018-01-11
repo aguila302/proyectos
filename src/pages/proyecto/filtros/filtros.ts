@@ -139,7 +139,10 @@ export class FiltrosPage {
 
 		data_filter.forEach(
 			(arg) => {
-				return this.data_send[arg.opcion] = arg.opcion
+				this.data_send.push({
+					'opcion': arg.opcion
+				})
+				return this.data_send
 		})
 
 		/* Enviamos nuestras opciones para realizar la busqueda. */
