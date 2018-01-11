@@ -83,19 +83,20 @@ export class ProyectoPage {
 		let proyectosBusquedaFilter = []
 		if(val && val.trim() != '' ) {
 			if(filtros.length === 0) {
+				/* Si no hay filtrso seleccionados hacemos la busqueda por los campos default */
 				proyectosBusquedaFilter = this.proyectosBusqueda.filter(function(item) {
 					return item.anio.match(val) || item.contratante.match(val) || item.datos_cliente.match(val) || item.nombre_proyecto.match(val) || item.pais.match(val) || item.producto.match(val)
 				})
 			}
 			else {
+				/* Buscamos por los filtros seleccionados. */
 				filtros.forEach(filtros => {
-					console.log(filtros.opcion)
-					
 					proyectosBusquedaFilter = this.proyectosBusqueda.filter(function(item) {
 						return item[filtros.opcion].match(val)
 					})
 				})
 			}
+			/* mostramos el resultado de la busqueda */
 			this.proyectos = proyectosBusquedaFilter
 		} else {
 			/* Si no hay ningun valor en el campo muestra el listado de los proyectos. */

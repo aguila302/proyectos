@@ -57,7 +57,7 @@ export class SelectColumnasPage {
 		'title': 'País'
 	}, {
 		'opcion': 'gerencia',
-		'texto': 'Grencia',
+		'texto': 'Gerencia',
 		'checked': false,
 		'title': 'Gerencia'
 	}, {

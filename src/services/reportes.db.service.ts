@@ -91,15 +91,20 @@ export class ReportesDbService {
 	}
 
 	/* Funcion para la consulta del detalle de reportes. */
-	detalleReporte = (campo: string, group_by: string, filtros: any[]): any => {
-		// campo === 'año' ? campo = 'anio' : campo === 'dirección' ? campo = 'unidad_negocio' :  campo === 'país' ? campo = 'pais' : ''
+	detalleReporte = (campo: string, agrupacion: string, filtros: any[]): any => {
+		agrupacion === 'año' ? agrupacion = 'anio' : agrupacion === 'dirección' ? agrupacion = 'unidad_negocio' : agrupacion === 'país' ? agrupacion = 'pais' :
+			agrupacion === 'Numero de propuesta' ? agrupacion = 'numero_propuesta' : agrupacion === 'datos de cliente' ? agrupacion = 'datos_cliente' : agrupacion === 'duración' ? agrupacion = 'duracion' :
+			agrupacion === 'fecha de inicio' ? agrupacion = 'fecha_inicio' : agrupacion === 'fecha de término' ? agrupacion = 'fecha_fin' :
+			agrupacion === 'Monto total original' ? agrupacion = 'monto_moneda_original' : agrupacion === 'Nombre corto' ? agrupacion = 'nombre_corto' :
+			agrupacion === 'Nombre de proyecto' ? agrupacion = 'nombre_proyecto' : agrupacion === 'Número de contrato' ? agrupacion = 'numero_contrato' : ''
+
 		let sql: string = ''
 		let reportes = []
 		if (filtros.length === 0) {
-			sql = `select  ` + group_by + ` as campo, count(*) as numero_proyectos, sum(monto) as monto,
+			sql = `select  ` + agrupacion + ` as campo, count(*) as numero_proyectos, sum(monto) as monto,
 					(select count(*) from proyectos) as total, id
 					FROM proyectos
-					group by ` + group_by + ` order by ` + campo + ` asc`
+					group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
 			console.log(sql)
 		} else {
 
@@ -143,7 +148,7 @@ export class ReportesDbService {
 				})
 				cadena += `${Object.keys(item)} in (${nuevoValues}) and `
 			})
-			sql = cadena.slice(0, -5) + ` group by ` + group_by + ` order by ` + group_by + ` ASC`
+			sql = cadena.slice(0, -5) + ` group by ` + agrupacion + ` order by ` + agrupacion + ` ASC`
 			console.log(sql)
 		}
 		return this.db.executeSql(sql, {})
@@ -155,7 +160,7 @@ export class ReportesDbService {
 						'monto': parseFloat(response.rows.item(index).monto),
 						'total': response.rows.item(index).total,
 						'id': response.rows.item(index).id,
-						'group_by': group_by,
+						'group_by': agrupacion,
 						'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2)
 					})
 				}
@@ -200,12 +205,18 @@ export class ReportesDbService {
 
 	/* Funcion para obtener la data para registrar un reporte. */
 	paraGuardarReporte = (agrupacion: string, where: string) => {
-		agrupacion === 'año' ? agrupacion = 'anio' : agrupacion === 'dirección' ? agrupacion = 'unidad_negocio': agrupacion === 'país' ? agrupacion = 'pais': ''
-		let data = []
+		agrupacion === 'año' ? agrupacion = 'anio' : agrupacion === 'dirección' ? agrupacion = 'unidad_negocio' : agrupacion === 'país' ? agrupacion = 'pais' :
+			agrupacion === 'Numero de propuesta' ? agrupacion = 'numero_propuesta' : agrupacion === 'datos de cliente' ? agrupacion = 'datos_cliente' : agrupacion === 'duración' ? agrupacion = 'duracion' :
+			agrupacion === 'fecha de inicio' ? agrupacion = 'fecha_inicio' : agrupacion === 'fecha de término' ? agrupacion = 'fecha_fin' :
+			agrupacion === 'Monto total original' ? agrupacion = 'monto_moneda_original' : agrupacion === 'Nombre corto' ? agrupacion = 'nombre_corto' :
+			agrupacion === 'Nombre de proyecto' ? agrupacion = 'nombre_proyecto' : agrupacion === 'Número de contrato' ? agrupacion = 'numero_contrato' : ''
+			let data = []
 		let sql = `select sum(monto) as monto,
 					count(*) as numero_proyectos
 					FROM proyectos ${this.whereNuevoReporte.slice(0, -4)}
 					group by ` + agrupacion + ``
+		console.log('mi query');
+
 		console.log(sql);
 
 		return this.db.executeSql(sql, {})
@@ -343,7 +354,7 @@ export class ReportesDbService {
 	}
 
 	/* Funcion para ver el detalle para el grupo monto total. */
-	detallePorMontoTotal = (select, groupBY, id, filtros): any => {
+	detallePorMontoTotal = (select, agrupacion, id, filtros): any => {
 		let reportes = []
 		let filters = []
 		let sql: string = ''
@@ -351,15 +362,20 @@ export class ReportesDbService {
 		let nuevaCadena: string = ''
 		let campo = []
 
-		groupBY === 'año' ? groupBY = 'anio': groupBY === 'dirección' ? groupBY = 'unidad_negocio': groupBY === 'país' ? groupBY = 'pais' : ''
+		agrupacion === 'año' ? agrupacion = 'anio' : agrupacion === 'dirección' ? agrupacion = 'unidad_negocio' : agrupacion === 'país' ? agrupacion = 'pais' :
+			agrupacion === 'Numero de propuesta' ? agrupacion = 'numero_propuesta' : agrupacion === 'datos de cliente' ? agrupacion = 'datos_cliente' : agrupacion === 'duración' ? agrupacion = 'duracion' :
+			agrupacion === 'fecha de inicio' ? agrupacion = 'fecha_inicio' : agrupacion === 'fecha de término' ? agrupacion = 'fecha_fin' :
+			agrupacion === 'Monto total original' ? agrupacion = 'monto_moneda_original' : agrupacion === 'Nombre corto' ? agrupacion = 'nombre_corto' :
+			agrupacion === 'Nombre de proyecto' ? agrupacion = 'nombre_proyecto' : agrupacion === 'Número de contrato' ? agrupacion = 'numero_contrato' : ''
+
 		// Recuperamos nuestros filtros
 		filters = filtros.map(item => item.valor)
 		campo = filtros.map(item => item.nombre_columna)
 
 		if(filters.length === 0){
-				sql = `select ` + select + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
+				sql = `select ` + agrupacion + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
 						(select sum(monto) from proyectos) as monto_total
-						FROM proyectos group by ` + groupBY + ` order by ` + groupBY + ` asc`
+						FROM proyectos group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
 				console.log('mi query')
 				
 				console.log(sql)
@@ -371,9 +387,9 @@ export class ReportesDbService {
 				nuevaCadena = cadena.slice(0, -1)
 			})
 
-			sql = `select ` + select + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
+			sql = `select ` + agrupacion + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
 						(select sum(monto) from proyectos) as monto_total
-						FROM proyectos where ${campo[0]} in (${nuevaCadena}) group by ` + groupBY + ` order by ` + groupBY + ` asc`
+						FROM proyectos where ${campo[0]} in (${nuevaCadena}) group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
 
 			console.log(sql)
 		}
@@ -394,19 +410,23 @@ export class ReportesDbService {
 	}
 
 	/* Funcion para ver el detalle para el grupo numero de proyectos. */
-	detallePorNumeroProyectos = (select, groupBY, id, filtros): any => {
+	detallePorNumeroProyectos = (select, agrupacion, id, filtros): any => {
 		let reportes = []
 		let filters = []
 		let sql: string = ''
 		let cadena: string = ''
 		let nuevaCadena: string = ''
-		groupBY === 'año' ? groupBY = 'anio': groupBY === 'dirección' ? groupBY = 'unidad_negocio': groupBY === 'país' ? groupBY = 'pais' :''
+		agrupacion === 'año' ? agrupacion = 'anio' : agrupacion === 'dirección' ? agrupacion = 'unidad_negocio' : agrupacion === 'país' ? agrupacion = 'pais' :
+			agrupacion === 'Numero de propuesta' ? agrupacion = 'numero_propuesta' : agrupacion === 'datos de cliente' ? agrupacion = 'datos_cliente' : agrupacion === 'duración' ? agrupacion = 'duracion' :
+			agrupacion === 'fecha de inicio' ? agrupacion = 'fecha_inicio' : agrupacion === 'fecha de término' ? agrupacion = 'fecha_fin' :
+			agrupacion === 'Monto total original' ? agrupacion = 'monto_moneda_original' : agrupacion === 'Nombre corto' ? agrupacion = 'nombre_corto' :
+			agrupacion === 'Nombre de proyecto' ? agrupacion = 'nombre_proyecto' : agrupacion === 'Número de contrato' ? agrupacion = 'numero_contrato' : ''
 		// Recuperamos nuestros filtros
 		filters = filtros.map(item => item.valor)
 		if(filters.length === 0) {
-			sql = `select ` + groupBY + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
+			sql = `select ` + agrupacion + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
 						(select sum(monto) from proyectos) as monto_total, (select count(*) from proyectos) as total_proyectos
-						FROM proyectos group by ` + groupBY + ` order by ` + groupBY + ` asc`
+						FROM proyectos group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
 			console.log(sql)
 		}
 		else {
@@ -415,9 +435,9 @@ export class ReportesDbService {
 				nuevaCadena = cadena.slice(0, -1)
 			})
 
-			sql = `select ` + select + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
+			sql = `select ` + agrupacion + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
 						(select sum(monto) from proyectos) as monto_total, (select count(*) from proyectos) as total_proyectos
-						FROM proyectos where ${groupBY} in (${nuevaCadena}) group by ` + groupBY + ` order by ` + groupBY + ` asc`
+						FROM proyectos where ${agrupacion} in (${nuevaCadena}) group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
 			console.log(sql)
 		}
 
