@@ -123,8 +123,8 @@ export class ProyectoPage {
 
 	/* Funcion para mostrar las opciones de ayuda */
 	mostrarOpciones = () => {
-		let ventana = this.modalCtrl.create(OpcionesPage, {lastFechaSincronizacion: this.lastFechaSincronizacion})
-		ventana.present()
+		let ventana = this.navCtrl.push(OpcionesPage, {lastFechaSincronizacion: this.lastFechaSincronizacion})
+		// ventana.present()
 	}
 	/* Funcion para obtener la ultima fecha de sincronizacion. */
 	obtenerUltimaFechaSincronizacion = () => {
