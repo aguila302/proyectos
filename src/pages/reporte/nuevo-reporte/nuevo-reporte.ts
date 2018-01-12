@@ -169,7 +169,6 @@ export class NuevoReportePage {
 		this.manageGrid(this.columnasInit, this.titleInit)
 
 		this.llenarGrid('select * from proyectos', [])
-		
 	}
 
 	/* Funcion para mostrar las comunas y escoger*/

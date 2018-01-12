@@ -208,7 +208,7 @@ export class ReportesDbService {
 	/* Funcion para obtener la data para registrar un reporte. */
 	paraGuardarReporte = (agrupacion: string, where: string) => {
 		agrupacion === 'año' ? agrupacion = 'anio' : agrupacion === 'dirección' ? agrupacion = 'unidad_negocio' : agrupacion === 'país' ? agrupacion = 'pais' :
-			agrupacion === 'Numero de propuesta' ? agrupacion = 'numero_propuesta' : agrupacion === 'datos de cliente' ? agrupacion = 'datos_cliente' : agrupacion === 'duración' ? agrupacion = 'duracion' :
+			agrupacion === 'Número de propuesta' ? agrupacion = 'numero_propuesta' : agrupacion === 'datos de cliente' ? agrupacion = 'datos_cliente' : agrupacion === 'duración' ? agrupacion = 'duracion' :
 			agrupacion === 'fecha de inicio' ? agrupacion = 'fecha_inicio' : agrupacion === 'fecha de término' ? agrupacion = 'fecha_fin' :
 			agrupacion === 'Monto total original' ? agrupacion = 'monto_moneda_original' : agrupacion === 'Nombre corto' ? agrupacion = 'nombre_corto' :
 			agrupacion === 'Nombre de proyecto' ? agrupacion = 'nombre_proyecto' : agrupacion === 'Número de contrato' ? agrupacion = 'numero_contrato' : ''
