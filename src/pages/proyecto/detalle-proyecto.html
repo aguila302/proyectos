@@ -17,12 +17,10 @@
 					</ion-col>
 				</ion-row>
 				<ion-row>
-					<ion-col col-1>
-					</ion-col>
-					<ion-col class="inline">
+					<ion-col offset-1 col-2>
 						<strong><p>Monto USD: </p></strong> <p class="medium">{{ proyecto.monto }}</p>
 					</ion-col>
-					<ion-col class="inline">
+					<ion-col offset-7 col-2>
 						<strong><p>Monto original: </p></strong> <p class="medium">{{ proyecto.monto_moneda_original }} {{ proyecto.moneda }}</p>
 					</ion-col>
 				</ion-row>
@@ -42,62 +40,54 @@
 					</ion-col>
 				</ion-row>
 				<ion-row>
-					<ion-col col-1>
-					</ion-col>
-					<ion-col>
+					<ion-col offset-1 col-2 text-wrap text-left>
 						<span item-left><strong>Gerencia: </strong> {{ proyecto.gerencia }}</span>
 					</ion-col>
-					<ion-col text-wrap text-justify>
+					<ion-col col-5 text-wrap text-left>
 						<span item-left><strong>Unidad de negocio: </strong> {{ proyecto.unidad_negocio }}</span>
 					</ion-col>
-					<ion-col>
+					<ion-col col-4 text-wrap text-left>
 						<span item-left><strong>Número de contrato: </strong> {{ proyecto.numero_contrato }}</span>
 					</ion-col>
 				</ion-row>
+
 				<ion-row>
-					<ion-col col-1>
-					</ion-col>
-					<ion-col>
+	
+					<ion-col offset-1 col-2 text-wrap text-left>
 						<span item-left><strong>Producto: </strong> {{ proyecto.producto }}</span>
 					</ion-col>
-					<ion-col>
+					<ion-col col-5 text-wrap text-left>
 						<span item-left><strong>Año: </strong> {{ proyecto.anio }}</span>
 					</ion-col>
-					<ion-col>
+					<ion-col col-4 text-wrap text-left>
 						<span item-left><strong>Duración (Meses): </strong> {{ proyecto.duracion }}</span>
 					</ion-col>
 				</ion-row>
 				<ion-row>
-					<ion-col col-1>
-					</ion-col>
-					<ion-col>
+					<ion-col offset-1 text-wrap text-justify>
 						<span item-left><strong>Contratante: </strong> {{ proyecto.contratante }}</span>
 					</ion-col>
 				</ion-row>
 				<ion-row>
-					<ion-col col-1>
-					</ion-col>
-					<ion-col text-wrap text-justify>
+					<ion-col offset-1 text-wrap text-justify>
 						<span item-left><strong>Datos del cliente: </strong> {{ proyecto.datos_cliente }}</span>
 					</ion-col>
 				</ion-row>
+
 				<ion-row>
-					<ion-col col-1>
-					</ion-col>
-					<ion-col text-left>
+					<ion-col offset-1 col-2 text-left>
 						<span item-left><strong>Fecha de inicio: </strong> {{ proyecto.fecha_inicio }}</span>
 					</ion-col>
-					<ion-col text-right>
+					<ion-col offset-5 col-4 text-left>
 						<span item-left><strong>Fecha de término: </strong> {{ proyecto.fecha_fin }}</span>
 					</ion-col>
 				</ion-row>
+
 				<ion-row>
-					<ion-col col-1>
-					</ion-col>
-					<ion-col text-left>
+					<ion-col offset-1 col-2 text-left>
 						<span item-left><strong>Número de propuesta: </strong> {{ proyecto.numero_propuesta }}</span>
 					</ion-col>
-					<ion-col text-right>
+					<ion-col offset-5 col-4 text-left>
 						<span item-left><strong>Anticipo: </strong> {{ proyecto.anticipo }}</span>
 					</ion-col>
 				</ion-row>
