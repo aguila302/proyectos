@@ -28,7 +28,7 @@
 			<ion-row>
 				<ion-col col-2>
 					<h4>{{ proyecto.campo }}</h4>
-					<strong>{{ proyecto.porcentaje }} %</strong>
+					<strong>{{ (proyecto.numero_proyectos / total_proyectos) * 100 | number : '1.2-2' }} %</strong>
 				</ion-col>
 				<ion-col col-5 text-center>
 					<strong>Monto USD: </strong>

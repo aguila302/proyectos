@@ -4,6 +4,7 @@ import { ReportesDbService } from '../../../../services/reportes.db.service'
 import * as collect from 'collect.js/dist'
 import { DetalleReporteAgrupadoPage } from '../../../reporte/detalle-reporte/detalle-reporte-agrupado/detalle-reporte-agrupado'
 import { Grafico } from '../../../../highcharts/modulo.reportes/Grafico'
+import * as account from 'accounting-js'
 
 @IonicPage()
 @Component({
@@ -22,22 +23,24 @@ export class GraficaFiltradaPage {
 	categorias = []
 	grafico: Grafico
 	segmento: number = 0
+	dataFiltrada = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteService : ReportesDbService) {
-		this.reportes = navParams.get('data_grafica')
-		this.monto_total = navParams.get('monto_total')
-		this.total_proyectos = navParams.get('total_proyectos')
+		this.dataFiltrada = navParams.get('data_grafica')
+
 		this.campo_agrupacion = navParams.get('groupBy')
 		this.categorias = navParams.get('categorias')
 		this.id = navParams.get('id')
 		this.segmento = navParams.get('segmento')
-
-		/* PAra visualizar el titulo de la vista activa.*/
+		this.reportes = collect(this.dataFiltrada).unique('campo').toArray()
+		this.total_proyectos = collect(this.reportes).sum('numero_proyectos')
+		this.monto_total = account.formatNumber(collect(this.reportes).sum('monto_filtrado'))
+		console.log(this.reportes)
+		
+		/* Para visualizar el titulo de la vista activa.*/
 		let titulo = collect(this.reportes).unique('campo').toArray()
 		this.title = collect(titulo).implode('campo', ',')
-		
 		this.campo_agrupacion === 'anio' ? this.campo_agrupacion = 'año' : this.campo_agrupacion === 'unidad_negocio' ? this.campo_agrupacion = 'dirección': this.campo_agrupacion === 'pais' ? this.campo_agrupacion = 'país': ''
-		
 	}
 
 	ionViewDidLoad() {
@@ -45,10 +48,7 @@ export class GraficaFiltradaPage {
 		this.muestraGrafica()
 	}
 	ionViewDidLeave() {
-		console.log('me dejas');
 		this.title = ''
-		console.log('title' + this.title);
-		
 	}
 
 	/* Funcion para visualizar la grafica con los filtros seleccionados. */
@@ -62,7 +62,7 @@ export class GraficaFiltradaPage {
 		this.reportes.forEach(items => {
 			data.push({
 				name: items.campo,
-				y: parseFloat(items.porcentaje)
+				y: (parseFloat(items.numero_proyectos) / this.total_proyectos) * 100
 			})
 		})
 
@@ -73,6 +73,7 @@ export class GraficaFiltradaPage {
 
 	/* Funcion para graficar por monto usd. */
 	filtraMontoUsd = () => {
+
 		let data = []
 		this.reportes.forEach(items => {
 			data.push({

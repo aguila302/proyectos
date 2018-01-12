@@ -758,24 +758,25 @@ export class ReportesDbService {
 
 	/* Funcion para conseguir la data del filtrado de reporte direccion anios. */
 	obtenerDataFiltracion = (direcciones, anios, cadena) => {
+		let direccionAnio = []
 
-			let direccionAnio = []
-
-			let sql = `select anio, unidad_negocio, count(*) as numero_proyectos, (select count(*) 
+		let sql = `select anio, unidad_negocio, count(*) as numero_proyectos, (select count(*) 
 					from proyectos where anio in (${anios}) and unidad_negocio IN (${cadena})) as total
 					from proyectos where unidad_negocio in('${direcciones}') 
 					and anio in (${anios})
 					group by unidad_negocio, anio
 					order by anio desc;`
 
-			return this.db.executeSql(sql, {})
-				.then(response => {
-					for (let index = 0; index < response.rows.length; index++) {
-						direccionAnio.push(account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2))
-					}
-					return Promise.resolve(direccionAnio)
-				}).catch(console.error.bind(console))
-		}
+		console.log('mi consulta fltrada')
+		console.log(sql)
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					direccionAnio.push(account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2))
+				}
+				return Promise.resolve(direccionAnio)
+			}).catch(console.error.bind(console))
+	}
 		/* Funcion para conseguir la información del tablero de reporte direccion, anio filtrado. */
 	tableroDireccionAniosGeneral = (direcciones, anios, cadena) => {
 		let direccionAnio = []

@@ -258,7 +258,6 @@ export class DetalleReportePage {
 			let y = collect(this.filtroPreseleccionado).filter(function(item, key){
 				return item.checked === true
 			}).map(value => {
-				// console.log(value.registros);
 				this.filtrosSeleccionados.push(value.registros)
 			})
 		}
@@ -298,13 +297,13 @@ export class DetalleReportePage {
 					}
 				})
 		}
-		monto_total = account.formatNumber(collect(miglobal.resultado).sum('monto_filtrado'))
-		numero_proyectos = collect(miglobal.resultado).sum('numero_proyectos')
+		// monto_total = account.formatNumber(collect(miglobal.resultado).sum('monto_filtrado'))
+		// numero_proyectos = collect(miglobal.resultado).sum('numero_proyectos')
 
 		this.navCtrl.push(GraficaFiltradaPage, {
 			'data_grafica': miglobal.resultado,
 			'monto_total': monto_total,
-			'total_proyectos': numero_proyectos,
+			// 'total_proyectos': numero_proyectos,
 			'groupBy': this.campo_agrupacion,
 			'segmento': segmento
 		})
