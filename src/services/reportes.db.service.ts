@@ -105,6 +105,8 @@ export class ReportesDbService {
 					(select count(*) from proyectos) as total, id
 					FROM proyectos
 					group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
+			console.log('gggg')
+			
 			console.log(sql)
 		} else {
 

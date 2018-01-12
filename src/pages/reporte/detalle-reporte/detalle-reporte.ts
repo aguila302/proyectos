@@ -714,7 +714,7 @@ export class DetalleReportePage {
 								'group_by': 'contratante',
 							}
 						})
-
+						
 						this.proyectos = proyectos
 						this.data_circular = response
 						this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno, suma_porcentajes_menores_de_uno)

@@ -31,13 +31,13 @@
                 <ion-row>
                     <ion-col col-1>
                     </ion-col>
-                    <ion-col class="inline">
+                    <ion-col col-3 class="inline">
                         <strong><p>Monto USD: </p></strong>
                         <p class="medium">{{ proyecto.monto }}</p>
                     </ion-col>
-                    <ion-col class="right">
-                        <button ion-button clear item-end (click)="detalleProyecto(proyecto)">
-                            <p style="text-transform: none; color: #3498DB;">Ver detalle</p>
+                    <ion-col col-8 text-right>
+                        <button ion-button clear item-end small (click)="detalleProyecto(proyecto)">
+                            <div style="text-transform: none; color: #3498DB;">Ver detalle</div>
                         </button>
                     </ion-col>
                 </ion-row>

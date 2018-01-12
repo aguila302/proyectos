@@ -55,9 +55,10 @@
                         <strong><p margin-right>Monto original: </p></strong>
                         <p class="medium">{{ proyecto.monto_moneda_original }} {{ proyecto.moneda }}</p>
                     </ion-col>
-                    <ion-col class="right">
-                        <button ion-button clear item-end (click)="detalleProyecto(proyecto)">
-                            <p style="text-transform: none; color: #3498DB;">Ver detalle</p>
+                    <ion-col text-right>
+                        <button margin-left ion-button small clear (click)="detalleProyecto(proyecto)">
+                            <div style="text-transform: none; color: #3498DB;">Ver detalle</div>
+                            <!-- <p style="text-transform: none; color: #3498DB;">Ver detalle</p> -->
                         </button>
                     </ion-col>
                 </ion-row>
