@@ -373,7 +373,7 @@ export class NuevoReportePage {
 					})
 					this.zone.run(() => {
 						this.agrupacion_seleccionada[0] === 'anio' ? this.agrupacion_seleccionada[0] = 'año' : this.agrupacion_seleccionada[0] === 'unidad_negocio' ? this.agrupacion_seleccionada[0] = 'dirección': this.agrupacion_seleccionada[0] === 'pais' ? this.agrupacion_seleccionada[0] = 'país':
-						 this.agrupacion_seleccionada[0] === 'numero_propuesta' ? this.agrupacion_seleccionada[0] = 'Numero de propuesta':  this.agrupacion_seleccionada[0] === 'datos_cliente' ? this.agrupacion_seleccionada[0] = 'datos de cliente':  this.agrupacion_seleccionada[0] === 'duracion' ? this.agrupacion_seleccionada[0] = 'duración':
+						 this.agrupacion_seleccionada[0] === 'numero_propuesta' ? this.agrupacion_seleccionada[0] = 'Número de propuesta':  this.agrupacion_seleccionada[0] === 'datos_cliente' ? this.agrupacion_seleccionada[0] = 'datos de cliente':  this.agrupacion_seleccionada[0] === 'duracion' ? this.agrupacion_seleccionada[0] = 'duración':
 						  this.agrupacion_seleccionada[0] === 'fecha_inicio' ? this.agrupacion_seleccionada[0] = 'fecha de inicio':  this.agrupacion_seleccionada[0] === 'fecha_fin' ? this.agrupacion_seleccionada[0] = 'fecha de término':
 						   this.agrupacion_seleccionada[0] === 'monto_moneda_original' ? this.agrupacion_seleccionada[0] = 'Monto total original':  this.agrupacion_seleccionada[0] === 'nombre_corto' ? this.agrupacion_seleccionada[0] = 'Nombre corto':
 						    this.agrupacion_seleccionada[0] === 'nombre_proyecto' ? this.agrupacion_seleccionada[0] = 'Nombre de proyecto':  this.agrupacion_seleccionada[0] === 'numero_contrato' ? this.agrupacion_seleccionada[0] = 'Número de contrato':

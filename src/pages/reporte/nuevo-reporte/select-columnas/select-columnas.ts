@@ -67,9 +67,9 @@ export class SelectColumnasPage {
 		'title': 'Unidad de negocio'
 	}, {
 		'opcion': 'numero_contrato',
-		'texto': 'Numero de contrato',
+		'texto': 'Número de contrato',
 		'checked': false,
-		'title': 'Numero de contrato'
+		'title': 'Número de contrato'
 	}, {
 		'opcion': 'producto',
 		'texto': 'Producto',
@@ -107,7 +107,7 @@ export class SelectColumnasPage {
 		'title': 'Fecha de termino'
 	}, {
 		'opcion': 'numero_propuesta',
-		'texto': 'Numero de propuesta',
+		'texto': 'Número de propuesta',
 		'checked': false,
 		'title': 'Propuesta'
 	}, {
