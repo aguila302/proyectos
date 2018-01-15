@@ -590,14 +590,14 @@ export class DetalleReportePage {
 						let proyectos = mayores_de_uno.map(function(item) {
 							return {
 								'campo': item.contratante,
-								'porcentaje': item.porcentaje,
+								'porcentaje': parseFloat(item.porcentaje),
 								'monto': account.formatNumber(item.suma_monto),
 								'numero_proyectos': item.numero_proyectos,
 								'group_by': 'contratante',
 							}
 						})
 
-						this.proyectos = proyectos
+						this.reportes = proyectos
 						this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno, monto_menores_a_uno)
 						this.data_circular = response
 					})
