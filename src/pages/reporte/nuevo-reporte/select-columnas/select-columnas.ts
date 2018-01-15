@@ -169,6 +169,7 @@ export class SelectColumnasPage {
 
 	/* Funcion para cancelar los filtros. */
 	cancelar() {
-		this.view.dismiss()
+		// this.view.dismiss()
+		this.navCtrl.pop()
 	}
 }
