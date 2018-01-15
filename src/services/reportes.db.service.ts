@@ -376,7 +376,7 @@ export class ReportesDbService {
 
 		if(filters.length === 0){
 				sql = `select ` + agrupacion + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
-						(select sum(monto) from proyectos) as monto_total
+						(select sum(monto) from proyectos) as monto_total, (select count(*) from proyectos) as total_proyectos
 						FROM proyectos group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
 				console.log('mi query')
 				
