@@ -186,15 +186,12 @@ export class NuevoReportePage {
 			/* Cuando cierro mi modal recupero mis columnas que seleccione. */
 		modal_columnas.onDidDismiss(data => {
 			this.visible = !this.visible
-			console.log(this.visible)
-			
+
 			if(this.visible){
 				this.open.emit(null)
-				console.log('open')
 			}
 			else {
 				this.close.emit(null)
-				console.log('close')
 			}
 			/* Reseteamos los arreglos para actualizar las opciones seleccionadas. */
 			this.options = {}
