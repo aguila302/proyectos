@@ -393,7 +393,6 @@ export class DetalleReportePage {
 
 	/* Funcion para ver la grafica circular. */
 	modoCircular(select: string, group_by: string) {
-
 		this.navCtrl.push(GraficaCircularPage, {
 			'datos_circular': this.data_circular,
 			'groupBy': this.campo_agrupacion,

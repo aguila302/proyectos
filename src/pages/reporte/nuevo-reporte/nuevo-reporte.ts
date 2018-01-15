@@ -186,7 +186,6 @@ export class NuevoReportePage {
 			/* Cuando cierro mi modal recupero mis columnas que seleccione. */
 		modal_columnas.onDidDismiss(data => {
 			this.visible = !this.visible
-
 			if(this.visible){
 				this.open.emit(null)
 			}
@@ -196,7 +195,7 @@ export class NuevoReportePage {
 			/* Reseteamos los arreglos para actualizar las opciones seleccionadas. */
 			this.options = {}
 			this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
-			miGlobal.filtrar_seleccionadas.splice(0, this.filtrar_seleccionadas.length)
+			// miGlobal.filtrar_seleccionadas.splice(0, this.filtrar_seleccionadas.length)
 			this.columnas_preseleccionadas = data.preseleccion
 
 
