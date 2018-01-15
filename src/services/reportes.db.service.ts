@@ -390,7 +390,7 @@ export class ReportesDbService {
 			})
 
 			sql = `select ` + agrupacion + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
-						(select sum(monto) from proyectos) as monto_total
+						(select sum(monto) from proyectos) as monto_total, (select count(*) from proyectos) as total_proyectos
 						FROM proyectos where ${campo[0]} in (${nuevaCadena}) group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
 
 			console.log(sql)
@@ -404,7 +404,8 @@ export class ReportesDbService {
 						'monto': response.rows.item(index).monto,
 						'monto_total': response.rows.item(index).monto_total,
 						'numero_proyectos': response.rows.item(index).numero_proyectos,
-						'porcentaje': account.toFixed((response.rows.item(index).monto / response.rows.item(index).monto_total) * 100, 2)
+						'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total_proyectos) * 100, 2)
+						// 'porcentaje': account.toFixed((response.rows.item(index).monto / response.rows.item(index).monto_total) * 100, 2)
 						// 'porcentaje': account.toFixed((response.rows.item(index).monto / response.rows.item(index).monto_total) * 100, 2)
 					})
 				}
