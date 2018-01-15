@@ -404,6 +404,7 @@ export class ReportesDbService {
 						'monto': response.rows.item(index).monto,
 						'monto_total': response.rows.item(index).monto_total,
 						'numero_proyectos': response.rows.item(index).numero_proyectos,
+						'total_proyectos': response.rows.item(index).total_proyectos,
 						'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total_proyectos) * 100, 2)
 						// 'porcentaje': account.toFixed((response.rows.item(index).monto / response.rows.item(index).monto_total) * 100, 2)
 						// 'porcentaje': account.toFixed((response.rows.item(index).monto / response.rows.item(index).monto_total) * 100, 2)
