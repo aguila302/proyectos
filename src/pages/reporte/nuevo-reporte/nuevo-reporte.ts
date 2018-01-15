@@ -1,6 +1,8 @@
 import {
 	Component,
-	NgZone
+	NgZone,
+	EventEmitter,
+	Output
 } from '@angular/core'
 import {
 	NavController,
@@ -37,7 +39,8 @@ import {
 	templateUrl: 'nuevo-reporte.html',
 })
 export class NuevoReportePage {
-	// columnas = []
+	@Output() open: EventEmitter<any> = new EventEmitter
+	@Output() close: EventEmitter<any> = new EventEmitter
 	columnas_seleccionadas = []
 	filtrar_seleccionadas = []
 	agrupacion_seleccionada = []
@@ -46,7 +49,7 @@ export class NuevoReportePage {
 	xy = []
 	categories = []
 	options = {}
-	visible: boolean = false
+	visible: boolean = true
 	visible_boton: boolean = false
 	bar: Bar
 	whereGlobal
@@ -182,10 +185,23 @@ export class NuevoReportePage {
 		modal_columnas.present()
 			/* Cuando cierro mi modal recupero mis columnas que seleccione. */
 		modal_columnas.onDidDismiss(data => {
+			this.visible = !this.visible
+			console.log(this.visible)
+			
+			if(this.visible){
+				this.open.emit(null)
+				console.log('open')
+			}
+			else {
+				this.close.emit(null)
+				console.log('close')
+			}
 			/* Reseteamos los arreglos para actualizar las opciones seleccionadas. */
+			this.options = {}
 			this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
 			miGlobal.filtrar_seleccionadas.splice(0, this.filtrar_seleccionadas.length)
 			this.columnas_preseleccionadas = data.preseleccion
+
 
 			/* Mostrarmos la grid. */
 			this.manageGrid(data.columnas, data.title, [])
@@ -378,7 +394,7 @@ export class NuevoReportePage {
 						    this.agrupacion_seleccionada[0] === 'nombre_proyecto' ? this.agrupacion_seleccionada[0] = 'Nombre de proyecto':  this.agrupacion_seleccionada[0] === 'numero_contrato' ? this.agrupacion_seleccionada[0] = 'Número de contrato':
 						     this.agrupacion_seleccionada[0] === 'pais' ? this.agrupacion_seleccionada[0] = 'país': ''
 
-						/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+						/* Realizamos la instancia a nuestra clase para contruir la grafica. */
 						this.bar = new Bar(this.xy, this.agrupacion_seleccionada[0], 'Proyectos agrupados por ' + this.agrupacion_seleccionada[0])
 						// this.bar = new Ba(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion, '', 'Porcentaje total de participación por ' + this.agrupacion_seleccionada[0])
 						this.options = this.bar.graficaBar()

@@ -17,11 +17,13 @@
 					</ion-col>
 				</ion-row>
 				<ion-row>
-					<ion-col offset-1 col-2>
-						<strong><p>Monto USD: </p></strong> <p class="medium">{{ proyecto.monto }}</p>
+					<ion-col offset-1 col-5 text-center>
+						<!-- <strong><p>Monto USD: </p></strong> <p class="medium">{{ proyecto.monto }}</p> -->
+						<span item-left><strong>Monto USD: </strong> {{ proyecto.monto }}</span>
 					</ion-col>
-					<ion-col offset-7 col-2>
-						<strong><p>Monto original: </p></strong> <p class="medium">{{ proyecto.monto_moneda_original }} {{ proyecto.moneda }}</p>
+					<ion-col col-5 text-center>
+						<span item-left><strong>Monto original: </strong> {{ proyecto.monto_moneda_original }} {{ proyecto.moneda }}</span>
+						<!-- <strong><p>Monto original: </p></strong> <p class="medium">{{ proyecto.monto_moneda_original }} {{ proyecto.moneda }}</p> -->
 					</ion-col>
 				</ion-row>
 			</ion-grid>
