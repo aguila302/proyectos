@@ -62,7 +62,7 @@ export class Grafico {
 					borderWidth: 0,
 					dataLabels: {
 						enabled: true,
-						format:  `{point.y:.2f}${this.grupo}`
+						format:  `{point.y:,.2f}${this.grupo}`
 					}
 				}
 			},
