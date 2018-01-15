@@ -728,6 +728,8 @@ export class DetalleReportePage {
 			this.campo_agrupacion === 'año' ? this.campo_agrupacion = 'anio' : this.campo_agrupacion === 'dirección' ? this.campo_agrupacion = 'unidad_negocio' :  this.campo_agrupacion === 'país' ? this.campo_agrupacion = 'pais' : ''
 			 await this.reporteService.detalleReporte(this.campo_agrupacion, this.campo_agrupacion, this.filtros)
 				.then(response => {
+					console.log(response)
+					
 					this.campo_agrupacion === 'anio' ? this.campo_agrupacion = 'año' : this.campo_agrupacion === 'unidad_negocio' ? this.campo_agrupacion = 'dirección' : this.campo_agrupacion === 'pais' ? this.campo_agrupacion = 'país' : ''
 					// Para mostrar la informacion de la grafica.
 					response.forEach(item => {
