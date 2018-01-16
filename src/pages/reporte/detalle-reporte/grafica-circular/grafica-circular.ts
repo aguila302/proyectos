@@ -25,11 +25,13 @@ export class GraficaCircularPage {
 	proyectos_agrupados = []
 	segmento: number = 0
 	visible: boolean = false
+	nombreReporte: string = ''
 
 	constructor(public navCtrl: NavController, public navParams: NavParams) {
 		this.proyectos = this.navParams.get('datos_circular')
 		this.groupBy = this.navParams.get('groupBy')
 		this.segmento = this.navParams.get('segmento')
+		this.nombreReporte = this.navParams.get('nombreReporte')
 		console.log(this.proyectos)
 		
 	

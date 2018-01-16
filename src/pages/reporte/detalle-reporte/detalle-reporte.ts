@@ -396,7 +396,8 @@ export class DetalleReportePage {
 		this.navCtrl.push(GraficaCircularPage, {
 			'datos_circular': this.data_circular,
 			'groupBy': this.campo_agrupacion,
-			'segmento': this.segmento
+			'segmento': this.segmento,
+			'nombreReporte' : this.nombreReporte
 		})
 	}
 
