@@ -201,7 +201,10 @@ export class NuevoReportePage {
 
 			/* Mostrarmos la grid. */
 			this.manageGrid(data.columnas, data.title, [])
-
+			console.log('mi collec')
+			
+			console.log(collect(miGlobal.filtrar_seleccionadas).unique('columna').toArray())
+			
 			/* Hacemos una copia de data para filtrar las columnas */
 			data.columnas.forEach(function(item, index) {
 				miGlobal.filtrar_seleccionadas.push({
