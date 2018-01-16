@@ -201,9 +201,6 @@ export class NuevoReportePage {
 
 			/* Mostrarmos la grid. */
 			this.manageGrid(data.columnas, data.title, [])
-			console.log('mi collec')
-			
-			console.log(collect(miGlobal.filtrar_seleccionadas).unique('columna').toArray())
 			
 			/* Hacemos una copia de data para filtrar las columnas */
 			data.columnas.forEach(function(item, index) {
@@ -212,6 +209,8 @@ export class NuevoReportePage {
 					title: data.title[index]
 				})
 			})
+			console.log('mi collec')
+			console.log(collect(miGlobal.filtrar_seleccionadas).unique('columna').toArray())
 		})
 	}
 
@@ -228,7 +227,7 @@ export class NuevoReportePage {
 		} else {
 			/* Creamos la vista para mostrar los filtros*/
 			let modalFilter = this.modal.create(FiltrarColumnasPage, {
-					'filtros_seleccionadas': this.filtrar_seleccionadas
+					'filtros_seleccionadas': collect(this.filtrar_seleccionadas).unique('columna').toArray()
 				})
 			/* Muestro el modal para seleccionar las filtros. */
 			modalFilter.present()
@@ -332,7 +331,7 @@ export class NuevoReportePage {
 				this.columnas_seleccionadas.push(items.columna)
 			})
 			let modalAgrupaciones = this.modal.create(SelectAgrupacionesPage, {
-					agrupaciones: this.filtrar_seleccionadas
+					agrupaciones: collect(this.filtrar_seleccionadas).unique('columna').toArray()
 				})
 				/* Activamos la vista para seleccionar nuestra agrupacion. */
 			modalAgrupaciones.present()
