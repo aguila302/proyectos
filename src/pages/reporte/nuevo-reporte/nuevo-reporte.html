@@ -10,7 +10,7 @@
 		<ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
 	</ion-scroll>
 	<button ion-button full (click)="selectAgrupaciones()">Seleccionar agrupaciones</button>
-	<div id="container" [hidden]="!visible">
+	<div id="container" *ngIf="visible">
 		<chart [options]="options"></chart>
 	</div>
 	<hr>
@@ -18,10 +18,10 @@
 	<ion-grid>
 		<ion-row>
 			<ion-col text-center>
-				<button ion-button [hidden]="!visible">Cancelar</button>
+				<button ion-button *ngIf="visible">Cancelar</button>
 			</ion-col>
 			<ion-col text-center>
-				<button ion-button [hidden]="!visible" (click)="guardarReporte()">Guardar</button>
+				<button ion-button *ngIf="visible" (click)="guardarReporte()">Guardar</button>
 			</ion-col>
 		</ion-row>
 	</ion-grid>

@@ -158,8 +158,22 @@ export class NuevoReportePage {
 		private reporteService: ReportesDbService, private modal: ModalController, public toastCtrl: ToastController,
 		public zone: NgZone, public alertCtrl: AlertController, public loadingCtrl: LoadingController, private dbService: DbService) {}
 
+	ngOnChanges() {
+		console.log('cambio')
+	}
 	ionViewDidLoad() {
 		this.muestraColumnasInit()
+		this.visible = !this.visible
+		console.log(this.visible)
+		
+		// this.visible = !this.visible
+		// if (this.visible) {
+		// 	console.log('open')
+		// 	this.open.emit(null)
+		// } else {
+		// 	console.log('cloese')
+		// 	this.close.emit(null)
+		// }
 	}
 
 	/* Carga las columnas cuando presentamos la pantalla. */
@@ -176,6 +190,8 @@ export class NuevoReportePage {
 
 	/* Funcion para mostrar las comunas y escoger*/
 	selectColumnas = (): void => {
+		// console.log('init ' + !this.visible);
+		
 		var miGlobal = this
 			/* Pasamos las columnas a la vista de seleeccion de columnas. */
 		let modal_columnas = this.modal.create(SelectColumnasPage, {
@@ -185,15 +201,17 @@ export class NuevoReportePage {
 		modal_columnas.present()
 			/* Cuando cierro mi modal recupero mis columnas que seleccione. */
 		modal_columnas.onDidDismiss(data => {
-			console.log(data)
-			
-			this.visible = !this.visible
-			if(this.visible){
-				this.open.emit(null)
-			}
-			else {
-				this.close.emit(null)
-			}
+			// console.log('estatus '+ this.visible)
+			this.visible = false
+			// this.visible = !this.visible
+			// if(this.visible){
+			// 	this.close.emit(null)
+			// 	console.log('close')
+			// }
+			// else {
+			// 	console.log('open')
+			// 	this.open.emit(null)
+			// }
 			/* Reseteamos los arreglos para actualizar las opciones seleccionadas. */
 			this.options = {}
 			this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
@@ -348,11 +366,23 @@ export class NuevoReportePage {
 					});
 					alert.present();
 				} else {
-					this.visible = false
 					this.agrupacion_seleccionada = response
-
+					// console.log('ver grafica  ' + !this.visible)
+					
+					this.visible = true
 					/* Llamar a la funcion que se encarga de graficar. */
 					this.graficar(this.columnas_seleccionadas, response)
+
+					// this.visible = !this.visible
+					// if (this.visible) {
+					// 	console.log('open')
+						
+					// 	this.open.emit(null)
+					// } else {
+					// 	console.log('close')
+						
+					// 	this.close.emit(null)
+					// }
 				}
 			})
 		}
@@ -360,7 +390,7 @@ export class NuevoReportePage {
 
 	/* Funcion que nos servira para graficar la informacion. */
 	graficar(columnas: Array < any > , agrupacion: Array < any > ) {
-			this.visible = !this.visible
+			// this.visible = !this.visible
 			this.agrupacion_seleccionada = agrupacion
 			this.reporteService.paraGraficarNuevoReporte(columnas, agrupacion)
 				.then(res => {
