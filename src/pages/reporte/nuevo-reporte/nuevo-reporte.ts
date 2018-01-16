@@ -185,6 +185,8 @@ export class NuevoReportePage {
 		modal_columnas.present()
 			/* Cuando cierro mi modal recupero mis columnas que seleccione. */
 		modal_columnas.onDidDismiss(data => {
+			console.log(data)
+			
 			this.visible = !this.visible
 			if(this.visible){
 				this.open.emit(null)
@@ -195,7 +197,7 @@ export class NuevoReportePage {
 			/* Reseteamos los arreglos para actualizar las opciones seleccionadas. */
 			this.options = {}
 			this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
-			// miGlobal.filtrar_seleccionadas.splice(0, this.filtrar_seleccionadas.length)
+			miGlobal.filtrar_seleccionadas.splice(0, this.filtrar_seleccionadas.length)
 			this.columnas_preseleccionadas = data.preseleccion
 
 
@@ -331,9 +333,9 @@ export class NuevoReportePage {
 				this.columnas_seleccionadas.push(items.columna)
 			})
 			let modalAgrupaciones = this.modal.create(SelectAgrupacionesPage, {
-					agrupaciones: collect(this.filtrar_seleccionadas).unique('columna').toArray()
-				})
-				/* Activamos la vista para seleccionar nuestra agrupacion. */
+				agrupaciones: collect(this.filtrar_seleccionadas).unique('columna').toArray()
+			})
+			/* Activamos la vista para seleccionar nuestra agrupacion. */
 			modalAgrupaciones.present()
 
 			/* Cuando cerramos la vista de agrapaciones recuperamos la agruapacion seleccionada. */

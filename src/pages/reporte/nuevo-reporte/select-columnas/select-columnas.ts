@@ -138,7 +138,7 @@ export class SelectColumnasPage {
 		event.value ? (
 			this.columnas.forEach(item => {
 				if(item.opcion === columna) {
-					item.checked =  true
+					item.checked = true
 				}
 			})
 		): (
@@ -152,6 +152,9 @@ export class SelectColumnasPage {
 
 	/* Funcion para enviar columnas seleccionadas. */
 	aceptar() {
+		this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
+		this.titles_segleccionadas.splice(0, this.titles_segleccionadas.length)
+
 		// Extraemos las columnas seleccionadas
 		this.columnas.filter(function(value, key) {
 			return value.checked === true
@@ -159,6 +162,7 @@ export class SelectColumnasPage {
 			this.columnas_seleccionadas.push(item.opcion)
 			this.titles_segleccionadas.push(item.texto)
 		})
+
 		this.view.dismiss({
 			columnas: this.columnas_seleccionadas,
 			title: this.titles_segleccionadas,
