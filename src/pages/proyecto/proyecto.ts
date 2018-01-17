@@ -114,16 +114,24 @@ export class ProyectoPage {
 
 		// Cuando inicia la aplicacion establecemos valores definidos para la busqueda.
 		filtros.length === 0 ? (
-			filtros['anio'] = 'anio',
-			filtros['contratante'] = 'contratante',
-			filtros['datos_cliente'] = 'datos_cliente',
-			filtros['nombre_proyecto'] = 'nombre_proyecto',
-			filtros['pais'] = 'pais',
-			filtros['producto'] = 'producto'
+		filtros = [{
+				'opcion': 'anio'
+			}, {
+				'opcion': 'contratante'
+			}, {
+				'opcion': 'datos_cliente'
+			}, {
+				'opcion': 'nombre_proyecto'
+			}, {
+				'opcion': 'pais'
+			}, {
+				'opcion': 'producto'
+			}]
 			
-		): ''
+		): (
+			console.log(filtros)
+		)
 		
-
 		// Si el valor no es vacio filtra los proyectos.
 		val && val.trim() != '' ? (
 			setTimeout(() => {
@@ -136,7 +144,8 @@ export class ProyectoPage {
 			}, 0)
 		) : (
 			/* Si no hay ningun valor en el campo muestra el listado de los proyectos. */
-			this.getProyectos()
+			this.getProyectos(),
+			filtros.splice(0, filtros.length)
 		)
 	}
 
@@ -203,6 +212,8 @@ export class ProyectoPage {
 			/* Cierra la ventana modal y recuperamos las opciones que se seleccionaron. */
 		filterModal.onDidDismiss(data => {
 			this.opciones = data
+			console.log(this.opciones)
+			
 		})
 	}
 

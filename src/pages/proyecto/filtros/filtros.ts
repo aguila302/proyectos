@@ -138,9 +138,11 @@ export class FiltrosPage {
 			return item.checked == true
 		})
 
-		data_filter.forEach(
-			(arg) => {
-				return this.data_send[arg.opcion] = arg.opcion
+		data_filter.forEach(item => {
+			this.data_send.push({
+				'opcion' : item.opcion
+			})
+			// return this.data_send[arg.opcion] = arg.opcion
 		})
 
 		/* Enviamos nuestras opciones para realizar la busqueda. */

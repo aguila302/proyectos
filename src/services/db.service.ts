@@ -168,8 +168,12 @@ export class DbService {
 	/* Funcion para buscar los proyectos dado a los filtros seleccionados. */
 	buscaProyecto = (val, filtros): any => {
 		let proyectos = []
+		console.log(filtros)
+		
 		for (let i in filtros) {
-			let sql = 'select * from proyectos where ' + i + ' like ' + "'%" + val + "%' order by nombre_proyecto ASC" 
+			console.log(filtros[i].opcion)
+			
+			let sql = 'select * from proyectos where ' + filtros[i].opcion + ' like ' + "'%" + val + "%' order by nombre_proyecto ASC" 
 			console.log(sql)
 
 			this.db.executeSql(sql, {})
