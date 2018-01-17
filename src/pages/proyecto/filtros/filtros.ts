@@ -59,11 +59,11 @@ export class FiltrosPage {
 			
 
 			/* Almacenamos nuestras opciones en un array para ser enviadas y realizar la busqueda. */
-			this.items.forEach(
-				(arg) => {
-					this.data_send[arg.opcion] = arg.opcion
-				}
-			)
+			// this.items.forEach(
+			// 	(arg) => {
+			// 		this.data_send[arg.opcion] = arg.opcion
+			// 	}
+			// )
 		}
 		else {
 			console.log('select all else ' + this.selectAll),
@@ -123,6 +123,13 @@ export class FiltrosPage {
 				this.data_send = []
 			)
 		}
+	}
+
+	// Funcion para filtrar en forma personalizada
+	seleccionLibre = () => {
+		this.items.forEach(item => {
+			item.checked = false
+		})
 	}
 
 	/* Funcion para cerrar la ventana de filtros. */
