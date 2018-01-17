@@ -173,7 +173,7 @@ export class DbService {
 		for (let i in filtros) {
 			console.log(filtros[i].opcion)
 			
-			let sql = 'select * from proyectos where ' + filtros[i].opcion + ' like ' + "'%" + val + "%' order by nombre_proyecto ASC" 
+			let sql = 'select * from proyectos where COLLATE SQL_Latin1_General_CP1_CI_AI ' + filtros[i].opcion + ' like ' + "'%" + val + "%' order by nombre_proyecto ASC" 
 			console.log(sql)
 
 			this.db.executeSql(sql, {})

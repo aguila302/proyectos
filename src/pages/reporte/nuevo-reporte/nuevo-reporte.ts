@@ -164,7 +164,7 @@ export class NuevoReportePage {
 	ionViewDidLoad() {
 		this.muestraColumnasInit()
 		this.visible = !this.visible
-		console.log(this.visible)
+		// console.log(this.visible)
 		
 		// this.visible = !this.visible
 		// if (this.visible) {
@@ -190,8 +190,6 @@ export class NuevoReportePage {
 
 	/* Funcion para mostrar las comunas y escoger*/
 	selectColumnas = (): void => {
-		// console.log('init ' + !this.visible);
-		
 		var miGlobal = this
 			/* Pasamos las columnas a la vista de seleeccion de columnas. */
 		let modal_columnas = this.modal.create(SelectColumnasPage, {
@@ -201,26 +199,23 @@ export class NuevoReportePage {
 		modal_columnas.present()
 			/* Cuando cierro mi modal recupero mis columnas que seleccione. */
 		modal_columnas.onDidDismiss(data => {
-			// console.log('estatus '+ this.visible)
 			this.visible = false
-			// this.visible = !this.visible
-			// if(this.visible){
-			// 	this.close.emit(null)
-			// 	console.log('close')
-			// }
-			// else {
-			// 	console.log('open')
-			// 	this.open.emit(null)
-			// }
+
 			/* Reseteamos los arreglos para actualizar las opciones seleccionadas. */
 			this.options = {}
 			this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
 			miGlobal.filtrar_seleccionadas.splice(0, this.filtrar_seleccionadas.length)
 			this.columnas_preseleccionadas = data.preseleccion
 
-
 			/* Mostrarmos la grid. */
 			this.manageGrid(data.columnas, data.title, [])
+			console.log(data.columnas)
+			
+			this.reporteService.getDataGrid('select * from proyectos', [])
+			.then(response => {
+				console.log(response);
+				
+			})
 			
 			/* Hacemos una copia de data para filtrar las columnas */
 			data.columnas.forEach(function(item, index) {
@@ -229,8 +224,7 @@ export class NuevoReportePage {
 					title: data.title[index]
 				})
 			})
-			console.log('mi collec')
-			console.log(collect(miGlobal.filtrar_seleccionadas).unique('columna').toArray())
+			// console.log(collect(miGlobal.filtrar_seleccionadas).unique('columna').toArray())
 		})
 	}
 
