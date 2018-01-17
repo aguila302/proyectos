@@ -18,7 +18,7 @@ export class FiltrosPage {
 
 	constructor(public navParams: NavParams, public viewCtrl: ViewController) {
 		this.selectDefault = true
-		this.selectAll = false
+		// this.selectAll = false
 	}
 
 	/* Declaramos nuestros filtros a mostrar en pantalla. */
@@ -39,17 +39,15 @@ export class FiltrosPage {
 		{'opcion': 'pais', 'texto': 'País', 'checked': true},
 	]
 
-	/* Funcion para el manejo de nuestros filtros individuales. */
-	// seleccionFiltros(event: any, opcion) {
-	// }
 
 	/* Funcion para la opcion de que en caso seleccione todas las opciones. */
 	seleccionAll() {
+		this.selectAll = true
 		/* En caso de que se seleccione todas las opciones. */
 		if(this.selectAll){
 			console.log('select all ' + this.selectAll)
 			/* Desactivamos la opcion default */
-			this.selectDefault = !this.selectDefault
+			// this.selectDefault = !this.selectDefault
 
 			/* Activamos todas las opciones. */
 			this.items.forEach(item => {
@@ -70,9 +68,6 @@ export class FiltrosPage {
 		else {
 			console.log('select all else ' + this.selectAll),
 			
-			/* Desactivamos la opcion default */
-			// this.selectDefault = this.selectDefault
-
 			/* En caso de que la opcion de seleccionar todos sea desactivada. */
 			this.items.forEach(
 				(data) => {
@@ -85,19 +80,20 @@ export class FiltrosPage {
 				},
 				this.data_send = [],
 			)
+			console.log(this.items)
+			
 		}
 	}
 
 	/* Funcion para seleccionar opciones por default. */
 	seleccionDefault() {
-		// console.log(event)
-		
 		/* Activamos las opciones por default. */
 		if(this.selectDefault){
 			console.log('select default ' + this.selectDefault);
 			
-			// Desactivamos selecionar todos
-			this.selectAll = !this.selectAll,
+			this.items.forEach(item => {
+				item.checked = false
+			})
 
 			this.items.filter(item => {
 				return (
@@ -110,8 +106,10 @@ export class FiltrosPage {
 				)
 				
 			}).map((map) => {
-				map.checked = true
+				map.checked = this.selectDefault
 			})
+			console.log(this.items)
+			
 		} else {
 			console.log('select default else ' + this.selectDefault);
 			/* En caso de que desactive la opcion de busqueda por opciones por default, desactivamos las opciones. */
