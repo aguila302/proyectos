@@ -89,7 +89,7 @@ export class FiltrosPage {
 		event.value ?
 		(
 			// Desactivamos selecionar todos
-			this.selectAll = false,
+			this.selectAll = !this.selectAll,
 
 			this.items.filter(item => {
 				return (
