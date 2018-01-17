@@ -10,14 +10,14 @@
 				<ion-item>
 					<ion-label color="twitter">
 						<strong>Seleccionar todos</strong></ion-label>
-					<ion-checkbox (ionChange)="seleccionAll($event)"></ion-checkbox>
+					<ion-checkbox [(ngModel)]="selectAll" (click)="seleccionAll(true)"></ion-checkbox>
 				</ion-item>
 			</ion-col>
 			<ion-col>
 				<ion-item>
 					<ion-label color="twitter">
 						<strong>Selección por default</strong></ion-label>
-					<ion-checkbox [(ngModel)]="select" (ionChange)="seleccionDefault($event)"></ion-checkbox>
+					<ion-checkbox [(ngModel)]="selectDefault" (click)="seleccionDefault(true)"></ion-checkbox>
 				</ion-item>
 			</ion-col>
 		</ion-row>
@@ -25,7 +25,7 @@
 	<ion-list>
 		<ion-item *ngFor="let item of items">
 			<ion-label>{{ item.texto }}</ion-label>
-			<ion-checkbox [(ngModel)]="item.checked" (ionChange)="seleccionFiltros()"></ion-checkbox>
+			<ion-checkbox [(ngModel)]="item.checked"></ion-checkbox>
 		</ion-item>
 	</ion-list>
 		<ion-item>

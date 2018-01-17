@@ -12,9 +12,13 @@ import { ViewController, NavParams } from 'ionic-angular'
 export class FiltrosPage {
 
 	data_send = []
-	select: boolean = true
+	selectDefault: boolean
+	selectAll: boolean
+	// select: boolean = true
 
 	constructor(public navParams: NavParams, public viewCtrl: ViewController) {
+		this.selectDefault = true
+		this.selectAll = false
 	}
 
 	/* Declaramos nuestros filtros a mostrar en pantalla. */
@@ -36,54 +40,34 @@ export class FiltrosPage {
 	]
 
 	/* Funcion para el manejo de nuestros filtros individuales. */
-	seleccionFiltros(event: any, opcion) {
-		// console.log(this.items)
-		
-		/* Cuando activamos y desactivamos un opncion actualizamos el evento checkhed. */
-		// this.items.forEach(
-		// 	(arg) => {
-		// 		if(arg.opcion == opcion) {
-		// 			arg.checked = event.value
-		// 		}
-		// 	}
-		// )
-
-		/* Filtramos las opciones que esten activas */
-		// let data_filter = this.items.filter(function(item) {
-		// 	return item.checked == true
-		// })
-		// console.log(data_filter)
-		
-
-		/* Almacenamos en un nuevo array las opciones activas para enviarlas y realizar la busqueda. */
-		// data_filter.forEach(
-		// 	(arg) => {
-		// 		return this.data_send[arg.opcion] = arg.opcion
-		// 	}
-		// )
-	}
+	// seleccionFiltros(event: any, opcion) {
+	// }
 
 	/* Funcion para la opcion de que en caso seleccione todas las opciones. */
-	seleccionAll(event: any) {
+	seleccionAll(event: boolean) {
+		console.log(event)
 		/* En caso de que se seleccione todas las opciones. */
-		event.value ?
-		(
+		if(event){
+			/* Desactivamos la opcion default */
+			this.selectDefault = !this.selectDefault
+
 			/* Activamos todas las opciones. */
-			this.items.forEach(
-				(data) => {
-					return(
-						data.opcion = data.opcion,
-						data.checked = true
-					)
+			this.items.forEach(item => {
+					// item.opcion = item.opcion,
+					item.checked = true
 				}
-			),
+			)
+			// console.log(this.items)
+			
+
 			/* Almacenamos nuestras opciones en un array para ser enviadas y realizar la busqueda. */
 			this.items.forEach(
 				(arg) => {
 					this.data_send[arg.opcion] = arg.opcion
 				}
 			)
-		) : (
+		}
+		else {
 			/* En caso de que la opcion de seleccionar todos sea desactivada. */
 			this.items.forEach(
 				(data) => {
@@ -96,7 +80,7 @@ export class FiltrosPage {
 				},
 				this.data_send = [],
 			)
-		)
+		}
 	}
 
 	/* Funcion para seleccionar opciones por default. */
@@ -104,6 +88,9 @@ export class FiltrosPage {
 		/* Activamos las opciones por default. */
 		event.value ?
 		(
+			// Desactivamos selecionar todos
+			this.selectAll = false,
+
 			this.items.filter(item => {
 				return (
 					item.opcion == 'producto' ||
@@ -139,10 +126,7 @@ export class FiltrosPage {
 
 		data_filter.forEach(
 			(arg) => {
-				this.data_send.push({
-					'opcion': arg.opcion
-				})
-				return this.data_send
+				return this.data_send[arg.opcion] = arg.opcion
 		})
 
 		/* Enviamos nuestras opciones para realizar la busqueda. */

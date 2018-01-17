@@ -166,40 +166,40 @@ export class DbService {
 	}
 
 	/* Funcion para buscar los proyectos dado a los filtros seleccionados. */
-	// buscaProyecto = (val, filtros): any => {
-	// 	let proyectos = []
-	// 	for (let i in filtros) {
-	// 		let sql = 'select * from proyectos where ' + i + ' like ' + "'%" + val + "%' order by nombre_proyecto ASC" 
-	// 		console.log(sql)
+	buscaProyecto = (val, filtros): any => {
+		let proyectos = []
+		for (let i in filtros) {
+			let sql = 'select * from proyectos where ' + i + ' like ' + "'%" + val + "%' order by nombre_proyecto ASC" 
+			console.log(sql)
 
-	// 		this.db.executeSql(sql, {})
-	// 			.then((response) => {
-	// 				for (let index = 0; index < response.rows.length; index++) {
-	// 					proyectos.push({
-	// 						'nombre_proyecto': response.rows.item(index).nombre_proyecto,
-	// 						'moneda': response.rows.item(index).moneda,
-	// 						'monto': account.formatNumber(response.rows.item(index).monto),
-	// 						'monto_moneda_original': account.formatNumber(response.rows.item(index).monto_moneda_original),
-	// 						'pais': response.rows.item(index).pais,
-	// 						'gerencia': response.rows.item(index).gerencia,
-	// 						'unidad_negocio': response.rows.item(index).unidad_negocio,
-	// 						'numero_contrato': response.rows.item(index).numero_contrato,
-	// 						'producto': response.rows.item(index).producto,
-	// 						'anio': response.rows.item(index).anio,
-	// 						'duracion': response.rows.item(index).duracion,
-	// 						'contratante': response.rows.item(index).contratante,
-	// 						'datos_cliente': response.rows.item(index).datos_cliente,
-	// 						'fecha_inicio': response.rows.item(index).fecha_inicio,
-	// 						'fecha_fin': response.rows.item(index).fecha_fin,
-	// 						'numero_propuesta': response.rows.item(index).numero_propuesta,
-	// 						'anticipo': response.rows.item(index).anticipo,
-	// 					})
-	// 				}
-	// 				Promise.resolve(proyectos)
-	// 			})
-	// 	}
-	// 	return proyectos
-	// }
+			this.db.executeSql(sql, {})
+				.then((response) => {
+					for (let index = 0; index < response.rows.length; index++) {
+						proyectos.push({
+							'nombre_proyecto': response.rows.item(index).nombre_proyecto,
+							'moneda': response.rows.item(index).moneda,
+							'monto': account.formatNumber(response.rows.item(index).monto),
+							'monto_moneda_original': account.formatNumber(response.rows.item(index).monto_moneda_original),
+							'pais': response.rows.item(index).pais,
+							'gerencia': response.rows.item(index).gerencia,
+							'unidad_negocio': response.rows.item(index).unidad_negocio,
+							'numero_contrato': response.rows.item(index).numero_contrato,
+							'producto': response.rows.item(index).producto,
+							'anio': response.rows.item(index).anio,
+							'duracion': response.rows.item(index).duracion,
+							'contratante': response.rows.item(index).contratante,
+							'datos_cliente': response.rows.item(index).datos_cliente,
+							'fecha_inicio': response.rows.item(index).fecha_inicio,
+							'fecha_fin': response.rows.item(index).fecha_fin,
+							'numero_propuesta': response.rows.item(index).numero_propuesta,
+							'anticipo': response.rows.item(index).anticipo,
+						})
+					}
+					Promise.resolve(proyectos)
+				})
+		}
+		return proyectos
+	}
 
 	/* Funcion para consultar los proyectos por pais. */
 	consultaXPais = (): any => {
