@@ -109,20 +109,20 @@ export class ProyectoPage {
 	}
 	/* Funcion para filtar los proyectos. */
 	buscaProyectos = (event: any, filtros = this.opciones): void => {
-		// Cuando inicia la aplicacion establecemos valores definidos para la busqueda.
-		this.opciones.length === 0 ? (
-			this.opciones['anio'] = 'anio',
-			this.opciones['contratante'] = 'contratante',
-			this.opciones['datos_cliente'] = 'datos_cliente',
-			this.opciones['nombre_proyecto'] = 'nombre_proyecto',
-			this.opciones['pais'] = 'pais',
-			this.opciones['producto'] = 'producto'
-			
-		): ''
-		console.log(this.opciones)
-		
 		// Obtenemos el valor del input.
 		let val = event.target.value
+
+		// Cuando inicia la aplicacion establecemos valores definidos para la busqueda.
+		filtros.length === 0 ? (
+			filtros['anio'] = 'anio',
+			filtros['contratante'] = 'contratante',
+			filtros['datos_cliente'] = 'datos_cliente',
+			filtros['nombre_proyecto'] = 'nombre_proyecto',
+			filtros['pais'] = 'pais',
+			filtros['producto'] = 'producto'
+			
+		): ''
+		
 
 		// Si el valor no es vacio filtra los proyectos.
 		val && val.trim() != '' ? (
@@ -202,8 +202,6 @@ export class ProyectoPage {
 		filterModal.present()
 			/* Cierra la ventana modal y recuperamos las opciones que se seleccionaron. */
 		filterModal.onDidDismiss(data => {
-			console.log(data);
-			
 			this.opciones = data
 		})
 	}
