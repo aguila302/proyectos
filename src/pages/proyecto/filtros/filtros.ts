@@ -44,20 +44,20 @@ export class FiltrosPage {
 	// }
 
 	/* Funcion para la opcion de que en caso seleccione todas las opciones. */
-	seleccionAll(event: boolean) {
-		console.log(event)
+	seleccionAll() {
 		/* En caso de que se seleccione todas las opciones. */
-		if(event){
+		if(this.selectAll){
+			console.log('select all ' + this.selectAll)
 			/* Desactivamos la opcion default */
 			this.selectDefault = !this.selectDefault
 
 			/* Activamos todas las opciones. */
 			this.items.forEach(item => {
 					// item.opcion = item.opcion,
-					item.checked = true
+					item.checked = this.selectAll
 				}
 			)
-			// console.log(this.items)
+			console.log(this.items)
 			
 
 			/* Almacenamos nuestras opciones en un array para ser enviadas y realizar la busqueda. */
@@ -68,13 +68,18 @@ export class FiltrosPage {
 			)
 		}
 		else {
+			console.log('select all else ' + this.selectAll),
+			
+			/* Desactivamos la opcion default */
+			// this.selectDefault = this.selectDefault
+
 			/* En caso de que la opcion de seleccionar todos sea desactivada. */
 			this.items.forEach(
 				(data) => {
 					/* Desactivamos todas las opciones. */
 					return(
 						data.opcion = data.opcion,
-						data.checked = false
+						data.checked = this.selectAll
 
 					)
 				},
@@ -84,10 +89,13 @@ export class FiltrosPage {
 	}
 
 	/* Funcion para seleccionar opciones por default. */
-	seleccionDefault(event: any) {
+	seleccionDefault() {
+		// console.log(event)
+		
 		/* Activamos las opciones por default. */
-		event.value ?
-		(
+		if(this.selectDefault){
+			console.log('select default ' + this.selectDefault);
+			
 			// Desactivamos selecionar todos
 			this.selectAll = !this.selectAll,
 
@@ -104,18 +112,19 @@ export class FiltrosPage {
 			}).map((map) => {
 				map.checked = true
 			})
-		) : (
+		} else {
+			console.log('select default else ' + this.selectDefault);
 			/* En caso de que desactive la opcion de busqueda por opciones por default, desactivamos las opciones. */
 			this.items.forEach(
 				(data) => {
 					return(
 						data.opcion = data.opcion,
-						data.checked = false
+						data.checked = this.selectDefault
 					)
 				},
 				this.data_send = []
 			)
-		)
+		}
 	}
 
 	/* Funcion para cerrar la ventana de filtros. */

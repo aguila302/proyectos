@@ -10,14 +10,14 @@
 				<ion-item>
 					<ion-label color="twitter">
 						<strong>Seleccionar todos</strong></ion-label>
-					<ion-checkbox [(ngModel)]="selectAll" (click)="seleccionAll(true)"></ion-checkbox>
+					<ion-checkbox [(ngModel)]="selectAll" (ionChange)="seleccionAll()"></ion-checkbox>
 				</ion-item>
 			</ion-col>
 			<ion-col>
 				<ion-item>
 					<ion-label color="twitter">
 						<strong>Selección por default</strong></ion-label>
-					<ion-checkbox [(ngModel)]="selectDefault" (click)="seleccionDefault(true)"></ion-checkbox>
+					<ion-checkbox [(ngModel)]="selectDefault" (ionChange)="seleccionDefault()"></ion-checkbox>
 				</ion-item>
 			</ion-col>
 		</ion-row>
