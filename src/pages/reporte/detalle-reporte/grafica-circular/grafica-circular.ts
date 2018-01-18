@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular'
+import { IonicPage, NavController, NavParams, ModalController, AlertController } from 'ionic-angular'
 import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
 import { ProyectosAgrupadosPage } from '../../../estadistica/proyectos-agrupados/proyectos-agrupados'
@@ -7,6 +7,12 @@ import { ProyectosAgrupadosAnioPage } from '../../../estadistica/proyectos-agrup
 import { ProyectosAgrupadosGerenciaPage } from '../../../estadistica/proyectos-agrupados/por-gerencia/proyectos-agrupados-gerencia'
 import { DetalleReporteAgrupadoPage } from '../../../reporte/detalle-reporte/detalle-reporte-agrupado/detalle-reporte-agrupado'
 import { Grafico } from '../../../../highcharts/modulo.reportes/Grafico'
+import {
+	ReportesDbService
+} from '../../../../services/reportes.db.service'
+import {
+	FiltrarAgrupacionPage
+} from '../../../reporte/detalle-reporte/filtrar-agrupacion/filtrar-agrupacion'
 
 
 @IonicPage()
@@ -26,15 +32,17 @@ export class GraficaCircularPage {
 	segmento: number = 0
 	visible: boolean = false
 	nombreReporte: string = ''
+	subtituloSegmento: string = ''
+	filtroPreseleccionado = []
+	filtrosSeleccionados = []
 
-	constructor(public navCtrl: NavController, public navParams: NavParams) {
+	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteService: ReportesDbService,
+		public modalCtrl: ModalController, public alert: AlertController) {
 		this.proyectos = this.navParams.get('datos_circular')
 		this.groupBy = this.navParams.get('groupBy')
 		this.segmento = this.navParams.get('segmento')
 		this.nombreReporte = this.navParams.get('nombreReporte')
-		console.log(this.proyectos)
-		
-	
+
 		if(this.groupBy === 'contratante') {
 			this.verGraficaContratante()
 		}
@@ -100,7 +108,7 @@ export class GraficaCircularPage {
 
 			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 			this.grafico = new Grafico(this.data_grafica, 'Clientes', 'Proyectos agrupados por clientes', '#', 'Numero de proyectos'),
-			this.options = this.grafico.graficaPie()
+			this.options = this.grafico.graficaPie(this.subtituloSegmento = 'Número de proyectos por ' + this.groupBy)
 
 			/* Para mostrar la tabla de informacion */
 			this.monto_total = account.formatNumber(data.sum('monto'))
@@ -170,7 +178,7 @@ export class GraficaCircularPage {
 			// this.xy = data_cliente
 				/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 			this.grafico = new Grafico(this.data_grafica, 'Clientes', 'Proyectos agrupados por clientes', 'USD', 'Numero de proyectos'),
-			this.options = this.grafico.graficaPie()
+			this.options = this.grafico.graficaPie(this.subtituloSegmento = 'Monto total USD por ' + this.groupBy)
 
 			/* Para mostrar la tabla de informacion */
 			this.monto_total = account.formatNumber(data.sum('monto'))
@@ -238,7 +246,7 @@ export class GraficaCircularPage {
 			})
 			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 			this.grafico = new Grafico(this.data_grafica, 'Clientes', 'Proyectos agrupados por clientes', '%', 'Numero de proyectos'),
-			this.options = this.grafico.graficaPie()
+			this.options = this.grafico.graficaPie(this.subtituloSegmento = 'Porcentaje total de participación por ' + this.groupBy)
 
 			/* Para mostrar la tabla de informacion */
 			this.monto_total = account.formatNumber(data.sum('monto'))
@@ -272,7 +280,7 @@ export class GraficaCircularPage {
 
 			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 			this.grafico = new Grafico(this.data_grafica, this.groupBy, 'Proyectos agrupados por ' + this.groupBy, '#', 'Numero de proyectos'),
-			this.options = this.grafico.graficaPie()
+			this.options = this.grafico.graficaPie(this.subtituloSegmento = 'Número de proyectos por ' + this.groupBy)
 
 			const collection = collect(this.proyectos)
 			this.monto_total = account.formatNumber(collection.sum('monto'))
@@ -300,7 +308,7 @@ export class GraficaCircularPage {
 
 			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 			this.grafico = new Grafico(this.data_grafica, this.groupBy, 'Proyectos agrupados por ' + this.groupBy, 'USD', 'Numero de proyectos'),
-			this.options = this.grafico.graficaPie()
+			this.options = this.grafico.graficaPie(this.subtituloSegmento = 'Monto total USD por ' + this.groupBy)
 
 			const collection = collect(this.proyectos)
 			this.monto_total = account.formatNumber(collection.sum('monto'))
@@ -328,7 +336,7 @@ export class GraficaCircularPage {
 
 			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 			this.grafico = new Grafico(this.data_grafica, this.groupBy, 'Proyectos agrupados por ' + this.groupBy, ' %', 'Numero de proyectos'),
-			this.options = this.grafico.graficaPie()
+			this.options = this.grafico.graficaPie(this.subtituloSegmento = 'Porcentaje total de participación por ' + this.groupBy)
 
 			const collection = collect(this.proyectos)
 			this.monto_total = account.formatNumber(collection.sum('monto'))
@@ -391,6 +399,66 @@ export class GraficaCircularPage {
 				'monto_total': monto_total,
 				'groupBy': this.groupBy
 			})
+		}
+	}
+
+	/* Funcion para filtrar la argrupacion de mi grafica. */
+	filtrar = (): void => {
+		this.groupBy === 'año' ? this.groupBy = 'anio' : this.groupBy === 'dirección' ? this.groupBy = 'unidad_negocio' : this.groupBy === 'país' ? this.groupBy = 'pais' : ''
+			/* Hacemos una consulta para obtener los distintos valores de la agrupacion. */
+		this.reporteService.selectDistinct(this.groupBy)
+			.then(response => {
+				let modal = this.modalCtrl.create(FiltrarAgrupacionPage, {
+					'registros': response,
+					'agrupacion': this.groupBy,
+					'filtroPreseleccionado': this.filtroPreseleccionado
+				})
+				modal.present()
+				modal.onDidDismiss(data => {
+					/* Una vez cerrada la ventana de filtros validamos que se haya seleccionado alguna opcion. */
+					this.filtrosSeleccionados = data.filtros_seleccionadas.map(item => item)
+					this.filtroPreseleccionado = data.filtros_preseleccionadas
+				})
+			})
+	}
+		/* Funcion para validar los filtros selecccionados*/
+	aplicarFiltro() {
+		let alert: any
+		let myCollect = []
+		/* Verificamos si al cambiar de segmento al filtros seleccionados */
+		// if(this.filtroPreseleccionado.length !== 0) {
+		// 	let y = collect(this.filtroPreseleccionado).filter(function(item, key){
+		// 		return item.checked === true
+		// 	}).map(value => {
+		// 		this.filtrosSeleccionados.push(value.registros)
+		// 	})
+		// }
+		/*Validamos si hay filtros seleccionados */
+		/* Filtros no seleccionados */
+		if(this.filtrosSeleccionados.length === 0){
+			alert = this.alert.create({
+				title: 'Advertencia!',
+				subTitle: 'Por favor selecciona por lo menos un filtro para visualizar la grafica!',
+				buttons: ['OK']
+			}),
+			alert.present()
+		}
+		else {
+			// console.log(this.filtrosSeleccionados)
+			// console.log(this.proyectos)
+			for (let index of this.filtrosSeleccionados) {
+				myCollect = this.proyectos.filter(function(value) {
+					console.log(index)
+					console.log(value.campo)
+					
+					return value.campo === index;
+				});
+				console.log(myCollect)
+			}
+			
+		
+			/* En caso de que haya opciones seleccionadas nos vamos a graficar. */
+			// this.paraGraficarFiltrado(this.filtrosSeleccionados, this.segmento)
 		}
 	}
 }

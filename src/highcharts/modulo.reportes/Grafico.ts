@@ -129,7 +129,7 @@ export class Grafico {
 	/**
 	 * Funcion que retorna un objeto para graficar de tipo pie
 	 */
-	graficaPie = (): Object => {
+	graficaPie = (subtitle): Object => {
 		let options = {
 			chart: {
 				plotBackgroundColor: null,
@@ -141,6 +141,9 @@ export class Grafico {
 			},
 			title: {
 				text: this.titleName
+			},
+			subtitle: {
+				text: subtitle
 			},
 			tooltip: {
 				pointFormat: '{series.name}: <b>{point.y:.2f} '+this.grupo+'</b>'
