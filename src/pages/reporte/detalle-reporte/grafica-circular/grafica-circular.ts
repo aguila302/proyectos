@@ -424,7 +424,7 @@ export class GraficaCircularPage {
 		/* Funcion para validar los filtros selecccionados*/
 	aplicarFiltro() {
 		let alert: any
-		let myCollect = []
+		// let myCollect = []
 		/* Verificamos si al cambiar de segmento al filtros seleccionados */
 		// if(this.filtroPreseleccionado.length !== 0) {
 		// 	let y = collect(this.filtroPreseleccionado).filter(function(item, key){
@@ -447,16 +447,14 @@ export class GraficaCircularPage {
 			// console.log(this.filtrosSeleccionados)
 			// console.log(this.proyectos)
 			for (let index of this.filtrosSeleccionados) {
-				myCollect = this.proyectos.filter(function(value) {
-					console.log(index)
-					console.log(value.campo)
-					
+				let myCollect = this.proyectos.filter(function(value) {
+					// console.log(index)
+					// console.log(value.campo)
 					return value.campo === index;
 				});
 				console.log(myCollect)
 			}
-			
-		
+
 			/* En caso de que haya opciones seleccionadas nos vamos a graficar. */
 			// this.paraGraficarFiltrado(this.filtrosSeleccionados, this.segmento)
 		}
