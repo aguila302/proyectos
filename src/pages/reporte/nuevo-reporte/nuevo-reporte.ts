@@ -164,7 +164,7 @@ export class NuevoReportePage {
 	ionViewDidLoad() {
 		this.muestraColumnasInit()
 		this.visible = !this.visible
-		// console.log(this.visible)
+		console.log(this.visible)
 		
 		// this.visible = !this.visible
 		// if (this.visible) {
@@ -209,12 +209,11 @@ export class NuevoReportePage {
 
 			/* Mostrarmos la grid. */
 			this.manageGrid(data.columnas, data.title, [])
-			console.log(data.columnas)
+			// console.log(datacolumnas)
 			
 			this.reporteService.getDataGrid('select * from proyectos', [])
 			.then(response => {
 				console.log(response);
-				
 			})
 			
 			/* Hacemos una copia de data para filtrar las columnas */
@@ -224,7 +223,7 @@ export class NuevoReportePage {
 					title: data.title[index]
 				})
 			})
-			// console.log(collect(miGlobal.filtrar_seleccionadas).unique('columna').toArray())
+			console.log(collect(miGlobal.filtrar_seleccionadas).unique('columna').toArray())
 		})
 	}
 
