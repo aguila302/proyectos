@@ -36,6 +36,7 @@ import { FiltrarAgrupacionPage } from '../pages/reporte/detalle-reporte/filtrar-
 import { GraficaFiltradaPage } from '../pages/reporte/detalle-reporte/grafica-filtrada/grafica-filtrada'
 import { DetalleGrupoPage } from '../pages/reporte/detalle-reporte/detalle-grupo/detalle-grupo'
 import { GraficaCircularPage } from '../pages/reporte/detalle-reporte/grafica-circular/grafica-circular'
+import { GraficaCircularFiltradaPage } from '../pages/reporte/detalle-reporte/grafica-circular/grafica-circular-filtrada/grafica-circular-filtrada'
 import { ReporteDireccionAnioPage } from '../pages/reporte/detalle-reporte/reporte-direccion-anio/reporte-direccion-anio'
 import { ReporteDireccionAnioGrupoPage } from '../pages/reporte/detalle-reporte/reporte-direccion-anio-grupo/reporte-direccion-anio-grupo'
 import { ModalFiltrosPage } from '../pages/reporte/detalle-reporte/reporte-direccion-anio/modal-filtros/modal-filtros'
@@ -97,7 +98,8 @@ import { AccordionModule } from "ng2-accordion";
     GraficaFiltrosDireccionAnioPage,
     GraficaFiltrosDireccionAnioDetallePage,
     SelectFilterPage,
-    OpcionesPage
+    OpcionesPage,
+    GraficaCircularFiltradaPage
   ],
   imports: [
     BrowserModule,
@@ -146,7 +148,8 @@ import { AccordionModule } from "ng2-accordion";
     GraficaFiltrosDireccionAnioPage,
     GraficaFiltrosDireccionAnioDetallePage,
     SelectFilterPage,
-    OpcionesPage
+    OpcionesPage,
+    GraficaCircularFiltradaPage
   ],
   providers: [
     StatusBar,

@@ -13,6 +13,7 @@ import {
 import {
 	FiltrarAgrupacionPage
 } from '../../../reporte/detalle-reporte/filtrar-agrupacion/filtrar-agrupacion'
+import { GraficaCircularFiltradaPage } from '../../../reporte/detalle-reporte/grafica-circular/grafica-circular-filtrada/grafica-circular-filtrada'
 
 
 @IonicPage()
@@ -424,7 +425,7 @@ export class GraficaCircularPage {
 		/* Funcion para validar los filtros selecccionados*/
 	aplicarFiltro() {
 		let alert: any
-		// let myCollect = []
+		let filter = []
 		/* Verificamos si al cambiar de segmento al filtros seleccionados */
 		// if(this.filtroPreseleccionado.length !== 0) {
 		// 	let y = collect(this.filtroPreseleccionado).filter(function(item, key){
@@ -444,19 +445,34 @@ export class GraficaCircularPage {
 			alert.present()
 		}
 		else {
-			// console.log(this.filtrosSeleccionados)
-			// console.log(this.proyectos)
+			/* En caso de que haya filtros seleccionados. */
 			for (let index of this.filtrosSeleccionados) {
-				let myCollect = this.proyectos.filter(function(value) {
-					// console.log(index)
-					// console.log(value.campo)
+				this.proyectos.filter(function(value) {
 					return value.campo === index;
-				});
-				console.log(myCollect)
+				}).map(item => {
+					filter.push({
+						'campo': item.campo,
+						'porcentaje': item.porcentaje,
+						'monto': account.unformat(item.monto),
+						'numero_proyectos': item.numero_proyectos,
+					})
+				})
 			}
-
+			this.graficarFiltrado(filter)
 			/* En caso de que haya opciones seleccionadas nos vamos a graficar. */
-			// this.paraGraficarFiltrado(this.filtrosSeleccionados, this.segmento)
 		}
+	}
+
+	/* Funcion para mostrar la grafica. */
+	graficarFiltrado = (filter: any[]) => {
+		console.log('mi filter')
+		console.log(filter)
+		
+		this.navCtrl.push(GraficaCircularFiltradaPage, {
+			'data_grafica': filter,
+			'segmento': this.segmento,
+			'groupBy': this.groupBy,
+		})
+
 	}
 }
