@@ -30,7 +30,7 @@ export class DbService {
 		return this.sqlite.create({
 				name: 'developer.db',
 				location: 'default',
-				createFromLocation: 1
+				// createFromLocation: 1
 			})
 			.then((db: any) => {
 				this.db = db
