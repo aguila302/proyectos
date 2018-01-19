@@ -1,6 +1,11 @@
 <ion-header>
 	<ion-navbar no-border-bottom color="twitter">
 		<ion-title>Reportes</ion-title>
+		<ion-buttons left>
+            <button ion-button icon-only (click)="mostrarOpciones()">
+                <ion-icon name="ios-help-circle-outline"></ion-icon>
+            </button>
+        </ion-buttons>
 		<ion-buttons right>
 			<button>
 				<button ion-button icon-only (click)="logout()">
