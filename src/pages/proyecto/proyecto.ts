@@ -1,6 +1,5 @@
 import {
-	Component,
-	NgZone
+	Component, NgZone
 } from '@angular/core'
 import {
 	Proyecto
@@ -228,10 +227,10 @@ export class ProyectoPage {
 
 	/* Funcion para mostrar las opciones de ayuda */
 	mostrarOpciones = () => {
-			let ventana = this.navCtrl.push(OpcionesPage, {
-				lastFechaSincronizacion: this.lastFechaSincronizacion
-			})
-		}
+		let ventana = this.navCtrl.push(OpcionesPage, {
+			lastFechaSincronizacion: this.lastFechaSincronizacion
+		})
+	}
 		/* Funcion para obtener la ultima fecha de sincronizacion. */
 	obtenerUltimaFechaSincronizacion = () => {
 		this.reporteService.getLastDateSincronizacion()
