@@ -16,13 +16,13 @@
 			<ion-label>{{ item.registros }}</ion-label>
 			<ion-checkbox [(ngModel)]="item.checked" (ionChange)="seleccionFiltros($event, item.registros)"></ion-checkbox>
 
-			<ion-label [hidden]="!visible">Proyectos agrupados</ion-label>
-			<ion-checkbox [hidden]="!visible" (ionChange)="seleccionFiltros($event, item.contratante)"></ion-checkbox>
+<!-- 			<ion-label [hidden]="!visible">Proyectos agrupados</ion-label>
+			<ion-checkbox [hidden]="!visible" (ionChange)="seleccionFiltros($event, item.contratante)"></ion-checkbox> -->
 		</ion-item>
 	</ion-list>
 
 
-<!-- 	<button [hidden]="!visible" ion-button clear full>Proyectos agrupados</button>
+<!-- <button [hidden]="!visible" ion-button clear full>Proyectos agrupados</button>
 	<ion-list [hidden]="!visible">
 		<ion-item *ngFor="let item of clientes$ | async">
 			<ion-label>{{ item.contratante }}</ion-label>

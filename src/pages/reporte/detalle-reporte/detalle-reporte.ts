@@ -225,12 +225,13 @@ export class DetalleReportePage {
 					this.proyectos = proyectos
 					this.data_circular = response
 				})
-
 		}
 	}
 
 	/* Funcion para filtrar la argrupacion de mi grafica. */
 	filtrar = (): void => {
+		console.log('ttt' + this.campo_agrupacion);
+		
 		this.campo_agrupacion === 'año' ? this.campo_agrupacion = 'anio' : this.campo_agrupacion === 'dirección' ? this.campo_agrupacion = 'unidad_negocio' : this.campo_agrupacion === 'país' ? this.campo_agrupacion = 'pais' : ''
 			/* Hacemos una consulta para obtener los distintos valores de la agrupacion. */
 		this.reporteService.selectDistinct(this.campo_agrupacion)

@@ -49,6 +49,8 @@ export class FiltrarAgrupacionPage {
 
 	ionViewDidLoad() {
 			console.log('ionViewDidLoad')
+			console.log(this.agrupacion);
+
 			this.columnas.forEach(item => {
 				this.registros.push({
 					'registros': item.registros,
@@ -101,18 +103,23 @@ export class FiltrarAgrupacionPage {
 
 					/* Clasifico los proyectos por porcentaje mayor a 1 y menores de 1. */
 					let mayores_de_uno = ordenados.where('porcentaje', '>', 1)
+					
 					let menores_de_uno = ordenados.where('porcentaje', '<', 1)
 
 					mayores_de_uno.toArray()
+					console.log(mayores_de_uno)
+					
 						/* Para visualizar los contratantes mayores de 1% */
 					mayores_de_uno.map(item => {
-							this.registros.push({
-								'registros': item.contratante
-							})
+						this.registros.push({
+							'registros': item.contratante
 						})
-						/* Para visualizar los contratantes menores de 1% */
+					})
+
+
+					/* Para visualizar los contratantes menores de 1% */
 					this.filter_menores_uno = menores_de_uno.toArray()
-					this.clientes$ = Observable.of(this.filter_menores_uno).delay(1000)
+						// this.clientes$ = Observable.of(this.filter_menores_uno).delay(1000)
 				})
 			})
 	}
