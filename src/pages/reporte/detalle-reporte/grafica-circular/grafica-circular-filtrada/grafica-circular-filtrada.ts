@@ -29,8 +29,6 @@ export class GraficaCircularFiltradaPage {
 		this.dataGrafica = navParams .get('data_grafica')
 		this.segmento = navParams.get('segmento')
 		this.groupBy = navParams.get('groupBy')
-		// this.nombreReporte = navParams.get('nombreReporte')
-
 		this.title = collect(this.dataGrafica).implode('campo', ',');
 	}
 
@@ -54,21 +52,18 @@ export class GraficaCircularFiltradaPage {
 
 		/* Acomo la data para mostrar el tablero indicativo. */
 		const collection = collect(this.dataGrafica)
-		// this.monto_total = account.unformat(collection.sum('monto'))
 		let monto_total = account.unformat(collection.sum('monto'))
 		this.monto_total = account.formatNumber(monto_total),
 
 		this.total_proyectos = collection.sum('numero_proyectos')
 		let proyectos = collection.map(function(item) {
-				console.log(item)
-				
-				return {
-					'campo': item.campo,
-					'porcentaje': item.porcentaje,
-					'monto': account.formatNumber(item.monto),
-					'numero_proyectos': item.numero_proyectos
-				}
-			})
-			this.proyectos = proyectos
+			return {
+				'campo': item.campo,
+				'porcentaje': item.porcentaje,
+				'monto': account.formatNumber(item.monto),
+				'numero_proyectos': item.numero_proyectos
+			}
+		})
+		this.proyectos = proyectos
 	}
 }

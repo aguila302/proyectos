@@ -35,7 +35,7 @@ export class GraficoGrupo {
 			yAxis: {
 				min: 0,
 				title: {
-					text: 'Porcentaje total de participación'
+					text: 'Porcentaje total de participación por dirección'
 				}
 			},
 			tooltip: {

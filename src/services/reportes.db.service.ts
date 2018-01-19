@@ -763,7 +763,7 @@ export class ReportesDbService {
 	obtenerDataFiltracion = (direcciones, anios, cadena) => {
 		let direccionAnio = []
 
-		let sql = `select anio, unidad_negocio, count(*) as numero_proyectos, (select count(*) 
+		let sql = `select sum(monto) as monto, anio, unidad_negocio, count(*) as numero_proyectos, (select count(*) 
 					from proyectos where anio in (${anios}) and unidad_negocio IN (${cadena})) as total
 					from proyectos where unidad_negocio in('${direcciones}') 
 					and anio in (${anios})
@@ -775,7 +775,11 @@ export class ReportesDbService {
 		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
-					direccionAnio.push(account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2))
+					direccionAnio.push({
+						'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2),
+						'monto': response.rows.item(index).monto,
+						'numero_proyectos': response.rows.item(index).numero_proyectos
+					})
 				}
 				return Promise.resolve(direccionAnio)
 			}).catch(console.error.bind(console))
@@ -784,7 +788,7 @@ export class ReportesDbService {
 	tableroDireccionAniosGeneral = (direcciones, anios, cadena) => {
 		let direccionAnio = []
 
-		let sql = `select anio, unidad_negocio, sum(monto) as monto, count(*) as numero_proyectos, (select count(*) 
+		let sql = `select sum(monto) as monto, anio, unidad_negocio, count(*) as numero_proyectos, (select count(*) 
 					from proyectos where anio in (${anios}) and unidad_negocio IN (${cadena})) as total
 					from proyectos where unidad_negocio in('${direcciones}') 
 					and anio in (${anios})

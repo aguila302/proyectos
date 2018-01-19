@@ -34,11 +34,15 @@ export class GraficaFiltrosDireccionAnioPage {
 	monto_total: string = ''
 	total_proyectos: number
 	graficoGrupo: GraficoGrupo
+	segmento: number = 0
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteService: ReportesDbService) {
 		this.direcciones = navParams.get('direccion')
 		this.anios = navParams.get('anios')
+		this.segmento = navParams.get('segmento')
 		this.title = collect(this.anios).implode(',');
+		console.log(this.segmento)
+		
 	}
 
 	ionViewDidLoad() {
@@ -110,8 +114,24 @@ export class GraficaFiltrosDireccionAnioPage {
 		/* Funcion que nos ayudara a obtener la data por direccion y anio*/
 		await this.reporteService.obtenerDataFiltracion(direccion, anio, cadena)
 			.then(response => {
-				miGlobal.data_direcciones = response
+				console.log(this.segmento)
+				let porcentajes = []
+				let usd = []
+				if(this.segmento == 1){
+					porcentajes = collect(response).implode('porcentaje', ',');
+					miGlobal.data_direcciones = JSON.parse('[' + porcentajes + ']'); 
+				}
+
+				if(this.segmento == 2){
+					usd = collect(response).implode('monto', ',');
+					miGlobal.data_direcciones = JSON.parse('[' + usd + ']'); 
+				}
+
 			})
+		console.log('mi globsal')
+		
+		console.log(miGlobal.data_direcciones);
+		
 		return miGlobal.data_direcciones
 	}
 

@@ -46,6 +46,10 @@ export class ReporteDireccionAnioPage {
 	data_grafica = []
 	data_direcciones = []
 	graficoGrupo: GraficoGrupo
+	porcentaje: string = 'porcentaje'
+	categorias = []
+	series = []
+	segmento: number = 0
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private reporteService: ReportesDbService, private modal: ModalController, public dbService: DbService,
@@ -58,6 +62,7 @@ export class ReporteDireccionAnioPage {
 
 	/* Funcion para obtener la informacion para construir el reporte de direccicon con años. */
 	reporteDireccionAnios() {
+		this.segmento = 1
 		var series = []
 		var categorias = []
 		this.reporteService.reportePorDireccion()
@@ -96,9 +101,114 @@ export class ReporteDireccionAnioPage {
 
 	// Funcion para ver detalle por monto total o por numero de proyectos. 
 	verDetalleGrupo = (grupo: string) => {
-		this.navCtrl.push(ReporteDireccionAnioGrupoPage, {
-			'grupo': grupo
-		})
+		/* información de proyectos para la opcion de numero de proyectos*/
+		if (grupo === 'numero_proyectos') {
+			this.segmento = 3
+			this.series.splice(0, this.series.length)
+			this.reporteService.reporteDireccionAnioGrupoNumeroProyectos()
+				.then(response => {
+					this.categorias = [2017, 2016, 2015, 2014, 2013, 2012]
+					response.forEach(item => {
+						this.series.push({
+							name: item.unidad_negocio,
+							data: [item[2017], item[2016], item[2015], item[2014], item[2013], item[2012]]
+						})
+					})
+
+					this.graficoGrupo = new GraficoGrupo(this.categorias, this.series, '#', 'Direcciones por número de proyectos')
+					this.options = this.graficoGrupo.graficaBasicColumn()
+
+					/*Para obtener la información para visualizar la tabla informativa. */
+					this.reporteService.reporteDireccionAnioGrupoNumeroProyectosTAbla()
+						.then(response => {
+							console.log(response)
+
+							let micollect = collect(response)
+
+							this.total_proyectos = micollect.sum('numero_proyectos')
+							this.monto_total = account.formatNumber(micollect.sum('monto'))
+
+							let proyectos = micollect.map(function(item) {
+								return {
+									'campo': item.anio,
+									'porcentaje': parseFloat(item.porcentaje).toFixed(2),
+									'monto': account.formatNumber(item.monto),
+									'numero_proyectos': item.numero_proyectos,
+									'group_by': item.anio,
+								}
+							})
+							this.proyectos = proyectos
+						})
+				})
+		}
+		else {
+			this.segmento = 2
+			this.series.splice(0, this.series.length)
+			/* información para la opcion por monto total. */
+			this.reporteService.distinctAnio()
+				.then(response => {
+					this.categorias = response
+				})
+			this.reporteService.distinctDirecciones()
+				.then(response => {
+					response.forEach(item => {
+						this.series.push({
+							name: item.unidad_negocio,
+							data: []
+						})
+					})
+				})
+			/*Obtener datos de la direccion de consultoria. */
+			this.reporteService.getmontosDireccionesConsultoria()
+				.then(response => {
+					this.series[0]['data'] = response
+				})
+			/*Obtener datos de la direccion de Desarrollo de sistemas */
+			this.reporteService.getmontosDireccionesSistemas()
+				.then(response => {
+					this.series[1]['data'] = response
+				})
+			/*Obtener datos de la direccion de Ingeniería */
+			this.reporteService.getmontosDireccionesIngenieria()
+				.then(response => {
+					this.series[2]['data'] = response
+				})
+			/*Obtener datos de la direccion de Sin referencia */
+			this.reporteService.getmontosDireccionesSinReferencia()
+				.then(response => {
+					this.series[3]['data'] = response
+				})
+			/*Obtener datos de la direccion de Sin Suramérica */
+			this.reporteService.getmontosDireccionesSuramerica()
+				.then(response => {
+					this.series[4]['data'] = response
+					this.graficoGrupo = new GraficoGrupo(this.categorias, this.series, 'USD', 'Direcciones por monto total USD')
+					this.options = this.graficoGrupo.graficaBasicColumn()
+				})
+			/*Para obtener la informacion para visualizar la tabla informativa. */
+			this.reporteService.reportePorDireccionTAbla()
+				.then(response => {
+					let micollect = collect(response)
+
+					this.total_proyectos = micollect.sum('numero_proyectos')
+					this.monto_total = account.formatNumber(micollect.sum('monto'))
+
+					let proyectos = micollect.map(function(item) {
+						return {
+							'campo': item.anio,
+							'porcentaje': parseFloat(item.porcentaje).toFixed(2),
+							'monto': account.formatNumber(item.monto),
+							'numero_proyectos': item.numero_proyectos,
+							'group_by': item.anio,
+						}
+					})
+					this.proyectos = proyectos
+				})
+		}
+
+		// this.navCtrl.push(ReporteDireccionAnioGrupoPage, {
+		// 	'grupo': grupo
+		// })
 	}
 
 	/* Funcion para ver el detalle general. */
@@ -153,6 +263,7 @@ export class ReporteDireccionAnioPage {
 			this.navCtrl.push(GraficaFiltrosDireccionAnioPage, {
 				'direccion': this.direccion_filtro,
 				'anios': this.anio_filtro,
+				'segmento': this.segmento
 			})
 		)
 	}
