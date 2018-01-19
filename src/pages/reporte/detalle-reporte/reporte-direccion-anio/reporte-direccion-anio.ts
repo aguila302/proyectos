@@ -142,9 +142,9 @@ export class ReporteDireccionAnioPage {
 				})
 		}
 		else {
+			/* información para la opcion por monto total. */
 			this.segmento = 2
 			this.series.splice(0, this.series.length)
-			/* información para la opcion por monto total. */
 			this.reporteService.distinctAnio()
 				.then(response => {
 					this.categorias = response
@@ -161,6 +161,10 @@ export class ReporteDireccionAnioPage {
 			/*Obtener datos de la direccion de consultoria. */
 			this.reporteService.getmontosDireccionesConsultoria()
 				.then(response => {
+					console.log('mis montos')
+					console.log(response)
+					
+					
 					this.series[0]['data'] = response
 				})
 			/*Obtener datos de la direccion de Desarrollo de sistemas */
