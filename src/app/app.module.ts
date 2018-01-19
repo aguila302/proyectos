@@ -109,7 +109,9 @@ import { AccordionModule } from "ng2-accordion";
         pageTransition: 'ios-transition'
     }),
     ChartsModule,
+    // ChartModule.forRoot(highcharts),
     ChartModule.forRoot(highcharts),
+  
     Ng2SmartTableModule,
     AccordionModule
   ],
