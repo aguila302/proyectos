@@ -9,7 +9,7 @@ import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
 
 @Injectable()
-	/* Clase para el manejo de los reportes. */
+/* Clase para el manejo de los reportes. */
 export class ReportesDbService {
 
 	db: SQLiteObject = null
@@ -106,7 +106,7 @@ export class ReportesDbService {
 					FROM proyectos
 					group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
 			console.log('gggg')
-			
+
 			console.log(sql)
 		} else {
 
@@ -212,7 +212,7 @@ export class ReportesDbService {
 			agrupacion === 'fecha de inicio' ? agrupacion = 'fecha_inicio' : agrupacion === 'fecha de término' ? agrupacion = 'fecha_fin' :
 			agrupacion === 'Monto total original' ? agrupacion = 'monto_moneda_original' : agrupacion === 'Nombre corto' ? agrupacion = 'nombre_corto' :
 			agrupacion === 'Nombre de proyecto' ? agrupacion = 'nombre_proyecto' : agrupacion === 'Número de contrato' ? agrupacion = 'numero_contrato' : ''
-			let data = []
+		let data = []
 		let sql = `select sum(monto) as monto,
 					count(*) as numero_proyectos
 					FROM proyectos ${this.whereNuevoReporte.slice(0, -4)}
@@ -257,7 +257,7 @@ export class ReportesDbService {
 
 	/* Funcion para insertar en reportes agrupacion*/
 	insertarReporteAgrupado = (id: number, agrupacion: string): any => {
-		agrupacion === 'año' ? agrupacion = 'anio' : agrupacion === 'dirección' ? agrupacion = 'unidad_negocio': agrupacion === 'país' ? agrupacion = 'pais': ''
+		agrupacion === 'año' ? agrupacion = 'anio' : agrupacion === 'dirección' ? agrupacion = 'unidad_negocio' : agrupacion === 'país' ? agrupacion = 'pais' : ''
 		let insert_grupado = `insert into reportes_agrupacion(
 				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
 
@@ -268,7 +268,7 @@ export class ReportesDbService {
 
 	/* Funcion para insertar e reportes columans*/
 	insertReporteColumnas = (id: number, agrupacion: string): any => {
-		agrupacion === 'año' ? agrupacion = 'anio' : agrupacion === 'dirección' ? agrupacion = 'unidad_negocio': agrupacion === 'país' ? agrupacion = 'pais': ''
+		agrupacion === 'año' ? agrupacion = 'anio' : agrupacion === 'dirección' ? agrupacion = 'unidad_negocio' : agrupacion === 'país' ? agrupacion = 'pais' : ''
 		let insert_grupado = `insert into reportes_columnas(
 				reporte_id, nombre_columna) values(?, ?)`
 
@@ -279,23 +279,23 @@ export class ReportesDbService {
 
 	/* Funcion para guardar los campos y los valores en la tabla reportes_filtros en la seccion nuevo reporte*/
 	insertReporteFiltros = (campos: any[], id: number) => {
-			console.log(campos)
+		console.log(campos)
 
-			let insert = 'insert into reportes_filtros (reporte_id, nombre_columna, valor) values('
-				/* Recorremos el array de las opciones seleccionadas para insertar en el origen de datos. */
-			for (var i in campos) { /* otenemos los campos de filtracion. */
-				for (var rel in campos[i]) { /* Obtenemos array de los valores de la filtracion. */
-					for (var t in campos[i][rel]) { /* Obtenemos Valores de los filtros, */
-						let insertColumas = insert + `${id}, '${Object.keys(campos[i]).toString()}'` + ','
+		let insert = 'insert into reportes_filtros (reporte_id, nombre_columna, valor) values('
+		/* Recorremos el array de las opciones seleccionadas para insertar en el origen de datos. */
+		for (var i in campos) { /* otenemos los campos de filtracion. */
+			for (var rel in campos[i]) { /* Obtenemos array de los valores de la filtracion. */
+				for (var t in campos[i][rel]) { /* Obtenemos Valores de los filtros, */
+					let insertColumas = insert + `${id}, '${Object.keys(campos[i]).toString()}'` + ','
 
-						let queryFinal = insertColumas + `'${campos[i][rel][t]}'` + ')'
-							/* Registramos las opciones en el origen de datos */
-						this.db.executeSql(queryFinal, {})
-					}
+					let queryFinal = insertColumas + `'${campos[i][rel][t]}'` + ')'
+					/* Registramos las opciones en el origen de datos */
+					this.db.executeSql(queryFinal, {})
 				}
 			}
 		}
-		/* Funcion consultar el detalle de un reporte dado a un campo. */
+	}
+	/* Funcion consultar el detalle de un reporte dado a un campo. */
 	consultaXCampoAgrupado = (campo: string, groupBy: string): any => {
 		let proyectos = []
 		let sql = 'select * from proyectos where ' + groupBy + ' = ' + "'" + campo + "'"
@@ -345,7 +345,7 @@ export class ReportesDbService {
 
 	/*Funcion para conseguir la informacion para construir la grafica. */
 	paraGraficar = (columnas, agrupacion, where ? ): any => {
-		columnas === 'año' ? columnas = 'anio' : columnas === 'dirección' ? columnas = 'unidad_negocio' :  columnas === 'país' ? columnas= 'pais' : ''
+		columnas === 'año' ? columnas = 'anio' : columnas === 'dirección' ? columnas = 'unidad_negocio' : columnas === 'país' ? columnas = 'pais' : ''
 		let sql = `select ` + columnas + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
 							(select count(*) from proyectos) as total, sum(monto) as monto_filtrado
 							FROM proyectos
@@ -374,16 +374,15 @@ export class ReportesDbService {
 		filters = filtros.map(item => item.valor)
 		campo = filtros.map(item => item.nombre_columna)
 
-		if(filters.length === 0){
-				sql = `select ` + agrupacion + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
+		if (filters.length === 0) {
+			sql = `select ` + agrupacion + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
 						(select sum(monto) from proyectos) as monto_total, (select count(*) from proyectos) as total_proyectos
 						FROM proyectos group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
-				console.log('mi query')
-				
-				console.log(sql)
-				
-		}
-		else {
+			console.log('mi query')
+
+			console.log(sql)
+
+		} else {
 			filters.forEach(item => {
 				cadena += `'${item}',`
 				nuevaCadena = cadena.slice(0, -1)
@@ -428,13 +427,12 @@ export class ReportesDbService {
 			agrupacion === 'Nombre de proyecto' ? agrupacion = 'nombre_proyecto' : agrupacion === 'Número de contrato' ? agrupacion = 'numero_contrato' : ''
 		// Recuperamos nuestros filtros
 		filters = filtros.map(item => item.valor)
-		if(filters.length === 0) {
+		if (filters.length === 0) {
 			sql = `select ` + agrupacion + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
 						(select sum(monto) from proyectos) as monto_total, (select count(*) from proyectos) as total_proyectos
 						FROM proyectos group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
 			console.log(sql)
-		}
-		else {
+		} else {
 			filters.forEach(item => {
 				cadena += `'${item}',`
 				nuevaCadena = cadena.slice(0, -1)
@@ -491,75 +489,82 @@ export class ReportesDbService {
 			})
 	}
 
+
 	/* Funcion para obtener los montos de la direccion consultoria. */
 	getmontosDireccionesConsultoria = (): any => {
-			let reportes = []
-			let sql = `select montoUsd 
+		let reportes = []
+		let sql = `select anio, montoUsd 
 				from direccionAnio 
 				where anio > 2011 and direccionAnio.unidad_negocio = 'Consultoría'
 				group by unidad_negocio, anio
 				order by unidad_negocio, anio desc`
 
-			return this.db.executeSql(sql, {})
-				.then(response => {
-					for (let index = 0; index < response.rows.length; index++) {
-						reportes.push(response.rows.item(index).montoUsd)
-					}
-					return Promise.resolve(reportes)
-				})
-		}
-		/* Funcion para obtener los montos de la direccion Sistemas. */
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					reportes.push({
+						anio: response.rows.item(index).anio,
+						montoUsd: response.rows.item(index).montoUsd
+					})
+				}
+				return Promise.resolve(reportes)
+			})
+	}
+	/* Funcion para obtener los montos de la direccion Sistemas. */
 	getmontosDireccionesSistemas = (): any => {
-			let reportes = []
-			let sql = `select montoUsd 
+		let reportes = []
+		let sql = `select anio, montoUsd 
 				from direccionAnio 
 				where anio > 2011 and direccionAnio.unidad_negocio = 'Desarrollo de sistemas'
 				group by unidad_negocio, anio
 				order by unidad_negocio, anio desc`
 
-			return this.db.executeSql(sql, {})
-				.then(response => {
-					for (let index = 0; index < response.rows.length; index++) {
-						reportes.push(response.rows.item(index).montoUsd)
-					}
-					return Promise.resolve(reportes)
-				})
-		}
-		/* Funcion para obtener los montos de la direccion Ingeniería. */
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					reportes.push({
+						anio: response.rows.item(index).anio,
+						montoUsd: response.rows.item(index).montoUsd
+					})
+				}
+				return Promise.resolve(reportes)
+			})
+	}
+	/* Funcion para obtener los montos de la direccion Ingeniería. */
 	getmontosDireccionesIngenieria = (): any => {
-			let reportes = []
-			let sql = `select montoUsd 
+		let reportes = []
+		let sql = `select montoUsd 
 				from direccionAnio 
 				where anio > 2011 and direccionAnio.unidad_negocio = 'Ingeniería'
 				group by unidad_negocio, anio
 				order by unidad_negocio, anio desc`
 
-			return this.db.executeSql(sql, {})
-				.then(response => {
-					for (let index = 0; index < response.rows.length; index++) {
-						reportes.push(response.rows.item(index).montoUsd)
-					}
-					return Promise.resolve(reportes)
-				})
-		}
-		/* Funcion para obtener los montos de la direccion Sin referencia. */
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					reportes.push(response.rows.item(index).montoUsd)
+				}
+				return Promise.resolve(reportes)
+			})
+	}
+	/* Funcion para obtener los montos de la direccion Sin referencia. */
 	getmontosDireccionesSinReferencia = (): any => {
-			let reportes = []
-			let sql = `select montoUsd 
+		let reportes = []
+		let sql = `select montoUsd 
 				from direccionAnio 
 				where anio > 2011 and direccionAnio.unidad_negocio = 'Sin referencia'
 				group by unidad_negocio, anio
 				order by unidad_negocio, anio desc`
 
-			return this.db.executeSql(sql, {})
-				.then(response => {
-					for (let index = 0; index < response.rows.length; index++) {
-						reportes.push(response.rows.item(index).montoUsd)
-					}
-					return Promise.resolve(reportes)
-				})
-		}
-		/* Funcion para obtener los montos de la direccion Suramérica. */
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					reportes.push(response.rows.item(index).montoUsd)
+				}
+				return Promise.resolve(reportes)
+			})
+	}
+	/* Funcion para obtener los montos de la direccion Suramérica. */
 	getmontosDireccionesSuramerica = (): any => {
 		let reportes = []
 		let sql = `select montoUsd 
@@ -784,7 +789,7 @@ export class ReportesDbService {
 				return Promise.resolve(direccionAnio)
 			}).catch(console.error.bind(console))
 	}
-		/* Funcion para conseguir la información del tablero de reporte direccion, anio filtrado. */
+	/* Funcion para conseguir la información del tablero de reporte direccion, anio filtrado. */
 	tableroDireccionAniosGeneral = (direcciones, anios, cadena) => {
 		let direccionAnio = []
 
@@ -862,7 +867,7 @@ export class ReportesDbService {
 
 	/* Funcion para obtener la informacion para llenar la grid de acuerdo a los filtros seleccoinados. */
 	getDataGrid = (consulta: string, filtros: string[]) => {
-		if(filtros.length === 0) {
+		if (filtros.length === 0) {
 			consulta = 'select * from proyectos'
 		}
 

@@ -9,7 +9,9 @@ import * as account from 'accounting-js'
 import {
 	ReportesDbService
 } from './reportes.db.service'
-import { SQLitePorter } from '@ionic-native/sqlite-porter';
+import {
+	SQLitePorter
+} from '@ionic-native/sqlite-porter';
 import * as moment from 'moment'
 
 @Injectable()
@@ -34,7 +36,7 @@ export class DbService {
 			})
 			.then((db: any) => {
 				this.db = db
-					/* Inicio mi servicio para los reportes. */
+				/* Inicio mi servicio para los reportes. */
 				this.reporteService.initDb(db)
 			})
 
@@ -124,12 +126,12 @@ export class DbService {
 				]).then(() => console.log('regustros insertados'))
 				.catch(e => console.log(e))
 		})
-			// this.sqlitePorter.exportDbToSql(this.db)
-			// .then(res => {
-			// 	console.log(res)
+		// this.sqlitePorter.exportDbToSql(this.db)
+		// .then(res => {
+		// 	console.log(res)
 
-			// })
-			// .catch(e => console.error(e))
+		// })
+		// .catch(e => console.error(e))
 	}
 
 	/* Obtenemos las datos de los proyectos. */
@@ -169,11 +171,11 @@ export class DbService {
 	buscaProyecto = (val, filtros): any => {
 		let proyectos = []
 		console.log(filtros)
-		
+
 		for (let i in filtros) {
 			console.log(filtros[i].opcion)
-			
-			let sql = 'select * from proyectos where ' + filtros[i].opcion + ' COLLATE SQL_Latin1_General_CP1_CI_AI like ' + "'%" + val + "%' order by nombre_proyecto ASC" 
+
+			let sql = 'select * from proyectos where ' + filtros[i].opcion + ' COLLATE SQL_Latin1_General_CP1_CI_AI like ' + "'%" + val + "%' order by nombre_proyecto ASC"
 			console.log(sql)
 
 			this.db.executeSql(sql, {})
@@ -518,12 +520,12 @@ export class DbService {
 
 	// inserta los anios
 	insertAnios() {
-			let insertAnios = ` insert into anios(anio) select distinct(anio) from proyectos`
-			this.db.executeSql(insertAnios, {})
-				.then(() => console.log('regustros insertados en tabla de anios'))
-				.catch(e => console.log(e))
-		}
-		/* Funcion para insertar datos en la tabla de reportes */
+		let insertAnios = ` insert into anios(anio) select distinct(anio) from proyectos`
+		this.db.executeSql(insertAnios, {})
+			.then(() => console.log('regustros insertados en tabla de anios'))
+			.catch(e => console.log(e))
+	}
+	/* Funcion para insertar datos en la tabla de reportes */
 	insertaDatosTablaReportes() {
 		let pais = ''
 		let anio = ''
@@ -570,7 +572,7 @@ export class DbService {
 		this.db.executeSql(cliente, {})
 			.then(() => console.log('regustros insertados en tabla reportes'))
 			.catch(e => console.log(e))
-			
+
 		direccion_anio = `
 			insert into reportes(nombre_reporte,total_usd, total_proyectos) values('Reporte por dirección y años',
 			(select sum(monto) from proyectos), (select count(*) from proyectos));`
@@ -625,7 +627,7 @@ export class DbService {
 			.catch(e => console.log(e))
 
 	}
-	
+
 	/* Funcion para insertar datos en la tabla de reportes_agrupacion */
 	insertaDatosTablaReportesAgrupacion() {
 		let pais = `insert into reportes_agrupacion(
@@ -723,33 +725,33 @@ export class DbService {
 
 	busquedaProyectos = (busqueda: string) => {
 		let proyectos = []
-			let sql = `select * from proyectos where producto like '%${busqueda}%' or anio like '%${busqueda}%' or nombre_proyecto like '%${busqueda}%'
+		let sql = `select * from proyectos where producto like '%${busqueda}%' or anio like '%${busqueda}%' or nombre_proyecto like '%${busqueda}%'
 						or contratante like '%${busqueda}%' or datos_cliente like '%${busqueda}%'`
-						
-			return this.db.executeSql(sql, {})
-				.then((response) => {
-					for (let index = 0; index < response.rows.length; index++) {
-						proyectos.push({
-							'nombre_proyecto': response.rows.item(index).nombre_proyecto,
-							'moneda': response.rows.item(index).moneda,
-							'monto': account.formatNumber(response.rows.item(index).monto),
-							'monto_moneda_original': account.formatNumber(response.rows.item(index).monto_moneda_original),
-							'pais': response.rows.item(index).pais,
-							'gerencia': response.rows.item(index).gerencia,
-							'unidad_negocio': response.rows.item(index).unidad_negocio,
-							'numero_contrato': response.rows.item(index).numero_contrato,
-							'producto': response.rows.item(index).producto,
-							'anio': response.rows.item(index).anio,
-							'duracion': response.rows.item(index).duracion,
-							'contratante': response.rows.item(index).contratante,
-							'datos_cliente': response.rows.item(index).datos_cliente,
-							'fecha_inicio': response.rows.item(index).fecha_inicio,
-							'fecha_fin': response.rows.item(index).fecha_fin,
-							'numero_propuesta': response.rows.item(index).numero_propuesta,
-							'anticipo': response.rows.item(index).anticipo,
-						})
-					}
-					return Promise.resolve(proyectos)
-				})
+
+		return this.db.executeSql(sql, {})
+			.then((response) => {
+				for (let index = 0; index < response.rows.length; index++) {
+					proyectos.push({
+						'nombre_proyecto': response.rows.item(index).nombre_proyecto,
+						'moneda': response.rows.item(index).moneda,
+						'monto': account.formatNumber(response.rows.item(index).monto),
+						'monto_moneda_original': account.formatNumber(response.rows.item(index).monto_moneda_original),
+						'pais': response.rows.item(index).pais,
+						'gerencia': response.rows.item(index).gerencia,
+						'unidad_negocio': response.rows.item(index).unidad_negocio,
+						'numero_contrato': response.rows.item(index).numero_contrato,
+						'producto': response.rows.item(index).producto,
+						'anio': response.rows.item(index).anio,
+						'duracion': response.rows.item(index).duracion,
+						'contratante': response.rows.item(index).contratante,
+						'datos_cliente': response.rows.item(index).datos_cliente,
+						'fecha_inicio': response.rows.item(index).fecha_inicio,
+						'fecha_fin': response.rows.item(index).fecha_fin,
+						'numero_propuesta': response.rows.item(index).numero_propuesta,
+						'anticipo': response.rows.item(index).anticipo,
+					})
+				}
+				return Promise.resolve(proyectos)
+			})
 	}
 }

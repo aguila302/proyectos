@@ -48,31 +48,32 @@ export class FiltrarAgrupacionPage {
 	}
 
 	ionViewDidLoad() {
-			console.log('ionViewDidLoad')
-			console.log(this.agrupacion);
+		console.log('ionViewDidLoad')
+		console.log(this.agrupacion);
 
+
+		this.agrupacion === 'contratante' ? (this.visible = true) : ''
+		this.agrupacion === 'contratante' ? (this.cargaOpcionesContratante()) : (this.loadOpciones())
+		// console.log(this.filtroPreseleccionado)
+
+	}
+	/* Funcion para visualizar los valores de los filtros. */
+	loadOpciones() {
+		console.log('load opciones')
+		if (this.filtroPreseleccionado.length === 0) {
 			this.columnas.forEach(item => {
 				this.registros.push({
 					'registros': item.registros,
 					'checked': false
 				})
 			})
-			this.agrupacion === 'contratante' ? (this.visible = true) : ''
-			this.agrupacion === 'contratante' ? (this.cargaOpcionesContratante()) : (this.loadOpciones())
-				// console.log(this.filtroPreseleccionado)
-
-		}
-		/* Funcion para visualizar los valores de los filtros. */
-	loadOpciones() {
-		var miglobal = this
-		if (this.filtroPreseleccionado.length === 0) {
-			this.registros
 		} else {
 			this.registros = this.filtroPreseleccionado
 		}
 	}
 
 	cargaOpcionesContratante(): any {
+		console.log('por contratante')
 		// para la opcion de contratante agrupamos por aquellos que tienen mayor a 1 % de participacion aplica el mismo proceso para graficar.
 		this.dbService.openDatabase()
 			.then(() => this.dbService.consultaXCliente())
@@ -103,29 +104,28 @@ export class FiltrarAgrupacionPage {
 
 					/* Clasifico los proyectos por porcentaje mayor a 1 y menores de 1. */
 					let mayores_de_uno = ordenados.where('porcentaje', '>', 1)
-					
 					let menores_de_uno = ordenados.where('porcentaje', '<', 1)
 
+					/* Suma de los montos y porcentajes de porcentaje  menores de 1. */
+					let suma_porcentajes_menores_de_uno = menores_de_uno.sum('porcentaje').toFixed(2)
+
 					mayores_de_uno.toArray()
-					console.log(mayores_de_uno)
-					
-						/* Para visualizar los contratantes mayores de 1% */
+
+					/* Para visualizar los contratantes mayores de 1% */
 					mayores_de_uno.map(item => {
 						this.registros.push({
 							'registros': item.contratante
 						})
 					})
-
-
-					/* Para visualizar los contratantes menores de 1% */
-					this.filter_menores_uno = menores_de_uno.toArray()
-						// this.clientes$ = Observable.of(this.filter_menores_uno).delay(1000)
 				})
 			})
 	}
 
 	/* Funcion para controlar los filtros seleccionados. */
 	seleccionFiltros = (event: any, filtros: string) => {
+		if (filtros = 'contratante-agrupado') {
+			this.filtros_seleccionadas.push('contratante-agrupado')
+		} else {
 			event.value ? (
 				this.registros.forEach(item => {
 					if (item.registros === filtros) {
@@ -140,7 +140,8 @@ export class FiltrarAgrupacionPage {
 				})
 			)
 		}
-		/* Funcion para enviar columnas seleccionadas. */
+	}
+	/* Funcion para enviar columnas seleccionadas. */
 	aceptar() {
 		this.registros.filter(function(value, key) {
 			return value.checked === true

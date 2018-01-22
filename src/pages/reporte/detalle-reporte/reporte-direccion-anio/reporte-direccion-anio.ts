@@ -1,4 +1,3 @@
-
 import {
 	Component
 } from '@angular/core';
@@ -29,7 +28,9 @@ import {
 import {
 	GraficaFiltrosDireccionAnioPage
 } from '../../../reporte/detalle-reporte/reporte-direccion-anio/grafica-filtros-direccion-anio/grafica-filtros-direccion-anio'
-import { GraficoGrupo } from '../../../../highcharts/modulo.reportes/GraficoGrupo'
+import {
+	GraficoGrupo
+} from '../../../../highcharts/modulo.reportes/GraficoGrupo'
 
 @IonicPage()
 @Component({
@@ -140,8 +141,7 @@ export class ReporteDireccionAnioPage {
 							this.proyectos = proyectos
 						})
 				})
-		}
-		else {
+		} else {
 			/* información para la opcion por monto total. */
 			this.segmento = 2
 			this.series.splice(0, this.series.length)
@@ -161,16 +161,78 @@ export class ReporteDireccionAnioPage {
 			/*Obtener datos de la direccion de consultoria. */
 			this.reporteService.getmontosDireccionesConsultoria()
 				.then(response => {
-					console.log('mis montos')
-					console.log(response)
-					
-					
-					this.series[0]['data'] = response
+					console.log('por consultoria')
+					let anios = [{
+						anio: 2017,
+						monto: 0,
+					}, {
+						anio: 2016,
+						monto: 0
+					}, {
+						anio: 2015,
+						monto: 0
+					}, {
+						anio: 2014,
+						monto: 0
+					}, {
+						anio: 2013,
+						monto: 0
+					}, {
+						anio: 2012,
+						monto: 0
+					}]
+					response.forEach(function(response, index) {
+						anios.forEach(anios => {
+							if (anios.anio === response.anio) {
+								anios.monto = response.montoUsd
+							}
+						})
+					})
+
+					console.log(anios)
+					//console.log(montos)
+					//let ordenados = collect(montos).sortByDesc('anio')
+
+					this.series[0]['data'] = JSON.parse('[' + collect(anios).implode('monto', ',') + ']')
 				})
 			/*Obtener datos de la direccion de Desarrollo de sistemas */
 			this.reporteService.getmontosDireccionesSistemas()
 				.then(response => {
-					this.series[1]['data'] = response
+					console.log(response)
+					console.log('desarrollo de sistemas')
+					let montos = []
+					let anios = [{
+						anio: 2017,
+						monto: 0,
+					}, {
+						anio: 2016,
+						monto: 0
+					}, {
+						anio: 2015,
+						monto: 0
+					}, {
+						anio: 2014,
+						monto: 0
+					}, {
+						anio: 2013,
+						monto: 0
+					}, {
+						anio: 2012,
+						monto: 0
+					}]
+					response.forEach(function(response, index) {
+						anios.forEach(anios => {
+							if (anios.anio === response.anio) {
+								anios.monto = response.montoUsd
+							}
+						})
+					})
+
+					console.log(anios)
+					this.series[1]['data'] = JSON.parse('[' + collect(anios).implode('monto', ',') + ']')
+					//let ordenados = collect(montos).sortByDesc('anio')
+					//this.series[1]['data'] = JSON.parse('[' + ordenados.implode('monto', ',') + ']')
+					//this.series[1]['data'] = response
 				})
 			/*Obtener datos de la direccion de Ingeniería */
 			this.reporteService.getmontosDireccionesIngenieria()
@@ -229,11 +291,11 @@ export class ReporteDireccionAnioPage {
 		let filtrarModal = this.modal.create(ModalFiltrosPage, {
 			'filtro': filtro
 		})
-			/* Cierra la ventana modal y recuperamos las opciones que se seleccionaron. */
+		/* Cierra la ventana modal y recuperamos las opciones que se seleccionaron. */
 		filtrarModal.onDidDismiss(data => {
-				this.direccion_filtro = data
-			})
-			/* Mostramos el modal. */
+			this.direccion_filtro = data
+		})
+		/* Mostramos el modal. */
 		filtrarModal.present()
 	}
 
@@ -247,7 +309,7 @@ export class ReporteDireccionAnioPage {
 		filtrarModal.onDidDismiss(data => {
 			this.anio_filtro = data
 		})
-			/* Mostramos el modal. */
+		/* Mostramos el modal. */
 		filtrarModal.present()
 	}
 
@@ -255,20 +317,20 @@ export class ReporteDireccionAnioPage {
 	graficar(direccion: any[], anios: any[]) {
 		let alert: any
 		this.direccion_filtro.length === 0 || this.anio_filtro.length === 0 ?
-		(
-			alert = this.alertCtrl.create({
-				title: 'Advertencia!',
-				subTitle: 'Por favor selecciona por lo menos una dirección y un año!',
-				buttons: ['OK']
-			}),
-			alert.present()
-		):(
-			/* Creamos una vista para visualizar la grafica. */
-			this.navCtrl.push(GraficaFiltrosDireccionAnioPage, {
-				'direccion': this.direccion_filtro,
-				'anios': this.anio_filtro,
-				'segmento': this.segmento
-			})
-		)
+			(
+				alert = this.alertCtrl.create({
+					title: 'Advertencia!',
+					subTitle: 'Por favor selecciona por lo menos una dirección y un año!',
+					buttons: ['OK']
+				}),
+				alert.present()
+			) : (
+				/* Creamos una vista para visualizar la grafica. */
+				this.navCtrl.push(GraficaFiltrosDireccionAnioPage, {
+					'direccion': this.direccion_filtro,
+					'anios': this.anio_filtro,
+					'segmento': this.segmento
+				})
+			)
 	}
-} 
+}

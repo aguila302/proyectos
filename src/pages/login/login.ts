@@ -24,12 +24,12 @@ import {
 import * as moment from 'moment'
 
 @Component({
-		selector: 'page-login',
-		templateUrl: 'login.html',
-	})
-	/**
-	 * Componenete para el manejo de sesion.
-	 */
+	selector: 'page-login',
+	templateUrl: 'login.html',
+})
+/**
+ * Componenete para el manejo de sesion.
+ */
 export class LoginPage {
 
 	loader = this.loadinCtrl.create({
@@ -48,7 +48,7 @@ export class LoginPage {
 		private apiService: ApiService,
 		private reporteService: ReportesDbService,
 		public dbService: DbService,
-		private toast : ToastController) {
+		private toast: ToastController) {
 		this.fechaActual = moment().format('YYYY-MM-DD h:mm:ss')
 	}
 
@@ -73,8 +73,8 @@ export class LoginPage {
 				.then(response => {
 					if (response === undefined) {
 						/* En caso de error no autorizado mostramos una advertencia  */
-						 let loading  = this.loadinCtrl.create({
-						 	spinner: 'crescent',
+						let loading = this.loadinCtrl.create({
+							spinner: 'crescent',
 							content: 'Conectando ...'
 						})
 						loading.present()
@@ -90,7 +90,7 @@ export class LoginPage {
 					} else {
 
 						let lastFecha: string = ''
-							/* Si hay un token valido obtenemos la ultima fecha de sincronizacion. */
+						/* Si hay un token valido obtenemos la ultima fecha de sincronizacion. */
 						this.reporteService.getLastDateSincronizacion()
 							.then(response => {
 								// Si la ultima fecha de sincronizacion es vacio se la asigna la fecha actual, en caso
@@ -120,9 +120,13 @@ export class LoginPage {
 				response.status === 200 ? (
 						setTimeout(() => {
 							// construimos el origen de datos faltante para el modulo de reportes.
-							this.navCtrl.push(TabsPage, {}, {animate: true, animation: 'ios-transition', direction: 'forward'})
+							this.navCtrl.push(TabsPage, {}, {
+								animate: true,
+								animation: 'ios-transition',
+								direction: 'forward'
+							})
 							this.loader.dismiss(),
-							this.dbService.delete()
+								this.dbService.delete()
 							this.dbService.creaTablaReportes()
 							this.dbService.creaTablaReporteColumnas()
 							this.dbService.creaTablaReporteFiltros()
@@ -131,10 +135,10 @@ export class LoginPage {
 							this.dbService.createTableDireccionAnios()
 
 							this.dbService.insertaDatosTablaReportes(),
-							this.dbService.insertaDatosTablaReportesColunas(),
-							this.dbService.insertaDatosTablaReportesAgrupacion(),
-							this.dbService.insertAnios(),
-							this.dbService.insertDireccionAnios()
+								this.dbService.insertaDatosTablaReportesColunas(),
+								this.dbService.insertaDatosTablaReportesAgrupacion(),
+								this.dbService.insertAnios(),
+								this.dbService.insertDireccionAnios()
 						}, 1000)
 					) :
 					(
@@ -151,7 +155,11 @@ export class LoginPage {
 	sincronizar() {
 		this.apiService.fetch()
 			.then(response => {
-				this.navCtrl.push(TabsPage, {}, {animate: true, animation: 'ios-transition', direction: 'forward'})
+				this.navCtrl.push(TabsPage, {}, {
+					animate: true,
+					animation: 'ios-transition',
+					direction: 'forward'
+				})
 				/* LLamar a la funcion que nos ayudara a registrar la informacion del endpoint a nuestra aplicacion movil. */
 				this.apiService.regitrarData(response)
 				/* Funcion para registrar un historial de la sincronizacion. */

@@ -16,7 +16,7 @@ export class Grafico {
 	 */
 	constructor(data: any[], serieName: string, titleName: string, grupo: string, indicador) {
 		console.log(serieName)
-		
+
 		this.data = data
 		this.serieName = serieName
 		titleName === 'Proyectos agrupados por pais' ? this.titleName = 'Proyectos agrupados por país' : this.titleName = titleName
@@ -62,14 +62,14 @@ export class Grafico {
 					borderWidth: 0,
 					dataLabels: {
 						enabled: true,
-						format:  `{point.y:,.2f} ${this.grupo}`
+						format: `{point.y:,.2f} ${this.grupo}`
 					}
 				}
 			},
 
 			tooltip: {
 				headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-				pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:,.2f} '+ this.grupo+'</b> del total<br/>'
+				pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:,.2f} ' + this.grupo + '</b> del total<br/>'
 			},
 
 			series: [{
@@ -146,7 +146,7 @@ export class Grafico {
 				text: subtitle
 			},
 			tooltip: {
-				pointFormat: '{series.name}: <b>{point.y:.2f} '+this.grupo+'</b>'
+				pointFormat: '{series.name}: <b>{point.y:,.2f} ' + this.grupo + '</b>'
 			},
 			plotOptions: {
 				pie: {
@@ -154,7 +154,7 @@ export class Grafico {
 					cursor: 'pointer',
 					dataLabels: {
 						enabled: true,
-						format: '<b>{point.name}</b>: {point.y:.2f} '+ this.grupo,
+						format: '<b>{point.name}</b>: {point.y:,.2f} ' + this.grupo,
 					},
 					showInLegend: true
 				}
