@@ -1,9 +1,21 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ReportesDbService } from '../../../../services/reportes.db.service'
+import {
+	Component
+} from '@angular/core';
+import {
+	IonicPage,
+	NavController,
+	NavParams
+} from 'ionic-angular';
+import {
+	ReportesDbService
+} from '../../../../services/reportes.db.service'
 import * as collect from 'collect.js/dist'
-import { DetalleReporteAgrupadoPage } from '../../../reporte/detalle-reporte/detalle-reporte-agrupado/detalle-reporte-agrupado'
-import { Grafico } from '../../../../highcharts/modulo.reportes/Grafico'
+import {
+	DetalleReporteAgrupadoPage
+} from '../../../reporte/detalle-reporte/detalle-reporte-agrupado/detalle-reporte-agrupado'
+import {
+	Grafico
+} from '../../../../highcharts/modulo.reportes/Grafico'
 import * as account from 'accounting-js'
 
 @IonicPage()
@@ -25,7 +37,7 @@ export class GraficaFiltradaPage {
 	segmento: number = 0
 	dataFiltrada = []
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteService : ReportesDbService) {
+	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteService: ReportesDbService) {
 		this.dataFiltrada = navParams.get('data_grafica')
 
 		this.campo_agrupacion = navParams.get('groupBy')
@@ -36,11 +48,11 @@ export class GraficaFiltradaPage {
 		this.total_proyectos = collect(this.reportes).sum('numero_proyectos')
 		this.monto_total = account.formatNumber(collect(this.reportes).sum('monto_filtrado'))
 		console.log(this.reportes)
-		
+
 		/* Para visualizar el titulo de la vista activa.*/
 		let titulo = collect(this.reportes).unique('campo').toArray()
 		this.title = collect(titulo).implode('campo', ',')
-		this.campo_agrupacion === 'anio' ? this.campo_agrupacion = 'año' : this.campo_agrupacion === 'unidad_negocio' ? this.campo_agrupacion = 'dirección': this.campo_agrupacion === 'pais' ? this.campo_agrupacion = 'país': ''
+		this.campo_agrupacion === 'anio' ? this.campo_agrupacion = 'año' : this.campo_agrupacion === 'unidad_negocio' ? this.campo_agrupacion = 'dirección' : this.campo_agrupacion === 'pais' ? this.campo_agrupacion = 'país' : ''
 	}
 
 	ionViewDidLoad() {
@@ -53,7 +65,7 @@ export class GraficaFiltradaPage {
 
 	/* Funcion para visualizar la grafica con los filtros seleccionados. */
 	muestraGrafica = () => {
-		this.segmento === 3 ? ( this.filtraNumeroProyectos()): this.segmento === 2 ? ( this.filtraMontoUsd()): this.segmento === 1 ? ( this.filtraPorcentajes()): ''
+		this.segmento === 3 ? (this.filtraNumeroProyectos()) : this.segmento === 2 ? (this.filtraMontoUsd()) : this.segmento === 1 ? (this.filtraPorcentajes()) : ''
 	}
 
 	/* Funcion para graficar por porcentajes. */
@@ -67,8 +79,8 @@ export class GraficaFiltradaPage {
 		})
 
 		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-		this.grafico = new Grafico(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, ' %', 'Porcentaje total de participación por '+ this.campo_agrupacion),
-		this.options = this.grafico.graficaBar()
+		this.grafico = new Grafico(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, ' %', 'Porcentaje total de participación por ' + this.campo_agrupacion),
+			this.options = this.grafico.graficaBar()
 	}
 
 	/* Funcion para graficar por monto usd. */
@@ -84,7 +96,7 @@ export class GraficaFiltradaPage {
 
 		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 		this.grafico = new Grafico(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, ' USD', 'Monto total USD por ' + this.campo_agrupacion),
-		this.options = this.grafico.graficaBar()
+			this.options = this.grafico.graficaBar()
 	}
 
 	/* Funcion para graficar por numero de proyectos. */
@@ -100,12 +112,12 @@ export class GraficaFiltradaPage {
 
 		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 		this.grafico = new Grafico(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, ' #', 'Número de proyectos por ' + this.campo_agrupacion),
-		this.options = this.grafico.graficaBar()
+			this.options = this.grafico.graficaBar()
 	}
 
 	/* Funcion para ver el detalle de los proyectos segun la opcion que se escoja. */
 	verProyectosAgrupados = (group_by: string, campo: string, monto_total: string): void => {
-		this.campo_agrupacion === 'año' ? this.campo_agrupacion = 'anio' : this.campo_agrupacion === 'dirección' ? this.campo_agrupacion = 'unidad_negocio' :  this.campo_agrupacion === 'país' ? this.campo_agrupacion = 'pais': ''
+		this.campo_agrupacion === 'año' ? this.campo_agrupacion = 'anio' : this.campo_agrupacion === 'dirección' ? this.campo_agrupacion = 'unidad_negocio' : this.campo_agrupacion === 'país' ? this.campo_agrupacion = 'pais' : ''
 		this.navCtrl.push(DetalleReporteAgrupadoPage, {
 			'campo': campo,
 			'monto_total': monto_total,

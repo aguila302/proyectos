@@ -231,7 +231,6 @@ export class DetalleReportePage {
 
 	/* Funcion para filtrar la argrupacion de mi grafica. */
 	filtrar = (): void => {
-
 		this.campo_agrupacion === 'año' ? this.campo_agrupacion = 'anio' : this.campo_agrupacion === 'dirección' ? this.campo_agrupacion = 'unidad_negocio' : this.campo_agrupacion === 'país' ? this.campo_agrupacion = 'pais' : ''
 			/* Hacemos una consulta para obtener los distintos valores de la agrupacion. */
 		this.reporteService.selectDistinct(this.campo_agrupacion)
@@ -243,6 +242,9 @@ export class DetalleReportePage {
 				})
 				modal.present()
 				modal.onDidDismiss(data => {
+					console.log('mis filtros');
+					console.log(data)
+
 					/* Una vez cerrada la ventana de filtros validamos que se haya seleccionado alguna opcion. */
 					this.resultado.splice(0, this.resultado.length)
 					this.filtrosSeleccionados = data.filtros_seleccionadas.map(item => item)
@@ -282,6 +284,10 @@ export class DetalleReportePage {
 		/*
 		En caso de que el filtrado sea por proyectos agrupados en la seccion de contratante.
 		 */
+		console.log('mi data');
+
+		console.log(data);
+
 		if (data[0] === 'contratante-agrupado') {
 			this.dbService.openDatabase()
 				.then(() => this.dbService.consultaXCliente())

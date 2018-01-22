@@ -48,16 +48,16 @@ export class FiltrarAgrupacionPage {
 	}
 
 	ionViewDidLoad() {
-		console.log('ionViewDidLoad')
-		console.log(this.agrupacion);
+			console.log('ionViewDidLoad')
+			console.log(this.agrupacion);
 
 
-		this.agrupacion === 'contratante' ? (this.visible = true) : ''
-		this.agrupacion === 'contratante' ? (this.cargaOpcionesContratante()) : (this.loadOpciones())
-		// console.log(this.filtroPreseleccionado)
+			this.agrupacion === 'contratante' ? (this.visible = true) : ''
+			this.agrupacion === 'contratante' ? (this.cargaOpcionesContratante()) : (this.loadOpciones())
+				// console.log(this.filtroPreseleccionado)
 
-	}
-	/* Funcion para visualizar los valores de los filtros. */
+		}
+		/* Funcion para visualizar los valores de los filtros. */
 	loadOpciones() {
 		console.log('load opciones')
 		if (this.filtroPreseleccionado.length === 0) {
@@ -74,7 +74,7 @@ export class FiltrarAgrupacionPage {
 
 	cargaOpcionesContratante(): any {
 		console.log('por contratante')
-		// para la opcion de contratante agrupamos por aquellos que tienen mayor a 1 % de participacion aplica el mismo proceso para graficar.
+			// para la opcion de contratante agrupamos por aquellos que tienen mayor a 1 % de participacion aplica el mismo proceso para graficar.
 		this.dbService.openDatabase()
 			.then(() => this.dbService.consultaXCliente())
 			.then(response => {
@@ -123,25 +123,27 @@ export class FiltrarAgrupacionPage {
 
 	/* Funcion para controlar los filtros seleccionados. */
 	seleccionFiltros = (event: any, filtros: string) => {
-		if (filtros = 'contratante-agrupado') {
-			this.filtros_seleccionadas.push('contratante-agrupado')
-		} else {
-			event.value ? (
-				this.registros.forEach(item => {
-					if (item.registros === filtros) {
-						item.checked = true
-					}
-				})
-			) : (
-				this.registros.forEach(item => {
-					if (item.registros === filtros) {
-						item.checked = false
-					}
-				})
-			)
+			console.log('ffff ' + filtros);
+
+			if (filtros === 'contratante-agrupado') {
+				this.filtros_seleccionadas.push('contratante-agrupado')
+			} else {
+				event.value ? (
+					this.registros.forEach(item => {
+						if (item.registros === filtros) {
+							item.checked = true
+						}
+					})
+				) : (
+					this.registros.forEach(item => {
+						if (item.registros === filtros) {
+							item.checked = false
+						}
+					})
+				)
+			}
 		}
-	}
-	/* Funcion para enviar columnas seleccionadas. */
+		/* Funcion para enviar columnas seleccionadas. */
 	aceptar() {
 		this.registros.filter(function(value, key) {
 			return value.checked === true
