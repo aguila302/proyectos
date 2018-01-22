@@ -73,7 +73,7 @@ export class Grafico {
 
 			series: [{
 				name: this.serieName,
-				colorByPoint: true,
+				colorByPoint: false,
 			}],
 		}
 		options['series'][0]['data'] = this.data
