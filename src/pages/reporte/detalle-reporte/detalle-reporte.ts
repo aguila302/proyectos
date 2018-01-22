@@ -765,13 +765,13 @@ export class DetalleReportePage {
 						mayores_de_uno.map(function(contratante, monto) {
 							data_cliente.push({
 								name: contratante.contratante,
-								data: [parseFloat(contratante.porcentaje)]
+								y: parseFloat(contratante.porcentaje)
 							})
 						})
 						this.xy = data_cliente
 							/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 						this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '', 'Porcentaje total de participación por cliente')
-
+						console.log(this.grafico)
 						this.options = this.grafico.graficaBar()
 
 						/* Para mostrar la tabla de informacion */
@@ -807,7 +807,7 @@ export class DetalleReportePage {
 					response.forEach(item => {
 						miglobal.xy.push({
 							name: item.campo,
-							y: parseFloat(item.porcentaje)
+							data: [parseFloat(item.porcentaje)]
 						})
 
 					})
@@ -817,6 +817,8 @@ export class DetalleReportePage {
 					this.campo_select = this.campo_agrupacion
 					this.grafico = new Grafico(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion, '', 'Porcentaje total de participación por ' + this.campo_agrupacion)
 					this.options = this.grafico.graficaBar()
+					console.log(this.options);
+
 
 					/* Para mostrar la tabla de informacion */
 					const collection = collect(response)

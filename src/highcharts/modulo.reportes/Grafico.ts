@@ -57,7 +57,7 @@ export class Grafico {
 				enabled: true
 			},
 			plotOptions: {
-				series: {
+				column: {
 					borderWidth: 0,
 					dataLabels: {
 						enabled: true,
@@ -76,7 +76,7 @@ export class Grafico {
 				colorByPoint: true,
 			}],
 		}
-		options['series'][0]['data'] = this.data
+		options['series'] = this.data
 		return options
 	}
 
