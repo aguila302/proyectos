@@ -78,7 +78,7 @@ export class ReporteDireccionAnioPage {
 
 				this.graficoGrupo = new GraficoGrupo(categorias, series, '%', 'Direcciones por porcentaje de participación')
 				this.options = this.graficoGrupo.graficaBasicColumn()
-				/*Para obtener la informacion para visualizar la tabla informativa. */
+					/*Para obtener la informacion para visualizar la tabla informativa. */
 				this.reporteService.reportePorDireccionTAbla()
 					.then(response => {
 						let micollect = collect(response)
@@ -158,7 +158,7 @@ export class ReporteDireccionAnioPage {
 						})
 					})
 				})
-			/*Obtener datos de la direccion de consultoria. */
+				/*Obtener datos de la direccion de consultoria. */
 			this.reporteService.getmontosDireccionesConsultoria()
 				.then(response => {
 					console.log('por consultoria')
@@ -190,12 +190,12 @@ export class ReporteDireccionAnioPage {
 					})
 
 					console.log(anios)
-					//console.log(montos)
-					//let ordenados = collect(montos).sortByDesc('anio')
+						//console.log(montos)
+						//let ordenados = collect(montos).sortByDesc('anio')
 
 					this.series[0]['data'] = JSON.parse('[' + collect(anios).implode('monto', ',') + ']')
 				})
-			/*Obtener datos de la direccion de Desarrollo de sistemas */
+				/*Obtener datos de la direccion de Desarrollo de sistemas */
 			this.reporteService.getmontosDireccionesSistemas()
 				.then(response => {
 					console.log(response)
@@ -230,28 +230,124 @@ export class ReporteDireccionAnioPage {
 
 					console.log(anios)
 					this.series[1]['data'] = JSON.parse('[' + collect(anios).implode('monto', ',') + ']')
-					//let ordenados = collect(montos).sortByDesc('anio')
-					//this.series[1]['data'] = JSON.parse('[' + ordenados.implode('monto', ',') + ']')
-					//this.series[1]['data'] = response
+						//let ordenados = collect(montos).sortByDesc('anio')
+						//this.series[1]['data'] = JSON.parse('[' + ordenados.implode('monto', ',') + ']')
+						//this.series[1]['data'] = response
 				})
-			/*Obtener datos de la direccion de Ingeniería */
+				/*Obtener datos de la direccion de Ingeniería */
 			this.reporteService.getmontosDireccionesIngenieria()
 				.then(response => {
-					this.series[2]['data'] = response
+					console.log(response)
+					console.log('ingenieria')
+					let montos = []
+					let anios = [{
+						anio: 2017,
+						monto: 0,
+					}, {
+						anio: 2016,
+						monto: 0
+					}, {
+						anio: 2015,
+						monto: 0
+					}, {
+						anio: 2014,
+						monto: 0
+					}, {
+						anio: 2013,
+						monto: 0
+					}, {
+						anio: 2012,
+						monto: 0
+					}]
+					response.forEach(function(response, index) {
+						anios.forEach(anios => {
+							if (anios.anio === response.anio) {
+								anios.monto = response.montoUsd
+							}
+						})
+					})
+
+					console.log(anios)
+					this.series[2]['data'] = JSON.parse('[' + collect(anios).implode('monto', ',') + ']')
 				})
-			/*Obtener datos de la direccion de Sin referencia */
+				/*Obtener datos de la direccion de Sin referencia */
 			this.reporteService.getmontosDireccionesSinReferencia()
 				.then(response => {
-					this.series[3]['data'] = response
+					console.log(response)
+					console.log('sin referencia ')
+					let montos = []
+					let anios = [{
+						anio: 2017,
+						monto: 0,
+					}, {
+						anio: 2016,
+						monto: 0
+					}, {
+						anio: 2015,
+						monto: 0
+					}, {
+						anio: 2014,
+						monto: 0
+					}, {
+						anio: 2013,
+						monto: 0
+					}, {
+						anio: 2012,
+						monto: 0
+					}]
+					response.forEach(function(response, index) {
+						anios.forEach(anios => {
+							if (anios.anio === response.anio) {
+								anios.monto = response.montoUsd
+							}
+						})
+					})
+
+					console.log(anios)
+					this.series[3]['data'] = JSON.parse('[' + collect(anios).implode('monto', ',') + ']')
+						// this.series[3]['data'] = response
 				})
-			/*Obtener datos de la direccion de Sin Suramérica */
+				/*Obtener datos de la direccion de Sin Suramérica */
 			this.reporteService.getmontosDireccionesSuramerica()
 				.then(response => {
-					this.series[4]['data'] = response
+					console.log(response)
+					console.log('surameriaca ')
+					let montos = []
+					let anios = [{
+						anio: 2017,
+						monto: 0,
+					}, {
+						anio: 2016,
+						monto: 0
+					}, {
+						anio: 2015,
+						monto: 0
+					}, {
+						anio: 2014,
+						monto: 0
+					}, {
+						anio: 2013,
+						monto: 0
+					}, {
+						anio: 2012,
+						monto: 0
+					}]
+					response.forEach(function(response, index) {
+						anios.forEach(anios => {
+							if (anios.anio === response.anio) {
+								anios.monto = response.montoUsd
+							}
+						})
+					})
+
+					console.log(anios)
+					this.series[4]['data'] = JSON.parse('[' + collect(anios).implode('monto', ',') + ']')
+
+					// this.series[4]['data'] = response
 					this.graficoGrupo = new GraficoGrupo(this.categorias, this.series, 'USD', 'Direcciones por monto total USD')
 					this.options = this.graficoGrupo.graficaBasicColumn()
 				})
-			/*Para obtener la informacion para visualizar la tabla informativa. */
+				/*Para obtener la informacion para visualizar la tabla informativa. */
 			this.reporteService.reportePorDireccionTAbla()
 				.then(response => {
 					let micollect = collect(response)
@@ -289,13 +385,13 @@ export class ReporteDireccionAnioPage {
 	filtrarDireccion(filtro: string) {
 		/*Creamos un modal retornando un view. */
 		let filtrarModal = this.modal.create(ModalFiltrosPage, {
-			'filtro': filtro
-		})
-		/* Cierra la ventana modal y recuperamos las opciones que se seleccionaron. */
+				'filtro': filtro
+			})
+			/* Cierra la ventana modal y recuperamos las opciones que se seleccionaron. */
 		filtrarModal.onDidDismiss(data => {
-			this.direccion_filtro = data
-		})
-		/* Mostramos el modal. */
+				this.direccion_filtro = data
+			})
+			/* Mostramos el modal. */
 		filtrarModal.present()
 	}
 
@@ -303,13 +399,13 @@ export class ReporteDireccionAnioPage {
 	filtrarAnio = (filtro: string) => {
 		// Creamos un modal retornando un view. 
 		let filtrarModal = this.modal.create(ModalFiltrosPage, {
-			'filtro': filtro
-		})
-		/* Cierra la ventana modal y recuperamos las opciones que se seleccionaron. */
+				'filtro': filtro
+			})
+			/* Cierra la ventana modal y recuperamos las opciones que se seleccionaron. */
 		filtrarModal.onDidDismiss(data => {
-			this.anio_filtro = data
-		})
-		/* Mostramos el modal. */
+				this.anio_filtro = data
+			})
+			/* Mostramos el modal. */
 		filtrarModal.present()
 	}
 

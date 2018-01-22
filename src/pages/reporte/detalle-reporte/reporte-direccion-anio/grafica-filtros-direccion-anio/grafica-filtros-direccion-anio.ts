@@ -42,7 +42,7 @@ export class GraficaFiltrosDireccionAnioPage {
 		this.segmento = navParams.get('segmento')
 		this.title = collect(this.anios).implode(',');
 		console.log(this.segmento)
-		
+
 	}
 
 	ionViewDidLoad() {
@@ -117,21 +117,21 @@ export class GraficaFiltrosDireccionAnioPage {
 				console.log(this.segmento)
 				let porcentajes = []
 				let usd = []
-				if(this.segmento == 1){
+				if (this.segmento == 1) {
 					porcentajes = collect(response).implode('porcentaje', ',');
-					miGlobal.data_direcciones = JSON.parse('[' + porcentajes + ']'); 
+					miGlobal.data_direcciones = JSON.parse('[' + porcentajes + ']');
 				}
 
-				if(this.segmento == 2){
+				if (this.segmento == 2) {
 					usd = collect(response).implode('monto', ',');
-					miGlobal.data_direcciones = JSON.parse('[' + usd + ']'); 
+					miGlobal.data_direcciones = JSON.parse('[' + usd + ']');
 				}
 
 			})
 		console.log('mi globsal')
-		
+
 		console.log(miGlobal.data_direcciones);
-		
+
 		return miGlobal.data_direcciones
 	}
 
@@ -139,7 +139,7 @@ export class GraficaFiltrosDireccionAnioPage {
 	async tableroInfomativo(direcciones: string, anios: number[], cadena: string) {
 		var miGlobal = this
 		this.reporte_tablero.splice(0, this.reporte_tablero.length)
-		/* Funcion para hacer la consulta al origen de datos y obtener la data para el tablero. */
+			/* Funcion para hacer la consulta al origen de datos y obtener la data para el tablero. */
 		await this.reporteService.tableroDireccionAniosGeneral(direcciones, anios, cadena)
 			.then(response => {
 				response.forEach(item => {
