@@ -114,7 +114,6 @@ export class GraficaFiltrosDireccionAnioPage {
 			/* Funcion que nos ayudara a obtener la data por direccion y anio*/
 		await this.reporteService.obtenerDataFiltracion(direccion, anio, cadena)
 			.then(response => {
-				console.log(this.segmento)
 				let porcentajes = []
 				let usd = []
 				let numeroProyectos = []
@@ -138,9 +137,6 @@ export class GraficaFiltrosDireccionAnioPage {
 				}
 
 			})
-		console.log('mi globsal')
-
-		console.log(miGlobal.data_direcciones);
 
 		return miGlobal.data_direcciones
 	}
