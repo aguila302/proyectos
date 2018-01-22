@@ -765,7 +765,7 @@ export class DetalleReportePage {
 						mayores_de_uno.map(function(contratante, monto) {
 							data_cliente.push({
 								name: contratante.contratante,
-								y: parseFloat(contratante.porcentaje)
+								data: [parseFloat(contratante.porcentaje)]
 							})
 						})
 						this.xy = data_cliente
