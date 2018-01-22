@@ -122,10 +122,7 @@ export class ReporteDireccionAnioPage {
 					/*Para obtener la información para visualizar la tabla informativa. */
 					this.reporteService.reporteDireccionAnioGrupoNumeroProyectosTAbla()
 						.then(response => {
-							console.log(response)
-
 							let micollect = collect(response)
-
 							this.total_proyectos = micollect.sum('numero_proyectos')
 							this.monto_total = account.formatNumber(micollect.sum('monto'))
 
@@ -161,7 +158,6 @@ export class ReporteDireccionAnioPage {
 				/*Obtener datos de la direccion de consultoria. */
 			this.reporteService.getmontosDireccionesConsultoria()
 				.then(response => {
-					console.log('por consultoria')
 					let anios = [{
 						anio: 2017,
 						monto: 0,
@@ -188,19 +184,11 @@ export class ReporteDireccionAnioPage {
 							}
 						})
 					})
-
-					console.log(anios)
-						//console.log(montos)
-						//let ordenados = collect(montos).sortByDesc('anio')
-
 					this.series[0]['data'] = JSON.parse('[' + collect(anios).implode('monto', ',') + ']')
 				})
 				/*Obtener datos de la direccion de Desarrollo de sistemas */
 			this.reporteService.getmontosDireccionesSistemas()
 				.then(response => {
-					console.log(response)
-					console.log('desarrollo de sistemas')
-					let montos = []
 					let anios = [{
 						anio: 2017,
 						monto: 0,
@@ -227,19 +215,11 @@ export class ReporteDireccionAnioPage {
 							}
 						})
 					})
-
-					console.log(anios)
 					this.series[1]['data'] = JSON.parse('[' + collect(anios).implode('monto', ',') + ']')
-						//let ordenados = collect(montos).sortByDesc('anio')
-						//this.series[1]['data'] = JSON.parse('[' + ordenados.implode('monto', ',') + ']')
-						//this.series[1]['data'] = response
 				})
 				/*Obtener datos de la direccion de Ingeniería */
 			this.reporteService.getmontosDireccionesIngenieria()
 				.then(response => {
-					console.log(response)
-					console.log('ingenieria')
-					let montos = []
 					let anios = [{
 						anio: 2017,
 						monto: 0,
@@ -266,16 +246,11 @@ export class ReporteDireccionAnioPage {
 							}
 						})
 					})
-
-					console.log(anios)
 					this.series[2]['data'] = JSON.parse('[' + collect(anios).implode('monto', ',') + ']')
 				})
 				/*Obtener datos de la direccion de Sin referencia */
 			this.reporteService.getmontosDireccionesSinReferencia()
 				.then(response => {
-					console.log(response)
-					console.log('sin referencia ')
-					let montos = []
 					let anios = [{
 						anio: 2017,
 						monto: 0,
@@ -303,16 +278,11 @@ export class ReporteDireccionAnioPage {
 						})
 					})
 
-					console.log(anios)
 					this.series[3]['data'] = JSON.parse('[' + collect(anios).implode('monto', ',') + ']')
-						// this.series[3]['data'] = response
 				})
 				/*Obtener datos de la direccion de Sin Suramérica */
 			this.reporteService.getmontosDireccionesSuramerica()
 				.then(response => {
-					console.log(response)
-					console.log('surameriaca ')
-					let montos = []
 					let anios = [{
 						anio: 2017,
 						monto: 0,
@@ -339,11 +309,7 @@ export class ReporteDireccionAnioPage {
 							}
 						})
 					})
-
-					console.log(anios)
 					this.series[4]['data'] = JSON.parse('[' + collect(anios).implode('monto', ',') + ']')
-
-					// this.series[4]['data'] = response
 					this.graficoGrupo = new GraficoGrupo(this.categorias, this.series, 'USD', 'Direcciones por monto total USD')
 					this.options = this.graficoGrupo.graficaBasicColumn()
 				})

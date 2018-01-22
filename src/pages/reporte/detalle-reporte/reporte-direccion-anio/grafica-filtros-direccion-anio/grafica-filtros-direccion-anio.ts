@@ -111,20 +111,30 @@ export class GraficaFiltrosDireccionAnioPage {
 		var miGlobal = this
 
 		this.data_direcciones.splice(0, this.data_direcciones.length)
-		/* Funcion que nos ayudara a obtener la data por direccion y anio*/
+			/* Funcion que nos ayudara a obtener la data por direccion y anio*/
 		await this.reporteService.obtenerDataFiltracion(direccion, anio, cadena)
 			.then(response => {
 				console.log(this.segmento)
 				let porcentajes = []
 				let usd = []
+				let numeroProyectos = []
+
+				/* Para visualizar los proyectos en porcentaje. */
 				if (this.segmento == 1) {
 					porcentajes = collect(response).implode('porcentaje', ',');
 					miGlobal.data_direcciones = JSON.parse('[' + porcentajes + ']');
 				}
 
+				/* Para visualizar los proyectos en monto total USD. */
 				if (this.segmento == 2) {
 					usd = collect(response).implode('monto', ',');
 					miGlobal.data_direcciones = JSON.parse('[' + usd + ']');
+				}
+
+				/* Para visualizar los proyectos en numero de proyectos. */
+				if (this.segmento == 3) {
+					numeroProyectos = collect(response).implode('numero_proyectos', ',');
+					miGlobal.data_direcciones = JSON.parse('[' + numeroProyectos + ']');
 				}
 
 			})
