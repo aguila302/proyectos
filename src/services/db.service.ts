@@ -29,6 +29,13 @@ export class DbService {
 
 	/* Creamos la base de datos. */
 	openDatabase() {
+		// this.sqlite.deleteDatabase({
+		// 	name: 'developer.db',
+		// 	location: 'default',
+		// }).then(() => {
+		// 	console.log('database eliminada')
+
+		// })
 		return this.sqlite.create({
 				name: 'developer.db',
 				location: 'default',
@@ -36,6 +43,8 @@ export class DbService {
 			})
 			.then((db: any) => {
 				this.db = db
+				console.log('base de sdatos creada');
+
 				/* Inicio mi servicio para los reportes. */
 				this.reporteService.initDb(db)
 			})
@@ -91,7 +100,7 @@ export class DbService {
 
 		console.log('insert data del api')
 		proyectos.data.forEach(item => {
-			let sql = `insert into proyectos(numero,
+				let sql = `insert into proyectos(numero,
 					nombre_proyecto, nombre_corto, contrato,
 			 		monto, monto_moneda_original, moneda, pais,
 			 		gerencia, unidad_negocio,
@@ -101,37 +110,37 @@ export class DbService {
 			 		fecha_fin, numero_propuesta,
 			 		anticipo, created_at) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
 
-			this.db.executeSql(sql, [
-					item.numero,
-					item.nombre_proyecto,
-					item.nombre_corto,
-					item.contrato,
-					parseFloat(item.montoUsd),
-					parseFloat(item.monto),
-					item.moneda,
-					item.pais,
-					item.gerencia,
-					item.unidad_negocio,
-					item.numero_contrato,
-					item.producto,
-					item.anio,
-					item.duracion,
-					item.contratante,
-					item.datos_cliente,
-					item.fecha_inicio,
-					item.fecha_fin,
-					item.numero_propuesta,
-					item.anticipo,
-					item.created_at,
-				]).then(() => console.log('regustros insertados'))
-				.catch(e => console.log(e))
-		})
-		// this.sqlitePorter.exportDbToSql(this.db)
-		// .then(res => {
-		// 	console.log(res)
+				this.db.executeSql(sql, [
+						item.numero,
+						item.nombre_proyecto,
+						item.nombre_corto,
+						item.contrato,
+						parseFloat(item.montoUsd),
+						parseFloat(item.monto),
+						item.moneda,
+						item.pais,
+						item.gerencia,
+						item.unidad_negocio,
+						item.numero_contrato,
+						item.producto,
+						item.anio,
+						item.duracion,
+						item.contratante,
+						item.datos_cliente,
+						item.fecha_inicio,
+						item.fecha_fin,
+						item.numero_propuesta,
+						item.anticipo,
+						item.created_at,
+					]).then(() => console.log('regustros insertados'))
+					.catch(e => console.log(e))
+			})
+			// this.sqlitePorter.exportDbToSql(this.db)
+			// 	.then(res => {
+			// 		console.log(res)
 
-		// })
-		// .catch(e => console.error(e))
+		// 	})
+		// 	.catch(e => console.error(e))
 	}
 
 	/* Obtenemos las datos de los proyectos. */
@@ -175,7 +184,12 @@ export class DbService {
 		for (let i in filtros) {
 			console.log(filtros[i].opcion)
 
-			let sql = 'select * from proyectos where ' + filtros[i].opcion + ' COLLATE SQL_Latin1_General_CP1_CI_AI like ' + "'%" + val + "%' order by nombre_proyecto ASC"
+			let sql = `select * from proyectos where replace(${filtros[i].opcion}, 'á', 'a') 
+			|| replace(${filtros[i].opcion}, 'é', 'e') 
+			|| replace(${filtros[i].opcion}, 'í', 'i') 
+			|| replace(${filtros[i].opcion}, 'ó', 'o') 
+			|| replace(${filtros[i].opcion}, 'ú', 'u') 
+			like '%${val}%' order by nombre_proyecto ASC`
 			console.log(sql)
 
 			this.db.executeSql(sql, {})
@@ -520,12 +534,12 @@ export class DbService {
 
 	// inserta los anios
 	insertAnios() {
-		let insertAnios = ` insert into anios(anio) select distinct(anio) from proyectos`
-		this.db.executeSql(insertAnios, {})
-			.then(() => console.log('regustros insertados en tabla de anios'))
-			.catch(e => console.log(e))
-	}
-	/* Funcion para insertar datos en la tabla de reportes */
+			let insertAnios = ` insert into anios(anio) select distinct(anio) from proyectos`
+			this.db.executeSql(insertAnios, {})
+				.then(() => console.log('regustros insertados en tabla de anios'))
+				.catch(e => console.log(e))
+		}
+		/* Funcion para insertar datos en la tabla de reportes */
 	insertaDatosTablaReportes() {
 		let pais = ''
 		let anio = ''

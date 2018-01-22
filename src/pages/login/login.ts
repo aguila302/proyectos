@@ -24,12 +24,12 @@ import {
 import * as moment from 'moment'
 
 @Component({
-	selector: 'page-login',
-	templateUrl: 'login.html',
-})
-/**
- * Componenete para el manejo de sesion.
- */
+		selector: 'page-login',
+		templateUrl: 'login.html',
+	})
+	/**
+	 * Componenete para el manejo de sesion.
+	 */
 export class LoginPage {
 
 	loader = this.loadinCtrl.create({
@@ -90,15 +90,15 @@ export class LoginPage {
 					} else {
 
 						let lastFecha: string = ''
-						/* Si hay un token valido obtenemos la ultima fecha de sincronizacion. */
+							/* Si hay un token valido obtenemos la ultima fecha de sincronizacion. */
 						this.reporteService.getLastDateSincronizacion()
 							.then(response => {
 								// Si la ultima fecha de sincronizacion es vacio se la asigna la fecha actual, en caso
 								// contrario obtenemos la ultima fecha de sincronizacion registrado en el origen de datos.
 								response.length === 0 ? lastFecha = this.fechaActual : lastFecha = response[0].fecha_registro
 								console.log('Ultima sincronizacion   ' + lastFecha)
-								// lastFecha = '2017-10-22 9:22:33'
-								/* Funcion para resolver el endpoint del api y para validar las fechas de modificaciones. */
+									// lastFecha = '2017-10-22 9:22:33'
+									/* Funcion para resolver el endpoint del api y para validar las fechas de modificaciones. */
 								this.validarRecursos(lastFecha)
 							})
 					}
@@ -115,9 +115,9 @@ export class LoginPage {
 		this.apiService.readerArchivoExcel(lastFecha)
 			.then(response => {
 				console.log(response)
-				/*
-				Si el status 200 no hay sincronisacion, en caso contrario sincronizamos
-				 */
+					/*
+					Si el status 200 no hay sincronisacion, en caso contrario sincronizamos
+					 */
 				response.status === 200 ? (
 						setTimeout(() => {
 							// construimos el origen de datos faltante para el modulo de reportes.
@@ -157,15 +157,15 @@ export class LoginPage {
 		this.apiService.fetch()
 			.then(response => {
 				this.navCtrl.push(TabsPage, {}, {
-					animate: true,
-					animation: 'ios-transition',
-					direction: 'forward'
-				})
-				/* LLamar a la funcion que nos ayudara a registrar la informacion del endpoint a nuestra aplicacion movil. */
+						animate: true,
+						animation: 'ios-transition',
+						direction: 'forward'
+					})
+					/* LLamar a la funcion que nos ayudara a registrar la informacion del endpoint a nuestra aplicacion movil. */
 				this.apiService.regitrarData(response)
-				/* Funcion para registrar un historial de la sincronizacion. */
+					/* Funcion para registrar un historial de la sincronizacion. */
 				this.apiService.regitraSincronizacion()
-				// construimos el origen de datos faltante para el modulo de reportes.
+					// construimos el origen de datos faltante para el modulo de reportes.
 				this.dbService.delete()
 				this.dbService.creaTablaReportes()
 				this.dbService.creaTablaReporteColumnas()
