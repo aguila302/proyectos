@@ -59,6 +59,7 @@ export class Grafico {
 			plotOptions: {
 				column: {
 					borderWidth: 0,
+					pointPadding: 0.2,
 					dataLabels: {
 						enabled: true,
 						format: `{point.y:,.2f} ${this.grupo}`
