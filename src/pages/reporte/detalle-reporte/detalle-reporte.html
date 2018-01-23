@@ -225,9 +225,12 @@
 					<button ion-button clear (click)="modoCircular(campo_select, campo_agrupacion, segmento)">Ver modo circular</button>
 				</div>
 			</div>
-			<div id="container">
-				<chart [options]="options"></chart>
-			</div>
+			<ion-scroll scrollX="true" style="width: 90%; height: 650px">
+				<div style="height: 650px: width: 90%" id="container">
+					<chart [options]="options"></chart>
+				</div>
+				
+			</ion-scroll>
 			<div text-center margin-top>
 				<strong>Filtrar por :</strong>
 				<i (click)="filtrar()" class="fa fa-filter" aria-hidden="true" style="font-size: 30px" padding-top></i>
