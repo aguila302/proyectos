@@ -8,18 +8,19 @@ export class Grafico {
 	titleName: string = ''
 	grupo: string = ''
 	indicador: string = ''
-		/**
-		 * Parametros de entrada a nuestra clase para la construccion de las graficas.
-		 * @param {any[]}  data
-		 * @param {string} serieName
-		 * @param {string} titleName
-		 */
+	/**
+	 * Parametros de entrada a nuestra clase para la construccion de las graficas.
+	 * @param {any[]}  data
+	 * @param {string} serieName
+	 * @param {string} titleName
+	 */
 	constructor(data: any[], serieName: string, titleName: string, grupo: string, indicador) {
 		console.log(serieName)
 
 		this.data = data
 		this.serieName = serieName
 		titleName === 'Proyectos agrupados por pais' ? this.titleName = 'Proyectos agrupados por país' : this.titleName = titleName
+		// serieName === 'anio' ? serieNamen = 'año' : serieName === 'unidad_negocio' ? serieName = 'dirección' : serieNamen === 'pais' ? serieName = 'país' : ''
 		grupo === '' ? this.grupo = '%' : this.grupo = grupo
 		this.indicador = indicador
 	}
@@ -41,9 +42,9 @@ export class Grafico {
 			yAxis: [{
 				labels: {
 					format: `{value} ${this.grupo}`
-						// formatter: function() {
-						// 	return this.value + ' %';
-						// }
+					// formatter: function() {
+					// 	return this.value + ' %';
+					// }
 				},
 				title: {
 					text: this.indicador
@@ -57,9 +58,8 @@ export class Grafico {
 				enabled: true
 			},
 			plotOptions: {
-				column: {
+				series: {
 					borderWidth: 0,
-					pointPadding: 0.2,
 					dataLabels: {
 						enabled: true,
 						format: `{point.y:,.2f} ${this.grupo}`
@@ -74,10 +74,55 @@ export class Grafico {
 
 			series: [{
 				name: this.serieName,
-				colorByPoint: true,
+				colorByPoint: false,
+				// data: [],
 			}],
+			// responsive: {
+			// 	rules: [{
+			// 		condition: {
+			// 			maxWidth: 300
+			// 		},
+			// 		title: {
+			// 			text: 'responsive'
+			// 		},
+			// 		xAxis: {
+			// 			type: 'category'
+			// 		},
+			// 		// Make the labels less space demanding on mobile
+			// 		chartOptions: {
+			// 			legend: {
+			// 				align: 'center',
+			// 				verticalAlign: 'bottom',
+			// 				layout: 'horizontal'
+			// 			},
+			// 			xAxis: {
+			// 				labels: {
+			// 					formatter: function() {
+			// 						return this.value.charAt(0)
+			// 					}
+			// 				}
+			// 			},
+			// 			yAxis: {
+			// 				labels: {
+			// 					align: 'left',
+			// 					x: 0,
+			// 					y: -5
+			// 				},
+			// 				title: {
+			// 					text: null
+			// 				},
+			// 				subtitle: {
+			// 					text: null
+			// 				},
+			// 				credits: {
+			// 					enabled: false
+			// 				}
+			// 			}
+			// 		}
+			// 	}]
+			// }
 		}
-		options['series'] = this.data
+		options['series'][0]['data'] = this.data
 		return options
 	}
 
