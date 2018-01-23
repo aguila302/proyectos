@@ -807,7 +807,7 @@ export class DetalleReportePage {
 					response.forEach(item => {
 						miglobal.xy.push({
 							name: item.campo,
-							data: [parseFloat(item.porcentaje)]
+							y: parseFloat(item.porcentaje)
 						})
 
 					})
