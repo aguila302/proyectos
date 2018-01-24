@@ -31,9 +31,6 @@ import {
 	ApiService
 } from '../../services/api'
 import {
-	TabsPage
-} from '../../pages/tabs/tabs';
-import {
 	OpcionesPage
 } from '../../pages/proyecto/opciones/opciones'
 import {
@@ -86,7 +83,7 @@ export class ProyectoPage {
 		this.dbService.getProyectos()
 			.then(proyectos => {
 				this.zone.run(() => {
-					let order = collect(proyectos).sortBy(function(item, key) {
+					collect(proyectos).sortBy(function(item, key) {
 						return item['nombre_proyecto']
 					})
 					this.proyectos = proyectos
@@ -124,8 +121,7 @@ export class ProyectoPage {
 				'opcion': 'producto'
 			}]
 
-		) : (
-		)
+		) : ''
 
 		// Si el valor no es vacio filtra los proyectos.
 		val && val.trim() != '' ? (
@@ -202,8 +198,8 @@ export class ProyectoPage {
 	muestraFiltros = (): void => {
 		/* Creamos una ventana modal.*/
 		let filterModal = this.modalCtrl.create(FiltrosPage, {
-			filtrosPreseleccccion: this.filtrosPreseleccionados
-		})
+				filtrosPreseleccccion: this.filtrosPreseleccionados
+			})
 			/* Mostramos la ventana modal. */
 		filterModal.present()
 			/* Cierra la ventana modal y recuperamos las opciones que se seleccionaron. */
@@ -224,7 +220,7 @@ export class ProyectoPage {
 
 	/* Funcion para mostrar las opciones de ayuda */
 	mostrarOpciones = () => {
-			let ventana = this.navCtrl.push(OpcionesPage, {
+			this.navCtrl.push(OpcionesPage, {
 				lastFechaSincronizacion: this.lastFechaSincronizacion
 			})
 		}
