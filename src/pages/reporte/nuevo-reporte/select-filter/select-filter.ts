@@ -63,10 +63,11 @@ export class SelectFilterPage {
 						})
 					} else {
 						console.log('else')
+						let myData = []
 
 						response.forEach(function(item, index) {
-							let selec: boolean = false
 							for (let i of miglobal.opcionesPreseleccionInit) {
+								let selec: boolean = false
 								if (i === item.campo) {
 									//selec = true
 									miglobal.opciones.push({
@@ -74,16 +75,15 @@ export class SelectFilterPage {
 										checked: true
 									})
 								} else {
-
-									miglobal.opciones.push({
-										campo: item.campo,
-										checked: false
-									})
+								// miglobal.opciones.push({
+								// 	campo: item.campo,
+								// 	checked: false
+								// })
 								}
 							}
 						})
 						console.log(this.opciones)
-							//console.log(collect(this.opciones).unique('campo').toArray())
+						console.log(collect(this.opciones).unique('campo').toArray())
 					}
 					loading.dismiss()
 				})
