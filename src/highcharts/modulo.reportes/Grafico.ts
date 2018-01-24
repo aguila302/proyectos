@@ -32,7 +32,7 @@ export class Grafico {
 		let options = {
 			chart: {
 				type: 'column',
-				width: 1000,
+				width: 1500,
 				height: 500
 			},
 			title: {
@@ -51,10 +51,6 @@ export class Grafico {
 				title: {
 					text: this.indicador
 				},
-				scrollbar: {
-					enable: true,
-					showFull: false
-				}
 			}],
 			legend: {
 				enabled: true
