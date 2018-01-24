@@ -1,6 +1,18 @@
-import { Component, NgZone } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, LoadingController } from 'ionic-angular';
-import { ReportesDbService } from '../../../../services/reportes.db.service'
+import {
+	Component,
+	NgZone
+} from '@angular/core';
+import {
+	IonicPage,
+	NavController,
+	NavParams,
+	ViewController,
+	LoadingController
+} from 'ionic-angular';
+import {
+	ReportesDbService
+} from '../../../../services/reportes.db.service'
+import * as collect from 'collect.js/dist'
 
 @IonicPage()
 @Component({
@@ -11,54 +23,104 @@ export class SelectFilterPage {
 	filtro = {}
 	opciones = []
 	opcionesSelected = []
+	preseleccion = []
+	opcionesPreseleccionInit = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteDb: ReportesDbService,
 		public view: ViewController, public loadingCtrl: LoadingController, public zone: NgZone) {
 		/* Recuperamos los filtros. */
 		this.filtro = navParams.get('filtro')
+		this.opcionesPreseleccionInit = navParams.get('preseleccion')
+		console.log(this.opcionesPreseleccionInit)
+		console.log(this.opcionesPreseleccionInit.length);
+
+
 	}
 
 	/* Cuando la vista es activa cargamos los filtros de seleccion. */
 	ionViewDidLoad() {
-		this.getDataFilter(this.filtro)
-	}
-	/* Funcion para obtener la data del filtro seleccionado. */
+			this.opciones.splice(0, this.opciones.length)
+			this.getDataFilter(this.filtro)
+		}
+		/* Funcion para obtener la data del filtro seleccionado. */
 	getDataFilter = (filtro: {}) => {
+		var miglobal = this
 		let loading = this.loadingCtrl.create({
 			content: 'Por favor espere...'
 		})
 		loading.present()
 		setTimeout(() => {
 			this.reporteDb.getFilterData(filtro)
-			.then(response => {
-				console.log(response)
-				
-				this.zone.run(() => {
-					this.opciones = response
+				.then(response => {
+					if (this.opcionesPreseleccionInit.length === 0) {
+						console.log('if')
+
+						response.forEach(item => {
+							this.opciones.push({
+								campo: item.campo,
+								checked: false
+							})
+						})
+					} else {
+						console.log('else')
+
+						response.forEach(function(item, index) {
+							let selec: boolean = false
+							for (let i of miglobal.opcionesPreseleccionInit) {
+								if (i === item.campo) {
+									//selec = true
+									miglobal.opciones.push({
+										campo: item.campo,
+										checked: true
+									})
+								} else {
+
+									miglobal.opciones.push({
+										campo: item.campo,
+										checked: false
+									})
+								}
+							}
+						})
+						console.log(this.opciones)
+							//console.log(collect(this.opciones).unique('campo').toArray())
+					}
 					loading.dismiss()
 				})
-			})
 		}, 4000)
 	}
 
 	selectOpcion = (event, campo) => {
-		let opcionEncontrado
-		let columnas = []
-		let titles = []
 
-		event.value ? (
-			this.opcionesSelected.push(campo)
-		) : (
-			opcionEncontrado = this.opcionesSelected.indexOf(campo),
-			opcionEncontrado !== -1 ? (
-				this.opcionesSelected.splice(opcionEncontrado, 1)
-			) : ''
-		)
+
+		// let opcionEncontrado
+
+		// event.value ? (
+		// 	this.opcionesSelected.push(campo),
+		// 	this.preseleccion.push(campo)
+		// ) : (
+		// 	opcionEncontrado = this.opcionesSelected.indexOf(campo),
+		// 	opcionEncontrado !== -1 ? (
+		// 		this.opcionesSelected.splice(opcionEncontrado, 1),
+		// 		this.preseleccion.splice(opcionEncontrado, 1)
+		// 	) : ''
+		// )
 	}
 
 	/* Funcion para enviar columnas seleccionadas. */
 	aceptar() {
-		this.view.dismiss({[this.filtro['columna']]: this.opcionesSelected})
+		this.opciones.filter(function(item) {
+			return item.checked === true
+		}).map(item => {
+			this.opcionesSelected.push(item.campo)
+			this.preseleccion.push(item.campo)
+		})
+
+		this.view.dismiss([{
+			[this.filtro['columna']]: this.opcionesSelected
+		}, {
+			'preselect': this.preseleccion
+		}])
 	}
 
 	/* Funcion para cancelar los filtros. */

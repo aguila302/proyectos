@@ -21,6 +21,7 @@ export class FiltrarColumnasPage {
 
 	filtros_seleccionadas = []
 	prueba = []
+	opcionesPreseleccion = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, public modal: ModalController,
 		public view: ViewController) {
@@ -29,22 +30,22 @@ export class FiltrarColumnasPage {
 	}
 
 	/* Cuando cargue la vista mostramos los filtros seleccionados. */
-	ionViewDidLoad() {
-	}
+	ionViewDidLoad() {}
 
 	/* Funcion para seleccionas las opsiones del filtro.*/
 	obtenerDataFiltrado = (item: {}) => {
-		let misFiltros = []
-			/* Creamos el modal para ver las opciones de un filtro. */
+		/* Creamos el modal para ver las opciones de un filtro. */
 		let modalSelectFilter = this.modal.create(SelectFilterPage, {
-				filtro: item
+				filtro: item,
+				preseleccion: this.opcionesPreseleccion
 			})
 			/* mostramos el modal. */
 		modalSelectFilter.present()
 
 		/* Cuando cerramos la vista de los filtros recuperamos las opciones seleccionadas. */
 		modalSelectFilter.onDidDismiss(data => {
-			this.prueba.push(data)
+			this.prueba.push(data[0])
+			this.opcionesPreseleccion = data[1].preselect
 		})
 	}
 
