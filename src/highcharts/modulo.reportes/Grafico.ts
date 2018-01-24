@@ -61,14 +61,13 @@ export class Grafico {
 			},
 			plotOptions: {
 				series: {
-					pointPadding: 0.2,
+					pointPadding: 0.1,
 					groupPadding: 0.1,
 					borderWidth: 0.9,
 					dataLabels: {
 						enabled: true,
+						rotation: 90,
 						format: `{point.y:,.2f} ${this.grupo}`,
-						shadow: true,
-						rotation: 45
 					}
 				}
 			},
