@@ -32,7 +32,7 @@ export class Grafico {
 		let options = {
 			chart: {
 				type: 'column',
-				width: 900,
+				width: 1000,
 				height: 500
 			},
 			title: {
@@ -61,7 +61,9 @@ export class Grafico {
 			},
 			plotOptions: {
 				series: {
-					borderWidth: 0,
+					pointPadding: 0.2,
+					groupPadding: 0.1,
+					borderWidth: 0.9,
 					dataLabels: {
 						enabled: true,
 						format: `{point.y:,.2f} ${this.grupo}`
