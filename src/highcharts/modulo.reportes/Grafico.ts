@@ -66,7 +66,6 @@ export class Grafico {
 					borderWidth: 0.9,
 					dataLabels: {
 						enabled: true,
-						rotation: 90,
 						format: `{point.y:,.2f} ${this.grupo}`,
 					}
 				}
