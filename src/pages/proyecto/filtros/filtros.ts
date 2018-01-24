@@ -25,13 +25,14 @@ export class FiltrosPage {
 	constructor(public navParams: NavParams, public viewCtrl: ViewController) {
 		this.selectDefault = true
 		this.filtrosSeleccionadosInit = navParams.get('filtrosPreseleccccion')
-			// console.log(this.filtrosSeleccionadosInit)
 	}
 
 	ionViewDidLoad() {
+			/* Filtros no seleccionados mostramos los default */
 			if (this.filtrosSeleccionadosInit.length === 0) {
 				this.items
 			} else {
+				/* En caso de que haya filtros preseleccionados mostramos estos valores. */
 				this.items.forEach(item => {
 					this.filtrosSeleccionadosInit.forEach(presellect => {
 						if (item.opcion === presellect.opcion) {
@@ -40,8 +41,6 @@ export class FiltrosPage {
 					})
 				})
 			}
-			console.log(this.items)
-
 		}
 		/* Declaramos nuestros filtros a mostrar en pantalla. */
 	items = [{

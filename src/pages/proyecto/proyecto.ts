@@ -85,8 +85,6 @@ export class ProyectoPage {
 			// Cuando mostramos la primera pantalla creaammos las tablas faltantes con registros para el manejo de los reportes.
 		this.dbService.getProyectos()
 			.then(proyectos => {
-				console.log(proyectos)
-
 				this.zone.run(() => {
 					let order = collect(proyectos).sortBy(function(item, key) {
 						return item['nombre_proyecto']
@@ -127,7 +125,6 @@ export class ProyectoPage {
 			}]
 
 		) : (
-			console.log(filtros)
 		)
 
 		// Si el valor no es vacio filtra los proyectos.
@@ -211,7 +208,6 @@ export class ProyectoPage {
 		filterModal.present()
 			/* Cierra la ventana modal y recuperamos las opciones que se seleccionaron. */
 		filterModal.onDidDismiss(data => {
-			console.log(data);
 			this.opciones = data.filtrosSeleccionados
 			this.filtrosPreseleccionados = data.filtrosPreseleccccion
 		})
@@ -236,7 +232,6 @@ export class ProyectoPage {
 	obtenerUltimaFechaSincronizacion = () => {
 		this.reporteService.getLastDateSincronizacion()
 			.then(response => {
-				console.log(response[0].fecha_registro)
 				this.lastFechaSincronizacion = response[0].fecha_registro
 			})
 	}
@@ -251,12 +246,6 @@ export class ProyectoPage {
 		this.textoBusqueda === '' ? (alert.present()) :
 			(
 				this.buscaProyectos
-				// this.dbService.busquedaProyectos(this.textoBusqueda)
-				// .then(response => {
-				// 	console.log(response)
-				// 	this.proyectos = response
-				// })
-				// .catch(console.error.bind(console))
 			)
 	}
 }
