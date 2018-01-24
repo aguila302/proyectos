@@ -1,5 +1,6 @@
 import {
-	Component, NgZone
+	Component,
+	NgZone
 } from '@angular/core'
 import {
 	Proyecto
@@ -29,9 +30,6 @@ import {
 import {
 	ApiService
 } from '../../services/api'
-import {
-	IonicPage
-} from 'ionic-angular';
 import {
 	TabsPage
 } from '../../pages/tabs/tabs';
@@ -72,18 +70,19 @@ export class ProyectoPage {
 	items = []
 	opciones = []
 	textoBusqueda: string = ''
+	filtrosPreseleccionados = []
 
 	ionViewDidLoad() {
 			this.getProyectos()
 			this.obtenerUltimaFechaSincronizacion()
 		}
-	/* Obtenemos los proyectos del servicio db.service de proyectos. */
+		/* Obtenemos los proyectos del servicio db.service de proyectos. */
 	getProyectos() {
 		let loading = this.loadingCtrl.create({
 			content: 'Cargando proyectos, por favor espere...'
 		})
 		loading.present()
-		// Cuando mostramos la primera pantalla creaammos las tablas faltantes con registros para el manejo de los reportes.
+			// Cuando mostramos la primera pantalla creaammos las tablas faltantes con registros para el manejo de los reportes.
 		this.dbService.getProyectos()
 			.then(proyectos => {
 				console.log(proyectos)
@@ -102,18 +101,18 @@ export class ProyectoPage {
 
 	/* Funcion para ver el detalle de un proyecto. */
 	detalleProyecto = (_proyecto: Proyecto): void => {
-		this.navCtrl.push(DetalleProyectoPage, {
-			id: _proyecto
-		})
-	}
-	/* Funcion para filtar los proyectos. */
+			this.navCtrl.push(DetalleProyectoPage, {
+				id: _proyecto
+			})
+		}
+		/* Funcion para filtar los proyectos. */
 	buscaProyectos = (event: any, filtros = this.opciones): void => {
 		// Obtenemos el valor del input.
 		let val = event.target.value
 
 		// Cuando inicia la aplicacion establecemos valores definidos para la busqueda.
 		filtros.length === 0 ? (
-		filtros = [{
+			filtros = [{
 				'opcion': 'anio'
 			}, {
 				'opcion': 'contratante'
@@ -126,11 +125,11 @@ export class ProyectoPage {
 			}, {
 				'opcion': 'producto'
 			}]
-			
-		): (
+
+		) : (
 			console.log(filtros)
 		)
-		
+
 		// Si el valor no es vacio filtra los proyectos.
 		val && val.trim() != '' ? (
 			setTimeout(() => {
@@ -183,7 +182,7 @@ export class ProyectoPage {
 	// 		/* mostramos el resultado de la busqueda */
 	// 		this.proyectos = proyectosBusquedaFilter
 	// 		console.log(this.proyectos)
-			
+
 	// 	} else {
 	// 		/* Si no hay ningun valor en el campo muestra el listado de los proyectos. */
 	// 		this.getProyectos()
@@ -196,7 +195,7 @@ export class ProyectoPage {
 	// 	filterKeys.map(function(filter) {
 	// 		array.filter(function(value, key) {
 	// 			console.log(value.filter)
-				
+
 	// 			// return value[filter].match(val)
 	// 		})
 	// 	})
@@ -205,14 +204,16 @@ export class ProyectoPage {
 	/* Funcion que muestra los filtros de busqueda. */
 	muestraFiltros = (): void => {
 		/* Creamos una ventana modal.*/
-		let filterModal = this.modalCtrl.create(FiltrosPage)
+		let filterModal = this.modalCtrl.create(FiltrosPage, {
+			filtrosPreseleccccion: this.filtrosPreseleccionados
+		})
 			/* Mostramos la ventana modal. */
 		filterModal.present()
 			/* Cierra la ventana modal y recuperamos las opciones que se seleccionaron. */
 		filterModal.onDidDismiss(data => {
-			this.opciones = data
-			console.log(this.opciones)
-			
+			console.log(data);
+			this.opciones = data.filtrosSeleccionados
+			this.filtrosPreseleccionados = data.filtrosPreseleccccion
 		})
 	}
 
@@ -227,10 +228,10 @@ export class ProyectoPage {
 
 	/* Funcion para mostrar las opciones de ayuda */
 	mostrarOpciones = () => {
-		let ventana = this.navCtrl.push(OpcionesPage, {
-			lastFechaSincronizacion: this.lastFechaSincronizacion
-		})
-	}
+			let ventana = this.navCtrl.push(OpcionesPage, {
+				lastFechaSincronizacion: this.lastFechaSincronizacion
+			})
+		}
 		/* Funcion para obtener la ultima fecha de sincronizacion. */
 	obtenerUltimaFechaSincronizacion = () => {
 		this.reporteService.getLastDateSincronizacion()
