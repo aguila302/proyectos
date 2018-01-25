@@ -1,23 +1,25 @@
-page-detalle-reporte {
-	$break-small: 700 px;
-	$break-large: 120 px;
+.ios, .md {
+	page-detalle-reporte {
+		$break-small: 700 px;
+		$break-large: 120 px;
 
-	#container {
-		width: 100%;
-		display: flex;
-		justify-content: center;
-		@media screen and(min-width: $break-small) {
+		#container {
 			width: 100%;
+			display: flex;
+			justify-content: center;
+			@media screen and(min-width: $break-small) {
+				width: 100%;
+			}
+			chart {
+				width: 100%;
+			}
 		}
+
 		chart {
-			width: 100%;
+			@media screen and(min-width: $break-small) {
+				width: 100%;
+			}
 		}
+		
 	}
-
-	chart {
-		@media screen and(min-width: $break-small) {
-			width: 100%;
-		}
-	}
-	
 }
