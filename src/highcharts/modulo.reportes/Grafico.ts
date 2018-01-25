@@ -31,11 +31,8 @@ export class Grafico {
 	graficaBar = (): Object => {
 		let options = {
 			chart: {
-				style: {
-					width: '100%'
-				},
 				type: 'column',
-				// width: 800,
+				width: 790,
 				// height: 500
 			},
 			title: {
