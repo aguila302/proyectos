@@ -32,7 +32,7 @@ export class Grafico {
 		let options = {
 			chart: {
 				type: 'column',
-				width: 790,
+				// width: 790,
 				// height: 500
 			},
 			title: {
@@ -44,9 +44,6 @@ export class Grafico {
 			yAxis: [{
 				labels: {
 					format: `{value} ${this.grupo}`
-						// formatter: function() {
-						// 	return this.value + ' %';
-						// }
 				},
 				title: {
 					text: this.indicador
