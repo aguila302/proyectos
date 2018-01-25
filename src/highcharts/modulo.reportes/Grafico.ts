@@ -31,9 +31,12 @@ export class Grafico {
 	graficaBar = (): Object => {
 		let options = {
 			chart: {
+				style: {
+					width: '100%'
+				},
 				type: 'column',
-				width: 800,
-				height: 500
+				// width: 800,
+				// height: 500
 			},
 			title: {
 				text: this.titleName
@@ -53,7 +56,7 @@ export class Grafico {
 				},
 			}],
 			legend: {
-				enabled: true
+				enabled: false
 			},
 			plotOptions: {
 				series: {
