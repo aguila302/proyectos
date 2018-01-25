@@ -32,7 +32,7 @@ export class Grafico {
 		let options = {
 			chart: {
 				type: 'column',
-				// width: 1500,
+				width: 900,
 				height: 500
 			},
 			title: {
