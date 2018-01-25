@@ -39,7 +39,6 @@ export class SelectFilterPage {
 
 	/* Cuando la vista es activa cargamos los filtros de seleccion. */
 	ionViewDidLoad() {
-			this.opciones.splice(0, this.opciones.length)
 			this.getDataFilter(this.filtro)
 		}
 		/* Funcion para obtener la data del filtro seleccionado. */
@@ -62,28 +61,23 @@ export class SelectFilterPage {
 							})
 						})
 					} else {
-						console.log('else')
-						let myData = []
-
-						response.forEach(function(item, index) {
-							for (let i of miglobal.opcionesPreseleccionInit) {
-								let selec: boolean = false
-								if (i === item.campo) {
-									//selec = true
-									miglobal.opciones.push({
-										campo: item.campo,
-										checked: true
-									})
-								} else {
-								// miglobal.opciones.push({
-								// 	campo: item.campo,
-								// 	checked: false
-								// })
-								}
-							}
+						let misCampos = []
+						for (let i of this.opcionesPreseleccionInit) {
+							misCampos.push({
+								campo: i,
+								checked: true
+							})
+						}
+						response.forEach(item => {
+							misCampos.push({
+								campo: item.campo,
+								checked: false
+							})
 						})
-						console.log(this.opciones)
-						console.log(collect(this.opciones).unique('campo').toArray())
+						this.opciones = collect(misCampos).unique('campo').toArray()
+							//console.log(this.opciones)
+
+						//console.log(collect(this.opciones).unique('campo').toArray())
 					}
 					loading.dismiss()
 				})

@@ -265,8 +265,13 @@ export class NuevoReportePage {
 				})
 
 				data.forEach(function(items, index) {
+						console.log('item')
+						console.log(items);
+						values = ''
+
 						let keys = Object.keys(items)
 						items[`${keys}`].forEach(item => {
+							console.log('item' + item)
 							values += `'${item}',`
 							nuevoValues = values.slice(0, -1)
 						})
@@ -278,6 +283,7 @@ export class NuevoReportePage {
 				this.camposGuardarReporte = data
 				miGlobal.whereGlobal = nuevaCadenaWhere
 				this.reporteService.whereNuevoReporte = miGlobal.whereGlobal
+				console.log(nuevaCadena.slice(0, -5))
 
 				/* Llamar a la funcion que nos ayudara a realizar la consulta para llenar la grid. */
 				this.llenarGrid(nuevaCadena.slice(0, -5), this.filtrar_seleccionadas)
