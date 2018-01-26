@@ -140,60 +140,6 @@ export class ProyectoPage {
 		)
 	}
 
-	/* Funcion para filtar los proyectos. */
-	// buscaProyectos(event: any, filtros = this.opciones) {
-	// 	// Obtenemos el valor del input.
-	// 	let val = event.target.value
-	// 	let proyectosBusquedaFilter = []
-	// 	if (val && val.trim() != '') {
-	// 		if (filtros.length === 0) {
-	// 			console.log('if')
-
-	// 			/* Si no hay filtrso seleccionados hacemos la busqueda por los campos default */
-	// 			proyectosBusquedaFilter = this.proyectosBusqueda.filter(function(item) {
-	// 				return item.anio.match(val) || item.contratante.match(val) || item.datos_cliente.match(val) || item.nombre_proyecto.match(val) || item.pais.match(val) || item.producto.match(val)
-	// 			})
-	// 		} else {
-	// 			let opcionesFiltros = {}
-	// 			// console.log('else')
-	// 			// console.log(this.proyectosBusqueda)
-	// 			filtros.forEach(item => {
-	// 				opcionesFiltros[item.opcion] = val
-	// 			})
-	// 			// console.log(opcionesFiltros)
-	// 			let filtered = this.multiFilter(this.proyectosBusqueda, opcionesFiltros, val);
-
-	// 			console.info('Filtered:');
-	// 			console.log(filtered);
-	// 			/* Buscamos por los filtros seleccionados. */
-	// 			// filtros.forEach(filtros => {
-	// 			// 	proyectosBusquedaFilter = this.proyectosBusqueda.filter(function(items) {
-	// 			// 		return items[filtros]['opcion'].match(val)
-	// 			// 	})
-	// 			// })
-	// 		}
-	// 		/* mostramos el resultado de la busqueda */
-	// 		this.proyectos = proyectosBusquedaFilter
-	// 		console.log(this.proyectos)
-
-	// 	} else {
-	// 		/* Si no hay ningun valor en el campo muestra el listado de los proyectos. */
-	// 		this.getProyectos()
-	// 	}
-	// }
-
-	// multiFilter(array, filters, val) {
-	// 	const filterKeys = Object.keys(filters);
-	// 	console.log(filterKeys)
-	// 	filterKeys.map(function(filter) {
-	// 		array.filter(function(value, key) {
-	// 			console.log(value.filter)
-
-	// 			// return value[filter].match(val)
-	// 		})
-	// 	})
-	// }
-
 	/* Funcion que muestra los filtros de busqueda. */
 	muestraFiltros = (): void => {
 		/* Creamos una ventana modal.*/
@@ -204,6 +150,8 @@ export class ProyectoPage {
 		filterModal.present()
 			/* Cierra la ventana modal y recuperamos las opciones que se seleccionaron. */
 		filterModal.onDidDismiss(data => {
+			console.log(data);
+
 			this.opciones = data.filtrosSeleccionados
 			this.filtrosPreseleccionados = data.filtrosPreseleccccion
 		})

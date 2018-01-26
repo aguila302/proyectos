@@ -92,6 +92,9 @@ export class ReportesDbService {
 
 	/* Funcion para la consulta del detalle de reportes. */
 	detalleReporte = (campo: string, agrupacion: string, filtros: any[]): any => {
+		console.log('yuyuu');
+		console.log(filtros);
+
 		agrupacion === 'año' ? agrupacion = 'anio' : agrupacion === 'dirección' ? agrupacion = 'unidad_negocio' : agrupacion === 'país' ? agrupacion = 'pais' :
 			agrupacion === 'Número de propuesta' ? agrupacion = 'numero_propuesta' : agrupacion === 'datos de cliente' ? agrupacion = 'datos_cliente' : agrupacion === 'duración' ? agrupacion = 'duracion' :
 			agrupacion === 'fecha de inicio' ? agrupacion = 'fecha_inicio' : agrupacion === 'fecha de término' ? agrupacion = 'fecha_fin' :
@@ -894,8 +897,11 @@ export class ReportesDbService {
 	/*Funcion para conseguir la informacion para construir la grafica. */
 	paraGraficarNuevoReporte = (columnas, agrupacion): any => {
 		let sql = `select ` + columnas + `, ${agrupacion} as campo , count(*) as numero_proyectos, sum(monto) as monto,
-						(select count(*) from proyectos) as total, sum(monto) as monto_filtrado
+						(select count(*) from proyectos) as total, sum(monto) as monto_filtrado, 
+						(select count(*) FROM proyectos ${this.whereNuevoReporte.slice(0, -4)}) as total_proyectos_filtrados
 						FROM proyectos ${this.whereNuevoReporte.slice(0, -4)} group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
+
+		console.log(sql)
 
 		return this.db.executeSql(sql, {})
 	}

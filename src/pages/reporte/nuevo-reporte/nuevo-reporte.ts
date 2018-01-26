@@ -374,17 +374,6 @@ export class NuevoReportePage {
 					this.visible = true
 						/* Llamar a la funcion que se encarga de graficar. */
 					this.graficar(this.columnas_seleccionadas, response)
-
-					// this.visible = !this.visible
-					// if (this.visible) {
-					// 	console.log('open')
-
-					// 	this.open.emit(null)
-					// } else {
-					// 	console.log('close')
-
-					// 	this.close.emit(null)
-					// }
 				}
 			})
 		}
@@ -408,7 +397,7 @@ export class NuevoReportePage {
 							'total': res.rows.item(i).total,
 							'numero_proyectos': res.rows.item(i).numero_proyectos,
 							'monto_filtrado': res.rows.item(i).monto_filtrado,
-							'porcentaje': account.toFixed((res.rows.item(i).numero_proyectos / res.rows.item(i).total) * 100, 2)
+							'porcentaje': account.toFixed((res.rows.item(i).numero_proyectos / res.rows.item(i).total_proyectos_filtrados) * 100, 2)
 						})
 					}
 					/* Obtenemos la data final para construir la grafica */

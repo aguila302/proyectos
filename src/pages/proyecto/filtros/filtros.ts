@@ -17,13 +17,13 @@ import {
 export class FiltrosPage {
 
 	data_send = []
-	selectDefault: boolean
-	selectAll: boolean
+	//selectDefault: boolean
+	//selectAll: boolean
 	filtrosPreseleccionados = []
 	filtrosSeleccionadosInit = []
 
 	constructor(public navParams: NavParams, public viewCtrl: ViewController) {
-		this.selectDefault = true
+		// this.selectDefault = true
 		this.filtrosSeleccionadosInit = navParams.get('filtrosPreseleccccion')
 	}
 
@@ -103,78 +103,78 @@ export class FiltrosPage {
 
 
 	/* Funcion para la opcion de que en caso seleccione todas las opciones. */
-	seleccionAll() {
-		this.selectAll = true
-			/* En caso de que se seleccione todas las opciones. */
-		if (this.selectAll) {
-			/* Activamos todas las opciones. */
-			this.items.forEach(item => {
-				item.checked = this.selectAll
-			})
-		} else {
-			console.log('select all else ' + this.selectAll),
-				/* En caso de que la opcion de seleccionar todos sea desactivada. */
-				this.items.forEach(
-					(data) => {
-						/* Desactivamos todas las opciones. */
-						return (
-							data.opcion = data.opcion,
-							data.checked = this.selectAll
+	// seleccionAll() {
+	// 	this.selectAll = true
+	// 		/* En caso de que se seleccione todas las opciones. */
+	// 	if (this.selectAll) {
+	// 		/* Activamos todas las opciones. */
+	// 		this.items.forEach(item => {
+	// 			item.checked = this.selectAll
+	// 		})
+	// 	} else {
+	// 		console.log('select all else ' + this.selectAll),
+	// 			 En caso de que la opcion de seleccionar todos sea desactivada. 
+	// 			this.items.forEach(
+	// 				(data) => {
+	// 					/* Desactivamos todas las opciones. */
+	// 					return (
+	// 						data.opcion = data.opcion,
+	// 						data.checked = this.selectAll
 
-						)
-					},
-					this.data_send = [],
-				)
-			console.log(this.items)
+	// 					)
+	// 				},
+	// 				this.data_send = [],
+	// 			)
+	// 		console.log(this.items)
 
-		}
-	}
+	// 	}
+	// }
 
 	/* Funcion para seleccionar opciones por default. */
-	seleccionDefault() {
-		console.log('init')
+	// seleccionDefault() {
+	// 	console.log('init')
 
-		/* Activamos las opciones por default. */
-		if (this.selectDefault) {
-			console.log('select default ' + this.selectDefault);
+	// 	/* Activamos las opciones por default. */
+	// 	if (this.selectDefault) {
+	// 		console.log('select default ' + this.selectDefault);
 
-			this.items.forEach(item => {
-				item.checked = false
-			})
+	// 		this.items.forEach(item => {
+	// 			item.checked = false
+	// 		})
 
-			this.items.filter(item => {
-				return (
-					item.opcion == 'producto' ||
-					item.opcion == 'anio' ||
-					item.opcion == 'nombre_proyecto' ||
-					item.opcion == 'contratante' ||
-					item.opcion == 'datos_cliente' ||
-					item.opcion == 'pais'
-				)
+	// 		this.items.filter(item => {
+	// 			return (
+	// 				item.opcion == 'producto' ||
+	// 				item.opcion == 'anio' ||
+	// 				item.opcion == 'nombre_proyecto' ||
+	// 				item.opcion == 'contratante' ||
+	// 				item.opcion == 'datos_cliente' ||
+	// 				item.opcion == 'pais'
+	// 			)
 
-			}).map((map) => {
-				map.checked = this.selectDefault
-			})
-		} else {
-			/* En caso de que desactive la opcion de busqueda por opciones por default, desactivamos las opciones. */
-			this.items.forEach(
-				(data) => {
-					return (
-						data.opcion = data.opcion,
-						data.checked = this.selectDefault
-					)
-				},
-				this.data_send = []
-			)
-		}
-	}
+	// 		}).map((map) => {
+	// 			map.checked = this.selectDefault
+	// 		})
+	// 	} else {
+	// 		/* En caso de que desactive la opcion de busqueda por opciones por default, desactivamos las opciones. */
+	// 		this.items.forEach(
+	// 			(data) => {
+	// 				return (
+	// 					data.opcion = data.opcion,
+	// 					data.checked = this.selectDefault
+	// 				)
+	// 			},
+	// 			this.data_send = []
+	// 		)
+	// 	}
+	// }
 
 	// Funcion para filtrar en forma personalizada
-	seleccionLibre = () => {
-		this.items.forEach(item => {
-			item.checked = false
-		})
-	}
+	// seleccionLibre = () => {
+	// 	this.items.forEach(item => {
+	// 		item.checked = false
+	// 	})
+	// }
 
 	/* Funcion para cerrar la ventana de filtros. */
 	cerrarFiltros() {

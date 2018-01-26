@@ -108,7 +108,10 @@ export class DetalleReportePage {
 				})
 				.then(() => this.reporteService.obtenerFiltros(this.id)
 					.then(response => {
+						console.log('mi filtrp')
 						this.filtros = response
+						console.log(this.filtros)
+
 					}))
 			)
 			// .then(() => this.getReporteDetalle())
@@ -715,7 +718,7 @@ export class DetalleReportePage {
 	}
 
 	/* Funcion para obtener la informacion agrupados por porcentaje de participacion*/
-	async getDatosPorPorcentaje() {
+	getDatosPorPorcentaje() {
 		this.segmento = 1
 		if (this.campo_agrupacion === 'contratante') {
 			this.visible = true
@@ -798,7 +801,10 @@ export class DetalleReportePage {
 			miglobal.xy.splice(0, miglobal.xy.length)
 			miglobal.reportes.splice(0, miglobal.reportes.length)
 			this.campo_agrupacion === 'año' ? this.campo_agrupacion = 'anio' : this.campo_agrupacion === 'dirección' ? this.campo_agrupacion = 'unidad_negocio' : this.campo_agrupacion === 'país' ? this.campo_agrupacion = 'pais' : ''
-			await this.reporteService.detalleReporte(this.campo_agrupacion, this.campo_agrupacion, this.filtros)
+			console.log('tttt');
+			console.log(miglobal.filtros);
+
+			this.reporteService.detalleReporte(this.campo_agrupacion, this.campo_agrupacion, this.filtros)
 				.then(response => {
 					console.log(response)
 
