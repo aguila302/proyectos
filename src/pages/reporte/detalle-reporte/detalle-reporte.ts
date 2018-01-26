@@ -51,6 +51,8 @@ import {
 	Grafico
 } from '../../../highcharts/modulo.reportes/Grafico'
 
+import * as highcharts from 'highcharts';
+
 @IonicPage()
 @Component({
 	selector: 'page-detalle-reporte',
@@ -85,6 +87,12 @@ export class DetalleReportePage {
 		public modalCtrl: ModalController, public alert: AlertController) {
 		this.id = navParams.get('id')
 		this.nombreReporte = navParams.get('nombre_reporte')
+
+		highcharts.setOptions({
+			lang: {
+				thousandsSep: ','
+			}
+		});
 	}
 
 	ionViewDidLoad() {

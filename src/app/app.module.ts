@@ -225,6 +225,7 @@ import {
         Ng2SmartTableModule,
         AccordionModule
     ],
+ 
     bootstrap: [IonicApp],
     entryComponents: [
         MyApp,

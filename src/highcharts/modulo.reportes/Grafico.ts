@@ -29,9 +29,12 @@ export class Grafico {
 	 * Funcion que retorna un objeto para graficar de tipo bar
 	 */
 	graficaBar = (): Object => {
+
 		let options = {
 			chart: {
 				type: 'column',
+				// width: 790,
+				// height: 500
 			},
 			title: {
 				text: this.titleName
