@@ -693,35 +693,35 @@ export class DbService {
 		// 	.then(() => console.log('proyectos eliminados'))
 		// 	.catch(e => console.log(e))
 
-		// let anio = `drop table if exists reportes`
-		// this.db.executeSql(anio, {})
-		// 	.then(() => console.log('deleted'))
-		// 	.catch(e => console.log(e))
+		let anio = `drop table if exists reportes`
+		this.db.executeSql(anio, {})
+			.then(() => console.log('deleted'))
+			.catch(e => console.log(e))
 
-		// let rc = `drop table if exists reportes_columnas`
-		// this.db.executeSql(rc, {})
-		// 	.then(() => console.log('deleted reportes_columnas'))
-		// 	.catch(e => console.log(e))
+		let rc = `drop table if exists reportes_columnas`
+		this.db.executeSql(rc, {})
+			.then(() => console.log('deleted reportes_columnas'))
+			.catch(e => console.log(e))
 
-		// let rf = `drop table if exists reportes_filtros`
-		// this.db.executeSql(rf, {})
-		// 	.then(() => console.log('deleted'))
-		// 	.catch(e => console.log(e))
+		let rf = `drop table if exists reportes_filtros`
+		this.db.executeSql(rf, {})
+			.then(() => console.log('deleted'))
+			.catch(e => console.log(e))
 
-		// let ra = `drop table if exists reportes_agrupacion`
-		// this.db.executeSql(ra, {})
-		// 	.then(() => console.log('deleted'))
-		// 	.catch(e => console.log(e))
+		let ra = `drop table if exists reportes_agrupacion`
+		this.db.executeSql(ra, {})
+			.then(() => console.log('deleted'))
+			.catch(e => console.log(e))
 
-		// let anios = `drop table if exists anios`
-		// this.db.executeSql(anios, {})
-		// 	.then(() => console.log('anios deleted'))
-		// 	.catch(e => console.log(e))
+		let anios = `drop table if exists anios`
+		this.db.executeSql(anios, {})
+			.then(() => console.log('anios deleted'))
+			.catch(e => console.log(e))
 
-		// let direccionAnio = `drop table if exists direccionAnio`
-		// this.db.executeSql(direccionAnio, {})
-		// 	.then(() => console.log('direccionAnio deleted'))
-		// 	.catch(e => console.log(e))
+		let direccionAnio = `drop table if exists direccionAnio`
+		this.db.executeSql(direccionAnio, {})
+			.then(() => console.log('direccionAnio deleted'))
+			.catch(e => console.log(e))
 
 		// let sincronizaciones = `drop table sincronizaciones`
 		// this.db.executeSql(sincronizaciones, {})
