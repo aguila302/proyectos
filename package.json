@@ -39,6 +39,7 @@
         "chart.js": "^2.6.0",
         "collect.js": "^3.0.43",
         "cordova-android": "7.0.0",
+        "cordova-ios": "^4.4.0",
         "cordova-plugin-advanced-http": "^1.9.1",
         "cordova-plugin-app-version": "^0.1.9",
         "cordova-plugin-compat": "^1.1.0",
@@ -93,15 +94,16 @@
             "cordova-plugin-http": {},
             "cordova-sqlite-storage": {},
             "uk.co.workingedge.cordova.plugin.sqliteporter": {},
-            "cordova-plugin-advanced-http": {},
             "cordova-plugin-app-version": {},
             "cordova-plugin-file": {},
             "cordova-plugin-document-viewer": {},
             "cordova-plugin-insomnia": {},
-            "cordova-plugin-wkwebview-engine": {}
+            "cordova-plugin-wkwebview-engine": {},
+            "cordova-plugin-advanced-http": {}
         },
         "platforms": [
-            "android"
+            "android",
+            "ios"
         ]
     },
     "config": {
