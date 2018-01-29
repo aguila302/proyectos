@@ -30,6 +30,7 @@
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="iosPersistentFileLocation" value="Compatibility" />
     <preference name="AllowBackForwardNavigationGestures" value="true" />
+    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
     <platform name="android">
         <preference name="loadUrlTimeoutValue" value="700000" />
         <allow-intent href="market:*" />
@@ -88,6 +89,9 @@
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
         <icon height="1024" src="resources/ios/icon/icon-1024.png" width="1024" />
     </platform>
+    <feature name="CDVWKWebViewEngine">
+<param name="ios-package" value="CDVWKWebViewEngine" />
+</feature>
     <feature name="Insomnia">
         <param name="ios-package" value="Insomnia" />
     </feature>
@@ -109,4 +113,5 @@
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="uk.co.workingedge.cordova.plugin.sqliteporter" spec="^1.0.2" />
     <engine name="android" spec="7.0.0" />
+    <plugin name="cordova-plugin-wkwebview-engine" spec="https://github.com/driftyco/cordova-plugin-wkwebview-engine.git" />
 </widget>
