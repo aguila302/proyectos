@@ -7,7 +7,8 @@ import {
 	NavParams,
 	ViewController,
 	Platform,
-	ToastController, LoadingController
+	ToastController,
+	LoadingController
 } from 'ionic-angular';
 import {
 	AppVersion
@@ -45,9 +46,9 @@ export class OpcionesPage {
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private appVersion: AppVersion, private document: DocumentViewer, public viewCtrl: ViewController, public platform: Platform,
 		private file: File, private device: Device, private apiService: ApiService, private toast: ToastController,
-		public dbService: DbService, private loadinCtrl: LoadingController,) {
+		public dbService: DbService, private loadinCtrl: LoadingController, ) {
 		this.lastFechaSincronizacion = this.navParams.get('lastFechaSincronizacion')
-		// this.lastFechaSincronizacion = '2017-10-21 11:49:28'
+			// this.lastFechaSincronizacion = '2017-10-21 11:49:28'
 	}
 
 	ionViewDidLoad() {
@@ -68,13 +69,13 @@ export class OpcionesPage {
 	/* Funcion para ver archivo pdf*/
 	muestraPdf = () => {
 		/* Obtenemos el path absoluto */
-		// let path: string = this.file.applicationDirectory + 'www/assets/'
+		let path: string = this.file.applicationDirectory + 'www/assets/'
 
-		// const options: DocumentViewerOptions = {
-		// 	title: 'Manual de usuario'
-		// }
-		/* Visualizamos el pdf en pantalla */
-		// this.document.viewDocument(path + 'BIPRO.pdf', 'application/pdf', options)
+		const options: DocumentViewerOptions = {
+				title: 'Manual de usuario'
+			}
+			/* Visualizamos el pdf en pantalla */
+		this.document.viewDocument(path + 'BIPRO.pdf', 'application/pdf', options)
 	}
 
 	/* Funcion para cerrar la ventana de opciones */
@@ -88,7 +89,7 @@ export class OpcionesPage {
 			content: 'Verificando información',
 		})
 		loader.present(),
-		this.apiService.readerArchivoExcel(this.lastFechaSincronizacion)
+			this.apiService.readerArchivoExcel(this.lastFechaSincronizacion)
 			.then(response => {
 				console.log(response)
 				let msj
@@ -101,16 +102,16 @@ export class OpcionesPage {
 					}),
 					msj.present(),
 					this.viewCtrl.dismiss()
-				):(
+				) : (
 					this.apiService.fetch()
 					.then(response => {
 						this.dbService.delete()
 						this.viewCtrl.dismiss()
-						/* LLamar a la funcion que nos ayudara a registrar la informacion del endpoint a nuestra aplicacion movil. */
+							/* LLamar a la funcion que nos ayudara a registrar la informacion del endpoint a nuestra aplicacion movil. */
 						this.apiService.regitrarData(response)
-						/* Funcion para registrar un historial de la sincronizacion. */
+							/* Funcion para registrar un historial de la sincronizacion. */
 						this.apiService.regitraSincronizacion()
-						// construimos el origen de datos faltante para el modulo de reportes.
+							// construimos el origen de datos faltante para el modulo de reportes.
 						this.dbService.creaTablaReportes()
 						this.dbService.creaTablaReporteColumnas()
 						this.dbService.creaTablaReporteFiltros()
@@ -122,7 +123,11 @@ export class OpcionesPage {
 						this.dbService.insertaDatosTablaReportesAgrupacion()
 						this.dbService.insertAnios()
 						this.dbService.insertDireccionAnios()
-						this.navCtrl.setRoot(TabsPage, {}, {animate: true, animation: 'ios-transition', direction: 'forward'})
+						this.navCtrl.setRoot(TabsPage, {}, {
+							animate: true,
+							animation: 'ios-transition',
+							direction: 'forward'
+						})
 					}),
 					loader.dismiss()
 				)
