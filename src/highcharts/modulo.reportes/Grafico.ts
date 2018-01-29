@@ -33,8 +33,6 @@ export class Grafico {
 		let options = {
 			chart: {
 				type: 'column',
-				// width: 790,
-				// height: 500
 			},
 			title: {
 				text: this.titleName
@@ -72,7 +70,6 @@ export class Grafico {
 
 			series: [{
 				name: this.serieName,
-				// colorByPoint: true,
 			}],
 		}
 		options['series'][0]['data'] = this.data
