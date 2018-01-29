@@ -93,11 +93,12 @@ export class LoginPage {
 							/* Si hay un token valido obtenemos la ultima fecha de sincronizacion. */
 						this.reporteService.getLastDateSincronizacion()
 							.then(response => {
-								// Si la ultima fecha de sincronizacion es vacio se la asigna la fecha actual, en caso
-								// contrario obtenemos la ultima fecha de sincronizacion registrado en el origen de datos.
-								response.length === 0 ? lastFecha = this.fechaActual : lastFecha = response[0].fecha_registro
+								if (response.length === 0) {
+									lastFecha = ''
+								} else {
+									lastFecha = response[0].fecha_registro
+								}
 								console.log('Ultima sincronizacion   ' + lastFecha)
-									// lastFecha = '2017-10-22 9:22:33'
 									/* Funcion para resolver el endpoint del api y para validar las fechas de modificaciones. */
 								this.validarRecursos(lastFecha)
 							})
