@@ -16,7 +16,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <preference name="webviewbounce" value="false" />
+
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="16" />
@@ -97,7 +97,6 @@
     <feature name="Insomnia">
         <param name="android-package" value="nl.xservices.plugins.Insomnia" />
     </feature>
-    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
     <plugin name="cordova-plugin-advanced-http" spec="^1.9.0" />
     <plugin name="cordova-plugin-app-version" spec="^0.1.9" />
     <plugin name="cordova-plugin-console" spec="^1.1.0" />
