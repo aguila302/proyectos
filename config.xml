@@ -94,7 +94,8 @@
     <feature name="Insomnia">
         <param name="ios-package" value="Insomnia" />
     </feature>
-    <feature name="Insomnia">
+    <feature name="Insom
+        nia">
         <param name="android-package" value="nl.xservices.plugins.Insomnia" />
     </feature>
     <engine name="android" spec="7.0.0" />

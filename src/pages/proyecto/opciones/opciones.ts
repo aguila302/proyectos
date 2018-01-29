@@ -68,13 +68,13 @@ export class OpcionesPage {
 	/* Funcion para ver archivo pdf*/
 	muestraPdf = () => {
 		/* Obtenemos el path absoluto */
-		let path: string = this.file.applicationDirectory + 'www/assets/'
+		// let path: string = this.file.applicationDirectory + 'www/assets/'
 
-		const options: DocumentViewerOptions = {
-			title: 'Manual de usuario'
-		}
+		// const options: DocumentViewerOptions = {
+		// 	title: 'Manual de usuario'
+		// }
 		/* Visualizamos el pdf en pantalla */
-		this.document.viewDocument(path + 'BIPRO.pdf', 'application/pdf', options)
+		// this.document.viewDocument(path + 'BIPRO.pdf', 'application/pdf', options)
 	}
 
 	/* Funcion para cerrar la ventana de opciones */
@@ -95,7 +95,7 @@ export class OpcionesPage {
 				response.status === 200 ? (
 					loader.dismiss(),
 					msj = this.toast.create({
-						message: 'La información esta actualizada',
+						message: 'La información está actualizada',
 						duration: 3000,
 						position: 'middle'
 					}),
