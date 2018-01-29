@@ -6,6 +6,7 @@
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
+    <allow-navigation href="http://localhost:8080/*"/>
     <allow-navigation href="http://192.168.56.1:8100" />
     <allow-navigation href="http://192.168.56.1:8101" />
     <allow-navigation href="http://192.168.98.2:8101" />
@@ -16,7 +17,6 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="16" />
@@ -30,6 +30,7 @@
     <preference name="ShowSplashScreenSpinner" value="false" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="iosPersistentFileLocation" value="Compatibility" />
+    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
     <platform name="android">
         <preference name="loadUrlTimeoutValue" value="700000" />
         <allow-intent href="market:*" />
@@ -112,5 +113,5 @@
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="uk.co.workingedge.cordova.plugin.sqliteporter" spec="^1.0.2" />
     <engine name="android" spec="7.0.0" />
-    <plugin name="cordova-plugin-wkwebview-engine" spec="git+https://github.com/apache/cordova-plugin-wkwebview-engine.git#master" />
+    <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
 </widget>
