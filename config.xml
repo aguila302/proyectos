@@ -30,7 +30,6 @@
     <preference name="iosPersistentFileLocation" value="Compatibility" />
     <preference name="AllowBackForwardNavigationGestures" value="true" />
     <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
-    <preference name="orientation" value="portrait" />
     <platform name="android">
         <preference name="loadUrlTimeoutValue" value="700000" />
         <allow-intent href="market:*" />

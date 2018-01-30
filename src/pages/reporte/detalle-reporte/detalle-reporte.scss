@@ -7,19 +7,9 @@
 			width: 100%;
 			display: flex;
 			justify-content: center;
-			@media screen and(min-width: $break-small) {
-				width: 100%;
-			}
 			chart {
 				width: 100%;
 			}
 		}
-
-		chart {
-			@media screen and(min-width: $break-small) {
-				width: 100%;
-			}
-		}
-		
 	}
 }
