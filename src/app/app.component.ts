@@ -1,5 +1,6 @@
 import {
-    Component, ViewChild
+    Component,
+    ViewChild
 } from '@angular/core';
 import {
     Platform
@@ -13,7 +14,9 @@ import {
 import {
     DbService
 } from '../services/db.service'
-import { TabsPage } from '../pages/tabs/tabs';
+import {
+    TabsPage
+} from '../pages/tabs/tabs';
 import {
     LoginPage
 } from '../pages/login/login'
@@ -22,18 +25,19 @@ import {
     templateUrl: 'app.html'
 })
 export class MyApp {
-    rootPage:any = LoginPage;
+    rootPage: any = LoginPage;
 
     constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
         public dbService: DbService) {
         platform.ready().then(() => {
-            // Okay, so the platform is ready and our plugins are available.
-            // Here you can do any higher level native things you might need.
+            platform.setDir('rtl', true)
+                // Okay, so the platform is ready and our plugins are available.
+                // Here you can do any higher level native things you might need.
             statusBar.styleDefault();
             splashScreen.hide();
             this.dbService.openDatabase()
                 .then(() => this.dbService.createTable())
-                  .then(() => this.dbService.createTableSincronixzaciones())
+                .then(() => this.dbService.createTableSincronixzaciones())
         });
     }
 }
