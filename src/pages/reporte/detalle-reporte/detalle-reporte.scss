@@ -1,5 +1,10 @@
 page-detalle-reporte {
-	chart {
+	#container {
 		width: 100%;
+		display: flex;
+		justify-content: center;
+		chart {
+			width: 100%;
+		}
 	}
 }
