@@ -4,10 +4,9 @@ page-detalle-reporte {
 		width: 100%;
 		background-color: red;
 
-		//display: flex;
-		//justify-content: center;
+		display: flex;
+		justify-content: space-between;
 		chart {
-			display: flex: none|auto|[<'flex-grow' (0)> <'flex-shrink' (1)> || <'flex-basis' auto|<'width' (%|rem|em|px)>>];
 			width: 100%;
 		}
 	}
