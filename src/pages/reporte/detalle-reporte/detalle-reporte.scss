@@ -1,15 +1,10 @@
-.ios, .md {
-	page-detalle-reporte {
-		$break-small: 700 px;
-		$break-large: 1200 px;
-
-		#container {
+page-detalle-reporte {
+	#container {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		chart {
 			width: 100%;
-			display: flex;
-			justify-content: center;
-			chart {
-				width: 100%;
-			}
 		}
 	}
 }
