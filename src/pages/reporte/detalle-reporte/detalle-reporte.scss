@@ -1,11 +1,11 @@
 .ios {
 	page-detalle-reporte {
-		#container {
+		.container {
 			width: 100%;
 			background-color: red;
-			display: flex;
-			justify-content: center;
-			[chart] {
+			//display: flex;
+			//justify-content: center;
+			chart {
 				width: auto;
 			}
 		}
