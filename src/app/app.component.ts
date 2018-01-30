@@ -30,9 +30,8 @@ export class MyApp {
     constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
         public dbService: DbService) {
         platform.ready().then(() => {
-            platform.setDir('rtl', true)
-                // Okay, so the platform is ready and our plugins are available.
-                // Here you can do any higher level native things you might need.
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
             statusBar.styleDefault();
             splashScreen.hide();
             this.dbService.openDatabase()
