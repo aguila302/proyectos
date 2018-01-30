@@ -1,11 +1,13 @@
-page-detalle-reporte {
-	#container {
-		width: 100%;
-		background-color: red;
-		display: flex;
-		justify-content: center;
-		chart {
-			width: auto;
+.ios {
+	page-detalle-reporte {
+		#container {
+			width: 100%;
+			background-color: red;
+			display: flex;
+			justify-content: center;
+			[chart] {
+				width: auto;
+			}
 		}
 	}
 }
