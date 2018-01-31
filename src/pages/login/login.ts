@@ -33,7 +33,7 @@ import * as moment from 'moment'
 export class LoginPage {
 
 	loader = this.loadinCtrl.create({
-		content: 'Verificando información',
+		content: 'Conectando ...',
 	})
 
 	username: string = ''
@@ -71,12 +71,6 @@ export class LoginPage {
 				.then(response => {
 					if (response === undefined) {
 						/* En caso de error no autorizado mostramos una advertencia  */
-						// let loading = this.loadinCtrl.create({
-						// 	spinner: 'crescent',
-						// 	content: 'Conectando ...'
-						// })
-						// loading.present()
-						// setTimeout(() => {
 						let msj = this.alertCtrl.create({
 							title: 'Advertencia',
 							message: 'El usuario o clave de acceso son incorrectos',
@@ -96,6 +90,7 @@ export class LoginPage {
 								}
 								console.log('Ultima sincronizacion   ' + lastFecha)
 									/* Funcion para resolver el endpoint del api y para validar las fechas de modificaciones. */
+								this.loader.present()
 								this.validarRecursos(lastFecha)
 							})
 					}
@@ -108,10 +103,11 @@ export class LoginPage {
 
 	/* Funcion para resolver el endpoint para cargar el archivo excel al origen de datos. */
 	validarRecursos(lastFecha: string) {
-		this.loader.present()
+
 		this.apiService.readerArchivoExcel(lastFecha)
 			.then(response => {
 				console.log(response)
+				this.loader.dismiss()
 					/*
 					Si el status 200 no hay sincronisacion, en caso contrario sincronizamos
 					 */
@@ -123,8 +119,8 @@ export class LoginPage {
 								animation: 'ios-transition',
 								direction: 'forward'
 							})
-							this.loader.dismiss(),
-								this.dbService.delete()
+
+							this.dbService.delete()
 							this.dbService.creaTablaReportes()
 							this.dbService.creaTablaReporteColumnas()
 							this.dbService.creaTablaReporteFiltros()
