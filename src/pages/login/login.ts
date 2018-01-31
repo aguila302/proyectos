@@ -113,7 +113,7 @@ export class LoginPage {
 								animation: 'ios-transition',
 								direction: 'forward'
 							})
-							this.loader.dismiss()
+							// this.loader.dismiss()
 							this.dbService.delete()
 							this.dbService.creaTablaReportes()
 							this.dbService.creaTablaReporteColumnas()
@@ -130,7 +130,6 @@ export class LoginPage {
 						}, 1000)
 					) :
 					(
-
 						this.sincronizar()
 					)
 
