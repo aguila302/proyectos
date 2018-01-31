@@ -84,10 +84,9 @@ export class LoginPage {
 									lastFecha = response[0].fecha_registro
 								}
 								console.log('Ultima sincronizacion   ' + lastFecha)
-								// this.loader.present()
+
 								/* Funcion para resolver el endpoint del api y para validar las fechas de modificaciones. */
 								this.validarRecursos(lastFecha)
-								// this.loader.dismiss(),
 							})
 					}
 				})
@@ -97,11 +96,17 @@ export class LoginPage {
 		}
 	}
 
-	/* Funcion para resolver el endpoint para cargar el archivo excel al origen de datos. */
+	/* Funcion para resolver el endpoint del api */
 	validarRecursos(lastFecha: string) {
+		let loader = this.loadinCtrl.create({
+			content: 'Conectando ...',
+		})
+		loader.present()
+
 		this.apiService.readerArchivoExcel(lastFecha)
 			.then(response => {
 				console.log(response)
+				loader.dismiss()
 				/*
 				Si el status 200 no hay sincronisacion, en caso contrario sincronizamos
 				 */
