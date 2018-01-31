@@ -77,9 +77,7 @@ export class LoginPage {
 							buttons: ['OK']
 						})
 						msj.present()
-
 					} else {
-
 						let lastFecha: string = ''
 						/* Si hay un token valido obtenemos la ultima fecha de sincronizacion. */
 						this.reporteService.getLastDateSincronizacion()
