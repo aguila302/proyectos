@@ -172,12 +172,12 @@ export class LoginPage {
 				this.dbService.insertaDatosTablaReportesAgrupacion()
 				this.dbService.insertAnios()
 				this.dbService.insertDireccionAnios()
+				this.navCtrl.push(TabsPage, {}, {
+					animate: true,
+					animation: 'ios-transition',
+					direction: 'forward'
+				})
 				// loader.dismiss()
 			})
-		this.navCtrl.push(TabsPage, {}, {
-			animate: true,
-			animation: 'ios-transition',
-			direction: 'forward'
-		})
 	}
 }
