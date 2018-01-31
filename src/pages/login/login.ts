@@ -51,10 +51,6 @@ export class LoginPage {
 		this.fechaActual = moment().format('YYYY-MM-DD h:mm:ss')
 	}
 
-	ionViewDidLoad() {
-		console.log('ionViewDidLoad LoginPage');
-	}
-
 	/* Funcion para loguar al usuario */
 	login = (): void => {
 		// En caso de que no se introduzca datos mostramos un mensaje.
@@ -65,7 +61,6 @@ export class LoginPage {
 			})
 			msj.present()
 		} else {
-
 			/* Resolvemos el api para loguer al usuario y obtener el token. */
 			this.apiService.resolveApi(this.username, this.password)
 				.then(response => {
@@ -136,13 +131,11 @@ export class LoginPage {
 					 * En caso de que haya actualizaciòn en el archivo excel sincronizamos la informaciòn
 					 */
 					this.sincronizar()
-
 				}
 			})
 			.catch(error => {
 				console.error.bind(console)
 			})
-
 	}
 
 	/* Funcion para sincronizar la informacion con la aplicacion movil. */
