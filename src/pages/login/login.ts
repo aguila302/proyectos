@@ -113,28 +113,28 @@ export class LoginPage {
 					Si el status 200 no hay sincronisacion, en caso contrario sincronizamos
 					 */
 				response.status === 200 ? (
-						setTimeout(() => {
-							// construimos el origen de datos faltante para el modulo de reportes.
-							this.navCtrl.push(TabsPage, {}, {
-								animate: true,
-								animation: 'ios-transition',
-								direction: 'forward'
-							})
 
-							this.dbService.delete()
-							this.dbService.creaTablaReportes()
-							this.dbService.creaTablaReporteColumnas()
-							this.dbService.creaTablaReporteFiltros()
-							this.dbService.creaTablaReporteAgrupaciones()
-							this.dbService.createTableAnios()
-							this.dbService.createTableDireccionAnios()
+						// construimos el origen de datos faltante para el modulo de reportes.
+						this.navCtrl.push(TabsPage, {}, {
+							animate: true,
+							animation: 'ios-transition',
+							direction: 'forward'
+						}),
 
-							this.dbService.insertaDatosTablaReportes(),
-								this.dbService.insertaDatosTablaReportesColunas(),
-								this.dbService.insertaDatosTablaReportesAgrupacion(),
-								this.dbService.insertAnios(),
-								this.dbService.insertDireccionAnios()
-						}, 1000)
+						this.dbService.delete(),
+						this.dbService.creaTablaReportes(),
+						this.dbService.creaTablaReporteColumnas(),
+						this.dbService.creaTablaReporteFiltros(),
+						this.dbService.creaTablaReporteAgrupaciones(),
+						this.dbService.createTableAnios(),
+						this.dbService.createTableDireccionAnios(),
+
+						this.dbService.insertaDatosTablaReportes(),
+						this.dbService.insertaDatosTablaReportesColunas(),
+						this.dbService.insertaDatosTablaReportesAgrupacion(),
+						this.dbService.insertAnios(),
+						this.dbService.insertDireccionAnios()
+
 					) :
 					(
 						this.sincronizar()
