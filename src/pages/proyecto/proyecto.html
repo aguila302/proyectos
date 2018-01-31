@@ -18,11 +18,11 @@
         <ion-item>
             <ion-grid no-padding>
                 <ion-row align-items-center>
-                    <ion-col col-sm-12>
+                    <ion-col col-12>
                         <ion-searchbar [(ngModel)]="textoBusqueda" (ionInput)="buscaProyectos($event)" [animated]="true" [showCancelButton]="false" [cancelButtonText]="Cancelar" (ionCancel)="onCancel($event)" placeholder="Buscar">
                         </ion-searchbar>
                     </ion-col>
-                    <ion-col col-sm-12>
+                    <ion-col col-12>
                         <button ion-button full (click)="busquedaProyectos()">Buscar</button>
                     </ion-col>
                 </ion-row>
