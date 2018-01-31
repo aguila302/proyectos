@@ -52,18 +52,16 @@ export class LoginPage {
 		this.fechaActual = moment().format('YYYY-MM-DD h:mm:ss')
 	}
 
-	ionViewDidLoad() {
-		console.log('ionViewDidLoad LoginPage');
-	}
+	ionViewDidLoad() {}
 
 	/* Funcion para loguar al usuario */
 	login = (): void => {
 		// En caso de que no se introduzca datos mostramos un mensaje.
 		if (this.username == '' || this.password == '') {
-			let msj = this.toast.create({
+			let msj = this.alertCtrl.create({
+				title: 'Login',
 				message: 'Debe completar el usuario y la clave de acceso',
-				duration: 4000,
-				position: 'middle'
+				buttons: ['OK']
 			})
 			msj.present()
 		} else {
@@ -73,22 +71,20 @@ export class LoginPage {
 				.then(response => {
 					if (response === undefined) {
 						/* En caso de error no autorizado mostramos una advertencia  */
-						let loading = this.loadinCtrl.create({
-							spinner: 'crescent',
-							content: 'Conectando ...'
+						// let loading = this.loadinCtrl.create({
+						// 	spinner: 'crescent',
+						// 	content: 'Conectando ...'
+						// })
+						// loading.present()
+						// setTimeout(() => {
+						let msj = this.alertCtrl.create({
+							title: 'Advertencia',
+							message: 'El usuario o clave de acceso son incorrectos',
 						})
-						loading.present()
-						setTimeout(() => {
-							let msj = this.toast.create({
-								message: 'Usuario o clave de acceso incorrectos',
-								duration: 4000,
-								position: 'middle'
-							})
-							msj.present()
-							loading.dismiss()
-						}, 5000)
+						msj.present()
+							// loading.dismiss()
+							// }, 5000)
 					} else {
-
 						let lastFecha: string = ''
 							/* Si hay un token valido obtenemos la ultima fecha de sincronizacion. */
 						this.reporteService.getLastDateSincronizacion()
