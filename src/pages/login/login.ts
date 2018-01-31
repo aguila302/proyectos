@@ -33,7 +33,7 @@ import * as moment from 'moment'
 export class LoginPage {
 
 	loader = this.loadinCtrl.create({
-		content: 'Verificando información',
+		content: 'Conectando ...',
 	})
 
 	username: string = ''
@@ -60,10 +60,9 @@ export class LoginPage {
 	login = (): void => {
 		// En caso de que no se introduzca datos mostramos un mensaje.
 		if (this.username == '' || this.password == '') {
-			let msj = this.toast.create({
+			let msj = this.alertCtrl.create({
 				message: 'Debe completar el usuario y la clave de acceso',
-				duration: 4000,
-				position: 'middle'
+				buttons: ['OK']
 			})
 			msj.present()
 		} else {
@@ -73,18 +72,11 @@ export class LoginPage {
 				.then(response => {
 					if (response === undefined) {
 						/* En caso de error no autorizado mostramos una advertencia  */
-						let loading = this.loadinCtrl.create({
-							spinner: 'crescent',
-							content: 'Conectando ...'
-						})
-						loading.present()
-						let msj = this.toast.create({
+						let msj = this.alertCtrl.create({
 							message: 'Usuario o clave de acceso incorrectos',
-							duration: 4000,
-							position: 'middle'
+							buttons: ['OK']
 						})
 						msj.present()
-						loading.dismiss()
 
 					} else {
 
