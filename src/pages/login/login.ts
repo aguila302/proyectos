@@ -137,12 +137,9 @@ export class LoginPage {
 					/**
 					 * En caso de que haya actualizaciòn en el archivo excel sincronizamos la informaciòn
 					 */
-					let loader = this.loadinCtrl.create({
-						content: 'Sincronizando información, por favor espera',
-					})
-					loader.present()
+
 					this.sincronizar()
-					loader.dismiss()
+
 				}
 
 			})
@@ -153,6 +150,10 @@ export class LoginPage {
 
 	/* Funcion para sincronizar la informacion con la aplicacion movil. */
 	sincronizar() {
+		let loader = this.loadinCtrl.create({
+			content: 'Sincronizando información, por favor espera',
+		})
+		loader.present()
 		this.apiService.fetch()
 			.then(response => {
 				this.navCtrl.push(TabsPage, {}, {
@@ -177,6 +178,7 @@ export class LoginPage {
 				this.dbService.insertaDatosTablaReportesAgrupacion()
 				this.dbService.insertAnios()
 				this.dbService.insertDireccionAnios()
+				loader.dismiss()
 			})
 	}
 }
