@@ -133,6 +133,7 @@ export class LoginPage {
 						}, 1000)
 					) :
 					(
+						this.loader.dismiss(),
 						this.sincronizar()
 					)
 
@@ -168,7 +169,7 @@ export class LoginPage {
 				this.dbService.insertaDatosTablaReportesAgrupacion()
 				this.dbService.insertAnios()
 				this.dbService.insertDireccionAnios()
-				this.loader.dismiss()
+
 			})
 	}
 }
