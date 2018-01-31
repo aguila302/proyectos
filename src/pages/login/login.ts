@@ -137,9 +137,7 @@ export class LoginPage {
 					/**
 					 * En caso de que haya actualizaciòn en el archivo excel sincronizamos la informaciòn
 					 */
-
 					this.sincronizar()
-
 				}
 
 			})
