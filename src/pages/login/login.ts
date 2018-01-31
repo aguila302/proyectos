@@ -81,7 +81,7 @@ export class LoginPage {
 								} else {
 									lastFecha = response[0].fecha_registro
 								}
-								console.log('Ultima sincronizacion   ' + lastFecha)
+								console.log('Ultima sincronizacion ' + lastFecha)
 
 								/* Funcion para resolver el endpoint del api y para validar las fechas de modificaciones. */
 								this.validarRecursos(lastFecha)
