@@ -153,11 +153,6 @@ export class LoginPage {
 		// 	content: 'Sincronizando información, por favor espera',
 		// })
 		// loader.present()
-		this.navCtrl.push(TabsPage, {}, {
-			animate: true,
-			animation: 'ios-transition',
-			direction: 'forward'
-		})
 		this.apiService.fetch()
 			.then(response => {
 				/* LLamar a la funcion que nos ayudara a registrar la informacion del endpoint a nuestra aplicacion movil. */
@@ -179,5 +174,10 @@ export class LoginPage {
 				this.dbService.insertDireccionAnios()
 				// loader.dismiss()
 			})
+		this.navCtrl.push(TabsPage, {}, {
+			animate: true,
+			animation: 'ios-transition',
+			direction: 'forward'
+		})
 	}
 }
