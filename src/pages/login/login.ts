@@ -106,7 +106,6 @@ export class LoginPage {
 		this.apiService.readerArchivoExcel(lastFecha)
 			.then(response => {
 				console.log(response)
-				loader.dismiss()
 				/*
 				Si el status 200 no hay sincronisacion, en caso contrario sincronizamos
 				 */
@@ -139,6 +138,7 @@ export class LoginPage {
 					 */
 					this.sincronizar()
 				}
+			loader.dismiss()
 
 			})
 			.catch(error => {
@@ -148,7 +148,7 @@ export class LoginPage {
 	}
 
 	/* Funcion para sincronizar la informacion con la aplicacion movil. */
-	async sincronizar() {
+	sincronizar() {
 		// let loader = this.loadinCtrl.create({
 		// 	content: 'Sincronizando información, por favor espera',
 		// })
