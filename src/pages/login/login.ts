@@ -35,6 +35,9 @@ export class LoginPage {
 	username: string = ''
 	password: string = ''
 	fechaActual = ''
+	loader = this.loadinCtrl.create({
+		content: 'Conectando ...',
+	})
 
 	constructor(
 		public platform: Platform,
@@ -98,11 +101,7 @@ export class LoginPage {
 
 	/* Funcion para resolver el endpoint del api */
 	validarRecursos(lastFecha: string) {
-		let loader = this.loadinCtrl.create({
-			content: 'Conectando ...',
-		})
-		loader.present()
-
+		this.loader.present()
 		this.apiService.readerArchivoExcel(lastFecha)
 			.then(response => {
 				console.log(response)
@@ -116,7 +115,7 @@ export class LoginPage {
 							animation: 'ios-transition',
 							direction: 'forward'
 						})
-						// this.loader.dismiss()
+						this.loader.dismiss()
 						// construimos el origen de datos faltante para el modulo de reportes.
 						this.dbService.delete()
 						this.dbService.creaTablaReportes()
@@ -137,9 +136,8 @@ export class LoginPage {
 					 * En caso de que haya actualizaciòn en el archivo excel sincronizamos la informaciòn
 					 */
 					this.sincronizar()
-				}
-			loader.dismiss()
 
+				}
 			})
 			.catch(error => {
 				console.error.bind(console)
@@ -148,7 +146,7 @@ export class LoginPage {
 	}
 
 	/* Funcion para sincronizar la informacion con la aplicacion movil. */
-	sincronizar() {
+	async sincronizar() {
 		// let loader = this.loadinCtrl.create({
 		// 	content: 'Sincronizando información, por favor espera',
 		// })
@@ -177,7 +175,7 @@ export class LoginPage {
 					animation: 'ios-transition',
 					direction: 'forward'
 				})
-				// loader.dismiss()
+				this.loader.dismiss()
 			})
 	}
 }
