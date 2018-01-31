@@ -106,7 +106,7 @@ export class LoginPage {
 		this.apiService.readerArchivoExcel(lastFecha)
 			.then(response => {
 				console.log(response)
-
+				loader.dismiss()
 				/*
 				Si el status 200 no hay sincronisacion, en caso contrario sincronizamos
 				 */
@@ -144,7 +144,7 @@ export class LoginPage {
 			.catch(error => {
 				console.error.bind(console)
 			})
-		loader.dismiss()
+
 	}
 
 	/* Funcion para sincronizar la informacion con la aplicacion movil. */
@@ -153,13 +153,13 @@ export class LoginPage {
 		// 	content: 'Sincronizando información, por favor espera',
 		// })
 		// loader.present()
+		this.navCtrl.push(TabsPage, {}, {
+			animate: true,
+			animation: 'ios-transition',
+			direction: 'forward'
+		})
 		this.apiService.fetch()
 			.then(response => {
-				this.navCtrl.push(TabsPage, {}, {
-					animate: true,
-					animation: 'ios-transition',
-					direction: 'forward'
-				})
 				/* LLamar a la funcion que nos ayudara a registrar la informacion del endpoint a nuestra aplicacion movil. */
 				this.apiService.regitrarData(response)
 				/* Funcion para registrar un historial de la sincronizacion. */
