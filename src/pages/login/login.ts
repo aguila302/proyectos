@@ -32,10 +32,6 @@ import * as moment from 'moment'
  */
 export class LoginPage {
 
-	loader = this.loadinCtrl.create({
-		content: 'Conectando ...',
-	})
-
 	username: string = ''
 	password: string = ''
 	fechaActual = ''
@@ -88,8 +84,10 @@ export class LoginPage {
 									lastFecha = response[0].fecha_registro
 								}
 								console.log('Ultima sincronizacion   ' + lastFecha)
+								// this.loader.present()
 								/* Funcion para resolver el endpoint del api y para validar las fechas de modificaciones. */
 								this.validarRecursos(lastFecha)
+								// this.loader.dismiss(),
 							})
 					}
 				})
@@ -101,7 +99,6 @@ export class LoginPage {
 
 	/* Funcion para resolver el endpoint para cargar el archivo excel al origen de datos. */
 	validarRecursos(lastFecha: string) {
-		this.loader.present()
 		this.apiService.readerArchivoExcel(lastFecha)
 			.then(response => {
 				console.log(response)
@@ -116,8 +113,8 @@ export class LoginPage {
 								animation: 'ios-transition',
 								direction: 'forward'
 							})
-							this.loader.dismiss(),
-								this.dbService.delete()
+							this.loader.dismiss()
+							this.dbService.delete()
 							this.dbService.creaTablaReportes()
 							this.dbService.creaTablaReporteColumnas()
 							this.dbService.creaTablaReporteFiltros()
@@ -125,15 +122,15 @@ export class LoginPage {
 							this.dbService.createTableAnios()
 							this.dbService.createTableDireccionAnios()
 
-							this.dbService.insertaDatosTablaReportes(),
-								this.dbService.insertaDatosTablaReportesColunas(),
-								this.dbService.insertaDatosTablaReportesAgrupacion(),
-								this.dbService.insertAnios(),
-								this.dbService.insertDireccionAnios()
+							this.dbService.insertaDatosTablaReportes()
+							this.dbService.insertaDatosTablaReportesColunas()
+							this.dbService.insertaDatosTablaReportesAgrupacion()
+							this.dbService.insertAnios()
+							this.dbService.insertDireccionAnios()
 						}, 1000)
 					) :
 					(
-						this.loader.dismiss(),
+
 						this.sincronizar()
 					)
 
@@ -144,7 +141,11 @@ export class LoginPage {
 	}
 
 	/* Funcion para sincronizar la informacion con la aplicacion movil. */
-	sincronizar() {
+	async sincronizar() {
+		let loader = this.loadinCtrl.create({
+			content: 'Sincronizando información, por favor espera',
+		})
+		loader.present()
 		this.apiService.fetch()
 			.then(response => {
 				this.navCtrl.push(TabsPage, {}, {
@@ -169,7 +170,7 @@ export class LoginPage {
 				this.dbService.insertaDatosTablaReportesAgrupacion()
 				this.dbService.insertAnios()
 				this.dbService.insertDireccionAnios()
-
+				loader.dismiss()
 			})
 	}
 }
