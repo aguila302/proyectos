@@ -147,7 +147,7 @@ export class LoginPage {
 	}
 
 	/* Funcion para sincronizar la informacion con la aplicacion movil. */
-	async sincronizar() {
+	sincronizar() {
 		this.apiService.fetch()
 			.then(response => {
 				this.navCtrl.push(TabsPage, {}, {
