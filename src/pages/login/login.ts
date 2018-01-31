@@ -147,10 +147,6 @@ export class LoginPage {
 
 	/* Funcion para sincronizar la informacion con la aplicacion movil. */
 	async sincronizar() {
-		// let loader = this.loadinCtrl.create({
-		// 	content: 'Sincronizando información, por favor espera',
-		// })
-		// loader.present()
 		this.apiService.fetch()
 			.then(response => {
 				/* LLamar a la funcion que nos ayudara a registrar la informacion del endpoint a nuestra aplicacion movil. */
