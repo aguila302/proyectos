@@ -74,6 +74,7 @@ export class LoginPage {
 						let msj = this.alertCtrl.create({
 							title: 'Advertencia',
 							message: 'El usuario o clave de acceso son incorrectos',
+							buttons: ['OK']
 						})
 						msj.present()
 							// loading.dismiss()
