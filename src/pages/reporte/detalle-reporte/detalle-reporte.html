@@ -244,19 +244,18 @@
 			<ion-card *ngFor="let proyecto of proyectos">
 				<ion-grid>
 					<ion-row>
-						<ion-col col-2>
-							<h4>{{ proyecto.campo }}</h4>
-							<strong>{{ proyecto.porcentaje }} %</strong>
+						<ion-col text-center col-12 col-sm-2>
+							<span item-left><strong>{{ proyecto.campo }}</strong></span>
+							<p>{{ proyecto.porcentaje }} %</p>
 						</ion-col>
-						<ion-col col-5 text-center>
-							<strong>Monto USD: </strong>
-							<p class="medium">{{ proyecto.monto }}</p>
+						<ion-col col-12 text-center col-sm-5>
+							<span item-left><strong>Monto USD: </strong> 310,000.00</span>
 						</ion-col>
-						<ion-col col-3 text-wrap text-justify>
-							<strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}
+						<ion-col col-12 col-sm-3 text-wrap text-center>
+							<span item-left><strong>No. de proyectos: </strong> 310</span>
 						</ion-col>
-						<ion-col col-2 class="right">
-							<button ion-button clear item-end (click)="verProyectosAgrupados(proyecto.group_by, proyecto.campo, proyecto.monto)">
+						<ion-col col-12 col-sm-2 text-right>
+							<button ion-button clear item-end>
 								<p style="text-transform: none; color: #3498DB;">Ver detalle</p>
 							</button>
 						</ion-col>
