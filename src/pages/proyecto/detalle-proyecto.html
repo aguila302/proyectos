@@ -11,17 +11,17 @@
 					<ion-col col-1>
 						<ion-icon name="pricetags" item-start large></ion-icon>
 					</ion-col>
-					<ion-col text-wrap text-justify>
+					<ion-col text-wrap text-justify col-sm-11>
 						<h2><strong>Proyecto</strong></h2>
 						<h3>{{ proyecto.nombre_proyecto }}</h3>
 					</ion-col>
 				</ion-row>
 				<ion-row>
-					<ion-col offset-1 col-5 text-center>
+					<ion-col text-center offset-1 col-11 col-md-5>
 						<!-- <strong><p>Monto USD: </p></strong> <p class="medium">{{ proyecto.monto }}</p> -->
 						<span item-left><strong>Monto USD: </strong> {{ proyecto.monto }}</span>
 					</ion-col>
-					<ion-col col-5 text-center>
+					<ion-col text-center offset-1 col-11 col-md-5>
 						<span item-left><strong>Monto original: </strong> {{ proyecto.monto_moneda_original }} {{ proyecto.moneda }}</span>
 					</ion-col>
 				</ion-row>
@@ -51,9 +51,7 @@
 						<span item-left><strong>Número de contrato: </strong> {{ proyecto.numero_contrato }}</span>
 					</ion-col>
 				</ion-row>
-
 				<ion-row>
-	
 					<ion-col offset-1 col-2 text-wrap text-left>
 						<span item-left><strong>Producto: </strong> {{ proyecto.producto }}</span>
 					</ion-col>
@@ -74,7 +72,6 @@
 						<span item-left><strong>Datos del cliente: </strong> {{ proyecto.datos_cliente }}</span>
 					</ion-col>
 				</ion-row>
-
 				<ion-row>
 					<ion-col offset-1 col-2 text-left>
 						<span item-left><strong>Fecha de inicio: </strong> {{ proyecto.fecha_inicio }}</span>
