@@ -45,7 +45,7 @@
 						<span item-left><strong>Gerencia: </strong>{{ proyecto.gerencia }}</span>
 					</ion-col>
 					<!-- col-5 text-wrap text-left -->
-					<ion-col offset-1 col-11 col-sm-5 text-center>
+					<ion-col offset-1 col-11 col-sm-5 text-center [attr.text-left]="isSM ? '' : null">
 						<span item-left><strong>Unidad de negocio: </strong>{{ proyecto.unidad_negocio }}</span>
 					</ion-col>
 				</ion-row>
