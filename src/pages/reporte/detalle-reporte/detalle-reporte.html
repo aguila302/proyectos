@@ -52,18 +52,17 @@
 			<ion-card *ngFor="let proyecto of reportes">
 				<ion-grid>
 					<ion-row>
-						<ion-col col-2>
-							<h4>{{ proyecto.campo }}</h4>
-							<strong>{{ proyecto.porcentaje }} %</strong>
+						<ion-col text-center col-12 col-sm-2>
+							<span item-left><strong>{{ proyecto.campo }}</strong></span>
+							<p>{{ proyecto.porcentaje }} %</p>
 						</ion-col>
-						<ion-col col-5 text-center>
-							<strong>Monto USD: </strong>
-							<p class="medium">{{ proyecto.monto }}</p>
+						<ion-col col-12 text-center col-sm-5>
+							<span item-left><strong>Monto USD: </strong>{{ proyecto.monto }}</span>
 						</ion-col>
-						<ion-col col-3 text-wrap text-justify>
-							<strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}
+						<ion-col col-12 col-sm-3 text-wrap text-center>
+							<span item-left><strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}</span>
 						</ion-col>
-						<ion-col col-2 class="right">
+						<ion-col col-12 col-sm-2 text-right>
 							<button ion-button clear item-end (click)="verProyectosAgrupados(proyecto.group_by, proyecto.campo, proyecto.monto)">
 								<p style="text-transform: none; color: #3498DB;">Ver detalle</p>
 							</button>
@@ -148,18 +147,17 @@
 			<ion-card *ngFor="let proyecto of reportes">
 				<ion-grid>
 					<ion-row>
-						<ion-col col-2>
-							<h4>{{ proyecto.campo }}</h4>
-							<strong>{{ proyecto.porcentaje }} %</strong>
+						<ion-col text-center col-12 col-sm-2>
+							<span item-left><strong>{{ proyecto.campo }}</strong></span>
+							<p>{{ proyecto.porcentaje }} %</p>
 						</ion-col>
-						<ion-col col-5 text-center>
-							<strong>Monto USD: </strong>
-							<p class="medium">{{ proyecto.monto }}</p>
+						<ion-col col-12 text-center col-sm-5>
+							<span item-left><strong>Monto USD: </strong>{{ proyecto.monto }}</span>
 						</ion-col>
-						<ion-col col-3 text-wrap text-justify>
-							<strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}
+						<ion-col col-12 col-sm-3 text-wrap text-center>
+							<span item-left><strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}</span>
 						</ion-col>
-						<ion-col col-2 class="right">
+						<ion-col col-12 col-sm-2 text-right>
 							<button ion-button clear item-end (click)="verProyectosAgrupados(proyecto.group_by, proyecto.campo, proyecto.monto)">
 								<p style="text-transform: none; color: #3498DB;">Ver detalle</p>
 							</button>
