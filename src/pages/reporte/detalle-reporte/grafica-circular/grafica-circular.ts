@@ -125,8 +125,7 @@ export class GraficaCircularPage {
 			})
 
 			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-			this.grafico = new Grafico(this.data_grafica, 'Clientes', 'Proyectos agrupados por clientes', '#', 'Numero de proyectos')
-			this.options = this.grafico.graficaPie(this.subtituloSegmento = 'Número de proyectos por ' + this.groupBy)
+			this.graficar(this.data_grafica, 'Clientes', 'Proyectos agrupados por clientes', '#', 'Numero de proyectos', 'Número de proyectos por ' + this.groupBy)
 
 			/* Para mostrar la tabla de informacion */
 			this.monto_total = account.formatNumber(data.sum('monto'))
