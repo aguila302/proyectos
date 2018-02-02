@@ -63,15 +63,15 @@ export class GraficaCircularPage {
 		this.groupBy = this.navParams.get('groupBy')
 		this.segmento = this.navParams.get('segmento')
 		this.nombreReporte = this.navParams.get('nombreReporte')
+	}
+
+	ionViewDidLoad() {
+		console.log('ionViewDidLoad GraficaCircularPage');
 		if (this.groupBy === 'contratante') {
 			this.verGraficaContratante()
 		} else {
 			this.verGrafica()
 		}
-	}
-
-	ionViewDidLoad() {
-		console.log('ionViewDidLoad GraficaCircularPage');
 	}
 
 	/* Funcion para ver la grafica para la seccion de contratante */
@@ -297,8 +297,6 @@ export class GraficaCircularPage {
 				})
 
 				/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-				// this.grafico = new Grafico(this.data_grafica, this.groupBy, 'Proyectos agrupados por ' + this.groupBy, '#', 'Numero de proyectos')
-				// this.options = this.grafico.graficaPie(this.subtituloSegmento = 'Número de proyectos por ' + this.groupBy)
 				this.graficar(this.data_grafica, this.groupBy, 'Proyectos agrupados por ' + this.groupBy, '#', 'Numero de proyectos', 'Número de proyectos por ' + this.groupBy)
 
 				const collection = collect(this.proyectos)
@@ -326,9 +324,7 @@ export class GraficaCircularPage {
 				})
 
 				/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-				this.grafico = new Grafico(this.data_grafica, this.groupBy, 'Proyectos agrupados por ' + this.groupBy, 'USD', 'Numero de proyectos')
-				this.options = this.grafico.graficaPie(this.subtituloSegmento = 'Monto total USD por ' + this.groupBy)
-
+				this.graficar(this.data_grafica, this.groupBy, 'Proyectos agrupados por ' + this.groupBy, 'USD', 'Numero de proyectos', 'Monto total USD por ' + this.groupBy)
 				const collection = collect(this.proyectos)
 				this.monto_total = account.formatNumber(collection.sum('monto'))
 				this.total_proyectos = collection.sum('numero_proyectos')
@@ -354,9 +350,7 @@ export class GraficaCircularPage {
 				})
 
 				/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-				this.grafico = new Grafico(this.data_grafica, this.groupBy, 'Proyectos agrupados por ' + this.groupBy, ' %', 'Numero de proyectos')
-				this.options = this.grafico.graficaPie(this.subtituloSegmento = 'Porcentaje total de participación por ' + this.groupBy)
-
+				this.graficar(this.data_grafica, this.groupBy, 'Proyectos agrupados por ' + this.groupBy, ' %', 'Numero de proyectos', 'Porcentaje total de participación por ' + this.groupBy)
 				const collection = collect(this.proyectos)
 				this.monto_total = account.formatNumber(collection.sum('monto'))
 				this.total_proyectos = collection.sum('numero_proyectos')
