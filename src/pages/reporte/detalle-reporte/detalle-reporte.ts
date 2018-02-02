@@ -546,9 +546,9 @@ export class DetalleReportePage {
 
 
 						/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-						this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '#', 'Número de proyectos por cliente'),
-
-							this.options = this.grafico.graficaBar()
+						// this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '#', 'Número de proyectos por cliente')
+						this.showGrafica(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '#', 'Número de proyectos por cliente')
+							// this.options = this.grafico.graficaBar()
 
 						/* Para mostrar la tabla de informacion */
 						this.monto_total = account.formatNumber(data.sum('monto'))
@@ -599,8 +599,9 @@ export class DetalleReportePage {
 				})
 				/*Mostramos la grafca con los datos necesarios. */
 				/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-			this.grafico = new Grafico(this.xy, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, '#', 'Número de proyectos por ' + this.campo_agrupacion),
-				this.options = this.grafico.graficaBar()
+			this.showGrafica(this.xy, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, '#', 'Número de proyectos por ' + this.campo_agrupacion)
+				// this.grafico = new Grafico(this.xy, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, '#', 'Número de proyectos por ' + this.campo_agrupacion)
+				// this.options = this.grafico.graficaBar()
 		}
 	}
 
@@ -663,9 +664,9 @@ export class DetalleReportePage {
 
 						this.xy = data_cliente
 							/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-						this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes', 'USD', 'Monto total USD por cliente'),
-
-							this.options = this.grafico.graficaBar()
+							// this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes', 'USD', 'Monto total USD por cliente')
+						this.showGrafica(this.xy, 'Clientes', 'Proyectos agrupados por clientes', 'USD', 'Monto total USD por cliente')
+							// this.options = this.grafico.graficaBar()
 
 						/* Para mostrar la tabla de informacion */
 						this.monto_total = account.formatNumber(data.sum('monto'))
@@ -720,13 +721,14 @@ export class DetalleReportePage {
 
 				/*Mostramos la grafca con los datos necesarios. */
 				/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-				this.grafico = new Grafico(this.xy, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, 'USD', 'Monto total USD por ' + this.campo_agrupacion),
-				this.options = this.grafico.graficaBar()
+				this.showGrafica(this.xy, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, 'USD', 'Monto total USD por ' + this.campo_agrupacion)
+				//this.grafico = new Grafico(this.xy, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, 'USD', 'Monto total USD por ' + this.campo_agrupacion),
+				//this.options = this.grafico.graficaBar()
 		}
 	}
 
 	/* Funcion para obtener la informacion agrupados por porcentaje de participacion*/
-	getDatosPorPorcentaje() {
+	async getDatosPorPorcentaje() {
 		this.segmento = 1
 		if (this.campo_agrupacion === 'contratante') {
 			this.visible = true
@@ -781,9 +783,10 @@ export class DetalleReportePage {
 						})
 						this.xy = data_cliente
 							/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-						this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '', 'Porcentaje total de participación por cliente')
-						console.log(this.grafico)
-						this.options = this.grafico.graficaBar()
+							//this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '', 'Porcentaje total de participación por cliente')
+						this.showGrafica(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '', 'Porcentaje total de participación por cliente')
+							//console.log(this.grafico)
+							//this.options = this.grafico.graficaBar()
 
 						/* Para mostrar la tabla de informacion */
 						this.monto_total = account.formatNumber(data.sum('monto'))
