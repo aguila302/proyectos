@@ -63,8 +63,6 @@ export class GraficaCircularPage {
 		this.groupBy = this.navParams.get('groupBy')
 		this.segmento = this.navParams.get('segmento')
 		this.nombreReporte = this.navParams.get('nombreReporte')
-
-
 	}
 
 	ionViewDidLoad() {
@@ -493,7 +491,12 @@ export class GraficaCircularPage {
 	showGrafica = (data: any[], serieName: string, titleName: string, grupo: string, indicador, subtitle: string) => {
 		highcharts.chart('container', {
 			chart: {
-				type: 'column',
+				plotBackgroundColor: null,
+				plotBorderWidth: null,
+				plotShadow: true,
+				type: 'pie',
+				// width: 750,
+				// height: 600
 			},
 			title: {
 				text: titleName
@@ -501,38 +504,26 @@ export class GraficaCircularPage {
 			subtitle: {
 				text: subtitle
 			},
-			xAxis: {
-				type: 'category'
-			},
-			yAxis: [{
-				labels: {
-					format: `{value} ${grupo}`
-				},
-				title: {
-					text: indicador
-				},
-			}],
-			legend: {
-				enabled: false
+			tooltip: {
+				pointFormat: '{series.name}: <b>{point.y:,.2f} ' + grupo + '</b>'
 			},
 			plotOptions: {
-				series: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
 					dataLabels: {
 						enabled: true,
-						format: `{point.y:,.2f} ${grupo}`,
-					}
+						format: '<b>{point.name}</b>: {point.y:,.2f} ' + grupo,
+					},
+					showInLegend: true
 				}
 			},
-
-			tooltip: {
-				headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-				pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:,.2f} ' + grupo + '</b> del total<br/>'
-			},
-
 			series: [{
-				data: data,
 				name: serieName,
-			}],
+				// colorByPoint: true,
+				data: data
+			}]
+
 		})
 	}
 }
