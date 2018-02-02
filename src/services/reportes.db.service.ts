@@ -302,6 +302,7 @@ export class ReportesDbService {
 	consultaXCampoAgrupado = (campo: string, groupBy: string): any => {
 		let proyectos = []
 		let sql = 'select * from proyectos where ' + groupBy + ' = ' + "'" + campo + "'"
+		console.log(sql);
 
 		return this.db.executeSql(sql, {})
 			.then((response) => {

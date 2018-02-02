@@ -380,6 +380,7 @@ export class GraficaCircularPage {
 
 	/* Funcion para ver el detalle de los proyectos segun la opcion que se escoja. */
 	verProyectosAgrupados = (group_by: string, campo: string, monto_total: string): void => {
+		console.log(group_by, campo);
 
 		if (group_by === 'pais') {
 			this.navCtrl.push(ProyectosAgrupadosPage, {
