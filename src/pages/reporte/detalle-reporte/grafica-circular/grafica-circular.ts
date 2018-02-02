@@ -63,14 +63,14 @@ export class GraficaCircularPage {
 		this.groupBy = this.navParams.get('groupBy')
 		this.segmento = this.navParams.get('segmento')
 		this.nombreReporte = this.navParams.get('nombreReporte')
-	}
-
-	ionViewDidLoad() {
 		if (this.groupBy === 'contratante') {
 			this.verGraficaContratante()
 		} else {
 			this.verGrafica()
 		}
+	}
+
+	ionViewDidLoad() {
 		console.log('ionViewDidLoad GraficaCircularPage');
 	}
 
@@ -299,7 +299,7 @@ export class GraficaCircularPage {
 				/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 				// this.grafico = new Grafico(this.data_grafica, this.groupBy, 'Proyectos agrupados por ' + this.groupBy, '#', 'Numero de proyectos')
 				// this.options = this.grafico.graficaPie(this.subtituloSegmento = 'Número de proyectos por ' + this.groupBy)
-				this.showGrafica(this.data_grafica, this.groupBy, 'Proyectos agrupados por ' + this.groupBy, '#', 'Numero de proyectos', 'Número de proyectos por ' + this.groupBy)
+				this.graficar(this.data_grafica, this.groupBy, 'Proyectos agrupados por ' + this.groupBy, '#', 'Numero de proyectos', 'Número de proyectos por ' + this.groupBy)
 
 				const collection = collect(this.proyectos)
 				this.monto_total = account.formatNumber(collection.sum('monto'))
@@ -488,8 +488,8 @@ export class GraficaCircularPage {
 	}
 
 	/* Funcion para visualizar la grafica. */
-	showGrafica = (data: any[], serieName: string, titleName: string, grupo: string, indicador, subtitle: string) => {
-		highcharts.chart('container', {
+	graficar = (data: any[], serieName: string, titleName: string, grupo: string, indicador, subtitle: string) => {
+		highcharts.chart('container1', {
 			chart: {
 				plotBackgroundColor: null,
 				plotBorderWidth: null,
