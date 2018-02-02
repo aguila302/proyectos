@@ -17,6 +17,7 @@ import {
 	Grafico
 } from '../../../../highcharts/modulo.reportes/Grafico'
 import * as account from 'accounting-js'
+import * as highcharts from 'highcharts';
 
 @IonicPage()
 @Component({
@@ -47,7 +48,6 @@ export class GraficaFiltradaPage {
 		this.reportes = collect(this.dataFiltrada).unique('campo').toArray()
 		this.total_proyectos = collect(this.reportes).sum('numero_proyectos')
 		this.monto_total = account.formatNumber(collect(this.reportes).sum('monto_filtrado'))
-		console.log(this.reportes)
 
 		/* Para visualizar el titulo de la vista activa.*/
 		let titulo = collect(this.reportes).unique('campo').toArray()
@@ -79,8 +79,7 @@ export class GraficaFiltradaPage {
 		})
 
 		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-		this.grafico = new Grafico(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, ' %', 'Porcentaje total de participación por ' + this.campo_agrupacion),
-			this.options = this.grafico.graficaBar()
+		this.showGraficaFiltrada(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, ' %', 'Porcentaje total de participación por ' + this.campo_agrupacion)
 	}
 
 	/* Funcion para graficar por monto usd. */
@@ -124,4 +123,49 @@ export class GraficaFiltradaPage {
 			'groupBy': this.campo_agrupacion
 		})
 	}
+
+	/* Funcion para visualizar la grafica. */
+	showGraficaFiltrada = (data: any[], serieName: string, titleName: string, grupo: string, indicador) => {
+		highcharts.chart('filter', {
+			chart: {
+				type: 'column',
+			},
+			title: {
+				text: titleName
+			},
+			xAxis: {
+				type: 'category'
+			},
+			yAxis: [{
+				labels: {
+					format: `{value} ${grupo}`
+				},
+				title: {
+					text: indicador
+				},
+			}],
+			legend: {
+				enabled: false
+			},
+			plotOptions: {
+				series: {
+					dataLabels: {
+						enabled: true,
+						format: `{point.y:,.2f} ${grupo}`,
+					}
+				}
+			},
+
+			tooltip: {
+				headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+				pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:,.2f} ' + grupo + '</b> del total<br/>'
+			},
+
+			series: [{
+				data: data,
+				name: serieName,
+			}],
+		})
+	}
+
 }
