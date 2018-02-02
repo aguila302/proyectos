@@ -97,8 +97,6 @@
     <feature name="Insom&#xA;        nia">
         <param name="android-package" value="nl.xservices.plugins.Insomnia" />
     </feature>
-    <engine name="android" spec="7.0.0" />
-    <engine name="ios" spec="^4.4.0" />
     <plugin name="cordova-plugin-app-version" spec="^0.1.9" />
     <plugin name="cordova-plugin-console" spec="^1.1.0" />
     <plugin name="cordova-plugin-device" spec="^1.1.7" />
@@ -114,4 +112,6 @@
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="uk.co.workingedge.cordova.plugin.sqliteporter" spec="^1.0.2" />
     <plugin name="cordova-plugin-advanced-http" spec="^1.9.1" />
+    <engine name="android" spec="7.0.0" />
+    <engine name="ios" spec="^4.4.0" />
 </widget>

@@ -32,13 +32,12 @@ import * as moment from 'moment'
 	 */
 export class LoginPage {
 
-	loader = this.loadinCtrl.create({
-		content: 'Conectando ...',
-	})
-
 	username: string = ''
 	password: string = ''
 	fechaActual = ''
+	loader = this.loadinCtrl.create({
+		content: 'Conectando ...',
+	})
 
 	constructor(
 		public platform: Platform,
@@ -52,33 +51,26 @@ export class LoginPage {
 		this.fechaActual = moment().format('YYYY-MM-DD h:mm:ss')
 	}
 
-	ionViewDidLoad() {}
-
 	/* Funcion para loguar al usuario */
 	login = (): void => {
 		// En caso de que no se introduzca datos mostramos un mensaje.
 		if (this.username == '' || this.password == '') {
 			let msj = this.alertCtrl.create({
-				title: 'Login',
 				message: 'Debe completar el usuario y la clave de acceso',
 				buttons: ['OK']
 			})
 			msj.present()
 		} else {
-
 			/* Resolvemos el api para loguer al usuario y obtener el token. */
 			this.apiService.resolveApi(this.username, this.password)
 				.then(response => {
 					if (response === undefined) {
 						/* En caso de error no autorizado mostramos una advertencia  */
 						let msj = this.alertCtrl.create({
-							title: 'Advertencia',
-							message: 'El usuario o clave de acceso son incorrectos',
+							message: 'Usuario o clave de acceso incorrectos',
 							buttons: ['OK']
 						})
 						msj.present()
-							// loading.dismiss()
-							// }, 5000)
 					} else {
 						let lastFecha: string = ''
 							/* Si hay un token valido obtenemos la ultima fecha de sincronizacion. */
@@ -89,9 +81,9 @@ export class LoginPage {
 								} else {
 									lastFecha = response[0].fecha_registro
 								}
-								console.log('Ultima sincronizacion   ' + lastFecha)
-									/* Funcion para resolver el endpoint del api y para validar las fechas de modificaciones. */
-								this.loader.present()
+								console.log('Ultima sincronizacion  ' + lastFecha)
+
+								/* Funcion para resolver el endpoint del api y para validar las fechas de modificaciones. */
 								this.validarRecursos(lastFecha)
 							})
 					}
@@ -102,44 +94,44 @@ export class LoginPage {
 		}
 	}
 
-	/* Funcion para resolver el endpoint para cargar el archivo excel al origen de datos. */
+	/* Funcion para resolver el endpoint del api */
 	validarRecursos(lastFecha: string) {
-
+		this.loader.present()
 		this.apiService.readerArchivoExcel(lastFecha)
 			.then(response => {
 				console.log(response)
-				this.loader.dismiss()
 					/*
 					Si el status 200 no hay sincronisacion, en caso contrario sincronizamos
 					 */
-				response.status === 200 ? (
-
-						// construimos el origen de datos faltante para el modulo de reportes.
+				if (response.status === 200) {
+					setTimeout(() => {
 						this.navCtrl.push(TabsPage, {}, {
 							animate: true,
 							animation: 'ios-transition',
 							direction: 'forward'
-						}),
+						})
+						this.loader.dismiss()
+							// construimos el origen de datos faltante para el modulo de reportes.
+						this.dbService.delete()
+						this.dbService.creaTablaReportes()
+						this.dbService.creaTablaReporteColumnas()
+						this.dbService.creaTablaReporteFiltros()
+						this.dbService.creaTablaReporteAgrupaciones()
+						this.dbService.createTableAnios()
+						this.dbService.createTableDireccionAnios()
 
-						this.dbService.delete(),
-						this.dbService.creaTablaReportes(),
-						this.dbService.creaTablaReporteColumnas(),
-						this.dbService.creaTablaReporteFiltros(),
-						this.dbService.creaTablaReporteAgrupaciones(),
-						this.dbService.createTableAnios(),
-						this.dbService.createTableDireccionAnios(),
-
-						this.dbService.insertaDatosTablaReportes(),
-						this.dbService.insertaDatosTablaReportesColunas(),
-						this.dbService.insertaDatosTablaReportesAgrupacion(),
-						this.dbService.insertAnios(),
+						this.dbService.insertaDatosTablaReportes()
+						this.dbService.insertaDatosTablaReportesColunas()
+						this.dbService.insertaDatosTablaReportesAgrupacion()
+						this.dbService.insertAnios()
 						this.dbService.insertDireccionAnios()
-
-					) :
-					(
-						this.sincronizar()
-					)
-
+					}, 1000)
+				} else {
+					/**
+					 * En caso de que haya actualizaciòn en el archivo excel sincronizamos la informaciòn
+					 */
+					this.sincronizar()
+				}
 			})
 			.catch(error => {
 				console.error.bind(console)
@@ -147,15 +139,10 @@ export class LoginPage {
 	}
 
 	/* Funcion para sincronizar la informacion con la aplicacion movil. */
-	sincronizar() {
+	async sincronizar() {
 		this.apiService.fetch()
 			.then(response => {
-				this.navCtrl.push(TabsPage, {}, {
-						animate: true,
-						animation: 'ios-transition',
-						direction: 'forward'
-					})
-					/* LLamar a la funcion que nos ayudara a registrar la informacion del endpoint a nuestra aplicacion movil. */
+				/* LLamar a la funcion que nos ayudara a registrar la informacion del endpoint a nuestra aplicacion movil. */
 				this.apiService.regitrarData(response)
 					/* Funcion para registrar un historial de la sincronizacion. */
 				this.apiService.regitraSincronizacion()
@@ -172,6 +159,11 @@ export class LoginPage {
 				this.dbService.insertaDatosTablaReportesAgrupacion()
 				this.dbService.insertAnios()
 				this.dbService.insertDireccionAnios()
+				this.navCtrl.push(TabsPage, {}, {
+					animate: true,
+					animation: 'ios-transition',
+					direction: 'forward'
+				})
 				this.loader.dismiss()
 			})
 	}
