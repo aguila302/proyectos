@@ -25,7 +25,6 @@
 				</div>
 			</div>
 			<div id="container">
-				<!-- <chart [options]="options"></chart> -->
 			</div>
 			<div text-center margin-top>
 				<strong>Filtrar por :</strong>
@@ -72,18 +71,15 @@
 			<ion-card>
 				<ion-grid>
 					<ion-row>
-						<ion-col offset-4 col-6 text-left>
+						<ion-col text-center col-12 col-md-12>
 							<span item-left><strong>Monto total USD: </strong> {{ monto_total }}</span>
-						</ion-col>
-						<ion-col col-2>
 						</ion-col>
 					</ion-row>
 					<ion-row>
-						<ion-col offset-4 col-6 text-left>
+						<ion-col text-center col-12 col-md-12>
 							<span item-left><strong>Total de proyectos: </strong> {{ total_proyectos }}</span>
 						</ion-col>
-						<ion-col col-2>
-						</ion-col>
+
 					</ion-row>
 				</ion-grid>
 			</ion-card>
@@ -93,18 +89,18 @@
 			<ion-card [hidden]="!visible">
 				<ion-grid>
 					<ion-row>
-						<ion-col col-2>
+						<ion-col text-center col-12 col-sm-2>
 							<h4>Varios proyectos</h4>
 							<strong>{{ proyectos_agrupados.porcentaje }} %</strong>
 						</ion-col>
-						<ion-col col-5 text-center>
+						<ion-col col-12 text-center col-sm-5>
 							<strong>Monto USD: </strong>
 							<p class="medium">{{ proyectos_agrupados.suma_montos_menores_de_uno }}</p>
 						</ion-col>
-						<ion-col col-3 text-wrap text-justify>
+						<ion-col col-12 col-sm-3 text-wrap text-center>
 							<strong>No. de proyectos: </strong>{{ proyectos_agrupados.numero_proyectos }}
 						</ion-col>
-						<ion-col col-2 class="right">
+						<ion-col col-12 col-sm-2 text-right>
 							<button ion-button clear item-end (click)="verProyectosAgrupadosClientePorcentajeMenosAUno(proyectos_agrupados.suma_montos_menores_de_uno)">
 								<p style="text-transform: none; color: #3498DB;">Ver detalle</p>
 							</button>
@@ -120,7 +116,6 @@
 				</div>
 			</div>
 			<div id="container">
-				<!-- <chart [options]="options"></chart> -->
 			</div>
 			<div text-center margin-top>
 				<strong>Filtrar por :</strong>
@@ -167,17 +162,13 @@
 			<ion-card>
 				<ion-grid>
 					<ion-row>
-						<ion-col offset-4 col-6 text-left>
+						<ion-col text-center col-12 col-md-12>
 							<span item-left><strong>Monto total USD: </strong> {{ monto_total }}</span>
-						</ion-col>
-						<ion-col col-2>
 						</ion-col>
 					</ion-row>
 					<ion-row>
-						<ion-col offset-4 col-6 text-left>
+						<ion-col text-center col-12 col-md-12>
 							<span item-left><strong>Total de proyectos: </strong> {{ total_proyectos }}</span>
-						</ion-col>
-						<ion-col col-2>
 						</ion-col>
 					</ion-row>
 				</ion-grid>
@@ -188,18 +179,18 @@
 			<ion-card [hidden]="!visible">
 				<ion-grid>
 					<ion-row>
-						<ion-col col-2>
+						<ion-col text-center col-12 col-sm-2>
 							<h4>Varios proyectos</h4>
 							<strong>{{ proyectos_agrupados.porcentaje }} %</strong>
 						</ion-col>
-						<ion-col col-5 text-center>
+						<ion-col col-12 text-center col-sm-5>
 							<strong>Monto USD: </strong>
 							<p class="medium">{{ proyectos_agrupados.suma_montos_menores_de_uno }}</p>
 						</ion-col>
-						<ion-col col-3 text-wrap text-justify>
+						<ion-col col-12 col-sm-3 text-wrap text-center>
 							<strong>No. de proyectos: </strong>{{ proyectos_agrupados.numero_proyectos }}
 						</ion-col>
-						<ion-col col-2 class="right">
+						<ion-col col-12 col-sm-2 text-right>
 							<button ion-button clear item-end (click)="verProyectosAgrupadosClientePorcentajeMenosAUno(proyectos_agrupados.suma_montos_menores_de_uno)">
 								<p style="text-transform: none; color: #3498DB;">Ver detalle</p>
 							</button>
@@ -270,8 +261,6 @@
 					<ion-row>
 						<ion-col text-center col-12 col-md-12>
 							<span item-left><strong>Total de proyectos: </strong> {{ total_proyectos }}</span>
-						</ion-col>
-						<ion-col col-2>
 						</ion-col>
 					</ion-row>
 				</ion-grid>
