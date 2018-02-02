@@ -192,10 +192,8 @@ export class GraficaCircularPage {
 				})
 			})
 
-			// this.xy = data_cliente
 			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-			this.grafico = new Grafico(this.data_grafica, 'Clientes', 'Proyectos agrupados por clientes', 'USD', 'Numero de proyectos'),
-				this.options = this.grafico.graficaPie(this.subtituloSegmento = 'Monto total USD por ' + this.groupBy)
+			this.graficar(this.data_grafica, 'Clientes', 'Proyectos agrupados por clientes', 'USD', 'Numero de proyectos', 'Monto total USD por ' + this.groupBy)
 
 			/* Para mostrar la tabla de informacion */
 			this.monto_total = account.formatNumber(data.sum('monto'))
@@ -262,8 +260,7 @@ export class GraficaCircularPage {
 					})
 				})
 				/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-			this.grafico = new Grafico(this.data_grafica, 'Clientes', 'Proyectos agrupados por clientes', '%', 'Numero de proyectos'),
-				this.options = this.grafico.graficaPie(this.subtituloSegmento = 'Porcentaje total de participación por ' + this.groupBy)
+			this.graficar(this.data_grafica, 'Clientes', 'Proyectos agrupados por clientes', '%', 'Numero de proyectos', 'Porcentaje total de participación por ' + this.groupBy)
 
 			/* Para mostrar la tabla de informacion */
 			this.monto_total = account.formatNumber(data.sum('monto'))
@@ -431,14 +428,6 @@ export class GraficaCircularPage {
 	aplicarFiltro() {
 		let alert: any
 		let filter = []
-			/* Verificamos si al cambiar de segmento al filtros seleccionados */
-			// if(this.filtroPreseleccionado.length !== 0) {
-			// 	let y = collect(this.filtroPreseleccionado).filter(function(item, key){
-			// 		return item.checked === true
-			// 	}).map(value => {
-			// 		this.filtrosSeleccionados.push(value.registros)
-			// 	})
-			// }
 			/*Validamos si hay filtros seleccionados */
 			/* Filtros no seleccionados */
 		if (this.filtrosSeleccionados.length === 0) {
@@ -488,8 +477,6 @@ export class GraficaCircularPage {
 				plotBorderWidth: null,
 				plotShadow: true,
 				type: 'pie',
-				// width: 750,
-				// height: 600
 			},
 			title: {
 				text: titleName
