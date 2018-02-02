@@ -19,8 +19,7 @@
 <ion-content padding>
 	<div [ngSwitch]="porcentaje">
 		<ion-list *ngSwitchCase="'numero_proyectos'">
-			<div id="container">
-				<chart [options]="options"></chart>
+			<div id="contenido">
 			</div>
 			<div text-center margin-top>
 				<strong>Filtrar por:</strong>
@@ -82,8 +81,7 @@
 			</ion-card>
 		</ion-list>
 		<ion-list *ngSwitchCase="'monto_usd'">
-			<div id="container">
-				<chart [options]="options"></chart>
+			<div id="contenido">
 			</div>
 			<div text-center margin-top>
 				<strong>Filtrar por:</strong>

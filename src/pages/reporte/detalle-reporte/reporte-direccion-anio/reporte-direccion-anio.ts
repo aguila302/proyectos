@@ -116,8 +116,7 @@ export class ReporteDireccionAnioPage {
 						})
 					})
 
-					this.graficoGrupo = new GraficoGrupo(this.categorias, this.series, '#', 'Direcciones por número de proyectos')
-					this.options = this.graficoGrupo.graficaBasicColumn()
+					this.showGrafica(this.categorias, this.series, '#', 'Direcciones por número de proyectos')
 
 					/*Para obtener la información para visualizar la tabla informativa. */
 					this.reporteService.reporteDireccionAnioGrupoNumeroProyectosTAbla()
@@ -310,8 +309,7 @@ export class ReporteDireccionAnioPage {
 						})
 					})
 					this.series[4]['data'] = JSON.parse('[' + collect(anios).implode('monto', ',') + ']')
-					this.graficoGrupo = new GraficoGrupo(this.categorias, this.series, 'USD', 'Direcciones por monto total USD')
-					this.options = this.graficoGrupo.graficaBasicColumn()
+					this.showGrafica(this.categorias, this.series, 'USD', 'Direcciones por monto total USD')
 				})
 				/*Para obtener la informacion para visualizar la tabla informativa. */
 			this.reporteService.reportePorDireccionTAbla()
