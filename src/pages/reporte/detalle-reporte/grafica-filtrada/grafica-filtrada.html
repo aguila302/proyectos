@@ -33,10 +33,10 @@
 					<strong>Monto USD: </strong>
 					<p class="medium">{{ proyecto.monto }}</p>
 				</ion-col>
-				<ion-col col-3 text-wrap text-justify>
+				<ion-col col-12 col-sm-3 text-wrap text-center>
 					<strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}
 				</ion-col>
-				<ion-col col-12 col-sm-3 text-wrap text-center>
+				<ion-col col-12 col-sm-2 text-right>
 					<button ion-button clear item-end (click)="verProyectosAgrupados(proyecto.campo, proyecto.campo, proyecto.monto)">
 						<p style="text-transform: none; color: #3498DB;">Ver detalle</p>
 					</button>
