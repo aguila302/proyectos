@@ -829,9 +829,9 @@ export class DetalleReportePage {
 						/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 
 					this.campo_select = this.campo_agrupacion
-					this.grafico = new Grafico(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion, '', 'Porcentaje total de participación por ' + this.campo_agrupacion)
-					this.options = this.grafico.graficaBar()
-					console.log(this.options);
+						// this.grafico = new Grafico(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion, '', 'Porcentaje total de participación por ' + this.campo_agrupacion)
+						// this.options = this.grafico.graficaBar()
+					this.showGrafica(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion, '', 'Porcentaje total de participación por ' + this.campo_agrupacion)
 
 
 					/* Para mostrar la tabla de informacion */
@@ -852,5 +852,48 @@ export class DetalleReportePage {
 					miglobal.data_circular = response
 				})
 		}
+	}
+
+	showGrafica = (data: any[], serieName: string, titleName: string, grupo: string, indicador) => {
+		highcharts.chart('container', {
+			chart: {
+				type: 'column',
+			},
+			title: {
+				text: titleName
+			},
+			xAxis: {
+				type: 'category'
+			},
+			yAxis: [{
+				labels: {
+					format: `{value} ${grupo}`
+				},
+				title: {
+					text: indicador
+				},
+			}],
+			legend: {
+				enabled: false
+			},
+			plotOptions: {
+				series: {
+					dataLabels: {
+						enabled: true,
+						format: `{point.y:,.2f} ${grupo}`,
+					}
+				}
+			},
+
+			tooltip: {
+				headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+				pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:,.2f} ' + grupo + '</b> del total<br/>'
+			},
+
+			series: [{
+				data: data,
+				name: serieName,
+			}],
+		})
 	}
 }
