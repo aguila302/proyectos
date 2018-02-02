@@ -300,6 +300,7 @@ export class ReportesDbService {
 		}
 		/* Funcion consultar el detalle de un reporte dado a un campo. */
 	consultaXCampoAgrupado = (campo: string, groupBy: string): any => {
+		groupBy === 'año' ? groupBy = 'anio' : groupBy === 'dirección' ? groupBy = 'unidad_negocio' : groupBy === 'país' ? groupBy = 'pais' : ''
 		let proyectos = []
 		let sql = 'select * from proyectos where ' + groupBy + ' = ' + "'" + campo + "'"
 		console.log(sql);
