@@ -17,6 +17,7 @@ import {
 import {
 	GraficaFiltrosDireccionAnioDetallePage
 } from '../.././../../../pages/reporte/detalle-reporte/reporte-direccion-anio/grafica-filtros-direccion-anio/grafica-filtros-direccion-anio-detalle/grafica-filtros-direccion-anio-detalle'
+import * as highcharts from 'highcharts';
 
 @IonicPage()
 @Component({
@@ -99,10 +100,14 @@ export class GraficaFiltrosDireccionAnioPage {
 
 		/*Lamamos la funcion para graficar. */
 		setTimeout(() => {
-			this.graficoGrupo = new GraficoGrupo(this.anios.sort((function(a, b) {
+			this.showGrafica(this.anios.sort((function(a, b) {
 				return b - a
 			})), series, '%', 'Direcciones por porcentaje de participación')
-			this.options = this.graficoGrupo.graficaBasicColumn()
+
+			// this.graficoGrupo = new GraficoGrupo(this.anios.sort((function(a, b) {
+			// 	return b - a
+			// })), series, '%', 'Direcciones por porcentaje de participación')
+			// this.options = this.graficoGrupo.graficaBasicColumn()
 		}, 2000)
 	}
 
@@ -168,6 +173,43 @@ export class GraficaFiltrosDireccionAnioPage {
 			'direccion': direccion,
 			'anio': anio,
 			'monto': monto
+		})
+	}
+
+	/* Funcion para visualizar la grafica. */
+	showGrafica = (categorias: any[], serie: any[], indicador: string, title: string) => {
+		highcharts.chart('contenido', {
+			chart: {
+				type: 'column'
+			},
+			title: {
+				text: title
+			},
+			xAxis: {
+				categories: categorias,
+				crosshair: true
+			},
+			yAxis: {
+				min: 0,
+				title: {
+					text: 'Porcentaje total de participación por dirección'
+				}
+			},
+			tooltip: {
+				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+				pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+					'<td style="padding:0"><b>{point.y:,.2f} ' + indicador + '</b></td></tr>',
+				footerFormat: '</table>',
+				shared: true,
+				useHTML: true
+			},
+			plotOptions: {
+				column: {
+					pointPadding: 0.2,
+					borderWidth: 0
+				}
+			},
+			series: serie
 		})
 	}
 }
