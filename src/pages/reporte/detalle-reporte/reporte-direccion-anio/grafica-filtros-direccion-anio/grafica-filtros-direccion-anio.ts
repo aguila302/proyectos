@@ -193,7 +193,7 @@ export class GraficaFiltrosDireccionAnioPage {
 			yAxis: {
 				min: 0,
 				title: {
-					text: 'Porcentaje total de participación por dirección'
+					text: title
 				}
 			},
 			tooltip: {
