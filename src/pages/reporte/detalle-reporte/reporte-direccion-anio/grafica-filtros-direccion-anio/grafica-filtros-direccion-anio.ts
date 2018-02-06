@@ -178,7 +178,7 @@ export class GraficaFiltrosDireccionAnioPage {
 
 	/* Funcion para visualizar la grafica. */
 	showGrafica = (categorias: any[], serie: any[], indicador: string, title: string) => {
-		highcharts.chart('contenido', {
+		highcharts.chart('containerFiltro', {
 			chart: {
 				type: 'column'
 			},
