@@ -56,6 +56,8 @@ export class GraficaFiltrosDireccionAnioPage {
 		var miGlobal = this
 		var series = []
 		var cadena: string = ''
+		let indicador: string = ''
+		let title: string = ''
 		series.splice(0, series.length)
 		this.direcciones.forEach(item => {
 			cadena += `'${item}',`
@@ -64,50 +66,49 @@ export class GraficaFiltrosDireccionAnioPage {
 
 		/*Iteramos las direcciones seleccionadas y vamos obteniendo la informacion necesaria para graficar.*/
 		await this.direcciones.forEach(function callback(item, index) {
-			var res = []
+				var res = []
 
-			/* Funcion para obtener la informacion por dirección selecconado. */
-			miGlobal.dataDirecciones(item, miGlobal.anios, cadena).then(x => {
-				x.forEach(item => {
-					res.push(parseFloat(item))
+				/* Funcion para obtener la informacion por dirección selecconado. */
+				miGlobal.dataDirecciones(item, miGlobal.anios, cadena).then(x => {
+					x.forEach(item => {
+						res.push(parseFloat(item))
+					})
+				})
+				series.push({
+						'name': item,
+						'data': res
+					})
+					/* Funcion para obtener la informacion del tablero informativo*/
+				miGlobal.tableroInfomativo(item, miGlobal.anios, cadena).then(response => {
+					/* Obtenemos el total de proyectos.*/
+					miGlobal.total_proyectos = collect(response).sum('numero_proyectos')
+						/* Obtenemos la suma total del monto en USD*/
+					miGlobal.monto_total = account.formatNumber(collect(response).sum('monto'))
+
+					let ordenados = collect(response).sortByDesc('anio').all()
+					let proyectos = ordenados.map(function(item) {
+						return {
+							'porcentaje': item.porcentaje,
+							'anio': item.anio,
+							'unidad_negocio': item.unidad_negocio,
+							'monto': account.formatNumber(item.monto),
+							'numero_proyectos': item.numero_proyectos,
+							'total': item.total,
+						}
+					})
+					miGlobal.proyectos = proyectos
 				})
 			})
-			series.push({
-					'name': item,
-					'data': res
-				})
-				/* Funcion para obtener la informacion del tablero informativo*/
-			miGlobal.tableroInfomativo(item, miGlobal.anios, cadena).then(response => {
-				/* Obtenemos el total de proyectos.*/
-				miGlobal.total_proyectos = collect(response).sum('numero_proyectos')
-					/* Obtenemos la suma total del monto en USD*/
-				miGlobal.monto_total = account.formatNumber(collect(response).sum('monto'))
-
-				let ordenados = collect(response).sortByDesc('anio').all()
-				let proyectos = ordenados.map(function(item) {
-					return {
-						'porcentaje': item.porcentaje,
-						'anio': item.anio,
-						'unidad_negocio': item.unidad_negocio,
-						'monto': account.formatNumber(item.monto),
-						'numero_proyectos': item.numero_proyectos,
-						'total': item.total,
-					}
-				})
-				miGlobal.proyectos = proyectos
-			})
-		})
+			/* Validamos el indicador en donde actualmente nos encontramos. */
+		this.segmento === 1 ? (indicador = '%', title = 'Direcciones por porcentaje de participación') :
+			this.segmento === 2 ? (indicador = 'USD', title = 'Direcciones por monto total USD') :
+			this.segmento === 3 ? (indicador = '#', title = 'Direcciones por número de proyectos') : ''
 
 		/*Lamamos la funcion para graficar. */
 		setTimeout(() => {
 			this.showGrafica(this.anios.sort((function(a, b) {
 				return b - a
-			})), series, '%', 'Direcciones por porcentaje de participación')
-
-			// this.graficoGrupo = new GraficoGrupo(this.anios.sort((function(a, b) {
-			// 	return b - a
-			// })), series, '%', 'Direcciones por porcentaje de participación')
-			// this.options = this.graficoGrupo.graficaBasicColumn()
+			})), series, indicador, title)
 		}, 2000)
 	}
 
