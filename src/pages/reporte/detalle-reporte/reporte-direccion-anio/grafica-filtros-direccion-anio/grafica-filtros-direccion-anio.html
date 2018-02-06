@@ -10,12 +10,10 @@
 		<ion-grid>
 			<ion-row>
 				<ion-col text-wrap text-right>
-					<strong>Monto total USD: </strong>
-					<p class="medium">{{ monto_total }}</p>
+					<span item-left><strong>Monto total USD: </strong>{{ monto_total }}</span>
 				</ion-col>
 				<ion-col text-wrap text-left>
-					<strong>Total de proyectos: </strong>
-					<p class="medium">{{ total_proyectos }}</p>
+					<span item-left><strong>Total de proyectos: </strong>{{ total_proyectos }}</span>
 				</ion-col>
 			</ion-row>
 		</ion-grid>
@@ -23,20 +21,17 @@
 	<ion-card *ngFor="let proyecto of proyectos">
 		<ion-grid>
 			<ion-row>
-				<ion-col col-2>
-					<h4>{{ proyecto.anio }}</h4>
-					<strong>{{ proyecto.unidad_negocio }}</strong>
-					<br>
-					<strong>{{ proyecto.porcentaje }} %</strong>
+				<ion-col text-center col-12 col-sm-2>
+					<span item-left><strong>{{ proyecto.anio }}</strong></span>
+					<p>{{ proyecto.porcentaje }} %</p>
 				</ion-col>
-				<ion-col col-5 text-center>
-					<strong>Monto USD: </strong>
-					<p class="medium">{{ proyecto.monto }}</p>
+				<ion-col col-12 text-center col-sm-5>
+					<span item-left><strong>Monto USD: </strong>{{ proyecto.monto }}</span>
 				</ion-col>
-				<ion-col col-3 text-wrap text-justify>
-					<strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}
+				<ion-col col-12 col-sm-3 text-wrap text-center>
+					<span item-left><strong>No. de proyectos: </strong>{{ proyecto.numero_proyectos }}</span>
 				</ion-col>
-				<ion-col col-2 class="right">
+				<ion-col col-12 col-sm-2 text-right>
 					<button ion-button clear item-end (click)="verDetalle(proyecto.unidad_negocio, proyecto.anio, proyecto.monto)">
 						<p style="text-transform: none; color: #3498DB;">Ver detalle</p>
 					</button>
@@ -48,12 +43,10 @@
 		<ion-grid>
 			<ion-row>
 				<ion-col text-wrap text-right>
-					<strong>Monto total USD: </strong>
-					<p class="medium">{{ monto_total }}</p>
+					<span item-left><strong>Monto total USD: </strong>{{ monto_total }}</span>
 				</ion-col>
 				<ion-col text-wrap text-left>
-					<strong>Total de proyectos: </strong>
-					<p class="medium">{{ total_proyectos }}</p>
+					<span item-left><strong>Total de proyectos: </strong>{{ total_proyectos }}</span>
 				</ion-col>
 			</ion-row>
 		</ion-grid>
