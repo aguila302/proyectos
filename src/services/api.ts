@@ -4,24 +4,26 @@ import {
 import {
 	HTTP
 } from '@ionic-native/http';
-import { DbService } from './db.service'
+import {
+	DbService
+} from './db.service'
 import {
 	ReportesDbService
 } from '../services/reportes.db.service'
 
 @Injectable()
-/* Clase para el manejo de la api. */
+	/* Clase para el manejo de la api. */
 export class ApiService {
 	constructor(private http: HTTP, public dbService: DbService, private reporteService: ReportesDbService) {}
-	/* Funcion para resolver al api y loguear al usuario */
+		/* Funcion para resolver al api y loguear al usuario */
 	resolveApi(usuario: string, password: string) {
 		let token = {}
 		return this.http.post(`http://qa.calymayor.com.mx/biprows/public/api/login`, {
-		// return this.http.post(`http://11.11.1.157/laravel5.5/public/api/login`, {
+				// return this.http.post(`http://11.11.1.157/laravel5.5/public/api/login`, {
 				'username': usuario,
 				'password': password
 			}, {})
-			.then(function (response) { /* Responde con http 200 */
+			.then(function(response) { /* Responde con http 200 */
 				/* Obtenemos el token de accseso. */
 				return JSON.parse(response.data)
 			})
@@ -34,8 +36,10 @@ export class ApiService {
 	readerArchivoExcel = (lastFecha) => {
 		let status = {}
 		this.http.setRequestTimeout(15000)
-		return this.http.post(`http://qa.calymayor.com.mx/biprows/public/api/proyectos`, {'last_fecha': lastFecha}, {})
-		// return this.http.post('http://11.11.1.157/laravel5.5/public/api/proyectos', {}, {})
+		return this.http.post(`http://qa.calymayor.com.mx/biprows/public/api/proyectos`, {
+				'last_fecha': lastFecha
+			}, {})
+			// return this.http.post('http://11.11.1.157/laravel5.5/public/api/proyectos', {}, {})
 			.then(response => {
 				return JSON.parse(response.data)
 			}).catch(error => {
@@ -47,7 +51,7 @@ export class ApiService {
 	fetch = () => {
 		let proyectos = []
 		return this.http.get(`http://qa.calymayor.com.mx/biprows/public/api/proyectos`, {}, {})
-		// return this.http.get('http://11.11.1.157/laravel5.5/public/api/proyectos', {}, {})
+			// return this.http.get('http://11.11.1.157/laravel5.5/public/api/proyectos', {}, {})
 			.then(response => {
 				return proyectos = JSON.parse(response.data)
 			})
