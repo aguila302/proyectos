@@ -18,12 +18,15 @@ export class ApiService {
 		/* Funcion para resolver al api y loguear al usuario */
 	resolveApi(usuario: string, password: string) {
 		let token = {}
+
 		return this.http.post(`http://qa.calymayor.com.mx/biprows/public/api/login`, {
-				// return this.http.post(`http://11.11.1.157/laravel5.5/public/api/login`, {
-				'username': usuario,
-				'password': password
-			}, {})
-			.then(function(response) { /* Responde con http 200 */
+			// return this.http.post(`http://11.11.1.157/laravel5.5/public/api/login`, {
+			'username': usuario,
+			'password': password
+		}, {})
+
+		// http://qa.calymayor.com.mx/biprows/public/api/login
+		.then(function(response) { /* Responde con http 200 */
 				/* Obtenemos el token de accseso. */
 				return JSON.parse(response.data)
 			})
