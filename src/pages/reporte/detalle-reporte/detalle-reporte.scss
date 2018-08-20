@@ -1,7 +1,9 @@
 .ios, .md {
     #container {
         border: 2px solid red;
-        width: 100%;
+        min-width: 310px;
+        max-width: 800px;
+}
     }
 }
 page-detalle-reporte {
