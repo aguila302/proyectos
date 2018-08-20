@@ -116,10 +116,7 @@ export class DetalleReportePage {
 				})
 				.then(() => this.reporteService.obtenerFiltros(this.id)
 					.then(response => {
-						console.log('mi filtrp')
 						this.filtros = response
-						console.log(this.filtros)
-
 					}))
 			)
 		// .then(() => this.getReporteDetalle())

@@ -8,19 +8,19 @@ export class Grafico {
 	titleName: string = ''
 	grupo: string = ''
 	indicador: string = ''
-		/**
-		 * Parametros de entrada a nuestra clase para la construccion de las graficas.
-		 * @param {any[]}  data
-		 * @param {string} serieName
-		 * @param {string} titleName
-		 */
+	/**
+	 * Parametros de entrada a nuestra clase para la construccion de las graficas.
+	 * @param {any[]}  data
+	 * @param {string} serieName
+	 * @param {string} titleName
+	 */
 	constructor(data: any[], serieName: string, titleName: string, grupo: string, indicador) {
 		console.log(serieName)
 
 		this.data = data
 		this.serieName = serieName
 		titleName === 'Proyectos agrupados por pais' ? this.titleName = 'Proyectos agrupados por país' : this.titleName = titleName
-			// serieName === 'anio' ? serieNamen = 'año' : serieName === 'unidad_negocio' ? serieName = 'dirección' : serieNamen === 'pais' ? serieName = 'país' : ''
+
 		grupo === '' ? this.grupo = '%' : this.grupo = grupo
 		this.indicador = indicador
 	}
@@ -29,11 +29,12 @@ export class Grafico {
 	 * Funcion que retorna un objeto para graficar de tipo bar
 	 */
 	graficaBar = (): Object => {
+		console.log('bar')
 
 		let options = {
 			chart: {
 				type: 'column',
-				width: 750
+				width: '100%'
 			},
 			title: {
 				text: this.titleName
