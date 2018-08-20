@@ -814,6 +814,8 @@ export class DetalleReportePage {
 	}
 	/* Funcion para visualizar la grafica. */
 	showGrafica = (data: any[], serieName: string, titleName: string, grupo: string, indicador) => {
+		console.log('show grafica')
+
 		highcharts.chart('container', {
 			chart: {
 				type: 'column',
