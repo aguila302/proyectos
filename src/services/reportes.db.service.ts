@@ -9,7 +9,7 @@ import * as collect from 'collect.js/dist'
 import * as account from 'accounting-js'
 
 @Injectable()
-	/* Clase para el manejo de los reportes. */
+/* Clase para el manejo de los reportes. */
 export class ReportesDbService {
 
 	db: SQLiteObject = null
@@ -92,9 +92,6 @@ export class ReportesDbService {
 
 	/* Funcion para la consulta del detalle de reportes. */
 	detalleReporte = (campo: string, agrupacion: string, filtros: any[]): any => {
-		console.log('yuyuu');
-		console.log(filtros);
-
 		agrupacion === 'año' ? agrupacion = 'anio' : agrupacion === 'dirección' ? agrupacion = 'unidad_negocio' : agrupacion === 'país' ? agrupacion = 'pais' :
 			agrupacion === 'Número de propuesta' ? agrupacion = 'numero_propuesta' : agrupacion === 'datos de cliente' ? agrupacion = 'datos_cliente' : agrupacion === 'duración' ? agrupacion = 'duracion' :
 			agrupacion === 'fecha de inicio' ? agrupacion = 'fecha_inicio' : agrupacion === 'fecha de término' ? agrupacion = 'fecha_fin' :
@@ -108,9 +105,6 @@ export class ReportesDbService {
 					(select count(*) from proyectos) as total, id
 					FROM proyectos
 					group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
-			console.log('gggg')
-
-			console.log(sql)
 		} else {
 
 			let opciones = []
@@ -138,7 +132,6 @@ export class ReportesDbService {
 			var h = []
 			g.forEach(function(item) {
 				for (var i in misNuevasColumnas) {
-					// console.log(cols[i])
 					h.push({
 						[misNuevasColumnas[i]]: item[misNuevasColumnas[i]],
 					})
@@ -154,7 +147,6 @@ export class ReportesDbService {
 				cadena += `${Object.keys(item)} in (${nuevoValues}) and `
 			})
 			sql = cadena.slice(0, -5) + ` group by ` + agrupacion + ` order by ` + agrupacion + ` ASC`
-			console.log(sql)
 		}
 		return this.db.executeSql(sql, {})
 			.then(response => {
@@ -220,10 +212,6 @@ export class ReportesDbService {
 					count(*) as numero_proyectos
 					FROM proyectos ${this.whereNuevoReporte.slice(0, -4)}
 					group by ` + agrupacion + ``
-		console.log('mi query');
-
-		console.log(sql);
-
 		return this.db.executeSql(sql, {})
 			.then(response => {
 				for (let index = 0; index < response.rows.length; index++) {
@@ -244,7 +232,7 @@ export class ReportesDbService {
 				nombre_reporte, total_usd, total_proyectos) values(?, ?, ?)`
 		this.db.executeSql(insert, [title, monto_total, numero_proyectos])
 			.then(() => console.log('nuevo reporte insertado'))
-			.catch(e => console.log(e))
+		.catch(e => console.log(e))
 
 		let last_id = `SELECT max(id) as id from reportes`
 		return this.db.executeSql(last_id, {})
@@ -263,9 +251,6 @@ export class ReportesDbService {
 		agrupacion === 'año' ? agrupacion = 'anio' : agrupacion === 'dirección' ? agrupacion = 'unidad_negocio' : agrupacion === 'país' ? agrupacion = 'pais' : ''
 		let insert_grupado = `insert into reportes_agrupacion(
 				reporte_id, nombre_columna, orden_agrupacion) values(?, ?, ?)`
-
-		// console.log(insert_grupado);
-
 		return this.db.executeSql(insert_grupado, [id, agrupacion, '1'])
 	}
 
@@ -274,36 +259,30 @@ export class ReportesDbService {
 		agrupacion === 'año' ? agrupacion = 'anio' : agrupacion === 'dirección' ? agrupacion = 'unidad_negocio' : agrupacion === 'país' ? agrupacion = 'pais' : ''
 		let insert_grupado = `insert into reportes_columnas(
 				reporte_id, nombre_columna) values(?, ?)`
-
-		// console.log(insert_grupado)
-
 		return this.db.executeSql(insert_grupado, [id, agrupacion])
 	}
 
 	/* Funcion para guardar los campos y los valores en la tabla reportes_filtros en la seccion nuevo reporte*/
 	insertReporteFiltros = (campos: any[], id: number) => {
-			console.log(campos)
+		let insert = 'insert into reportes_filtros (reporte_id, nombre_columna, valor) values('
+		/* Recorremos el array de las opciones seleccionadas para insertar en el origen de datos. */
+		for (var i in campos) { /* otenemos los campos de filtracion. */
+			for (var rel in campos[i]) { /* Obtenemos array de los valores de la filtracion. */
+				for (var t in campos[i][rel]) { /* Obtenemos Valores de los filtros, */
+					let insertColumas = insert + `${id}, '${Object.keys(campos[i]).toString()}'` + ','
 
-			let insert = 'insert into reportes_filtros (reporte_id, nombre_columna, valor) values('
-				/* Recorremos el array de las opciones seleccionadas para insertar en el origen de datos. */
-			for (var i in campos) { /* otenemos los campos de filtracion. */
-				for (var rel in campos[i]) { /* Obtenemos array de los valores de la filtracion. */
-					for (var t in campos[i][rel]) { /* Obtenemos Valores de los filtros, */
-						let insertColumas = insert + `${id}, '${Object.keys(campos[i]).toString()}'` + ','
-
-						let queryFinal = insertColumas + `'${campos[i][rel][t]}'` + ')'
-							/* Registramos las opciones en el origen de datos */
-						this.db.executeSql(queryFinal, {})
-					}
+					let queryFinal = insertColumas + `'${campos[i][rel][t]}'` + ')'
+					/* Registramos las opciones en el origen de datos */
+					this.db.executeSql(queryFinal, {})
 				}
 			}
 		}
-		/* Funcion consultar el detalle de un reporte dado a un campo. */
+	}
+	/* Funcion consultar el detalle de un reporte dado a un campo. */
 	consultaXCampoAgrupado = (campo: string, groupBy: string): any => {
 		groupBy === 'año' ? groupBy = 'anio' : groupBy === 'dirección' ? groupBy = 'unidad_negocio' : groupBy === 'país' ? groupBy = 'pais' : ''
 		let proyectos = []
 		let sql = 'select * from proyectos where ' + groupBy + ' = ' + "'" + campo + "'"
-		console.log(sql);
 
 		return this.db.executeSql(sql, {})
 			.then((response) => {
@@ -355,8 +334,6 @@ export class ReportesDbService {
 							(select count(*) from proyectos) as total, sum(monto) as monto_filtrado
 							FROM proyectos
 							where ` + columnas + ` in ('` + where + `')` + ` group by ` + columnas + ` order by ` + columnas + ` asc`
-		console.log(sql)
-
 		return this.db.executeSql(sql, {})
 	}
 
@@ -383,9 +360,6 @@ export class ReportesDbService {
 			sql = `select ` + agrupacion + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
 						(select sum(monto) from proyectos) as monto_total, (select count(*) from proyectos) as total_proyectos
 						FROM proyectos group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
-			console.log('mi query')
-
-			console.log(sql)
 
 		} else {
 			filters.forEach(item => {
@@ -397,7 +371,6 @@ export class ReportesDbService {
 						(select sum(monto) from proyectos) as monto_total, (select count(*) from proyectos) as total_proyectos
 						FROM proyectos where ${campo[0]} in (${nuevaCadena}) group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
 
-			console.log(sql)
 		}
 
 		return this.db.executeSql(sql, {})
@@ -410,8 +383,8 @@ export class ReportesDbService {
 						'numero_proyectos': response.rows.item(index).numero_proyectos,
 						'total_proyectos': response.rows.item(index).total_proyectos,
 						'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total_proyectos) * 100, 2)
-							// 'porcentaje': account.toFixed((response.rows.item(index).monto / response.rows.item(index).monto_total) * 100, 2)
-							// 'porcentaje': account.toFixed((response.rows.item(index).monto / response.rows.item(index).monto_total) * 100, 2)
+						// 'porcentaje': account.toFixed((response.rows.item(index).monto / response.rows.item(index).monto_total) * 100, 2)
+						// 'porcentaje': account.toFixed((response.rows.item(index).monto / response.rows.item(index).monto_total) * 100, 2)
 					})
 				}
 				return Promise.resolve(reportes)
@@ -430,13 +403,12 @@ export class ReportesDbService {
 			agrupacion === 'fecha de inicio' ? agrupacion = 'fecha_inicio' : agrupacion === 'fecha de término' ? agrupacion = 'fecha_fin' :
 			agrupacion === 'Monto total original' ? agrupacion = 'monto_moneda_original' : agrupacion === 'Nombre corto' ? agrupacion = 'nombre_corto' :
 			agrupacion === 'Nombre de proyecto' ? agrupacion = 'nombre_proyecto' : agrupacion === 'Número de contrato' ? agrupacion = 'numero_contrato' : ''
-			// Recuperamos nuestros filtros
+		// Recuperamos nuestros filtros
 		filters = filtros.map(item => item.valor)
 		if (filters.length === 0) {
 			sql = `select ` + agrupacion + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
 						(select sum(monto) from proyectos) as monto_total, (select count(*) from proyectos) as total_proyectos
 						FROM proyectos group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
-			console.log(sql)
 		} else {
 			filters.forEach(item => {
 				cadena += `'${item}',`
@@ -446,7 +418,6 @@ export class ReportesDbService {
 			sql = `select ` + agrupacion + ` as campo , count(*) as numero_proyectos, sum(monto) as monto,
 						(select sum(monto) from proyectos) as monto_total, (select count(*) from proyectos) as total_proyectos
 						FROM proyectos where ${agrupacion} in (${nuevaCadena}) group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
-			console.log(sql)
 		}
 
 		return this.db.executeSql(sql, {})
@@ -497,89 +468,89 @@ export class ReportesDbService {
 
 	/* Funcion para obtener los montos de la direccion consultoria. */
 	getmontosDireccionesConsultoria = (): any => {
-			let reportes = []
-			let sql = `select anio, montoUsd 
-				from direccionAnio 
+		let reportes = []
+		let sql = `select anio, montoUsd
+				from direccionAnio
 				where anio > 2011 and direccionAnio.unidad_negocio = 'Consultoría'
 				group by unidad_negocio, anio
 				order by unidad_negocio, anio desc`
 
-			return this.db.executeSql(sql, {})
-				.then(response => {
-					for (let index = 0; index < response.rows.length; index++) {
-						reportes.push({
-							anio: response.rows.item(index).anio,
-							montoUsd: response.rows.item(index).montoUsd
-						})
-					}
-					return Promise.resolve(reportes)
-				})
-		}
-		/* Funcion para obtener los montos de la direccion Sistemas. */
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					reportes.push({
+						anio: response.rows.item(index).anio,
+						montoUsd: response.rows.item(index).montoUsd
+					})
+				}
+				return Promise.resolve(reportes)
+			})
+	}
+	/* Funcion para obtener los montos de la direccion Sistemas. */
 	getmontosDireccionesSistemas = (): any => {
-			let reportes = []
-			let sql = `select anio, montoUsd 
-				from direccionAnio 
+		let reportes = []
+		let sql = `select anio, montoUsd
+				from direccionAnio
 				where anio > 2011 and direccionAnio.unidad_negocio = 'Desarrollo de sistemas'
 				group by unidad_negocio, anio
 				order by unidad_negocio, anio desc`
 
-			return this.db.executeSql(sql, {})
-				.then(response => {
-					for (let index = 0; index < response.rows.length; index++) {
-						reportes.push({
-							anio: response.rows.item(index).anio,
-							montoUsd: response.rows.item(index).montoUsd
-						})
-					}
-					return Promise.resolve(reportes)
-				})
-		}
-		/* Funcion para obtener los montos de la direccion Ingeniería. */
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					reportes.push({
+						anio: response.rows.item(index).anio,
+						montoUsd: response.rows.item(index).montoUsd
+					})
+				}
+				return Promise.resolve(reportes)
+			})
+	}
+	/* Funcion para obtener los montos de la direccion Ingeniería. */
 	getmontosDireccionesIngenieria = (): any => {
-			let reportes = []
-			let sql = `select anio, montoUsd 
-				from direccionAnio 
+		let reportes = []
+		let sql = `select anio, montoUsd
+				from direccionAnio
 				where anio > 2011 and direccionAnio.unidad_negocio = 'Ingeniería'
 				group by unidad_negocio, anio
 				order by unidad_negocio, anio desc`
 
-			return this.db.executeSql(sql, {})
-				.then(response => {
-					for (let index = 0; index < response.rows.length; index++) {
-						reportes.push({
-							anio: response.rows.item(index).anio,
-							montoUsd: response.rows.item(index).montoUsd
-						})
-					}
-					return Promise.resolve(reportes)
-				})
-		}
-		/* Funcion para obtener los montos de la direccion Sin referencia. */
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					reportes.push({
+						anio: response.rows.item(index).anio,
+						montoUsd: response.rows.item(index).montoUsd
+					})
+				}
+				return Promise.resolve(reportes)
+			})
+	}
+	/* Funcion para obtener los montos de la direccion Sin referencia. */
 	getmontosDireccionesSinReferencia = (): any => {
-			let reportes = []
-			let sql = `select anio, montoUsd 
-				from direccionAnio 
+		let reportes = []
+		let sql = `select anio, montoUsd
+				from direccionAnio
 				where anio > 2011 and direccionAnio.unidad_negocio = 'Sin dato'
 				group by unidad_negocio, anio
 				order by unidad_negocio, anio desc`
 
-			return this.db.executeSql(sql, {})
-				.then(response => {
-					for (let index = 0; index < response.rows.length; index++) {
-						reportes.push({
-							anio: response.rows.item(index).anio,
-							montoUsd: response.rows.item(index).montoUsd
-						})
-					}
-					return Promise.resolve(reportes)
-				})
-		}
-		/* Funcion para obtener los montos de la direccion Suramérica. */
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					reportes.push({
+						anio: response.rows.item(index).anio,
+						montoUsd: response.rows.item(index).montoUsd
+					})
+				}
+				return Promise.resolve(reportes)
+			})
+	}
+	/* Funcion para obtener los montos de la direccion Suramérica. */
 	getmontosDireccionesSuramerica = (): any => {
 		let reportes = []
-		let sql = `select anio, montoUsd 
-				from direccionAnio 
+		let sql = `select anio, montoUsd
+				from direccionAnio
 				where anio > 2011 and direccionAnio.unidad_negocio = 'Suramérica'
 				group by unidad_negocio, anio
 				order by unidad_negocio, anio desc`
@@ -780,36 +751,34 @@ export class ReportesDbService {
 
 	/* Funcion para conseguir la data del filtrado de reporte direccion anios. */
 	obtenerDataFiltracion = (direcciones, anios, cadena) => {
-			let direccionAnio = []
+		let direccionAnio = []
 
-			let sql = `select sum(monto) as monto, anio, unidad_negocio, count(*) as numero_proyectos, (select count(*) 
+		let sql = `select sum(monto) as monto, anio, unidad_negocio, count(*) as numero_proyectos, (select count(*)
 					from proyectos where anio in (${anios}) and unidad_negocio IN (${cadena})) as total
-					from proyectos where unidad_negocio in('${direcciones}') 
+					from proyectos where unidad_negocio in('${direcciones}')
 					and anio in (${anios})
 					group by unidad_negocio, anio
 					order by anio desc;`
 
-			console.log('mi consulta fltrada')
-			console.log(sql)
-			return this.db.executeSql(sql, {})
-				.then(response => {
-					for (let index = 0; index < response.rows.length; index++) {
-						direccionAnio.push({
-							'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2),
-							'monto': response.rows.item(index).monto,
-							'numero_proyectos': response.rows.item(index).numero_proyectos
-						})
-					}
-					return Promise.resolve(direccionAnio)
-				}).catch(console.error.bind(console))
-		}
-		/* Funcion para conseguir la información del tablero de reporte direccion, anio filtrado. */
+		return this.db.executeSql(sql, {})
+			.then(response => {
+				for (let index = 0; index < response.rows.length; index++) {
+					direccionAnio.push({
+						'porcentaje': account.toFixed((response.rows.item(index).numero_proyectos / response.rows.item(index).total) * 100, 2),
+						'monto': response.rows.item(index).monto,
+						'numero_proyectos': response.rows.item(index).numero_proyectos
+					})
+				}
+				return Promise.resolve(direccionAnio)
+			}).catch(console.error.bind(console))
+	}
+	/* Funcion para conseguir la información del tablero de reporte direccion, anio filtrado. */
 	tableroDireccionAniosGeneral = (direcciones, anios, cadena) => {
 		let direccionAnio = []
 
-		let sql = `select sum(monto) as monto, anio, unidad_negocio, count(*) as numero_proyectos, (select count(*) 
+		let sql = `select sum(monto) as monto, anio, unidad_negocio, count(*) as numero_proyectos, (select count(*)
 					from proyectos where anio in (${anios}) and unidad_negocio IN (${cadena})) as total
-					from proyectos where unidad_negocio in('${direcciones}') 
+					from proyectos where unidad_negocio in('${direcciones}')
 					and anio in (${anios})
 					group by anio
 					order by anio desc;`
@@ -864,8 +833,6 @@ export class ReportesDbService {
 
 	/* Funcion para obtener la informacion de acuerdo a un filtro en la seccion de nuevo reporte. */
 	getFilterData = (filtro) => {
-		console.log(filtro)
-
 		let filtrado = []
 		let sql = `select distinct(${filtro.columna}) as campo from proyectos order by ${filtro.columna} DESC`
 		return this.db.executeSql(sql, {})
@@ -899,11 +866,9 @@ export class ReportesDbService {
 	/*Funcion para conseguir la informacion para construir la grafica. */
 	paraGraficarNuevoReporte = (columnas, agrupacion): any => {
 		let sql = `select ` + columnas + `, ${agrupacion} as campo , count(*) as numero_proyectos, sum(monto) as monto,
-						(select count(*) from proyectos) as total, sum(monto) as monto_filtrado, 
+						(select count(*) from proyectos) as total, sum(monto) as monto_filtrado,
 						(select count(*) FROM proyectos ${this.whereNuevoReporte.slice(0, -4)}) as total_proyectos_filtrados
 						FROM proyectos ${this.whereNuevoReporte.slice(0, -4)} group by ` + agrupacion + ` order by ` + agrupacion + ` asc`
-
-		console.log(sql)
 
 		return this.db.executeSql(sql, {})
 	}

@@ -158,31 +158,19 @@ export class NuevoReportePage {
 		private reporteService: ReportesDbService, private modal: ModalController, public toastCtrl: ToastController,
 		public zone: NgZone, public alertCtrl: AlertController, public loadingCtrl: LoadingController, private dbService: DbService) {}
 
-	ngOnChanges() {
-		console.log('cambio')
-	}
 	ionViewDidLoad() {
 		this.muestraColumnasInit()
 		this.visible = !this.visible
-		console.log(this.visible)
 
-		// this.visible = !this.visible
-		// if (this.visible) {
-		// 	console.log('open')
-		// 	this.open.emit(null)
-		// } else {
-		// 	console.log('cloese')
-		// 	this.close.emit(null)
-		// }
 	}
 
 	/* Carga las columnas cuando presentamos la pantalla. */
 	muestraColumnasInit = () => {
 		this.columnas.forEach(item => {
-				this.columnasInit.push(item.opcion)
-				this.titleInit.push(item.title)
-			})
-			/* Llamamos a la funcion para mostrar la grid. */
+			this.columnasInit.push(item.opcion)
+			this.titleInit.push(item.title)
+		})
+		/* Llamamos a la funcion para mostrar la grid. */
 		this.manageGrid(this.columnasInit, this.titleInit)
 
 		this.llenarGrid('select * from proyectos', [])
@@ -191,18 +179,17 @@ export class NuevoReportePage {
 	/* Funcion para mostrar las comunas y escoger*/
 	selectColumnas = (): void => {
 		var miGlobal = this
-			/* Pasamos las columnas a la vista de seleeccion de columnas. */
+		/* Pasamos las columnas a la vista de seleeccion de columnas. */
 		let modal_columnas = this.modal.create(SelectColumnasPage, {
-				'columnas_preselecccionadas': miGlobal.columnas_preseleccionadas
-			})
-			/* Muestro el modal para seleccionar las columnas. */
+			'columnas_preselecccionadas': miGlobal.columnas_preseleccionadas
+		})
+		/* Muestro el modal para seleccionar las columnas. */
 		modal_columnas.present()
-			/* Cuando cierro mi modal recupero mis columnas que seleccione. */
+		/* Cuando cierro mi modal recupero mis columnas que seleccione. */
 		modal_columnas.onDidDismiss(data => {
-			console.log(data);
 
 			this.visible = false
-				/* Reseteamos los arreglos para actualizar las opciones seleccionadas. */
+			/* Reseteamos los arreglos para actualizar las opciones seleccionadas. */
 			this.options = {}
 			this.columnas_seleccionadas.splice(0, this.columnas_seleccionadas.length)
 			miGlobal.filtrar_seleccionadas.splice(0, this.filtrar_seleccionadas.length)
@@ -210,7 +197,6 @@ export class NuevoReportePage {
 
 			// Obtenemos las columnas seleccionadas
 			let misColumnas = collect(data.columnas).implode(',')
-			console.log(data.columnas);
 			this.reporteService.getDataGrid(`select ${misColumnas} from proyectos`, [])
 				.then(response => {
 
@@ -226,7 +212,7 @@ export class NuevoReportePage {
 					title: data.title[index]
 				})
 			})
-			console.log(collect(miGlobal.filtrar_seleccionadas).unique('columna').toArray())
+
 		})
 	}
 
@@ -243,11 +229,11 @@ export class NuevoReportePage {
 		} else {
 			/* Creamos la vista para mostrar los filtros*/
 			let modalFilter = this.modal.create(FiltrarColumnasPage, {
-					'filtros_seleccionadas': collect(this.filtrar_seleccionadas).unique('columna').toArray()
-				})
-				/* Muestro el modal para seleccionar las filtros. */
+				'filtros_seleccionadas': collect(this.filtrar_seleccionadas).unique('columna').toArray()
+			})
+			/* Muestro el modal para seleccionar las filtros. */
 			modalFilter.present()
-				/* Cuando cierro mi modal recupero mis columnas que seleccione. */
+			/* Cuando cierro mi modal recupero mis columnas que seleccione. */
 			modalFilter.onDidDismiss(data => {
 				let misCampos = []
 				let cadena: string = `select `
@@ -265,25 +251,22 @@ export class NuevoReportePage {
 				})
 
 				data.forEach(function(items, index) {
-						console.log('item')
-						console.log(items);
-						values = ''
+					values = ''
 
-						let keys = Object.keys(items)
-						items[`${keys}`].forEach(item => {
-							console.log('item' + item)
-							values += `'${item}',`
-							nuevoValues = values.slice(0, -1)
-						})
+					let keys = Object.keys(items)
+					items[`${keys}`].forEach(item => {
 
-						nuevaCadena += `${Object.keys(items)} in (${nuevoValues}) and `
-						nuevaCadenaWhere += `${Object.keys(items)} in (${nuevoValues}) and `
+						values += `'${item}',`
+						nuevoValues = values.slice(0, -1)
 					})
-					/* Obtenemos los campos de select para guardar el reporte en la table reportes_filtros */
+
+					nuevaCadena += `${Object.keys(items)} in (${nuevoValues}) and `
+					nuevaCadenaWhere += `${Object.keys(items)} in (${nuevoValues}) and `
+				})
+				/* Obtenemos los campos de select para guardar el reporte en la table reportes_filtros */
 				this.camposGuardarReporte = data
 				miGlobal.whereGlobal = nuevaCadenaWhere
 				this.reporteService.whereNuevoReporte = miGlobal.whereGlobal
-				console.log(nuevaCadena.slice(0, -5))
 
 				/* Llamar a la funcion que nos ayudara a realizar la consulta para llenar la grid. */
 				this.llenarGrid(nuevaCadena.slice(0, -5), this.filtrar_seleccionadas)
@@ -304,8 +287,8 @@ export class NuevoReportePage {
 		this.reporteService.getDataGrid(consulta, filtrosNew)
 			.then(response => {
 				this.data = response
-					/* Mostrarmos la grid. */
-					/* En caso de que la gris carga por primera vez*/
+				/* Mostrarmos la grid. */
+				/* En caso de que la gris carga por primera vez*/
 				if (filtrosNew.length === 0 && titleNew.length === 0) {
 					this.manageGrid(this.columnasInit, this.titleInit, response)
 				}
@@ -353,9 +336,9 @@ export class NuevoReportePage {
 				this.columnas_seleccionadas.push(items.columna)
 			})
 			let modalAgrupaciones = this.modal.create(SelectAgrupacionesPage, {
-					agrupaciones: collect(this.filtrar_seleccionadas).unique('columna').toArray()
-				})
-				/* Activamos la vista para seleccionar nuestra agrupacion. */
+				agrupaciones: collect(this.filtrar_seleccionadas).unique('columna').toArray()
+			})
+			/* Activamos la vista para seleccionar nuestra agrupacion. */
 			modalAgrupaciones.present()
 
 			/* Cuando cerramos la vista de agrapaciones recuperamos la agruapacion seleccionada. */
@@ -369,10 +352,10 @@ export class NuevoReportePage {
 					alert.present();
 				} else {
 					this.agrupacion_seleccionada = response
-						// console.log('ver grafica  ' + !this.visible)
+					// console.log('ver grafica  ' + !this.visible)
 
 					this.visible = true
-						/* Llamar a la funcion que se encarga de graficar. */
+					/* Llamar a la funcion que se encarga de graficar. */
 					this.graficar(this.columnas_seleccionadas, response)
 				}
 			})
@@ -381,103 +364,102 @@ export class NuevoReportePage {
 
 	/* Funcion que nos servira para graficar la informacion. */
 	graficar(columnas: Array < any > , agrupacion: Array < any > ) {
-			// this.visible = !this.visible
-			this.agrupacion_seleccionada = agrupacion
-			this.reporteService.paraGraficarNuevoReporte(columnas, agrupacion)
-				.then(res => {
-					/* refrescamos el arreglo de la grafica. */
-					this.xy.splice(0, this.xy.length)
 
-					let resultado = []
-						/* Refactorizamos la data obtenida por la consulta. */
-					for (var i = 0; i < res.rows.length; i++) {
-						resultado.push({
-							'campo': res.rows.item(i).campo,
-							'monto': account.formatNumber(parseInt(res.rows.item(i).monto)),
-							'total': res.rows.item(i).total,
-							'numero_proyectos': res.rows.item(i).numero_proyectos,
-							'monto_filtrado': res.rows.item(i).monto_filtrado,
-							'porcentaje': account.toFixed((res.rows.item(i).numero_proyectos / res.rows.item(i).total_proyectos_filtrados) * 100, 2)
-						})
-					}
-					/* Obtenemos la data final para construir la grafica */
-					resultado.forEach(item => {
-						this.xy.push({
-							name: item.campo,
-							y: parseFloat(item.porcentaje)
-						})
+		this.agrupacion_seleccionada = agrupacion
+		this.reporteService.paraGraficarNuevoReporte(columnas, agrupacion)
+			.then(res => {
+				/* refrescamos el arreglo de la grafica. */
+				this.xy.splice(0, this.xy.length)
+
+				let resultado = []
+				/* Refactorizamos la data obtenida por la consulta. */
+				for (var i = 0; i < res.rows.length; i++) {
+					resultado.push({
+						'campo': res.rows.item(i).campo,
+						'monto': account.formatNumber(parseInt(res.rows.item(i).monto)),
+						'total': res.rows.item(i).total,
+						'numero_proyectos': res.rows.item(i).numero_proyectos,
+						'monto_filtrado': res.rows.item(i).monto_filtrado,
+						'porcentaje': account.toFixed((res.rows.item(i).numero_proyectos / res.rows.item(i).total_proyectos_filtrados) * 100, 2)
 					})
-					this.zone.run(() => {
-						this.agrupacion_seleccionada[0] === 'anio' ? this.agrupacion_seleccionada[0] = 'año' : this.agrupacion_seleccionada[0] === 'unidad_negocio' ? this.agrupacion_seleccionada[0] = 'dirección' : this.agrupacion_seleccionada[0] === 'pais' ? this.agrupacion_seleccionada[0] = 'país' :
-							this.agrupacion_seleccionada[0] === 'numero_propuesta' ? this.agrupacion_seleccionada[0] = 'Número de propuesta' : this.agrupacion_seleccionada[0] === 'datos_cliente' ? this.agrupacion_seleccionada[0] = 'datos de cliente' : this.agrupacion_seleccionada[0] === 'duracion' ? this.agrupacion_seleccionada[0] = 'duración' :
-							this.agrupacion_seleccionada[0] === 'fecha_inicio' ? this.agrupacion_seleccionada[0] = 'fecha de inicio' : this.agrupacion_seleccionada[0] === 'fecha_fin' ? this.agrupacion_seleccionada[0] = 'fecha de término' :
-							this.agrupacion_seleccionada[0] === 'monto_moneda_original' ? this.agrupacion_seleccionada[0] = 'Monto total original' : this.agrupacion_seleccionada[0] === 'nombre_corto' ? this.agrupacion_seleccionada[0] = 'Nombre corto' :
-							this.agrupacion_seleccionada[0] === 'nombre_proyecto' ? this.agrupacion_seleccionada[0] = 'Nombre de proyecto' : this.agrupacion_seleccionada[0] === 'numero_contrato' ? this.agrupacion_seleccionada[0] = 'Número de contrato' :
-							this.agrupacion_seleccionada[0] === 'pais' ? this.agrupacion_seleccionada[0] = 'país' : ''
-
-						/* Realizamos la instancia a nuestra clase para contruir la grafica. */
-						this.bar = new Bar(this.xy, this.agrupacion_seleccionada[0], 'Proyectos agrupados por ' + this.agrupacion_seleccionada[0])
-							// this.bar = new Ba(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion, '', 'Porcentaje total de participación por ' + this.agrupacion_seleccionada[0])
-						this.options = this.bar.graficaBar()
-						this.visible_boton = !this.visible_boton
+				}
+				/* Obtenemos la data final para construir la grafica */
+				resultado.forEach(item => {
+					this.xy.push({
+						name: item.campo,
+						y: parseFloat(item.porcentaje)
 					})
 				})
+				this.zone.run(() => {
+					this.agrupacion_seleccionada[0] === 'anio' ? this.agrupacion_seleccionada[0] = 'año' : this.agrupacion_seleccionada[0] === 'unidad_negocio' ? this.agrupacion_seleccionada[0] = 'dirección' : this.agrupacion_seleccionada[0] === 'pais' ? this.agrupacion_seleccionada[0] = 'país' :
+						this.agrupacion_seleccionada[0] === 'numero_propuesta' ? this.agrupacion_seleccionada[0] = 'Número de propuesta' : this.agrupacion_seleccionada[0] === 'datos_cliente' ? this.agrupacion_seleccionada[0] = 'datos de cliente' : this.agrupacion_seleccionada[0] === 'duracion' ? this.agrupacion_seleccionada[0] = 'duración' :
+						this.agrupacion_seleccionada[0] === 'fecha_inicio' ? this.agrupacion_seleccionada[0] = 'fecha de inicio' : this.agrupacion_seleccionada[0] === 'fecha_fin' ? this.agrupacion_seleccionada[0] = 'fecha de término' :
+						this.agrupacion_seleccionada[0] === 'monto_moneda_original' ? this.agrupacion_seleccionada[0] = 'Monto total original' : this.agrupacion_seleccionada[0] === 'nombre_corto' ? this.agrupacion_seleccionada[0] = 'Nombre corto' :
+						this.agrupacion_seleccionada[0] === 'nombre_proyecto' ? this.agrupacion_seleccionada[0] = 'Nombre de proyecto' : this.agrupacion_seleccionada[0] === 'numero_contrato' ? this.agrupacion_seleccionada[0] = 'Número de contrato' :
+						this.agrupacion_seleccionada[0] === 'pais' ? this.agrupacion_seleccionada[0] = 'país' : ''
 
-		}
-		/* Funcion para guardar un reporte. */
-	guardarReporte = (): void => {
-			let title = this.agrupacion_seleccionada[0]
-			let confirmacion = this.alertCtrl.create({
-				title: 'Registro de reporte',
-				message: 'Introduce un nombre para este nuevo reporte',
-				inputs: [{
-					name: 'title',
-					placeholder: 'Nombre del reporte'
-				}, ],
-				buttons: [{
-					text: 'Cancelar',
-					handler: () => {
-						confirmacion.dismiss()
-					}
-				}, {
-					text: 'Guardar',
-					handler: data => {
-						if (data.title === '') {
-							this.verToast('middle')
-						} else {
-							/* Consigo el total del monto y numero de proyectos para registrar el reporte. */
-							this.reporteService.paraGuardarReporte(title, this.whereGlobal)
-								.then(response => {
-									let mi_collect = collect(response)
-									let monto_total = mi_collect.sum('monto')
-
-									let numero_proyectos = mi_collect.sum('numero_proyectos')
-										/* Registramos el reporte */
-									this.reporteService.saveReporte(data['title'], monto_total, numero_proyectos)
-										.then(response => {
-											/* Obtenemos el id del reporte registrado*/
-											let last_id = response[0]['id']
-												/* Registramos en la tabla reporte agrupado.*/
-											this.reporteService.insertarReporteAgrupado(last_id, title)
-												.then(response => {
-													/* Registramos en reportes columnas*/
-													this.reporteService.insertReporteColumnas(response.insertId, title)
-														.then(response => {
-															/* Registramos los filtros del reporte y sus campos de seleccion. */
-															this.reporteService.insertReporteFiltros(this.camposGuardarReporte, last_id)
-															this.navCtrl.pop()
-														})
-												})
-										})
-								})
-						}
-
-					}
-				}]
+					/* Realizamos la instancia a nuestra clase para contruir la grafica. */
+					this.bar = new Bar(this.xy, this.agrupacion_seleccionada[0], 'Proyectos agrupados por ' + this.agrupacion_seleccionada[0])
+					this.options = this.bar.graficaBar()
+					this.visible_boton = !this.visible_boton
+				})
 			})
-			confirmacion.present()
-		}
-		/* Funcion para ver la advertencia en caso de que al guardar un reporte no se introduzca un titulo*/
+
+	}
+	/* Funcion para guardar un reporte. */
+	guardarReporte = (): void => {
+		let title = this.agrupacion_seleccionada[0]
+		let confirmacion = this.alertCtrl.create({
+			title: 'Registro de reporte',
+			message: 'Introduce un nombre para este nuevo reporte',
+			inputs: [{
+				name: 'title',
+				placeholder: 'Nombre del reporte'
+			}, ],
+			buttons: [{
+				text: 'Cancelar',
+				handler: () => {
+					confirmacion.dismiss()
+				}
+			}, {
+				text: 'Guardar',
+				handler: data => {
+					if (data.title === '') {
+						this.verToast('middle')
+					} else {
+						/* Consigo el total del monto y numero de proyectos para registrar el reporte. */
+						this.reporteService.paraGuardarReporte(title, this.whereGlobal)
+							.then(response => {
+								let mi_collect = collect(response)
+								let monto_total = mi_collect.sum('monto')
+
+								let numero_proyectos = mi_collect.sum('numero_proyectos')
+								/* Registramos el reporte */
+								this.reporteService.saveReporte(data['title'], monto_total, numero_proyectos)
+									.then(response => {
+										/* Obtenemos el id del reporte registrado*/
+										let last_id = response[0]['id']
+										/* Registramos en la tabla reporte agrupado.*/
+										this.reporteService.insertarReporteAgrupado(last_id, title)
+											.then(response => {
+												/* Registramos en reportes columnas*/
+												this.reporteService.insertReporteColumnas(response.insertId, title)
+													.then(response => {
+														/* Registramos los filtros del reporte y sus campos de seleccion. */
+														this.reporteService.insertReporteFiltros(this.camposGuardarReporte, last_id)
+														this.navCtrl.pop()
+													})
+											})
+									})
+							})
+					}
+
+				}
+			}]
+		})
+		confirmacion.present()
+	}
+	/* Funcion para ver la advertencia en caso de que al guardar un reporte no se introduzca un titulo*/
 	verToast(position: string) {
 		let toast = this.toastCtrl.create({
 			message: 'Por favor introduce un título para el reporte!',
@@ -485,5 +467,11 @@ export class NuevoReportePage {
 			position: position
 		});
 		toast.present();
+	}
+
+	cancelar = () => {
+		this.options = {}
+		this.visible = !this.visible
+		this.visible_boton = !this.visible_boton
 	}
 }

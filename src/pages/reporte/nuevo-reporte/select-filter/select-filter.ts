@@ -25,23 +25,21 @@ export class SelectFilterPage {
 	opcionesSelected = []
 	preseleccion = []
 	opcionesPreseleccionInit = []
+	opcionAnterior: string = ''
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteDb: ReportesDbService,
 		public view: ViewController, public loadingCtrl: LoadingController, public zone: NgZone) {
 		/* Recuperamos los filtros. */
 		this.filtro = navParams.get('filtro')
 		this.opcionesPreseleccionInit = navParams.get('preseleccion')
-		console.log(this.opcionesPreseleccionInit)
-		console.log(this.opcionesPreseleccionInit.length);
-
-
+		this.opcionAnterior = navParams.get('opcionAnterior')
 	}
 
 	/* Cuando la vista es activa cargamos los filtros de seleccion. */
 	ionViewDidLoad() {
-			this.getDataFilter(this.filtro)
-		}
-		/* Funcion para obtener la data del filtro seleccionado. */
+		this.getDataFilter(this.filtro)
+	}
+	/* Funcion para obtener la data del filtro seleccionado. */
 	getDataFilter = (filtro: {}) => {
 		var miglobal = this
 		let loading = this.loadingCtrl.create({
@@ -61,6 +59,10 @@ export class SelectFilterPage {
 							})
 						})
 					} else {
+						if (this.opcionAnterior !== this.filtro['columna']) {
+							this.opcionesPreseleccionInit.splice(0, this.opcionesPreseleccionInit.length)
+						}
+
 						let misCampos = []
 						for (let i of this.opcionesPreseleccionInit) {
 							misCampos.push({
@@ -75,30 +77,10 @@ export class SelectFilterPage {
 							})
 						})
 						this.opciones = collect(misCampos).unique('campo').toArray()
-							//console.log(this.opciones)
-
-						//console.log(collect(this.opciones).unique('campo').toArray())
 					}
 					loading.dismiss()
 				})
 		}, 4000)
-	}
-
-	selectOpcion = (event, campo) => {
-
-
-		// let opcionEncontrado
-
-		// event.value ? (
-		// 	this.opcionesSelected.push(campo),
-		// 	this.preseleccion.push(campo)
-		// ) : (
-		// 	opcionEncontrado = this.opcionesSelected.indexOf(campo),
-		// 	opcionEncontrado !== -1 ? (
-		// 		this.opcionesSelected.splice(opcionEncontrado, 1),
-		// 		this.preseleccion.splice(opcionEncontrado, 1)
-		// 	) : ''
-		// )
 	}
 
 	/* Funcion para enviar columnas seleccionadas. */
@@ -114,6 +96,8 @@ export class SelectFilterPage {
 			[this.filtro['columna']]: this.opcionesSelected
 		}, {
 			'preselect': this.preseleccion
+		}, {
+			campo: this.filtro['columna']
 		}])
 	}
 

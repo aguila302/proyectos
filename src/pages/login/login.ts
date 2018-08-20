@@ -81,8 +81,6 @@ export class LoginPage {
 								} else {
 									lastFecha = response[0].fecha_registro
 								}
-								console.log('Ultima sincronizacion  ' + lastFecha)
-
 								/* Funcion para resolver el endpoint del api y para validar las fechas de modificaciones. */
 								this.validarRecursos(lastFecha)
 							})
@@ -99,7 +97,6 @@ export class LoginPage {
 		this.loader.present()
 		this.apiService.readerArchivoExcel(lastFecha)
 			.then(response => {
-				console.log(response)
 					/*
 					Si el status 200 no hay sincronisacion, en caso contrario sincronizamos
 					 */
@@ -134,7 +131,7 @@ export class LoginPage {
 				}
 			})
 			.catch(error => {
-				console.error.bind(console)
+			console.error.bind(console)
 			})
 	}
 

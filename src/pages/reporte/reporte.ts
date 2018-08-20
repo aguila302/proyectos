@@ -5,7 +5,8 @@ import {
 	IonicPage,
 	NavController,
 	NavParams,
-	App, ViewController
+	App,
+	ViewController
 } from 'ionic-angular';
 import {
 	DetalleReportePage
@@ -16,8 +17,12 @@ import {
 import {
 	ReportesDbService
 } from '../../services/reportes.db.service'
-import { ReporteDireccionAnioPage } from '../reporte/detalle-reporte/reporte-direccion-anio/reporte-direccion-anio'
-import { LoginPage } from '../../pages/login/login'
+import {
+	ReporteDireccionAnioPage
+} from '../reporte/detalle-reporte/reporte-direccion-anio/reporte-direccion-anio'
+import {
+	LoginPage
+} from '../../pages/login/login'
 import {
 	OpcionesPage
 } from '../../pages/proyecto/opciones/opciones'
@@ -46,21 +51,19 @@ export class ReportePage {
 	}
 	/* Funcion para mostrar el detalle de un reporte. */
 	detalleReporte = (id: number, nombreReporte: string): void => {
-		if(id !== 7) {
+		if (id !== 7) {
 			this.navCtrl.push(DetalleReportePage, {
 				'id': id,
 				'nombre_reporte': nombreReporte
 			})
-		}
-		else {
+		} else {
 			this.reporteDireccionAnios()
 		}
 	}
 
 	/* Funcion para consultar el reporte de direccion con anios. */
 	reporteDireccionAnios() {
-		this.navCtrl.push(ReporteDireccionAnioPage, {
-		})
+		this.navCtrl.push(ReporteDireccionAnioPage, {})
 	}
 
 	/* Funcion para crear nuevo reporte. */
@@ -72,15 +75,17 @@ export class ReportePage {
 	getReportes = (): void => {
 		this.reporteService.getReportes()
 			.then(response => {
-				console.log(response)
-				
 				this.reportes = response
 			})
 	}
-	
+
 	/* Funcion para cerrar sesion. */
 	logout = () => {
-		this.app.getRootNav().setRoot(LoginPage, {}, {animate: true, animation: 'ios-transition', direction: 'forward'})
+		this.app.getRootNav().setRoot(LoginPage, {}, {
+			animate: true,
+			animation: 'ios-transition',
+			direction: 'forward'
+		})
 	}
 
 	/* Funcion para mostrar las opciones de ayuda */
@@ -90,11 +95,10 @@ export class ReportePage {
 		})
 	}
 
-		/* Funcion para obtener la ultima fecha de sincronizacion. */
+	/* Funcion para obtener la ultima fecha de sincronizacion. */
 	obtenerUltimaFechaSincronizacion = () => {
 		this.reporteService.getLastDateSincronizacion()
 			.then(response => {
-				console.log(response[0].fecha_registro)
 				this.lastFechaSincronizacion = response[0].fecha_registro
 			})
 	}

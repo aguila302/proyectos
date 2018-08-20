@@ -22,6 +22,7 @@ export class FiltrarColumnasPage {
 	filtros_seleccionadas = []
 	prueba = []
 	opcionesPreseleccion = []
+	opcionAnterior: string = ''
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, public modal: ModalController,
 		public view: ViewController) {
@@ -36,16 +37,19 @@ export class FiltrarColumnasPage {
 	obtenerDataFiltrado = (item: {}) => {
 		/* Creamos el modal para ver las opciones de un filtro. */
 		let modalSelectFilter = this.modal.create(SelectFilterPage, {
-				filtro: item,
-				preseleccion: this.opcionesPreseleccion
-			})
-			/* mostramos el modal. */
+			filtro: item,
+			preseleccion: this.opcionesPreseleccion,
+			opcionAnterior: this.opcionAnterior
+		})
+		/* mostramos el modal. */
 		modalSelectFilter.present()
 
 		/* Cuando cerramos la vista de los filtros recuperamos las opciones seleccionadas. */
 		modalSelectFilter.onDidDismiss(data => {
+			console.log(data);
 			this.prueba.push(data[0])
 			this.opcionesPreseleccion = data[1].preselect
+			this.opcionAnterior = data[2].campo
 		})
 	}
 
@@ -53,7 +57,7 @@ export class FiltrarColumnasPage {
 		this.view.dismiss(this.prueba)
 	}
 
-	// Funcion para cancelar los filtros. 
+	// Funcion para cancelar los filtros.
 	cancelar() {
 		this.view.dismiss()
 	}

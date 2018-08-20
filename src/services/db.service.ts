@@ -43,7 +43,6 @@ export class DbService {
 			})
 			.then((db: any) => {
 				this.db = db
-				console.log('base de sdatos creada');
 
 				/* Inicio mi servicio para los reportes. */
 				this.reporteService.initDb(db)
@@ -80,7 +79,7 @@ export class DbService {
 				created_at numeric)`
 
 		this.db.executeSql(sql, {})
-			.then(() => console.log('tabla creada'))
+			.then(() => {})
 			.catch(e => console.log(e))
 
 		// this.sqlitePorter.exportDbToSql(this.db)
@@ -98,9 +97,8 @@ export class DbService {
 			.then(() => console.log('tabla proyectos elimianada'))
 			.catch(e => console.log(e));
 
-		console.log('insert data del api')
 		proyectos.data.forEach(item => {
-				let sql = `insert into proyectos(numero,
+			let sql = `insert into proyectos(numero,
 					nombre_proyecto, nombre_corto, contrato,
 			 		monto, monto_moneda_original, moneda, pais,
 			 		gerencia, unidad_negocio,
@@ -110,34 +108,34 @@ export class DbService {
 			 		fecha_fin, numero_propuesta,
 			 		anticipo, created_at) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
 
-				this.db.executeSql(sql, [
-						item.numero,
-						item.nombre_proyecto,
-						item.nombre_corto,
-						item.contrato,
-						parseFloat(item.montoUsd),
-						parseFloat(item.monto),
-						item.moneda,
-						item.pais,
-						item.gerencia,
-						item.unidad_negocio,
-						item.numero_contrato,
-						item.producto,
-						item.anio,
-						item.duracion,
-						item.contratante,
-						item.datos_cliente,
-						item.fecha_inicio,
-						item.fecha_fin,
-						item.numero_propuesta,
-						item.anticipo,
-						item.created_at,
-					]).then(() => console.log('regustros insertados'))
-					.catch(e => console.log(e))
-			})
-			// this.sqlitePorter.exportDbToSql(this.db)
-			// 	.then(res => {
-			// 		console.log(res)
+			this.db.executeSql(sql, [
+					item.numero,
+					item.nombre_proyecto,
+					item.nombre_corto,
+					item.contrato,
+					parseFloat(item.montoUsd),
+					parseFloat(item.monto),
+					item.moneda,
+					item.pais,
+					item.gerencia,
+					item.unidad_negocio,
+					item.numero_contrato,
+					item.producto,
+					item.anio,
+					item.duracion,
+					item.contratante,
+					item.datos_cliente,
+					item.fecha_inicio,
+					item.fecha_fin,
+					item.numero_propuesta,
+					item.anticipo,
+					item.created_at,
+				]).then(() => console.log('regustros insertados'))
+				.catch(e => console.log(e))
+		})
+		// this.sqlitePorter.exportDbToSql(this.db)
+		// 	.then(res => {
+		// 		console.log(res)
 
 		// 	})
 		// 	.catch(e => console.error(e))
@@ -179,16 +177,13 @@ export class DbService {
 	/* Funcion para buscar los proyectos dado a los filtros seleccionados. */
 	buscaProyecto = (val, filtros): any => {
 		let proyectos = []
-		console.log(filtros)
 
 		for (let i in filtros) {
-			console.log(filtros[i].opcion)
-
-			let sql = `select * from proyectos where replace(${filtros[i].opcion}, 'á', 'a') 
-			|| replace(${filtros[i].opcion}, 'é', 'e') 
-			|| replace(${filtros[i].opcion}, 'í', 'i') 
-			|| replace(${filtros[i].opcion}, 'ó', 'o') 
-			|| replace(${filtros[i].opcion}, 'ú', 'u') 
+			let sql = `select * from proyectos where replace(${filtros[i].opcion}, 'á', 'a')
+			|| replace(${filtros[i].opcion}, 'é', 'e')
+			|| replace(${filtros[i].opcion}, 'í', 'i')
+			|| replace(${filtros[i].opcion}, 'ó', 'o')
+			|| replace(${filtros[i].opcion}, 'ú', 'u')
 			like '%${val}%' order by nombre_proyecto ASC`
 			console.log(sql)
 
@@ -534,12 +529,12 @@ export class DbService {
 
 	// inserta los anios
 	insertAnios() {
-			let insertAnios = ` insert into anios(anio) select distinct(anio) from proyectos`
-			this.db.executeSql(insertAnios, {})
-				.then(() => console.log('regustros insertados en tabla de anios'))
-				.catch(e => console.log(e))
-		}
-		/* Funcion para insertar datos en la tabla de reportes */
+		let insertAnios = ` insert into anios(anio) select distinct(anio) from proyectos`
+		this.db.executeSql(insertAnios, {})
+			.then(() => console.log('regustros insertados en tabla de anios'))
+			.catch(e => console.log(e))
+	}
+	/* Funcion para insertar datos en la tabla de reportes */
 	insertaDatosTablaReportes() {
 		let pais = ''
 		let anio = ''

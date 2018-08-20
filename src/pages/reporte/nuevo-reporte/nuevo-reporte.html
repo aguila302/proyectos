@@ -18,7 +18,7 @@
 	<ion-grid>
 		<ion-row>
 			<ion-col text-center>
-				<button ion-button *ngIf="visible">Cancelar</button>
+				<button ion-button (click)="cancelar()" *ngIf="visible">Cancelar</button>
 			</ion-col>
 			<ion-col text-center>
 				<button ion-button *ngIf="visible" (click)="guardarReporte()">Guardar</button>
