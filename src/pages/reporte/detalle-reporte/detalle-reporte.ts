@@ -819,6 +819,7 @@ export class DetalleReportePage {
 		highcharts.chart('container', {
 			chart: {
 				type: 'column',
+
 			},
 			title: {
 				text: titleName
