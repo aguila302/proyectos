@@ -19,12 +19,13 @@ export class ApiService {
 	resolveApi(usuario: string, password: string) {
 		let token = {}
 
-		// return this.http.post(`http://qa.calymayor.com.mx/biprows/public/api/login`, {
-		return this.http.post(`http://30876d9f.ngrok.io/api/login`, {
+		return this.http.post(`http://qa.calymayor.com.mx/biprows/public/api/login`, {
+				// return this.http.post(`http://11.11.1.157/laravel5.5/public/api/login`, {
 				'username': usuario,
 				'password': password
 			}, {})
 
+			// http://qa.calymayor.com.mx/biprows/public/api/login
 			.then(function(response) { /* Responde con http 200 */
 				/* Obtenemos el token de accseso. */
 				return JSON.parse(response.data)
@@ -38,10 +39,10 @@ export class ApiService {
 	readerArchivoExcel = (lastFecha) => {
 		let status = {}
 		this.http.setRequestTimeout(15000)
-		return this.http.post(`http://30876d9f.ngrok.io/api/proyectos`, {
-				// return this.http.post(`http://qa.calymayor.com.mx/biprows/public/api/proyectos`, {
+		return this.http.post(`http://qa.calymayor.com.mx/biprows/public/api/proyectos`, {
 				'last_fecha': lastFecha
 			}, {})
+			// return this.http.post('http://11.11.1.157/laravel5.5/public/api/proyectos', {}, {})
 			.then(response => {
 				return JSON.parse(response.data)
 			}).catch(error => {
@@ -52,8 +53,8 @@ export class ApiService {
 	/* Funcion para obtener los proyectos del api. */
 	fetch = () => {
 		let proyectos = []
-		// return this.http.get(`http://qa.calymayor.com.mx/biprows/public/api/proyectos`, {}, {})
-		return this.http.post(`http://30876d9f.ngrok.io/api/proyectos`, {}, {})
+		return this.http.get(`http://qa.calymayor.com.mx/biprows/public/api/proyectos`, {}, {})
+			// return this.http.get('http://11.11.1.157/laravel5.5/public/api/proyectos', {}, {})
 			.then(response => {
 				return proyectos = JSON.parse(response.data)
 			})
