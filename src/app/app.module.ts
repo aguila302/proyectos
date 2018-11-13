@@ -10,6 +10,7 @@ import {
 	IonicModule,
 	IonicErrorHandler
 } from 'ionic-angular';
+
 import {
 	MyApp
 } from './app.component';
@@ -170,9 +171,9 @@ import {
 import {
 	Device
 } from '@ionic-native/device';
-import {
-	AccordionModule
-} from "ng2-accordion";
+// import {
+// 	AccordionModule
+// } from "ng2-accordion";
 
 @NgModule({
 	declarations: [
@@ -223,7 +224,7 @@ import {
 		// ChartModule.forRoot(highcharts),
 		ChartModule.forRoot(highcharts),
 		Ng2SmartTableModule,
-		AccordionModule
+		// AccordionModule
 	],
 
 	bootstrap: [IonicApp],
