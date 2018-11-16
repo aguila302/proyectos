@@ -105,4 +105,5 @@
     <plugin name="uk.co.workingedge.cordova.plugin.sqliteporter" spec="^1.0.2" />
     <plugin name="cordova-plugin-advanced-http" spec="2.0.1" />
     <plugin name="cordova-sqlite-storage" spec="^2.5.1" />
+    <allow-navigation href="http://11.11.1.229:8100" />
 </widget>

@@ -24,12 +24,12 @@ import {
 import * as moment from 'moment'
 
 @Component({
-	selector: 'page-login',
-	templateUrl: 'login.html',
-})
-/**
- * Componenete para el manejo de sesion.
- */
+		selector: 'page-login',
+		templateUrl: 'login.html',
+	})
+	/**
+	 * Componenete para el manejo de sesion.
+	 */
 export class LoginPage {
 
 	username: string = ''
@@ -64,6 +64,10 @@ export class LoginPage {
 			/* Resolvemos el api para loguer al usuario y obtener el token. */
 			this.apiService.resolveApi(this.username, this.password)
 				.then(response => {
+					let fechaActual = moment().format("YYYY-MM-DD")
+					let fechaDeToken = moment(response.fecha_generacion_token).format("YYYY-MM-DD")
+					console.log(fechaDeToken);
+
 					if (response === undefined) {
 						/* En caso de error no autorizado mostramos una advertencia  */
 						let msj = this.alertCtrl.create({
@@ -72,8 +76,12 @@ export class LoginPage {
 						})
 						msj.present()
 					} else {
+						if (fechaActual === fechaDeToken) {
+							console.log('son iguales');
+
+						}
 						let lastFecha: string = ''
-						/* Si hay un token valido obtenemos la ultima fecha de sincronizacion. */
+							/* Si hay un token valido obtenemos la ultima fecha de sincronizacion. */
 						this.reporteService.getLastDateSincronizacion()
 							.then(response => {
 								if (response.length === 0) {
@@ -108,7 +116,7 @@ export class LoginPage {
 							direction: 'forward'
 						})
 						this.loader.dismiss()
-						// construimos el origen de datos faltante para el modulo de reportes.
+							// construimos el origen de datos faltante para el modulo de reportes.
 						this.dbService.delete()
 						this.dbService.creaTablaReportes()
 						this.dbService.creaTablaReporteColumnas()
@@ -141,9 +149,9 @@ export class LoginPage {
 			.then(response => {
 				/* LLamar a la funcion que nos ayudara a registrar la informacion del endpoint a nuestra aplicacion movil. */
 				this.apiService.regitrarData(response)
-				/* Funcion para registrar un historial de la sincronizacion. */
+					/* Funcion para registrar un historial de la sincronizacion. */
 				this.apiService.regitraSincronizacion()
-				// construimos el origen de datos faltante para el modulo de reportes.
+					// construimos el origen de datos faltante para el modulo de reportes.
 				this.dbService.delete()
 				this.dbService.creaTablaReportes()
 				this.dbService.creaTablaReporteColumnas()

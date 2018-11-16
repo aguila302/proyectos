@@ -12,21 +12,25 @@ import {
 } from '../services/reportes.db.service'
 
 @Injectable()
-/* Clase para el manejo de la api. */
+	/* Clase para el manejo de la api. */
 export class ApiService {
 	constructor(private http: HTTP, public dbService: DbService, private reporteService: ReportesDbService) {}
-	/* Funcion para resolver al api y loguear al usuario */
+		/* Funcion para resolver al api y loguear al usuario */
 	resolveApi(usuario: string, password: string) {
 		let token = {}
-
-		return this.http.post(`http://qa.calymayor.com.mx/biprows/public/api/login`, {
-				// return this.http.post(`http://11.11.1.157/laravel5.5/public/api/login`, {
-				'username': usuario,
-				'password': password
-			}, {})
-
 			// http://qa.calymayor.com.mx/biprows/public/api/login
-			.then(function(response) { /* Responde con http 200 */
+		return this.http.post(`http://qa.calymayor.com.mx/autenticacionqa/token`, {
+			'username': usuario,
+			'password': password,
+			'grant_type': 'password',
+			'idAplicacion': '1',
+			'versionApp': '1.20180426'
+		}, {
+			'Content-Type': 'application/x-www-form-urlencoded'
+		})
+
+		// http://qa.calymayor.com.mx/biprows/public/api/login
+		.then(function(response) { /* Responde con http 200 */
 				/* Obtenemos el token de accseso. */
 				return JSON.parse(response.data)
 			})
