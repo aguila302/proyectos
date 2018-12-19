@@ -40,7 +40,7 @@
         "chart.js": "^2.6.0",
         "collect.js": "^3.0.43",
         "cordova-android": "7.1.2",
-        "cordova-plugin-advanced-http": "2.0.1",
+        "cordova-plugin-advanced-http": "^2.0.2",
         "cordova-plugin-app-version": "^0.1.9",
         "cordova-plugin-compat": "^1.1.0",
         "cordova-plugin-console": "^1.1.0",
