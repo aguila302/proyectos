@@ -97,10 +97,12 @@ export class GraficaFiltradaPage {
 				y: parseFloat(items.monto_filtrado)
 			})
 		})
+		this.campo_agrupacion === 'año' ? this.campo_agrupacion = 'anio' : this.campo_agrupacion === 'dirección' ? this.campo_agrupacion = 'unidad_negocio' : this.campo_agrupacion === 'país' ? this.campo_agrupacion = 'pais' : ''
 
 		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-		this.grafico = new Grafico(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, ' USD', 'Monto total USD por ' + this.campo_agrupacion),
-			this.options = this.grafico.graficaBar()
+		//this.grafico = new Grafico(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, ' USD', 'Monto total USD por ' + this.campo_agrupacion),
+		//	this.options = this.grafico.graficaBar()
+		this.showGrafica(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, '', 'Porcentaje total de participación por ' + this.campo_agrupacion)
 	}
 
 	/* Funcion para graficar por numero de proyectos. */
