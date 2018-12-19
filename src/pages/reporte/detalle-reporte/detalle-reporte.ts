@@ -564,7 +564,6 @@ export class DetalleReportePage {
 						})
 						this.xy = data_cliente
 						/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-						this.showGrafica(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '#', 'Número de proyectos por cliente')
 						/* Para mostrar la tabla de informacion */
 						this.monto_total = account.formatNumber(data.sum('monto'))
 						this.total_proyectos = response.length
@@ -581,6 +580,7 @@ export class DetalleReportePage {
 
 						this.proyectos = proyectos
 						this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno, numero_proyectos)
+						this.showGrafica(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '#', 'Número de proyectos por cliente')
 						/* Informacion para la grafica circular. */
 						this.data_circular = response
 					})
@@ -676,7 +676,6 @@ export class DetalleReportePage {
 
 						this.xy = data_cliente
 						/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-						this.showGrafica(this.xy, 'Clientes', 'Proyectos agrupados por clientes', 'USD', 'Monto total USD por cliente')
 						/* Para mostrar la tabla de informacion */
 						this.monto_total = account.formatNumber(data.sum('monto'))
 						this.total_proyectos = response.length
@@ -693,6 +692,7 @@ export class DetalleReportePage {
 
 						this.reportes = proyectos
 						this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno, monto_menores_a_uno)
+						this.showGrafica(this.xy, 'Clientes', 'Proyectos agrupados por clientes', 'USD', 'Monto total USD por cliente')
 						this.data_circular = response
 					})
 				})
