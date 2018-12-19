@@ -749,7 +749,7 @@ export class DetalleReportePage {
 						this.xy = data_cliente
 						/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 
-						this.showGrafica(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '', 'Porcentaje total de participación por cliente')
+						this.showGrafica(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '%', 'Porcentaje total de participación por cliente')
 
 						/* Para mostrar la tabla de informacion */
 						this.monto_total = account.formatNumber(data.sum('monto'))
