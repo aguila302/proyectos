@@ -260,7 +260,7 @@ export class DetalleReportePage {
 		/* Consigo el porcentaje y cliente para formar mi grafica. */
 		this.xy.push({
 			name: 'Proyectos agrupados',
-			y: parseInt(indicador)
+			y: parseInt(suma_porcentajes)
 		})
 
 		/* Construyo la informacion para mi tablero. */
