@@ -78,6 +78,8 @@ export class GraficaFiltradaPage {
 			})
 		})
 
+		console.log('mi campo' + this.campo_agrupacion)
+
 		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 		//this.showGraficaFiltrada(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, ' %', 'Porcentaje total de participación por ' + this.campo_agrupacion)
 		this.showGrafica(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, '', 'Porcentaje total de participación por ' + this.campo_agrupacion)
