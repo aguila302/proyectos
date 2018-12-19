@@ -162,6 +162,8 @@ export class DetalleReportePage {
 
 						/* Clasifico los proyectos por porcentaje mayor a 1 y menores de 1. */
 						let mayores_de_uno = ordenados.where('porcentaje', '>', 1)
+
+
 						let menores_de_uno = ordenados.where('porcentaje', '<', 1)
 
 
@@ -184,6 +186,7 @@ export class DetalleReportePage {
 							})
 						})
 						this.xy = data_cliente
+
 						/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 						this.grafico = new Grafico(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '', 'Porcentaje total de participación por clientes')
 						this.options = this.grafico.graficaBar()
@@ -202,7 +205,8 @@ export class DetalleReportePage {
 						})
 
 						this.proyectos = proyectos
-						
+
+						this.proyectosAgrupados1(menores_de_uno, suma_porcentajes_menores_de_uno)
 					})
 				})
 
@@ -248,6 +252,22 @@ export class DetalleReportePage {
 					this.data_circular = response
 				})
 		}
+	}
+
+	/* Funcion para los proyectos que tienen menos de 1 porcentaje. */
+	async proyectosAgrupados1(menores_de_uno, suma_porcentajes) {
+		/* Para mostras la informacion agrupada con los proyectos menores del 1 %. */
+		/* Consigo el porcentaje y cliente para formar mi grafica. */
+		this.xy.push({
+			name: 'Proyectos agrupados',
+			y: parseInt(indicador)
+		})
+
+		/* Construyo la informacion para mi tablero. */
+		this.proyectos_agrupados['suma_montos_menores_de_uno'] = account.formatNumber(menores_de_uno.sum('suma_monto'))
+		this.proyectos_agrupados['porcentaje'] = suma_porcentajes
+		this.proyectos_agrupados['numero_proyectos'] = menores_de_uno.sum('numero_proyectos')
+		this.proyectos_agrupados_detalle = menores_de_uno
 	}
 
 	/* Funcion para filtrar la argrupacion de mi grafica. */
