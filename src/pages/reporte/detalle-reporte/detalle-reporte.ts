@@ -162,8 +162,17 @@ export class DetalleReportePage {
 
 						/* Clasifico los proyectos por porcentaje mayor a 1 y menores de 1. */
 						let mayores_de_uno = ordenados.where('porcentaje', '>', 1)
+						let menores_de_uno = ordenados.where('porcentaje', '<', 1)
+
+
 
 						/* Suma de los montos y porcentajes de porcentaje  menores de 1. */
+
+						let suma_porcentajes_menores_de_uno = menores_de_uno.sum('porcentaje').toFixed(2)
+
+
+
+
 						mayores_de_uno.toArray()
 
 						/* Consigo el porcentaje y cliente para formar mi grafica. */
@@ -193,8 +202,14 @@ export class DetalleReportePage {
 						})
 
 						this.proyectos = proyectos
+						this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno)
 					})
 				})
+
+
+
+
+
 		} else {
 			/* Opcion para seleccionar la opcion reporte de direccicon con años. */
 			/* En caso de visualizar algun reporte que no sea de direccion con años. */
@@ -403,12 +418,13 @@ export class DetalleReportePage {
 	}
 
 	/* Funcion para los proyectos que tienen menos de 1 porcentaje. */
-	async proyectosAgrupados(menores_de_uno, suma_porcentajes, indicador) {
+	async proyectosAgrupados(menores_de_uno, suma_porcentajes) {
 		/* Para mostras la informacion agrupada con los proyectos menores del 1 %. */
 		/* Consigo el porcentaje y cliente para formar mi grafica. */
 		this.xy.push({
 			name: 'Proyectos agrupados',
-			y: parseInt(indicador)
+			//y: parseInt(indicador)
+			y: parseFloat(suma_porcentajes)
 		})
 
 		/* Construyo la informacion para mi tablero. */
