@@ -126,6 +126,7 @@ export class DetalleReportePage {
 	/* Funcion para reporte por año. */
 	getReporteDetalle = (): void => {
 		if (this.campo_agrupacion === 'contratante') {
+			console.log('por contratante')
 			this.visible = !this.visible
 
 			let data_cliente = []
