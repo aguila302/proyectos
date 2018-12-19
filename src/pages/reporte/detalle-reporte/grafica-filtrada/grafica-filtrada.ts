@@ -115,10 +115,14 @@ export class GraficaFiltradaPage {
 				y: parseFloat(items.numero_proyectos)
 			})
 		})
+		
+		this.campo_agrupacion === 'año' ? this.campo_agrupacion = 'anio' : this.campo_agrupacion === 'dirección' ? this.campo_agrupacion = 'unidad_negocio' : this.campo_agrupacion === 'país' ? this.campo_agrupacion = 'pais' : ''
+		this.showGrafica(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, '', 'Porcentaje total de participación por ' + this.campo_agrupacion)
+
 
 		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-		this.grafico = new Grafico(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, ' #', 'Número de proyectos por ' + this.campo_agrupacion),
-			this.options = this.grafico.graficaBar()
+		//this.grafico = new Grafico(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, ' #', 'Número de proyectos por ' + this.campo_agrupacion),
+		//	this.options = this.grafico.graficaBar()
 	}
 
 	/* Funcion para ver el detalle de los proyectos segun la opcion que se escoja. */
