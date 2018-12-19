@@ -56,7 +56,7 @@ export class GraficaFiltradaPage {
 	}
 
 	ionViewDidLoad() {
-		console.log('ionViewDidLoad GraficaFiltradaPage')
+		console.log('ionViewDidLoad GraficaFiltradaPage poncho')
 		this.muestraGrafica()
 	}
 	ionViewDidLeave() {
