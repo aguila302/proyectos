@@ -788,7 +788,6 @@ export class DetalleReportePage {
 						this.xy = data_cliente
 						/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 
-						this.showGrafica(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '%', 'Porcentaje total de participación por cliente')
 
 						/* Para mostrar la tabla de informacion */
 						this.monto_total = account.formatNumber(data.sum('monto'))
@@ -808,6 +807,7 @@ export class DetalleReportePage {
 						this.data_circular = response
 						this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno, suma_porcentajes_menores_de_uno)
 						// console.log(this.xy)
+						this.showGrafica(this.xy, 'Clientes', 'Proyectos agrupados por clientes', '%', 'Porcentaje total de participación por cliente')
 					})
 				})
 		} else {
