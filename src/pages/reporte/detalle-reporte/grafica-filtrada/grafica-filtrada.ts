@@ -78,6 +78,7 @@ export class GraficaFiltradaPage {
 			})
 		})
 
+		this.campo_agrupacion === 'año' ? this.campo_agrupacion = 'anio' : this.campo_agrupacion === 'dirección' ? this.campo_agrupacion = 'unidad_negocio' : this.campo_agrupacion === 'país' ? this.campo_agrupacion = 'pais' : ''
 		console.log('mi campo' + this.campo_agrupacion)
 
 		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
