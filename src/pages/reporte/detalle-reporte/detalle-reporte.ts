@@ -806,6 +806,7 @@ export class DetalleReportePage {
 						this.proyectos = proyectos
 						this.data_circular = response
 						this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno, suma_porcentajes_menores_de_uno)
+						console.log(this.xy)
 					})
 				})
 		} else {
