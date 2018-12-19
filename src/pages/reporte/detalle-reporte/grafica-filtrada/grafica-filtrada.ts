@@ -177,7 +177,7 @@ export class GraficaFiltradaPage {
 	showGrafica = (data: any[], serieName: string, titleName: string, grupo: string, indicador) => {
 		console.log('show grafica')
 
-		highcharts.chart('container', {
+		highcharts.chart('container100', {
 			chart: {
 				type: 'column',
 
