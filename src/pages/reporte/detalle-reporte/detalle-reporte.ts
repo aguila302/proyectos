@@ -774,6 +774,7 @@ export class DetalleReportePage {
 
 						/* Suma de los montos y porcentajes de porcentaje  menores de 1. */
 						let suma_porcentajes_menores_de_uno = menores_de_uno.sum('porcentaje').toFixed(2)
+
 						mayores_de_uno.toArray()
 
 						/* Consigo el porcentaje y cliente para formar mi grafica. */
@@ -806,7 +807,7 @@ export class DetalleReportePage {
 						this.proyectos = proyectos
 						this.data_circular = response
 						this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno, suma_porcentajes_menores_de_uno)
-						console.log(this.xy)
+						// console.log(this.xy)
 					})
 				})
 		} else {
