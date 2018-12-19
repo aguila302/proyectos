@@ -262,6 +262,8 @@ export class DetalleReportePage {
 			name: 'Proyectos agrupados',
 			y: parseInt(suma_porcentajes)
 		})
+		console.log('let')
+		console.log(this.xy)
 
 		/* Construyo la informacion para mi tablero. */
 		this.proyectos_agrupados['suma_montos_menores_de_uno'] = account.formatNumber(menores_de_uno.sum('suma_monto'))
