@@ -557,7 +557,7 @@ export class DetalleReportePage {
 						})
 
 						this.proyectos = proyectos
-						this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno, numero_proyectos)
+						this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno)
 						/* Informacion para la grafica circular. */
 						this.data_circular = response
 					})
