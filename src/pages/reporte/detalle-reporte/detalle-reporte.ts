@@ -261,7 +261,7 @@ export class DetalleReportePage {
 		/* Consigo el porcentaje y cliente para formar mi grafica. */
 		this.xy.push({
 			name: 'Proyectos agrupados',
-			y: parseInt(suma_porcentajes)
+			y: parseFloat(suma_porcentajes)
 		})
 		console.log('let')
 		console.log(this.xy)
