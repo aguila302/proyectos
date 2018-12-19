@@ -79,7 +79,8 @@ export class GraficaFiltradaPage {
 		})
 
 		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-		this.showGraficaFiltrada(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, ' %', 'Porcentaje total de participación por ' + this.campo_agrupacion)
+		//this.showGraficaFiltrada(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, ' %', 'Porcentaje total de participación por ' + this.campo_agrupacion)
+		this.showGrafica(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, '', 'Porcentaje total de participación por ' + this.campo_agrupacion)
 	}
 
 	/* Funcion para graficar por monto usd. */
@@ -129,6 +130,53 @@ export class GraficaFiltradaPage {
 		highcharts.chart('filter', {
 			chart: {
 				type: 'column',
+			},
+			title: {
+				text: titleName
+			},
+			xAxis: {
+				type: 'category'
+			},
+			yAxis: [{
+				labels: {
+					format: `{value} ${grupo}`
+				},
+				title: {
+					text: indicador
+				},
+			}],
+			legend: {
+				enabled: false
+			},
+			plotOptions: {
+				series: {
+					dataLabels: {
+						enabled: true,
+						format: `{point.y:,.2f} ${grupo}`,
+					}
+				}
+			},
+
+			tooltip: {
+				headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+				pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:,.2f} ' + grupo + '</b> del total<br/>'
+			},
+
+			series: [{
+				data: data,
+				name: serieName,
+			}],
+		})
+	}
+
+	/* Funcion para visualizar la grafica. */
+	showGrafica = (data: any[], serieName: string, titleName: string, grupo: string, indicador) => {
+		console.log('show grafica')
+
+		highcharts.chart('container', {
+			chart: {
+				type: 'column',
+
 			},
 			title: {
 				text: titleName
