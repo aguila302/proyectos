@@ -202,7 +202,7 @@ export class DetalleReportePage {
 						})
 
 						this.proyectos = proyectos
-						this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno)
+						
 					})
 				})
 
@@ -418,13 +418,12 @@ export class DetalleReportePage {
 	}
 
 	/* Funcion para los proyectos que tienen menos de 1 porcentaje. */
-	async proyectosAgrupados(menores_de_uno, suma_porcentajes) {
+	async proyectosAgrupados(menores_de_uno, suma_porcentajes, indicador) {
 		/* Para mostras la informacion agrupada con los proyectos menores del 1 %. */
 		/* Consigo el porcentaje y cliente para formar mi grafica. */
 		this.xy.push({
 			name: 'Proyectos agrupados',
-			//y: parseInt(indicador)
-			y: parseFloat(suma_porcentajes)
+			y: parseInt(indicador)
 		})
 
 		/* Construyo la informacion para mi tablero. */
@@ -557,7 +556,7 @@ export class DetalleReportePage {
 						})
 
 						this.proyectos = proyectos
-						this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno)
+						this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno, numero_proyectos)
 						/* Informacion para la grafica circular. */
 						this.data_circular = response
 					})
