@@ -17,6 +17,7 @@ export class ProyectosAgrupadosClienteMenoresPage {
 	proyectos_agrupados: any
 	monto_total: number = 0
 	total_proyectos: number = 0
+	proyectosNumero: number = 0
 
 	constructor(private navParams: NavParams,
 		public loadingCtrl: LoadingController,
@@ -26,6 +27,7 @@ export class ProyectosAgrupadosClienteMenoresPage {
 		this.proyectos_agrupados = navParams.get('proyectos_agrupados_detalle')
 		this.monto_total = navParams.get('monto_total')
 		this.total_proyectos = this.proyectos_agrupados.count()
+		this.proyectosNumero = navParams.get('proyectos')
 	}
 	
 	/* Cuando la vista esta activa mostramos el detalle de un anio. */

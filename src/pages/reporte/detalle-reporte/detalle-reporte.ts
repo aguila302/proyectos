@@ -428,7 +428,8 @@ export class DetalleReportePage {
 
 		this.navCtrl.push(ProyectosAgrupadosClienteMenoresPage, {
 			'proyectos_agrupados_detalle': proyectos,
-			'monto_total': monto_total
+			'monto_total': monto_total,
+			'proyectos': this.proyectos_agrupados
 		})
 	}
 
