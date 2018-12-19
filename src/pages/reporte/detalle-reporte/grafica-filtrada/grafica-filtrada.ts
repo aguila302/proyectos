@@ -72,6 +72,7 @@ export class GraficaFiltradaPage {
 	filtraPorcentajes = () => {
 		let data = []
 		this.reportes.forEach(items => {
+			console.log(items)
 			data.push({
 				name: items.campo,
 				y: (parseFloat(items.numero_proyectos) / this.total_proyectos) * 100
@@ -79,7 +80,7 @@ export class GraficaFiltradaPage {
 		})
 
 		this.campo_agrupacion === 'año' ? this.campo_agrupacion = 'anio' : this.campo_agrupacion === 'dirección' ? this.campo_agrupacion = 'unidad_negocio' : this.campo_agrupacion === 'país' ? this.campo_agrupacion = 'pais' : ''
-		console.log('mi campo' + this.campo_agrupacion)
+		//console.log('mi campo' + this.campo_agrupacion)
 
 		/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 		//this.showGraficaFiltrada(data, this.campo_agrupacion, 'Proyectos agrupados por ' + this.campo_agrupacion, ' %', 'Porcentaje total de participación por ' + this.campo_agrupacion)
