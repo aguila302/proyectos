@@ -55,9 +55,9 @@ export class Grafico {
 			},
 			plotOptions: {
 				series: {
-					pointPadding: 0.1,
-					groupPadding: 0,
-					borderWidth: 0.1,
+					//pointPadding: 0.1,
+					//groupPadding: 0,
+					//borderWidth: 0.1,
 					dataLabels: {
 						enabled: true,
 						format: `{point.y:,.2f} ${this.grupo}`,
