@@ -57,7 +57,7 @@ export class FiltrosPage {
 		'checked': true
 	}, {
 		'opcion': 'numero_propuesta',
-		'texto': 'Numero de propuesta',
+		'texto': 'Número de propuesta',
 		'checked': false
 	}, {
 		'opcion': 'contrato',

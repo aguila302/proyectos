@@ -791,7 +791,7 @@ export class DetalleReportePage {
 					/*Realizamos la instancia a nuestra clase para contruir la grafica. */
 
 					this.campo_select = this.campo_agrupacion
-					this.showGrafica(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion, '', 'Porcentaje total de participación por ' + this.campo_agrupacion)
+					this.showGrafica(this.xy, this.campo_select, 'Proyectos agrupados por ' + this.campo_agrupacion, '%', 'Porcentaje total de participación por ' + this.campo_agrupacion)
 
 					/* Para mostrar la tabla de informacion */
 					const collection = collect(response)
