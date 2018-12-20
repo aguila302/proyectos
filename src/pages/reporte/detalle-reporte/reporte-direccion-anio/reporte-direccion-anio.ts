@@ -404,6 +404,13 @@ export class ReporteDireccionAnioPage {
 				crosshair: true
 			},
 			yAxis: {
+				labels: {
+					// format: `{value} ${grupo}`
+					formatter: function () {
+                    	return highcharts.numberFormat(this.value,2) + ' '+ indicador;
+                	}   
+				},
+
 				min: 0,
 				title: {
 					text: 'Porcentaje total de participación por dirección'
