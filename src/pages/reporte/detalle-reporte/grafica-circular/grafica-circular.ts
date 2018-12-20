@@ -35,6 +35,10 @@ import {
 	GraficaCircularFiltradaPage
 } from '../../../reporte/detalle-reporte/grafica-circular/grafica-circular-filtrada/grafica-circular-filtrada'
 import * as highcharts from 'highcharts';
+import {
+	ProyectosAgrupadosClienteMenoresPage
+} from '../../../estadistica/proyectos-agrupados/por-cliente/por-cliente-menores/proyectos-agrupados-cliente-menores'
+
 
 @IonicPage()
 @Component({
@@ -503,5 +507,25 @@ export class GraficaCircularPage {
 			}]
 
 		})
+	}
+
+	/* Funcion para ver detalle de los proyectos agrupados que tienen menos de 1 %. */
+	verProyectosAgrupadosClientePorcentajeMenosAUno = (monto_total: string): void => {
+		let proyectos = this.proyectos_agrupados.map(function(item) {
+			return {
+				'id': item.id,
+				'contratante': item.contratante,
+				'porcentaje': item.porcentaje,
+				'monto': account.formatNumber(item.suma_monto),
+				'numero_proyectos': item.numero_proyectos
+			}
+		})
+
+		this.navCtrl.push(ProyectosAgrupadosClienteMenoresPage, {
+			'proyectos_agrupados_detalle': proyectos,
+			'monto_total': monto_total,
+			'proyectos': this.proyectos_agrupados['numero_proyectos']
+		})
+
 	}
 }
