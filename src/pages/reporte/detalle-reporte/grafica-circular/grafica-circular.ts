@@ -525,6 +525,8 @@ export class GraficaCircularPage {
 			}
 		})
 
+		console.log(this.proyectos_agrupados_detalle['numero_proyectos'])
+
 		this.navCtrl.push(ProyectosAgrupadosClienteMenoresPage, {
 			'proyectos_agrupados_detalle': proyectos,
 			'monto_total': monto_total,
