@@ -871,7 +871,10 @@ export class DetalleReportePage {
 			},
 			yAxis: [{
 				labels: {
-					format: `{value} ${grupo}`
+					// format: `{value} ${grupo}`
+					formatter: function () {
+                    	return '$' + this.axis.defaultLabelFormatter.call(this);
+                	}   
 				},
 				title: {
 					text: indicador
