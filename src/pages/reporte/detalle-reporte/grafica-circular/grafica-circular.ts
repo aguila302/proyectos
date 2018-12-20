@@ -60,6 +60,7 @@ export class GraficaCircularPage {
 	subtituloSegmento: string = ''
 	filtroPreseleccionado = []
 	filtrosSeleccionados = []
+	proyectos_agrupados_detalle = []
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private reporteService: ReportesDbService,
 		public modalCtrl: ModalController, public alert: AlertController) {
@@ -381,6 +382,8 @@ export class GraficaCircularPage {
 		this.proyectos_agrupados['suma_montos_menores_de_uno'] = account.formatNumber(menores_de_uno.sum('suma_monto'))
 		this.proyectos_agrupados['porcentaje'] = suma_porcentajes
 		this.proyectos_agrupados['numero_proyectos'] = menores_de_uno.sum('numero_proyectos')
+
+		this.proyectos_agrupados_detalle = menores_de_uno
 	}
 
 	/* Funcion para ver el detalle de los proyectos segun la opcion que se escoja. */
@@ -511,8 +514,8 @@ export class GraficaCircularPage {
 
 	/* Funcion para ver detalle de los proyectos agrupados que tienen menos de 1 %. */
 	verProyectosAgrupadosClientePorcentajeMenosAUno = (monto_total: string): void => {
-		console.log(this.proyectos_agrupados)
-		let proyectos = this.proyectos_agrupados.map(function(item) {
+		console.log(this.proyectos_agrupados_detalle)
+		let proyectos = this.proyectos_agrupados_detalle.map(function(item) {
 			return {
 				'id': item.id,
 				'contratante': item.contratante,
@@ -525,7 +528,7 @@ export class GraficaCircularPage {
 		this.navCtrl.push(ProyectosAgrupadosClienteMenoresPage, {
 			'proyectos_agrupados_detalle': proyectos,
 			'monto_total': monto_total,
-			'proyectos': this.proyectos_agrupados['numero_proyectos']
+			'proyectos': this.proyectos_agrupados_detalle['numero_proyectos']
 		})
 
 	}
