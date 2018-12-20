@@ -530,7 +530,7 @@ export class GraficaCircularPage {
 		this.navCtrl.push(ProyectosAgrupadosClienteMenoresPage, {
 			'proyectos_agrupados_detalle': proyectos,
 			'monto_total': monto_total,
-			'proyectos': this.proyectos_agrupados_detalle['numero_proyectos']
+			'proyectos': this.proyectos_agrupados['numero_proyectos']
 		})
 
 	}
