@@ -124,8 +124,6 @@ export class GraficaCircularPage {
 				})
 			})
 
-			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-			this.graficar(this.data_grafica, 'Clientes', 'Proyectos agrupados por clientes', '#', 'Numero de proyectos', 'Número de proyectos por ' + this.groupBy)
 
 			/* Para mostrar la tabla de informacion */
 			this.monto_total = account.formatNumber(data.sum('monto'))
@@ -142,6 +140,8 @@ export class GraficaCircularPage {
 			})
 			this.proyectos = proyectos
 			this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno, numero_proyectos)
+			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+			this.graficar(this.data_grafica, 'Clientes', 'Proyectos agrupados por clientes', '#', 'Numero de proyectos', 'Número de proyectos por ' + this.groupBy)
 		}
 		/* para la seccion de por monto USD */
 		if (this.segmento === 2) {
@@ -192,8 +192,6 @@ export class GraficaCircularPage {
 				})
 			})
 
-			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-			this.graficar(this.data_grafica, 'Clientes', 'Proyectos agrupados por clientes', 'USD', 'Numero de proyectos', 'Monto total USD por ' + this.groupBy)
 
 			/* Para mostrar la tabla de informacion */
 			this.monto_total = account.formatNumber(data.sum('monto'))
@@ -211,6 +209,8 @@ export class GraficaCircularPage {
 
 			this.proyectos = proyectos
 			this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno, monto_menores_a_uno)
+			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+			this.graficar(this.data_grafica, 'Clientes', 'Proyectos agrupados por clientes', 'USD', 'Numero de proyectos', 'Monto total USD por ' + this.groupBy)
 		}
 		/* para la seccion de por porcentaje*/
 		if (this.segmento === 1) {
@@ -259,8 +259,6 @@ export class GraficaCircularPage {
 					y: contratante.porcentaje
 				})
 			})
-			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
-			this.graficar(this.data_grafica, 'Clientes', 'Proyectos agrupados por clientes', '%', 'Numero de proyectos', 'Porcentaje total de participación por ' + this.groupBy)
 
 			/* Para mostrar la tabla de informacion */
 			this.monto_total = account.formatNumber(data.sum('monto'))
@@ -269,6 +267,7 @@ export class GraficaCircularPage {
 			let proyectos = mayores_de_uno.map(function(item) {
 				return {
 					'campo': item.contratante,
+			
 					'porcentaje': item.porcentaje,
 					'monto': account.formatNumber(item.suma_monto),
 					'numero_proyectos': item.numero_proyectos,
@@ -278,6 +277,8 @@ export class GraficaCircularPage {
 
 			this.proyectos = proyectos
 			this.proyectosAgrupados(menores_de_uno, suma_porcentajes_menores_de_uno, suma_porcentajes_menores_de_uno)
+			/*Realizamos la instancia a nuestra clase para contruir la grafica. */
+			this.graficar(this.data_grafica, 'Clientes', 'Proyectos agrupados por clientes', '%', 'Numero de proyectos', 'Porcentaje total de participación por ' + this.groupBy)
 		}
 	}
 
