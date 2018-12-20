@@ -873,7 +873,7 @@ export class DetalleReportePage {
 				labels: {
 					// format: `{value} ${grupo}`
 					formatter: function () {
-                    	return highcharts.numberFormat(this.value,2) + grupo;
+                    	return highcharts.numberFormat(this.value,2) + ' '+ grupo;
                 	}   
 				},
 				title: {
