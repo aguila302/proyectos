@@ -511,7 +511,7 @@ export class GraficaCircularPage {
 
 	/* Funcion para ver detalle de los proyectos agrupados que tienen menos de 1 %. */
 	verProyectosAgrupadosClientePorcentajeMenosAUno = (monto_total: string): void => {
-		console.log('sasssss')
+		console.log(this.proyectos_agrupados)
 		let proyectos = this.proyectos_agrupados.map(function(item) {
 			return {
 				'id': item.id,
