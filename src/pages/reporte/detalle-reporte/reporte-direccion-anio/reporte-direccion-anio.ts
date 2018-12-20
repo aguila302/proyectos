@@ -55,7 +55,14 @@ export class ReporteDireccionAnioPage {
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,
 		private reporteService: ReportesDbService, private modal: ModalController, public dbService: DbService,
-		public alertCtrl: AlertController) {}
+		public alertCtrl: AlertController) {
+
+		highcharts.setOptions({
+			lang: {
+				thousandsSep: ','
+			}
+		});
+	}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad ReporteDireccionAnioPage');
